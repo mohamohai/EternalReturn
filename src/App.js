@@ -6,31 +6,48 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      host: "",
+      name: "",
     };
   }
 
-  componentDidMount() {
-    this._getHost();
-    this._dbTest();
-  }
+  _addData = async (e) => {
+    const { name } = this.state;
+    e.preventDefault();
 
-  _dbTest = async () => {
-    const res = await axios.get("/api/test");
-    console.log(res.data);
+    const res = await axios("/add/data", {
+      method: "POST",
+      data: { data: name },
+      headers: new Headers(),
+    });
+
+    if (res.data) {
+      alert("데이터를 추가했습니다.");
+      return window.location.reload();
+    }
   };
-  _getHost = async () => {
-    const res = await axios.get("/api/host");
-    this.setState({ host: res.data.host });
-  };
+
+  _nameUpdate(e) {
+    this.setState({ name: e.target.value });
+  }
 
   render() {
     return (
       <div className="App">
         <h3>
           {" "}
-          Welcome to <u> {this.state.host} </u> Blog!{" "}
+          Welcome to <u> sejun </u> Blog!{" "}
         </h3>
+        <h5> https://sejun3278.blog.me/ </h5>
+
+        <br />
+        <form method="POST" onSubmit={this._addData}>
+          <input
+            type="text"
+            maxLength="10"
+            onChange={(e) => this._nameUpdate(e)}
+          />
+          <input type="submit" value="Add" />
+        </form>
       </div>
     );
   }

@@ -9,7 +9,7 @@ const db = {};
 
 let sequelize = new Sequelize(
   config.database,
-  config.user,
+  config.username,
   config.password,
   config,
   {
@@ -26,11 +26,12 @@ db.Sequelize = Sequelize;
 db.sequelize
   .authenticate()
   .then(() => {
-    console.log();
+    console.log("Connection has been established successfully.");
   })
   .catch((err) => {
-    console.log(err);
+    console.log("Unable to connect to the database: ", err);
   });
+
 db.User = require("./user")(sequelize, Sequelize);
 db.Schedule = require("./schedule")(sequelize, Sequelize);
 
