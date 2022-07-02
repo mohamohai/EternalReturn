@@ -1,0 +1,10 @@
+{
+    "development":{
+        "host" :"database-1.cybw4rlcte8o.ap-northeast-2.rds.amazonaws.com",
+        "username" :"admin",
+        "password" :"12451245",
+        "port" :"3306",
+        "database" :"Allegro",
+        "dialect": "mysql"
+    }
+}

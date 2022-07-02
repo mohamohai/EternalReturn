@@ -34,6 +34,9 @@
     "jest-resolve": "^27.4.2",
     "jest-watch-typeahead": "^1.0.0",
     "mini-css-extract-plugin": "^2.4.5",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "path": "^0.12.7",
     "postcss": "^8.4.4",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-loader": "^6.2.1",
@@ -49,6 +52,7 @@
     "resolve-url-loader": "^4.0.0",
     "sass-loader": "^12.3.0",
     "semver": "^7.3.5",
+    "sequelize": "^6.21.2",
     "source-map-loader": "^3.0.0",
     "style-loader": "^3.3.1",
     "tailwindcss": "^3.0.2",
@@ -62,7 +66,7 @@
   "scripts": {
     "server": "nodemon server/server.js",
     "dev": "concurrently \"nodemon server/server.js\" \"node scripts/start.js\"",
-    "start": "node scripts/start.js",
+    "start": "node scripts/start.js", 
     "build": "node scripts/build.js",
     "test": "node scripts/test.js"
   },
