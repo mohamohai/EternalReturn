@@ -5,40 +5,88 @@ import "./Search_User.css";
 class Search_User extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      API_KEY: process.env.REACT_APP_ERKEY,
+      arr: [],
+    };
   }
+
   componentDidMount = () => {
-    this.pass();
+    this.pass2();
   };
 
-  pass = () => {
+  passaa = () => {
     const url = "https://open-api.bser.io/v1/user/nickname?query=mohai";
     const res = axios.get(url, {
       headers: {
         "Content-Type": "application/json",
-        "x-api-key": "4Nq0afjnib7ZoDXNab9vI2q2ph8TTB5f95DOABGG",
+        "x-api-key": "",
+      },
+    });
+  };
+  pass = () => {
+    const url = "https://open-api.bser.io/v1/user/nickname?query=mohai"; //여기가 그냥 닉으로 가져오는거?
+    const url2 = "https://open-api.bser.io/v1/user/games/2604769"; //유저의 게임내용 단판? 가져옿기
+    const url4 = "https://open-api.bser.io/v1/games/19102821"; //게임모두? 잠깐대기
+    const url5 = "https://open-api.bser.io/v1/user/games/2604769";
+    const url6 = "https://open-api.bser.ip/v1/data/Trait"; ////특성
+    const url7 = "https://open-api.bser.io/v1/data/Emotion";
+    const res = axios.get(url, {
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": this.state.API_KEY,
       },
     });
     console.log(res);
-
-    console.log("2604769, 내 계정 번호?");
   };
-  pass = () => {
-    const url = "https://open-api.bser.io/v1/user/nickname?query=mohai";
-    const url2 = "https://open-api.bser.io/v1/user/games/2604769";
-    const url3 = "https://open-api.bser.io/v1/user/렛츠고세구')";
-    const url4 = "https://open-api.bser.io/v1/games/19102821";
+  pass2 = async () => {
+    const url = "https://open-api.bser.io/v1/user/nickname?query=mohai"; //여기가 그냥 닉으로 가져오는거?
+    const url2 = "https://open-api.bser.io/v1/user/games/2604769"; //유저의 게임내용 단판? 가져옿기
+    const url4 = "https://open-api.bser.io/v1/games/19102821"; //게임모두? 잠깐대기
     const url5 = "https://open-api.bser.io/v1/user/games/2604769";
-    const res = axios.get(url5, {
+    const url6 = "https://open-api.bser.ip/v1/data/Trait"; ////특성
+    const url7 = "https://open-api.bser.io/v1/data/Emotion";
+
+    const {
+      data: {
+        user: { nickname },
+      },
+    } = await axios.get(url, {
       headers: {
         "Content-Type": "application/json",
-        "x-api-key": "ssaass",
+        "x-api-key": this.state.API_KEY,
       },
     });
-    console.log(res.object);
+    console.log(nickname);
 
-    console.log("2604769, 내 계정 번호?");
+    const {
+      data: { userGames },
+    } = await axios.get(url5, {
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": this.state.API_KEY,
+      },
+    });
+    console.log(userGames[1].gameId);
+    const url8 = `https://open-api.bser.io/v1/games/${userGames[1].gameId}`;
+    const res = await axios.get(url8, {
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": this.state.API_KEY,
+      },
+    });
+    console.log(res);
   };
+  getMovies2 = async () => {
+    //나를 도와준 착한 블로그야
+    const {
+      data: {
+        data: { movies },
+      },
+    } = await axios.get("https://yts-proxy.now.sh/list_movies.json");
+    console.log(movies);
+  };
+
   render() {
     return (
       <div className="Search_User">
