@@ -167,31 +167,62 @@ class Character_Infomation extends Component {
           <div className="Character_info">
             <div onClick={this.ClickTest}>재키</div>
             <div onClick={this.ClickTesta}>아야</div>
-
-            <div className="clear">
+            <div className="clear"></div>
+            <div>
               <img
-                onClick={this.ClickP}
-                src={require(`../image/Character_Img/${this.state.Character_NameE}/SkillIcon/P.png`)}
-              />
-              <img
-                onClick={this.ClickQ}
-                src={require(`../image/Character_Img/${this.state.Character_NameE}/SkillIcon/Q.png`)}
-              />
-              <img
-                onClick={this.ClickW}
-                src={require(`../image/Character_Img/${this.state.Character_NameE}/SkillIcon/W.png`)}
-              />
-              <img
-                onClick={this.ClickE}
-                src={require(`../image/Character_Img/${this.state.Character_NameE}/SkillIcon/E.png`)}
-              />
-              <img
-                onClick={this.ClickR}
-                src={require(`../image/Character_Img/${this.state.Character_NameE}/SkillIcon/R.png`)}
-              />
-              <img
+                id="SkillGif"
                 src={require(`../image/Character_Img/${this.state.Character_NameE}/SkillIconGif/${this.state.ClickSkill}.gif`)}
               />
+              <div>
+                <ul id="SkillIcon">
+                  <li>
+                    <img
+                      id="SkillPImg"
+                      className="SkillBtn"
+                      onClick={this.ClickP}
+                      src={require(`../image/Character_Img/${this.state.Character_NameE}/SkillIcon/P.png`)}
+                    />
+                  </li>
+                  <li>
+                    <img
+                      id="SkillQImg"
+                      className="SkillBtn"
+                      onClick={this.ClickQ}
+                      src={require(`../image/Character_Img/${this.state.Character_NameE}/SkillIcon/Q.png`)}
+                    />
+                  </li>
+                  <li>
+                    <img
+                      id="SkillWImg"
+                      className="SkillBtn"
+                      onClick={this.ClickW}
+                      src={require(`../image/Character_Img/${this.state.Character_NameE}/SkillIcon/W.png`)}
+                    />
+                  </li>
+                  <li>
+                    <img
+                      id="SkillEImg"
+                      className="SkillBtn"
+                      onClick={this.ClickE}
+                      src={require(`../image/Character_Img/${this.state.Character_NameE}/SkillIcon/E.png`)}
+                    />
+                  </li>
+                  <li>
+                    <img
+                      id="SkillRImg"
+                      className="SkillBtn"
+                      onClick={this.ClickR}
+                      src={require(`../image/Character_Img/${this.state.Character_NameE}/SkillIcon/R.png`)}
+                    />
+                  </li>
+                </ul>
+                <ul id="SkillExplanation">
+                  <li>스킬이름</li>
+                  <div id="SkillExplanationBorder"></div>
+                  <li>스킬설명</li>
+                  <li></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

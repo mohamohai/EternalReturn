@@ -27,9 +27,9 @@ class GNB extends Component {
           <li>추가분 예정</li>
         </ul>
         <ul className="GNB_RightMenu">
-          <Link to="/Search_User">
-            <li>검색창</li>
-          </Link>
+          <li>
+            <Link to="/Search_User">검색창asd</Link>
+          </li>
           <li>추가분</li>
         </ul>
       </div>

@@ -43,7 +43,9 @@ a :visited{color:black}
 .App{
     width: 1920px;
 }
-
+.left {
+    float:left;
+}
 .GNB{
     position: fixed; top: 0px; left: 0px;
     width: 100vw;
@@ -55,7 +57,7 @@ a :visited{color:black}
 .GNB img{
     width: 100px;
     float: left;
-    padding: 3px;
+    padding: 3px 0 3px 20px;
 }
 
 .GNB_LeftMenu{
