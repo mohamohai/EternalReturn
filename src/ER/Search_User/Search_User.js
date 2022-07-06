@@ -20,6 +20,65 @@ class Search_User extends Component {
       routeIdOfStart: "", // 루트 번호
       matchingMode: "", //플레이한 게임 모드 2,3,6  노말 랭크 코발
       equipment: "", // 사용 아이템 6배열 좌상우하순서
+      characterNumArr: [
+        "캐릭터이름",
+        "재키",
+        "아야",
+        "피오라",
+        "매그너스",
+        "자히르",
+        "나딘",
+        "현우",
+        "하트",
+        "아이솔",
+        "리다이린",
+        "유키",
+        "혜진",
+        "쇼우",
+        "키아라",
+        "시셀라",
+        "실비아",
+        "아드리아나",
+        "쇼이치",
+        "엠마",
+        "레녹스",
+        "로지",
+        "루크",
+        "캐시",
+        "아델라",
+        "버니스",
+        "바바라",
+        "알렉스",
+        "수아",
+        "레온",
+        "일레븐",
+        "리오",
+        "윌리엄",
+        "니키",
+        "나타폰",
+        "얀",
+        "이바",
+        "다니엘",
+        "제니",
+        "카밀로",
+        "클로에",
+        "요한",
+        "비앙카",
+        "셀린",
+        "에키온",
+        "마이",
+        "에이든",
+        "라우라",
+        "띠아",
+        "펠릭스",
+        "엘레나",
+        "프리야",
+        "아디나",
+        "마커스",
+        "칼라",
+        "에스텔",
+        "피올로",
+      ],
     };
   }
 
@@ -90,7 +149,31 @@ class Search_User extends Component {
         "x-api-key": this.state.API_KEY,
       },
     });
-    console.log("캐릭 : " + userGames[0].characterNum); //여기 첫배열 뒤에부분에 원하는거 적으면 나옴
+    console.log(userGames);
+    for (let a = 0; a <= 9; a++) {
+      console.log(
+        "캐릭 : " + this.state.characterNumArr[userGames[a].characterNum]
+      );
+      //여기 첫배열 뒤에부분에 원하는거 적으면 나옴
+      console.log("순위 : " + userGames[a].gameRank);
+      console.log("킬수 : " + userGames[a].playerKill);
+      console.log("어시 : " + userGames[a].playerAssistant);
+      console.log("데스 : " + userGames[a].playerDeaths);
+      console.log("딜량 : " + userGames[a].damageToPlayer);
+      console.log("무숙 : " + userGames[a].bestWeapon);
+      console.log(userGames[a].skillLevelInfo);
+      console.log(userGames[a].skillOrderInfo);
+      console.log("장비순서 : " + userGames[a].equipment[0]);
+      console.log("장비순서 : " + userGames[a].equipment[1]);
+      console.log("장비순서 : " + userGames[a].equipment[2]);
+      console.log("장비순서 : " + userGames[a].equipment[3]);
+      console.log("장비순서 : " + userGames[a].equipment[4]);
+      console.log("장비순서 : " + userGames[a].equipment[5]);
+    }
+    console.log(
+      "캐릭 : " + this.state.characterNumArr[userGames[0].characterNum]
+    ); //여기 첫배열 뒤에부분에 원하는거 적으면 나옴
+    console.log("-------------------------------------");
     console.log("순위 : " + userGames[0].gameRank);
     console.log("킬수 : " + userGames[0].playerKill);
     console.log("어시 : " + userGames[0].playerAssistant);
