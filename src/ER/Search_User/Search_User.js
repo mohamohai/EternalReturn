@@ -79,10 +79,7 @@ class Search_User extends Component {
         "에스텔",
         "피올로",
       ],
-      equipmentArr: [
-        //배열을 장비위치나 재료별로 종류별로 세팅해서 맵을 최대한 적게 돌리게끔 설정?
-
-        { ItemCode: "", ItemName: "" },
+      WeaponDagger: [
         { ItemCode: "101101", ItemName: "가위" },
         { ItemCode: "101102", ItemName: "만년필" },
         { ItemCode: "101104", ItemName: "식칼" },
@@ -98,6 +95,8 @@ class Search_User extends Component {
         { ItemCode: "101405", ItemName: "프라가라흐" },
         { ItemCode: "101406", ItemName: "다마스커스 가시" },
         { ItemCode: "101407", ItemName: "마하라자" },
+      ],
+      WeaponTwoHanedeSword: [
         { ItemCode: "102101", ItemName: "녹슨 검" },
         { ItemCode: "102201", ItemName: "샴쉬르" },
         { ItemCode: "102301", ItemName: "일본도" },
@@ -114,6 +113,8 @@ class Search_User extends Component {
         { ItemCode: "102411", ItemName: "호푸어드" },
         { ItemCode: "102412", ItemName: "빛의 검" },
         { ItemCode: "102501", ItemName: "다인슬라이프" },
+      ],
+      WeaponDualSwords: [
         { ItemCode: "103201", ItemName: "쌍칼" },
         { ItemCode: "103202", ItemName: "조잡한 쌍검" },
         { ItemCode: "103301", ItemName: "피렌체식 쌍검" },
@@ -124,6 +125,8 @@ class Search_User extends Component {
         { ItemCode: "103501", ItemName: "디오스쿠로이" },
         { ItemCode: "103502", ItemName: "로이거 차르" },
         { ItemCode: "103503", ItemName: "간장과 막야" },
+      ],
+      WeaponHammer: [
         { ItemCode: "104101", ItemName: "망치" },
         { ItemCode: "104201", ItemName: "워해머" },
         { ItemCode: "104301", ItemName: "모닝 스타" },
@@ -136,6 +139,8 @@ class Search_User extends Component {
         { ItemCode: "104405", ItemName: "마법봉" },
         { ItemCode: "104406", ItemName: "천근추" },
         { ItemCode: "104501", ItemName: "피스브링어" },
+      ],
+      WeaponAxe: [
         { ItemCode: "105102", ItemName: "곡괭이" },
         { ItemCode: "105103", ItemName: "손도끼" },
         { ItemCode: "105201", ItemName: "사슬 낫" },
@@ -149,6 +154,8 @@ class Search_User extends Component {
         { ItemCode: "105405", ItemName: "파라슈" },
         { ItemCode: "105406", ItemName: "하르페" },
         { ItemCode: "105407", ItemName: "저거너트" },
+      ],
+      WeaponSpear: [
         { ItemCode: "107101", ItemName: "단창" },
         { ItemCode: "107201", ItemName: "죽창" },
         { ItemCode: "107301", ItemName: "바이던트" },
@@ -164,6 +171,8 @@ class Search_User extends Component {
         { ItemCode: "107408", ItemName: "청룡언월도" },
         { ItemCode: "107409", ItemName: "나기나타" },
         { ItemCode: "107501", ItemName: "롱기누스의 창" },
+      ],
+      WeaponBat: [
         { ItemCode: "108101", ItemName: "나뭇가지" },
         { ItemCode: "108102", ItemName: "단봉" },
         { ItemCode: "108103", ItemName: "대나무" },
@@ -179,6 +188,8 @@ class Search_User extends Component {
         { ItemCode: "108501", ItemName: "스파이의 우산" },
         { ItemCode: "104407", ItemName: "금강저" },
         { ItemCode: "108502", ItemName: "여의봉" },
+      ],
+      WeaponWhip: [
         { ItemCode: "109101", ItemName: "채찍" },
         { ItemCode: "109201", ItemName: "오랏줄" },
         { ItemCode: "109202", ItemName: "철편" },
@@ -188,6 +199,8 @@ class Search_User extends Component {
         { ItemCode: "109403", ItemName: "글레이프니르" },
         { ItemCode: "109404", ItemName: "플라즈마 윕" },
         { ItemCode: "109501", ItemName: "혈화구절편" },
+      ],
+      WeaponGlove: [
         { ItemCode: "110101", ItemName: "너클" },
         { ItemCode: "110102", ItemName: "목장갑" },
         { ItemCode: "110201", ItemName: "글러브" },
@@ -208,6 +221,8 @@ class Search_User extends Component {
         { ItemCode: "110412", ItemName: "천잠장갑" },
         { ItemCode: "110501", ItemName: "주작자문" },
         { ItemCode: "110502", ItemName: "프로스트팽" },
+      ],
+      WeaponTonfa: [
         { ItemCode: "111101", ItemName: "맷손" },
         { ItemCode: "111201", ItemName: "톤파" },
         { ItemCode: "111301", ItemName: "경찰봉" },
@@ -217,6 +232,8 @@ class Search_User extends Component {
         { ItemCode: "111404", ItemName: "플라즈마 톤파" },
         { ItemCode: "111405", ItemName: "윈드러너" },
         { ItemCode: "111501", ItemName: "흑요석 짓테" },
+      ],
+      WeaponThrow: [
         { ItemCode: "112101", ItemName: "돌멩이" },
         { ItemCode: "112103", ItemName: "쇠구슬" },
         { ItemCode: "112104", ItemName: "유리병" },
@@ -240,6 +257,8 @@ class Search_User extends Component {
         { ItemCode: "112405", ItemName: "파이어 볼" },
         { ItemCode: "112406", ItemName: "프리즘 볼" },
         { ItemCode: "112407", ItemName: "아스트라페" },
+      ],
+      WeaponShuriken: [
         { ItemCode: "113101", ItemName: "면도칼" },
         { ItemCode: "113102", ItemName: "트럼프 카드" },
         { ItemCode: "113103", ItemName: "CD" },
@@ -267,6 +286,8 @@ class Search_User extends Component {
         { ItemCode: "113412", ItemName: "생사부" },
         { ItemCode: "113501", ItemName: "수다르사나" },
         { ItemCode: "113502", ItemName: "만천화우" },
+      ],
+      WeaponBow: [
         { ItemCode: "114101", ItemName: "양궁" },
         { ItemCode: "114201", ItemName: "목궁" },
         { ItemCode: "114202", ItemName: "장궁" },
@@ -285,6 +306,8 @@ class Search_User extends Component {
         { ItemCode: "114502", ItemName: "페일노트" },
         { ItemCode: "114503", ItemName: "아르기로톡소스" },
         { ItemCode: "114407", ItemName: "아르테미스" },
+      ],
+      WeaponCrossbow: [
         { ItemCode: "115101", ItemName: "석궁" },
         { ItemCode: "115201", ItemName: "쇠뇌" },
         { ItemCode: "115202", ItemName: "크로스보우" },
@@ -297,6 +320,8 @@ class Search_User extends Component {
         { ItemCode: "115404", ItemName: "저격 크로스보우" },
         { ItemCode: "115405", ItemName: "영광금귀신기노" },
         { ItemCode: "115501", ItemName: "샤릉가" },
+      ],
+      WeaponPistol: [
         { ItemCode: "116101", ItemName: "발터 PPK" },
         { ItemCode: "116201", ItemName: "매그넘-파이선" },
         { ItemCode: "116202", ItemName: "베레타 M92F" },
@@ -311,6 +336,8 @@ class Search_User extends Component {
         { ItemCode: "116407", ItemName: "글록 48" },
         { ItemCode: "116409", ItemName: "스탬피드" },
         { ItemCode: "116501", ItemName: "악켈테" },
+      ],
+      WeaponAssaultRifle: [
         { ItemCode: "117101", ItemName: "페도로프 자동소총" },
         { ItemCode: "117201", ItemName: "STG-44" },
         { ItemCode: "117301", ItemName: "AK-47" },
@@ -321,6 +348,8 @@ class Search_User extends Component {
         { ItemCode: "117405", ItemName: "XCR" },
         { ItemCode: "117406", ItemName: "저지먼트" },
         { ItemCode: "117501", ItemName: "아그니" },
+      ],
+      WeaponSniperRifle: [
         { ItemCode: "118101", ItemName: "화승총" },
         { ItemCode: "118201", ItemName: "스프링필드" },
         { ItemCode: "118301", ItemName: "하푼건" },
@@ -332,6 +361,8 @@ class Search_User extends Component {
         { ItemCode: "118406", ItemName: "폴라리스" },
         { ItemCode: "118501", ItemName: "사사성광" },
         { ItemCode: "118502", ItemName: "현자총통" },
+      ],
+      WeaponNunchaku: [
         { ItemCode: "119101", ItemName: "쇠사슬" },
         { ItemCode: "119201", ItemName: "눈차크" },
         { ItemCode: "119301", ItemName: "샤퍼" },
@@ -340,6 +371,8 @@ class Search_User extends Component {
         { ItemCode: "119402", ItemName: "초진동눈차크" },
         { ItemCode: "119403", ItemName: "케르베로스" },
         { ItemCode: "119501", ItemName: "히드라" },
+      ],
+      WeaponRapier: [
         { ItemCode: "120101", ItemName: "바늘" },
         { ItemCode: "120201", ItemName: "레이피어" },
         { ItemCode: "120301", ItemName: "매화검" },
@@ -352,6 +385,8 @@ class Search_User extends Component {
         { ItemCode: "120405", ItemName: "주와이외즈" },
         { ItemCode: "120406", ItemName: "레드 팬서" },
         { ItemCode: "120407", ItemName: "에스프리" },
+      ],
+      WeaponGuitar: [
         { ItemCode: "121101", ItemName: "보급형 기타" },
         { ItemCode: "121201", ItemName: "골든 브릿지" },
         { ItemCode: "121202", ItemName: "싱글 픽업" },
@@ -368,6 +403,8 @@ class Search_User extends Component {
         { ItemCode: "121405", ItemName: "원더풀 투나잇" },
         { ItemCode: "121406", ItemName: "더 월" },
         { ItemCode: "121407", ItemName: "틴 스피릿" },
+      ],
+      WeaponCamera: [
         { ItemCode: "122101", ItemName: "렌즈" },
         { ItemCode: "122201", ItemName: "카메라 건" },
         { ItemCode: "122301", ItemName: "컴팩트 카메라 " },
@@ -377,6 +414,8 @@ class Search_User extends Component {
         { ItemCode: "122402", ItemName: "컴파운드 사이트" },
         { ItemCode: "122403", ItemName: "카메라 캐논" },
         { ItemCode: "122404", ItemName: "V.I.C.G " },
+      ],
+      WeaponArcana: [
         { ItemCode: "130101", ItemName: "유리구슬" },
         { ItemCode: "130201", ItemName: "거울구슬" },
         { ItemCode: "130202", ItemName: "얼음구슬" },
@@ -390,25 +429,187 @@ class Search_User extends Component {
         { ItemCode: "130404", ItemName: "더 스타" },
         { ItemCode: "130405", ItemName: "더 문" },
       ],
+      WeaponVFProsthetic: [],
+
+      equipmentArr: [
+        //배열을 장비위치나 재료별로 종류별로 세팅해서 맵을 최대한 적게 돌리게끔 설정?
+      ],
     };
   }
-
+  WeaponSearch = () => {
+    console.log("abc");
+    console.log(this.state.arr[0][2].equipment[0]);
+    var testcode = this.state.arr[0][2].equipment[0];
+    let WeaponCode = testcode.substring(0, 3);
+    console.log(WeaponCode + "여기에영");
+    let WeaponCode1 = "123";
+    switch (WeaponCode1) {
+      case "101": {
+        for (let a = 0; a <= this.state.WeaponDagger.length - 1; a++) {
+          if (this.state.WeaponDagger[a].ItemCode == testcode)
+            console.log(this.state.WeaponDagger[a].ItemName);
+          break;
+        }
+      }
+      case "102": {
+        for (let a = 0; a <= this.state.WeaponTwoHanedeSword.length - 1; a++) {
+          if (this.state.WeaponTwoHanedeSword[a].ItemCode == testcode)
+            console.log(this.state.WeaponTwoHanedeSword[a].ItemName);
+          break;
+        }
+      }
+      case "103": {
+        for (let a = 0; a <= this.state.WeaponDualSwords.length - 1; a++) {
+          if (this.state.WeaponDualSwords[a].ItemCode == testcode)
+            console.log(this.state.WeaponDualSwords[a].ItemName);
+          break;
+        }
+      }
+      case "104": {
+        for (let a = 0; a <= this.state.WeaponHammer.length - 1; a++) {
+          if (this.state.WeaponHammer[a].ItemCode == testcode)
+            console.log(this.state.WeaponHammer[a].ItemName);
+          break;
+        }
+      }
+      case "105": {
+        for (let a = 0; a <= this.state.WeaponAxe.length - 1; a++) {
+          if (this.state.WeaponAxe[a].ItemCode == testcode)
+            console.log(this.state.WeaponAxe[a].ItemName);
+          break;
+        }
+      }
+      case "107": {
+        for (let a = 0; a <= this.state.WeaponSpear.length - 1; a++) {
+          if (this.state.WeaponSpear[a].ItemCode == testcode)
+            console.log(this.state.WeaponSpear[a].ItemName);
+          break;
+        }
+      }
+      case "108": {
+        for (let a = 0; a <= this.state.WeaponBat.length - 1; a++) {
+          if (this.state.WeaponBat[a].ItemCode == testcode)
+            console.log(this.state.WeaponBat[a].ItemName);
+          break;
+        }
+      }
+      case "109": {
+        for (let a = 0; a <= this.state.WeaponWhip.length - 1; a++) {
+          if (this.state.WeaponWhip[a].ItemCode == testcode)
+            console.log(this.state.WeaponWhip[a].ItemName);
+          break;
+        }
+      }
+      case "110": {
+        for (let a = 0; a <= this.state.WeaponGlove.length - 1; a++) {
+          if (this.state.WeaponGlove[a].ItemCode == testcode)
+            console.log(this.state.WeaponGlove[a].ItemName);
+          break;
+        }
+      }
+      case "111": {
+        for (let a = 0; a <= this.state.WeaponTonfa.length - 1; a++) {
+          if (this.state.WeaponTonfa[a].ItemCode == testcode)
+            console.log(this.state.WeaponTonfa[a].ItemName);
+          break;
+        }
+      }
+      case "112": {
+        for (let a = 0; a <= this.state.WeaponThrow.length - 1; a++) {
+          if (this.state.WeaponThrow[a].ItemCode == testcode)
+            console.log(this.state.WeaponThrow[a].ItemName);
+          break;
+        }
+      }
+      case "113": {
+        for (let a = 0; a <= this.state.WeaponShuriken.length - 1; a++) {
+          if (this.state.WeaponShuriken[a].ItemCode == testcode)
+            console.log(this.state.WeaponShuriken[a].ItemName);
+          break;
+        }
+      }
+      case "114": {
+        for (let a = 0; a <= this.state.WeaponBow.length - 1; a++) {
+          if (this.state.WeaponBow[a].ItemCode == testcode)
+            console.log(this.state.WeaponBow[a].ItemName);
+          break;
+        }
+      }
+      case "115": {
+        for (let a = 0; a <= this.state.WeaponCrossbow.length - 1; a++) {
+          if (this.state.WeaponCrossbow[a].ItemCode == testcode)
+            console.log(this.state.WeaponCrossbow[a].ItemName);
+          break;
+        }
+      }
+      case "116": {
+        for (let a = 0; a <= this.state.WeaponPistol.length - 1; a++) {
+          if (this.state.WeaponPistol[a].ItemCode == testcode)
+            console.log(this.state.WeaponPistol[a].ItemName);
+          break;
+        }
+      }
+      case "117": {
+        for (let a = 0; a <= this.state.WeaponAssaultRifle.length - 1; a++) {
+          if (this.state.WeaponAssaultRifle[a].ItemCode == testcode)
+            console.log(this.state.WeaponAssaultRifle[a].ItemName);
+          break;
+        }
+      }
+      case "118": {
+        for (let a = 0; a <= this.state.WeaponSniperRifle.length - 1; a++) {
+          if (this.state.WeaponSniperRifle[a].ItemCode == testcode)
+            console.log(this.state.WeaponSniperRifle[a].ItemName);
+          break;
+        }
+      }
+      case "119": {
+        for (let a = 0; a <= this.state.WeaponNunchaku.length - 1; a++) {
+          if (this.state.WeaponNunchaku[a].ItemCode == testcode)
+            console.log(this.state.WeaponNunchaku[a].ItemName);
+          break;
+        }
+      }
+      case "120": {
+        for (let a = 0; a <= this.state.WeaponRapier.length - 1; a++) {
+          if (this.state.WeaponRapier[a].ItemCode == testcode)
+            console.log(this.state.WeaponRapier[a].ItemName);
+          break;
+        }
+      }
+      case "121": {
+        for (let a = 0; a <= this.state.WeaponGuitar.length - 1; a++) {
+          if (this.state.WeaponGuitar[a].ItemCode == testcode)
+            console.log(this.state.WeaponGuitar[a].ItemName);
+          break;
+        }
+      }
+      case "122": {
+        for (let a = 0; a <= this.state.WeaponCamera.length - 1; a++) {
+          if (this.state.WeaponCamera[a].ItemCode == testcode)
+            console.log(this.state.WeaponCamera[a].ItemName);
+          break;
+        }
+      }
+      case "130": {
+        for (let a = 0; a <= this.state.WeaponArcana.length - 1; a++) {
+          if (this.state.WeaponArcana[a].ItemCode == testcode)
+            console.log(this.state.WeaponArcana[a].ItemName);
+          break;
+        }
+      }
+    }
+  };
   componentDidMount = () => {
-    //  this.pass2();
+    this.pass2();
     this.conlog();
   };
   conlog = () => {
-    if ((this.state.equipmentArr.ItemCode = "130404")) {
-      console.log("sd");
-      console.log(this.state.equipmentArr.ItemName);
-    } else {
-      console.log("안된다");
-    }
-    let c = 0;
-    this.state.equipmentArr.map(() => {
-      if (this.state.equipmentArr.ItemCode == "130404")
-        console.log(this.state.equipmentArr.ItemName);
-    });
+    //금강저 확인
+
+    for (let a = 0; a <= this.state.equipmentArr.length - 1; a++)
+      if (this.state.equipmentArr[a].ItemCode == "130405")
+        console.log(this.state.equipmentArr[a].ItemName);
   };
   passaa = () => {
     const url = "https://open-api.bser.io/v1/user/nickname?query=mohai";
@@ -474,8 +675,9 @@ class Search_User extends Component {
       },
     });
     console.log(userGames);
-    console.log(this.state.equipmentArr[2].ItemName);
-    for (let a = 0; a <= 9; a++) {
+    this.state.arr.push(userGames);
+
+    for (let a = 0; a <= 2; a++) {
       console.log(
         "캐릭 : " + this.state.characterNumArr[userGames[a].characterNum]
       );
@@ -488,8 +690,9 @@ class Search_User extends Component {
       console.log("무숙 : " + userGames[a].bestWeapon);
       console.log(userGames[a].skillLevelInfo);
       console.log(userGames[a].skillOrderInfo);
-
+      this.WeaponSearch(userGames[a].equipment[0]);
       console.log("장비순서 : " + userGames[a].equipment[0]);
+
       console.log("장비순서 : " + userGames[a].equipment[1]);
       console.log("장비순서 : " + userGames[a].equipment[2]);
       console.log("장비순서 : " + userGames[a].equipment[3]);
@@ -537,23 +740,7 @@ class Search_User extends Component {
   render() {
     return (
       <div className="Search_User">
-        <div id="menu">
-          <div>
-            {" "}
-            <span>1</span>
-            <p className="arrow_box">1a</p>
-          </div>
-          <div>
-            {" "}
-            <span>2</span>
-            <p className="arrow_box">2b</p>
-          </div>
-          <div>
-            {" "}
-            <span>3</span>
-            <p className="arrow_box">3</p>
-          </div>
-        </div>
+        <div onClick={() => this.WeaponSearch(this.state.arr)}>asd</div>
       </div>
     );
   }
