@@ -24,13 +24,14 @@ class GNB extends Component {
           <li>
             <Link to="/Record">전적</Link>
           </li>
-          <li>추가분 예정</li>
         </ul>
         <ul className="GNB_RightMenu">
           <li>
             <Link to="/Search_User">검색창asd</Link>
           </li>
-          <li>추가분</li>
+          <li>
+            <Link to="/Search_User/?NickName=흑인42호">모하이예아</Link>
+          </li>
         </ul>
       </div>
     );

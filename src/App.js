@@ -6,7 +6,14 @@ import GNB from "./ER/Skeleton/GNB.js";
 import ERMain from "./ER/Skeleton/ERMain.js";
 import Record from "./ER/Record/Record.js";
 import Search_User from "./ER/Search_User/Search_User.js";
-import { BrowserRouter, Route, Link, Routes, Switch } from "react-router-dom";
+import {
+  BrowserRouter,
+  Route,
+  Link,
+  Routes,
+  Switch,
+  useParams,
+} from "react-router-dom";
 
 class App extends Component {
   constructor(props) {
@@ -28,6 +35,8 @@ class App extends Component {
               element={<Character_Infomation />}
             />
             <Route path="/Search_User" element={<Search_User />} />
+            <Route path="/Search_User/:NickName" element={<Search_User />} />
+
             <Route path="/Record" element={<Record />} />
           </Routes>
         </BrowserRouter>
