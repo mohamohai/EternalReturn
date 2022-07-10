@@ -861,8 +861,8 @@ class Search_User extends Component {
   };
   conlog = () => {
     let Nic = decodeURIComponent(window.location.search);
-    Nic = Nic.substring(11, Nic.length - 1);
-    console.log(Nic);
+    Nic = Nic.substring(10, Nic.length);
+    console.log(Nic); //today
   };
   passaa = () => {
     const url = "https://open-api.bser.io/v1/user/nickname?query=mohai";
