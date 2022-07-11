@@ -857,39 +857,21 @@ class Search_User extends Component {
   };
 
   componentDidMount = () => {
-    this.pass2();
+    this.SearchNickName();
   };
   conlog = () => {
     let Nic = decodeURIComponent(window.location.search);
     Nic = Nic.substring(10, Nic.length);
     console.log(Nic); //today
   };
-  passaa = () => {
-    const url = "https://open-api.bser.io/v1/user/nickname?query=mohai";
-    const res = axios.get(url, {
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": "",
-      },
-    });
+  SearchNickName = () => {
+    let Nic = decodeURIComponent(window.location.search);
+    Nic = Nic.substring(10, Nic.length);
+    this.setState({ NickName: Nic });
+    console.log(Nic);
+    this.SearchHistory(Nic);
   };
-  pass = () => {
-    const urlq = "https://lostark.game.onstove.com/Profile/Character/abcdefg";
-    const url = "https://open-api.bser.io/v1/user/nickname?query=mohai"; //여기가 그냥 닉으로 가져오는거?
-    const url2 = "https://open-api.bser.io/v1/user/games/2604769"; //유저의 게임내용 단판? 가져옿기
-    const url4 = "https://open-api.bser.io/v1/games/19102821"; //게임모두? 잠깐대기
-    const url5 = "https://open-api.bser.io/v1/data/Skill";
-    const url6 = "https://open-api.bser.io/v1/data/Trait/Name/"; ////특성
-    const url7 = "https://open-api.bser.io/v1/data/Emotion";
-    const res = axios.get(url6, {
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": this.state.API_KEY,
-      },
-    });
-    console.log(res);
-  };
-  pass2 = async () => {
+  SearchHistory = async (Nic) => {
     const url0 = "https://open-api.bser.io/v1/user/nickname?query=사텐";
     const url = "https://open-api.bser.io/v1/user/nickname?query=mohai"; //닉넴으로 서치
     const urlUserNum = "https://open-api.bser.io/v1/user/games/2604769";
@@ -897,20 +879,13 @@ class Search_User extends Component {
     const url6 = "https://open-api.bser.io/v1/weaponRoutes/recommend/532117"; ////특성
     const url7 = "https://open-api.bser.io/v1/data/Emotion";
 
-    const abc = axios.get(url6, {
-      //기본형
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": this.state.API_KEY,
-      },
-    });
-    console.log(abc);
-    /////여기서부터  쿼리문에 닉네임을 통해 userNum을 뜯어서 param을 써서 한 번 더 돌려 유저데이터 출력 예정
+    const SearchUserNum = `https://open-api.bser.io/v1/user/nickname?query=${Nic}`; //닉넴으로 서치
+
     const {
       data: {
         user: { userNum },
       },
-    } = await axios.get(url, {
+    } = await axios.get(SearchUserNum, {
       // 여기에 e.target text로 데이터 받아서 유저네임 검색
       headers: {
         "Content-Type": "application/json",
@@ -962,6 +937,43 @@ class Search_User extends Component {
       console.log("");
       console.log("");
     }
+  };
+
+  passaa = () => {};
+
+  pass = () => {
+    const urlq = "https://lostark.game.onstove.com/Profile/Character/abcdefg";
+    const url = "https://open-api.bser.io/v1/user/nickname?query=mohai"; //여기가 그냥 닉으로 가져오는거?
+    const url2 = "https://open-api.bser.io/v1/user/games/2604769"; //유저의 게임내용 단판? 가져옿기
+    const url4 = "https://open-api.bser.io/v1/games/19102821"; //게임모두? 잠깐대기
+    const url5 = "https://open-api.bser.io/v1/data/Skill";
+    const url6 = "https://open-api.bser.io/v1/data/Trait/Name/"; ////특성
+    const url7 = "https://open-api.bser.io/v1/data/Emotion";
+    const res = axios.get(url6, {
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": this.state.API_KEY,
+      },
+    });
+    console.log(res);
+  };
+  pass2 = async () => {
+    const url0 = "https://open-api.bser.io/v1/user/nickname?query=사텐";
+    const url = "https://open-api.bser.io/v1/user/nickname?query=mohai"; //닉넴으로 서치
+    const urlUserNum = "https://open-api.bser.io/v1/user/games/2604769";
+    const url4 = "https://open-api.bser.io/v1/games/19102821"; //게임모두? 잠깐대기
+    const url6 = "https://open-api.bser.io/v1/weaponRoutes/recommend/532117"; ////특성
+    const url7 = "https://open-api.bser.io/v1/data/Emotion";
+
+    const abc = axios.get(url6, {
+      //기본형
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": this.state.API_KEY,
+      },
+    });
+    console.log(abc);
+    /////여기서부터  쿼리문에 닉네임을 통해 userNum을 뜯어서 param을 써서 한 번 더 돌려 유저데이터 출력 예정
 
     //   const url8 = `https://open-api.bser.io/v1/games/${userGames[1].gameId}`;
     //   const res = await axios.get(url8, {
