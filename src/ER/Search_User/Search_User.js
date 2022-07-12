@@ -860,11 +860,10 @@ class Search_User extends Component {
     this.SearchNickName();
   };
   conlog = () => {
-    let Nic = decodeURIComponent(window.location.search);
-    Nic = Nic.substring(10, Nic.length);
-    console.log(Nic); //today
+    //테스트용 모아두기
   };
   SearchNickName = () => {
+    //닉네임 받아서 서치함수 실행
     let Nic = decodeURIComponent(window.location.search);
     Nic = Nic.substring(10, Nic.length);
     this.setState({ NickName: Nic });
@@ -872,14 +871,22 @@ class Search_User extends Component {
     this.SearchHistory(Nic);
   };
   SearchHistory = async (Nic) => {
+    //서치해서 해당 게임까지 서치
     const url0 = "https://open-api.bser.io/v1/user/nickname?query=사텐";
     const url = "https://open-api.bser.io/v1/user/nickname?query=mohai"; //닉넴으로 서치
     const urlUserNum = "https://open-api.bser.io/v1/user/games/2604769";
-    const url4 = "https://open-api.bser.io/v1/games/19102821"; //게임모두? 잠깐대기
+    const url4 = "https://open-api.bser.io/v1/games/19345023"; //게임모두? 잠깐대기
     const url6 = "https://open-api.bser.io/v1/weaponRoutes/recommend/532117"; ////특성
     const url7 = "https://open-api.bser.io/v1/data/Emotion";
 
     const SearchUserNum = `https://open-api.bser.io/v1/user/nickname?query=${Nic}`; //닉넴으로 서치
+    const res = axios.get(url4, {
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": this.state.API_KEY,
+      },
+    });
+    console.log(res);
 
     const {
       data: {
@@ -902,10 +909,12 @@ class Search_User extends Component {
         "x-api-key": this.state.API_KEY,
       },
     });
-    console.log(userGames);
+    console.log(userGames); //여기가 그거 어우 책상 없으니까 너무 힘들다   // 게임아이디를 뜯어서
+    //https://open-api.bser.io/v1/games/`${gameid}` 넣으면 그 게임에 다른 사람들도 나오니까 그거 맞춰서 캐릭터 뜯기나 이런거
     this.state.SearchData.push(userGames);
 
     for (let a = 0; a <= userGames.length - 1; a++) {
+      //배열 슥 보고 안에 내용 알맞게 적어주기   이걸 div랑 css로 꾸며서 출력해주고 안에 다시 팀적 코드 따서 돌려주기
       console.log(
         "캐릭 : " +
           this.state.characterNumArr[userGames[a].characterNum] +
@@ -950,6 +959,7 @@ class Search_User extends Component {
     const url6 = "https://open-api.bser.io/v1/data/Trait/Name/"; ////특성
     const url7 = "https://open-api.bser.io/v1/data/Emotion";
     const res = axios.get(url6, {
+      //기본형
       headers: {
         "Content-Type": "application/json",
         "x-api-key": this.state.API_KEY,

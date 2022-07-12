@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./css/GNB.css";
 import { BrowserRouter, Route, Link, Routes, Switch } from "react-router-dom";
+
 class GNB extends Component {
   constructor(props) {
     super(props);
@@ -11,10 +12,15 @@ class GNB extends Component {
   }
 
   NickNameAdd(e) {
+    console.log(e);
     let nextState = {};
     nextState[e.target.name] = e.target.value;
     console.log(this.state.TextBoxNickName);
     this.setState(nextState);
+  }
+
+  conlog() {
+    console.log("된다링된다");
   }
 
   render() {
@@ -44,17 +50,21 @@ class GNB extends Component {
           <li>
             <Link to="/Search_User/?NickName=누나홀닭">아리가또</Link>
           </li>
-          <input
-            className=""
-            type="text"
-            name="TextBoxNickName"
-            maxLength="30"
-            placeholder="닉네임"
-            onChange={(e) => this.NickNameAdd(e)}
-          />
-          <a href={`Search_User/?NickName=${this.state.TextBoxNickName}`}>
-            aasdasd
-          </a>
+          <form action="/Search_User/">
+            <input
+              className=""
+              type="text"
+              name="NickName"
+              maxLength="30"
+              placeholder="닉네임"
+              onChange={(e) => this.NickNameAdd(e)}
+              onClick={this.conlog}
+              href={`Search_User/?NickName=${this.state.TextBoxNickName}`}
+            />
+            <a href={`Search_User/?NickName=${this.state.TextBoxNickName}`}>
+              aasdasd
+            </a>
+          </form>
         </ul>
       </div>
     );
