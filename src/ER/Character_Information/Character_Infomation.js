@@ -1,3 +1,4 @@
+import { getElementError } from "@testing-library/react";
 import React, { Component } from "react";
 import "./Character_Infomation.css";
 class Character_Infomation extends Component {
@@ -91,6 +92,7 @@ class Character_Infomation extends Component {
       }
     });
   };
+
   ClickTesta = () => {
     const numbe = this.state.information;
     const testMap = numbe.map((abc, a) => {
@@ -98,6 +100,21 @@ class Character_Infomation extends Component {
         this.setState({ Character_NameE: abc.Character_NameE });
         console.log(this.state.Character_NameE);
       }
+    });
+  };
+
+  Character_NameE_Click = (aa) => {
+    console.log(aa);
+  };
+
+  CharacterChose = (Character) => {
+    Character.map((CharArr, abc) => {
+      console.log(Character[1]);
+      return (
+        <div>
+          <div onClick={this.ClickTest}>{CharArr[0]}</div>
+        </div>
+      );
     });
   };
   render() {
@@ -158,12 +175,24 @@ class Character_Infomation extends Component {
       ["칼라", "Karla"],
     ];
     let CharacterSort = Character.sort();
-    console.log(Character.sort());
-    console.log(CharacterSort);
+    //   console.log(Character.sort());
+    //  console.log(CharacterSort);
 
     return (
       <div>
         <div>
+          {Character.map((CharArr, abc) => {
+            return (
+              <div>
+                <div
+                  onClick={() => this.Character_NameE_Click(CharArr[1])}
+                  id={CharArr[1]}
+                >
+                  {CharArr[0]}
+                </div>
+              </div>
+            );
+          })}
           <div className="Character_info">
             <div onClick={this.ClickTest}>재키</div>
             <div onClick={this.ClickTesta}>아야</div>
