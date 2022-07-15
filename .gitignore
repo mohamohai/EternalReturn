@@ -9,7 +9,10 @@
 .env
 # testing
 /coverage
+/src/ER/image
 
+*.png
+*.gif
 # production
 /build
 

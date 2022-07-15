@@ -173,6 +173,7 @@ class Character_Infomation extends Component {
       ["아디나", "Adina"],
       ["마커스", "Markus"],
       ["칼라", "Karla"],
+      ["png","gif무시"
     ];
     let CharacterSort = Character.sort();
     //   console.log(Character.sort());
