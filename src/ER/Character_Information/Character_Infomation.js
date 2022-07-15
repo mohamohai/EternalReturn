@@ -83,33 +83,13 @@ class Character_Infomation extends Component {
   ClickE = () => this.setState({ ClickSkill: "E" });
   ClickR = () => this.setState({ ClickSkill: "R" });
 
-  ClickTest = () => {
-    const numbe = this.state.information;
-    const testMap = numbe.map((abc, a) => {
-      if (abc.Character_NameK == "재키") {
-        this.setState({ Character_NameE: abc.Character_NameE });
-        console.log(this.state.Character_NameE);
-      }
-    });
-  };
-
-  ClickTesta = () => {
-    const numbe = this.state.information;
-    const testMap = numbe.map((abc, a) => {
-      if (abc.Character_NameK == "아야") {
-        this.setState({ Character_NameE: abc.Character_NameE });
-        console.log(this.state.Character_NameE);
-      }
-    });
-  };
-
   Character_NameE_Click = (aa) => {
+    this.setState({ Character_NameE: aa });
     console.log(aa);
   };
 
   CharacterChose = (Character) => {
     Character.map((CharArr, abc) => {
-      console.log(Character[1]);
       return (
         <div>
           <div onClick={this.ClickTest}>{CharArr[0]}</div>
@@ -173,14 +153,14 @@ class Character_Infomation extends Component {
       ["아디나", "Adina"],
       ["마커스", "Markus"],
       ["칼라", "Karla"],
-      ["png","gif무시"
+      ["png", "gif무시"],
     ];
     let CharacterSort = Character.sort();
     //   console.log(Character.sort());
     //  console.log(CharacterSort);
 
     return (
-      <div>
+      <div id="Character_Infomation">
         <div>
           {Character.map((CharArr, abc) => {
             return (
@@ -188,6 +168,7 @@ class Character_Infomation extends Component {
                 <div
                   onClick={() => this.Character_NameE_Click(CharArr[1])}
                   id={CharArr[1]}
+                  className="CharThumb"
                 >
                   {CharArr[0]}
                 </div>
@@ -195,8 +176,6 @@ class Character_Infomation extends Component {
             );
           })}
           <div className="Character_info">
-            <div onClick={this.ClickTest}>재키</div>
-            <div onClick={this.ClickTesta}>아야</div>
             <div className="clear"></div>
             <div>
               <img

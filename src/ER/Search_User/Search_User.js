@@ -434,7 +434,24 @@ class Search_User extends Component {
         { ItemCode: 130404, ItemName: "더 스타" },
         { ItemCode: 130405, ItemName: "더 문" },
       ],
-      WeaponVFProsthetic: [],
+      WeaponVFProsthetic: [
+        { ItemCode: 131201, ItemName: "바이퍼" },
+        { ItemCode: 131301, ItemName: "데스애더" },
+        { ItemCode: 131302, ItemName: "블랙맘바" },
+        { ItemCode: 131303, ItemName: "사이드와인더" },
+        { ItemCode: 131401, ItemName: "데스애더퀸" },
+        { ItemCode: 131402, ItemName: "블랙맘바킹" },
+        { ItemCode: 131403, ItemName: "슈퍼사이드와인더" },
+        { ItemCode: 131501, ItemName: "데스애더퀸-MT" },
+        { ItemCode: 131502, ItemName: "데스애더퀸-FC" },
+        { ItemCode: 131503, ItemName: "데스애더퀸-VBS" },
+        { ItemCode: 131504, ItemName: "블랙맘바킹-TL" },
+        { ItemCode: 131505, ItemName: "블랙맘바킹-FC" },
+        { ItemCode: 131506, ItemName: "블랙맘바킹-VBS" },
+        { ItemCode: 131507, ItemName: "슈퍼사이드와인더-ML" },
+        { ItemCode: 131508, ItemName: "슈퍼사이드와인더-FC" },
+        { ItemCode: 131509, ItemName: "슈퍼사이드와인더-VBS" },
+      ],
       HatEquipmentArr: [
         { ItemCode: 201101, ItemName: "머리띠" },
         { ItemCode: 201102, ItemName: "모자" },
@@ -946,6 +963,7 @@ class Search_User extends Component {
       console.log("");
       console.log("");
     }
+    return this.makeDiv();
   };
 
   passaa = () => {};
@@ -1003,7 +1021,15 @@ class Search_User extends Component {
     } = await axios.get("https://yts-proxy.now.sh/list_movies.json");
     console.log(movies);
   };
+  makeDiv = () => {
+    return (
+      <div>
+        <img id="SkillGif" src={require(`../image/Item/Weapon/104404.png`)} />
 
+        {/* //      src={require(`../image/Item/Weapon/${this.state.SearchData[1].equipment[0]}.png`) */}
+      </div>
+    );
+  };
   render() {
     return (
       <div className="Search_User">
