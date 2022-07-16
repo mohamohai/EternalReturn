@@ -107,7 +107,7 @@ class Character_Infomation extends Component {
       ["나딘", "Nadine"],
       ["자히르", "Zahir"],
       ["하트", "Hart"],
-      ["아이솔", "isol"],
+      ["아이솔", "Isol"],
       ["리다이린", "LiDailin"],
       ["유키", "Yuki"],
       ["혜진", "Hyejin"],
@@ -149,11 +149,10 @@ class Character_Infomation extends Component {
       ["띠아", "Tia"],
       ["펠릭스", "Felix"],
       ["엘레나", "Elena"],
-      ["프리야", "Priva"],
+      ["프리야", "Priya"],
       ["아디나", "Adina"],
       ["마커스", "Markus"],
       ["칼라", "Karla"],
-      ["png", "gif무시"],
     ];
     let CharacterSort = Character.sort();
     //   console.log(Character.sort());
@@ -170,7 +169,9 @@ class Character_Infomation extends Component {
                   id={CharArr[1]}
                   className="CharThumb"
                 >
-                  {CharArr[0]}
+                  <img
+                    src={require(`../image/Character_Img/${CharArr[1]}/Thumbnail/Default/Half.png`)}
+                  />
                 </div>
               </div>
             );
