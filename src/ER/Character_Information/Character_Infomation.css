@@ -1,0 +1,55 @@
+#Character_Infomation{
+  
+    margin-top: 70px;
+    width: 1920px;
+ 
+}
+
+.Character_info{
+    width: 1920px;
+    padding-top: 80px;
+    position: relative;
+    left: 10%;
+}
+
+#Character_SelectBoard{
+    width: 1000px;
+}
+.CharThumb{
+    float:left;
+    width:70px;
+}
+.ThunbnailIcon{
+    width: 50px;
+}
+
+#SkillGif{
+    width: 500px;
+    float:left;
+    margin: 0 30px 0 0;
+}
+
+.SkillBtn{
+    width: 50px;
+    float:left;
+    margin: 0 0 0 20px;
+}
+
+#SkillRImg{
+    float: none;
+ }
+
+#SkillExplanation{
+   float:left;
+    margin: 15px 0 0 20px;
+}
+#SkillExplanation li{
+    width: 500px;
+    white-space: pre-wrap;
+}
+
+#SkillExplanationBorder{
+    width: 500px;
+    border-bottom: rgb(192, 192, 192) 0.2px solid;
+    
+}
