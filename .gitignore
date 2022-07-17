@@ -5,8 +5,12 @@
 /.pnp
 .pnp.js
 
+#api key
+.env
 # testing
 /coverage
+
+
 *.png
 *.gif
 # production

@@ -1024,6 +1024,10 @@ class Search_User extends Component {
   makeDiv = () => {
     return (
       <div>
+
+     
+
+
         {/* //      src={require(`../image/Item/Weapon/${this.state.SearchData[1].equipment[0]}.png`) */}
       </div>
     );
