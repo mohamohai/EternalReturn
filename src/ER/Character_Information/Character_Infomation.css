@@ -1,7 +1,29 @@
+@font-face {
+    font-family: 'ONE-Mobile-Title';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-Title.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ONE-Mobile-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 #Character_Infomation{
-  
-  
-    margin-top: 60px;
+    margin-top: 270px;
     width: 1920px;
  
 }
@@ -20,13 +42,17 @@
 }
 .CharThumb{
     float:left;
-    width:70px;
+    width:90px;
 }
 .ThunbnailIcon{
     width: 50px;
 }
 
+#SkillInfo{
+    width: 1000px;
+    position: relative;
 
+}
 #SkillGif{
     width: 500px;
     float:left;
@@ -43,20 +69,30 @@
     float: none;
  }
 
-#SkillExplanation{
-   float:left;
-
-    margin: 15px 0 0 20px;
+#SkillExplancation{
+    margin: 20px 0 0 20px;
+    float:left;
 }
-#SkillExplanation li{
-    width: 500px;
-    white-space: pre-wrap;
+#SkillExplancation li{
+    width: 400px;
+    white-space: pre-wrap; 
 }
 
+#SkillName {font-family: 'NEXON Lv1 Gothic OTF Bold';
+   
+    font-size: 18px;
+}
+
+
+#SkillExplancationSelect{
+    font-family: 'NEXON Lv1 Gothic OTF Bold';
+    font-size: 15px;
+   
+}
  
 
 #SkillExplanationBorder{
-    width: 500px;
+    width: 400px;
     border-bottom: rgb(192, 192, 192) 0.2px solid;
-    
+    margin: 10px 0 10px 0;
 }

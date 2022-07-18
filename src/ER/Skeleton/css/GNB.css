@@ -10,6 +10,14 @@
    font-weight: normal;
    font-style: normal;
 }
+
+
+@font-face{
+    font-family: "Pretendard";
+    src:url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+    font-weight: normal;
+   font-style: normal;
+}
 @font-face {
    font-family: 'TmoneyRoundWindRegular';
    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindRegular.woff') format('woff');
