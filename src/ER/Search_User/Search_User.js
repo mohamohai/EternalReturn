@@ -10,7 +10,7 @@ class Search_User extends Component {
 
     this.state = {
       API_KEY: process.env.REACT_APP_ERKEY,
-      NickName: "",
+      NickName: "Mohai",
       SearchData: [], //10개 넘어옴
       characterNum: "", //사용 캐릭터
       gameRank: "", // 현게임 등수
@@ -19,11 +19,13 @@ class Search_User extends Component {
       playerDeaths: "", // 현게임 데스
       damageToPlayer: "", // 현게임 총딜량
       bestWeapon: "", // 무숙
-      skillLevelInfo: "", // 스킬별 레벨
+      skillLevelInfo: "", // 스킬별 레벨B
       skillOrderInfo: "", // 스킬 찍은 순서
       routeIdOfStart: "", // 루트 번호
       matchingMode: "", //플레이한 게임 모드 2,3,6  노말 랭크 코발
       equipment: "", // 사용 아이템 6배열 좌상우하순서
+
+      abc: "",
       characterNumArr: [
         "캐릭터이름",
         "재키",
@@ -647,8 +649,11 @@ class Search_User extends Component {
         //배열을 장비위치나 재료별로 종류별로 세팅해서 맵을 최대한 적게 돌리게끔 설정?
       ],
     };
+
+    ///////
   }
   masterkey = () => {
+    console.log(this.state.SearchData[0]);
     this.state.SearchData[0].map((arrdata, b) => {
       console.log(this.state.characterNumArr[arrdata.characterNum]);
       console.log("순위 : " + arrdata.gameRank + "여기맞지?");
@@ -666,6 +671,7 @@ class Search_User extends Component {
 
       console.log("");
       console.log("");
+      return <div>{arrdata.equipment[1]}</div>;
     });
   };
   WeaponSearch = (inData) => {
@@ -876,8 +882,10 @@ class Search_User extends Component {
   componentDidMount = () => {
     this.SearchNickName();
   };
+
   conlog = () => {
     //테스트용 모아두기
+    console.log(this.state.SearchData);
   };
   SearchNickName = () => {
     //닉네임 받아서 서치함수 실행
@@ -885,7 +893,9 @@ class Search_User extends Component {
     Nic = Nic.substring(10, Nic.length);
     this.setState({ NickName: Nic });
     console.log(Nic);
-    this.SearchHistory(Nic);
+    //   this.SearchHistory(Nic);
+
+    this.passaa(Nic, 0, 0);
   };
   SearchHistory = async (Nic) => {
     //서치해서 해당 게임까지 서치
@@ -903,8 +913,8 @@ class Search_User extends Component {
         "x-api-key": this.state.API_KEY,
       },
     });
-    console.log(res);
-
+    console.log(res); //기본형
+    //여ㅑ기서부터 시작
     const {
       data: {
         user: { userNum },
@@ -918,8 +928,10 @@ class Search_User extends Component {
     });
     console.log(userNum);
     const urlUserNumt = `https://open-api.bser.io/v1/user/games/${userNum}`;
-    const {
+    let urlUserNumtt = `https://open-api.bser.io/v1/user/games/${userNum}?next=19488020`;
+    let {
       data: { userGames },
+      data: { next },
     } = await axios.get(urlUserNumt, {
       headers: {
         "Content-Type": "application/json",
@@ -963,10 +975,93 @@ class Search_User extends Component {
       console.log("");
       console.log("");
     }
-    return this.makeDiv();
   };
 
-  passaa = () => {};
+  passaa = async (Nic, nexta, cnt) => {
+    //서치해서 해당 게임까지 서치
+    const url0 = "https://open-api.bser.io/v1/user/nickname?query=사텐";
+    const url = "https://open-api.bser.io/v1/user/nickname?query=mohai"; //닉넴으로 서치
+    const urlUserNum = "https://open-api.bser.io/v1/user/games/2604769";
+    const url4 = "https://open-api.bser.io/v1/games/19345023"; //게임모두? 잠깐대기
+    const url6 = "https://open-api.bser.io/v1/weaponRoutes/recommend/532117"; ////특성
+    const url7 = "https://open-api.bser.io/v1/data/Emotion";
+    //내 num 2604769
+
+    console.log(cnt);
+
+    console.log(cnt);
+    const SearchUserNum = `https://open-api.bser.io/v1/user/nickname?query=${Nic}`; //닉넴으로 서치
+    const {
+      data: {
+        user: { userNum },
+      },
+    } = await axios.get(SearchUserNum, {
+      // 여기에 e.target text로 데이터 받아서 유저네임 검색
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": this.state.API_KEY,
+      },
+    }); //유저넘버를 긁음
+    console.log(userNum);
+    let urlUserNumt = "";
+    if (cnt == 0) {
+      urlUserNumt = `https://open-api.bser.io/v1/user/games/${userNum}`;
+    } else {
+      urlUserNumt = `https://open-api.bser.io/v1/user/games/${userNum}?next=${nexta}`;
+    }
+    console.log(urlUserNumt);
+    let {
+      data: { userGames },
+      data: { next },
+    } = await axios.get(urlUserNumt, {
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": this.state.API_KEY,
+      },
+    });
+
+    console.log(next);
+    console.log(userGames); //여기가 그거 어우 책상 없으니까 너무 힘들다   // 게임아이디를 뜯어서
+    this.state.SearchData.push(userGames);
+
+    for (let a = 0; a <= userGames.length - 1; a++) {
+      //배열 슥 보고 안에 내용 알맞게 적어주기   이걸 div랑 css로 꾸며서 출력해주고 안에 다시 팀적 코드 따서 돌려주기
+      console.log(
+        "캐릭 : " +
+          this.state.characterNumArr[userGames[a].characterNum] +
+          "//////////////////"
+      );
+      //여기 첫배열 뒤에부분에 원하는거 적으면 나옴
+      console.log("순위 : " + userGames[a].gameRank + "여기맞지?");
+      console.log("킬수 : " + userGames[a].playerKill);
+      console.log("어시 : " + userGames[a].playerAssistant);
+      console.log("데스 : " + userGames[a].playerDeaths);
+      console.log("딜량 : " + userGames[a].damageToPlayer);
+      console.log("무숙 : " + userGames[a].bestWeapon);
+      // console.log(userGames[a].skillLevelInfo);
+      // console.log(userGames[a].skillOrderInfo);
+
+      console.log("무기 : " + userGames[a].equipment[0]);
+      this.WeaponSearch(userGames[a].equipment[0]);
+      console.log("상의 : " + userGames[a].equipment[1]);
+      this.TopEquipmentSearch(userGames[a].equipment[1]);
+      console.log("모자 : " + userGames[a].equipment[2]);
+      this.HatEquipmentSearch(userGames[a].equipment[2]);
+      console.log("팔 : " + userGames[a].equipment[3]);
+      this.ArmEquipmentSearch(userGames[a].equipment[3]);
+      console.log("신발 : " + userGames[a].equipment[4]);
+      this.ShoesEquipmentSearch(userGames[a].equipment[4]);
+      console.log("악세 : " + userGames[a].equipment[5]);
+      this.AccessoriesEquipmentSearch(userGames[a].equipment[5]); //여기 추가값
+
+      console.log("");
+      console.log("");
+    }
+    cnt++;
+    if (cnt < 3) this.passaa(Nic, next, cnt);
+    else console.log("끝");
+    this.conlog();
+  };
 
   pass = () => {
     const urlq = "https://lostark.game.onstove.com/Profile/Character/abcdefg";
@@ -1021,23 +1116,19 @@ class Search_User extends Component {
     } = await axios.get("https://yts-proxy.now.sh/list_movies.json");
     console.log(movies);
   };
-  makeDiv = () => {
-    return (
-      <div>
+  makeDiv = (SearchData) => {
+    this.setState({ abc: "홀리몰리" });
 
-     
-
-
-        {/* //      src={require(`../image/Item/Weapon/${this.state.SearchData[1].equipment[0]}.png`) */}
-      </div>
-    );
+    // <img
+    //       src={`./image/item/Weapon/${this.state.SearchData[0][0].equipment[0]}.png`}
+    //     />
   };
   render() {
     return (
       <div className="Search_User">
-        <div onClick={() => this.masterkey(this.state.arr)}>asd</div>
-        <div onClick={() => this.conlog()}>asdsad</div>
-        <NickNameSearch />
+        <div onClick={() => this.masterkey()}>asd</div>
+        <div onClick={() => this.makeDiv()}>asd</div>
+        <div id="plusDIv" className="plusDiv"></div>
       </div>
     );
   }
