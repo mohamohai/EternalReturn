@@ -1,16 +1,18 @@
 import React, { Component, useState, useEffect } from "react";
+
 import axios from "axios";
 import "./Search_User.css";
 import NickNameSearch from "./NickNameSearch";
+import GameInfo from "./gameInfo.js";
+
 import { useParams, withRouter } from "react-router-dom";
 
 class Search_User extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       API_KEY: process.env.REACT_APP_ERKEY,
-      NickName: "Mohai",
+      NickName: decodeURIComponent(window.location.search).substring(10),
       SearchData: [], //10개 넘어옴
       characterNum: "", //사용 캐릭터
       gameRank: "", // 현게임 등수
@@ -24,8 +26,66 @@ class Search_User extends Component {
       routeIdOfStart: "", // 루트 번호
       matchingMode: "", //플레이한 게임 모드 2,3,6  노말 랭크 코발
       equipment: "", // 사용 아이템 6배열 좌상우하순서
+      next: 1,
+      abc: "a",
 
-      abc: "",
+      CharacterArr: [
+        ["한글", "영어"],
+        ["재키", "Jackie"],
+        ["아야", "Aya"],
+        ["현우", "Hyunwoo"],
+        ["매그너스", "Magnus"],
+        ["피오라", "Fiora"],
+        ["나딘", "Nadine"],
+        ["자히르", "Zahir"],
+        ["하트", "Hart"],
+        ["아이솔", "Isol"],
+        ["리다이린", "LiDailin"],
+        ["유키", "Yuki"],
+        ["혜진", "Hyejin"],
+        ["쇼우", "Xiukai"],
+        ["시셀라", "Sissela"],
+        ["키아라", "Chiara"],
+        ["아드리아나", "Adriana"],
+        ["실비아", "Silvia"],
+        ["쇼이치", "Shoichi"],
+        ["엠마", "Emma"],
+        ["레녹스", "Lenox"],
+        ["로지", "Rozzi"],
+        ["루크", "Luke"],
+        ["캐시", "Cathy"],
+        ["아델라", "Adela"],
+        ["버니스", "Bernice"],
+        ["바바라", "Barbara"],
+        ["알렉스", "Alex"],
+        ["수아", "Sua"],
+        ["레온", "Leon"],
+        ["일레븐", "Eleven"],
+        ["리오", "Rio"],
+        ["윌리엄", "William"],
+        ["니키", "Nicky"],
+        ["나타폰", "Nathapon"],
+        ["얀", "Jan"],
+        ["이바", "Eva"],
+        ["다니엘", "Daniel"],
+        ["제니", "Jenny"],
+        ["카밀로", "Camilo"],
+        ["클로에", "Chloe"],
+        ["요한", "Johann"],
+        ["비앙카", "Bianca"],
+        ["셀린", "Celine"],
+        ["에키온", "Echion"],
+        ["마이", "Mai"],
+        ["에이든", "Aiden"],
+        ["라우라", "Laura"],
+        ["띠아", "Tia"],
+        ["펠릭스", "Felix"],
+        ["엘레나", "Elena"],
+        ["프리야", "Priya"],
+        ["아디나", "Adina"],
+        ["마커스", "Markus"],
+        ["칼라", "Karla"],
+      ],
       characterNumArr: [
         "캐릭터이름",
         "재키",
@@ -528,6 +588,7 @@ class Search_User extends Component {
         { ItemCode: 202501, ItemName: "카바나" },
         { ItemCode: 202502, ItemName: "퀸 오브 하트" },
         { ItemCode: 202503, ItemName: "성법의" },
+        { ItemCode: 702503, ItemName: "성법의Mk-2" },
         { ItemCode: 202504, ItemName: "버건디 47" },
       ],
       ArmEquipmentArr: [
@@ -880,23 +941,21 @@ class Search_User extends Component {
   };
 
   componentDidMount = () => {
-    this.SearchNickName();
+    this.passaa(this.state.NickName, 0, 0);
   };
 
   conlog = () => {
-    //테스트용 모아두기
-    console.log(this.state.SearchData);
+    this.state.SearchData.length != 0 ? (
+      this.state.SearchData.map((abc, xxx) =>
+        abc.map((xx, cc) => {
+          return <div>"카운트"</div>;
+        })
+      )
+    ) : (
+      <h1>리액트가 아니다.</h1>
+    );
   };
-  SearchNickName = () => {
-    //닉네임 받아서 서치함수 실행
-    let Nic = decodeURIComponent(window.location.search);
-    Nic = Nic.substring(10, Nic.length);
-    this.setState({ NickName: Nic });
-    console.log(Nic);
-    //   this.SearchHistory(Nic);
 
-    this.passaa(Nic, 0, 0);
-  };
   SearchHistory = async (Nic) => {
     //서치해서 해당 게임까지 서치
     const url0 = "https://open-api.bser.io/v1/user/nickname?query=사텐";
@@ -976,26 +1035,16 @@ class Search_User extends Component {
       console.log("");
     }
   };
-
   passaa = async (Nic, nexta, cnt) => {
     //서치해서 해당 게임까지 서치
-    const url0 = "https://open-api.bser.io/v1/user/nickname?query=사텐";
-    const url = "https://open-api.bser.io/v1/user/nickname?query=mohai"; //닉넴으로 서치
-    const urlUserNum = "https://open-api.bser.io/v1/user/games/2604769";
-    const url4 = "https://open-api.bser.io/v1/games/19345023"; //게임모두? 잠깐대기
-    const url6 = "https://open-api.bser.io/v1/weaponRoutes/recommend/532117"; ////특성
-    const url7 = "https://open-api.bser.io/v1/data/Emotion";
     //내 num 2604769
-
     console.log(cnt);
-
-    console.log(cnt);
-    const SearchUserNum = `https://open-api.bser.io/v1/user/nickname?query=${Nic}`; //닉넴으로 서치
+    let SearchUserNumUrl = `https://open-api.bser.io/v1/user/nickname?query=${this.state.NickName}`;
     const {
       data: {
         user: { userNum },
       },
-    } = await axios.get(SearchUserNum, {
+    } = await axios.get(SearchUserNumUrl, {
       // 여기에 e.target text로 데이터 받아서 유저네임 검색
       headers: {
         "Content-Type": "application/json",
@@ -1024,6 +1073,7 @@ class Search_User extends Component {
     console.log(userGames); //여기가 그거 어우 책상 없으니까 너무 힘들다   // 게임아이디를 뜯어서
     this.state.SearchData.push(userGames);
 
+    if (this.state.SearchData != undefined) console.log("왜안되는걸까요");
     for (let a = 0; a <= userGames.length - 1; a++) {
       //배열 슥 보고 안에 내용 알맞게 적어주기   이걸 div랑 css로 꾸며서 출력해주고 안에 다시 팀적 코드 따서 돌려주기
       console.log(
@@ -1031,9 +1081,10 @@ class Search_User extends Component {
           this.state.characterNumArr[userGames[a].characterNum] +
           "//////////////////"
       );
-      //여기 첫배열 뒤에부분에 원하는거 적으면 나옴
+      //여기 첫배열 뒤에부분에 원하는거 적으면 나옴 여기서부터 div로 작성
       console.log("순위 : " + userGames[a].gameRank + "여기맞지?");
       console.log("킬수 : " + userGames[a].playerKill);
+
       console.log("어시 : " + userGames[a].playerAssistant);
       console.log("데스 : " + userGames[a].playerDeaths);
       console.log("딜량 : " + userGames[a].damageToPlayer);
@@ -1057,10 +1108,13 @@ class Search_User extends Component {
       console.log("");
       console.log("");
     }
+
     cnt++;
-    if (cnt < 3) this.passaa(Nic, next, cnt);
+
+    if (cnt < 1) this.passaa(Nic, next, cnt);
     else console.log("끝");
     this.conlog();
+    this.makeDiv();
   };
 
   pass = () => {
@@ -1080,33 +1134,7 @@ class Search_User extends Component {
     });
     console.log(res);
   };
-  pass2 = async () => {
-    const url0 = "https://open-api.bser.io/v1/user/nickname?query=사텐";
-    const url = "https://open-api.bser.io/v1/user/nickname?query=mohai"; //닉넴으로 서치
-    const urlUserNum = "https://open-api.bser.io/v1/user/games/2604769";
-    const url4 = "https://open-api.bser.io/v1/games/19102821"; //게임모두? 잠깐대기
-    const url6 = "https://open-api.bser.io/v1/weaponRoutes/recommend/532117"; ////특성
-    const url7 = "https://open-api.bser.io/v1/data/Emotion";
 
-    const abc = axios.get(url6, {
-      //기본형
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": this.state.API_KEY,
-      },
-    });
-    console.log(abc);
-    /////여기서부터  쿼리문에 닉네임을 통해 userNum을 뜯어서 param을 써서 한 번 더 돌려 유저데이터 출력 예정
-
-    //   const url8 = `https://open-api.bser.io/v1/games/${userGames[1].gameId}`;
-    //   const res = await axios.get(url8, {
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       "x-api-key": this.state.API_KEY,
-    //     },
-    //   });
-    //   console.log(res);
-  };
   getMovies2 = async () => {
     //나를 도와준 착한 블로그야
     const {
@@ -1116,19 +1144,69 @@ class Search_User extends Component {
     } = await axios.get("https://yts-proxy.now.sh/list_movies.json");
     console.log(movies);
   };
-  makeDiv = (SearchData) => {
-    this.setState({ abc: "홀리몰리" });
-
-    // <img
-    //       src={`./image/item/Weapon/${this.state.SearchData[0][0].equipment[0]}.png`}
-    //     />
+  makeDiv = () => {
+    console.log("아잇싯팔");
+    this.setState({ abc: "b" });
   };
+
   render() {
     return (
       <div className="Search_User">
-        <div onClick={() => this.masterkey()}>asd</div>
-        <div onClick={() => this.makeDiv()}>asd</div>
-        <div id="plusDIv" className="plusDiv"></div>
+        {this.state.abc != "a" ? (
+          this.state.SearchData.map((abc, xxx) =>
+            abc.map((xx, cc) => {
+              return (
+                <div>
+                  <div>
+                    {console.log(xx.equipment[5])}
+                    <img
+                      className="ItemIcon"
+                      src={`/image/Item/Weapon/${xx.equipment[0]}.png`}
+                    />
+                    <img
+                      className="ItemIcon"
+                      src={`/image/Item/Chest/${xx.equipment[1]}.png`}
+                    />
+                    <img
+                      className="ItemIcon"
+                      src={`/image/Item/Head/${xx.equipment[2]}.png`}
+                    />
+                    <img
+                      className="ItemIcon"
+                      src={`/image/Item/Arm/${xx.equipment[3]}.png`}
+                    />
+                    <img
+                      className="ItemIcon"
+                      src={`/image/Item/Leg/${xx.equipment[4]}.png`}
+                    />
+                    <img
+                      className="ItemIcon"
+                      src={`/image/Item/Accessory/${xx.equipment[5]}.png`}
+                    />
+                  </div>
+                  <div>
+                    <div>
+                      <img
+                        src={`/image/Character_Img/${
+                          this.state.CharacterArr[xx.characterNum][1]
+                        }/Thumbnail/Default/Mini.png`}
+                      />
+                      {xx.gameRank}
+                    </div>
+                  </div>
+                </div>
+              );
+            })
+          )
+        ) : (
+          <h1>loading...</h1>
+        )}
+        <div onClick={() => this.makeDiv()}>메이크디비</div>
+
+        <div id="GameRecord">
+          <div></div>
+          <div></div>
+        </div>
       </div>
     );
   }

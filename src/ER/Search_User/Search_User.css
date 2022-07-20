@@ -1,3 +1,11 @@
 .Search_User{
-    margin: 60px;
+    width: 1920px;
+    margin-top:  60px;
+    background-color: red;
+    text-align: center;
+
+}
+
+.ItemIcon{
+    width:20px;
 }

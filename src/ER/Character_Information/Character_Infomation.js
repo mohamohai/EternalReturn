@@ -848,7 +848,7 @@ class Character_Infomation extends Component {
                   >
                     <img
                       className="ThunbnailIcon"
-                      src={`image/Character_Img/${arrSort[1]}/Thumbnail/Default/Mini.png`}
+                      src={`/image/Character_Img/${arrSort[1]}/Thumbnail/Default/Mini.png`}
                     />
                     <li>{arrSort[0]}</li>
                   </div>
@@ -860,7 +860,7 @@ class Character_Infomation extends Component {
           <div id="SkillInfo">
             <img
               id="SkillGif"
-              src={`image/Character_Img/${this.state.Character_NameE}/SkillIconGif/${this.state.ClickSkill}.gif`}
+              src={`/image/Character_Img/${this.state.Character_NameE}/SkillIconGif/${this.state.ClickSkill}.gif`}
             />
             <div>
               <ul id="SkillIcon">
@@ -869,7 +869,7 @@ class Character_Infomation extends Component {
                     id="SkillPImg"
                     className="SkillBtn"
                     onClick={this.ClickP}
-                    src={`image/Character_Img/${this.state.Character_NameE}/SkillIcon/P.png`}
+                    src={`/image/Character_Img/${this.state.Character_NameE}/SkillIcon/P.png`}
                   />
                 </li>
                 <li>
@@ -877,7 +877,7 @@ class Character_Infomation extends Component {
                     id="SkillQImg"
                     className="SkillBtn"
                     onClick={this.ClickQ}
-                    src={`image/Character_Img/${this.state.Character_NameE}/SkillIcon/Q.png`}
+                    src={`/image/Character_Img/${this.state.Character_NameE}/SkillIcon/Q.png`}
                   />
                 </li>
                 <li>
@@ -885,7 +885,7 @@ class Character_Infomation extends Component {
                     id="SkillWImg"
                     className="SkillBtn"
                     onClick={this.ClickW}
-                    src={`image/Character_Img/${this.state.Character_NameE}/SkillIcon/W.png`}
+                    src={`/image/Character_Img/${this.state.Character_NameE}/SkillIcon/W.png`}
                   />
                 </li>
                 <li>
@@ -893,7 +893,7 @@ class Character_Infomation extends Component {
                     id="SkillEImg"
                     className="SkillBtn"
                     onClick={this.ClickE}
-                    src={`image/Character_Img/${this.state.Character_NameE}/SkillIcon/E.png`}
+                    src={`/image/Character_Img/${this.state.Character_NameE}/SkillIcon/E.png`}
                   />
                 </li>
                 <li>
@@ -901,7 +901,7 @@ class Character_Infomation extends Component {
                     id="SkillRImg"
                     className="SkillBtn"
                     onClick={this.ClickR}
-                    src={`image/Character_Img/${this.state.Character_NameE}/SkillIcon/R.png`}
+                    src={`/image/Character_Img/${this.state.Character_NameE}/SkillIcon/R.png`}
                   />
                 </li>
               </ul>

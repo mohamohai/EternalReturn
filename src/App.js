@@ -36,7 +36,6 @@ class App extends Component {
             />
             <Route path="/Search_User" element={<Search_User />} />
             <Route path="/Search_User/:NickName" element={<Search_User />} />
-
             <Route path="/Record" element={<Record />} />
           </Routes>
         </BrowserRouter>
