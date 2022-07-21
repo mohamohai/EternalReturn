@@ -52,7 +52,7 @@ class GNB extends Component {
           </li>
           <form action="/Search_User/">
             <input
-              className=""
+              className="SearchBox"
               type="text"
               name="NickName"
               maxLength="30"

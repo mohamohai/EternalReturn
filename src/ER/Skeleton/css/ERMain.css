@@ -1,19 +1,11 @@
 #ERMain{
     width: 1920px;
-    margin-top: 50px;
-    padding-top: 50px;
-    margin: 0;
     height: 80vh;
-    background: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0) 10%,
-        rgba(255, 255, 255, 0.25) 25%,
-        rgba(255, 255, 255, 0.5) 50%,
-        rgba(255, 255, 255, 0.75) 75%,
-        rgba(255, 255, 255, 1) 100%
-        ), url("../image/Main/Season3.png");
-    background-size: cover;
+    margin-top: 60px;
+    padding-top: 50px;
+    transition: all 1s;
       }
+
 .SearchNickNameBox{
     position: absolute;
     left: 660px; 

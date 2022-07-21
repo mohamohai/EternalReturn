@@ -29,8 +29,11 @@
                margin : 0 auto; padding: 0px;
                font-family: 'SpoqaHanSansNeo-Bold';
                list-style: none;  
-               text-decoration: none;     
-               
+               text-decoration: none;                   
+}
+
+::-webkit-scrollbar{
+    display:none;
 }
 a:link {
    color : black; 
@@ -56,20 +59,23 @@ a :visited{color:black}
 }
 .GNB{
     position: fixed; top: 0px; left: 0px;
-    width: 100vw;
+    width: 1920px;
     height: 60px; 
     background-color: black;
     font-size: 17px;
-   
+    overflow-y: hidden;
 }
 .GNB img{
     width: 100px;
     float: left;
     padding: 3px 0 3px 20px;
 }
+.GNB li{
+    float:left;
+}
 
 .GNB_LeftMenu{
-
+    float:left;
 }
 .GNB_LeftMenu li{
     float:left;
@@ -81,7 +87,7 @@ a :visited{color:black}
 }
 
 .GNB_RightMenu{
-
+    margin-right: 10px;
 
 }
 .GNB_RightMenu li{
@@ -95,4 +101,9 @@ a :visited{color:black}
 
 .clear{
     clear: both;
+}
+
+.SearchBox{
+    position: absolute;
+    margin-top: 18px;
 }

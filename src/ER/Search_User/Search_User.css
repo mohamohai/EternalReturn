@@ -1,11 +1,38 @@
 .Search_User{
     width: 1920px;
     margin-top:  60px;
-    background-color: red;
     text-align: center;
+}
 
+
+.CharThum{
+    width: 60px;
+    border-radius: 20px;
+    
+}
+
+
+.GameRecord{
+    text-align: center;
+    width: 1200px;
+    height: 150px;
+    margin-top: 20px;
+    text-align: left;
+}
+.GameRecord h2{
+    float:left
+}
+.GameRecordLeft{
+    float:left; 
+}
+
+
+.GameRecordRight{
+    margin-left: 200px;
+    float:left; 
 }
 
 .ItemIcon{
-    width:20px;
+    width:40px;
+   
 }

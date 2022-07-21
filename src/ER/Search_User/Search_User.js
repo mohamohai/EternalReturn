@@ -22,7 +22,9 @@ class Search_User extends Component {
       damageToPlayer: "", // 현게임 총딜량
       bestWeapon: "", // 무숙
       skillLevelInfo: "", // 스킬별 레벨B
-      skillOrderInfo: "", // 스킬 찍은 순서
+      skillOrderInfo: "", // 스킬 찍은 순서  //함수로 다시 배열 어딘가에 쏘옥 하고 넣엉
+      skillOrderInfoArr: [],
+
       routeIdOfStart: "", // 루트 번호
       matchingMode: "", //플레이한 게임 모드 2,3,6  노말 랭크 코발
       equipment: "", // 사용 아이템 6배열 좌상우하순서
@@ -85,6 +87,7 @@ class Search_User extends Component {
         ["아디나", "Adina"],
         ["마커스", "Markus"],
         ["칼라", "Karla"],
+        ["에스텔", "Estelle"],
       ],
       characterNumArr: [
         "캐릭터이름",
@@ -1054,9 +1057,9 @@ class Search_User extends Component {
     console.log(userNum);
     let urlUserNumt = "";
     if (cnt == 0) {
-      urlUserNumt = `https://open-api.bser.io/v1/user/games/${userNum}`;
+      urlUserNumt = `https://open-api.bser.io/v1/user/games/2604769`;
     } else {
-      urlUserNumt = `https://open-api.bser.io/v1/user/games/${userNum}?next=${nexta}`;
+      urlUserNumt = `https://open-api.bser.io/v1/user/games/2604769?next=${nexta}`;
     }
     console.log(urlUserNumt);
     let {
@@ -1149,6 +1152,13 @@ class Search_User extends Component {
     this.setState({ abc: "b" });
   };
 
+  OrderInfoArr = (inputArr) => {
+    for (let a = 1; a <= 25; a++) {
+      if (inputArr[a] === undefined) {
+        break;
+      } else console.log(inputArr[a]);
+    }
+  };
   render() {
     return (
       <div className="Search_User">
@@ -1156,43 +1166,54 @@ class Search_User extends Component {
           this.state.SearchData.map((abc, xxx) =>
             abc.map((xx, cc) => {
               return (
-                <div>
+                <div className="GameRecord">
+                  <h2>{xx.gameRank}</h2>
                   <div>
-                    {console.log(xx.equipment[5])}
-                    <img
-                      className="ItemIcon"
-                      src={`/image/Item/Weapon/${xx.equipment[0]}.png`}
-                    />
-                    <img
-                      className="ItemIcon"
-                      src={`/image/Item/Chest/${xx.equipment[1]}.png`}
-                    />
-                    <img
-                      className="ItemIcon"
-                      src={`/image/Item/Head/${xx.equipment[2]}.png`}
-                    />
-                    <img
-                      className="ItemIcon"
-                      src={`/image/Item/Arm/${xx.equipment[3]}.png`}
-                    />
-                    <img
-                      className="ItemIcon"
-                      src={`/image/Item/Leg/${xx.equipment[4]}.png`}
-                    />
-                    <img
-                      className="ItemIcon"
-                      src={`/image/Item/Accessory/${xx.equipment[5]}.png`}
-                    />
-                  </div>
-                  <div>
-                    <div>
-                      <img
-                        src={`/image/Character_Img/${
-                          this.state.CharacterArr[xx.characterNum][1]
-                        }/Thumbnail/Default/Mini.png`}
-                      />
-                      {xx.gameRank}
+                    <div className="GameRecordLeft">
+                      <div className="left">
+                        {console.log(xx.characterNum)}
+                        <img
+                          className="CharThum"
+                          src={`/image/Character_Img/${
+                            this.state.CharacterArr[xx.characterNum][1]
+                          }/Thumbnail/Default/Mini.png`}
+                        />
+                        <br></br>
+                      </div>
+                      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                      {xx.playerKill}&nbsp; &nbsp; &nbsp;
+                      {xx.playerDeaths}&nbsp; &nbsp; &nbsp;
+                      {xx.playerAssistant}
+                      <br></br>
+                      {this.OrderInfoArr(xx.skillOrderInfo)}
                     </div>
+                    <span className="GameRecordRight">
+                      <img
+                        className="ItemIcon"
+                        src={`/image/Item/Weapon/${xx.equipment[0]}.png`}
+                      />
+                      <img
+                        className="ItemIcon"
+                        src={`/image/Item/Chest/${xx.equipment[1]}.png`}
+                      />
+                      <img
+                        className="ItemIcon"
+                        src={`/image/Item/Head/${xx.equipment[2]}.png`}
+                      />
+                      <br></br>
+                      <img
+                        className="ItemIcon"
+                        src={`/image/Item/Arm/${xx.equipment[3]}.png`}
+                      />
+                      <img
+                        className="ItemIcon"
+                        src={`/image/Item/Leg/${xx.equipment[4]}.png`}
+                      />
+                      <img
+                        className="ItemIcon"
+                        src={`/image/Item/Accessory/${xx.equipment[5]}.png`}
+                      />
+                    </span>
                   </div>
                 </div>
               );
