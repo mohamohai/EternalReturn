@@ -1,18 +1,18 @@
-.Search_User{
+.Search_User {
     width: 1920px;
-    margin-top:  80px;
+    margin-top: 80px;
     text-align: center;
 }
 
 
-.CharThum{
+.CharThum {
     width: 60px;
     border-radius: 20px;
-    
+
 }
 
 
-.GameRecord{
+.GameRecord {
     width: 800px;
     height: 120px;
     margin-top: 20px;
@@ -21,56 +21,98 @@
     text-align: left;
 
 }
-.GameRecord h2{
-    float:left
+
+.GameRecord h2 {
+    float: left
 }
-.GameRecordLeft{
-    float:left; 
+
+.GameRecordLeft {
+    float: left;
 }
-.GameRecordWinLose{
+
+.GameRecordWinLose {
     width: 70px;
-    margin-left: 10px;    
+    margin-left: 10px;
 }
-.GameRecordWinLose div{
-   
-}
-.GameDetail{
+
+.GameRecordWinLose div {}
+
+.GameDetail {
     margin: 20px;
-    float:left;
-    
+    float: left;
+
 }
-.GameDetail ul li{
+
+.GameDetail ul li {
     width: 45px;
     height: 20px;
     float: left;
     text-align: center;
 }
+
 .GameDetailEx li {
     font-size: 15px;
 }
 
-.GameRecordRight{
+.GameRecordRight {
     margin-left: 200px;
-    float:left; 
+    float: left;
     margin-top: 20px;
 }
 
-.ItemIcon{
-    width:45px;
-   
+.ItemIcon {
+    width: 45px;
+
 
 }
-.ItemTier1{ background: linear-gradient( to bottom,        rgba(255, 255, 255, 0) 10%,        rgba(255, 255, 255, 0.25) 25%,        rgba(255, 255, 255, 0.5) 50%,        rgba(255, 255, 255, 0.75) 75%,        rgba(255, 255, 255, 1) 100%        )   ;}
-.ItemTier2{ background: linear-gradient( to bottom,        rgba(255, 255, 255, 0) 10%,        rgba(255, 255, 255, 0.25) 25%,        rgba(255, 255, 255, 0.5) 50%,        rgba(255, 255, 255, 0.75) 75%,        rgba(255, 255, 255, 1) 100%        )   ;}
-.ItemTier3{ background: linear-gradient( to bottom,        rgba(99, 63, 255, 0) 10%,        rgba(255, 255, 255, 0.25) 25%,        rgba(255, 255, 255, 0.5) 50%,        rgba(120, 120, 120, 0.75) 75%,        rgb(45, 45, 45) 100%        )   ;}
-.ItemTier4{ background: linear-gradient( to bottom,        rgba(255, 255, 255, 0) 10%,        rgba(255, 255, 255, 0.25) 25%,        rgba(255, 255, 255, 0.5) 50%,        rgba(255, 255, 255, 0.75) 75%,        rgba(255, 255, 255, 1) 100%        )   ;}
-.ItemTier5{ background: linear-gradient( to bottom,        rgba(255, 255, 255, 0) 10%,        rgba(255, 255, 255, 0.25) 25%,        rgba(255, 255, 255, 0.5) 50%,        rgba(255, 255, 255, 0.75) 75%,        rgba(255, 255, 255, 1) 100%        )   ;}
 
-
-.GameRecordUnder{
- font-size: 12px;
+.ItemTier1 {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.75) 75%, rgba(255, 255, 255, 1) 100%);
 }
-.GameRecordRoute{
+
+.ItemTier2 {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.75) 75%, rgba(255, 255, 255, 1) 100%);
+}
+
+.ItemTier3 {
+    background: linear-gradient(to bottom, rgba(99, 63, 255, 0) 10%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0.5) 50%, rgba(120, 120, 120, 0.75) 75%, rgb(45, 45, 45) 100%);
+}
+
+.ItemTier4 {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.75) 75%, rgba(255, 255, 255, 1) 100%);
+}
+
+.ItemTier5 {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.75) 75%, rgba(255, 255, 255, 1) 100%);
+}
+
+
+.ItemTier1 {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.75) 75%, rgba(255, 255, 255, 1) 100%);
+}
+
+.ItemTier2 {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.75) 75%, rgba(255, 255, 255, 1) 100%);
+}
+
+.ItemTier3 {
+    background: linear-gradient(to bottom, 10%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0.5) 50%, rgba(120, 120, 120, 0.75) 75%, rgb(45, 45, 45) 100%);
+}
+
+.ItemTier4 {
+    background: linear-gradient(to bottom, rgba(217, 0, 255, 0) 10%, rgba(217, 0, 255, 0.25) 25%, rgba(217, 0, 255, 0.5) 50%, rgba(217, 0, 255, 0.75) 75%, rgba(217, 0, 255, 1) 100%);
+}
+
+.ItemTier5 {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.75) 75%, rgba(255, 255, 255, 1) 100%);
+}
+
+
+.GameRecordUnder {
+    font-size: 12px;
+}
+
+.GameRecordRoute {
     margin: 10px 0 0 10px;
-    font-size:7px
+    font-size: 7px
 }
