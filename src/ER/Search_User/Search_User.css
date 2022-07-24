@@ -62,49 +62,31 @@
 
 .ItemIcon {
     width: 45px;
-
-
+    z-index: 10;
 }
 
-.ItemTier1 {
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.75) 75%, rgba(255, 255, 255, 1) 100%);
-}
 
-.ItemTier2 {
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.75) 75%, rgba(255, 255, 255, 1) 100%);
-}
 
-.ItemTier3 {
-    background: linear-gradient(to bottom, rgba(99, 63, 255, 0) 10%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0.5) 50%, rgba(120, 120, 120, 0.75) 75%, rgb(45, 45, 45) 100%);
-}
+
 
 .ItemTier4 {
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.75) 75%, rgba(255, 255, 255, 1) 100%);
+    background: linear-gradient(to bottom, rgba(78, 44, 120, 0.9) 5%, rgba(78, 44, 120, 0.8) 20%, rgba(78, 44, 120, 0.7) 40%, rgba(78, 44, 120, 0.6) 65%, rgba(78, 44, 120, 0.55) 80%);
 }
+
+.ItemTier5 {}
 
 .ItemTier5 {
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.75) 75%, rgba(255, 255, 255, 1) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 10%, rgba(0, 0, 0, 0.15) 25%, rgba(0, 0, 0, 0.10) 50%, rgba(0, 0, 0, 0.05) 75%, rgba(0, 0, 0, 0.0) 100%);
+
 }
 
-
-.ItemTier1 {
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.75) 75%, rgba(255, 255, 255, 1) 100%);
-}
-
-.ItemTier2 {
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.75) 75%, rgba(255, 255, 255, 1) 100%);
-}
-
-.ItemTier3 {
-    background: linear-gradient(to bottom, 10%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0.5) 50%, rgba(120, 120, 120, 0.75) 75%, rgb(45, 45, 45) 100%);
-}
-
-.ItemTier4 {
-    background: linear-gradient(to bottom, rgba(217, 0, 255, 0) 10%, rgba(217, 0, 255, 0.25) 25%, rgba(217, 0, 255, 0.5) 50%, rgba(217, 0, 255, 0.75) 75%, rgba(217, 0, 255, 1) 100%);
-}
-
-.ItemTier5 {
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.75) 75%, rgba(255, 255, 255, 1) 100%);
+.testbox {
+    z-index: 3;
+    width: 45px;
+    height: 25px;
+    position: relative;
+    top: 25px;
+    background-color: rgba(217, 169, 48, 0.7)
 }
 
 

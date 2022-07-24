@@ -1441,11 +1441,15 @@ class Search_User extends Component {
     }
     console.log(TierArr)
     return(<div>
+      <div
+      className="testbox ItemIcon"></div>
       <img
       className={`ItemIcon ItemTier${TierArr[0].ItemTier}`}
       src={`/image/Item/Weapon/${TierArr[0].ItemCode}.png`}
         >
       </img>
+      
+      
       <img
       className={`ItemIcon ItemTier${TierArr[1].ItemTier}`}
       src={`/image/Item/Chest/${TierArr[1].ItemCode}.png`}
@@ -1515,31 +1519,7 @@ class Search_User extends Component {
                         xx.equipment[4],
                         xx.equipment[5]
                       )}
-                      <img
-                        className={`ItemIcon ItemTier3`}
-                        src={`/image/Item/Weapon/${xx.equipment[0]}.png`}
-                      />
-                      <img
-                        className="ItemIcon"
-                        src={`/image/Item/Chest/${xx.equipment[1]}.png`}
-                      />
-                      <img
-                        className="ItemIcon"
-                        src={`/image/Item/Hat/${xx.equipment[2]}.png`}
-                      />
-                      <br></br>
-                      <img
-                        className="ItemIcon"
-                        src={`/image/Item/Arm/${xx.equipment[3]}.png`}
-                      />
-                      <img
-                        className="ItemIcon"
-                        src={`/image/Item/Leg/${xx.equipment[4]}.png`}
-                      />
-                      <img
-                        className="ItemIcon"
-                        src={`/image/Item/Accessory/${xx.equipment[5]}.png`}
-                      />
+                      
                     </div>
                   </div>
                   <div className="clear"></div>
