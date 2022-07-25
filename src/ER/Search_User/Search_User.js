@@ -526,6 +526,7 @@ class Search_User extends Component {
         { ItemCode: 131507, ItemName: "슈퍼사이드와인더-ML", ItemTier: 5 },
         { ItemCode: 131508, ItemName: "슈퍼사이드와인더-FC", ItemTier: 5 },
         { ItemCode: 131509, ItemName: "슈퍼사이드와인더-VBS", ItemTier: 5 },
+        
       ],
       HatEquipmentArr: [
         { ItemCode: 201101, ItemName: "머리띠", ItemTier: 1 },
@@ -557,6 +558,7 @@ class Search_User extends Component {
         { ItemCode: 201501, ItemName: "천사의 고리", ItemTier: 5 },
         { ItemCode: 201502, ItemName: "빛의 증표", ItemTier: 5 },
         { ItemCode: 701451, ItemName: "사이버네틱 바이저", ItemTier: 5 },
+        { ItemCode: "empty",   ItemName: "empty", ItemTier: 0 },
       ],
       ChestEquipmentArr: [
         { ItemCode: 202101, ItemName: "바람막이", ItemTier: 1 },
@@ -606,6 +608,7 @@ class Search_User extends Component {
         { ItemCode: 702503, ItemName: "성법의Mk-2", ItemTier: 5 },
         { ItemCode: 202504, ItemName: "버건디 47", ItemTier: 5 },
         { ItemCode: 202505, ItemName: "아오자이", ItemTier:5},
+        { ItemCode: "empty",   ItemName: "empty", ItemTier: 0 },
         //찾  //마이템이랑 없네
       ],
       ArmEquipmentArr: [
@@ -641,6 +644,7 @@ class Search_User extends Component {
         { ItemCode: 203502, ItemName: "레이더", ItemTier: 4 },
         { ItemCode: 203503, ItemName: "오토-암즈", ItemTier: 5 },
         { ItemCode: 203504, ItemName: "프로미넌스", ItemTier: 5 },
+        { ItemCode: "empty",   ItemName: "empty", ItemTier: 0 },
       ],
       LegEquipmentArr: [
         { ItemCode: 204101, ItemName: "슬리퍼", ItemTier: 1 },
@@ -669,7 +673,7 @@ class Search_User extends Component {
         { ItemCode: 204413, ItemName: "탭루트", ItemTier: 45 },
         { ItemCode: 204501, ItemName: "헤르메스의 부츠", ItemTier: 45 },
         { ItemCode: 204502, ItemName: "분홍신", ItemTier: 45 },
-
+        { ItemCode: "empty",   ItemName: "empty", ItemTier: 0 },
         //찾   아이젠
       ],
       AccessoryEquipmentArr: [
@@ -726,6 +730,7 @@ class Search_User extends Component {
         { ItemCode: 705504, ItemName: "쿤달라", ItemTier: 5 },
         { ItemCode: 705601, ItemName: "미니어쳐솔라시스템", ItemTier: 6 },
         { ItemCode: 705602, ItemName: "코발트블루", ItemTier: 6 },
+        { ItemCode: "empty",   ItemName: "empty", ItemTier: 0 },
       ],
       equipmentArr: [
         //배열을 장비위치나 재료별로 종류별로 세팅해서 맵을 최대한 적게 돌리게끔 설정?
@@ -1427,8 +1432,11 @@ class Search_User extends Component {
         TierArr.push(this.state.HatEquipmentArr[a])
     }
     for (let a = 0; a < this.state.ArmEquipmentArr.length; a++) {
-      if (Arm == this.state.ArmEquipmentArr[a].ItemCode)
-      TierArr.push(this.state.ArmEquipmentArr[a])
+      if (Arm == this.state.ArmEquipmentArr[a].ItemCode){
+        TierArr.push(this.state.ArmEquipmentArr[a])
+        break;
+      }else  if(a==this.state.ArmEquipmentArr.length-1)TierArr.push(this.state.ArmEquipmentArr[a])
+      
     }
     for (let a = 0; a < this.state.LegEquipmentArr.length; a++) {
       if (Leg == this.state.LegEquipmentArr[a].ItemCode)
@@ -1441,8 +1449,7 @@ class Search_User extends Component {
     }
     console.log(TierArr)
     return(<div>
-      <div
-      className="testbox ItemIcon"></div>
+     
       <img
       className={`ItemIcon ItemTier${TierArr[0].ItemTier}`}
       src={`/image/Item/Weapon/${TierArr[0].ItemCode}.png`}
