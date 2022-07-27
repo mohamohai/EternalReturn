@@ -823,6 +823,7 @@ class Character_Infomation extends Component {
       ["아디나", "Adina"],
       ["마커스", "Markus"],
       ["칼라", "Karla"],
+      ["에스텔","Estelle"]
     ];
 
     let CharacterSort = Character.sort();

@@ -30,6 +30,10 @@ class Search_User extends Component {
       equipment: "", // 사용 아이템 6배열 좌상우하순서
       next: 1,
       abc: "a",
+
+      nexta: 0,
+      PlusUserNum: 0,
+      PlusNext:0,
       TierArr : [3],
       CharacterArr: [
         ["한글", "영어"],
@@ -89,7 +93,7 @@ class Search_User extends Component {
         ["아디나", "Adina"],
         ["마커스", "Markus"],
         ["칼라", "Karla"],
-        ["에스텔", "Rozzi"],
+        ["에스텔", "Estelle"],
         ["", "Estelle"],
         ["", ""],
         ["", ""],
@@ -557,7 +561,7 @@ class Search_User extends Component {
         { ItemCode: 201414, ItemName: "다이아뎀", ItemTier: 4 },
         { ItemCode: 201501, ItemName: "천사의 고리", ItemTier: 5 },
         { ItemCode: 201502, ItemName: "빛의 증표", ItemTier: 5 },
-        { ItemCode: 701451, ItemName: "사이버네틱 바이저", ItemTier: 5 },
+        { ItemCode: 701451, ItemName: "택티컬 바이저", ItemTier: 6 },
         { ItemCode: "empty",   ItemName: "empty", ItemTier: 0 },
       ],
       ChestEquipmentArr: [
@@ -608,6 +612,7 @@ class Search_User extends Component {
         { ItemCode: 702503, ItemName: "성법의Mk-2", ItemTier: 5 },
         { ItemCode: 202504, ItemName: "버건디 47", ItemTier: 5 },
         { ItemCode: 202505, ItemName: "아오자이", ItemTier:5},
+        { ItemCode: 202601, ItemName: "이단심판관", ItemTier:6},
         { ItemCode: "empty",   ItemName: "empty", ItemTier: 0 },
         //찾  //마이템이랑 없네
       ],
@@ -1015,7 +1020,8 @@ class Search_User extends Component {
         "x-api-key": this.state.API_KEY,
       },
     });
-    console.log(userNum);
+    
+   
     const urlUserNumt = `https://open-api.bser.io/v1/user/games/${userNum}`;
     let urlUserNumtt = `https://open-api.bser.io/v1/user/games/${userNum}?next=19488020`;
     let {
@@ -1082,6 +1088,7 @@ class Search_User extends Component {
       },
     }); //유저넘버를 긁음
     console.log(userNum);
+    this.setState({PlusUserNum:userNum})
     let urlUserNumt = "";
     if (cnt == 0) {
       urlUserNumt = `https://open-api.bser.io/v1/user/games/${userNum}`;
@@ -1100,6 +1107,7 @@ class Search_User extends Component {
     });
 
     console.log(next);
+    this.setState({PlusNext:next})
     console.log(userGames); //여기가 그거 어우 책상 없으니까 너무 힘들다   // 게임아이디를 뜯어서
     this.state.SearchData.push(userGames);
 
@@ -1141,8 +1149,73 @@ class Search_User extends Component {
 
     cnt++;
 
-    if (cnt < 1) this.passaa(Nic, next, cnt);
-    else console.log("끝");
+   // if (cnt < 1) this.passaa(Nic, next, cnt);
+    //else console.log("끝");
+    this.conlog();
+    this.makeDiv();
+  };
+
+  PlusSearch = async (Nic, nexta, cnt) => {
+    
+    
+    let urlUserNumt = `https://open-api.bser.io/v1/user/games/${this.state.PlusUserNum}?next=${this.state.PlusNext}`;
+ 
+    console.log(urlUserNumt);
+    let {
+      data: { userGames },
+      data: { next },
+    } = await axios.get(urlUserNumt, {
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": this.state.API_KEY,
+      },
+    });
+
+    this.setState({PlusNext:next})
+   console.log(userGames)
+    console.log(userGames); //여기가 그거 어우 책상 없으니까 너무 힘들다   // 게임아이디를 뜯어서
+    this.state.SearchData.push(userGames);
+
+    if (this.state.SearchData != undefined) console.log("왜안되는걸까요");
+    for (let a = 0; a <= userGames.length - 1; a++) {
+      //배열 슥 보고 안에 내용 알맞게 적어주기   이걸 div랑 css로 꾸며서 출력해주고 안에 다시 팀적 코드 따서 돌려주기
+      console.log(
+        "캐릭 : " +
+          this.state.characterNumArr[userGames[a].characterNum] +
+          "//////////////////"
+      );
+      //여기 첫배열 뒤에부분에 원하는거 적으면 나옴 여기서부터 div로 작성
+      console.log("순위 : " + userGames[a].gameRank + "여기맞지?");
+      console.log("킬수 : " + userGames[a].playerKill);
+
+      console.log("어시 : " + userGames[a].playerAssistant);
+      console.log("데스 : " + userGames[a].playerDeaths);
+      console.log("딜량 : " + userGames[a].damageToPlayer);
+      console.log("무숙 : " + userGames[a].bestWeapon);
+      // console.log(userGames[a].skillLevelInfo);
+      // console.log(userGames[a].skillOrderInfo);
+
+      console.log("무기 : " + userGames[a].equipment[0]);
+      this.WeaponSearch(userGames[a].equipment[0]);
+      console.log("상의 : " + userGames[a].equipment[1]);
+      this.ChestEquipmentSearch(userGames[a].equipment[1]);
+      console.log("모자 : " + userGames[a].equipment[2]);
+      this.HatEquipmentSearch(userGames[a].equipment[2]);
+      console.log("팔 : " + userGames[a].equipment[3]);
+      this.ArmEquipmentSearch(userGames[a].equipment[3]);
+      console.log("신발 : " + userGames[a].equipment[4]);
+      this.ShoesEquipmentSearch(userGames[a].equipment[4]);
+      console.log("악세 : " + userGames[a].equipment[5]);
+      this.AccessoryEquipmentSearch(userGames[a].equipment[5]); //여기 추가값
+
+      console.log("");
+      console.log("");
+    }
+
+    cnt++;
+
+   // if (cnt < 1) this.passaa(Nic, next, cnt);
+    //else console.log("끝");
     this.conlog();
     this.makeDiv();
   };
@@ -1424,12 +1497,17 @@ class Search_User extends Component {
 
 
     for (let a = 0; a < this.state.ChestEquipmentArr.length; a++) {
-      if (Chest == this.state.ChestEquipmentArr[a].ItemCode)
-      TierArr.push(this.state.ChestEquipmentArr[a])
+      if (Chest == this.state.ChestEquipmentArr[a].ItemCode){
+      TierArr.push(this.state.ChestEquipmentArr[a]) 
+      break;
+    }else  if(a==this.state.ChestEquipmentArr.length-1)TierArr.push(this.state.ChestEquipmentArr[a])
+      
     }
     for (let a = 0; a < this.state.HatEquipmentArr.length; a++) {
-      if (Hat == this.state.HatEquipmentArr[a].ItemCode) 
+      if (Hat == this.state.HatEquipmentArr[a].ItemCode) {
         TierArr.push(this.state.HatEquipmentArr[a])
+        break;
+      }else  if(a==this.state.HatEquipmentArr.length-1)TierArr.push(this.state.ArmEquipmentArr[a])
     }
     for (let a = 0; a < this.state.ArmEquipmentArr.length; a++) {
       if (Arm == this.state.ArmEquipmentArr[a].ItemCode){
@@ -1439,20 +1517,25 @@ class Search_User extends Component {
       
     }
     for (let a = 0; a < this.state.LegEquipmentArr.length; a++) {
-      if (Leg == this.state.LegEquipmentArr[a].ItemCode)
+      if (Leg == this.state.LegEquipmentArr[a].ItemCode){
       TierArr.push(this.state.LegEquipmentArr[a])
+      break;
+    }else  if(a==this.state.LegEquipmentArr.length-1)TierArr.push(this.state.LegEquipmentArr[a])
     }
     for (let a = 0; a < this.state.AccessoryEquipmentArr.length; a++) {
       if (Accessory == this.state.AccessoryEquipmentArr[a].ItemCode) {
         TierArr.push(this.state.AccessoryEquipmentArr[a])
+        break;
+      }else  if(a==this.state.AccessoryEquipmentArr.length-1)TierArr.push(this.state.AccessoryEquipmentArr[a])
       }
-    }
+    
     console.log(TierArr)
     return(<div>
      
       <img
       className={`ItemIcon ItemTier${TierArr[0].ItemTier}`}
       src={`/image/Item/Weapon/${TierArr[0].ItemCode}.png`}
+      
         >
       </img>
       
@@ -1543,6 +1626,7 @@ class Search_User extends Component {
           <h1>loading...</h1>
         )}
         <div onClick={() => this.makeDiv()}>메이크디비</div>
+        <div onClick={() => this.PlusSearch()}>플러스 플러스</div>
 
         <div id="GameRecord">
           <div></div>

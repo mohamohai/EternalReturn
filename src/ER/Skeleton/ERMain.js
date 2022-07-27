@@ -18,13 +18,16 @@ class ERMain extends Component {
   };
   render() {
     return (
-      <div
+      <div 
         id="ERMain"
         style={{
-          width: "1920px",
+          width: "100vw",
           height: "80vh",
           background: `linear-gradient( to bottom,        rgba(255, 255, 255, 0) 10%,        rgba(255, 255, 255, 0.25) 25%,        rgba(255, 255, 255, 0.5) 50%,        rgba(255, 255, 255, 0.75) 75%,        rgba(255, 255, 255, 1) 100%        ), url('/image/Main/${this.state.backgroundImg}.png')   `,
           backgroundSize: "cover",
+          position:"fixed",
+          left:"0px",
+       
         }}
       >
         <button onClick={this.mama}>시즌3</button>
