@@ -675,9 +675,9 @@ class Search_User extends Component {
         { ItemCode: 204410, ItemName: "글레이셜 슈즈", ItemTier: 5 },
         { ItemCode: 204411, ItemName: "클링온 부츠", ItemTier: 4 },
         { ItemCode: 204412, ItemName: "타키온 브레이스", ItemTier: 4 },
-        { ItemCode: 204413, ItemName: "탭루트", ItemTier: 45 },
-        { ItemCode: 204501, ItemName: "헤르메스의 부츠", ItemTier: 45 },
-        { ItemCode: 204502, ItemName: "분홍신", ItemTier: 45 },
+        { ItemCode: 204413, ItemName: "탭루트", ItemTier: 5 },
+        { ItemCode: 204501, ItemName: "헤르메스의 부츠", ItemTier: 5 },
+        { ItemCode: 204502, ItemName: "분홍신", ItemTier: 5 },
         { ItemCode: "empty",   ItemName: "empty", ItemTier: 0 },
         //찾   아이젠
       ],
@@ -745,26 +745,7 @@ class Search_User extends Component {
     ///////
   }
   masterkey = () => {
-    console.log(this.state.SearchData[0]);
-    this.state.SearchData[0].map((arrdata, b) => {
-      console.log(this.state.characterNumArr[arrdata.characterNum]);
-      console.log("순위 : " + arrdata.gameRank + "여기맞지?");
-      console.log("킬수 : " + arrdata.playerKill);
-      console.log("어시 : " + arrdata.playerAssistant);
-      console.log("데스 : " + arrdata.playerDeaths);
-      console.log("딜량 : " + arrdata.damageToPlayer);
-      console.log("무숙 : " + arrdata.bestWeapon);
-      this.WeaponSearch(arrdata.equipment[0]);
-      this.ChestEquipmentSearch(arrdata.equipment[1]);
-      this.HatEquipmentSearch(arrdata.equipment[2]);
-      this.ArmEquipmentSearch(arrdata.equipment[3]);
-      this.ShoesEquipmentSearch(arrdata.equipment[4]);
-      this.AccessoryEquipmentSearch(arrdata.equipment[5]); //여기 추가값
-
-      console.log("");
-      console.log("");
-      return <div>{arrdata.equipment[1]}</div>;
-    });
+   
   };
   WeaponSearch = (inData) => {
     var WeaponSearchCode = inData;
@@ -990,7 +971,39 @@ class Search_User extends Component {
       <h1>리액트가 아니다.</h1>
     );
   };
-
+  consoleData = (userGames) =>{
+    for (let a = 0; a <= userGames.length - 1; a++) {
+      //배열 슥 보고 안에 내용 알맞게 적어주기   이걸 div랑 css로 꾸며서 출력해주고 안에 다시 팀적 코드 따서 돌려주기
+      console.log(
+        "캐릭 : " +
+          this.state.characterNumArr[userGames[a].characterNum] +
+          "//////////////////"
+      );
+      //여기 첫배열 뒤에부분에 원하는거 적으면 나옴
+      console.log("순위 : " + userGames[a].gameRank + "여기맞지?");
+      console.log("킬수 : " + userGames[a].playerKill);
+      console.log("어시 : " + userGames[a].playerAssistant);
+      console.log("데스 : " + userGames[a].playerDeaths);
+      console.log("딜량 : " + userGames[a].damageToPlayer);
+      console.log("무숙 : " + userGames[a].bestWeapon);
+      // console.log(userGames[a].skillLevelInfo);
+      // console.log(userGames[a].skillOrderInfo);
+      console.log("무기 : " + userGames[a].equipment[0]);
+      this.WeaponSearch(userGames[a].equipment[0]);
+      console.log("상의 : " + userGames[a].equipment[1]);
+      this.ChestEquipmentSearch(userGames[a].equipment[1]);
+      console.log("모자 : " + userGames[a].equipment[2]);
+      this.HatEquipmentSearch(userGames[a].equipment[2]);
+      console.log("팔 : " + userGames[a].equipment[3]);
+      this.ArmEquipmentSearch(userGames[a].equipment[3]);
+      console.log("신발 : " + userGames[a].equipment[4]);
+      this.ShoesEquipmentSearch(userGames[a].equipment[4]);
+      console.log("악세 : " + userGames[a].equipment[5]);
+      this.AccessoryEquipmentSearch(userGames[a].equipment[5]); //여기 추가값
+      console.log("");
+      console.log("");
+    }
+  }
   SearchHistory = async (Nic) => {
     //서치해서 해당 게임까지 서치
     const url0 = "https://open-api.bser.io/v1/user/nickname?query=사텐";
@@ -1021,7 +1034,6 @@ class Search_User extends Component {
       },
     });
     
-   
     const urlUserNumt = `https://open-api.bser.io/v1/user/games/${userNum}`;
     let urlUserNumtt = `https://open-api.bser.io/v1/user/games/${userNum}?next=19488020`;
     let {
@@ -1033,48 +1045,16 @@ class Search_User extends Component {
         "x-api-key": this.state.API_KEY,
       },
     });
-    console.log(userGames); //여기가 그거 어우 책상 없으니까 너무 힘들다   // 게임아이디를 뜯어서
-    //https://open-api.bser.io/v1/games/`${gameid}` 넣으면 그 게임에 다른 사람들도 나오니까 그거 맞춰서 캐릭터 뜯기나 이런거
+   
     this.state.SearchData.push(userGames);
-
-    for (let a = 0; a <= userGames.length - 1; a++) {
-      //배열 슥 보고 안에 내용 알맞게 적어주기   이걸 div랑 css로 꾸며서 출력해주고 안에 다시 팀적 코드 따서 돌려주기
-      console.log(
-        "캐릭 : " +
-          this.state.characterNumArr[userGames[a].characterNum] +
-          "//////////////////"
-      );
-      //여기 첫배열 뒤에부분에 원하는거 적으면 나옴
-      console.log("순위 : " + userGames[a].gameRank + "여기맞지?");
-      console.log("킬수 : " + userGames[a].playerKill);
-      console.log("어시 : " + userGames[a].playerAssistant);
-      console.log("데스 : " + userGames[a].playerDeaths);
-      console.log("딜량 : " + userGames[a].damageToPlayer);
-      console.log("무숙 : " + userGames[a].bestWeapon);
-      // console.log(userGames[a].skillLevelInfo);
-      // console.log(userGames[a].skillOrderInfo);
-
-      console.log("무기 : " + userGames[a].equipment[0]);
-      this.WeaponSearch(userGames[a].equipment[0]);
-      console.log("상의 : " + userGames[a].equipment[1]);
-      this.ChestEquipmentSearch(userGames[a].equipment[1]);
-      console.log("모자 : " + userGames[a].equipment[2]);
-      this.HatEquipmentSearch(userGames[a].equipment[2]);
-      console.log("팔 : " + userGames[a].equipment[3]);
-      this.ArmEquipmentSearch(userGames[a].equipment[3]);
-      console.log("신발 : " + userGames[a].equipment[4]);
-      this.ShoesEquipmentSearch(userGames[a].equipment[4]);
-      console.log("악세 : " + userGames[a].equipment[5]);
-      this.AccessoryEquipmentSearch(userGames[a].equipment[5]); //여기 추가값
-
-      console.log("");
-      console.log("");
-    }
+    this.consoleData(userGames)
   };
   passaa = async (Nic, nexta, cnt) => {
     //서치해서 해당 게임까지 서치
     //내 num 2604769
-    console.log(cnt);
+    //여러번 출력하는 내용은 개인용 api가 1초에 1번의 request만 되기 때문에 불가능해 버튼 클릭 시 다음 내용을 가져오게 구성
+    //만약 기업용 api를 사용할 경우 next 유무에 따라 데이터를 받아오고 출력하는 부분에서 페이징 기능을 추가해 타 전적검색 사이트처럼 사용이 가능하다.
+
     let SearchUserNumUrl = `https://open-api.bser.io/v1/user/nickname?query=${this.state.NickName}`;
     const {
       data: {
@@ -1087,15 +1067,15 @@ class Search_User extends Component {
         "x-api-key": this.state.API_KEY,
       },
     }); //유저넘버를 긁음
-    console.log(userNum);
+    
     this.setState({PlusUserNum:userNum})
     let urlUserNumt = "";
     if (cnt == 0) {
       urlUserNumt = `https://open-api.bser.io/v1/user/games/${userNum}`;
     } else {
       urlUserNumt = `https://open-api.bser.io/v1/user/games/${userNum}?next=${nexta}`;
-    }
-    console.log(urlUserNumt);
+    } //위에 타 전적검색 사이트 이야기의 코드가 이 부분
+    
     let {
       data: { userGames },
       data: { next },
@@ -1106,61 +1086,44 @@ class Search_User extends Component {
       },
     });
 
-    console.log(next);
     this.setState({PlusNext:next})
-    console.log(userGames); //여기가 그거 어우 책상 없으니까 너무 힘들다   // 게임아이디를 뜯어서
     this.state.SearchData.push(userGames);
-
-    if (this.state.SearchData != undefined) console.log("왜안되는걸까요");
-    for (let a = 0; a <= userGames.length - 1; a++) {
-      //배열 슥 보고 안에 내용 알맞게 적어주기   이걸 div랑 css로 꾸며서 출력해주고 안에 다시 팀적 코드 따서 돌려주기
-      console.log(
-        "캐릭 : " +
-          this.state.characterNumArr[userGames[a].characterNum] +
-          "//////////////////"
-      );
-      //여기 첫배열 뒤에부분에 원하는거 적으면 나옴 여기서부터 div로 작성
-      console.log("순위 : " + userGames[a].gameRank + "여기맞지?");
-      console.log("킬수 : " + userGames[a].playerKill);
-
-      console.log("어시 : " + userGames[a].playerAssistant);
-      console.log("데스 : " + userGames[a].playerDeaths);
-      console.log("딜량 : " + userGames[a].damageToPlayer);
-      console.log("무숙 : " + userGames[a].bestWeapon);
-      // console.log(userGames[a].skillLevelInfo);
-      // console.log(userGames[a].skillOrderInfo);
-
-      console.log("무기 : " + userGames[a].equipment[0]);
-      this.WeaponSearch(userGames[a].equipment[0]);
-      console.log("상의 : " + userGames[a].equipment[1]);
-      this.ChestEquipmentSearch(userGames[a].equipment[1]);
-      console.log("모자 : " + userGames[a].equipment[2]);
-      this.HatEquipmentSearch(userGames[a].equipment[2]);
-      console.log("팔 : " + userGames[a].equipment[3]);
-      this.ArmEquipmentSearch(userGames[a].equipment[3]);
-      console.log("신발 : " + userGames[a].equipment[4]);
-      this.ShoesEquipmentSearch(userGames[a].equipment[4]);
-      console.log("악세 : " + userGames[a].equipment[5]);
-      this.AccessoryEquipmentSearch(userGames[a].equipment[5]); //여기 추가값
-
-      console.log("");
-      console.log("");
-    }
+ 
+    this.consoleData(userGames)
 
     cnt++;
 
-   // if (cnt < 1) this.passaa(Nic, next, cnt);
+    // if (cnt < 1) this.passaa(Nic, next, cnt);
     //else console.log("끝");
     this.conlog();
-    this.makeDiv();
+    this.makeDiv(); //이걸 해야 로딩에서 state가 변경되면서 화면의 삼항연산자가 작동
+  
+   
   };
 
-  PlusSearch = async (Nic, nexta, cnt) => {
-    
-    
+  PlusSearchGameInfo = async (gameid) =>{
+    const SearchGameId =`https://open-api.bser.io/v1/games/${gameid}`; 
+   console.log(SearchGameId)
+   let {
+    data: { userGames },
+  
+  } = await axios.get(SearchGameId, {
+    headers: {
+      "Content-Type": "application/json",
+      "x-api-key": this.state.API_KEY,
+    },
+  });
+  console.log(userGames[2].characterNum)
+  console.log(userGames[2].nickname)
+  console.log(userGames[2].damageToPlayer) //여기서 위에 본인 서치와 같이 뽑기
+  return(<div>홀리몰리
+    <div>몰리홀리</div>
+    <div>몰리홀리</div>
+  </div>)
+  }
+  PlusSearchGame = async (Nic, nexta, cnt) => {
     let urlUserNumt = `https://open-api.bser.io/v1/user/games/${this.state.PlusUserNum}?next=${this.state.PlusNext}`;
- 
-    console.log(urlUserNumt);
+    //pass에서 setState를 설정하여 이용 cnt 류는 위에 서술과 같이 기업용 api의 경우 사용가능 
     let {
       data: { userGames },
       data: { next },
@@ -1171,46 +1134,11 @@ class Search_User extends Component {
       },
     });
 
-    this.setState({PlusNext:next})
-   console.log(userGames)
-    console.log(userGames); //여기가 그거 어우 책상 없으니까 너무 힘들다   // 게임아이디를 뜯어서
+    this.setState({PlusNext:next}) // 플러스 세팅
     this.state.SearchData.push(userGames);
 
     if (this.state.SearchData != undefined) console.log("왜안되는걸까요");
-    for (let a = 0; a <= userGames.length - 1; a++) {
-      //배열 슥 보고 안에 내용 알맞게 적어주기   이걸 div랑 css로 꾸며서 출력해주고 안에 다시 팀적 코드 따서 돌려주기
-      console.log(
-        "캐릭 : " +
-          this.state.characterNumArr[userGames[a].characterNum] +
-          "//////////////////"
-      );
-      //여기 첫배열 뒤에부분에 원하는거 적으면 나옴 여기서부터 div로 작성
-      console.log("순위 : " + userGames[a].gameRank + "여기맞지?");
-      console.log("킬수 : " + userGames[a].playerKill);
-
-      console.log("어시 : " + userGames[a].playerAssistant);
-      console.log("데스 : " + userGames[a].playerDeaths);
-      console.log("딜량 : " + userGames[a].damageToPlayer);
-      console.log("무숙 : " + userGames[a].bestWeapon);
-      // console.log(userGames[a].skillLevelInfo);
-      // console.log(userGames[a].skillOrderInfo);
-
-      console.log("무기 : " + userGames[a].equipment[0]);
-      this.WeaponSearch(userGames[a].equipment[0]);
-      console.log("상의 : " + userGames[a].equipment[1]);
-      this.ChestEquipmentSearch(userGames[a].equipment[1]);
-      console.log("모자 : " + userGames[a].equipment[2]);
-      this.HatEquipmentSearch(userGames[a].equipment[2]);
-      console.log("팔 : " + userGames[a].equipment[3]);
-      this.ArmEquipmentSearch(userGames[a].equipment[3]);
-      console.log("신발 : " + userGames[a].equipment[4]);
-      this.ShoesEquipmentSearch(userGames[a].equipment[4]);
-      console.log("악세 : " + userGames[a].equipment[5]);
-      this.AccessoryEquipmentSearch(userGames[a].equipment[5]); //여기 추가값
-
-      console.log("");
-      console.log("");
-    }
+  
 
     cnt++;
 
@@ -1477,7 +1405,7 @@ class Search_User extends Component {
           <li>D</li>
           <li>A</li>
           <li>H</li>
-          <li style={{ width: "15px" }}></li>
+          <li ></li>
           <li>피해량</li>
         </ul>
       </div>
@@ -1491,17 +1419,13 @@ class Search_User extends Component {
     }
   };
   ItemIcon = (Weapon, Chest, Hat, Arm, Leg, Accessory) => {
-    
    let TierArr = []
     TierArr.push(this.WeaponSearch(Weapon))
-
-
     for (let a = 0; a < this.state.ChestEquipmentArr.length; a++) {
       if (Chest == this.state.ChestEquipmentArr[a].ItemCode){
-      TierArr.push(this.state.ChestEquipmentArr[a]) 
-      break;
-    }else  if(a==this.state.ChestEquipmentArr.length-1)TierArr.push(this.state.ChestEquipmentArr[a])
-      
+        TierArr.push(this.state.ChestEquipmentArr[a]) 
+        break;
+      }else  if(a==this.state.ChestEquipmentArr.length-1)TierArr.push(this.state.ChestEquipmentArr[a])
     }
     for (let a = 0; a < this.state.HatEquipmentArr.length; a++) {
       if (Hat == this.state.HatEquipmentArr[a].ItemCode) {
@@ -1514,7 +1438,6 @@ class Search_User extends Component {
         TierArr.push(this.state.ArmEquipmentArr[a])
         break;
       }else  if(a==this.state.ArmEquipmentArr.length-1)TierArr.push(this.state.ArmEquipmentArr[a])
-      
     }
     for (let a = 0; a < this.state.LegEquipmentArr.length; a++) {
       if (Leg == this.state.LegEquipmentArr[a].ItemCode){
@@ -1531,20 +1454,14 @@ class Search_User extends Component {
     
     console.log(TierArr)
     return(<div>
-     
       <img
       className={`ItemIcon ItemTier${TierArr[0].ItemTier}`}
       src={`/image/Item/Weapon/${TierArr[0].ItemCode}.png`}
-      
-        >
-      </img>
-      
-      
+        />
       <img
       className={`ItemIcon ItemTier${TierArr[1].ItemTier}`}
       src={`/image/Item/Chest/${TierArr[1].ItemCode}.png`}
-        >
-      </img>
+        />
       <img
       className={`ItemIcon ItemTier${TierArr[2].ItemTier}`}
       src={`/image/Item/Hat/${TierArr[2].ItemCode}.png`}
@@ -1552,21 +1469,20 @@ class Search_User extends Component {
         <img
       className={`ItemIcon ItemTier${TierArr[3].ItemTier}`}
       src={`/image/Item/Arm/${TierArr[3].ItemCode}.png`}
-        ></img>
+        />
          <img
       className={`ItemIcon ItemTier${TierArr[4].ItemTier}`}
       src={`/image/Item/Leg/${TierArr[4].ItemCode}.png`}
-        ></img>
+        />
         <img
       className={`ItemIcon ItemTier${TierArr[5].ItemTier}`}
       src={`/image/Item/Accessory/${TierArr[5].ItemCode}.png`}
-        ></img>
-         
+        />
     </div>)
   };
   render() {
     return (
-      <div className="Search_User">
+      <div className="Search_User"> 
         {this.state.abc != "a" ? (
           this.state.SearchData.map((abc, xxx) =>
             abc.map((xx, cc) => {
@@ -1588,7 +1504,7 @@ class Search_User extends Component {
                             this.state.CharacterArr[xx.characterNum][1]
                           }/Thumbnail/Default/Mini.png`}
                         />
-            
+        
                       </div>
                       {this.GameDetail(
                         xx.playerKill,
@@ -1612,13 +1528,14 @@ class Search_User extends Component {
                       
                     </div>
                   </div>
+                    <div onClick={() => this.PlusSearchGameInfo(xx.gameId)}>더보기</div>     
                   <div className="clear"></div>
                   <div className="GameRecordUnder">
                     {this.routeIdOfStart(xx.routeIdOfStart)}
                   </div>{" "}
-                  {console.log(xx.gameId)}
-                  {console.log(xx)}
+                    
                 </div>
+                
               );
             })
           )
@@ -1626,7 +1543,7 @@ class Search_User extends Component {
           <h1>loading...</h1>
         )}
         <div onClick={() => this.makeDiv()}>메이크디비</div>
-        <div onClick={() => this.PlusSearch()}>플러스 플러스</div>
+        <div onClick={() => this.PlusSearchGame()}>플러스 플러스</div>
 
         <div id="GameRecord">
           <div></div>

@@ -4,94 +4,104 @@
     font-weight: normal;
     font-style: normal;
 }
+
 @font-face {
     font-family: 'ONE-Mobile-Regular';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
+
 @font-face {
     font-family: 'NEXON Lv1 Gothic OTF Bold';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF Bold.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
+
 @font-face {
     font-family: 'NEXON Lv1 Gothic OTF';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
-#Character_Infomation{
-    margin-top: 270px;
+
+#Character_Infomation {
+    margin-top: 20px;
     width: 1920px;
- 
+    height: 1500px;
+
 }
 
-.Character_info{
+.Character_info {
     width: 1920px;
- 
+
     padding-top: 60px;
     position: relative;
     left: 10%;
 }
 
 
-#Character_SelectBoard{
+#Character_SelectBoard {
     width: 1000px;
 }
-.CharThumb{
-    float:left;
-    width:90px;
+
+.CharThumb {
+    float: left;
+    width: 90px;
 }
-.ThunbnailIcon{
+
+.ThunbnailIcon {
     width: 50px;
 }
 
-#SkillInfo{
+#SkillInfo {
     width: 1000px;
     position: relative;
 
 }
-#SkillGif{
+
+#SkillGif {
     width: 500px;
-    float:left;
+    float: left;
     margin: 0 30px 0 0;
 }
 
-.SkillBtn{
+.SkillBtn {
     width: 50px;
-    float:left;
+    float: left;
     margin: 0 0 0 20px;
 }
 
-#SkillRImg{
+#SkillRImg {
     float: none;
- }
+}
 
-#SkillExplancation{
+#SkillExplancation {
     margin: 20px 0 0 20px;
-    float:left;
-}
-#SkillExplancation li{
-    width: 400px;
-    white-space: pre-wrap; 
+    float: left;
 }
 
-#SkillName {font-family: 'NEXON Lv1 Gothic OTF Bold';
-   
+#SkillExplancation li {
+    width: 400px;
+    white-space: pre-wrap;
+}
+
+#SkillName {
+    font-family: 'NEXON Lv1 Gothic OTF Bold';
+
     font-size: 18px;
 }
 
 
-#SkillExplancationSelect{
+#SkillExplancationSelect {
     font-family: 'NEXON Lv1 Gothic OTF Bold';
     font-size: 15px;
-   
-}
- 
 
-#SkillExplanationBorder{
+}
+
+
+#SkillExplanationBorder {
     width: 400px;
     border-bottom: rgb(192, 192, 192) 0.2px solid;
     margin: 10px 0 10px 0;

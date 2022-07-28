@@ -10,7 +10,7 @@
 # testing
 /coverage
 
-
+*.jpg
 *.png
 *.gif
 # production

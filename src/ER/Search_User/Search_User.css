@@ -17,9 +17,11 @@
     height: 120px;
     margin-top: 20px;
     padding-top: 10px;
-    background-color: rgb(221, 221, 221);
+
     text-align: left;
 
+    border: rgb(221, 221, 221) solid 1px;
+    border-radius: 3px;
 }
 
 .GameRecord h2 {
@@ -51,7 +53,8 @@
 }
 
 .GameDetailEx li {
-    font-size: 15px;
+    margin-top: 2px;
+    font-size: 12px;
 }
 
 .GameRecordRight {
@@ -63,19 +66,47 @@
 .ItemIcon {
     width: 45px;
     z-index: 70;
+    margin-right: 2.5px;
 }
 
+.ItemTier0 {
+    border: 1.5px rgb(0, 0, 0) solid;
+    border-radius: 5px;
+}
 
 .ItemTier1 {
-    background: linear-gradient(to bottom, rgba(78, 44, 120, 0.9) 5%, rgba(78, 44, 120, 0.8) 20%, rgba(78, 44, 120, 0.7) 40%, rgba(78, 44, 120, 0.6) 65%, rgba(78, 44, 120, 0.55) 80%);
+    border: 1.5px rgb(61, 60, 58) solid;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, rgba(61, 60, 58, 0.9) 5%, rgba(61, 60, 58, 0.8) 20%, rgba(61, 60, 58, 0.7) 40%, rgba(61, 60, 58, 0.6) 65%, rgba(61, 60, 58, 0.55) 80%);
 }
 
+.ItemTier2 {
+    border: 1.5px rgb(18, 125, 2) solid;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, rgba(18, 125, 2, 0.9) 5%, rgba(18, 125, 2, 0.8) 20%, rgba(18, 125, 2, 0.7) 40%, rgba(18, 125, 2, 0.6) 65%, rgba(18, 125, 2, 0.55) 80%);
+}
+
+.ItemTier3 {
+    border: 1.5px rgb(100, 140, 199) solid;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, rgba(75, 105, 150, 0.9) 5%, rgba(75, 105, 150, 0.8) 20%, rgba(75, 105, 150, 0.7) 40%, rgba(75, 105, 150, 0.6) 65%, rgba(75, 105, 150, 0.55) 80%);
+}
 
 .ItemTier4 {
+    border: 1.5px rgb(78, 44, 120) solid;
+    border-radius: 5px;
     background: linear-gradient(to bottom, rgba(78, 44, 120, 0.9) 5%, rgba(78, 44, 120, 0.8) 20%, rgba(78, 44, 120, 0.7) 40%, rgba(78, 44, 120, 0.6) 65%, rgba(78, 44, 120, 0.55) 80%);
 }
 
 .ItemTier5 {
+    border: 1.5px rgb(187, 145, 41) solid;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, rgb(187, 145, 41)10%, rgba(187, 145, 41, 0.9) 25%, rgba(217, 169, 48, 1) 50%, rgba(217, 169, 48, 0.95) 75%, rgba(217, 169, 48, 0.9) 100%);
+}
+
+.ItemTier5 {
+    border: 1.5px rgb(187, 145, 41) solid;
+    border-radius: 5px;
     background: linear-gradient(to bottom, rgb(187, 145, 41)10%, rgba(187, 145, 41, 0.9) 25%, rgba(217, 169, 48, 1) 50%, rgba(217, 169, 48, 0.95) 75%, rgba(217, 169, 48, 0.9) 100%);
 }
 
