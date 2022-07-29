@@ -217,6 +217,7 @@ class Search_User extends Component {
         { ItemCode: 104405, ItemName: "마법봉", ItemTier: 4 },
         { ItemCode: 104406, ItemName: "천근추", ItemTier: 4 },
         { ItemCode: 104407, ItemName: "금강저", ItemTier: 4 }, //무기군은 봉인에 해머쪽 코드로 작성되어있음
+        { ItemCode: 104408, ItemName: "팔괘장", ItemTier: 4 },
         { ItemCode: 104501, ItemName: "피스브링어", ItemTier: 5 },
         { ItemCode: 104407, ItemName: "금강저", ItemTier: 4 },
       ],
@@ -676,9 +677,12 @@ class Search_User extends Component {
         { ItemCode: 204411, ItemName: "클링온 부츠", ItemTier: 4 },
         { ItemCode: 204412, ItemName: "타키온 브레이스", ItemTier: 4 },
         { ItemCode: 204413, ItemName: "탭루트", ItemTier: 5 },
+        { ItemCode: 204414, ItemName:"아이언메이든",ItemTier:5},
         { ItemCode: 204501, ItemName: "헤르메스의 부츠", ItemTier: 5 },
         { ItemCode: 204502, ItemName: "분홍신", ItemTier: 5 },
+        
         { ItemCode: "empty",   ItemName: "empty", ItemTier: 0 },
+        
         //찾   아이젠
       ],
       AccessoryEquipmentArr: [
@@ -1085,20 +1089,16 @@ class Search_User extends Component {
         "x-api-key": this.state.API_KEY,
       },
     });
-
+    console.log(userGames)
     this.setState({PlusNext:next})
     this.state.SearchData.push(userGames);
  
     this.consoleData(userGames)
-
     cnt++;
-
     // if (cnt < 1) this.passaa(Nic, next, cnt);
     //else console.log("끝");
     this.conlog();
     this.makeDiv(); //이걸 해야 로딩에서 state가 변경되면서 화면의 삼항연산자가 작동
-  
-   
   };
 
   PlusSearchGameInfo = async (gameid) =>{
@@ -1405,7 +1405,7 @@ class Search_User extends Component {
           <li>D</li>
           <li>A</li>
           <li>H</li>
-          <li ></li>
+          <li style={{ width: "15px" }}></li>
           <li>피해량</li>
         </ul>
       </div>
@@ -1420,6 +1420,7 @@ class Search_User extends Component {
   };
   ItemIcon = (Weapon, Chest, Hat, Arm, Leg, Accessory) => {
    let TierArr = []
+   console.log()
     TierArr.push(this.WeaponSearch(Weapon))
     for (let a = 0; a < this.state.ChestEquipmentArr.length; a++) {
       if (Chest == this.state.ChestEquipmentArr[a].ItemCode){
@@ -1453,7 +1454,7 @@ class Search_User extends Component {
       }
     
     console.log(TierArr)
-    return(<div>
+    return(<div className="Itema">
       <img
       className={`ItemIcon ItemTier${TierArr[0].ItemTier}`}
       src={`/image/Item/Weapon/${TierArr[0].ItemCode}.png`}

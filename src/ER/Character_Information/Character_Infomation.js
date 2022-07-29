@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import axios from "axios";
 import "./Character_Infomation.css";
 
 class Character_Infomation extends Component {
   state = {
+    API_KEY: process.env.REACT_APP_ERKEY,
     ClickSkill: "P", //스킬창 기본칸 패시브로 설정
     ClickSkillName: 0,
     ClickSkillExplancation: 0,
@@ -24,6 +26,7 @@ class Character_Infomation extends Component {
     mapCnt: 0,
     SkillName: "피의 축제",
     SkillExplancation: "",
+    width:"500px"
   };
 
   ClickP = () =>
@@ -766,7 +769,20 @@ class Character_Infomation extends Component {
       }
     }
   };
+  componentDidMount = () => {
+this.freeCharacters()
+  }
+  freeCharacters = async() =>{
+   let freeCharacters = "https://open-api.bser.io/v1/freeCharacters/2"
 
+    const res = await axios.get(freeCharacters, {
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": this.state.API_KEY,
+      },
+    });
+    console.log(res.data.freeCharacters); 
+  }
   render() {
     let Character = [
       ["재키", "Jackie"],
@@ -833,7 +849,21 @@ class Character_Infomation extends Component {
 
     return (
       <div id="Character_Infomation">
-        <div>
+        <div><div 
+        id="InfomationFull"
+        style={{
+          
+       
+        }}
+      />
+  
+  <div>
+    <img 
+        id="abccc"
+      
+        src={`/image/Character_Img/${this.state.Character_NameE}/Thumbnail/Default/Half.png`}
+      /></div>
+      
           <div id="Character_SelectBoard">
             <h3>캐릭터 선택</h3>
 

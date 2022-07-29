@@ -33,6 +33,17 @@
 
 }
 
+#abccc {
+    width: 700px;
+    position: absolute;
+    left: 75vw;
+    z-index: -1;
+}
+
+#Infomation {
+    width: 1000px;
+}
+
 .Character_info {
     width: 1920px;
 

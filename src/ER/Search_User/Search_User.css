@@ -21,7 +21,6 @@
     text-align: left;
 
     border: rgb(221, 221, 221) solid 1px;
-    border-radius: 3px;
 }
 
 .GameRecord h2 {
@@ -63,10 +62,15 @@
     margin-top: 20px;
 }
 
+.Itema {
+    margin: 0 0 0 -40px;
+}
+
 .ItemIcon {
     width: 45px;
     z-index: 70;
     margin-right: 2.5px;
+
 }
 
 .ItemTier0 {
