@@ -9,7 +9,7 @@ class Character_Infomation extends Component {
     ClickSkillName: 0,
     ClickSkillExplancation: 0,
     Character_NameK: "", //한국이름으로 편하게 주 된 이름만
-    Character_NameE: "Jackie", //풀네임 요망  <h2> 주이름 <h5>보조이름
+    Character_NameE: "Rozzi", //풀네임 요망  <h2> 주이름 <h5>보조이름
     Character_NameF: "",
     Character_Explanation: "", // <h5> 설명 작게
     P_Name: "",
@@ -849,20 +849,13 @@ this.freeCharacters()
 
     return (
       <div id="Character_Infomation">
-        <div><div 
-        id="InfomationFull"
-        style={{
-          
-       
-        }}
+    <div id ="abc" >
+      <img 
+        id="abcde"
+        src={`/image/info_Img/${this.state.Character_NameE}_0.png`}
       />
-  
-  <div>
-    <img 
-        id="abccc"
-      
-        src={`/image/Character_Img/${this.state.Character_NameE}/Thumbnail/Default/Half.png`}
-      /></div>
+      <div id ="abcd"></div>
+      </div>
       
           <div id="Character_SelectBoard">
             <h3>캐릭터 선택</h3>
@@ -870,8 +863,7 @@ this.freeCharacters()
             <br></br>
             {CharacterSort.map((arrSort, ababab) => {
               return (
-                <div>
-                  {""}
+                <div>        
                   <div
                     onClick={() => this.Character_NameE_Click(arrSort[1])}
                     id={arrSort[1]}
@@ -888,7 +880,8 @@ this.freeCharacters()
             })}
           </div>
           <div className="clear"></div>
-          <div id="SkillInfo">
+          <br></br><br></br>
+          <div id="SkillInfo">   
             <img
               id="SkillGif"
               src={`/image/Character_Img/${this.state.Character_NameE}/SkillIconGif/${this.state.ClickSkill}.gif`}
@@ -953,7 +946,7 @@ this.freeCharacters()
             </div>
           </div>
         </div>
-      </div>
+ 
     );
   }
 }
