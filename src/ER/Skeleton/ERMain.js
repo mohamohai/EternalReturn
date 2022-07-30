@@ -27,7 +27,6 @@ class ERMain extends Component {
           backgroundSize: "cover",
           position:"fixed",
           left:"0px",
-       
         }}
       >
         <button onClick={this.mama}>시즌3</button>

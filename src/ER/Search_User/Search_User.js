@@ -157,6 +157,8 @@ class Search_User extends Component {
         "에스텔",
         "피올로",
       ],
+      WeaponEmpty:
+      { ItemCode: "empty",   ItemName: "empty", ItemTier: 0 },
       WeaponDagger: [
         { ItemCode: 101101, ItemName: "가위", ItemTier: 1 },
         { ItemCode: 101102, ItemName: "만년필", ItemTier: 1 },
@@ -533,38 +535,7 @@ class Search_User extends Component {
         { ItemCode: 131509, ItemName: "슈퍼사이드와인더-VBS", ItemTier: 5 },
         
       ],
-      HatEquipmentArr: [
-        { ItemCode: 201101, ItemName: "머리띠", ItemTier: 1 },
-        { ItemCode: 201102, ItemName: "모자", ItemTier: 1 },
-        { ItemCode: 201104, ItemName: "자전거 헬멧", ItemTier: 1 },
-        { ItemCode: 201201, ItemName: "가면", ItemTier: 2 },
-        { ItemCode: 201202, ItemName: "머리테", ItemTier: 2 },
-        { ItemCode: 201203, ItemName: "베레모", ItemTier: 2 },
-        { ItemCode: 201204, ItemName: "사슬 코이프", ItemTier: 2 },
-        { ItemCode: 201205, ItemName: "안전모", ItemTier: 2 },
-        { ItemCode: 201301, ItemName: "방탄모", ItemTier: 3 },
-        { ItemCode: 201302, ItemName: "소방 헬멧", ItemTier: 3 },
-        { ItemCode: 201303, ItemName: "티아라", ItemTier: 3 },
-        { ItemCode: 201304, ItemName: "로빈", ItemTier: 4 },
-        { ItemCode: 201401, ItemName: "왕관", ItemTier: 3 },
-        { ItemCode: 201402, ItemName: "투구", ItemTier: 3 },
-        { ItemCode: 201403, ItemName: "미스릴 투구", ItemTier: 5 },
-        { ItemCode: 201404, ItemName: "수정 티아라", ItemTier: 4 },
-        { ItemCode: 201405, ItemName: "오토바이 헬멧", ItemTier: 3 },
-        { ItemCode: 201406, ItemName: "전술-OPS 헬멧", ItemTier: 4 },
-        { ItemCode: 201407, ItemName: "기사단장의 투구", ItemTier: 4 },
-        { ItemCode: 201408, ItemName: "월계관", ItemTier: 5 },
-        { ItemCode: 201409, ItemName: "제국 왕관", ItemTier: 4 },
-        { ItemCode: 201410, ItemName: "황실 부르고넷", ItemTier: 4 },
-        { ItemCode: 201411, ItemName: "변검", ItemTier: 5 },
-        { ItemCode: 201412, ItemName: "모호크 헬멧", ItemTier: 4 },
-        { ItemCode: 201413, ItemName: "비질란테", ItemTier: 4 },
-        { ItemCode: 201414, ItemName: "다이아뎀", ItemTier: 4 },
-        { ItemCode: 201501, ItemName: "천사의 고리", ItemTier: 5 },
-        { ItemCode: 201502, ItemName: "빛의 증표", ItemTier: 5 },
-        { ItemCode: 701451, ItemName: "택티컬 바이저", ItemTier: 6 },
-        { ItemCode: "empty",   ItemName: "empty", ItemTier: 0 },
-      ],
+     
       ChestEquipmentArr: [
         { ItemCode: 202101, ItemName: "바람막이", ItemTier: 1 },
         { ItemCode: 202103, ItemName: "승복", ItemTier: 1 },
@@ -612,10 +583,42 @@ class Search_User extends Component {
         { ItemCode: 202503, ItemName: "성법의", ItemTier: 5 },
         { ItemCode: 702503, ItemName: "성법의Mk-2", ItemTier: 5 },
         { ItemCode: 202504, ItemName: "버건디 47", ItemTier: 5 },
-        { ItemCode: 202505, ItemName: "아오자이", ItemTier:5},
-        { ItemCode: 202601, ItemName: "이단심판관", ItemTier:6},
+        { ItemCode: 202505, ItemName: "아오자이", ItemTier: 5},
+        { ItemCode: 202601, ItemName: "이단심판관", ItemTier: 6},
         { ItemCode: "empty",   ItemName: "empty", ItemTier: 0 },
         //찾  //마이템이랑 없네
+      ],
+      HatEquipmentArr: [
+        { ItemCode: 201101, ItemName: "머리띠", ItemTier: 1 },
+        { ItemCode: 201102, ItemName: "모자", ItemTier: 1 },
+        { ItemCode: 201104, ItemName: "자전거 헬멧", ItemTier: 1 },
+        { ItemCode: 201201, ItemName: "가면", ItemTier: 2 },
+        { ItemCode: 201202, ItemName: "머리테", ItemTier: 2 },
+        { ItemCode: 201203, ItemName: "베레모", ItemTier: 2 },
+        { ItemCode: 201204, ItemName: "사슬 코이프", ItemTier: 2 },
+        { ItemCode: 201205, ItemName: "안전모", ItemTier: 2 },
+        { ItemCode: 201301, ItemName: "방탄모", ItemTier: 3 },
+        { ItemCode: 201302, ItemName: "소방 헬멧", ItemTier: 3 },
+        { ItemCode: 201303, ItemName: "티아라", ItemTier: 3 },
+        { ItemCode: 201304, ItemName: "로빈", ItemTier: 4 },
+        { ItemCode: 201401, ItemName: "왕관", ItemTier: 3 },
+        { ItemCode: 201402, ItemName: "투구", ItemTier: 3 },
+        { ItemCode: 201403, ItemName: "미스릴 투구", ItemTier: 5 },
+        { ItemCode: 201404, ItemName: "수정 티아라", ItemTier: 4 },
+        { ItemCode: 201405, ItemName: "오토바이 헬멧", ItemTier: 3 },
+        { ItemCode: 201406, ItemName: "전술-OPS 헬멧", ItemTier: 4 },
+        { ItemCode: 201407, ItemName: "기사단장의 투구", ItemTier: 4 },
+        { ItemCode: 201408, ItemName: "월계관", ItemTier: 5 },
+        { ItemCode: 201409, ItemName: "제국 왕관", ItemTier: 4 },
+        { ItemCode: 201410, ItemName: "황실 부르고넷", ItemTier: 4 },
+        { ItemCode: 201411, ItemName: "변검", ItemTier: 5 },
+        { ItemCode: 201412, ItemName: "모호크 헬멧", ItemTier: 4 },
+        { ItemCode: 201413, ItemName: "비질란테", ItemTier: 4 },
+        { ItemCode: 201414, ItemName: "다이아뎀", ItemTier: 4 },
+        { ItemCode: 201501, ItemName: "천사의 고리", ItemTier: 5 },
+        { ItemCode: 201502, ItemName: "빛의 증표", ItemTier: 5 },
+        { ItemCode: 701451, ItemName: "택티컬 바이저", ItemTier: 6 },
+        { ItemCode: "empty",   ItemName: "empty", ItemTier: 0 },
       ],
       ArmEquipmentArr: [
         { ItemCode: 203101, ItemName: "손목시계", ItemTier: 1 },
@@ -720,7 +723,7 @@ class Search_User extends Component {
         { ItemCode: 205310, ItemName: "능동 위장", ItemTier: 3 },
         { ItemCode: 205311, ItemName: "마도서", ItemTier: 3 },
         { ItemCode: 205312, ItemName: "아이테르 깃털", ItemTier: 3 },
-        { ItemCode: 205401, ItemName: " 달빛 펜던트", ItemTier: 5 },
+        { ItemCode: 205401, ItemName: "달빛 펜던트", ItemTier: 5 },
         { ItemCode: 205402, ItemName: "만년빙", ItemTier: 4 },
         { ItemCode: 205403, ItemName: "삼매진화", ItemTier: 4 },
         { ItemCode: 205404, ItemName: "슈뢰딩거의 상자", ItemTier: 3 },
@@ -755,7 +758,7 @@ class Search_User extends Component {
     var WeaponSearchCode = inData;
     let WeaponCode = Math.floor(WeaponSearchCode / 1000);
     console.log(WeaponCode)
-
+    
     switch (WeaponCode) {
       case 101: {
         for (let a = 0; a <= this.state.WeaponDagger.length - 1; a++) {
@@ -1101,26 +1104,6 @@ class Search_User extends Component {
     this.makeDiv(); //이걸 해야 로딩에서 state가 변경되면서 화면의 삼항연산자가 작동
   };
 
-  PlusSearchGameInfo = async (gameid) =>{
-    const SearchGameId =`https://open-api.bser.io/v1/games/${gameid}`; 
-   console.log(SearchGameId)
-   let {
-    data: { userGames },
-  
-  } = await axios.get(SearchGameId, {
-    headers: {
-      "Content-Type": "application/json",
-      "x-api-key": this.state.API_KEY,
-    },
-  });
-  console.log(userGames[2].characterNum)
-  console.log(userGames[2].nickname)
-  console.log(userGames[2].damageToPlayer) //여기서 위에 본인 서치와 같이 뽑기
-  return(<div>홀리몰리
-    <div>몰리홀리</div>
-    <div>몰리홀리</div>
-  </div>)
-  }
   PlusSearchGame = async (Nic, nexta, cnt) => {
     let urlUserNumt = `https://open-api.bser.io/v1/user/games/${this.state.PlusUserNum}?next=${this.state.PlusNext}`;
     //pass에서 setState를 설정하여 이용 cnt 류는 위에 서술과 같이 기업용 api의 경우 사용가능 
@@ -1382,8 +1365,11 @@ class Search_User extends Component {
     playerDeaths,
     playerAssistant,
     killMonsters,
-    damageToPlayer
+    damageToPlayer,
+    SurveillanceCamera,
+    TelephotoCamera,
   ) => {
+    console.log("감카 : " + SurveillanceCamera +" 망카 : "+ TelephotoCamera)
     let killMonstersCnt = 0;
 
     for (let cnt = 0; cnt <= 15; cnt++) {
@@ -1420,39 +1406,55 @@ class Search_User extends Component {
   };
   ItemIcon = (Weapon, Chest, Hat, Arm, Leg, Accessory) => {
    let TierArr = []
-   console.log()
-    TierArr.push(this.WeaponSearch(Weapon))
+    if(isNaN(Weapon)) //아이템 빈공간 확인
+      TierArr.push(this.state.WeaponEmpty)
+    else
+      TierArr.push(this.WeaponSearch(Weapon))
+
+    if(Chest==undefined)TierArr.push(this.state.ChestEquipmentArr[this.state.ChestEquipmentArr.length-1])
+    else
     for (let a = 0; a < this.state.ChestEquipmentArr.length; a++) {
       if (Chest == this.state.ChestEquipmentArr[a].ItemCode){
         TierArr.push(this.state.ChestEquipmentArr[a]) 
         break;
       }else  if(a==this.state.ChestEquipmentArr.length-1)TierArr.push(this.state.ChestEquipmentArr[a])
     }
+
+    if(Hat==undefined)TierArr.push(this.state.HatEquipmentArr[this.state.HatEquipmentArr.length-1])
+    else
     for (let a = 0; a < this.state.HatEquipmentArr.length; a++) {
       if (Hat == this.state.HatEquipmentArr[a].ItemCode) {
         TierArr.push(this.state.HatEquipmentArr[a])
         break;
       }else  if(a==this.state.HatEquipmentArr.length-1)TierArr.push(this.state.ArmEquipmentArr[a])
     }
+
+    if(Arm==undefined)TierArr.push(this.state.ArmEquipmentArr[this.state.ArmEquipmentArr.length-1])
+    else
     for (let a = 0; a < this.state.ArmEquipmentArr.length; a++) {
       if (Arm == this.state.ArmEquipmentArr[a].ItemCode){
         TierArr.push(this.state.ArmEquipmentArr[a])
         break;
       }else  if(a==this.state.ArmEquipmentArr.length-1)TierArr.push(this.state.ArmEquipmentArr[a])
     }
+
+    if(Leg==undefined)TierArr.push(this.state.LegEquipmentArr[this.state.LegEquipmentArr.length-1])
+    else
     for (let a = 0; a < this.state.LegEquipmentArr.length; a++) {
       if (Leg == this.state.LegEquipmentArr[a].ItemCode){
       TierArr.push(this.state.LegEquipmentArr[a])
       break;
     }else  if(a==this.state.LegEquipmentArr.length-1)TierArr.push(this.state.LegEquipmentArr[a])
     }
+
+    if(Accessory==undefined)TierArr.push(this.state.AccessoryEquipmentArr[this.state.AccessoryEquipmentArr.length-1])
+    else
     for (let a = 0; a < this.state.AccessoryEquipmentArr.length; a++) {
       if (Accessory == this.state.AccessoryEquipmentArr[a].ItemCode) {
         TierArr.push(this.state.AccessoryEquipmentArr[a])
         break;
       }else  if(a==this.state.AccessoryEquipmentArr.length-1)TierArr.push(this.state.AccessoryEquipmentArr[a])
       }
-    
     console.log(TierArr)
     return(<div className="Itema">
       <img
@@ -1481,6 +1483,30 @@ class Search_User extends Component {
         />
     </div>)
   };
+
+  MoreGameData  = async (gameid) =>{
+     const SearchGameId =`https://open-api.bser.io/v1/games/${gameid}`; 
+   console.log(SearchGameId)
+   let {
+    data: { userGames },
+  
+  } = await axios.get(SearchGameId, {
+    headers: {
+      "Content-Type": "application/json",
+      "x-api-key": this.state.API_KEY,
+    },
+  });
+
+  userGames.map((qqq,www)=>{
+   console.log(qqq) 
+  })
+  // console.log(userGames[0])
+  // console.log(userGames[2].characterNum)
+  // console.log(userGames[2].nickname)
+  // console.log(userGames[2].damageToPlayer) 
+  // 노말이랑 코발트 구분하기
+ 
+  }
   render() {
     return (
       <div className="Search_User"> 
@@ -1512,7 +1538,9 @@ class Search_User extends Component {
                         xx.playerDeaths,
                         xx.playerAssistant,
                         xx.killMonsters,
-                        xx.damageToPlayer
+                        xx.damageToPlayer,
+                        xx.addSurveillanceCamera,
+                        xx.addTelephotoCamera,
                       )}
 
                       <br></br>
@@ -1529,11 +1557,11 @@ class Search_User extends Component {
                       
                     </div>
                   </div>
-                    <div onClick={() => this.PlusSearchGameInfo(xx.gameId)}>더보기</div>     
+                    <div onClick={() => this.MoreGameData(xx.gameId)}>더보기</div>     
                   <div className="clear"></div>
                   <div className="GameRecordUnder">
                     {this.routeIdOfStart(xx.routeIdOfStart)}
-                  </div>{" "}
+                  </div>
                     
                 </div>
                 

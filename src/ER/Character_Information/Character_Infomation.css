@@ -33,49 +33,74 @@
 
 }
 
-#abccc {
-    width: 700px;
+#abc {
+    width: 500px;
+    height: 700px;
     position: absolute;
-    left: 75vw;
+    left: 1250px;
+    top: 5vw;
+    overflow: hidden;
     z-index: -1;
+
 }
 
-#Infomation {
-    width: 1000px;
+#abcd {
+    width: 500px;
+    height: 1000px;
+    z-index: -2;
+    position: absolute;
+    top: -100px;
+
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0)20%, rgba(255, 255, 255, 0.1)30%, rgba(255, 255, 255, 0.3)40%, rgba(255, 255, 255, 0.4)50%, rgba(255, 255, 255, 0.9)60%, rgba(255, 255, 255, 1)70%, rgba(255, 255, 255, 1)100%);
+
 }
 
-.Character_info {
-    width: 1920px;
-
-    padding-top: 60px;
-    position: relative;
-    left: 10%;
+#abcde {
+    width: 600px;
+    z-index: -10;
+    position: absolute;
+    top: 50px;
+    overflow: hidden;
 }
 
 
 #Character_SelectBoard {
     width: 1000px;
+    position: relative;
+
+
 }
 
 .CharThumb {
     float: left;
-    width: 90px;
+    width: 70px;
+    text-align: center;
+    margin: 10px 0 0 0;
+
+}
+
+.CharThumb li {
+    font-size: 11px;
+    font-family: 'NEXON Lv1 Gothic OTF';
+
 }
 
 .ThunbnailIcon {
-    width: 50px;
+    width: 65px;
+    border: solid 1px black;
 }
 
 #SkillInfo {
     width: 1000px;
     position: relative;
 
+
 }
 
 #SkillGif {
     width: 500px;
     float: left;
-    margin: 0 30px 0 0;
+    margin: 0 40px 0 0;
 }
 
 .SkillBtn {
