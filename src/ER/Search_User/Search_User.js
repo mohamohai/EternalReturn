@@ -39,7 +39,8 @@ class Search_User extends Component {
       PlusUserNum: 0,
       PlusNext:0,
       TierArr : [3],
-      HaveVisible: false,
+      HaveVisibleB: false,
+      HaveVisibleC: false,
     
 
       User1:[
@@ -1039,7 +1040,6 @@ class Search_User extends Component {
       },
     });
     console.log(res); //기본형
-    //여ㅑ기서부터 시작
     const {
       data: {
         user: { userNum },
@@ -1495,8 +1495,16 @@ class Search_User extends Component {
         />
     </div>)
   };
+  
+  MoreGameType = (type, gameId) => {
+    console.log(type)
 
-  MoreGameData  = async (gameid) =>{
+    if(type==6)
+    return <div onClick={() => this.MoreGameDataC(gameId)}>코발트 더보기</div>  
+    else 
+    return <div onClick={() => this.MoreGameDataB(gameId)}>배틀로얄 더보기</div>  
+  }
+  MoreGameDataB  = async (gameid) =>{
      const SearchGameId =`https://open-api.bser.io/v1/games/${gameid}`; 
    console.log(SearchGameId)
    let {
@@ -1518,18 +1526,56 @@ class Search_User extends Component {
   // console.log(userGames[2].damageToPlayer) 
   // 노말이랑 코발트 구분하기
 
-
+  this.OpenModalB();
   }
-  OpenModal = () => {
+
+  MoreGameDataC  = async (gameid) =>{
+    const SearchGameId =`https://open-api.bser.io/v1/games/${gameid}`; 
+  console.log(SearchGameId)
+  let {
+   data: { userGames },
+ 
+ } = await axios.get(SearchGameId, {
+   headers: {
+     "Content-Type": "application/json",
+     "x-api-key": this.state.API_KEY,
+   },
+ });
+
+ userGames.map((qqq,www)=>{
+  console.log(qqq) 
+ })
+ // console.log(userGames[0])
+ // console.log(userGames[2].characterNum)
+ // console.log(userGames[2].nickname)
+ // console.log(userGames[2].damageToPlayer) 
+ // 노말이랑 코발트 구분하기
+
+ this.OpenModalC();
+ }
+
+
+
+  
+  OpenModalB = () => {
   
     this.setState({
-      HaveVisible: true,
+      HaveVisibleB: true,
     });
-    console.log(this.state.HaveVisible)
   };
-  CloseModal = () => {
+  CloseModalB = () => {
     this.setState({
-      HaveVisible: false,
+      HaveVisibleB: false,
+    });
+  };
+  OpenModalC = () => {
+    this.setState({
+      HaveVisibleC: true,
+    });
+   };
+  CloseModalC = () => {
+    this.setState({
+      HaveVisibleC: false,
     });
   };
 
@@ -1538,13 +1584,11 @@ class Search_User extends Component {
   render() {
     const customStyles = {
       content: {
-        top: '50%',
-        left: '50%',
+        top: '10%',
+        left: '25%',
         right: 'auto',
         bottom: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -50%)',
-        width: '500px',
+        width: '1000px',
         height: '700px'
       },
     };
@@ -1597,7 +1641,8 @@ class Search_User extends Component {
                       
                     </div>
                   </div>
-                    <div onClick={() => this.MoreGameData(xx.gameId)}>더보기</div>     
+                  {this.MoreGameType(xx.matchingMode,xx.gameId)}
+                   
                   <div className="clear"></div>
                   <div className="GameRecordUnder">
                     {this.routeIdOfStart(xx.routeIdOfStart)}
@@ -1613,22 +1658,36 @@ class Search_User extends Component {
         )}
         <div onClick={() => this.makeDiv()}>메이크디비</div>
         <div onClick={() => this.PlusSearchGame()}>플러스 플러스</div>
+        <div onClick={() => this.OpenModalC()}>간간다다</div>
+    
 
         <div id="GameRecord">
           <div></div>
-          <div>{String(this.state.HaveVisible)}</div>
+          <div>{String(this.state.HaveVisibleB)}</div>
         </div>
         <MoreGame> </MoreGame>
         <Modal
-        isOpen={this.state.HaveVisible}
+        isOpen={this.state.HaveVisibleB}
         style={customStyles}
+        onclickaway
       >
         {this.state.User1[2]}
-     <h2>Hello</h2>
-        <button onClick={() => this.CloseModal()}>close</button>
+     <h2>배틀로얄입니다</h2>
+        <button onClick={() => this.CloseModalB()}>close</button>
         <div>I am a modal</div>
      
       </Modal>
+      <Modal
+        isOpen={this.state.HaveVisibleC}
+        style={customStyles}
+        onclickaway
+      >
+        {this.state.User1[2]}
+     <h2>코발트에용</h2>
+        <button onClick={() => this.CloseModalC()}>close</button>
+        <div>I am a modal</div>
+      </Modal>
+     
       </div>
     );
   }
