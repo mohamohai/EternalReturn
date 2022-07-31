@@ -3,7 +3,11 @@ import React, { Component, useState, useEffect } from "react";
 import axios from "axios";
 import "./Search_User.css";
 import NickNameSearch from "./NickNameSearch";
-import GameInfo from "./gameInfo.js";
+import MoreGame from "./MoreGame";
+
+import Modal from 'react-modal';
+
+import ReactDOM from 'react-dom';
 
 import { useParams, withRouter } from "react-router-dom";
 
@@ -35,6 +39,13 @@ class Search_User extends Component {
       PlusUserNum: 0,
       PlusNext:0,
       TierArr : [3],
+      HaveVisible: false,
+    
+
+      User1:[
+       
+    ],
+
       CharacterArr: [
         ["한글", "영어"],
         ["재키", "Jackie"],
@@ -1107,6 +1118,7 @@ class Search_User extends Component {
   PlusSearchGame = async (Nic, nexta, cnt) => {
     let urlUserNumt = `https://open-api.bser.io/v1/user/games/${this.state.PlusUserNum}?next=${this.state.PlusNext}`;
     //pass에서 setState를 설정하여 이용 cnt 류는 위에 서술과 같이 기업용 api의 경우 사용가능 
+ 
     let {
       data: { userGames },
       data: { next },
@@ -1505,9 +1517,37 @@ class Search_User extends Component {
   // console.log(userGames[2].nickname)
   // console.log(userGames[2].damageToPlayer) 
   // 노말이랑 코발트 구분하기
- 
+
+
   }
+  OpenModal = () => {
+  
+    this.setState({
+      HaveVisible: true,
+    });
+    console.log(this.state.HaveVisible)
+  };
+  CloseModal = () => {
+    this.setState({
+      HaveVisible: false,
+    });
+  };
+
+
+
   render() {
+    const customStyles = {
+      content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)',
+        width: '500px',
+        height: '700px'
+      },
+    };
     return (
       <div className="Search_User"> 
         {this.state.abc != "a" ? (
@@ -1576,8 +1616,19 @@ class Search_User extends Component {
 
         <div id="GameRecord">
           <div></div>
-          <div></div>
+          <div>{String(this.state.HaveVisible)}</div>
         </div>
+        <MoreGame> </MoreGame>
+        <Modal
+        isOpen={this.state.HaveVisible}
+        style={customStyles}
+      >
+        {this.state.User1[2]}
+     <h2>Hello</h2>
+        <button onClick={() => this.CloseModal()}>close</button>
+        <div>I am a modal</div>
+     
+      </Modal>
       </div>
     );
   }
