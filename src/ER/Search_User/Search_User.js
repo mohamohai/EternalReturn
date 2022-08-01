@@ -773,7 +773,7 @@ class Search_User extends Component {
   WeaponSearch = (inData) => {
     var WeaponSearchCode = inData;
     let WeaponCode = Math.floor(WeaponSearchCode / 1000);
-    console.log(WeaponCode)
+ 
     
     switch (WeaponCode) {
       case 101: {
@@ -935,49 +935,6 @@ class Search_User extends Component {
       }
     }
   };
-  ChestEquipmentSearch = (inData) => {
-    var ChestEquipmentSearch = inData; //이거 굳이 안해도됨 무기는 종류가 많아서 해야했지만
-
-    for (let a = 0; a <= this.state.ChestEquipmentArr.length - 1; a++) {
-      if (this.state.ChestEquipmentArr[a].ItemCode == ChestEquipmentSearch)
-        console.log(this.state.ChestEquipmentArr[a].ItemName);
-    }
-  };
-  HatEquipmentSearch = (inData) => {
-    var HatEquipmentSearchCode = inData;
-
-    for (let a = 0; a <= this.state.HatEquipmentArr.length - 1; a++) {
-      if (this.state.HatEquipmentArr[a].ItemCode == HatEquipmentSearchCode)
-        console.log(this.state.HatEquipmentArr[a].ItemName);
-    }
-  };
-  ArmEquipmentSearch = (inData) => {
-    var ArmEquipmentSearch = inData;
-
-    for (let a = 0; a <= this.state.ArmEquipmentArr.length - 1; a++) {
-      if (this.state.ArmEquipmentArr[a].ItemCode == ArmEquipmentSearch)
-        console.log(this.state.ArmEquipmentArr[a].ItemName);
-    }
-  };
-  ShoesEquipmentSearch = (inData) => {
-    var ShoesEquipmentSearch = inData;
-
-    for (let a = 0; a <= this.state.LegEquipmentArr.length - 1; a++) {
-      if (this.state.LegEquipmentArr[a].ItemCode == ShoesEquipmentSearch)
-        console.log(this.state.LegEquipmentArr[a].ItemName);
-    }
-  };
-
-  AccessoryEquipmentSearch = (inData) => {
-    var AccessoryEquipmentSearch = inData;
-
-    for (let a = 0; a <= this.state.AccessoryEquipmentArr.length - 1; a++) {
-      if (
-        this.state.AccessoryEquipmentArr[a].ItemCode == AccessoryEquipmentSearch
-      )
-        console.log(this.state.AccessoryEquipmentArr[a].ItemName);
-    }
-  };
 
   componentDidMount = () => {
     this.passaa(this.state.NickName, 0, 0);
@@ -1003,28 +960,28 @@ class Search_User extends Component {
           "//////////////////"
       );
       //여기 첫배열 뒤에부분에 원하는거 적으면 나옴
-      console.log("순위 : " + userGames[a].gameRank + "여기맞지?");
-      console.log("킬수 : " + userGames[a].playerKill);
-      console.log("어시 : " + userGames[a].playerAssistant);
-      console.log("데스 : " + userGames[a].playerDeaths);
-      console.log("딜량 : " + userGames[a].damageToPlayer);
-      console.log("무숙 : " + userGames[a].bestWeapon);
-      // console.log(userGames[a].skillLevelInfo);
-      // console.log(userGames[a].skillOrderInfo);
-      console.log("무기 : " + userGames[a].equipment[0]);
-      this.WeaponSearch(userGames[a].equipment[0]);
-      console.log("상의 : " + userGames[a].equipment[1]);
-      this.ChestEquipmentSearch(userGames[a].equipment[1]);
-      console.log("모자 : " + userGames[a].equipment[2]);
-      this.HatEquipmentSearch(userGames[a].equipment[2]);
-      console.log("팔 : " + userGames[a].equipment[3]);
-      this.ArmEquipmentSearch(userGames[a].equipment[3]);
-      console.log("신발 : " + userGames[a].equipment[4]);
-      this.ShoesEquipmentSearch(userGames[a].equipment[4]);
-      console.log("악세 : " + userGames[a].equipment[5]);
-      this.AccessoryEquipmentSearch(userGames[a].equipment[5]); //여기 추가값
-      console.log("");
-      console.log("");
+      // console.log("순위 : " + userGames[a].gameRank + "여기맞지?");
+      // console.log("킬수 : " + userGames[a].playerKill);
+      // console.log("어시 : " + userGames[a].playerAssistant);
+      // console.log("데스 : " + userGames[a].playerDeaths);
+      // console.log("딜량 : " + userGames[a].damageToPlayer);
+      // console.log("무숙 : " + userGames[a].bestWeapon);
+      // // console.log(userGames[a].skillLevelInfo);
+      // // console.log(userGames[a].skillOrderInfo);
+      // console.log("무기 : " + userGames[a].equipment[0]);
+      // this.WeaponSearch(userGames[a].equipment[0]);
+      // console.log("상의 : " + userGames[a].equipment[1]);
+      // this.ChestEquipmentSearch(userGames[a].equipment[1]);
+      // console.log("모자 : " + userGames[a].equipment[2]);
+      // this.HatEquipmentSearch(userGames[a].equipment[2]);
+      // console.log("팔 : " + userGames[a].equipment[3]);
+      // this.ArmEquipmentSearch(userGames[a].equipment[3]);
+      // console.log("신발 : " + userGames[a].equipment[4]);
+      // this.ShoesEquipmentSearch(userGames[a].equipment[4]);
+      // console.log("악세 : " + userGames[a].equipment[5]);
+      // this.AccessoryEquipmentSearch(userGames[a].equipment[5]); //여기 추가값
+      // console.log("");
+      // console.log("");
     }
   }
   SearchHistory = async (Nic) => {
@@ -1107,7 +1064,7 @@ class Search_User extends Component {
         "x-api-key": this.state.API_KEY,
       },
     });
-    console.log(userGames)
+   
     this.setState({PlusNext:next})
     this.state.SearchData.push(userGames);
  
@@ -1136,7 +1093,7 @@ class Search_User extends Component {
     this.setState({PlusNext:next}) // 플러스 세팅
     this.state.SearchData.push(userGames);
 
-    if (this.state.SearchData != undefined) console.log("왜안되는걸까요");
+
   
 
     cnt++;
@@ -1385,7 +1342,7 @@ class Search_User extends Component {
     SurveillanceCamera,
     TelephotoCamera,
   ) => {
-    console.log("감카 : " + SurveillanceCamera +" 망카 : "+ TelephotoCamera)
+   // console.log("감카 : " + SurveillanceCamera +" 망카 : "+ TelephotoCamera)
     let killMonstersCnt = 0;
 
     for (let cnt = 0; cnt <= 15; cnt++) {
@@ -1537,6 +1494,7 @@ console.log(arr)
   }
 
   MoreGameDataC  = async (gameid) =>{
+    console.log(gameid)
     const SearchGameId =`https://open-api.bser.io/v1/games/${gameid}`; 
   console.log(SearchGameId)
   let {
@@ -1713,17 +1671,15 @@ let Team2 = []
       </Modal>
       <Modal
         isOpen={this.state.HaveVisibleC}
-        style={customStyles}
+        style={customStyles }
         onclickaway
       >
         {this.state.btnC == "after" ? (
         <div>
              
-          {this.state.Team1[0].map((Team1User,xx)=>{
+          {this.state.Team1[this.state.Team1.length-1].map((Team1User,xx)=>{
             {this.createC(Team1User)}
-            {this.ItemIcon(
-              
-            )}
+      
            
           })}
        
