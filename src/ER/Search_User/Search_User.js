@@ -4,12 +4,10 @@ import axios from "axios";
 import "./Search_User.css";
 import NickNameSearch from "./NickNameSearch";
 import MoreGame from "./MoreGame";
-
 import Modal from 'react-modal';
-
 import ReactDOM from 'react-dom';
-
 import { useParams, withRouter } from "react-router-dom";
+
 
 class Search_User extends Component {
   constructor(props) {
@@ -33,7 +31,10 @@ class Search_User extends Component {
       matchingMode: "", //플레이한 게임 모드 2,3,6  노말 랭크 코발
       equipment: "", // 사용 아이템 6배열 좌상우하순서
       next: 1,
-      abc: "a",
+
+      apiSys: "before",
+      btnC:"before",
+      btnB:"before",
 
       nexta: 0,
       PlusUserNum: 0,
@@ -41,6 +42,9 @@ class Search_User extends Component {
       TierArr : [3],
       HaveVisibleB: false,
       HaveVisibleC: false,
+
+      Team1:[],
+      Team2:[],
     
 
       User1:[
@@ -1171,7 +1175,7 @@ class Search_User extends Component {
     console.log(movies);
   };
   makeDiv = () => {
-    this.setState({ abc: "b" });
+    this.setState({ apiSys: "use" });
   };
 
   OrderInfoArr = (inputArr) => {
@@ -1517,15 +1521,18 @@ class Search_User extends Component {
     },
   });
 
-  userGames.map((qqq,www)=>{
-   console.log(qqq) 
-  })
   // console.log(userGames[0])
   // console.log(userGames[2].characterNum)
   // console.log(userGames[2].nickname)
   // console.log(userGames[2].damageToPlayer) 
   // 노말이랑 코발트 구분하기
 
+  let arr = [,,,,,,,,,,,,,,,,,,];
+  userGames.map((aa,bb)=>{
+        arr[aa.gameRank-1] = aa
+     
+  })
+console.log(arr)
   this.OpenModalB();
   }
 
@@ -1541,10 +1548,19 @@ class Search_User extends Component {
      "x-api-key": this.state.API_KEY,
    },
  });
-
+let Team1 = []
+let Team2 = []
  userGames.map((qqq,www)=>{
-  console.log(qqq) 
+  if(qqq.teamNumber==1){
+    Team1.push(qqq)
+  }else{
+    Team2.push(qqq)
+  }
  })
+ console.log("Team1  :  " + Team1)
+ this.state.Team1.push(Team1)
+ console.log("Team2  :  " +Team2)
+ this.state.Team2.push(Team2)
  // console.log(userGames[0])
  // console.log(userGames[2].characterNum)
  // console.log(userGames[2].nickname)
@@ -1553,8 +1569,6 @@ class Search_User extends Component {
 
  this.OpenModalC();
  }
-
-
 
   
   OpenModalB = () => {
@@ -1571,6 +1585,7 @@ class Search_User extends Component {
   OpenModalC = () => {
     this.setState({
       HaveVisibleC: true,
+      btnC: "after",
     });
    };
   CloseModalC = () => {
@@ -1579,7 +1594,24 @@ class Search_User extends Component {
     });
   };
 
+  createC = (inData) =>{
+    console.log("yaya")
+    console.log(inData)
 
+    return(<div>문신처러어어엄 새겨져
+    </div>)
+
+ 
+  }
+  createB = (inData) =>{
+    console.log("yaya")
+    console.log(inData)
+
+    return(<div>{inData.nickname}
+    </div>)
+
+ 
+  }
 
   render() {
     const customStyles = {
@@ -1594,7 +1626,7 @@ class Search_User extends Component {
     };
     return (
       <div className="Search_User"> 
-        {this.state.abc != "a" ? (
+        {this.state.apiSys != "before" ? (
           this.state.SearchData.map((abc, xxx) =>
             abc.map((xx, cc) => {
               return (
@@ -1608,7 +1640,6 @@ class Search_User extends Component {
                         xx.totalTime
                       )}
                       <div className="left">
-                        {console.log(xx.characterNum)}
                         <img
                           className="CharThum"
                           src={`/image/Character_Img/${
@@ -1669,12 +1700,15 @@ class Search_User extends Component {
         <Modal
         isOpen={this.state.HaveVisibleB}
         style={customStyles}
-        onclickaway
+        clickAway={this.CloseModalB} //나ㅣ중에 화ㅓㄱ인
       >
+
+  
         {this.state.User1[2]}
-     <h2>배틀로얄입니다</h2>
+        <h2>배틀로얄입니다</h2>
         <button onClick={() => this.CloseModalB()}>close</button>
         <div>I am a modal</div>
+        {this.createB("why")}
      
       </Modal>
       <Modal
@@ -1682,10 +1716,32 @@ class Search_User extends Component {
         style={customStyles}
         onclickaway
       >
-        {this.state.User1[2]}
-     <h2>코발트에용</h2>
+        {this.state.btnC == "after" ? (
+        <div>
+             
+          {this.state.Team1[0].map((Team1User,xx)=>{
+            {this.createC(Team1User)}
+            {this.ItemIcon(
+              
+            )}
+           
+          })}
+       
+        <h2>-------------------------절취선------------------------</h2>
+        {this.state.Team2[0].map((Team2User,xx)=>{
+            return(<div>
+              {Team2User.nickname}
+            </div>)
+          })}
+      
         <button onClick={() => this.CloseModalC()}>close</button>
-        <div>I am a modal</div>
+        </div>) : 
+        
+        
+        
+        (<div>다시 눌러주세요<br></br>
+        <button onClick={() => this.CloseModalC()}>close</button></div>)}
+        
       </Modal>
      
       </div>

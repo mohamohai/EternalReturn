@@ -140,3 +140,12 @@
     margin: 10px 0 0 10px;
     font-size: 7px
 }
+
+
+#progress::after {
+    content: "yoyo";
+    position: relative;
+    top: 10px;
+    left: 100px;
+
+}
