@@ -8,7 +8,6 @@
 .CharThum {
     width: 60px;
     border-radius: 20px;
-
 }
 
 
@@ -71,7 +70,6 @@
     z-index: 70;
     margin-right: 2.5px;
     height: 25px;
-
 }
 
 .ItemTier0 {
@@ -126,14 +124,17 @@
     width: 35px;
     height: 25px;
     left: 100px;
-
     position: relative;
-
 }
 
+.abab {
+    color: red;
+}
 
 .GameRecordUnder {
     font-size: 12px;
+    position: relative;
+    top: -50px;
 }
 
 .GameRecordRoute {
@@ -142,10 +143,80 @@
 }
 
 
-#progress::after {
-    content: "yoyo";
+.MoreGameData {
+    width: 30px;
+    height: 130px;
     position: relative;
-    top: 10px;
-    left: 100px;
+    top: -10px;
+    left: 385px;
+    border-left: rgb(221, 221, 221) solid 1px;
+    text-align: center;
+}
 
+.MoreGameData div {
+    position: relative;
+    top: -35px;
+    font-size: 20px;
+}
+
+
+.OneLineInfo {
+    text-align: center;
+    height: 60px;
+}
+
+.OneLineInfo li {
+    margin: 15px 10px 0 0;
+}
+
+
+
+.OneLineth li {
+    font-size: 10px;
+    margin: 15px 12px 0 0;
+}
+
+.OneLineInfo progress {
+    margin: 15px 15px 0 0;
+}
+
+.OneLineChar {
+    float: left;
+    width: 40px;
+    border-radius: 20px;
+    margin: 0 15px 0 0;
+}
+
+
+.OneLineNick {
+    width: 150px;
+    text-align: center;
+}
+
+.OneLineKill {
+    width: 15px;
+}
+
+.OneLineDeath {
+    width: 15px;
+}
+
+.OneLineAss {
+    width: 20px;
+}
+
+.OneLineDamage {
+    width: 50px;
+}
+
+.OneLineProgress {
+    height: 20px;
+    float: left;
+}
+
+.MoreGameItemIcon {
+    width: 35px;
+    z-index: 70;
+    margin-right: 2.5px;
+    height: 20px;
 }
