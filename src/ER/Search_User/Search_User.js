@@ -2,11 +2,9 @@ import React, { Component, useState, useEffect } from "react";
 
 import axios from "axios";
 import "./Search_User.css";
-import NickNameSearch from "./NickNameSearch";
-import MoreGame from "./MoreGame";
 import Modal from 'react-modal';
 import ReactDOM from 'react-dom';
-import { useParams, withRouter } from "react-router-dom";
+
 
 
 class Search_User extends Component {
@@ -51,8 +49,7 @@ class Search_User extends Component {
       User2arr:[],
       User3:[],
       User3arr:[],
-
-      matchingTeamMode:0,
+        matchingTeamMode:0,
 
       damageToPlayerMax : 1000,
 
@@ -240,7 +237,7 @@ class Search_User extends Component {
         { ItemCode: 104407, ItemName: "금강저", ItemTier: 4 }, //무기군은 봉인에 해머쪽 코드로 작성되어있음
         { ItemCode: 104408, ItemName: "팔괘장", ItemTier: 4 },
         { ItemCode: 104501, ItemName: "피스브링어", ItemTier: 5 },
-        { ItemCode: 104407, ItemName: "금강저", ItemTier: 4 },
+      
       ],
       WeaponAxe: [
         { ItemCode: 105102, ItemName: "곡괭이", ItemTier: 1 },
@@ -443,6 +440,7 @@ class Search_User extends Component {
         { ItemCode: 116406, ItemName: "매그넘-보아", ItemTier: 4 },
         { ItemCode: 116407, ItemName: "글록 48", ItemTier: 4 },
         { ItemCode: 116409, ItemName: "스탬피드", ItemTier: 4 },
+        { ItemCode: 116410, ItemName: "플라즈마 건", ItemTier: 4 },
         { ItemCode: 116501, ItemName: "악켈테", ItemTier: 5 },
       ],
       WeaponAssaultRifle: [
@@ -651,6 +649,7 @@ class Search_User extends Component {
         { ItemCode: 201413, ItemName: "비질란테", ItemTier: 4 },
         { ItemCode: 201414, ItemName: "다이아뎀", ItemTier: 4 },
         { ItemCode: 201415, ItemName: "성기사의 투구", ItemTier: 4 },
+        { ItemCode: 201416, ItemName: "만개하는 선율", ItemTier: 4 },
         { ItemCode: 201501, ItemName: "천사의 고리", ItemTier: 5 },
         { ItemCode: 201502, ItemName: "빛의 증표", ItemTier: 5 },
         { ItemCode: 701451, ItemName: "택티컬 바이저", ItemTier: 6 },
@@ -703,6 +702,8 @@ class Search_User extends Component {
         { ItemCode: 204301, ItemName: "덧댄 슬리퍼", ItemTier: 2 },
         { ItemCode: 204302, ItemName: "부츠", ItemTier: 2 },
         { ItemCode: 204303, ItemName: "등산화", ItemTier: 3 },
+        { ItemCode: 204304, ItemName: "아이젠", ItemTier: 3 },
+      
         { ItemCode: 204401, ItemName: "강철 무릎 보호대", ItemTier: 3 },
         { ItemCode: 204402, ItemName: "경량화 부츠", ItemTier: 4 },
         { ItemCode: 204403, ItemName: "매버릭 러너", ItemTier: 4 },
@@ -1020,6 +1021,23 @@ class Search_User extends Component {
   }
   componentDidMount = () => {
     this.passaa(this.state.NickName, 0, 0);
+    window.addEventListener('scroll', this.onScroll);
+  };
+
+  shouldComponentUpdate(nextProps, nextState) { //prop state 변경되면 발동
+   
+    const top = ReactDOM.findDOMNode(this).getBoundingClientRect().top; 
+    const bottom = ReactDOM.findDOMNode(this).getBoundingClientRect().bottom; 
+    let Yc = bottom%900;
+    (Yc <90) && this.PlusSearchGame()
+      return true
+
+  }
+  onScroll = (e) => {
+    // 스크롤 할때마다 state에 scroll한 만큼 scrollTop 값 증가하므로 이를 업데이트해줌, 
+    //따라서 스크롤 시점에 따라 특정액션을 추후에 state를 활용하여 구현 가능
+    const scrollTop = ('scroll', e.srcElement.scrollingElement.scrollTop);
+    this.setState({ scrollTop });
   };
 
   conlog = () => {
@@ -1033,39 +1051,7 @@ class Search_User extends Component {
       <h1>리액트가 아니다.</h1>
     );
   };
-  consoleData = (userGames) =>{
-    for (let a = 0; a <= userGames.length - 1; a++) {
-      //배열 슥 보고 안에 내용 알맞게 적어주기   이걸 div랑 css로 꾸며서 출력해주고 안에 다시 팀적 코드 따서 돌려주기
-      console.log(
-        "캐릭 : " +
-          this.state.characterNumArr[userGames[a].characterNum] +
-          "//////////////////"
-      );
-      //여기 첫배열 뒤에부분에 원하는거 적으면 나옴
-      // console.log("순위 : " + userGames[a].gameRank + "여기맞지?");
-      // console.log("킬수 : " + userGames[a].playerKill);
-      // console.log("어시 : " + userGames[a].playerAssistant);
-      // console.log("데스 : " + userGames[a].playerDeaths);
-      // console.log("딜량 : " + userGames[a].damageToPlayer);
-      // console.log("무숙 : " + userGames[a].bestWeapon);
-      // // console.log(userGames[a].skillLevelInfo);
-      // // console.log(userGames[a].skillOrderInfo);
-      // console.log("무기 : " + userGames[a].equipment[0]);
-      // this.WeaponSearch(userGames[a].equipment[0]);
-      // console.log("상의 : " + userGames[a].equipment[1]);
-      // this.ChestEquipmentSearch(userGames[a].equipment[1]);
-      // console.log("모자 : " + userGames[a].equipment[2]);
-      // this.HatEquipmentSearch(userGames[a].equipment[2]);
-      // console.log("팔 : " + userGames[a].equipment[3]);
-      // this.ArmEquipmentSearch(userGames[a].equipment[3]);
-      // console.log("신발 : " + userGames[a].equipment[4]);
-      // this.ShoesEquipmentSearch(userGames[a].equipment[4]);
-      // console.log("악세 : " + userGames[a].equipment[5]);
-      // this.AccessoryEquipmentSearch(userGames[a].equipment[5]); //여기 추가값
-      // console.log("");
-      // console.log("");
-    }
-  }
+ 
   SearchHistory = async (Nic) => {
     //서치해서 해당 게임까지 서치
     const url0 = "https://open-api.bser.io/v1/user/nickname?query=사텐";
@@ -1108,7 +1094,6 @@ class Search_User extends Component {
     });
    
     this.state.SearchData.push(userGames);
-    this.consoleData(userGames)
   };
   passaa = async (Nic, nexta, cnt) => {
     //서치해서 해당 게임까지 서치
@@ -1150,7 +1135,6 @@ class Search_User extends Component {
     this.setState({PlusNext:next})
     this.state.SearchData.push(userGames);
  
-    this.consoleData(userGames)
     cnt++;
     // if (cnt < 1) this.passaa(Nic, next, cnt);
     //else console.log("끝");
@@ -1158,7 +1142,7 @@ class Search_User extends Component {
     this.makeDiv(); //이걸 해야 로딩에서 state가 변경되면서 화면의 삼항연산자가 작동
   };
 
-  PlusSearchGame = async (Nic, nexta, cnt) => {
+  PlusSearchGame = async () => {
     let urlUserNumt = `https://open-api.bser.io/v1/user/games/${this.state.PlusUserNum}?next=${this.state.PlusNext}`;
     //pass에서 setState를 설정하여 이용 cnt 류는 위에 서술과 같이 기업용 api의 경우 사용가능 
  
@@ -1174,12 +1158,6 @@ class Search_User extends Component {
 
     this.setState({PlusNext:next}) // 플러스 세팅
     this.state.SearchData.push(userGames);
-
-
-  
-
-    cnt++;
-
    // if (cnt < 1) this.passaa(Nic, next, cnt);
     //else console.log("끝");
     this.conlog();
@@ -1426,7 +1404,7 @@ class Search_User extends Component {
   ) => {
    // console.log("감카 : " + SurveillanceCamera +" 망카 : "+ TelephotoCamera)
     let killMonstersCnt = 0;
-
+      if(damageToPlayer==undefined)damageToPlayer=1000
     for (let cnt = 0; cnt <= 15; cnt++) {
       if (killMonsters[cnt] != undefined)
         killMonstersCnt = killMonstersCnt + killMonsters[cnt];
@@ -1591,6 +1569,7 @@ class Search_User extends Component {
        }else  if(a==this.state.AccessoryEquipmentArr.length-1)TierArr.push(this.state.AccessoryEquipmentArr[a])
        }
      return(<div className="Itema">
+      {console.log(TierArr[0].ItemCode)}
        <img
        className={`MoreGameItemIcon ItemTier${TierArr[0].ItemTier}`}
        src={`/image/Item/Weapon/${TierArr[0].ItemCode}.png`}
@@ -1658,8 +1637,8 @@ class Search_User extends Component {
     userGames.map((duo,duok)=>{
     user2[duo.gameRank-1].push(duo)
     })
-    for(let a=0; a<=8; a++){
-      for(let b=0; b<=1; b++){
+    for(let a=0; a<user2.length; a++){
+      for(let b=0; b<user2[0].length; b++){
         this.state.User2arr.push(user2[a][b])
       }
     }
@@ -1669,9 +1648,8 @@ class Search_User extends Component {
     userGames.map((squad,squadk)=>{
     user3[squad.gameRank-1].push(squad)
     })
-
-    for(let a=0; a<=5; a++){
-      for(let b=0; b<=2; b++){
+    for(let a=0; a<user3.length; a++){
+      for(let b=0; b<user3[0].length; b++){
         this.state.User3arr.push(user3[a][b])
       }
     }
@@ -1711,11 +1689,6 @@ class Search_User extends Component {
  this.OpenModalC();
  }
   OpenModalB = () => {
-    console.log("원"+this.state.User1)
-    console.log("")
-    console.log("투"+this.state.User2)
-    console.log("")
-    console.log("쓰리"+this.state.User3[5])
     this.setState({
       HaveVisibleB: true,
       btnB: "after",
@@ -1762,6 +1735,8 @@ class Search_User extends Component {
         height: '700px'
       },
     };
+
+    let mapCount=1;
     return (
       <div className="Search_User"> 
           <div style={{
@@ -1769,6 +1744,7 @@ class Search_User extends Component {
             left:"100px",
             top:"300px",
           }}> {this.state.damageToPlayerMax}</div>
+        
         {this.state.apiSys != "before" ? (
           this.state.SearchData.map((abc, xxx) =>
             abc.map((xx, cc) => {
@@ -1830,16 +1806,9 @@ class Search_User extends Component {
         ) : (
           <h1>loading...</h1>
         )}
-        <div onClick={() => this.makeDiv()}>메이크디비</div>
-        <div onClick={() => this.PlusSearchGame()}>플러스 플러스</div>
-        <div onClick={() => this.OpenModalC()}>간간다다</div>
-    
+        
+        <div className="PlusBtn" onClick={() => this.PlusSearchGame()}>플러스 플러스</div>
 
-        <div id="GameRecord">
-          <div></div>
-          <div>{String(this.state.HaveVisibleB)}</div>
-        </div>
-        <MoreGame> </MoreGame>
         <Modal
         isOpen={this.state.HaveVisibleB}
         style={customStyles}
@@ -1868,23 +1837,23 @@ class Search_User extends Component {
               }/Thumbnail/Default/Mini.png`}
             />
        
-          <li className="OneLineNick left"> {solo.nickname}</li>
+          <a href={`/Search_User/?NickName=${solo.nickname}`} className="OneLineNick left"> {solo.nickname}</a>
           <li className="OneLineKill left"> {solo.playerKill}</li>   
           <li className="OneLineAss left"> {solo.monsterKill}</li>
           <li className="OneLineDamage left"> {solo.damageToPlayer}</li>
           <progress className = "OneLineProgress"value={solo.damageToPlayer} max={this.state.damageToPlayerMax}></progress>
           {this.MoreGameItem(solo.equipment[0],solo.equipment[1],solo.equipment[2],solo.equipment[3],solo.equipment[4],solo.equipment[5])}
-         
-
             </div>
           )
         })}
         
       
         <button onClick={() => this.CloseModalB()}>닫아</button>
-        </div>) :this.state.matchingTeamMode==2 ? 
+        </div>) 
+        :this.state.matchingTeamMode==2 ?  ///////////////////////////////듀오
         (
         <div className="center"><div className="OneLineth">
+        <div className="TeamNum">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </div>
         <li className="OneLineChar">&nbsp; </li>
         <li className="OneLineNick left"> 닉네임</li>
         <li className="OneLineKill left"> K</li>
@@ -1894,36 +1863,37 @@ class Search_User extends Component {
         <li className="OneLineDamage left"> 딜량</li>
       </div>   <br></br><br></br>
 
-      {this.state.User3arr.map((squad,squadk)=>{
-        if(squad.damageToPlayer > this.state.damageToPlayerMax){
-          this.setState({damageToPlayerMax :squad.damageToPlayer })
+      {this.state.User2arr.map((duo,squadk)=>{
+       mapCount++
+        console.log(mapCount)
+        if(duo.damageToPlayer > this.state.damageToPlayerMax){
+          this.setState({damageToPlayerMax :duo.damageToPlayer })
         }
         return(
           <div className="OneLineInfo">
+          <div className="TeamNum">#{duo.gameRank}</div>
           <img
             className="OneLineChar"
             src={`/image/Character_Img/${
-              this.state.CharacterArr[squad.characterNum][1]
+              this.state.CharacterArr[duo.characterNum][1]
             }/Thumbnail/Default/Mini.png`}
           />
      
-        <li className="OneLineNick left"> {squad.nickname}</li>
-        <li className="OneLineKill left"> {squad.playerKill}</li> 
-        <li className="OneLineAss left"> {squad.playerDeaths}</li>
-        <li className="OneLineAss left"> {squad.playerAssistant}</li>  
-        <li className="OneLineAss left"> {squad.monsterKill}</li>
-        <li className="OneLineDamage left"> {squad.damageToPlayer}</li>
-        <progress className = "OneLineProgress"value={squad.damageToPlayer} max={this.state.damageToPlayerMax}></progress>
-        {this.MoreGameItem(squad.equipment[0],squad.equipment[1],squad.equipment[2],squad.equipment[3],squad.equipment[4],squad.equipment[5])}
-       
-
+     <a href={`/Search_User/?NickName=${duo.nickname}`} className="OneLineNick left"> {duo.nickname}</a>
+        <li className="OneLineKill left"> {duo.playerKill}</li> 
+        <li className="OneLineAss left"> {duo.playerDeaths}</li>
+        <li className="OneLineAss left"> {duo.playerAssistant}</li>  
+        <li className="OneLineAss left"> {duo.monsterKill}</li>
+        <li className="OneLineDamage left"> {duo.damageToPlayer}</li>
+        <progress className = "OneLineProgress"value={duo.damageToPlayer} max={this.state.damageToPlayerMax}></progress>
+        {this.MoreGameItem(duo.equipment[0],duo.equipment[1],duo.equipment[2],duo.equipment[3],duo.equipment[4],duo.equipment[5])}
+          
+        
           </div>)
       })}
       </div>
-      
       )
-        
-        : (
+        : (  /////////////////////////////////////// 여기부터 트리오
         <div className="center"><div className="OneLineth">
         <li className="OneLineChar">&nbsp; </li>
         <li className="OneLineNick left"> 닉네임</li>
@@ -1947,7 +1917,7 @@ class Search_User extends Component {
             }/Thumbnail/Default/Mini.png`}
           />
      
-        <li className="OneLineNick left"> {squad.nickname}</li>
+     <a href={`/Search_User/?NickName=${squad.nickname}`} className="OneLineNick left"> {squad.nickname}</a>
         <li className="OneLineKill left"> {squad.playerKill}</li> 
         <li className="OneLineAss left"> {squad.playerDeaths}</li>
         <li className="OneLineAss left"> {squad.playerAssistant}</li>  
@@ -1955,36 +1925,11 @@ class Search_User extends Component {
         <li className="OneLineDamage left"> {squad.damageToPlayer}</li>
         <progress className = "OneLineProgress"value={squad.damageToPlayer} max={this.state.damageToPlayerMax}></progress>
         {this.MoreGameItem(squad.equipment[0],squad.equipment[1],squad.equipment[2],squad.equipment[3],squad.equipment[4],squad.equipment[5])}
-       
-
           </div>)
       })}
       </div>
-      
       )
-
-
-
       }
-
-      
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       </Modal>
       <Modal
         isOpen={this.state.HaveVisibleC}
@@ -2014,8 +1959,8 @@ class Search_User extends Component {
                   this.state.CharacterArr[Team1User.characterNum][1]
                 }/Thumbnail/Default/Mini.png`}
               />
-         
-            <li className="OneLineNick left"> {Team1User.nickname}</li>
+ 
+            <a href={`/Search_User/?NickName=${Team1User.nickname}`} className="OneLineNick left"> {Team1User.nickname}</a>
             <li className="OneLineKill left"> {Team1User.playerKill}</li>
             <li className="OneLineDeath left">{Team1User.playerDeaths}</li>
             <li className="OneLineAss left"> {Team1User.playerAssistant}</li>
@@ -2040,7 +1985,7 @@ class Search_User extends Component {
               }/Thumbnail/Default/Mini.png`}
             />
        
-          <li className="OneLineNick left"> {Team2User.nickname}</li>
+       <a href={`/Search_User/?NickName=${Team2User.nickname}`} className="OneLineNick left"> {Team2User.nickname}</a>
           <li className="OneLineKill left"> {Team2User.playerKill}</li>
           <li className="OneLineDeath left">{Team2User.playerDeaths}</li>
           <li className="OneLineAss left"> {Team2User.playerAssistant}</li>
@@ -2060,7 +2005,7 @@ class Search_User extends Component {
         <button onClick={() => this.CloseModalC()}>close</button></div>)}
         
       </Modal>
-     
+
       </div>
     );
   }

@@ -28,9 +28,11 @@
 
 #Character_Infomation {
     margin-top: 20px;
-    width: 1920px;
+    width: 100vw;
     height: 1500px;
 
+    position: absolute;
+    left: 0px;
 }
 
 #abc {
@@ -65,9 +67,12 @@
 
 
 #Character_SelectBoard {
-    width: 1000px;
-    position: relative;
-
+    width: 980px;
+    height: 465px;
+    margin-top: 60px;
+    padding: 5px 10px 5px 10px;
+    border: solid 1px rgb(221, 221, 221);
+    text-align: center;
 
 }
 

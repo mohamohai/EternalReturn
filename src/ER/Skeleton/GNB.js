@@ -37,13 +37,12 @@ class GNB extends Component {
             <Link to="/Character_Infomation">실험체</Link>
           </li>
           <li>
-            <Link to="/Record">전적</Link>
-          </li>
-        </ul>
-        <ul className="GNB_RightMenu">
-          <li>
             <Link to="/Search_User">검색창</Link>
           </li>
+          
+        </ul>
+        <ul className="GNB_RightMenu">
+          
           <li>
             <Link to="/Search_User/?NickName=흑인42호">ex</Link>
           </li>
@@ -60,7 +59,7 @@ class GNB extends Component {
               href={`Search_User/?NickName=${this.state.TextBoxNickName}`}
             />
             <a href={`Search_User/?NickName=${this.state.TextBoxNickName}`}>
-              aasdasd
+      
             </a>
           </form>
         </ul>

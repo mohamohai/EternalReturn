@@ -26,7 +26,10 @@ class Character_Infomation extends Component {
     mapCnt: 0,
     SkillName: "피의 축제",
     SkillExplancation: "",
-    width:"500px"
+    width:"500px",
+
+    after:"before",
+    freeCharacters:[]
   };
 
   ClickP = () =>
@@ -781,65 +784,68 @@ this.freeCharacters()
         "x-api-key": this.state.API_KEY,
       },
     });
-    console.log(res.data.freeCharacters); 
+    this.state.freeCharacters.push(res.data.freeCharacters)
+    this.state.freeCharacters[0].push("hey")
+    console.log(this.state.freeCharacters)
   }
   render() {
+    
     let Character = [
-      ["재키", "Jackie"],
-      ["아야", "Aya"],
-      ["현우", "Hyunwoo"],
-      ["매그너스", "Magnus"],
-      ["피오라", "Fiora"],
-      ["나딘", "Nadine"],
-      ["자히르", "Zahir"],
-      ["하트", "Hart"],
-      ["아이솔", "Isol"],
-      ["리다이린", "LiDailin"],
-      ["유키", "Yuki"],
-      ["혜진", "Hyejin"],
-      ["쇼우", "Xiukai"],
-      ["시셀라", "Sissela"],
-      ["키아라", "Chiara"],
-      ["아드리아나", "Adriana"],
-      ["실비아", "Silvia"],
-      ["쇼이치", "Shoichi"],
-      ["엠마", "Emma"],
-      ["레녹스", "Lenox"],
-      ["로지", "Rozzi"],
-      ["루크", "Luke"],
-      ["캐시", "Cathy"],
-      ["아델라", "Adela"],
-      ["버니스", "Bernice"],
-      ["바바라", "Barbara"],
-      ["알렉스", "Alex"],
-      ["수아", "Sua"],
-      ["레온", "Leon"],
-      ["일레븐", "Eleven"],
-      ["리오", "Rio"],
-      ["윌리엄", "William"],
-      ["니키", "Nicky"],
-      ["나타폰", "Nathapon"],
-      ["얀", "Jan"],
-      ["이바", "Eva"],
-      ["다니엘", "Daniel"],
-      ["제니", "Jenny"],
-      ["카밀로", "Camilo"],
-      ["클로에", "Chloe"],
-      ["요한", "Johann"],
-      ["비앙카", "Bianca"],
-      ["셀린", "Celine"],
-      ["에키온", "Echion"],
-      ["마이", "Mai"],
-      ["에이든", "Aiden"],
-      ["라우라", "Laura"],
-      ["띠아", "Tia"],
-      ["펠릭스", "Felix"],
-      ["엘레나", "Elena"],
-      ["프리야", "Priya"],
-      ["아디나", "Adina"],
-      ["마커스", "Markus"],
-      ["칼라", "Karla"],
-      ["에스텔","Estelle"]
+      ["재키", "Jackie",1],
+      ["아야", "Aya",2],
+      ["현우", "Hyunwoo",3],
+      ["매그너스", "Magnus",4],
+      ["피오라", "Fiora",5],
+      ["나딘", "Nadine",6],
+      ["자히르", "Zahir",7],
+      ["하트", "Hart",8],
+      ["아이솔", "Isol",9],
+      ["리다이린", "LiDailin",10],
+      ["유키", "Yuki",11],
+      ["혜진", "Hyejin",12],
+      ["쇼우", "Xiukai",13],
+      ["시셀라", "Sissela",14],
+      ["키아라", "Chiara",15],
+      ["아드리아나", "Adriana",16],
+      ["실비아", "Silvia",17],
+      ["쇼이치", "Shoichi",18],
+      ["엠마", "Emma",19],
+      ["레녹스", "Lenox",20],
+      ["로지", "Rozzi",21],
+      ["루크", "Luke",22],
+      ["캐시", "Cathy",23],
+      ["아델라", "Adela",24],
+      ["버니스", "Bernice",25],
+      ["바바라", "Barbara",26],
+      ["알렉스", "Alex",27],
+      ["수아", "Sua",28],
+      ["레온", "Leon",29],
+      ["일레븐", "Eleven",30],
+      ["리오", "Rio",31],
+      ["윌리엄", "William",32],
+      ["니키", "Nicky",33],
+      ["나타폰", "Nathapon",34],
+      ["얀", "Jan",35],
+      ["이바", "Eva",36],
+      ["다니엘", "Daniel",37],
+      ["제니", "Jenny",38],
+      ["카밀로", "Camilo",39],
+      ["클로에", "Chloe",40],
+      ["요한", "Johann",41],
+      ["비앙카", "Bianca",42],
+      ["셀린", "Celine",43],
+      ["에키온", "Echion",44],
+      ["마이", "Mai",45],
+      ["에이든", "Aiden",46],
+      ["라우라", "Laura",47],
+      ["띠아", "Tia",48],
+      ["펠릭스", "Felix",49],
+      ["엘레나", "Elena",50],
+      ["프리야", "Priya",51],
+      ["아디나", "Adina",52],
+      ["마커스", "Markus",53],
+      ["칼라", "Karla",54],
+      ["에스텔","Estelle",55]
     ];
 
     let CharacterSort = Character.sort();
@@ -848,6 +854,8 @@ this.freeCharacters()
     let mapCnt = 1;
 
     return (
+
+
       <div id="Character_Infomation">
     <div id ="abc" >
       <img 
@@ -858,12 +866,14 @@ this.freeCharacters()
       </div>
       
           <div id="Character_SelectBoard">
-            <h3>캐릭터 선택</h3>
-
-            <br></br>
             {CharacterSort.map((arrSort, ababab) => {
+              for(let a= 0; a<=10;a++){console.log(this.state.freeCharacters[a])
+                if(arrSort[2]==this.state.freeCharacters[a]){
+                  console.log("겟챠")
+                }
+              }
               return (
-                <div>        
+                <div>     
                   <div
                     onClick={() => this.Character_NameE_Click(arrSort[1])}
                     id={arrSort[1]}

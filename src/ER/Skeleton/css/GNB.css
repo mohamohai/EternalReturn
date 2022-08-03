@@ -76,7 +76,7 @@ a :visited {
     left: 0px;
     width: 100vw;
     height: 60px;
-    background-color: black;
+    background-color: rgb(0, 0, 0);
     font-size: 17px;
     overflow-y: hidden;
     z-index: 999;

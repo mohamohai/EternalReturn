@@ -1,2002 +1,963 @@
-import React, { Component, useState, useEffect } from "react";
-
+import React, { Component } from "react";
 import axios from "axios";
-import "./Search_User.css";
-import NickNameSearch from "./NickNameSearch";
-import MoreGame from "./MoreGame";
-import Modal from 'react-modal';
-import ReactDOM from 'react-dom';
-import { useParams, withRouter } from "react-router-dom";
+import "./Character_Infomation.css";
 
+class Character_Infomation extends Component {
+  state = {
+    API_KEY: process.env.REACT_APP_ERKEY,
+    ClickSkill: "P", //스킬창 기본칸 패시브로 설정
+    ClickSkillName: 0,
+    ClickSkillExplancation: 0,
+    Character_NameK: "", //한국이름으로 편하게 주 된 이름만
+    Character_NameE: "Rozzi", //풀네임 요망  <h2> 주이름 <h5>보조이름
+    Character_NameF: "",
+    Character_Explanation: "", // <h5> 설명 작게
+    P_Name: "",
+    P_Explanation: "",
+    Q_Name: "",
+    Q_Explanation: "",
+    W_name: "",
+    W_Explanation: "",
+    E_Name: "",
+    E_Explanation: "",
+    R_Name: "",
+    R_Explanation: "",
+    Weapon: "",
+    mapCnt: 0,
+    SkillName: "피의 축제",
+    SkillExplancation: "",
+    width:"500px",
 
-class Search_User extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      API_KEY: process.env.REACT_APP_ERKEY,
-      NickName: decodeURIComponent(window.location.search).substring(10),
-      SearchData: [], //10개 넘어옴
-      characterNum: "", //사용 캐릭터
-      gameRank: "", // 현게임 등수
-      playerKill: "", // 현게임 킬수
-      playerAssistant: "", // 현게임 어시
-      playerDeaths: "", // 현게임 데스
-      damageToPlayer: "", // 현게임 총딜량
-      bestWeapon: "", // 무숙
-      skillLevelInfo: "", // 스킬별 레벨B
-      skillOrderInfo: "", // 스킬 찍은 순서  //함수로 다시 배열 어딘가에 쏘옥 하고 넣엉
-      skillOrderInfoArr: [],
-
-      routeIdOfStart: "", // 루트 번호
-      matchingMode: "", //플레이한 게임 모드 2,3,6  노말 랭크 코발
-      equipment: "", // 사용 아이템 6배열 좌상우하순서
-      next: 1,
-
-      apiSys: "before",
-      btnC:"before",
-      btnB:"before",
-
-      nexta: 0,
-      PlusUserNum: 0,
-      PlusNext:0,
-      TierArr : [3],
-      HaveVisibleB: false,
-      HaveVisibleC: false,
-
-      Team1:[],
-      Team2:[],
-      
-      User1:[], //팀원수별 배열
-      User2:[],
-      User2arr:[],
-      User3:[],
-      User3arr:[],
-
-      matchingTeamMode:0,
-
-      damageToPlayerMax : 1000,
-
-      CharacterArr: [
-        ["한글", "영어"],
-        ["재키", "Jackie"],
-        ["아야", "Aya"],
-        ["현우", "Hyunwoo"],
-        ["매그너스", "Magnus"],
-        ["피오라", "Fiora"],
-        ["나딘", "Nadine"],
-        ["자히르", "Zahir"],
-        ["하트", "Hart"],
-        ["아이솔", "Isol"],
-        ["리다이린", "LiDailin"],
-        ["유키", "Yuki"],
-        ["혜진", "Hyejin"],
-        ["쇼우", "Xiukai"],
-        ["키아라", "Chiara"],
-        ["시셀라", "Sissela"],
-        ["실비아", "Silvia"],
-        ["아드리아나", "Adriana"],
-        ["쇼이치", "Shoichi"],
-        ["엠마", "Emma"],
-        ["레녹스", "Lenox"],
-        ["로지", "Rozzi"],
-        ["루크", "Luke"],
-        ["캐시", "Cathy"],
-        ["아델라", "Adela"],
-        ["버니스", "Bernice"],
-        ["바바라", "Barbara"],
-        ["알렉스", "Alex"],
-        ["수아", "Sua"],
-        ["레온", "Leon"],
-        ["일레븐", "Eleven"],
-        ["리오", "Rio"],
-        ["윌리엄", "William"],
-        ["니키", "Nicky"],
-        ["나타폰", "Nathapon"],
-        ["얀", "Jan"],
-        ["이바", "Eva"],
-        ["다니엘", "Daniel"],
-        ["제니", "Jenny"],
-        ["카밀로", "Camilo"],
-        ["클로에", "Chloe"],
-        ["요한", "Johann"],
-        ["비앙카", "Bianca"],
-        ["셀린", "Celine"],
-        ["에키온", "Echion"],
-        ["마이", "Mai"],
-        ["에이든", "Aiden"],
-        ["라우라", "Laura"],
-        ["띠아", "Tia"],
-        ["펠릭스", "Felix"],
-        ["엘레나", "Elena"],
-        ["프리야", "Priya"],
-        ["아디나", "Adina"],
-        ["마커스", "Markus"],
-        ["칼라", "Karla"],
-        ["에스텔", "Estelle"],
-        ["", "Estelle"],
-        ["", ""],
-        ["", ""],
-      ],
-      characterNumArr: [
-        "캐릭터이름",
-        "재키",
-        "아야",
-        "피오라",
-        "매그너스",
-        "자히르",
-        "나딘",
-        "현우",
-        "하트",
-        "아이솔",
-        "리다이린",
-        "유키",
-        "혜진",
-        "쇼우",
-        "키아라",
-        "시셀라",
-        "실비아",
-        "아드리아나",
-        "쇼이치",
-        "엠마",
-        "레녹스",
-        "로지",
-        "루크",
-        "캐시",
-        "아델라",
-        "버니스",
-        "바바라",
-        "알렉스",
-        "수아",
-        "레온",
-        "일레븐",
-        "리오",
-        "윌리엄",
-        "니키",
-        "나타폰",
-        "얀",
-        "이바",
-        "다니엘",
-        "제니",
-        "카밀로",
-        "클로에",
-        "요한",
-        "비앙카",
-        "셀린",
-        "에키온",
-        "마이",
-        "에이든",
-        "라우라",
-        "띠아",
-        "펠릭스",
-        "엘레나",
-        "프리야",
-        "아디나",
-        "마커스",
-        "칼라",
-        "에스텔",
-        "피올로",
-      ],
-      WeaponEmpty:
-      { ItemCode: "empty",   ItemName: "empty", ItemTier: 0 },
-      WeaponDagger: [
-        { ItemCode: 101101, ItemName: "가위", ItemTier: 1 },
-        { ItemCode: 101102, ItemName: "만년필", ItemTier: 1 },
-        { ItemCode: 101104, ItemName: "식칼", ItemTier: 1 },
-        { ItemCode: 101201, ItemName: "군용 나이프", ItemTier: 2 },
-        { ItemCode: 101202, ItemName: "메스", ItemTier: 2 },
-        { ItemCode: 101203, ItemName: "자마다르", ItemTier: 2 },
-        { ItemCode: 101301, ItemName: "장미칼", ItemTier: 3 },
-        { ItemCode: 101302, ItemName: "스위스 아미 나이프", ItemTier: 3 },
-        { ItemCode: 101303, ItemName: "카라페이스 카타르", ItemTier: 3 },
-        { ItemCode: 101401, ItemName: "카른웬난", ItemTier: 4 },
-        { ItemCode: 101402, ItemName: "파산검", ItemTier: 4 },
-        { ItemCode: 101404, ItemName: "초진동나이프", ItemTier: 4 },
-        { ItemCode: 101405, ItemName: "프라가라흐", ItemTier: 5 },
-        { ItemCode: 101406, ItemName: "다마스커스 가시", ItemTier: 4 },
-        { ItemCode: 101407, ItemName: "마하라자", ItemTier: 4 },
-      ],
-      WeaponTwoHanedeSword: [
-        { ItemCode: 102101, ItemName: "녹슨 검", ItemTier: 1 },
-        { ItemCode: 102201, ItemName: "샴쉬르", ItemTier: 2 },
-        { ItemCode: 102301, ItemName: "일본도", ItemTier: 3 },
-        { ItemCode: 102401, ItemName: "마사무네", ItemTier: 3 },
-        { ItemCode: 102402, ItemName: "무라마사", ItemTier: 3 },
-        { ItemCode: 102403, ItemName: "바스타드 소드", ItemTier: 3 },
-        { ItemCode: 102404, ItemName: "보검", ItemTier: 3 },
-        { ItemCode: 102405, ItemName: "뚜언 띠엔", ItemTier: 4 },
-        { ItemCode: 102406, ItemName: "아론다이트", ItemTier: 4 },
-        { ItemCode: 102407, ItemName: "엑스칼리버", ItemTier: 4 },
-        { ItemCode: 102408, ItemName: "플라즈마 소드", ItemTier: 4 },
-        { ItemCode: 102409, ItemName: "레바테인", ItemTier: 5 },
-        { ItemCode: 102410, ItemName: "모노호시자오", ItemTier: 4 },
-        { ItemCode: 102411, ItemName: "호푸어드", ItemTier: 4 },
-        { ItemCode: 102412, ItemName: "빛의 검", ItemTier: 5 },
-        { ItemCode: 102501, ItemName: "다인슬라이프", ItemTier: 5 },
-      ],
-      WeaponDualSwords: [
-        { ItemCode: 103201, ItemName: "쌍칼", ItemTier: 1 },
-        { ItemCode: 103202, ItemName: "조잡한 쌍검", ItemTier: 2 },
-        { ItemCode: 103301, ItemName: "피렌체식 쌍검", ItemTier: 3 },
-        { ItemCode: 103302, ItemName: "쌍둥이 검", ItemTier: 3 },
-        { ItemCode: 103401, ItemName: "이천일류", ItemTier: 4 },
-        { ItemCode: 103402, ItemName: "자웅일대검", ItemTier: 4 },
-        { ItemCode: 103403, ItemName: "아수라", ItemTier: 4 },
-        { ItemCode: 103501, ItemName: "디오스쿠로이", ItemTier: 4 },
-        { ItemCode: 103502, ItemName: "로이거 차르", ItemTier: 5 },
-        { ItemCode: 103503, ItemName: "간장과 막야", ItemTier: 5 },
-      ],
-      WeaponHammer: [
-        { ItemCode: 104101, ItemName: "망치", ItemTier: 1 },
-        { ItemCode: 104201, ItemName: "워해머", ItemTier: 2 },
-        { ItemCode: 104301, ItemName: "모닝 스타", ItemTier: 3 },
-        { ItemCode: 104302, ItemName: "사슴 망치", ItemTier: 3 },
-        { ItemCode: 104303, ItemName: "운명의 망치", ItemTier: 3 },
-        { ItemCode: 104401, ItemName: "낭아봉", ItemTier: 4 },
-        { ItemCode: 104402, ItemName: "다그다의 망치", ItemTier: 4 },
-        { ItemCode: 104403, ItemName: "토르의 망치", ItemTier: 4 },
-        { ItemCode: 104404, ItemName: "개밥바라기", ItemTier: 5 },
-        { ItemCode: 104405, ItemName: "마법봉", ItemTier: 4 },
-        { ItemCode: 104406, ItemName: "천근추", ItemTier: 4 },
-        { ItemCode: 104407, ItemName: "금강저", ItemTier: 4 }, //무기군은 봉인에 해머쪽 코드로 작성되어있음
-        { ItemCode: 104408, ItemName: "팔괘장", ItemTier: 4 },
-        { ItemCode: 104501, ItemName: "피스브링어", ItemTier: 5 },
-        { ItemCode: 104407, ItemName: "금강저", ItemTier: 4 },
-      ],
-      WeaponAxe: [
-        { ItemCode: 105102, ItemName: "곡괭이", ItemTier: 1 },
-        { ItemCode: 105103, ItemName: "손도끼", ItemTier: 1 },
-        { ItemCode: 105201, ItemName: "사슬 낫", ItemTier: 2 },
-        { ItemCode: 105202, ItemName: "전투 도끼", ItemTier: 2 },
-        { ItemCode: 105301, ItemName: "경량화 도끼", ItemTier: 3 },
-        { ItemCode: 105302, ItemName: "사신의 낫", ItemTier: 3 },
-        { ItemCode: 105401, ItemName: "대부", ItemTier: 3 },
-        { ItemCode: 105402, ItemName: "빔 엑스", ItemTier: 4 },
-        { ItemCode: 105403, ItemName: "산타 무에르테", ItemTier: 4 },
-        { ItemCode: 105404, ItemName: "스퀴테", ItemTier: 4 },
-        { ItemCode: 105405, ItemName: "파라슈", ItemTier: 4 },
-        { ItemCode: 105406, ItemName: "하르페", ItemTier: 4 },
-        { ItemCode: 105407, ItemName: "저거너트", ItemTier: 4 },
-        { ItemCode: 105501, ItemName: "반고부", ItemTier: 5 },
-        { ItemCode: 105408, ItemName: "반고부", ItemTier: 5 },
-        
-      ],
-      WeaponSpear: [
-        { ItemCode: 107101, ItemName: "단창", ItemTier: 1 },
-        { ItemCode: 107201, ItemName: "죽창", ItemTier: 2 },
-        { ItemCode: 107301, ItemName: "바이던트", ItemTier: 3 },
-        { ItemCode: 107302, ItemName: "파이크", ItemTier: 3 },
-        { ItemCode: 107303, ItemName: "도끼창", ItemTier: 3 },
-        { ItemCode: 107401, ItemName: "강창", ItemTier: 3 },
-        { ItemCode: 107402, ItemName: "애각창", ItemTier: 5 },
-        { ItemCode: 107403, ItemName: "장팔사모", ItemTier: 4 },
-        { ItemCode: 107404, ItemName: "코스믹 바이던트", ItemTier: 5 },
-        { ItemCode: 107405, ItemName: "트리아이나", ItemTier: 4 },
-        { ItemCode: 107406, ItemName: "화첨창", ItemTier: 5 },
-        { ItemCode: 107407, ItemName: "방천화극", ItemTier: 4 },
-        { ItemCode: 107408, ItemName: "청룡언월도", ItemTier: 4 },
-        { ItemCode: 107409, ItemName: "나기나타", ItemTier: 4 },
-        { ItemCode: 107501, ItemName: "롱기누스의 창", ItemTier: 5 },
-      ],
-      WeaponBat: [
-        { ItemCode: 108101, ItemName: "나뭇가지", ItemTier: 1 },
-        { ItemCode: 108102, ItemName: "단봉", ItemTier: 1 },
-        { ItemCode: 108103, ItemName: "대나무", ItemTier: 1 },
-        { ItemCode: 108104, ItemName: "인체모형", ItemTier: 1 },
-        { ItemCode: 108201, ItemName: "먼지털이개", ItemTier: 2 },
-        { ItemCode: 108202, ItemName: "장봉", ItemTier: 2 },
-        { ItemCode: 108301, ItemName: "도깨비 방망이", ItemTier: 3 },
-        { ItemCode: 108401, ItemName: "우산", ItemTier: 3 },
-        { ItemCode: 108402, ItemName: "횃불", ItemTier: 3 },
-        { ItemCode: 108405, ItemName: "몽둥이", ItemTier: 3 },
-        { ItemCode: 108403, ItemName: "구원의 여신상", ItemTier: 4 },
-        { ItemCode: 108404, ItemName: "타구봉", ItemTier: 4 },
-        { ItemCode: 108501, ItemName: "스파이의 우산", ItemTier: 4 },
-        { ItemCode: 104407, ItemName: "금강저", ItemTier: 4 }, //이거만 추가
-        { ItemCode: 108502, ItemName: "여의봉", ItemTier: 5 },
-      ],
-      WeaponWhip: [
-        { ItemCode: 109101, ItemName: "채찍", ItemTier: 1 },
-        { ItemCode: 109201, ItemName: "오랏줄", ItemTier: 2 },
-        { ItemCode: 109202, ItemName: "철편", ItemTier: 2 },
-        { ItemCode: 109301, ItemName: "바람 채찍", ItemTier: 3 },
-        { ItemCode: 109401, ItemName: "뇌룡편", ItemTier: 4 },
-        { ItemCode: 109402, ItemName: "벽력편", ItemTier: 4 },
-        { ItemCode: 109403, ItemName: "글레이프니르", ItemTier: 4 },
-        { ItemCode: 109404, ItemName: "플라즈마 윕", ItemTier: 4 },
-        { ItemCode: 109405, ItemName: "캐소드라쉬", ItemTier: 4 },
-        { ItemCode: 109406, ItemName: "우라노스", ItemTier: 4 },
-        { ItemCode: 109501, ItemName: "혈화구절편", ItemTier: 5 },
-      ],
-      WeaponGlove: [
-        { ItemCode: 110101, ItemName: "너클", ItemTier: 1 },
-        { ItemCode: 110102, ItemName: "목장갑", ItemTier: 1 },
-        { ItemCode: 110201, ItemName: "글러브", ItemTier: 2 },
-        { ItemCode: 110202, ItemName: "아이언 너클", ItemTier: 2 },
-        { ItemCode: 110301, ItemName: "건틀릿", ItemTier: 3 },
-        { ItemCode: 110302, ItemName: "윙 너클", ItemTier: 3 },
-        { ItemCode: 110401, ItemName: "귀골 장갑", ItemTier: 3 },
-        { ItemCode: 110402, ItemName: "벽력귀투", ItemTier: 3 },
-        { ItemCode: 110403, ItemName: "유리 너클", ItemTier: 3 },
-        { ItemCode: 110404, ItemName: "회단 장갑", ItemTier: 3 },
-        { ItemCode: 110405, ItemName: "단영촌천투", ItemTier: 4 },
-        { ItemCode: 110406, ItemName: "디바인 피스트", ItemTier: 4 },
-        { ItemCode: 110407, ItemName: "블러드윙 너클", ItemTier: 4 },
-        { ItemCode: 110408, ItemName: "빙화현옥수", ItemTier: 4 },
-        { ItemCode: 110409, ItemName: "여래수투", ItemTier: 4 },
-        { ItemCode: 110410, ItemName: "브레이질 건틀릿", ItemTier: 4 },
-        { ItemCode: 110411, ItemName: "소수", ItemTier: 4 },
-        { ItemCode: 110412, ItemName: "천잠장갑", ItemTier: 5 },
-        { ItemCode: 110501, ItemName: "주작자문", ItemTier: 5 },
-        { ItemCode: 110502, ItemName: "프로스트팽", ItemTier: 5 },
-      ],
-      WeaponTonfa: [
-        { ItemCode: 123123, ItemName: "대나무", ItemTier: 1 }, //찾
-        { ItemCode: 111101, ItemName: "맷손", ItemTier: 1 },
-        { ItemCode: 111201, ItemName: "톤파", ItemTier: 2 },
-        { ItemCode: 111301, ItemName: "경찰봉", ItemTier: 3 },
-        { ItemCode: 111401, ItemName: "류큐톤파", ItemTier: 3 },
-        { ItemCode: 111402, ItemName: "택티컬 톤파", ItemTier: 4 },
-        { ItemCode: 111403, ItemName: "마이쏙", ItemTier: 4 },
-        { ItemCode: 111404, ItemName: "플라즈마 톤파", ItemTier: 4 },
-        { ItemCode: 111405, ItemName: "윈드러너", ItemTier: 5 },
-        { ItemCode: 111501, ItemName: "흑요석 짓테", ItemTier: 5 },
-      ],
-      WeaponThrow: [
-        { ItemCode: 112101, ItemName: "돌멩이", ItemTier: 1 },
-        { ItemCode: 112103, ItemName: "쇠구슬", ItemTier: 1 },
-        { ItemCode: 112104, ItemName: "유리병", ItemTier: 1 },
-        { ItemCode: 401215, ItemName: "달궈진 돌멩이", ItemTier: 2 }, // 아니},이게 왜 여깃냐고
-        { ItemCode: 112105, ItemName: "야구공", ItemTier: 1 },
-        { ItemCode: 112202, ItemName: "수류탄", ItemTier: 2 },
-        { ItemCode: 112203, ItemName: "화염병", ItemTier: 2 },
-        { ItemCode: 112204, ItemName: "슬링", ItemTier: 3 },
-        { ItemCode: 112205, ItemName: "싸인볼", ItemTier: 2 },
-        { ItemCode: 112301, ItemName: "밀가루 폭탄", ItemTier: 3 },
-        { ItemCode: 112302, ItemName: "소이탄", ItemTier: 4 },
-        { ItemCode: 112303, ItemName: "볼 라이트닝", ItemTier: 3 },
-        { ItemCode: 112304, ItemName: "플러버", ItemTier: 3 },
-        { ItemCode: 112305, ItemName: "안티오크의 수류탄", ItemTier: 4 },
-        { ItemCode: 112306, ItemName: "필럼", ItemTier: 3 },
-        { ItemCode: 112401, ItemName: "다비드슬링", ItemTier: 4 },
-        { ItemCode: 112402, ItemName: "연막탄", ItemTier: 4 },
-        { ItemCode: 112403, ItemName: "가시 탱탱볼", ItemTier: 3 },
-        { ItemCode: 112404, ItemName: "고폭 수류탄", ItemTier: 3 },
-        { ItemCode: 112501, ItemName: "루테늄 구슬", ItemTier: 4 },
-        { ItemCode: 112405, ItemName: "파이어 볼", ItemTier: 4 },
-        { ItemCode: 112406, ItemName: "프리즘 볼", ItemTier: 5 },
-        { ItemCode: 112407, ItemName: "아스트라페", ItemTier: 4 },
-      ],
-      WeaponShuriken: [
-        { ItemCode: 113101, ItemName: "면도칼", ItemTier: 1 },
-        { ItemCode: 113102, ItemName: "트럼프 카드", ItemTier: 1 },
-        { ItemCode: 113103, ItemName: "CD", ItemTier: 1 },
-        { ItemCode: 113104, ItemName: "분필", ItemTier: 1 },
-        { ItemCode: 113201, ItemName: "다트", ItemTier: 2 },
-        { ItemCode: 113202, ItemName: "부적", ItemTier: 3 },
-        { ItemCode: 113203, ItemName: "빈티지 카드", ItemTier: 2 },
-        { ItemCode: 113204, ItemName: "토마호크", ItemTier: 3 },
-        { ItemCode: 113205, ItemName: "표창", ItemTier: 2 },
-        { ItemCode: 113206, ItemName: "흑건", ItemTier: 2 },
-        { ItemCode: 113207, ItemName: "유엽비도", ItemTier: 3 },
-        { ItemCode: 113301, ItemName: "챠크람", ItemTier: 3 },
-        { ItemCode: 113302, ItemName: "매화비표", ItemTier: 3 },
-        { ItemCode: 113401, ItemName: "미치광이왕의 카드", ItemTier: 4 },
-        { ItemCode: 113402, ItemName: "독침", ItemTier: 3 },
-        { ItemCode: 113403, ItemName: "법륜", ItemTier: 3 },
-        { ItemCode: 113404, ItemName: "플럼바타", ItemTier: 3 },
-        { ItemCode: 113405, ItemName: "옥전결", ItemTier: 4 },
-        { ItemCode: 113406, ItemName: "풍마 수리검", ItemTier: 4 },
-        { ItemCode: 113407, ItemName: "본크러셔", ItemTier: 4 },
-        { ItemCode: 113408, ItemName: "빙백은침", ItemTier: 4 },
-        { ItemCode: 113409, ItemName: "푸른색 단도", ItemTier: 4 },
-        { ItemCode: 113410, ItemName: "플레솃", ItemTier: 4 },
-        { ItemCode: 113411, ItemName: "건곤권", ItemTier: 4 },
-        { ItemCode: 113412, ItemName: "생사부", ItemTier: 5 },
-        { ItemCode: 113501, ItemName: "수다르사나", ItemTier: 5 },
-        { ItemCode: 113502, ItemName: "만천화우", ItemTier: 5 },
-      ],
-      WeaponBow: [
-        { ItemCode: 114101, ItemName: "양궁", ItemTier: 1 },
-        { ItemCode: 114201, ItemName: "목궁", ItemTier: 2 },
-        { ItemCode: 114202, ItemName: "장궁", ItemTier: 2 },
-        { ItemCode: 114203, ItemName: "컴포지트 보우", ItemTier: 3 },
-        { ItemCode: 114301, ItemName: "강궁", ItemTier: 3 },
-        { ItemCode: 114302, ItemName: "국궁", ItemTier: 3 },
-        { ItemCode: 114303, ItemName: "벽력궁", ItemTier: 3 },
-        { ItemCode: 114304, ItemName: "탄궁", ItemTier: 3 },
-        { ItemCode: 114401, ItemName: "편전", ItemTier: 4 },
-        { ItemCode: 114402, ItemName: "화전", ItemTier: 3 },
-        { ItemCode: 114403, ItemName: "골든래쇼 보우", ItemTier: 4 },
-        { ItemCode: 114404, ItemName: "큐피드의 활", ItemTier: 4 },
-        { ItemCode: 114405, ItemName: "트윈보우", ItemTier: 4 },
-        { ItemCode: 114406, ItemName: "제베의 활", ItemTier: 4 },
-        { ItemCode: 114501, ItemName: "엘리멘탈 보우", ItemTier: 4 },
-        { ItemCode: 114502, ItemName: "페일노트", ItemTier: 5 },
-        { ItemCode: 114503, ItemName: "아르기로톡소스", ItemTier: 5 },
-        { ItemCode: 114407, ItemName: "아르테미스", ItemTier: 5 },
-      ],
-      WeaponCrossbow: [
-        { ItemCode: 115101, ItemName: "석궁", ItemTier: 1 },
-        { ItemCode: 115201, ItemName: "쇠뇌", ItemTier: 2 },
-        { ItemCode: 115202, ItemName: "크로스보우", ItemTier: 2 },
-        { ItemCode: 115301, ItemName: "노", ItemTier: 3 },
-        { ItemCode: 115302, ItemName: "저격궁", ItemTier: 3 },
-        { ItemCode: 115303, ItemName: "헤비 크로스보우", ItemTier: 3 },
-        { ItemCode: 115401, ItemName: "철궁", ItemTier: 3 },
-        { ItemCode: 115402, ItemName: "대황", ItemTier: 4 },
-        { ItemCode: 115403, ItemName: "발리스타", ItemTier: 4 },
-        { ItemCode: 115404, ItemName: "저격 크로스보우", ItemTier: 4 },
-        { ItemCode: 115405, ItemName: "영광금귀신기노", ItemTier: 4 },
-        { ItemCode: 115501, ItemName: "샤릉가", ItemTier: 5 },
-      ],
-      WeaponPistol: [
-        { ItemCode: 116101, ItemName: "발터 PPK", ItemTier: 1 },
-        { ItemCode: 116201, ItemName: "매그넘-파이선", ItemTier: 2 },
-        { ItemCode: 116202, ItemName: "베레타 M92F", ItemTier: 2 },
-        { ItemCode: 116301, ItemName: "FN57", ItemTier: 3 },
-        { ItemCode: 116401, ItemName: "더블 리볼버 SP", ItemTier: 3 },
-        { ItemCode: 116402, ItemName: "매그넘-아나콘다", ItemTier: 3 },
-        { ItemCode: 116408, ItemName: "데린저", ItemTier: 3 },
-        { ItemCode: 116403, ItemName: "마탄의 사수", ItemTier: 5 },
-        { ItemCode: 116404, ItemName: "엘레강스", ItemTier: 4 },
-        { ItemCode: 116405, ItemName: "일렉트론 블라스터", ItemTier: 4 },
-        { ItemCode: 116406, ItemName: "매그넘-보아", ItemTier: 4 },
-        { ItemCode: 116407, ItemName: "글록 48", ItemTier: 4 },
-        { ItemCode: 116409, ItemName: "스탬피드", ItemTier: 4 },
-        { ItemCode: 116501, ItemName: "악켈테", ItemTier: 5 },
-      ],
-      WeaponAssaultRifle: [
-        { ItemCode: 117101, ItemName: "페도로프 자동소총", ItemTier: 1 },
-        { ItemCode: 117201, ItemName: "STG-44", ItemTier: 2 },
-        { ItemCode: 117301, ItemName: "AK-47", ItemTier: 3 },
-        { ItemCode: 117401, ItemName: "M16A1", ItemTier: 3 },
-        { ItemCode: 117402, ItemName: "개틀링 건", ItemTier: 3 },
-        { ItemCode: 117403, ItemName: "95식 자동 소총", ItemTier: 4 },
-        { ItemCode: 117404, ItemName: "AK-12", ItemTier: 4 },
-        { ItemCode: 117405, ItemName: "XCR", ItemTier: 4 },
-        { ItemCode: 117406, ItemName: "저지먼트", ItemTier: 5 },
-        { ItemCode: 117501, ItemName: "아그니", ItemTier: 4 },
-      ],
-      WeaponSniperRifle: [
-        { ItemCode: 118101, ItemName: "화승총", ItemTier: 1 },
-        { ItemCode: 118201, ItemName: "스프링필드", ItemTier: 2 },
-        { ItemCode: 118301, ItemName: "하푼건", ItemTier: 3 },
-        { ItemCode: 118401, ItemName: "금교전", ItemTier: 3 },
-        { ItemCode: 118402, ItemName: "레일건", ItemTier: 3 },
-        { ItemCode: 118403, ItemName: "Tac-50", ItemTier: 4 },
-        { ItemCode: 118404, ItemName: "인터벤션", ItemTier: 4 },
-        { ItemCode: 118405, ItemName: "NTW-20", ItemTier: 4 },
-        { ItemCode: 118406, ItemName: "폴라리스", ItemTier: 4 },
-        { ItemCode: 118501, ItemName: "사사성광", ItemTier: 5 },
-        { ItemCode: 118502, ItemName: "현자총통", ItemTier: 5 },
-      ],
-      WeaponNunchaku: [
-        { ItemCode: 119101, ItemName: "쇠사슬", ItemTier: 1 },
-        { ItemCode: 119201, ItemName: "눈차크", ItemTier: 2 },
-        { ItemCode: 119301, ItemName: "샤퍼", ItemTier: 3 },
-        { ItemCode: 119302, ItemName: "블리더", ItemTier: 3 },
-        { ItemCode: 119401, ItemName: "대소반룡곤", ItemTier: 4 },
-        { ItemCode: 119402, ItemName: "초진동눈차크", ItemTier: 4 },
-        { ItemCode: 119403, ItemName: "케르베로스", ItemTier: 4 },
-        { ItemCode: 119501, ItemName: "히드라", ItemTier: 5 },
-      ],
-      WeaponRapier: [
-        { ItemCode: 120101, ItemName: "바늘", ItemTier: 1 },
-        { ItemCode: 120201, ItemName: "레이피어", ItemTier: 2 },
-        { ItemCode: 120301, ItemName: "매화검", ItemTier: 3 },
-        { ItemCode: 120302, ItemName: "활빈검", ItemTier: 4 },
-        { ItemCode: 120303, ItemName: "에스톡", ItemTier: 3 },
-        { ItemCode: 120401, ItemName: "듀랜달 Mk2", ItemTier: 4 },
-        { ItemCode: 120402, ItemName: "미스틸테인", ItemTier: 5 },
-        { ItemCode: 120403, ItemName: "볼틱레토", ItemTier: 4 },
-        { ItemCode: 120404, ItemName: "유성검", ItemTier: 5 },
-        { ItemCode: 120405, ItemName: "주와이외즈", ItemTier: 5 },
-        { ItemCode: 120406, ItemName: "레드 팬서", ItemTier: 4 },
-        { ItemCode: 120407, ItemName: "에스프리", ItemTier: 4 },
-      ],
-      WeaponGuitar: [
-        { ItemCode: 121101, ItemName: "보급형 기타", ItemTier: 1 },
-        { ItemCode: 121201, ItemName: "골든 브릿지", ItemTier: 2 },
-        { ItemCode: 121202, ItemName: "싱글 픽업", ItemTier: 2 },
-        { ItemCode: 121301, ItemName: "루비 스페셜", ItemTier: 3 },
-        { ItemCode: 121302, ItemName: "험버커 픽업", ItemTier: 3 },
-        { ItemCode: 121303, ItemName: "King-V", ItemTier: 3 },
-        { ItemCode: 121304, ItemName: "노캐스터", ItemTier: 3 },
-        { ItemCode: 121305, ItemName: "슈퍼스트랫", ItemTier: 3 },
-        { ItemCode: 121306, ItemName: "야생마", ItemTier: 3 },
-        { ItemCode: 121401, ItemName: "보헤미안", ItemTier: 4 },
-        { ItemCode: 121402, ItemName: "천국의 계단", ItemTier: 4 },
-        { ItemCode: 121403, ItemName: "퍼플 헤이즈", ItemTier: 4 },
-        { ItemCode: 121404, ItemName: "새티스팩션", ItemTier: 4 },
-        { ItemCode: 121405, ItemName: "원더풀 투나잇", ItemTier: 5 },
-        { ItemCode: 121406, ItemName: "더 월", ItemTier: 4 },
-        { ItemCode: 121407, ItemName: "틴 스피릿", ItemTier: 4 },
-      ],
-      WeaponCamera: [
-        { ItemCode: 122101, ItemName: "렌즈", ItemTier: 1 },
-        { ItemCode: 122201, ItemName: "카메라 건", ItemTier: 2 },
-        { ItemCode: 122301, ItemName: "컴팩트 카메라 ", ItemTier: 3 },
-        { ItemCode: 122302, ItemName: "레인지파인더 ", ItemTier: 3 },
-        { ItemCode: 122303, ItemName: "카메라 라이플 ", ItemTier: 3 },
-        { ItemCode: 122401, ItemName: "미러리스", ItemTier: 4 },
-        { ItemCode: 122402, ItemName: "컴파운드 사이트", ItemTier: 4 },
-        { ItemCode: 122403, ItemName: "카메라 캐논", ItemTier: 4 },
-        { ItemCode: 122404, ItemName: "V.I.C.G", ItemTier: 4 },
-        { ItemCode: 122501, ItemName: "울트라비전", ItemTier: 5 },
-        { ItemCode: 131313, ItemName: "울트라비전 ", ItemTier: 5 }, //찾
-      ],
-      WeaponArcana: [
-        { ItemCode: 130101, ItemName: "유리구슬", ItemTier: 1 },
-        { ItemCode: 130201, ItemName: "거울구슬", ItemTier: 2 },
-        { ItemCode: 130202, ItemName: "얼음구슬", ItemTier: 2 },
-        { ItemCode: 130301, ItemName: "의지의 지팡이", ItemTier: 3 },
-        { ItemCode: 130302, ItemName: "감정의 컵", ItemTier: 3 },
-        { ItemCode: 130303, ItemName: "이성의 칼", ItemTier: 3 },
-        { ItemCode: 130304, ItemName: "소유의 펜타클", ItemTier: 3 },
-        { ItemCode: 130401, ItemName: "은둔자", ItemTier: 4 },
-        { ItemCode: 130402, ItemName: "운명의 수레바퀴", ItemTier: 4 },
-        { ItemCode: 130403, ItemName: "절제", ItemTier: 4 },
-        { ItemCode: 130404, ItemName: "더 스타", ItemTier: 4 },
-        { ItemCode: 130405, ItemName: "더 문", ItemTier: 5 },
-        { ItemCode: 130501, ItemName: "여제", ItemTier: 5 },
-        { ItemCode: 141414, ItemName: "여제", ItemTier: 5 }, //찾
-
-        
-      ],
-      WeaponVFProsthetic: [
-        { ItemCode: 131201, ItemName: "바이퍼", ItemTier: 2 },
-        { ItemCode: 131301, ItemName: "데스애더", ItemTier: 3 },
-        { ItemCode: 131302, ItemName: "블랙맘바", ItemTier: 3 },
-        { ItemCode: 131303, ItemName: "사이드와인더", ItemTier: 3 },
-        { ItemCode: 131401, ItemName: "데스애더퀸", ItemTier: 4 },
-        { ItemCode: 131402, ItemName: "블랙맘바킹", ItemTier: 4 },
-        { ItemCode: 131403, ItemName: "슈퍼사이드와인더", ItemTier: 4 },
-        { ItemCode: 131501, ItemName: "데스애더퀸-MT", ItemTier: 5 },
-        { ItemCode: 131502, ItemName: "데스애더퀸-FC", ItemTier: 5 },
-        { ItemCode: 131503, ItemName: "데스애더퀸-VBS", ItemTier: 5 },
-        { ItemCode: 131504, ItemName: "블랙맘바킹-TL", ItemTier: 5 },
-        { ItemCode: 131505, ItemName: "블랙맘바킹-FC", ItemTier: 5 },
-        { ItemCode: 131506, ItemName: "블랙맘바킹-VBS", ItemTier: 5 },
-        { ItemCode: 131507, ItemName: "슈퍼사이드와인더-ML", ItemTier: 5 },
-        { ItemCode: 131508, ItemName: "슈퍼사이드와인더-FC", ItemTier: 5 },
-        { ItemCode: 131509, ItemName: "슈퍼사이드와인더-VBS", ItemTier: 5 },
-      ],
-      WeaponMk2:[
-        {ItemCode:602409 , ItemName: "레바테인Mk2", ItemTier: 5 },
-        {ItemCode:607406 , ItemName: "화첨창Mk2", ItemTier: 5 },
-        {ItemCode:610501 , ItemName: "주작자문Mk2", ItemTier: 5 },
-      ],
-     
-      ChestEquipmentArr: [
-        { ItemCode: 202101, ItemName: "바람막이", ItemTier: 1 },
-        { ItemCode: 202103, ItemName: "승복", ItemTier: 1 },
-        { ItemCode: 202104, ItemName: "의사가운", ItemTier: 1 },
-        { ItemCode: 202105, ItemName: "전신 수영복", ItemTier: 1 },
-        { ItemCode: 202106, ItemName: "천 갑옷", ItemTier: 1 },
-        { ItemCode: 202201, ItemName: "가죽 갑옷", ItemTier: 2 },
-        { ItemCode: 202202, ItemName: "가죽 자켓", ItemTier: 2 },
-        { ItemCode: 202203, ItemName: "거북 도복", ItemTier: 2 },
-        { ItemCode: 202205, ItemName: "군복", ItemTier: 2 },
-        { ItemCode: 202206, ItemName: "덧댄 로브", ItemTier: 2 },
-        { ItemCode: 202207, ItemName: "드레스", ItemTier: 2 },
-        { ItemCode: 202208, ItemName: "드레스 셔츠", ItemTier: 2 },
-        { ItemCode: 202209, ItemName: "비키니", ItemTier: 2 },
-        { ItemCode: 202210, ItemName: "잠수복", ItemTier: 2 },
-        { ItemCode: 202211, ItemName: "사제복", ItemTier: 2 },
-        { ItemCode: 202301, ItemName: "라이더 자켓", ItemTier: 3 },
-        { ItemCode: 202302, ItemName: "사슬 갑옷", ItemTier: 3 },
-        { ItemCode: 202303, ItemName: "정장", ItemTier: 3 },
-        { ItemCode: 202304, ItemName: "치파오", ItemTier: 3 },
-        { ItemCode: 202305, ItemName: "판금 갑옷", ItemTier: 3 },
-        { ItemCode: 202306, ItemName: "한복", ItemTier: 3 },
-        { ItemCode: 202307, ItemName: "고위 사제복", ItemTier: 3 },
-        { ItemCode: 202401, ItemName: "방탄조끼", ItemTier: 3 },
-        { ItemCode: 202402, ItemName: "석양의 갑옷", ItemTier: 4 },
-        { ItemCode: 202404, ItemName: "어사의", ItemTier: 3 },
-        { ItemCode: 202405, ItemName: "광학미채 슈트", ItemTier: 4 },
-        { ItemCode: 202406, ItemName: "락커의 자켓", ItemTier: 4 },
-        { ItemCode: 202407, ItemName: "미스릴 갑옷", ItemTier: 5 },
-        { ItemCode: 202421, ItemName: "미스릴 크롭", ItemTier: 5 },
-        { ItemCode: 202506, ItemName: "팬텀 자켓", ItemTier: 5 },
-        { ItemCode: 202408, ItemName: "성기사의 갑옷", ItemTier: 4 },
-        { ItemCode: 202409, ItemName: "아름다운 갑옷", ItemTier: 4 },
-        { ItemCode: 202410, ItemName: "아마조네스 아머", ItemTier: 4 },
-        { ItemCode: 202411, ItemName: "용의 도복", ItemTier: 4 },
-        { ItemCode: 202412, ItemName: "지휘관의 갑옷", ItemTier: 4 },
-        { ItemCode: 202413, ItemName: "집사복", ItemTier: 4 },
-        { ItemCode: 202415, ItemName: "배틀 슈트", ItemTier: 4 },
-        { ItemCode: 202416, ItemName: "불꽃 드레스", ItemTier: 5 },
-        { ItemCode: 202417, ItemName: "EOD 슈트", ItemTier: 4 },
-        { ItemCode: 202418, ItemName: "턱시도", ItemTier: 4 },
-        { ItemCode: 202419, ItemName: "제사장의 예복", ItemTier: 4 },
-        { ItemCode: 202420, ItemName: "창파오", ItemTier: 4 },
-        { ItemCode: 202501, ItemName: "카바나", ItemTier: 5 },
-        { ItemCode: 202502, ItemName: "퀸 오브 하트", ItemTier: 5 },
-        { ItemCode: 202503, ItemName: "성법의", ItemTier: 5 },
-        { ItemCode: 702503, ItemName: "성법의Mk-2", ItemTier: 5 },
-        { ItemCode: 702601, ItemName: "이단심판관", ItemTier: 6 },
-        { ItemCode: 202504, ItemName: "버건디 47", ItemTier: 5 },
-        { ItemCode: 202505, ItemName: "아오자이", ItemTier: 5},
-        { ItemCode: 202601, ItemName: "이단심판관", ItemTier: 6},
-  
-        { ItemCode: "empty",   ItemName: "empty", ItemTier: 0 },
-        //찾  //마이템이랑 없네
-      ],
-      HatEquipmentArr: [
-        { ItemCode: 201101, ItemName: "머리띠", ItemTier: 1 },
-        { ItemCode: 201102, ItemName: "모자", ItemTier: 1 },
-        { ItemCode: 201104, ItemName: "자전거 헬멧", ItemTier: 1 },
-        { ItemCode: 201201, ItemName: "가면", ItemTier: 2 },
-        { ItemCode: 201202, ItemName: "머리테", ItemTier: 2 },
-        { ItemCode: 201203, ItemName: "베레모", ItemTier: 2 },
-        { ItemCode: 201204, ItemName: "사슬 코이프", ItemTier: 2 },
-        { ItemCode: 201205, ItemName: "안전모", ItemTier: 2 },
-        { ItemCode: 201301, ItemName: "방탄모", ItemTier: 3 },
-        { ItemCode: 201302, ItemName: "소방 헬멧", ItemTier: 3 },
-        { ItemCode: 201303, ItemName: "티아라", ItemTier: 3 },
-        { ItemCode: 201304, ItemName: "로빈", ItemTier: 4 },
-        { ItemCode: 201401, ItemName: "왕관", ItemTier: 3 },
-        { ItemCode: 201402, ItemName: "투구", ItemTier: 3 },
-        { ItemCode: 201403, ItemName: "미스릴 투구", ItemTier: 5 },
-        { ItemCode: 201404, ItemName: "수정 티아라", ItemTier: 4 },
-        { ItemCode: 201405, ItemName: "오토바이 헬멧", ItemTier: 3 },
-        { ItemCode: 201406, ItemName: "전술-OPS 헬멧", ItemTier: 4 },
-        { ItemCode: 201407, ItemName: "기사단장의 투구", ItemTier: 4 },
-        { ItemCode: 201408, ItemName: "월계관", ItemTier: 5 },
-        { ItemCode: 201409, ItemName: "제국 왕관", ItemTier: 4 },
-        { ItemCode: 201410, ItemName: "황실 부르고넷", ItemTier: 4 },
-        { ItemCode: 201411, ItemName: "변검", ItemTier: 5 },
-        { ItemCode: 201412, ItemName: "모호크 헬멧", ItemTier: 4 },
-        { ItemCode: 201413, ItemName: "비질란테", ItemTier: 4 },
-        { ItemCode: 201414, ItemName: "다이아뎀", ItemTier: 4 },
-        { ItemCode: 201415, ItemName: "성기사의 투구", ItemTier: 4 },
-        { ItemCode: 201501, ItemName: "천사의 고리", ItemTier: 5 },
-        { ItemCode: 201502, ItemName: "빛의 증표", ItemTier: 5 },
-        { ItemCode: 701451, ItemName: "택티컬 바이저", ItemTier: 6 },
-        { ItemCode: "empty",   ItemName: "empty", ItemTier: 0 },
-      ],
-      ArmEquipmentArr: [
-        { ItemCode: 203101, ItemName: "손목시계", ItemTier: 1 },
-        { ItemCode: 203102, ItemName: "붕대", ItemTier: 1 },
-        { ItemCode: 203103, ItemName: "토시", ItemTier: 1 },
-        { ItemCode: 203104, ItemName: "팔찌", ItemTier: 1 },
-        { ItemCode: 203201, ItemName: "가죽 방패", ItemTier: 2 },
-        { ItemCode: 203202, ItemName: "분대장 완장", ItemTier: 2 },
-        { ItemCode: 203203, ItemName: "브레이서", ItemTier: 2 },
-        { ItemCode: 203204, ItemName: "고장난 시계", ItemTier: 2 },
-        { ItemCode: 203301, ItemName: "검집", ItemTier: 3 },
-        { ItemCode: 203302, ItemName: "금팔찌", ItemTier: 3 },
-        { ItemCode: 203303, ItemName: "바주반드", ItemTier: 3 },
-        { ItemCode: 203304, ItemName: "진홍 팔찌", ItemTier: 3 },
-        { ItemCode: 203305, ItemName: "바브드 블로섬", ItemTier: 3 },
-        { ItemCode: 203306, ItemName: "포이즌드", ItemTier: 3 },
-        { ItemCode: 203401, ItemName: "강철 방패", ItemTier: 3 },
-        { ItemCode: 203402, ItemName: "소드 스토퍼", ItemTier: 4 },
-        { ItemCode: 203403, ItemName: "드라우프니르", ItemTier: 4 },
-        { ItemCode: 203404, ItemName: "미스릴 방패", ItemTier: 5 },
-        { ItemCode: 203405, ItemName: "바이탈 센서", ItemTier: 3 },
-        { ItemCode: 203406, ItemName: "기사의 신조", ItemTier: 4 },
-        { ItemCode: 203407, ItemName: "샤자한의 검집", ItemTier: 4 },
-        { ItemCode: 203408, ItemName: "큐브 워치", ItemTier: 5 },
-        { ItemCode: 203409, ItemName: "아이기스", ItemTier: 4 },
-        { ItemCode: 203410, ItemName: "틴달로스의 팔찌", ItemTier: 4 },
-        { ItemCode: 203411, ItemName: "나이팅게일", ItemTier: 4 },
-        { ItemCode: 203412, ItemName: "플라즈마 아크", ItemTier: 4 },
-        { ItemCode: 203413, ItemName: "텔루리안 타임피스", ItemTier: 5 },
-        { ItemCode: 203414, ItemName: "스마트 밴드", ItemTier: 4 },
-        { ItemCode: 203501, ItemName: "스카디의 팔찌", ItemTier: 5 },
-        { ItemCode: 203502, ItemName: "레이더", ItemTier: 4 },
-        { ItemCode: 203503, ItemName: "오토-암즈", ItemTier: 5 },
-        { ItemCode: 203504, ItemName: "프로미넌스", ItemTier: 5 },
-        { ItemCode: "empty",   ItemName: "empty", ItemTier: 0 },
-      ],
-      LegEquipmentArr: [
-        { ItemCode: 204101, ItemName: "슬리퍼", ItemTier: 1 },
-        { ItemCode: 204102, ItemName: "운동화", ItemTier: 1 },
-        { ItemCode: 204103, ItemName: "타이즈", ItemTier: 1 },
-        { ItemCode: 204201, ItemName: "무릎 보호대", ItemTier: 2 },
-        { ItemCode: 204202, ItemName: "체인 레깅스", ItemTier: 2 },
-        { ItemCode: 204203, ItemName: "하이힐", ItemTier: 2 },
-        { ItemCode: 204204, ItemName: "힐리스", ItemTier: 2 },
-        { ItemCode: 204205, ItemName: "나막신", ItemTier: 2 },
-        { ItemCode: 204301, ItemName: "덧댄 슬리퍼", ItemTier: 2 },
-        { ItemCode: 204302, ItemName: "부츠", ItemTier: 2 },
-        { ItemCode: 204303, ItemName: "등산화", ItemTier: 3 },
-        { ItemCode: 204401, ItemName: "강철 무릎 보호대", ItemTier: 3 },
-        { ItemCode: 204402, ItemName: "경량화 부츠", ItemTier: 4 },
-        { ItemCode: 204403, ItemName: "매버릭 러너", ItemTier: 4 },
-        { ItemCode: 204404, ItemName: "전투화", ItemTier: 3 },
-        { ItemCode: 204405, ItemName: "킬힐", ItemTier: 3 },
-        { ItemCode: 204406, ItemName: "풍화륜", ItemTier: 4 },
-        { ItemCode: 204407, ItemName: "미스릴 부츠", ItemTier: 5 },
-        { ItemCode: 204408, ItemName: "부케팔로스", ItemTier: 4 },
-        { ItemCode: 204409, ItemName: "EOD 부츠", ItemTier: 4 },
-        { ItemCode: 204410, ItemName: "글레이셜 슈즈", ItemTier: 5 },
-        { ItemCode: 204411, ItemName: "클링온 부츠", ItemTier: 4 },
-        { ItemCode: 204412, ItemName: "타키온 브레이스", ItemTier: 4 },
-        { ItemCode: 204413, ItemName: "탭루트", ItemTier: 5 },
-        { ItemCode: 204414, ItemName:"아이언메이든",ItemTier:5},
-        { ItemCode: 204501, ItemName: "헤르메스의 부츠", ItemTier: 5 },
-        { ItemCode: 204502, ItemName: "분홍신", ItemTier: 5 },
-        
-        { ItemCode: "empty",   ItemName: "empty", ItemTier: 0 },
-        
-        //찾   아이젠
-      ],
-      AccessoryEquipmentArr: [
-        { ItemCode: 205101, ItemName: "깃털", ItemTier: 1 },
-        { ItemCode: 205102, ItemName: "꽃", ItemTier: 1 },
-        { ItemCode: 205103, ItemName: "리본", ItemTier: 1 },
-        { ItemCode: 205105, ItemName: "부채", ItemTier: 1 },
-        { ItemCode: 205106, ItemName: "불경", ItemTier: 1 },
-        { ItemCode: 205107, ItemName: "상자", ItemTier: 1 },
-        { ItemCode: 205108, ItemName: "성배", ItemTier: 1 },
-        { ItemCode: 205109, ItemName: "십자가", ItemTier: 1 },
-        { ItemCode: 205110, ItemName: "쌍안경", ItemTier: 1 },
-        { ItemCode: 205201, ItemName: "백우선", ItemTier: 3 },
-        { ItemCode: 205202, ItemName: "성자의 유산", ItemTier: 2 },
-        { ItemCode: 205203, ItemName: "운명의 꽃", ItemTier: 2 },
-        { ItemCode: 205204, ItemName: "유리 조각", ItemTier: 2 },
-        { ItemCode: 205205, ItemName: "인형", ItemTier: 2 },
-        { ItemCode: 205206, ItemName: "저격 스코프", ItemTier: 2 },
-        { ItemCode: 205207, ItemName: "진신사리", ItemTier: 2 },
-        { ItemCode: 205208, ItemName: "화살통", ItemTier: 2 },
-        { ItemCode: 205209, ItemName: "먼지털이개", ItemTier: 2 },
-        { ItemCode: 205210, ItemName: "군선", ItemTier: 2 },
-        { ItemCode: 205211, ItemName: "비파단도", ItemTier: 2 },
-        { ItemCode: 205212, ItemName: "캐리비안 장식총", ItemTier: 2 },
-        { ItemCode: 205213, ItemName: "사격 교본", ItemTier: 2 },
-        { ItemCode: 205301, ItemName: " 생명의 가루", ItemTier: 2 },
-        { ItemCode: 205302, ItemName: "우치와", ItemTier: 3 },
-        { ItemCode: 205303, ItemName: "탄창", ItemTier: 3 },
-        { ItemCode: 205304, ItemName: "궁기병의 화살통", ItemTier: 3 },
-        { ItemCode: 205305, ItemName: "월왕구천", ItemTier: 3 },
-        { ItemCode: 205306, ItemName: "해적의 증표", ItemTier: 3 },
-        { ItemCode: 205307, ItemName: "호크 아이", ItemTier: 3 },
-        { ItemCode: 205308, ItemName: "해적 깃발", ItemTier: 3 },
-        { ItemCode: 205309, ItemName: "오르골", ItemTier: 3 },
-        { ItemCode: 205310, ItemName: "능동 위장", ItemTier: 3 },
-        { ItemCode: 205311, ItemName: "마도서", ItemTier: 3 },
-        { ItemCode: 205312, ItemName: "아이테르 깃털", ItemTier: 3 },
-        { ItemCode: 205401, ItemName: "달빛 펜던트", ItemTier: 5 },
-        { ItemCode: 205402, ItemName: "만년빙", ItemTier: 4 },
-        { ItemCode: 205403, ItemName: "삼매진화", ItemTier: 4 },
-        { ItemCode: 205404, ItemName: "슈뢰딩거의 상자", ItemTier: 3 },
-        { ItemCode: 205405, ItemName: "진리는 나의 빛", ItemTier: 3 },
-        { ItemCode: 205406, ItemName: "요명월", ItemTier: 5 },
-        { ItemCode: 205407, ItemName: "미스릴 퀴버", ItemTier: 5 },
-        { ItemCode: 205408, ItemName: "살라딘의 화살통", ItemTier: 5 },
-        { ItemCode: 205409, ItemName: "살라딘의 화살통 MK2", ItemTier: 5 },
-        { ItemCode: 205501, ItemName: "에메랄드 타블렛", ItemTier: 5 },
-        { ItemCode: 205502, ItemName: "파초선", ItemTier: 5 },
-        { ItemCode: 205503, ItemName: "쿤달라", ItemTier: 5 },
-        { ItemCode: 205504, ItemName: "아티팩트", ItemTier: 5 },
-        { ItemCode: 205505, ItemName: "호루스의 눈", ItemTier: 5 },
-        { ItemCode: 205506, ItemName: "쿤달라MK2", ItemTier: 5 },
-        { ItemCode: 205507, ItemName: "네크로노미콘", ItemTier: 5 },
-        { ItemCode: 705504, ItemName: "쿤달라", ItemTier: 5 },
-        { ItemCode: 705601, ItemName: "미니어쳐솔라시스템", ItemTier: 6 },
-        { ItemCode: 705602, ItemName: "코발트블루", ItemTier: 6 },
-        { ItemCode: "empty",   ItemName: "empty", ItemTier: 0 },
-      ],
-      equipmentArr: [
-        //배열을 장비위치나 재료별로 종류별로 세팅해서 맵을 최대한 적게 돌리게끔 설정?
-      ],
-    };
-
-    ///////
-  }
-  masterkey = () => {
-   
+    after:"before",
+    freeCharacters:[]
   };
-  WeaponSearch = (inData) => {
-    var WeaponSearchCode = inData;
-    let WeaponCode = Math.floor(WeaponSearchCode / 1000);
-    if(WeaponCode<500){
-    switch (WeaponCode) {
-      case 101: {
-        for (let a = 0; a <= this.state.WeaponDagger.length - 1; a++) {
-          if (this.state.WeaponDagger[a].ItemCode == WeaponSearchCode)
-          return(this.state.WeaponDagger[a])
-        }
-        break;
-      }
-      case 102: {
-        for (let a = 0; a <= this.state.WeaponTwoHanedeSword.length - 1; a++) {
-          if (this.state.WeaponTwoHanedeSword[a].ItemCode == WeaponSearchCode)
-          return(this.state.WeaponTwoHanedeSword[a])
-        }
-        break;
-      }
-      case 103: {
-        for (let a = 0; a <= this.state.WeaponDualSwords.length - 1; a++) {
-          if (this.state.WeaponDualSwords[a].ItemCode == WeaponSearchCode)
-          return(this.state.WeaponDualSwords[a])
-        }
-        break;
-      }
-      case 104: {
-        for (let a = 0; a <= this.state.WeaponHammer.length - 1; a++) {
-          if (this.state.WeaponHammer[a].ItemCode == WeaponSearchCode)
-          return(this.state.WeaponHammer[a])
-        }
-        break;
-      }
-      case 105: {
-        for (let a = 0; a <= this.state.WeaponAxe.length - 1; a++) {
-          if (this.state.WeaponAxe[a].ItemCode == WeaponSearchCode)
-          return(this.state.WeaponAxe[a])
-        }
-        break;
-      }
-      case 107: {
-        for (let a = 0; a <= this.state.WeaponSpear.length - 1; a++) {
-          if (this.state.WeaponSpear[a].ItemCode == WeaponSearchCode)
-          return(this.state.WeaponSpear[a])
-        }
-        break;
-      }
-      case 108: {
-        for (let a = 0; a <= this.state.WeaponBat.length - 1; a++) {
-          if (this.state.WeaponBat[a].ItemCode == WeaponSearchCode)
-          return(this.state.WeaponBat[a])
-        }
-        break;
-      }
-      case 109: {
-        for (let a = 0; a <= this.state.WeaponWhip.length - 1; a++) {
-          if (this.state.WeaponWhip[a].ItemCode == WeaponSearchCode)
-          return(this.state.WeaponWhip[a])
-        }
-        break;
-      }
-      case 110: {
-        for (let a = 0; a <= this.state.WeaponGlove.length - 1; a++) {
-          if (this.state.WeaponGlove[a].ItemCode == WeaponSearchCode)
-          return(this.state.WeaponGlove[a])
-        }
-        break;
-      }
-      case 111: {
-        for (let a = 0; a <= this.state.WeaponTonfa.length - 1; a++) {
-          if (this.state.WeaponTonfa[a].ItemCode == WeaponSearchCode)
-          return(this.state.WeaponTonfa[a])
-        }
-        break;
-      }
-      case 112: {
-        for (let a = 0; a <= this.state.WeaponThrow.length - 1; a++) {
-          if (this.state.WeaponThrow[a].ItemCode == WeaponSearchCode){
 
-            return(this.state.WeaponThrow[a])
-          }
-        }
-        break;
-      }
-      case 113: {
-        for (let a = 0; a <= this.state.WeaponShuriken.length - 1; a++) {
-          if (this.state.WeaponShuriken[a].ItemCode == WeaponSearchCode)
-          return(this.state.WeaponShuriken[a])
-        }
-        break;
-      }
-      case 114: {
-        for (let a = 0; a <= this.state.WeaponBow.length - 1; a++) {
-          if (this.state.WeaponBow[a].ItemCode == WeaponSearchCode)
-          return(this.state.WeaponBow[a])
-            
-        }
-        break;
-      }
-      case 115: {
-        for (let a = 0; a <= this.state.WeaponCrossbow.length - 1; a++) {
-          if (this.state.WeaponCrossbow[a].ItemCode == WeaponSearchCode)
-          return(this.state.WeaponCrossbow[a])
-        }
-        break;
-      }
-      case 116: {
-        for (let a = 0; a <= this.state.WeaponPistol.length - 1; a++) {
-          if (this.state.WeaponPistol[a].ItemCode == WeaponSearchCode)
-          return(this.state.WeaponPistol[a])
-        }
-        break;
-      }
-      case 117: {
-        for (let a = 0; a <= this.state.WeaponAssaultRifle.length - 1; a++) {
-          if (this.state.WeaponAssaultRifle[a].ItemCode == WeaponSearchCode)
-          return(this.state.WeaponAssaultRifle[a])
-        }
-        break;
-      }
-      case 118: {
-        for (let a = 0; a <= this.state.WeaponSniperRifle.length - 1; a++) {
-          if (this.state.WeaponSniperRifle[a].ItemCode == WeaponSearchCode)
-          return(this.state.WeaponSniperRifle[a])
-        }
-        break;
-      }
-      case 119: {
-        for (let a = 0; a <= this.state.WeaponNunchaku.length - 1; a++) {
-          if (this.state.WeaponNunchaku[a].ItemCode == WeaponSearchCode)
-          return(this.state.WeaponNunchaku[a])
-        }
-        break;
-      }
-      case 120: {
-        for (let a = 0; a <= this.state.WeaponRapier.length - 1; a++) {
-          if (this.state.WeaponRapier[a].ItemCode == WeaponSearchCode)
-          return(this.state.WeaponRapier[a])
-        }
-        break;
-      }
-      case 121: {
-        for (let a = 0; a <= this.state.WeaponGuitar.length - 1; a++) {
-          if (this.state.WeaponGuitar[a].ItemCode == WeaponSearchCode)
-          return(this.state.WeaponGuitar[a])
-        }
-        break;
-      }
-      case 122: {
-        for (let a = 0; a <= this.state.WeaponCamera.length - 1; a++) {
-          if (this.state.WeaponCamera[a].ItemCode == WeaponSearchCode)
-          return(this.state.WeaponCamera[a])
-        }
-        break;
-      }
-      case 130: {
-        for (let a = 0; a <= this.state.WeaponArcana.length - 1; a++) {
-          if (this.state.WeaponArcana[a].ItemCode == WeaponSearchCode)
-          return(this.state.WeaponArcana[a])
-        }
-        break;
-      }
-      case 131: {
-        for (let a = 0; a <= this.state.WeaponVFProsthetic.length - 1; a++) {
-          if (this.state.WeaponVFProsthetic[a].ItemCode == WeaponSearchCode)
-          return(this.state.WeaponVFProsthetic[a])
-        }
+  ClickP = () =>
+    this.setState({
+      ClickSkill: "P",
+      ClickSkillName: 0,
+      ClickSkillExplancation: 0,
+    });
+
+  ClickQ = () =>
+    this.setState({
+      ClickSkill: "Q",
+      ClickSkillName: 1,
+      ClickSkillExplancation: 1,
+    });
+
+  ClickW = () =>
+    this.setState({
+      ClickSkill: "W",
+      ClickSkillName: 2,
+      ClickSkillExplancation: 2,
+    });
+
+  ClickE = () =>
+    this.setState({
+      ClickSkill: "E",
+      ClickSkillName: 3,
+      ClickSkillExplancation: 3,
+    });
+
+  ClickR = () =>
+    this.setState({
+      ClickSkill: "R",
+      ClickSkillName: 4,
+      ClickSkillExplancation: 4,
+    });
+
+  Character_NameE_Click = (aa) => {
+    this.setState({ Character_NameE: aa });
+    this.SkillName(aa);
+  };
+  SkillName = (bb) => {
+    let SkillName = [
+      [
+        "피의 축제",
+        "연참",
+        "아드레날린 분비",
+        "습격",
+        "전기톱 살인마",
+        "Jackie",
+      ],
+      ["아야의 정의", "2연발", "고정 사격", "무빙턴", "공포탄", "Aya"],
+      ["맷집", "파쇄탄", "17대1", "강타", "폭주 바이크", "Magnus"],
+      ["도그파이트", "발 밟기", "허세", "선빵필승", "핵펀치", "Hyunwoo"],
+      ["뚜셰", "팡뜨", "아따끄 꽁뽀제", "마르셰 & 롱빼", "플레슈", "Fiora"],
+      [
+        "야성 & 천리안",
+        "황소의 눈",
+        "다람쥐 덫",
+        "원숭이 와이어",
+        "늑대 맹습",
+        "Nadine",
+      ],
+      [
+        "사신의 눈",
+        "나라야나스트라",
+        "간디바",
+        "바이바야스트라",
+        "바르가바스트라",
+        "Zahir",
+      ],
+      ["Feedback", "Delay", "OverDrive", "Flanger", "Peacemaker", "Hart"],
+      ["유격전", "셈텍스 폭탄", "화망", "은밀 기동", "Mok제 폭탄", "Isol"],
+      ["취기", "호연각", "술마시기", "술뿌리기", "취호격파산", "LiDailin"],
+      [
+        "완벽한 옷매무새",
+        "머리치기!",
+        "옷매무새정리",
+        "빗겨치고 일격",
+        "화무십일홍",
+        "Yuki",
+      ],
+      ["삼재", "제압부", "흡령부", "이동부", "오대존명왕진", "Hyejin"],
+      [
+        "요리사의 열정",
+        "소스범벅",
+        "내려 찍기",
+        "웍 돌진",
+        "뜨거운 맛",
+        "Xiukai",
+      ],
+      ["낙인", "부정의 손길", "뒤틀린 기도", "집착", "폭주", "Chiara"],
+      [
+        "삶은 고통이에요",
+        "월슨! 도와줘",
+        "어딨어 윌슨?",
+        "나랑 놀자",
+        "모두 해방이에요",
+        "Sissela",
+      ],
+      [
+        "그란투리스모",
+        "스피드건",
+        "피니시라인",
+        "스페어휠",
+        "기동잔",
+        "Silvia",
+      ], // 앤 추가해야됨
+      ["활활", "방화", "기름 뿌리기", "불길 쇄도", "화염 난사", "Adriana"],
+      ["부당거래", "표리", "비약", "협상", "무자비", "Shoichi"],
+      ["CheerUP", "비둘기 딜러", "폭죽 모자", "마술 토끼", "Change", "Emma"],
+      [
+        "위풍당당",
+        "회오리 비늘",
+        "날카로운 독니",
+        "휩쓸기",
+        "푸른 뱀",
+        "Lenox",
+      ],
+      ["더블샷", "이지샷", "스핀샷", "에어샷", "셈텍스탄 Mk-II", "Rozzi"], //추가
+      [
+        "청소 완료",
+        "클리닝 서비스",
+        "강박증",
+        "무소음 청소기",
+        "애프터 서비스",
+        "Luke",
+      ],
+      [
+        "외과 전문의",
+        "동맥절제술",
+        "엠퓨테이션",
+        "수쳐",
+        "이머전시 OP",
+        "Cathy",
+      ],
+      [
+        "퀸즈 갬빗 디클라인드",
+        "프로 모션",
+        "나이트 포크",
+        "캐슬링",
+        "체크메이트",
+        "Adela",
+      ],
+      ["산탄", "레그샷", "사냥 덫", "매의 눈", "올가미 탄", "Bernice"],
+      [
+        "개조",
+        "BT-Mk2 센트리건",
+        "이온 레이저",
+        "자력 폭풍",
+        "오버 클럭",
+        "Barbara",
+      ], //추가
+      ["잠입", "코일건", "타겟 마커", "펄스 스팅", "정밀 폭격", "Alex"], //추가
+      ["마음의 양식", "오딧세이", "파랑새", "돈키호테", "기억력", "Sua"],
+      ["인간 어뢰", "물길", "물보라 강타", "잠영", "파도타기", "Leon"],
+      [
+        "힘내자고!",
+        "방해하지마!",
+        "자~ 집중!",
+        "나 불렀어?",
+        "다 덤벼보라구!",
+        "Eleven",
+      ],
+      ["카이", "카에유미", "하나레", "비상", "연사/정사필중", "Rio"],
+      ["캐치볼", "쉐도우 볼", "와인드업", "슬라이딩 캐치", "위닝샷", "William"],
+      [
+        "다혈질",
+        "격투 액션",
+        "가드 & 카운터",
+        "강력한 펀치",
+        "분노의 어퍼컷",
+        "Nicky",
+      ],
+      [
+        "슬로우 셔터",
+        "스냅샷",
+        "타임 랩스",
+        "인스턴트 포토",
+        "셔터 찬스",
+        "Nathapon",
+      ],
+      [
+        "열혈의 의지",
+        "니 스트라이크",
+        "토마호크 스핀",
+        "위빙",
+        "쿼드라곤",
+        "Jan",
+      ],
+      [
+        "텔레키네시스",
+        "빛의 트라이어드",
+        "위상의 소용돌이",
+        "자수정의 물결",
+        "VF방출",
+        "Eva",
+      ],
+      ["고독한 예술가", "그림자 가위", "영감", "그림자 이동", "걸작", "Daniel"],
+      [
+        "죽음의 연기",
+        "스포트라이트",
+        "레드 카펫",
+        "페르소나",
+        "시상식의 여왕",
+        "Jenny",
+      ],
+      ["올레", "브엘따", "시에레", "알 꼼빠스", "두엔데", "Camilo"],
+      [
+        "살아 있는 마리오네트",
+        "공격 명령",
+        "인형극",
+        "퀼트 리퍼",
+        "생명 공유",
+        "Chloe",
+      ],
+      [
+        "빛의 가호",
+        "찬란한 광휘",
+        "신성의 향로",
+        "인도하는 빛",
+        "구원의 성역",
+        "Johann",
+      ],
+      ["흡혈귀", "선혈의 투창", "짧은 안식", "순환", "진조의 군림", "Bianca"],
+      [
+        "폭발물 전문가",
+        "플라즈마 폭탄",
+        "기폭",
+        "블라스트 웨이브",
+        "자력 융합",
+        "Celine",
+      ],
+      [
+        "카드모스의 부름",
+        "독사의 칼날",
+        "뒤집힌 비늘",
+        "메마른 송곳니",
+        "VF 폭주",
+        "Echion",
+      ],
+      ["오뜨꾸뛰르", "드레이프", "숄 장막", "캣 워크", "익스클루시브", "Mai"],
+      ["과전하", "뇌격", "전하소산", "백스텝", "낙뢰", "Aiden"],
+      [
+        "괴도",
+        "날카로운 꽃",
+        "예고장",
+        "우아한 발걸음",
+        "황혼의 도둑",
+        "Laura",
+      ],
+      [
+        "알록달록 컬러믹스",
+        "브러쉬 스트로크",
+        "팔레트",
+        "색칠놀이",
+        "무지개 드로잉",
+        "Tia",
+      ],
+      ["연계 창술", "선풍참", "질풍뇌격", "반월참", "뇌룡격", "Felix"],
+      [
+        "겨울여왕의 영지",
+        "크리스탈 엘레강스",
+        "더블 악셀",
+        "스파이럴",
+        "죽음의 무도",
+        "Elena",
+      ],
+      [
+        "자연의 응답",
+        "개화의 선율",
+        "포르타멘토",
+        "프리비티의 노래",
+        "대지의 메아리",
+        "Priya",
+      ],
+      [
+        "별읽기",
+        "루미너리",
+        "트라인 에스펙트",
+        "폴 디그니티",
+        "수정구에 비친 운명",
+        "Adina",
+      ],
+      ["전사의 투지", "전투 교범", "파괴", "전사의 돌격", "지각변동", "Markus"],
+      ["작살 장전", "관통 작살", "회수", "작살 기동", "구속의 사슬", "Karla"],
+      ["", "", "", "", "", "뮻"],
+    ];
+
+    for (let cnt = 0; cnt < SkillName.length; cnt++) {
+      if (this.state.Character_NameE == SkillName[cnt][5]) {
+        return SkillName[cnt][this.state.ClickSkillName];
         break;
       }
     }
-  }else{
-    for (let a = 0; a <= this.state.WeaponMk2.length - 1; a++) {
-      if (this.state.WeaponMk2[a].ItemCode == WeaponSearchCode)
-      return(this.state.WeaponMk2[a])
-    }
-   
-   
+  };
+  SkillExplancation = (cc) => {
+    let SkillExplancation = [
+      [
+        `재키가 다른 생존자나 야생동물을 처치하면 일정시간 동안 공격력이 강화됩니다.`,
+        `재키가 정면을 향해 무기를 두 번 휘두릅니다.\n연참에 맞은 대상은 출혈에 걸려 일정시간 지속적인 피해를 입습니다.`,
+        `재키가 아드레날린을 활성화하여 잠시동안 이동 속도가 증가합니다.\n아드레날린이 활성화된 동안 출혈에 걸린 적을 향해 이동하면 추가로 이동속도가 증가하며, 출혈에 걸린 적을 공격하면 추가 피해를 입히고 체력을 회복합니다.`,
+        `재키가 지정한 위치로 점프하여, 주변의 적들에게 피해를 입히고 이동속도를 감소시킵니다.\n출혈에 걸린 적은 더 많은 이동 속도가 감소됩니다.`,
+        `재키가 일정 시간 동안 전기톱을 꺼내듭니다.\n공격 속도가 증가하고 기본 공격으로 출혈을 겁니다.\n\n일정 시간 이후 스킬을 한번 더 사용하거나 전기톱 살인마 효과가 끝날 때, 전기톱을 크게 휘둘러 강력한 피해를 입히고 원래 무기로 돌아옵니다. 전기톱 살인마의 유지 시간이 길수록 전기톱을 크게 휘두를 때 더 강한 피해를 입힙니다.`,
+        `Jackie`,
+      ],
+      [
+        "아야가 공격 당하면 잠깐 동안 보호막이 생성되어 피해를 막아 줍니다.\n적에게 공격을 할 때마다 아야의 정의의 쿨다운이 조금 감소합니다.",
+        "아야가 대상을 향해 2번 빠르게 사격합니다.",
+        "아야가 한 방향으로 잠시동안 총을 난사합니다. 같은 대상에게 피해를 입힐 때 마다 피해가 감소합니다.",
+        "아야가 지정한 방향으로 재빠르게 뜁니다.",
+        "아야가 하늘을 향해 공포탄을 발사하여 주변 적들에게 피해를 주고 속박 시킵니다. 총을 하늘로 향하고 있는 시간에 따라 피해량과 속박 시간이 증가합니다.",
+        "Aya",
+      ],
+      [
+        "감소된 체력에 비례하여 방어력이 증가합니다.\n레벨이 오를수록 증가 수치가 상승합니다.",
+        "바닥을 쳐서 돌을 날립니다. 돌에 맞은 대상은 4초 동안 이동 속도가 감소합니다.",
+        "범위 내의 모든 적에게 피해를 입힙니다.\n스킬을 적중할 때 마다 쿨다운이 감소하며, 이동을 방해 받은 적에게는 추가 피해를 입힙니다.\n스킬을 사용하는 동안 이동 속도가 감소하는 대신, 저지 불가 상태가 됩니다.",
+        "대상을 후려쳐 피해를 입히고, 왼쪽으로 날려 버립니다.\n대상이 벽에 부딪히면 일정시간 동안 기절합니다.",
+        "바이크를 소환해서 타고 이동합니다.\n스킬을 한번 더 사용하거나 스킬 유지시간이 종료 되면 매그너스가 내린 후 바이크를 앞으로 보냅니다.\n바이크가 적이나 벽에 부딪히게 되면 바이크가 폭발하며 범위피해를 입힙니다. 오토바이가 폭발하며 실험체에게 피해를 입혔다면 폭주 바이크의 쿨다운이 감소합니다.",
+        "Magnus",
+      ],
+      [
+        "현우가 적을 공격할 때 마다 도그파이트 중첩을 얻습니다.\n중첩이 쌓이면 도그파이트가 활성화되며, 이 때 적을 공격하면 추가 피해를 입히고, 현우의 체력을 회복하며, 허세의 쿨다운을 약간 감소합니다.",
+        "현우가 지정한 위치를 강하게 밟아, 밟힌 적에게 피해를 입히고 잠시 동안 이동 속도를 감소시킵니다.",
+        "현우가 허세를 부려 도그 파이트를 최대로 충전합니다. 이후 잠시 동안 방어력을 얻고, 기본 공격을 받을 때마다 도그 파이트 중첩을 얻습니다.\n허세가 발동된 후 잠깐 동안 현우는 이동방해효과를 무시합니다.",
+        "현우가 지정한 방향으로 돌진하며, 적과 부딪히면 대상에게 피해를 입히고 적을 밀어냅니다.\n밀어낸 적이 벽에 부딪히면 잠시 동안 기절합니다. 적중당한 대상이 있다면 쿨다운이 감소합니다.",
+        "현우가 힘을 충전한 후 강력한 한 방을 날려 피해를 입힙니다. 힘을 충전한 시간에 따라 공격 범위와 피해량이 증가합니다.",
+        "Hyunwoo",
+      ],
+      [
+        "피오라가 적에게 스킬을 적중시킬때 마다 뚜셰 표식을 중첩 시킬 수 있습니다. 뚜셰 표식이 최대로 중첩되었을때  팡뜨(Q), 마르셰(E), 플레슈(R)  스킬을 통해 중첩을 터뜨리며 추가 효과를 줄 수 있습니다. 레벨이 오를수록 최대 중첩량이 적어져 중첩을 더 쉽게 터뜨릴 수 있습니다.",
+        "피오라가 지정한 방향으로 공격하여 명중한 적에게 스킬 피해를 입힙니다. 끝 지점에 찔린 적에게는 더 강한 스킬 피해를 주면서 적의 이동 속도를 감소 시키고, 뚜셰 표식을 2회 중첩 시킵니다. 뚜셰 표식이 최대 중첩되었을때 스킬을 적중시키면 중첩된 표식을 터뜨려 스킬 피해가 추가되고, 적의 이동 속도를 추가로 감소 시키며, 남은 쿨다운이 감소됩니다.",
+        "피오라가 전방으로 빠르게 2회 휘둘러 각각의 스킬 피해를 입히고, 뚜셰 표식을 중첩시킵니다. 또한 2회 모두 적중한 대상에게는 잠시동안 기본 공격을 봉쇄시키며, 스킬을 사용하는 동안 피오라가 받는 모든 피해가 감소됩니다.",
+        "피오라가 지정한 방향으로 돌진해서 부딪힌 적에게 스킬 피해를 입히고, 적에게 피해를 입혔다면 스킬을 재사용하여 다시 지정한 방향으로 이동할 수 있습니다. 뚜셰 표식이 최대로 중첩된 대상에게는 더 강한 스킬 피해를 입히고  팡뜨(Q) 와  아따끄 꽁뽀제(W) 의 쿨다운을 감소시킵니다.",
+        "피오라가 지정한 방향으로 최대 3번까지 플레슈를 사용할 수 있으며, 최대로 중첩된 뚜셰 표식을 터뜨려 스킬 피해를 추가로 입히고 적을 밀어냅니다. 또한 적중시 적의 이동속도를 감소시키고, 연속으로 적중에 성공할 때 마다 피해량이 증가합니다. 3회 모두 적중시 고정 피해가 추가되고, 마지막 공격에서 중첩 폭발시  팡뜨(Q) 의 쿨다운 시간이 감소하며, 잠시동안 적을 기절시킵니다.",
+        "Fiora",
+      ],
+      [
+        "나딘이 야생동물을 처치할 때 마다 야성 중첩을 획득합니다.\n일정 범위 내에 살아 있는 야생동물을 미니맵에 표시합니다.",
+        "나딘이 일정시간 동안 힘을 모읍니다. 힘을 모으는 시간동안 이동 속도가 감소하고 스킬의 사거리가 점차 증가합니다. 야성이 일정수준이상 중첩되어 있으면 스킬의 최대 사거리가 증가합니다.\n스킬을 한번 더 사용하면 화살을 발사하여 피해를 입힙니다.",
+        "나딘이 지정한 위치에 다람쥐 덫을 던집니다. 떨어지는 덫은 맞는 대상에게 피해를 입히면서 설치 됩니다.\n일정시간 내에 한 번 더 덫을 던질 수 있으며, 두 덫은 정해진 거리 이내라면 연결됩니다.\n연결된 덫에 걸린 적은 공격 속도와 이동 속도가 감소하며 나딘에게 일정시간 동안 시야를 제공합니다.\n자신의 다람쥐 덫으로 공격 속도와 이동 속도가 감소 된 대상은 감소된 피해를 입게 됩니다.\n바닥에 설치되어 연결된 덫은 일정시간 동안만 유지됩니다.",
+        "나딘이 지정한 위치에 와이어를 발사합니다. 설치된 와이어는 일정시간 동안 유지되며, 와이어가 설치되어 있는 동안에는 공격 속도가 추가로 증가합니다.\n한번 더 사용하면 나딘이 와이어의 위치로 이동합니다.",
+        "유지 시간 동안 기본 공격을 횟수에 따라 늑대를 소환하여 적을 공격하게 합니다.\n늑대는 나타나서 대상에게 달려들어 피해를 입히고, 공격 속도와 이동 속도를 감소 시킵니다.(나딘의 야성 중첩에 비례해 피해량이 증가합니다.)",
+        "Nadine",
+      ],
+      [
+        "스킬 적중 시 적에게 6초간 사신의 눈을 부여합니다. 적에게 사신의 눈 부여 시 대상의 시야를 제공 받습니다. 또한, 자히르는 이동 속도 증가 효과를 얻고, 각 스킬 적중 시 추가효과와 추가 피해를 입힙니다. \n추가로 실험체 처치 시, 20초 동안 전체 지역의 시체를 보여줍니다.",
+        "자히르가 신의 힘을 빌려 일정 범위에 피해를 입힙니다.\n\n사신의 눈 효과 : 피해량이 증가합니다.",
+        "지정한 방향으로 차크람을 발사하여 피해를 입힙니다.\n차크람은 간디바를 제외한 스킬 적중 시 2개를 획득하며, 20초간 유지됩니다. \n\n사신의 눈 효과 : 1초 동안 이동 속도를 30% 감소시키며, 간디바, 패시브 스킬과 무기 스킬을 제외한 스킬 쿨다운 시간이 1.5초씩 줄어듭니다.",
+        "바람을 날려 피해를 입힙니다. 적중한 대상을 0.5초동안 공중에 띄우고, 이동 속도를 30% 감소시킵니다.\n\n사신의 눈 효과 : 적중한 대상을 1초 동안 공중에 띄웁니다.",
+        "자히르가 크게 힘을 모아 지정한 방향으로 차크람을 순차적으로 퍼부어 피해를 입힙니다. 적에게 사신의 눈이 없으면 사신의 눈을 부여합니다.",
+        "Zahir",
+      ],
+      [
+        "하트가 기본 공격으로 적에게 피해를 입힐 때마다 일정량의 스태미너를 회복합니다.\n진화 효과  : 기본 공격을 할 때 진화 횟수 만큼 음파를 추가로 발사하여 피해를 입힙니다. \n[고급/희귀/영웅 혹은 전설] 등급 무기를 최초로 제작 할 때마다 진화 포인트 1을 획득 할 수 있습니다. ",
+        "하트가 기타를 쳐서 음파의 충전을 시작하고, 다시 기타를 쳐서 충전된 음파를 날립니다.\n최대 4초까지 충전 가능 하며 4초간 유지됩니다. 충전한 시간에 따라 피해량이 증가합니다.\n진화 효과  : 음파에 맞으면 진화 횟수 만큼 이동 속도가 감소합니다.",
+        "하트가 기타를 치면 5초간 공격력이 증가합니다.\n\n진화 효과  : 진화 횟수에 따라 방어력 감소 효과가 추가됩니다.",
+        "하트가 지정한 방향으로 짧게 이동합니다. 이 스킬은 2회 다시 사용할 수 있습니다.\n1.8m를 이동해서 기타를 치면 4m이내의 적에게 음파를 날려 피해를 입힙니다.\n진화 효과  : 진화 횟수 만큼 스킬 피해 증폭량이 증가합니다.",
+        "하트가 5초간 기타를 쳐서 일정범위 이내의 모든 대상을 춤추게 합니다.\n기타를 치는 동안 매 초마다 자신의 HP를 회복합니다. 음악을 듣는 모든 대상은 이동 속도가 2.5로 고정되며, 기본 공격 및 스킬 사용을 할 수 없습니다.\n진화 효과  : 시전자를 제외한 모든 대상의 스태미너가 매초 일정량 감소합니다.",
+        "Hart",
+      ],
+      [
+        "아이솔이 트랩을 설치하는 시간이 감소하며 한번 감지한 트랩의 위치를 기억합니다. \n아이솔이 설치한 트랩에 피해를 받은 대상은 일정시간 동안 방어력이 감소합니다.",
+        "아이솔이 적이나 지면에 부착되는 폭탄을 던집니다. 적 또는 지면에 부착된 폭탄은 일정 시간 경과 후 폭발하며 적에게 피해를 주고 속박상태로 만듭니다. \n추가로 폭탄이 부착된 적을 공격할 때마다 폭발 시간이 줄어들며 속박 시간과 폭발 피해량이 증가합니다.",
+        "아이솔이 무기를 들고 전방을 향해 난사합니다. 피해를 받은 적은 마지막 피해를 받은 순간부터 일정 시간 동안 이동속도가 감소합니다.",
+        "아이솔이 앞으로 구르며 이동합니다. 이동 후 은신상태가 됩니다. 유지 시간 경과 또는 일반 이동을 제외한 행동을 하면 은신상태가 해제됩니다.",
+        "아이솔이 Mok제 폭탄을 설치합니다. Mok제 폭탄 범위 안에 적이 들어오면 폭발하여 피해를 입힙니다. 피해를 받은 적은 이동속도가 감소합니다.",
+        "Isol",
+      ],
+      [
+        "술마시기 스킬을 사용해서 취기를 충전할 수 있습니다. 취기가 일정량 이상이 되면 취권 상태로 스킬이 강화되며, 스킬 사용 후 기본 공격이 맹호청권으로 시전됩니다.\n만취상태가 되면 일정 시간동안 스킬을 사용할 수 없는 침묵 상태가 되며, 기본 공격이 맹호청권으로 시전됩니다. \n\n맹호청권 : 기본 공격을 하면 두 번 연속 공격합니다.\n\n리화자 : 술 아이템을 사용하면 일정시간 동안 공격속도가 증가합니다.",
+        "리 다이린이 짧게 돌진하며 범위 내 적들에게 피해를 입힙니다. 이 스킬은 2회 다시 사용할 수 있습니다.\n\n취권 : 돌진 거리가 늘어나며 피해량이 증가합니다. ",
+        "리 다이린이 술을 마시는 동안 취기를 충전하고 모든 기본 공격을 회피합니다. \n\n술고래 : 술마시기를 완료하면 취기량에 따라 다음 기본 공격 또는 맹호청권의 피해량이 증가합니다.",
+        "리 다이린이 술을 머금고 부채꼴 모양으로 술을 뿜습니다. 피해를 받은 적은 이동속도 감소 효과를 부여합니다. \n\n취권 : 침묵 상태를 추가로 부여합니다.",
+        "리 다이린이 저지불가 상태로 돌진하여 부딪친 적을 제압하며 2회 연타 피해를 입힙니다.이 스킬이 적에게 적중하면 쿨다운이 감소됩니다. \n\n취권 : 연타 횟수가 4회로 증가합니다.",
+        "LiDailin",
+      ],
+      [
+        "유키가 적에게 피해를 입힐 때 단추를 1개 소모하여 추가 고정 피해를 입힙니다. 단추가 없을 때는 적용 되지 않습니다.\n단추는 비 전투 상태가 되면 모두 회복됩니다.\n옷매무새 정리를 사용하면 단추를 최대치로 회복 할 수 있습니다.",
+        "유키의 다음 기본 공격에 추가 피해를 입히고 이동속도를 감소 시킵니다.\n완벽한 옷매무새 단추가 있다면 기절 시킵니다.",
+        "지속 효과:  피해를 입힐 때 마다 쿨다운이 감소합니다.\n유키가 옷매무새를 정리합니다. 옷매무새를 정리할 동안 방어력이 증가하고, 빗겨치고 일격의 쿨다운이 감소됩니다. 정리가 마무리 되면 완벽한 옷매무새 단추를 회복합니다.",
+        "유키가 지정한 방향으로 돌진해서 가장 먼저 부딪친 적에게 피해를 입힙니다. 공격당한 대상은 일정 시간 동안 기본 공격이 봉쇄되고 유키의 빗겨치고 일격의 쿨다운이 감소합니다.",
+        "유키가 검에 손을 가져가서 순식간에 공간을 베어 버립니다.\n유키는 자신이 벤 적에게 피해를 입히고 표시를 남겨 이동속도를 감소시킵니다. 유키가 검을 검집에 집어 넣는 순간 표시가 터지며 대상의 최대 체력의 일정 비율 만큼 고정 피해를 입힙니다.",
+        "Yuki",
+      ],
+      [
+        "혜진은 같은 대상에게 스킬을 3번 적중시키면 삼재를 걸어 공포 상태로 만듭니다.\n\n공포에 걸린 대상은 일정시간 동안 삼재에 걸리지 않습니다.",
+        "혜진이 지정한 방향으로 제압부를 날려 적중한 대상에게 피해를 주고 이동속도를 느려지게 합니다.\n\n제압부는 최대 2개까지 충전 할 수 있습니다.",
+        "혜진이 지정한 위치에 일정시간 동안 유지되는 흡령부를 소환합니다. 흡령부는 스킬을 다시 사용하거나 유지시간이 종료되면 발동되어, 범위 안의 적들에게 피해를 주고 속박시킵니다.\n\n흡령부의 피해량은 소환 시간이 길어질수록 증가합니다. ",
+        "혜진이 지정한 방향으로 이동부를 날려 경로 상의 적들에게 피해를 줍니다.\n스킬을 다시 사용하면 이동부의 위치로 순간이동하며 주변의 적들에게 피해를 줍니다.",
+        "혜진이 1초 동안 정신집중하여 5개의 부적을 소환하며 주변 적들에게 피해를 줍니다.\n부적들은 일정시간 동안 혜진의 주위를 돌며 충돌한 적들에게 각각 피해를 주고 사라집니다.\n\n정신집중을 하는 동안 이동속도가 느려지며, 이동부가 날아가고 있는 동안에는 스킬을 사용하여 순간이동 할 수 있습니다. ",
+        "Hyejin",
+      ],
+      [
+        "쇼우가 제작한 음식과 음료는 회복량이 추가되고, 요리사의 열정 스택을 얻으며 스택 수에 따라 추가 능력이 부여됩니다. 제작한 요리의 등급에 따라 최대 체력이 증가합니다.",
+        "쇼우가 지정한 방향으로 자극적인 소스통을 던져 적중한 대상에게 피해를 주고, 이동 속도를 느려지게 합니다.",
+        "쇼우가 큼직한 웍을 지면에 강하게 내리찍어 주변의 적들에게 피해를 입히고, 이동 속도를  느려지게 합니다.\n\n대상이 이동방해 효과에 걸려있으면 전체 체력에 비례한 추가 피해를 입힙니다.",
+        "쇼우가 지정한 방향으로 웍을 타고 힘차게 돌진하며, 적중한 대상에게 피해를 입힙니다.\n\n대상이 이동방해 효과에 걸려있으면 웍 돌진 쿨다운을 감소시키며 전체 체력에 비례한 추가 피해를 입히고 공중에 띄웁니다.",
+        "쇼우가 일정시간 동안 화염을 여러번 뿜으며 범위 안의 적들에게 피해를 입힙니다.\n요리사의 열정 스택만큼 추가 피해를 입힙니다.\n대상이 이동방해 효과에 걸려있으면 방어력을 감소시킵니다. ",
+        "Xiukai",
+      ],
+      [
+        "키아라의 스킬에 적중된 적은 낙인이 새겨져 방어력이 감소됩니다.\n낙인 중첩이 최대까지 쌓인 적이 있으면 키아라의 이동 속도가 잠시 동안 상승하며, 폭주 스킬을 습득하면 추가로 적의 시야를 획득합니다.",
+        "키아라가 지정한 방향으로 부정한 기운을 발사하여 경로상의 적들에게 피해를 줍니다. 부정한 기운은 잠시 동안 유지되며 이동 속도를 감소시킵니다.\n\n스킬을 계속 누르고 있으면 부정한 기운을 멀리까지 뿜어낼 수 있습니다.",
+        "키아라가 피해를 흡수하는 보호막을 생성하여 잠시 동안 유지시킵니다. 보호막이 남아있으면 스킬을 다시 사용하여 보호막을 폭발시킬 수 있습니다. 보호막이 폭발하면 범위 안의 적들에게 피해를 입힙니다.",
+        "키아라가 지정한 방향으로 집착의 사슬을 발사하여 적중한 적에게 피해를 입히고 사슬을 연결합니다. 사슬의 연결이 계속 유지되면 피해를 입히고 속박시킵니다.",
+        "키아라가 폭주하여 날개를 펼치며 잠시 동안 변신합니다. 변신하는 동안 기본 공격이 원거리로 변경되고, 최대체력이 증가합니다.\n폭주 범위안의 적들에게 매 초마다 피해를 입히고, 피해량의 일정 비율만큼 자신의 체력을 회복합니다.\n폭주 중인 키아라는 낙인이 최대 중첩까지 쌓인  대상에게 심판을 시전 할 수 있습니다. \n\n심판 : 낙인이 최대 중첩인 대상에게 스킬을 다시 사용하면 대상에게 빠르게 낙하하여 고정 피해를 입히고 폭주 상태를 종료합니다.\n심판으로 적을 처치하면 폭주의 쿨다운이 감소합니다.\n\n심판 사용 후, 대상에게 낙하하는 동안 무적 상태가 됩니다.",
+        "Chiara",
+      ],
+      [
+        "시셀라는 현재 체력이 낮아질수록 체력 회복량과 스킬 증폭이 증가합니다.\n윌슨과 하나가 될 때마다 다음 기본 공격은 추가 피해를 주고 이동속도를 느려지게 합니다. ",
+        "윌슨이 지정한 위치로 날아가며 경로상의 적들에게 피해를 주고, 지정 위치에 도착하면 범위 안의 적들에게 피해를 줍니다.",
+        "윌슨이 시셀라를 감싸 모든 피해를 받지 않고, 목표로 지정할 수 없는 상태가 됩니다.\n지속시간이 끝날 때, 주변 적들에게 피해를 주고 밀어냅니다.",
+        "윌슨이 지정한 방향으로 몸을 길게 쭉 뻗어 부딪힌 대상을 끌어옵니다. 대상이 시셀라나 아군이면 보호막이 잠시 동안 생성되고, 대상이 적이라면 피해를 주고 잠시동안 기절시킵니다.\n시셀라나 아군을 끌어오면 쿨다운이 줄어듭니다.\n대상을 끌어오는 도중에 윌슨!도와줘를 사용하면 해당 방향으로 이동합니다.",
+        "1초 동안 정신집중 후 3초 후에 일정 범위와 동일한 지역의 모든 적들과 시셀라 자신에게 잃은 체력에 비례하는 피해를 줍니다.\n시셀라는 이 피해를 받아도 체력이 100이하로 떨어지지 않습니다.\n피해를 준 후 잠시 동안 패시브 스킬의 효과가 증가합니다.",
+        "Sissela",
+      ],
+      [
+        "실비아는 연구소를 제외한 새로운 지역에 진입 할 때마다 공격속도와 스킬증폭이 증가합니다. 15개 지역을 모두 탐색하면 공격 속도와 스킬 증폭, 최대 연료량이 증가합니다.\n일정시간 마다 다른 지역에 진입하면 연료를 획득합니다.\n바이크에 타지 않은 상태에서 일정시간 마다 연료를 획득합니다.",
+        "일반: \n실비아가 대상을 지정하여 스피드건을 쏘아 경로상의 적들에게 피해를 입히고, 자신과 경로상의 아군들에게는  체력을 회복시킵니다.\n자신을 제외한 스킬에 적중한 대상의 수만큼 각각 연료를 획득합니다.\n\n바이크 탑승: \n실비아가 바이크로 선회하며 범위 내의 적들에게 피해를 입힙니다.",
+        "일반: \n실비아가 지정한 위치에 피니시라인을 생성하여 라인에 닿은 적에게 피해를 입히고, 이동속도를 느려지게 합니다.\n이동속도 감소 효과는 처음 닿았을 때만 적용됩니다.\n\n바이크 탑승: \n실비아가 바라보는 방향으로 점프하여 범위 안의 적들에게 피해를 입히고 공중에 띄웁니다.",
+        "일반: \n실비아가 지정한 방향으로 스페어휠을 굴려 적중한 적에게 거리에 따라 피해를 입힙니다.\n적이 가까운 범위에서 적중되면 밀려납니다.\n적중한 거리에 따라 연료를 획득합니다.\n\n바이크 탑승: \n실비아가 지정한 적에게 바이크의 앞바퀴를 들며 돌진하여 피해를 주고 밀어냅니다.\n바이크의 현재 이동속도에 따라 피해량이 추가됩니다.",
+        "일반: \n실비아가 바이크에 탑승하여 일정시간 마다 연료를 소모하며, 기본 이동속도와 방어력이 증가하고 바이크 스킬을 사용할 수 있습니다.\n바이크에 탑승하면 예열을 하며 이동속도가 잠시 변화됩니다.\n연료가 일정 이상일 때 스킬을 사용할 수 있습니다. \n바이크 상태에서는 기본 공격과 무기 스킬을 사용할 수 없습니다.\n\n바이크 탑승: \n실비아가 바이크에서 내리며 스킬들이 변경됩니다.\n일정시간 이내의 다음 기본 공격은 추가 피해를 줍니다.",
+        "Silvia",
+      ],
+      [
+        "아드리아나는 스킬을 사용하여 화염지대를 생성 할 수 있습니다.\n화염지대는 범위 안의 대상에게 화상을 부여 하여 지속 스킬 피해를 입히고 이동속도를 감소 시킵니다.\n화상은 중첩 될 때마다 피해량이 증가합니다.\n\n자신이 생성한 화염지대가 유지되는 동안, 화염지대 수에 따라 스태미너를 회복합니다.",
+        "아드리아나가 지정한 방향으로 화염방사기의 불길을 뿜어내어 스킬 피해를 입힙니다.",
+        "아드리아나가 지정한 위치에 기름을 발사하여 일정시간 유지되는 기름 지대를 생성합니다. 기름 지대에 스킬을 사용하여 불을 붙이면 일정시간 유지되는 화염지대가 생성됩니다.\n\n기름지대 안의 적은 이동속도가 감소되며 이동 스킬을 사용할 수 없습니다.",
+        "아드리아나가 지정한 방향으로 돌진합니다. 아드리아나가 이동한 경로에 일정시간 유지되는 화염지대가 생성됩니다. ",
+        "아드리아나가 지정한 위치로 화염병을 던집니다. 바닥에 떨어진 화염병은 폭발하면서 피해를 입히고 중앙에서 바깥으로 밀어냅니다. 화염병이 폭발한 자리에는 화염지대가 생성됩니다.\n화염병은 일정 시간 마다 충전 되며 최대 3회 충전됩니다.",
+        "Adriana",
+      ],
+      [
+        "쇼이치는 스킬이 적중될 때마다 부당거래 스택을 획득하여 치명타 확률이 증가합니다.\n부당거래가 최대로 중첩되면 기본 공격의 피해량이 증가합니다.\n자신이 던진 단검을 회수 할 때 근처에 적이 있다면 단검을 던져 피해를 입힙니다.\n근처에 적이 없다면 단검은 회수되며 사라집니다.",
+        "쇼이치가 날카로운 찌르기 공격을 하여 피해를 입힙니다.\n스킬이 적중하면 쿨다운이 감소되고, 다음에 사용되는 표리 스킬이 강화됩니다. 강화된 스킬은 공격 범위가 증가하고 쇼이치의 정면에 단검을 생성합니다.",
+        "쇼이치가 적 또는 자신이 설치한 단검으로 빠르게 돌진하여, 경로상의 적들에게 피해를 입힙니다.\n단검을 회수하면 스킬의 쿨다운이 초기화됩니다. ",
+        "쇼이치가 뒤로 물러나며 전방으로 단검을 던져, 적중한 적에게 피해를 입히고 이동속도를 감소시킵니다.\n적중한 적의 뒤쪽에 단검이 생성됩니다.",
+        "쇼이치가 단검 가방을 휘둘러 주변의 적들에게 피해를 입히고 이동속도를 감소 시킵니다.\n가방을 휘두를 때 4개의 단검을 사방에 던져 경로상의 적들에게 피해를 입힙니다.",
+        "Shoichi",
+      ],
+      [
+        "엠마는 일정시간 마다 기본 공격을 할 때 최대 스태미너의 일정 비율만큼 추가 피해를 입히고, 스태미너의 일정 비율만큼의 보호막을 획득합니다.",
+        "엠마가 지정한 방향으로 카드를 날려 적에게 피해를 입히고 자신의 위치에 은신하는 비둘기를 남깁니다.\n엠마가 카드를 날릴 때, 비둘기가 근처에 있다면 비둘기가 카드로 변하며 날아가 동일한 피해를 입힙니다.\n엠마가 날린 카드에 적이 적중되면 비둘기 딜러의 쿨다운이 감소됩니다.\n엠마와 비둘기가 날린 카드에 한 대상이 모두 맞으면 추가 피해를 입고 이동속도가 감소됩니다.  ",
+        "엠마가 지정한 위치로 모자를 던지면, 잠시 후에 폭발하여 범위 안의 적들에게 피해를 입힙니다.\n적을 적중시키면 폭죽 모자의 쿨다운이 감소됩니다.",
+        "지속 효과  : 엠마는 스태미너를 소모할 때마다, 소모한 스태미너의 일정 비율만큼 체력을 회복합니다.\n\n엠마가 지정한 적 대상에게 마술빔을 날려 이동 외에 다른 행동을 할 수 없는 토끼로 변하게 합니다.\n토끼가 된 대상은 잠시 속박되며, 이동속도가 감소됩니다.\n빈사상태의 적에게 스킬을 사용할 수 없습니다.",
+        "엠마 자신이 소환한 비둘기, 모자, 토끼를 지정하여 해당 위치로 순간이동 하고 대상에 따라 추가 마술을 시연합니다.\n비둘기  : 비둘기가 엠마의 위치로 이동하며 경로상의 적들에게 피해를 입히고 속박시킵니다.\n모자  : 모자가 엠마의 위치로 이동하며 범위 안의 적들에게 피해를 입히고 모자 중심으로 끌어당깁니다.\n토끼  : 토끼 주변의 적들에게 마술을 걸어 토끼로 만듭니다.\n토끼가 된 대상은 잠시 동안 속박되고, 이동속도가 감소됩니다. 엠마는 CheerUP♥ 스킬 쿨다운이 초기화됩니다.",
+        "Emma",
+      ],
+      [
+        "레녹스는 낚시로 물고기를 획득할 때 마다 무기를 제외한 아이템을 추가로 획득하며, 일정 시간마다 기본 공격으로 적 플레이어를 공격 할 때 최대 체력의 일정 비율 만큼 피해를 흡수하는 보호막을 획득합니다.",
+        "레녹스가 원형 범위의 적들에게 피해를 입힙니다. 가장자리에는 레녹스 최대체력에 일정 비율 만큼 추가로 피해를 줍니다. 적에게 공격을 적중시키면 스택을 얻고, 스택당 회오리 비늘의 쿨다운을 감소시킵니다. 두명 이상의 대상에게 피해를 입혔으면 피해량이 감소합니다.  ",
+        "레녹스는 채찍으로 두 번 공격하며, 첫 번째 휘두르기로 주변의 적들에게 피해를 입히고 일정시간 이동속도를 느려지게 합니다. 두 번째 찌르기는 경로상의 적들에게 피해를 주고 일정 시간 동안 침묵시킵니다. \n두 번째 찌르기에 적이 적중되면 레녹스의 이동속도가 일정 시간 증가합니다.",
+        "레녹스가 뒤에서 앞으로 채찍을 휘두르며 범위 안의 적들에게 피해를 입히고 밀어낸 후, 이동속도를 일정 시간 느려지게 합니다. ",
+        "레녹스가 채찍을 X자 형태로 빠르게 두 번 휘둘러 각각 피해를 입히고 일정 시간 동안 푸른뱀 효과를 줍니다. \n\n푸른뱀 : 일정 시간 동안 고정 피해를 이동 거리에 비례하여 입힙니다. 두 번 모두 적중한 대상에게 더 큰 고정피해를 이동 거리에 비례하여 입힙니다.",
+        "Lenox",
+      ],
+      [
+        "로지는 스킬을 사용한 후 일정시간 이내에 기본 공격을 하면 빠르게 두 번 연속 발사하여 피해를 입힙니다.\n\n로지는 초콜릿이 들어간 음식을 먹으면 체력 회복량의 일정량 만큼 스태미너를 회복하고, 초콜릿이 들어간 음료를 마시면 스태미너 회복량의 일정량만큼 체력을 회복합니다.",
+        "로지가 지정한 방향으로 총을 발사하여 경로상의 적들에게 피해를 입힙니다.\n총에 맞은 대상이 있으면 일정시간 이내의 다음 이동 명령에 빠르게 돌진하며, 이지샷의 쿨다운이 감소합니다. ",
+        "로지가 총을 난사하여 주변의 적들에게 피해를 입히고, 방어력을 감소시키며 생명력 흡수 효과와 체력 재생 효과, 음식 회복 효과를 감소시킵니다.\n로지는 난사하는 동안 이동속도가 증가하고 탄환을 재장전합니다.",
+        "로지가 지정한 대상을 점프하여 넘어가며 대상이 있던 위치에 총을 발사하여 피해를 입힙니다.\n로지는 점프하는 동안 모든 피해를 받지 않고, 목표로 지정할 수 없는 상태가 됩니다.\n피해를 입힌 대상이 있다면 지정한 대상에게 스킬을 다시 사용하여 피해를 입히며 밀어냅니다.\n밀려난 대상이 벽에 부딪히면 기절합니다.",
+        "로지가 적이나 지면에 부착되고 잠시 후에 폭발하는 폭탄을 발사합니다.\n폭탄을 적에게 붙였다면 이동속도가 감소하고, 폭발할 때 피해를 입힙니다.\n부착된 폭탄이 터지기 전에 대상에게 기본 공격을 5회 적중하면 즉시 터지며 대상 최대 체력의 일정 비율만큼의 고정 피해를 입히고, 이동 속도를 감소시킵니다. 스킬을 적중하면 2회 공격으로 간주합니다.\n폭탄을 즉시 터트리면 셈텍스탄 Mk-II 스킬의 쿨다운이 감소하고, 이동속도가 증가합니다.",
+        "Rozzi",
+      ],
+      [
+        "루크는 실험체 및 위클라인을 처치할 때마다 잃은 체력을 회복합니다.\n\n루크는 실험체, 야생동물 처치 등 청소를 완료할 때마다 청소 완료 중첩을 획득합니다.\n청소 완료 중첩이 쌓이면 루크의 스킬을 진화시킬 수 있습니다.",
+        "루크가 세제통을 던져 처음 적중한 적에게 피해를 입히고, 해당 적에 대한 시야를 얻습니다.\n다음 3초안에 스킬을 재사용 할 수 있습니다.\n\n재사용 시: 루크가 세제통에 맞은 적에게 돌진하여 적의 보호막을 파괴하고 피해를 입힙니다.\n\n진화 효과 : 재사용하는 클리닝 서비스로 입히는 피해량의 일정량 만큼 체력을 즉시 회복합니다.",
+        "지속 효과  \n루크에게 적용되는 이동속도 감소의 지속시간이 감소되어 적용됩니다.\n\n사용 효과\n일정 시간 동안 기본 공격을 강화하여 스킬 피해를 추가로 입힙니다.\n강화된 기본 공격으로 적에게 피해를 입히면 일정 시간 동안 공격속도가 증가합니다.\n\n진화 효과 : 강박증으로 강화된 기본 공격으로 적에게 피해를 입힐 때마다 클리닝 서비스의 쿨다운이 감소합니다.",
+        "지속 효과  \n루크는 공격 및 대상을 처치할 때 미니맵에 소음 핑이 발생하지 않습니다.\n\n사용 효과\n루크가 지정한 적 또는 아군 및 자신이 설치한 카메라 뒤로 즉시 이동하여 권총으로 피해를 입힙니다. 아군 및 자신이 설치한 카메라에 사용할 경우 스킬의 사거리가 늘어나고, 해당 카메라는 파괴 됩니다.\n\n진화 효과 : 무소음 청소기로 피해를 입힌 대상을 둔화시킵니다.",
+        "루크의 청소도구에서 관통형 총알을 발사하여 적의 잃은 체력에 비례한 피해를 입히고, 이동속도를 감소시킵니다. 루크는 적 대상의 시야를 얻고 뒤로 밀려납니다.\n\n진화 효과 : 루크가 발사한 관통형 총알이 적에게 피해를 입히면 클리닝 서비스의 쿨다운이 초기화 됩니다.",
+        "Luke",
+      ],
+      [
+        "외과 전문의 : 적에게 스킬 피해를 입히면 일정 시간동안 지속적으로 피해를 입히는 외상 스택을 1회 부여합니다.\n외상 스택이 총 5스택이 쌓이면 긴 시간동안 더 큰 피해를 입히는 치명적 외상 상태가 됩니다. 캐시는 치명적 외상 상태의 적에게 기본 공격을 할 때 추가 치명타 피해를 입힙니다. \n\n포스트옵 : 적에게 스킬 피해를 입히면 잠깐동안 피해를 막아주는 보호막을 획득하고, 외상 상태인 적을 향해 이동할 때 이동 속도가 증가한 후 서서히 감소합니다. 치명타 피해를 입히면 포스트옵의 쿨다운이 1초 감소합니다.",
+        "지속 효과 : 스킬을 사용한 다음 캐시는 기본 공격으로 스킬 피해를 입히며 포스트옵의 쿨다운이 감소합니다. 치명타 피해 증가량만큼 피해량이 증가합니다.\n\n캐시가 지정한 방향으로 빠르게 돌진하여 충돌하는 모든 적에게 스킬 피해를 입힙니다.\n캐시가 적을 치명적 외상 상태로 만들면 동맥절제술의 쿨다운이 감소합니다.",
+        "캐시가 전방으로 톱을 날카롭게 휘둘러 피해를 입히고 이동속도를 느려지게 합니다. 스킬의 바깥 범위에 적중한 적은 더 큰 피해를 입고 잠깐동안 이동 스킬을 사용할 수 없는 고정 상태가 됩니다",
+        "캐시가 실이 묶인 바늘을 던져 피해를 입히고 짧은 시간동안 속박시킵니다. 바늘이 적중하면 관통하여 최대 1명의 적에게 추가로 적중 할 수 있습니다. \n관통한 바늘이 적에게 적중하면 먼저 적중당한 적을 나중에 적중당한 적 쪽으로 밀쳐내 둘이 충돌하면 기절시키고 추가 피해를 입힙니다. 관통한 바늘이 벽에 충돌하면 처음 바늘에 적중한 적을 벽으로 밀어내 기절시키고 추가 피해를 입힙니다.",
+        "지속 효과  : 캐시는 빈사 상태의 아군을 회복시키면 아군의 체력을 회복시키는 영역을 생성합니다.\n\n캐시가 지정한 방향으로 톱을 휘두르며 빠르게 이동하여, 범위 내의 적들에게 잃은 체력에 비례하여 증가하는 피해를 입히며 즉시 치명적 외상을 부여합니다(이미 치명적 외상 상태인 적은 지속시간을 갱신합니다.)\n베고 지나간 범위에 아군의 체력을 회복시키는 영역을 생성합니다.",
+        "Cathy",
+      ],
+      [
+        "아델라는 기본 공격의 사정거리가 증가하는 대신 공격 속도가 고정되고, 치명타 확률이 증가합니다. 공격속도가 증가하면 공격력이 증가합니다.",
+        "아델라가 지정한 지점에 폰을 배치하여 피해를 입힙니다. 폰을 사용할 때마다 스택이 쌓이고  풀 스택이 되면, 이동속도가 증가합니다. 다음 스킬을 사용 할 때 퀸을 배치하여 더 큰 피해를 입히고 잠시 동안 기절시킵니다.\n프로모션 스킬을 일정 시간 안에 다시 사용하지 않으면, 스택이 초기화됩니다.\n프로모션은 쿨다운 감소의 영향을 받지 않습니다.",
+        "아델라가 지정한 지점에 나이트를 배치하면 피해를 입힌 후, 다시 점프하여 도착지점에 피해를 입힙니다.\n첫 번째 착지 할 때 근처에 폰, 퀸, 룩이 있으면 나이트의 착지 지점과 반대 방향으로 밀어내며 각각 다른 효과를 줍니다.\n폰과 퀸 : 이동하다 적을 만나면 멈추고 프로모션의 일정 비율만큼 피해를 입히며, 잠시 동안 공중에 띄웁니다.\n룩 : 이동하며 경로 상의 적들에게 캐슬링의 일정 비율만큼 피해를 입히고 공중에 띄웁니다.\n\n나이트를 다시배치하면 이전의 나이트는 즉시 사라집니다. ",
+        "아델라가 지정한 지점에 룩을 돌격시키면 아델라의 위치에서 목표 지점으로 빠르게 이동하며 경로 상의 적들에게 피해를 입히고, 경로상에 폰, 퀸, 나이트가 있으면 즉시 피해효과를 발동합니다.\n폰과 퀸 : 프로모션의 일정 비율만큼 피해를 입힙니다. \n나이트 : 나이트 포크의 일정 비율만큼 피해를 입히고, 이동속도를 잠시 동안 느려지게 합니다.\n스킬을 다시 사용하면 아델라와 룩의 위치가 변경됩니다.\n\n룩을 다시 배치하면 이전의 룩은 즉시 사라집니다. ",
+        "아델라가 공중으로 떠올라 잠시 동안 모든 피해를 받지 않고, 목표로 지정할 수 없는 상태가 되었다가 착지하며 범위 안의 적들에게 피해를 입힙니다.\n스킬을 시전할 때 배치한 말 하나당 적 최대 체력의 일정 비율만큼 고정 피해를 입힙니다.\n착지 할 때 모든 체스 말들은 피해효과를 발동하고 사라집니다.",
+        "Adela",
+      ],
+      [
+        "버니스는 기본 공격을 할 때 다수의 탄환을 발사하며, 기본 공격 사거리가 변동 효과의 영향을 받지 않고 고정됩니다.\n탄환은 적 대상에게 적중한 수에 비례한 피해를 입힙니다.\n버니스는 산탄 레벨에 따라 재장전 속도가 빨라집니다.",
+        "버니스가 관통형 탄을 발사하여 피해를 입히고, 적중한 적 대상의 이동속도를 감소시킵니다.\n속박이 걸린 적 대상에게는 더 큰 피해를 입히고, 이동속도를 더욱 감소시킵니다.",
+        "버니스가 적 대상이 걸리면 출혈 피해를 입히고, 대상을 속박하는 사냥 덫을 설치합니다.\n설치된 사냥 덫은 일정 시간 동안 유지되며, 은신 상태가 되지 않습니다.\n사냥 덫은 여러 개를 보유할 수 있으며, 사냥 덫의 레벨에 따라 한 번에 설치 가능한 수가 달라집니다.",
+        "지속 효과  : 적 대상이 버니스의 사냥 덫에 걸릴 경우, 해당 적 대상에게 사냥 표식을 부여합니다.\n표식 대상자는 버니스에게 시야가 공유되며 버니스가 표식 대상자 쪽으로 이동할 때 이동속도가 상승합니다.\n버니스가 사냥 표식의 대상자에게 기본 공격을 적중하면 레그샷, 올가미 탄의 쿨다운이 감소합니다.\n\n사용 효과: 버니스의 매가 일정 시간 동안 버니스의 시야를 증가시키고, 근처의 적에게 사냥 표식을 부여합니다.",
+        "버니스가 전이되는 올가미 탄을 지정한 방향으로 발사합니다.\n적중한 대상에게 피해를 입히고, 적중한 대상을 속박합니다.\n올가미탄의 속박이 끝나면 폭발하여 속박 대상에게 피해를 입히고, 가장 가까운 적 대상에게 전이됩니다.",
+        "Bernice",
+      ],
+      [
+        "바바라의 스텟과 레벨에 비례하여 센트리건이 강화됩니다.\n센트리건이 이온 레이저에 적중하거나 자력 폭풍을 생성할 때마다 공격속도가 상승합니다.",
+        "바바라가 지정한 위치에 센트리건을 설치하며 범위 안의 적들에게 피해를 입힙니다. 센트리건은 일정시간 동안 주위에 적에게 총알을 발사하여 피해를 입힙니다.\n센트리건이 설치될 때 전에 설치한 센트리건은 부서지고, 적이 센트리건을 부셨다면 쿨다운이 증가하며, 설치한 센트리건이 바바라와 멀어지거나 회수하면 쿨다운이 감소합니다. 센트리건 체력은 바바라 최대체력에 비례합니다. ",
+        "바바라가 고출력 포신으로 이온 레이저를 두 발 발사하여 경로상의 적들에게 피해를 입히고, 이동속도를 감소시킵니다. 두 발이 동시에 명중하는 경우, 피해량이 감소합니다.\n이온 레이저 경로에 센트리건이 있으면 충전되며, 적에게 레일건을 발사하여 적들에게 피해를 입힙니다.",
+        "바바라가 일정시간 자력 폭풍을 자신과 센트리건에 함께 생성하여 범위 안의 적들에게 적 최대 체력에 비례한 고정 피해를 입히고 자신은 이동속도가 증가합니다.\n스킬을 다시 사용하거나, 지속시간이 끝나면 자력 폭풍은 폭발하며 범위 안의 적들에게 피해를 입히고, 자력 폭풍이 유지한 동안 입힌 모든 피해량에 비례하여 보호막을 획득합니다. 바바라와 센트리건의 자력 폭풍 폭발 피해를 동시에 받은 적은 이동속도가 감소됩니다.",
+        "스킬을 사용하면 즉시 다음 Q, W, E 스킬을 사용할 수 있으며, 각 스킬에 따라 추가효과가 발동됩니다.\n\n숏 서킷 : 바바라가 자동센트리건을 설치하고 해당 위치로 순간이동합니다. 기존에 설치되어 있던 자동센트리건은 자폭하며 범위에 피해를 입힙니다. 바바라가 순간이동 후, 오버클럭의 쿨다운을 감소시키며 주위에 적 수에 따라 센트리건의 공격속도가 상승하며, 적들에게 피해를 줍니다. \n\n레이저 충전 : 일정시간 동안 레이저 충전이 되며 그동안 이온 레이저와 센트리건의 레일건 피해량이 상승하고 쿨다운을 감소시킵니다. 센트리건은 레이저 충전 상태동안 일반 공격이 레일건으로 바뀝니다.\n\n광자력 폭풍 : 자력 폭풍이 유지시간동안 점점 커지며, 스킬을 다시 사용하거나 유지시간 후 범위에 적들에게 피해와 이동속도 감소를 줍니다. \n\n한번 더 사용하면 오버클럭 상태를 취소하고 일정 시간 후 다시 시전할 수 있습니다.",
+        "Barbara",
+      ],
+      [
+        "알렉스는 6레벨 이후에 실험체를 처치하거나 어시스트를 하면 일정 시간 동안 잠입상태가 됩니다. 탐지 범위 바깥의 적은 잠입 상태의 알렉스를 볼 수 없습니다.\n잠입 상태가 될 때, 일정 범위 안에 적이 있으면 이동속도가 증가합니다.\n\n알렉스는 착용 가능한 모든 무기의 숙련도가 동일하게 증가합니다.\n톤파, 양손검 등의 근접 무기를 장착하면 방어력이 증가합니다.",
+        "원거리 무기: \n알렉스가 코일건을 발사하여 적중한 적에게 피해를 입힙니다.\n스킬이 적중되면 일정 시간 동안 공격력이 증가합니다. 기습의 효과와 동시에 최대 중첩상태가 되면, 공격속도가 증가합니다.\n\n근접 무기: \n알렉스가 대상에게 빠르게 돌진하여 피해를 입힙니다.\n스킬이 적중되면 일정 시간 동안 공격력이 증가합니다. 코일건의 효과와 동시에 최대 중첩상태가 되면, 공격속도가 증가합니다.",
+        "원거리 무기: \n알렉스가 지정한 지점에 타겟 마커를 발사하여 범위 안의 적들에게 피해를 입히고, 대상의 시야를 잠시 제공받습니다.\n스킬이 적중되면 알렉스의 기본 공격 사정거리가 잠시 증가합니다.\n\n근접 무기: \n알렉스가 지정한 지점에 플라즈마 마인을 발사하여 잠시 후, 범위 안의 적들에게 피해를 입히고 중심부로 끌어당깁니다.",
+        "원거리 무기: \n지속 효과  : 알렉스의 공격속도가 증가합니다.\n알렉스가 지정한 방향으로 펄스 스팅을 발사하여 피해를 입히며 반대 방향으로 빠르게 이동하며 즉시 잠입 상태가 됩니다.적중한 대상은 이동속도가 느려졌다가 서서히 회복됩니다. 동시에, \n스킬 사용 후 잠입 상태를 유지하면, 무기를 변경할 수 있는 상태가 됩니다. 이 상태는 잠입이 해제되거나 무기를 변경하면 즉시 사라집니다.\n잠입 효과는 6레벨 이후에 적용됩니다.\n\n근접 무기: \n지속 효과  : 알렉스의 치명타 확률이 증가합니다.\n알렉스가 잠시 동안 유지되는 홀로그램을 생성하고, 지정한 방향으로 빠르게 이동하며 즉시 잠입상태가 됩니다.\n홀로그램은 범위 안의 적들에게 도발을 하여 자신을 공격하게 합니다.\n홀로그램이 지속되는 동안 지속효과가 더 크게 적용됩니다.\n스킬 사용 후 잠입 상태를 유지하면, 무기를 변경할 수 있는 상태가 됩니다. 이 상태는 잠입이 해제되거나 무기를 변경하면 즉시 사라집니다.\n잠입 효과는 6레벨 이후에 적용됩니다.",
+        "알렉스가 지정한 지점에 위성 미사일을 유도하여 범위 안의 적들에게 피해를 입히고 이동속도를 느려지게 합니다. 중심부의 적들에게는 더 큰 피해를 입힙니다.\n이후 주기적으로 펄스를 방출하여 범위 안의 적들에게 지속적으로 피해를 입히며 이동속도를 느려지게 합니다. 중심부의 적들에게는 더 큰 피해를 입힙니다.",
+        "Alex",
+      ],
+      [
+        "수아는 스킬을 사용하면 마음의 양식을 얻어 다음 기본 공격이 강화되고 입힌 피해량의 일부를 체력으로 회복합니다.\n마음의 양식은 중첩될 수 있으며, 중첩이 하나라도 있다면 공격속도가 상승합니다.\n마음의 양식으로 적에게 피해를 입히면 수아의 모든 스킬 쿨다운이 감소합니다.",
+        "수아가 지정한 위치에 두개의 책을 생성하여 잠시 후 중심부로 모으며 범위 안의 적들에게 피해를 입히고 책갈피를 남깁니다.\n책갈피가 남은 대상에게 새로운 책갈피를 남기면 피해를 입히고, 기존의 책갈피는 사라집니다.\n책의 충돌 지점에 있는 적들은 짧은 시간 기절합니다.",
+        "아군 및 자신에게 사용하면 파랑새가 스킬 피해를 흡수하고, 방해효과 면역 상태가 되는 보호막을 씌워 줍니다.\n\n적에게 사용하면 파랑새가 피해를 입히고, 잠시동안 실명시킵니다.",
+        "수아가 무기를 랜스로 바꿔 전방으로 돌진해 처음 적중한 적에게 피해를 입히고, 이동속도를 감소시킵니다.\n책갈피 혹은 기절 상태의 적 대상에게는 더 큰 피해를 입히고, 공중으로 띄워올립니다.\n수아가 무기를 변경하는 동안에는 방해효과 면역 상태가 됩니다.",
+        "한 번 읽은 책의 내용을 전부 기억하는 수아는 가장 최근에 사용한 스킬을 다시 기억하여 사용합니다.\n\n오딧세이 : 책이 중심부로 모일 때 범위에 있는 적에게 피해를 입히고, 책갈피를 남깁니다.\n책갈피가 남은 대상에게 새로운 책갈피를 남기면 피해를 입히고, 기존의 책갈피는 사라집니다.\n책의 충돌 지점에 있는 적들은 잠시동안 기절합니다.\n파랑새 : 아군 및 수아에게 스킬 피해를 흡수하고, 방해효과 면역 상태가 되는 보호막을 씌워줍니다.\n적에게 사용하면 피해를 입히고, 대상을 실명시킵니다.\n돈키호테 : 처음 적중한 적에게 피해를 입히고, 이동속도를 감소시킵니다.\n책갈피 혹은 기절 상태의 적 대상에게 피해를 입히고 대상을 공중에 띄워올립니다.\n수아가 무기를 변경하는 동안에는 방해효과 면역 상태가 됩니다.",
+        "Sua",
+      ],
+      [
+        "레온이 물 웅덩이 위에 있으면 이동속도와 공격속도가 상승합니다.\n수중 강타 : 레온이 물 웅덩이 위에 있으면 기본 공격 피해에 추가 고정 피해를 입힙니다.",
+        "레온이 물 웅덩이를 일직선으로 설치하며 적들에게 피해를 입히고 물길을 만듭니다.",
+        "지속 효과  : 5번째 공격마다 피해를 입힌 대상의 위치에 물 웅덩이를 생성합니다. \n\n레온이 자신 또는 아군에게 피해를 흡수하는 보호막을 부여합니다. 보호막이 부여되면 다음 3번의 기본 공격이 적에게 추가 피해를 입히며 적 뒤에 물 웅덩이를 생성합니다.",
+        "레온이 즉시 자신의 위치에 물 웅덩이를 생성하고 다이빙합니다. 다이빙 후에는 지정한 물 웅덩이로 나오며 피해와 에어본을 줍니다.",
+        "레온이 파도를 소환합니다. 레온은 파도를 타고 같이 전진하며 경로상 적들에게 피해를 입히고 파도가 없어지는 순간까지 같이 밀려납니다. 밀려나는 도중 벽에 부딪힌 적은 잃은 체력에 비례한 피해를 입히며 이동속도 감소를 부여받습니다. ",
+        "Leon",
+      ],
+      [
+        "일레븐은 햄버거와 감자튀김을 조합하여 일레븐 세트를 제작 할 수 있습니다.\n\n일레븐은 기본 공격속도가 느린 대신 기본 공격 추가 피해를 입히며, 적을 4회 타격할 때 마다 체력을 회복시키는 일레븐 버거를 바닥에 생성합니다. \n\n또한 일레븐 버거를 먹게되면 일반 스킬 사용시, 즉시 강화된 스킬을 사용할 수 있으며, 적이 밟을 경우 파괴됩니다.",
+        "일레븐이 힘을 모았다가 햄버거 망치를 내리쳐 전방의 적들에게 피해를 입힙니다. 힘을 끝까지 모으면 추가 피해를 입히고 적을 느려지게 합니다.",
+        "일레븐이 힘을 모았다가 햄버거를 번쩍 들어올려 주변 범위 안의 적들을 도발하여 자신을 공격하게 합니다. 힘을 끝까지 모으면 도발의 범위와 시간이 늘어납니다. ",
+        "일레븐이 힘을 모았다가 햄버거를 타고 지정한 지점으로 점프하여 적들에게 피해를 입힙니다. 끝까지 힘을 모으면 추가 피해를 입히고 밀어냅니다. ",
+        "지속시간 동안 일레븐이 기본 공격을 할 때 1회 추가 타격을 하고, 주변 범위 안의 적들에게 지속 피해를 입힙니다. 스킬을 사용한 후 다음 스킬은 즉시 강화됩니다.",
+        "Eleven",
+      ],
+      [
+        "리오의 기본 공격 및 스킬은 적중한 대상의 방어력을 치명타 확률에 비례하여 감소된 상태로 피해를 입힙니다.\n리오의 기본 공격은 치명타가 발생하지 않는 대신 피해량을 증가시킵니다.\n증가되는 피해량은 치명타 확률과 스킬 증폭의 100%를 넘지 않는 합에 비례하여 증가합니다.",
+        "지속 효과 : 기본 공격 및 스킬로 피해를 입히면 카이츄 중첩이 증가하며, 일정 중첩이 되면 다음 기본 공격 및 스킬로 피해를 입힐 때 추가 효과가 발생합니다.\n단궁: 일정 시간동안 이동속도와 공격속도가 증가합니다.\n화궁: 대상의 잃은 체력에 비례하여 피해를 증가시키고, 대상의 이동속도를 감소시킵니다.\n\n사용 효과: 리오가 무기를 단궁과 화궁으로 변경합니다.\n단궁: 기본 공격 시, 2개의 빠른 화살을 발사하여 피해를 입힙니다.\n화궁: 기본 공격 시, 1개의 강력한 화살이 발사되며 피해를 입힙니다.",
+        "단궁: 지정한 방향의 부채꼴 범위에 순차적으로 화살을 발사해 피해를 입히고, 피해를 입은 대상의 위치에 이동속도를 감소시키는 바람을 생성합니다.\n\n화궁: 지정한 방향으로 한 발의 강력한 화살을 발사하여 피해를 입히고, 그 뒤의 적에게 추가적인 피해를 입힙니다. 적중시 하나레의 쿨다운을 감소시킵니다.",
+        "단궁: 지정한 방향으로 뛰어올라 기본 공격 사거리 내의 적 대상에게 2개의 화살을 발사하여 피해를 입힙니다. 적 대상에게 피해를 입힌다면 쿨다운이 감소합니다.\n\n화궁: 지정한 방향으로 뛰어올라 기본 공격 사거리 내의 적 대상에게 1개의 화살을 발사하여 피해를 입히고, 대상 주변에 범위 피해를 입힙니다. 적 대상에게 피해를 입힌다면 쿨다운이 감소합니다.",
+        "단궁: 리오가 지정한 방향으로 여러개의 화살을 빠르게 발사해 피해를 입히고, 연사/정사필중의 쿨다운을 감소시킵니다. 연속적인 화살 발사 이후 추가로 강력한 화살을 발사해 피해를 입히고, 적중한 대상을 뒤로 넉백시킵니다. 넉백당한 대상이 벽에 부딪히면 기절시킵니다.\n\n화궁: 올바른 자세로 집중하여 화살을 발사해 피해를 입히고 적중한 대상의 이동속도를 감소시킵니다. 화살은 발사 후 잠시 뒤 속도와 피해량이 증가합니다. 화살은 대상과 충돌하거나 범위의 끝까지 날아가면 소멸합니다.",
+        "Rio",
+      ],
+      [
+        "윌리엄은 기본 공격을 할 때, 야구공이 일정 시간 마다 한 번씩 대상에게 맞고 튕겨 나와 윌리엄 근처로 돌아와 잠시 유지됩니다. 야구공의 방향으로 이동할 때 이동속도가  증가하며, 야구공을 받으면 다음 기본 공격은 추가 피해를 입힙니다.\n야구공을 받으면 일정시간 동안 스택이 유지됩니다.",
+        "지속 효과 : 캐치볼 스택을 최대로 획득한 상태에서 스킬을 사용할 수 있습니다.\n윌리엄이 지속시간 동안 공격 속도가 증가하며, 기본 공격을 할 때 공 하나를 추가로 던져 추가 피해를 입힙니다. 야구공을 받으면 첫 번째 공격에만 추가 피해가 적용되며, 쉐도우 볼의 지속시간이 연장됩니다.",
+        "윌리엄이 지정한 방향으로 강한 공을 던져 경로 상의 적들에게 피해를 입히며 이동 속도를 감소 시킵니다. 잠시 후 야구공은 다시 윌리엄에게로 돌아오며 경로상의 적들에게 동일한 효과를 입히며 캐치볼 스택을 획득 합니다. 던진 공과 돌아오는 공에 모두 적중한 대상은 잠시 동안 기절합니다.\n\n마운드 : 윌리엄이 일정 시간 동안 유지되는 마운드를 생성하며 범위 안의 적들을 밀어냅니다. 마운드 위에서 캐치볼로 튕겨 나오는 야구공은 윌리엄에게 돌아오며 기본 공격 사거리가 증가합니다.",
+        "지속 효과 : 야구공을 받으면 잠시 동안 방어력이 증가합니다. \n윌리엄이 야구공의 낙구 지점을 대상으로 지정하여 빠르게 이동합니다.",
+        "윌리엄이 공중으로 점프하여 지정한 지점으로 공을 던져 범위 안의 적들에게 피해를 입히고 이동속도를 느려지게 합니다. 중심부의 적들은 이동속도가 더 느려집니다.\n중심부에서 야구공 4개가 튕겨나와 잠시 동안 유지됩니다.",
+        "William",
+      ],
+      [
+        "니키는 실험체로부터 받는 피해를 분노로 전환합니다. 분노를 끝까지 충전하면 다혈질 상태가 되어 공격 속도가 증가하고 기본 공격에 추가 피해를 입히며, 주변 다른 적들에게 스킬 피해를 입힙니다.\n\n다혈질 상태에서는 분노의 펀치!와 분노의 어퍼컷!을 사용할 수 있으며, 다혈질 상태가 끝나면 짧은 시간 동안 진정상태가 되어 받는 피해로 분노를 획득할 수 없습니다. 분노는 시간에 따라 감소하며, 모두 소모하면 다혈질이 종료됩니다.",
+        "격투 액션 : 니키가 주먹에 힘을 모은 후, 다시 사용하면 마우스 방향으로 돌진하여 처음 적중한 적을 짧게 밀쳐내고 피해를 입힙니다. 충전 시간에 비례하여 피해량과 돌진 거리가 증가합니다. 돌진을 사용한 후, 리버 블로우 스킬을 추가로 사용할 수 있습니다.\n\n리버 블로우 : 전방 범위의 적에게 피해를 입히고, 적중한 적의 수만큼 분노를 충전합니다.",
+        "가드 : 니키가 가드 자세를 취하여 짧은 시간 동안 받는 피해가 감소하고, 모든 해로운 효과와 방해 효과를 무효화합니다. 피해 효과 혹은 이동 불가 효과의 가드에 성공한 경우, 가드 & 카운터의 쿨다운이 감소하고 분노를 최대로 충전하며, 지속 시간이 끝나면 카운터가 발동됩니다.\n\n카운터 : 짧은 거리를 돌진하면서 주변의 적들에게 피해를 입히고 속박합니다.\n이동 불가 상태에서는 카운터가 발동하지 않습니다.",
+        "강력한 펀치 : 니키가 강력한 펀치로 전방의 적에게 피해를 입히고 이동속도를 감소시킵니다.\n\n분노의 펀치! : 다혈질 상태에서는 분노의 펀치를 사용할 수 있으며, 사용하면 다혈질 상태가 종료됩니다. 분노의 펀치!는 전방의 적에게 더 큰 피해를 입히며 이동속도를 감소시키고 동시에 기절시킵니다.\n\n분노의 펀치! 는 쿨다운이 없으며  강력한 펀치 와 쿨다운을 공유하지 않아 연속으로 사용할 수 있습니다.",
+        "다혈질 상태에서만 사용할 수 있으며, 사용하면 다혈질 상태가 종료됩니다.\n\n니키가 대상에게 돌진한 후, 분노가 담긴 어퍼컷으로 공격하여 피해를 입히고 일정 시간 공중으로 띄웁니다. 돌진 중에는 저지불가 상태가 되고, 대상이 아닌 적들이 니키와 충돌하면 피해를 입히고 밀쳐냅니다. 실험체만 대상으로 지정할 수 있습니다.",
+        "Nicky",
+      ],
+      [
+        "나타폰은 매 순간을 신중하게 카메라에 담습니다. 나타폰이 사용하는 카메라는 공격 속도가 고정되어 있고 치명타가 발생하지 않는 대신 기본 공격할 때 추가 스킬 피해를 입힙니다.\n\n감시 카메라 와   나뭇가지 를 조합하여 잠입 효과를 가진 위장 카메라 를 제작할 수 있습니다.",
+        "지속 효과 : 적에게 스킬 피해를 입히면 피사체 스택을 부여합니다. 피사체는 3회까지 중첩이 가능하며 1스택마다 나타폰이 입히는 피해가 증가합니다.\n피사체 스택은 나타폰의 시야에서 사라지면 즉시 제거됩니다.\n\n나타폰이 지정한 지역을 촬영하여 피해를 입힙니다. 피사체가 3스택인 적은 짧은 시간 이동 속도와 공격 속도가 감소합니다.",
+        "나타폰이 저속 촬영을 하는 카메라를 설치하여 범위 안의 적들에게 매 초마다 피해를 입힙니다. 해당 지역에 있는 적은 이동 속도가 감소합니다.\n카메라의 마지막 촬영은 더 큰 피해를 입히고 속박합니다.",
+        "나타폰이 프레임을 발사하여 적중한 적에게 피해를 입히고 이동 속도를 느려지게 합니다. 프레임을 맞추면 그 위치에 표식을 남기며 1.5초 후 부터 3.5초 동안 나타폰은 기본 공격을 통해 프레임을 맞춘 적에게 스킬 피해를 입히고 표식을 남긴 위치로 되돌려 보냅니다. 이 때 프레임을 맞춘 적에 한해 공격 사거리가 증가하고 슬로우 셔터의 추가 피해가 적용됩니다.\n\n표식을 맞춘 적을 밀어내거나 그 적이 표식으로 부터 일정 거리 이상 멀어지면 표식이 사라집니다.",
+        "나타폰이 타이머를 설정해 범위 내의 모든 대상을 촬영합니다. 촬영한 대상은 무적 상태가 되는 대신 아무런 행동도 할 수 없습니다.\n촬영한 적에게 즉시 피사체 3스택을 부여합니다.",
+        "Nathapon",
+      ],
+      [
+        "얀이 적에게 피해를 입힐 때 마다 열혈의 의지 스택을 얻습니다. 열혈의 의지 스택을 소모하여 다음 사용하는 스킬을 강화하고 니 스트라이크, 토마호크 스핀, 위빙 스킬 쿨다운을 감소시킵니다.",
+        "얀이 니 스트라이크로 전방의 적들에게 피해를 입히며 이동속도를 감소시킵니다. 재사용하면 리핑 니 스트라이크를 사용할 수 있습니다. 리핑 니 스트라이크는 피해를 입은 적을 공중에 띄웁니다 \n\n\n니 스트라이크 강화효과 : 이동속도와 방어력을 감소시킵니다.\n리핑 니 스트라이크 강화효과 : 피해를 입히면 위빙 스킬 쿨다운을 초기화 합니다.",
+        "얀이 토마호크 스핀을 하며 범위의 적들에게 피해를 입힙니다. 바깥쪽 범위에 맞은 적들을 밀어내며, 밀려난 적이 벽에 부딪히면 기절시킵니다.\n\n\n강화효과 : 피해량이 증가하며 토마호크 스핀 전체 범위의 적들을 밀어내며, 밀려난 적이 벽에 부딪히면 기절시간이 늘어납니다.",
+        "얀이 앞으로 돌진하며, 돌진 후 기본 공격이 강화되어 스킬 피해를 추가로 입힙니다. 다음 니 스트라이크와 토마호크 스핀의 피해량의 일부분 만큼 회복하며, 잃은 체력에 비례하여 회복량이 추가됩니다. 토마호크 스핀 사용 중에 사용할 수 있습니다.\n\n\n강화효과 : 위빙의 쿨다운을 감소시킵니다.",
+        "얀이 사각 링을 소환하며 매초 열혈의 의지 스택을 얻습니다. 사각 링 로프에 충돌한 적은 피해를 입으며 이동속도가 감소됩니다. 넉백으로 밀려난 적이 로프에 충돌하면 사각 링 중앙으로 밀려나며 기절합니다.충돌하면 로프는 없어집니다. \n경기장 범위의 적 실험체를 처치하면 얀은 즉시 열혈의 의지 스택을 얻고 이동속도가 증가합니다.  ",
+        "Jan",
+      ],
+      [
+        "텔레키네시스 : 이바는 6레벨 이후부터 아이템박스, 낚시, 채집, 부활, 공중보급 등을 원거리에서 조작할 수 있습니다. 전투 중에는 운석, 생명의 나무 채집과 부활만 원거리에서 조작합니다.\n\nVF 라이트 : 이바는 쿨다운 마다 기본 공격 피해를 받거나 스킬을 적중 시키면 대상의 위치로 VF 라이트를 발사하여, 적중한 적들에게 피해를 입히고 이동속도를 느려지게 합니다.\nVF 라이트에 적 실험체가 적중되면 VF 라이트의 쿨다운이 감소됩니다.\n\n전투를 하지 않을 때, 일정 시간마다 바이탈 포스를 획득하며 실험체를 처치하거나, 어시스트에 관여하면 바이탈 포스를 획득합니다. VF 라이트가 적중되면, 바이탈 포스를 획득합니다.",
+        "이바가 관통하는 빛의 구체를 발사하여 경로상의 적들에게 피해를 입힙니다. 구체는 사거리 끝까지 날아가거나 스킬을 다시 사용하면 폭발하며 범위 안의 적들에게 피해를 입힙니다.\n\n스킬을 적중시키면 바이탈 포스를 획득합니다.",
+        "이바가 지정한 지점에 위상의 소용돌이를 생성하여 범위 안의 적들에게 피해를 입힙니다. 범위 안에 머무르는 적들은 이바의 스킬 공격에 추가 피해를 받고, 이동속도가 감소됩니다.\n위상의 소용돌이 지속시간이 종료될 때, 범위 안의 적들에게 피해를 입히고 중심부의 적들은 공중에 띄웁니다.\n\n스킬을 적중시키면 바이탈 포스를 획득합니다.",
+        "이바가 지정한 방향으로 빠르게 이동하며 이동하는 동안 저지불가 상태가 됩니다.\n이동 후 잠시 동안 지형과 관계없이 시야를 확보할 수 있는 상태가 되며, 지속시간 안에 다음 기본 공격에 적중한 대상은 잠시 침묵상태가 되고, 이바는 바이탈 포스를 획득합니다. 기본 공격을 하면 시야 효과는 즉시 사라집니다.\n기본 공격에 적중한 대상이 이바의 스킬에 의해 방해효과를 받고 있었다면, 지속 피해를 받으며 시야를 제공합니다.\n\n자수정의 물결은 쿨다운 감소의 영향을 받지 않습니다.",
+        "이바가 정신집중을 하며 지정한 방향으로 VF를 방출하여 범위 안의 적들에게 스킬 피해를 입히고, 스택을 부여합니다. 최대 스택이 된 대상은 추가 피해를 받고, 스택이 초기화됩니다.\nVF 방출을 사용하기 위해서는 20의 바이탈 포스가 필요하며, 스킬을 사용하는 동안 지속적으로 소모합니다.\n\n스킬을 사용하는 도중에 다른 스킬을 사용하여 취소할 수 있으며, 자수정의 물결 스킬을 사용하면 쿨다운이 초기화됩니다.",
+        "Eva",
+      ],
+      [
+        "다니엘은 밤이 되면 고독한 예술가가 되어 밤 시야가 증가하고 비 전투중 이동속도가 증가합니다. 또한 체력이 낮아지면 공격력이 증가합니다.",
+        "스킬을 사용한 지점에 가위를 불러와 적들에게 피해를 입히고 이동속도를 감소시키며 다니엘의 다음 3번의 공격 속도가 증가됩니다. 가위 중앙에 있는 적은 강화된 피해를 입으며 그림자 가위, 그림자 이동의 쿨다운을 감소시킵니다.",
+        "다니엘이 지정한 적 실험체에게  영감  표식을 부여합니다.\n다니엘은 표식이 부여된 적 주변에 좁은 시야를 얻으며, 잠시 이동속도가 감소합니다.\n표식이 부여된 적은 다니엘에게 공격 받을 때까지 시야가 감소되며, 다니엘이 준 피해량의 일부분을 축적합니다.\n영감 표식이 유지된 적은  영감의 대상 이됩니다. 다니엘이  영감 의 대상을 공격하면 표식이 폭발하여 축적된 피해량과 표식 폭발 피해를 입히고, 속박을 부여합니다. 표식 폭발로 적 처치 시  영감 의 쿨다운이 초기화 됩니다.\n다니엘과 대상의 거리가 멀어지면 표식은 사라지게 됩니다.\n",
+        "다니엘이 앞으로 빠르게 돌진하며 그림자 돌진 상태가 됩니다. 그림자 돌진 상태에는 기본 공격 사거리가 늘어나고 적을 기본 공격하면, 다니엘은 적의 건너편 방향으로 순간 이동하여 적에게 피해를 입힙니다.",
+        "영감, 영감의 대상 에 걸려있거나  속박  상태의 적 그림자 속으로 들어갈 수 있습니다. 다니엘이 그림자로 들어갈 때 침묵을 잠깐 부여하고 적의 몸속에서 일정시간 유지 할 수 있으며, 일정 간격으로 최대 4번 고유 피해를 줍니다. 일정 시간이 지나거나 다시 한번 스킬을 사용하면 적의 몸에서 빠져 나오며 피해를 입힙니다. 피해량은 잃은 체력에 비례하여 증가합니다. ",
+        "Daniel",
+      ],
+      [
+        "연기력 : 제니는 기본 공격을 하면 연기력이 충전되고,  페르소나(E) 의 쿨다운이 감소됩니다.  페르소나(E)  스킬로  레드 와인 이 되면 잠시 동안 공격 속도가 증가하고,  블랙 티 가 되면 이동 속도가 증가합니다.\n\n죽음의 연기 : 연기력이 일정 이상일 때, 제니가 치명적인 피해를 입으면 죽음의 연기를 시작하고 은신, 무적, 타겟 지정 불가 상태가 되지만 이동 속도가 크게 느려집니다. 죽음의 연기 상태가 종료되면 연기력에 비례해 체력을 회복하며 부활하고, 주변 적들에게 잃은 체력에 비례한 피해를 입힙니다.",
+        "제니가 대상 지점을 스포트라이트로 3번 비춰 피해를 입힙니다.\n적이 적중하면 제니의 연기력이 충전되며, 연기력이 일정 이상일 때 제니 자신을 비추면  레드 와인 일 때는 공격 속도가 증가하고,  블랙 티 일 때에는 이동 속도가 증가합니다.",
+        "제니가 레드 카펫을 설치하여 피해를 입히고 이동 속도를 감소시킵니다.\n\n스킬을 다시 사용하면 레드 카펫 위의 적에게 피해를 입히고, 카펫을 설치했을 때 제니가  레드 와인 이었다면 적을 당겨오고,  블랙 티 였다면 적을 밀어냅니다.",
+        "지속 효과 : 제니의 4번째 기본 공격은 추가 스킬 피해를 입힙니다. 이 추가 스킬 피해는 스킬 증폭 능력치에 비례합니다.\n\n제니가 짧은 거리를 이동하며 배역을 전환하고, 지속 효과를 활성화합니다.\n이미 설치했던 스포트라이트와 레드 카펫의 효과는 달라지지 않습니다.",
+        "제니 주변에 시상식 무대를 설치하여 범위 내 적들의 이동 속도를 감소시키고,  페르소나(E) 의 쿨다운이 초기화됩니다.\n무대는 사라질 때 적에게 스킬 피해를 입히고, 잠시 동안 매혹에 빠지게 합니다.",
+        "Jenny",
+      ],
+      [
+        "카밀로가 피해를 입히는 첫 대상의 스태미너를 감소시키고, 카밀로에게 보호막이 생성되어 피해를 막아주며 공격속도가 상승합니다.\n기본 공격 및 스킬로 번갈아서 피해를 입히면 올레와 씨에레의 쿨다운이 감소합니다.",
+        "카밀로가 전방을 베어 가르며 기본 공격 피해를 입힙니다.\n외곽 범위에서 적중 시 1회 중첩이 되며 카밀로의 이동 속도가 증가합니다.\n2회 중첩 시 원형으로 2회 회전하면서 주변에 기본 공격 피해를 입히며 주변의 적을 카밀로 쪽으로 끌어당기고, 카밀로의 체력을 회복시킵니다.\n브엘따는 카밀로의 기본 공격 속도를 제외한 공격 속도에 비례해 쿨다운이 감소합니다.\n\n알 꼼빠스의 첫 번째 돌진 도중 이 스킬을 사용하면 원형으로 피해를 입히고 외곽 범위 적중 시 효과가 적용됩니다.",
+        "카밀로가 회전하며 앞으로 돌진하여 기본 공격 피해를 연속으로 입힙니다.",
+        "카밀로가 지정한 대상에게 빠르게 돌진하며 스킬 피해를 입히고 원스텝을 부여합니다.\n원스텝이 부여된 대상에게 스킬을 다시 사용하면 대상에게 빠르게 접근하여 스킬 피해를 입히고, 대상을 뒤로 밀어낸 후 거리를 벌리며 투스탭을 부여합니다.\n\n투스텝이 부여된 대상에게는 알 꼼빠스를 사용할 수 없습니다.",
+        "카밀로가 춤을 추며 앞으로 이동 후, 다시 돌아옵니다.\n춤을 추며 이동하는 동안 저지 불가 상태가 되며 받는 피해량이 감소합니다. 춤이 끝났을 때 카밀로와 한 번 부딪힌 적에게 스킬 피해를 입힙니다. 두 번 부딪힌 적에게는 큰 스킬 피해를 입히고, 기절시킵니다. 또한 카밀로의 이동속도가 잠시 동안 크게 증가하고, 적과 부딪힌 횟수에 비례해 체력을 회복합니다.\n지속시간 동안 최대 두 번까지 재사용할 수 있습니다.",
+        "Camilo",
+      ],
+      [
+        "클로에는 인형 니나와 함께 다니며, 적을 공격하게 할 수 있습니다.   [Alt] + [우클릭] 으로 컨트롤 할 수 있고, 지점 혹은 적을 지정할 수 있으며, 클로에를 지정하면 다른 곳을 지정 할 때까지 니나는 클로에를 따라 다닙니다. 또한 니나는 클로에와 거리가 멀어지면 클로에 근처로 다시 순간이동 합니다.\n니나는 생명력이 0이 되면, 소멸 상태가 되었다가 잠시 후에 다시 부활합니다.\n니나는 패시브 레벨이 오를때 마다 추가 능력치를 얻게 되고, 클로에의 공격력, 방어력, 체력 등의 일부 능력치가 니나에게 추가로 적용됩니다.",
+        "클로에가 니나에게 공격 명령을 내리면 니나는 주변의 적을 칼날 다리로 베어, 스킬 피해를 입히고 적의 이동속도를 잠시 동안 느려지게 만듭니다.",
+        "클로에가 칼날 자수를 엮은 재봉실을 빙글빙글 돌려 범위 내의 적에게 고정 피해를 입히고, 이동속도를 감소 시킵니다. 재봉실을 돌리는 동안 클로에는 공격 명령(Q)과 퀼트 리퍼(E) 스킬을 사용할 수 있습니다.\n스킬을 한번 더 사용하면, 지정한 위치로 칼날 자수를 내리 꽂아 스킬 피해를 입히고 잠시 동안 적의 이동 스킬을 제한 합니다. 이때 니나는 칼날 자수의 위치로 순간이동 하여, 칼날 다리로 날카롭게 내리 찍어 스킬 피해를 주고, 적을 잠시 동안 공중에 띄웁니다. 니나의 공격 이후, 칼날 자수는 클로에쪽으로 튕겨지며, 다시 주우면 클로에의 이동속도가 잠시 동안 증가합니다.",
+        "스킬을 사용하면 지정한 방향으로 클로에가 빠르게 이동하며 경로상의 적에게 스킬 피해를 입힙니다. 스킬을 한번 더 사용하면 니나가 클로에의 위치를 향해 날아가며 찌르기를 통해 경로상의 적에게 스킬 피해를 입히고, 니나가 적을 적중시켰다면 공격 명령(Q) 스킬의 쿨다운이 초기화 됩니다.",
+        "클로에와 니나의 지독한 애정으로 인해 서로를 강력하게 연결하여 링크 상태가 됩니다. 링크 상태가 될때, 모든 해로운 효과가 제거되며 니나의 공격속도와 이동속도가 빨라지며 클로에와 니나의 연결 라인에 적이 닿을때 초당 고정 피해를 입히며, 인형극(W)과 퀼트 리퍼(E) 스킬의 남아있는 쿨다운 시간이 줄어듭니다.\n링크 상태일때는 클로에와 니나 둘중에 어떤 한쪽이 피해를 입는 경우 피해량의 일부를 클로에와 니나가 각각 나눠 받으며 링크 상태에서는 클로에와 니나는 한쪽이 먼저 죽을 수 없고, 어느 한쪽이라도 살아 있다면 사망에 이르게 하는 피해량을 받아도 죽지 않으며, 둘의 체력이 모두 소진되어야 사망합니다.",
+        "Chloe",
+      ],
+      [
+        "요한의 방해 효과 저항이 증가하며, 성수나 정화수를 사용할 때 마다 추가 증가합니다.\n요한이 킬 혹은 어시스트를 달성하면 아군 전체에게 짧은 시간 보호막을 부여합니다.",
+        "빛의 구체를 발사합니다. 전진하는 구체가  신성의 향로(W) 에 닿으면 강화됩니다.\n\n최대 거리에 도달하거나 재사용하면 폭발하여 피해를 입힙니다.\n강화된 경우에는 더 큰 피해를 입히고 속박이 추가됩니다.\n추가 스킬 피해는 스킬 증폭 능력치에 비례합니다.\n\n폭발한 빛은 연기가 되어 되돌아오며, 적에게 입힌 피해에 비례해 아군의 체력을 회복시킵니다.\n강화된 경우에는 회복량이 증가합니다.",
+        "요한이 대상 지점에  신성의 향로 를 설치합니다. 처음 범위 내 아군 수만큼 향로의 체력이 증가합니다.\n\n향로의 연기 속에 있는 적은 이동 속도가 감소하고, 아군은 공격 속도가 증가하고, 버프 효과를 받는 아군이 입히는 피해의 일부를 요한의 숙련도에 반영합니다.\n향로는 1회 재사용하여 위치를 옮길 수 있으며, 지속 시간이 종료될 때까지 파괴되지 않았다면 쿨다운이 감소됩니다.",
+        "요한이 아군에게  인도하는 빛 을 부여해 이동 속도 감소 효과를 제거합니다.\n\n대상은 잠시동안 이동 속도가 증가하고, 지속 시간이 끝날 때 주위의 적에게 피해를 입히며 시야를 차단합니다.\n\n요한은  인도하는 빛 의 대상이 된 아군을 향할 때, 이동 속도가 증가합니다.",
+        "요한 주변의 적들을 밀어내며 피해를 입히고, 아군은 잃은 체력에 비례해 체력을 회복합니다. 적을 밀어내는 효과는 설치된  신성의 향로(W) 에서도 적용됩니다.\n\n이후, 집중 상태로 요한 주변에 성역을 만들어, 아군의 방어력을 증가시키고 체력을 회복시킵니다.\n\n스킬 사용 중 요한은 느린 속도로 움직일 수 있으며, 저지불가 상태가 됩니다.",
+        "Johann",
+      ],
+      [
+        "혈류 감속 \n비앙카는 일정 시간마다 기본 공격으로 추가 스킬 피해를 입힙니다. 비앙카에게 스킬 피해를 입은 대상은 이동 속도가 느려졌다가 서서히 회복됩니다.\n\n휴대용 혈액팩 \n비앙카는 스킬로 입히는 피해와 체력 소모량과 받는 피해 일부 만큼의  혈액 을 축적합니다.  혈액 의 축적량은 자신의 최대 체력에 비례합니다. 비앙카가 비전투 상태가 되면 축적한  혈액 을 소모하여 체력을 회복합니다.",
+        "비앙카가 지정한 지점에 피의 창을 던져 충돌한 대상에게 피해를 입힙니다. 피의 창은 도착 위치에서 원형으로 퍼져 적 하나에게 추가 피해를 입히고 사라집니다.  혈류 감속 의 대상이  선혈의 투창 에 의해 피해를 입으면 속박됩니다.",
+        "비앙카가 정신 집중을 하여 관 속으로 잠시 몸을 피합니다.\n관 속에 있는 동안 비앙카의 받는 피해가 감소하며 체력을 지속적으로 회복합니다.\n혈액을 최대 저장량의 50%이상 쌓으면,  짧은 안식  의 쿨다운을 즉시 초기화 합니다.\n\n짧은 안식  사용시  혈액  저장량이 50% 이상이면 모든  혈액 을 소모하고 체력 회복량이  혈액  소모량에 비례해 증가하며 일정 시간마다  짧은 안식 을 제외한 모든 스킬의 쿨다운이 감소합니다. 또한 관에서 나오면서 주변에 피해를 줍니다.\n\n짧은 안식  사용 중에  진조의 군림 과  순환 을 사용할 수 있으며, 이때 준비 동작이 적에게 보이지 않습니다.",
+        "비앙카가 혈액의 고리를 충전하고 전방으로 돌진하여 피해를 입힙니다. 충전할 수록 체력을 추가로 소모하며, 충전 시간에 따라 돌진 거리와 피해 범위, 그리고 피해량이 늘어납니다. 최대로 충전하면 적중한 대상 수에 비례하여 체력을 회복합니다.",
+        "비앙카가 주문 영창을 하며 자신의 주변에 마법진을 생성합니다. 주문 영창이 끝나면 바닥에 마법진을 고정시키며, 범위 내의 적들에게 피해를 입히고  혈류 감속 된 적들의 이동 속도를 크게 느려지게 하고 고정 상태로 만듭니다. 비앙카는 마법진 위에서 스킬 흡혈이 증가합니다.\n마법진의 지속 시간이 끝날 때, 범위 내의 적들에게 잃은 체력에 비례하여 추가 피해를 입히고, 체력을 회복합니다.\n\n진조의 군림  사용 중에  순환 을 사용할 수 있습니다.",
+        "Bianca",
+      ],
+      [
+        "셀린의 플라즈마 폭탄(Q)은 1레벨로 시작하며 자력 융합(R) 스킬을 처음부터 학습이 가능합니다.\n자력 융합(R)은 5레벨까지 학습이 가능합니다.\n\n적 실험체에게 스킬로 피해를 입힐 때마다 플라즈마 폭탄(Q) 스택 쿨다운이 감소합니다.\n셀린이 스킬을 일정 횟수 이상 사용하면 스킬 증폭 능력치에 일부분이 다음 기본 공격에 추가로 적용되며, 블라스트 웨이브(E), 자력 융합(R)의 쿨다운이 감소합니다.",
+        "플라즈마 폭탄을 지정한 위치로 던집니다. 충전이 가능하며 플라즈마 폭탄을 기폭(W)으로 터트리면, 범위에 피해를 입히고 사라집니다.\n\n플라즈마 폭탄이 폭발하면 범위내에 다른 플라즈마 폭탄도 동시에 같이 폭발하며, 시간이 지나면 빈 폭탄이 됩니다. ",
+        "설치한 플라즈마 폭탄중 하나를 지정하여 터트립니다.\n지정한 플라즈마 폭탄이 터질 때 범위내에 연결된 다른 플라즈마 폭탄도 함께 폭발하며, 연결된 모든 폭탄 개수에 따라 피해량이 증가합니다\n폭발하여 에너지를 방출한 플라즈마 폭탄은 빈 폭탄이 됩니다.",
+        "충격파 폭탄을 지정한 위치에 던져 자신을 포함한 적을 밀어내고 피해를 입힙니다. 이때 밀려나는 플라즈마 폭탄에 맞은 적들은 기절 상태가 되며 피해를 입습니다. 적에게 피해를 주면 플라즈마 폭탄(Q) 설치 스택을 얻을 수 있습니다",
+        "지정한 범위 내의 플라즈마 폭탄과 빈 폭탄 들이 중심으로 모여서 자력 융합 폭탄이 됩니다. 자력 융합 폭탄은 시간이 지나거나 기폭(W)으로 터트릴 수 있으며, 중심에 모인 폭탄들의 수에 따라 자력 융합 폭탄의 피해량이 증가하고 2개 이상 모이면 적의 이동속도를 감소시킵니다. 자력 융합 폭탄이 피해를 입힐때, 폭탄의 수가 5개 이상 모였다면 폭발 범위가 증가하며 적에게 이동속도 감소 효과 대신 동안 기절을 부여합니다.",
+        "Celine",
+      ],
+      [
+        "에키온은 무기를 장착하거나 해제할 수 없으며, 카드모스 부름의 레벨이 상승하면 자신의 무기를 데스애더, 블랙맘바, 사이드와인더 계열 중 하나를 선택하여 강화합니다.",
+        "에키온이 좁은 범위의 VF를 방출해 적중한 대상에게 고유 피해를 입히고, 피해량의 일정량을 체력으로 회복합니다. 적 대상에게 피해를 입히면 일정 시간 내에 스킬을 재사용 할 수 있습니다.\n\n재사용 시: 넓은 범위의 VF를 방출해 적중한 대상에게 고유 피해를 입히고, 대상의 이동속도를 감소시킵니다.\n\n과부하 상태가 되면 VF가 방출되지 않습니다.",
+        "에키온이 VF게이지를 소모하여 자신의 몸을 보호하는 보호막을 생성합니다. 소모한 VF게이지에 비례해 보호막의 흡수량이 증가합니다. 생성된 보호막의 일정량 이상 피해를 흡수하면 소모한 VF게이지를 돌려받습니다.",
+        "지정한 방향으로 돌진해 경로상의 적들에게 고유 피해를 입히고, 표식이 없는 대상에게 피해를 입혔다면 쿨다운을 초기화 합니다. 가장 처음 적중한 대상에게는 일정 시간 유지되는 표식을 남깁니다.",
+        "ㅁ에키온이 공격 스킬을 사용하면 VF게이지와 스킬 증폭의 일정량에 비례해 스킬의 피해량이 증가하고, VF게이지가 증가합니다.\n\nVF폭주: 게이지가 가득차면 일정시간 폭주 상태가 되고, 독사의 칼날(Q), 뒤집힌 비늘(W)을 사용할 수 없는 대신 독사의 진노(R) 스킬을 사용할 수 있게 됩니다.\n\n과부하: 폭주가 끝나면 일정시간 과부하 상태가 되어, 이동속도와 기본 공격 사거리가 감소하고, VF게이지가 증가하지 않게 됩니다.\n\n독사의 진노: 지정한 방향으로 제어 불가능한 VF를 방출해 고유 피해를 입히고, 적 실험체에게 피해를 입히면 폭주의 지속시간이 연장됩니다. 독사의 진노는 현재 사용중인 무기에 따라 효과가 달라집니다.\n\n독사의 진노는 쿨다운 감소의 영향을 받지 않습니다.ㅁㅁ",
+        "Echion",
+      ],
+      [
+        "마이는 기본 공격을 할 때마다 방어력의 일정 비율만큼의 추가 피해를 입히고, 획득한 패턴마다 방어력 추가 피해량이 증가합니다.\n패턴은  드레이프 ,  숄 장막  스킬을 적에게 적중하여 획득할 수 있습니다.\n비전투 상태가 되면 초기화되고  오뜨꾸뛰르  레벨이 오르면 최대치가 증가합니다.\n\n마이는  미스릴 크롭 ,  아오자이 ,  팬텀 자켓 을 제작할 수 있습니다.",
+        "마이가 양 손의 숄을 크게 펼쳐 범위 안의 적들에게 피해를 입힙니다.\n\n패턴 획득  : 바깥쪽 범위에 적중한 적 실험체마다 패턴을 획득하고, 야생동물에게는 적중한 수와 관계없이 패턴을 획득합니다.",
+        "마이가 숄로 몸을 감싸 장막을 형성하여, 잠시 동안 기본 공격의 피해를 거의 받지 않는 상태가 되며 이동 속도가 서서히 증가하고 방어력이 증가합니다. 지속시간이 끝날 때 범위 안의 적들에게 피해를 입힙니다.\n최대 2회까지 충전되고, 기본 공격을 할 때마다 충전 시간이 감소됩니다.\n\n패턴 획득  : 적중한 적 실험체가 있다면 수와 관계없이 패턴을 획득합니다. 숄 장막이 유지되는 동안 스킬 공격을 받으면 패턴을 획득합니다.",
+        "마이가 지정한 적 실험체, 아군, 야생동물, 카메라로 빠르게 이동하며 자신에게 잠시 동안 지속되는 보호막을 생성합니다. 대상이 아군이면 아군에게도 동일한 보호막을 생성하고, 패턴이 2 이상일 때 스킬을 사용하면 패턴을 소모하며, 잠시 후에 스킬을 다시 사용할 수 있습니다.\n\n스킬 재사용  : 방향을 지정하여 스킬을 사용하면 마이가 빠르게 이동하며, 경로 상의 적들에게 피해를 입히고 도발에 걸리게 합니다.",
+        "적에게 사용  : 패턴이 2 이상일 때만 사용할 수 있습니다.\n마이가 잠시 동안 숄로 대상을 단단히 묶어 어떠한 피해도 받지 않는 제압상태로 만들고, 풀릴 때 현재 체력에 비례하여 고정 피해를 주고 패턴을 소모합니다.\n\n아군 또는 자신에게 사용  : 대상을 잠시 동안 어떠한 피해도 받지 않는 제압 상태로 만들고, 풀릴 때 체력을 회복시킵니다.\n아군에게 사용하면 자신의 앞으로 끌어오며 쿨다운이 감소합니다.",
+        "Mai",
+      ],
+      [
+        "에이든의 스킬에 적중한 적의 수만큼  전하 를 획득합니다.  전하 가 모두 충전되었을 때, 적에게서 멀어지면  과전하  상태가 되어,  전하 가 [탄환]으로 전환되어 원거리 기본 공격을 할 수 있습니다.\n\n과전하  상태에서는 기본 공격 속도와, 치명타 피해가 감소하지만 기본 공격이 치명타로 적용되며, 기존 치명타 확률의 일정 비율을 치명타 피해로 전환합니다.\n\n과전하  상태가 종료되면, 이동 속도가 잠시 증가합니다.",
+        "뇌격 : 전류가 흐르는 검을 내질러 1명에게 기본 공격 피해를 입히고,  전하 를 추가로 획득합니다. \n에이든의 기본 공격이 적중 할 때마다,  뇌격 의 쿨다운이 감소합니다.\n\n과전하  상태에서는  전자포 를 사용할 수 있습니다.\n\n전자포 : 지정한 방향으로  탄환 을 발사하여, 적중한 적 1명에게 기본 공격 피해를 입히고 이동 속도를 느려지게 합니다. \n적에게 적중하면  전자포 의 쿨다운이 감소됩니다.\n\n뇌격 과  전자포 는 쿨다운 감소의 영향을 받지 않습니다.",
+        "에이든이 무기에 전류를 모아 다음 공격을 준비하며, 이동 속도가 약간 느려집니다.\n다시 사용하면, 주변 적들에게 충전 시간에 비례한 스킬 피해를 입히고, 이동 속도를 느려지게 합니다. 충전 중에  볼트 러시(E) 와  낙뢰(R) 로 이동할 수 있습니다.\n최대 충전 시, 범위 끝에  전기장 을 남깁니다.\n\n전기장 : 전기장에 닿은 적은 스킬 피해를 입고, 속박됩니다.",
+        "기본 지속 효과 :  전하 를 모두 충전하면, 이 스킬의 쿨다운이 초기화됩니다.\n\n백스텝 : 뒤로 도약하며 전류가 담긴 총알을 발사합니다. 맞은 적에게 스킬 피해를 입히고 시야를 공유하는 표식을 남겨  볼트 러시 를 사용할 수 있습니다. 사용 후, 잠깐동안 이동 속도가 증가합니다.\n\n볼트 러시 : 표식이 있는 적을 관통하며 스킬 피해를 입힙니다.",
+        "지정한 위치에 낙뢰를 떨어뜨려 스킬 피해를 입히고, 이동 속도를 느려지게 합니다. 낙뢰의 중심에 맞은 적은 추가 피해를 받고 기절됩니다.\n이후, 두 번째 낙뢰가 떨어져 스킬 피해를 입히고 이동 속도를 느려지게 합니다.\n\n첫 번째 낙뢰를 적중하면, 두 번째 낙뢰가 떨어지기 전에 스킬을 다시 사용하여 낙뢰가 떨어진 위치로 이동할 수 있습니다. 이때, 두 번째 낙뢰는 즉시 떨어지고 에이든은  전하 를 모두 충전합니다.",
+        "Aiden",
+      ],
+      [
+        "라우라는 이동할 때 마다  고양감 을 회복합니다. \n\n네레아의 가르침 : 라우라는 일정 거리를 이동할 때 마다 다음 기본 공격으로 추가 범위 스킬 피해를 입힙니다. \n스킬로 이동하면 즉시 활성화됩니다.\n공격 대상이 너무 가까이에 있으면 발동하지 않습니다.",
+        "라우라가 지정한 방향으로 한 번 채찍을 휘둘러 스킬 피해를 입히고  고양감 을 회복합니다 . \n스킬로 피해를 입히고 일정 시간 내에 스킬을 재사용하면 강화된 공격을 할 수 있습니다.\n\n1회 강화: 라우라가 지정한 방향으로 한 번 채찍을 휘둘러 더 큰 스킬 피해를 입히고  고양감 을 회복합니다.\n\n2회 강화: 라우라가 지정한 방향으로 두 번 채찍을 휘둘러 스킬 피해를 입히고  고양감 을 회복합니다. ",
+        "라우라가 지정한 방향으로 예고장을 던집니다. \n예고장은 적 실험체한테 충돌하면 스킬 피해를 입히며 그 대상을 일정 시간 라우라의  타겟 으로 지정합니다. \n타겟 이 된 대상은 잠시 후부터 라우라에게 스킬 피해를 입으면 추가 스킬 피해를 입고 이동 속도가 감소하며 방어력이 감소합니다. \n이 때 대상의 감소한 방어력만큼 라우라의 공격력이 증가합니다. 또한  고양감 을 회복하고  황혼의 도둑  쿨다운이 감소합니다.",
+        "라우라가  고양감 을 소모하여 지정한 방향으로 짧게 돌진합니다.  우아한 발걸음 은 쿨다운 감소 능력치의 영향을 받지 않습니다.\n\n황혼의 도둑  사용 중에 사용하면 돌진하는 방향을 잠시 변경할 수 있으며, 돌진 거리가 증가합니다.",
+        "라우라가 저지불가가 되며 지정한 방향으로 채찍을 길게 뻗습니다. \n채찍이 벽에 충돌하면 해당 위치로 돌진하며 충돌하는 적에게 스킬 피해를 입힙니다. \n저지불가는 채찍이 벽에 충돌하지 않거나 라우라의 돌진이 끝나면 해제됩니다.\n예고장 으로 인해 방어력이 감소한 상태인 적과 충돌하면 라우라가 도착 지점까지 해당 적을 넉백시킵니다.\n\n라우라는 도착 위치에서 뒤로 크게 돌며 착지합니다. \n이 때 주변에 스킬 피해를 입히고 공중에 띄웁니다. ",
+        "Laura",
+      ],
+      [
+        "띠아가  브러쉬 스트로크(Q)  또는  색칠놀이(E) 를 통하여 적에게 두가지 색을 입히면 \n다람쥐 효과가 발동되며, 띠아는 쿨다운 감소 옵션 10% 당 4의 공격력으로 치환됩니다.\n\n[성난 다람쥐]\n적에게  노란색과 빨간색 을 묻히면 성난 다람쥐 효과가 발동됩니다. 적에게 잠시동안 고정피해를 입히며, 적을 침묵 상태로 만듭니다.\n\n[축복의 다람쥐]\n적에게  빨간색과 파란색 을 묻히면 축복의 다람쥐가 발동되어, 적에게 고정피해를 입힘과 동시에 \n띠아가 체력을 회복하며 잠시동안 이동속도가 증가합니다.\n\n[마법의 다람쥐]\n적에게  파란색과 노란색 을 묻히면 마법의 다람쥐가 발동되어, 적에게 고정피해를 입히고 잠시동안 적을 속박합니다.",
+        "띠아가 각각 색마다 다른 스킬을 사용할 수 있습니다. \n\n노란색  : 띠아가 전방으로 노란색 물감을 던져 스킬 피해를 입히고, 노란색 물감을 묻힙니다.\n노란색 물감이 묻었다면 적의 이동속도를 감소시킵니다.\n빨간색  : 띠아가 붓을 휘둘러 적에게 스킬 피해를 입히고, 빨간색 물감을 묻힙니다.\n빨간색 물감이 묻었다면 적의 시야를 감소시킵니다.\n파란색  : 띠아가 붓으로 내리찍어 적에게 스킬 피해를 입히고, 파란색 물감을 묻힙니다.\n파란색 물감이 묻었다면 적을 잠시동안 공중에 띄웁니다.",
+        "띠아가 붓의 색을 변경합니다. 붓의 색은 노란색, 빨간색, 파란색 순으로 변경할 수 있습니다.",
+        "띠아가 바닥을 물감으로 칠하며 돌진하며, 충돌 한 적에게 스킬 피해를 입히고, 지정된 색으로 \n적에게 색을 묻힙니다.",
+        "띠아가 주문을 외우면, 지정한 위치에 거대한 붓이 나타가 무지개를 그리며, 적에게 스킬 피해를 입히고, 잠시동안 적을 기절 시킵니다. 적에게 한가지 임의의 색이 묻어있었다면 기절 지속시간이 증가합니다.",
+        "Tia",
+      ],
+      [
+        "펠릭스는 최대 사거리의 적 대상을 두 번 연속 공격합니다.\n\n선풍참(Q) ,  질풍뇌격(W) ,  반월참(E) 의 쿨다운이 공유되고, 최대 3회 연계하여 사용할 수 있습니다.\n\n연계 공격:  다음 스킬을 연계하기 전에 기본 공격으로 피해를 입히면  연계 공격  중첩이 증가합니다. 세 번째 연계 시,  연계 공격  중첩을 소모해 공유 쿨다운을 감소시키고, 사용한 세 번째 연계의 정해진 효과가 적용됩니다.\n\n공유 쿨다운은 쿨다운 감소 효과의 영향을 받지 않습니다.",
+        "펠릭스가 돌진하며 창을 휘둘러 스킬 피해를 입힙니다. 세 번째 연계로 사용 시에는 다른 효과가 적용됩니다.\n\n세 번째 연계:  더 강한 피해를 입히고, 피해 입은 적을 공중에 띄웁니다. 또한 소모한  연계 공격  중첩에 비례해 고정 피해를 추가로 입히고, 공중에 띄우는 시간이 증가합니다.",
+        "펠릭스가 창으로 강하게 찔러 스킬 피해를 입힙니다. 세 번째 연계로 사용 시에는 다른 효과가 적용됩니다.\n\n세 번째 연계:  더 강한 피해를 입히고, 가까운 거리의 대상을 속박 후 돌진합니다. 또한, 소모한  연계 공격  중첩에 비례해 속박의 시간이 증가합니다.",
+        "펠릭스가 뒤로 도약하며 정면 범위의 대상에게 스킬 피해를 입히고, 도약하는 동안 기본 공격을 회피합니다. 기본 공격 회피에 성공하면  연계 공격  중첩이 증가합니다. 세 번째 연계로 사용 시에는 다른 효과가 적용됩니다.\n\n세 번째 연계:  더 강한 피해를 입힙니다.",
+        "펠릭스가 창 끝에 힘을 모은 후, 앞으로 돌진하며 창을 내질러 스킬 피해를 입힙니다. 힘을 끝까지 모으면 적중한 대상을 기절시킵니다.\n스킬 사용 시, 기본 스킬이 세 번째 연계로 변경되고,  연계 공격  중첩이 증가합니다.\n\n힘을 모으는 동안 돌진 방향을 변경할 수 있으며, 돌진 시에는 이동방해 효과를 무시합니다.",
+        "Felix",
+      ],
+      [
+        "엘레나가 기본 공격이나 스킬로 적을 공격하면  얼음 지대 를 생성하고, 그 위의 적에게  냉기  효과를 부여 합니다.  냉기  게이지가 점점 차오르는 동안 적은 이동 속도, 공격 속도가 각각 감소하며, 게이지가 모두 차오르면 적은  빙결  상태가 됩니다.\n\n빙결  :  잠시 동안 얼어 붙고 기절하며,  빙결  상태의 적을 엘레나 또는 아군이 공격 시 스킬 피해를 주고  빙결  상태가 해제되며 그 대상의 공격 속도가 감소합니다. 또한 엘레나의  크리스탈 엘레강스  쿨다운이 감소합니다.\n빙결  상태가 해제된 대상은 잠시 동안  냉기 의 영향을 받지 않습니다.",
+        "엘레나가 전방의 적에게 스킬 피해를 입히며,  냉기  게이지를 증가시킵니다. 일정 시간 뒤 얼음이 터지며, 동일한 범위에 스킬 피해를 한번 더 입히고,  겨울여왕의 영지  쿨다운을 감소시키며  냉기  게이지가 추가로 증가합니다.",
+        "엘레나가 지정한 방향으로 회전하며 경로상의 적에게 스킬 피해를 입히고,  크리스탈 엘레강스  쿨다운을 감소시키며 자신의 방어력을 증가시킵니다. 2회까지 스킬을 사용할 수 있으며, 적을 적중 시킬 때 마다  냉기  게이지가 증가합니다.\n얼음 지대 에서 사용하면 이동 거리가 증가하고 벽을 넘을 수 있습니다.  더블 악셀 을 사용하는 도중 적 공격에 피해를 입었다면 공격한 적 위치에  얼음 지대 를 생성합니다.\n더블 악셀  사용 중에  크리스탈 엘레강스  혹은  스파이럴 을 연계로 사용할 수 있으며, 연계한 스킬의 쿨다운이 감소합니다.",
+        "엘레나가 지정한 방향으로 스케이트를 타고 이동하며 짧은 시간동안 유지되는  얼음 지대 를 생성합니다. 이 효과는 한 번만 적용됩니다.\n경로상의 적에게 스킬 피해를 입히고  냉기  게이지를 증가시킵니다. 이동 중에 약간의 방향을 변경할 수 있습니다. \n더블 악셀 을 연계로 사용할 수 있으며 이 때  더블 악셀 의 이동 거리가 증가하고 벽을 넘을 수 있습니다.  더블 악셀  종료 후  스파이럴 의 지속 시간이 증가합니다.",
+        "엘레나가 지정한 범위에  얼음 지대 를 형성합니다. 안쪽의 범위로 적을 적중시키면 스킬 피해를 입히며, 솟아난 얼음에 의해 즉시  빙결  상태가 됩니다. 형성된  얼음 지대 는 바깥쪽으로 영역이 번져 나가며,  얼음 지대 에 닿은 적은 스킬 피해를 입습니다.",
+        "Elena",
+      ],
+      [
+        "프리야는 머리 방어구를 장착하거나 해제할 수 없으며,  자연의 응답  레벨이 증가하면 머리 방어구가 강화됩니다.\n\n프리야는  개화의 선율 과  포르타멘토 로 사라스바티의 꽃을 생성하며, 사라스바티의 꽃은 잠시 후 만개 상태가 됩니다. 만개된 사라스바티의 꽃에  개화의 선율 이나  포르타멘토 를 적중시키면 효과가 발동되며 사라스바티의 꽃이 사라집니다.\n\n사라스바티의 꽃은 프리야와 일정거리 이상 멀어지거나, 지속시간 종료 또는 비전투 상태가 되면 잠시 후 사라집니다. 수풀에 생성한 사라스바티의 꽃은 즉시 만개 상태가 됩니다.",
+        "프리야가 사라스바티의 꽃을 위한 연주를 하여 범위 안의 적들에게 피해를 입히며 사라스바티의 꽃을 생성합니다. 효과 범위 안에 이미 사라스바티의 꽃이 있었다면 생성되지 않고, 만개 효과를 발동시키면 충전시간이 감소합니다.\n\n만개 효과  : 만개된 사라스바티의 꽃을 스킬로 적중하면, 꽃잎이 흩날리며 범위 안의 적들에게 피해를 입히고 밀어냅니다.",
+        "기본 효과  : 프리야는 자신이 생성한 사라스바티의 꽃 위에 있으면 이동속도가 잠시 증가합니다.\n\n프리야가 관통하는 음파를 전방으로 발사하여 적들에게 피해를 입히고, 이동속도를 느려지게 합니다.스킬을 사용한 후 기본 공격을 하면 적의 발 밑에 사라스바티의 꽃을 생성합니다.\n\n만개 효과  : 만개된 사라스바티의 꽃을 스킬로 적중하면, 범위 안의 프리야와 모든 아군 실험체에게 보호막을 생성합니다.\n보호막의 흡수량은 프리야의 스킬 증폭 능력치에 비례합니다.",
+        "프리야가 연속으로 3번 연주를 하며, 범위 안의 적들에게 각각 피해를 입힙니다. 피해를 2번 입은 대상은 고정상태가 되고, 3번 입은 대상은 속박됩니다.\n\n연주하는 동안  개화의 선율 과  포르타멘토  스킬을 사용할 수 있습니다.",
+        "프리야가 자연을 깨우는 연주를 하여 대지의 메아리를 자신의 위치에 남기고, 잠시 스킬 및 기본 공격을 사용할 수 없는 상태가 됩니다.\n대지의 메아리는 프리야가 있던 위치에서 퍼져나가며 피해를 입히고, 바깥 쪽 범위 부터 순차적으로 범위 안의 적들에게 피해를 입히며 잠시 춤을 추게 합니다.\n\n범위 안의 사라스바티의 꽃들은 모두 열매를 맺고, 프리야나 아군이 열매를 획득하면 최대 체력의 일정비율 만큼 즉시 회복합니다. ",
+        "Priya",
+      ],
+      [
+        "아디나는 스킬을 사용할 때, 수정구 칸에 담긴 천체를 사용합니다. 각각의 천체는 아래의 공통 효과가 있습니다.\n\n해  : 적중한 적을 불태워 지속 피해를 입힙니다.\n달  : 적중한 적을 기절시킵니다.\n별  : 아군에게 이로운 효과를 부여합니다.\n\n천체를 모두 소모하면 천체를 충전하는  별읽기  상태가 되어 이동 속도가 증가하고, 다음 기본 공격은 대상의 이동 속도를 느려지게 합니다.",
+        "지정한 방향으로 천체를 발사하고, 적중한 적들에게 스킬 피해를 입힙니다.\n\n천체 추가 효과 \n해  : 범위가 약간 넓고, 적을 불태웁니다.\n달  : 1명에게만 적중하며, 적을 기절시키고 밀쳐냅니다.\n별  : 혜성이 빠르게 날아가고, 지나간 자리에 아군의 이동 속도를 증가시키는 꼬리를 남깁니다.\n\n해 컨정션 효과  : 해가 연속되면, 더 커다란 해를 발사하여 큰 피해를 입히고 범위 내 적을 불태웁니다.",
+        "지정한 위치에 천체를 잇는 삼각형을 그립니다. 적중한 적들에게 스킬 피해를 입히고, 이동 속도를 느려지게 합니다.\n\n천체 추가 효과 \n해  : 적중한 적을 불태웁니다.\n달  : 적중한 적을 기절시킵니다.\n별  : 그리는 속도가 빠르며, 즉시 범위 내 아군은 방해 효과 면역 상태가 됩니다.\n\n달 컨정션 효과  : 달이 연속되면, 완성된 삼각형을 다시 그려 스킬 피해를 입히고, 이동 속도를 느려지게 합니다.",
+        "적 또는 아군에게 천체를 붙이고, 적에게는 스킬 피해를 입힙니다. 천체는 잠시 후 낙하하며 원형 범위의 적에게 스킬 피해를 입힙니다.\n\n천체 추가 효과 \n해  : 범위가 증가하고, 적을 불태웁니다.\n달  : 범위 내 적을 기절시킵니다.\n별  : 빠른 속도로 떨어지며, 아군에게는 피해 대신 체력을 회복시킵니다.\n\n별 컨정션 효과  : 별이 연속되면, 낙하한 별이 성운을 남겨 아군의 체력을 회복시킵니다. 추가 회복량은 아디나의 스킬 증폭 능력치에 비례합니다.",
+        "사용 효과 :  수정구에 비친 운명 \n수정구 칸에 담긴 천체를 저장한 천체와 맞바꾸고, 예견된 운명을 바꿉니다.\n\n지속 효과 :  컨정션 \n수정구와 다음 칸이 같은 천체로 연속하면, 강력한 컨정션 스킬을 사용할 수 있습니다. 컨정션 스킬의 일부 효과는 이 스킬의 레벨로 강화됩니다.\n해x2  : 루미너리(Q) 스킬이 강화되며, 피해량이 증가합니다.\n달x2  : 트라인 에스펙트(W) 스킬이 강화되며, 피해량이 증가합니다.\n별x2  : 폴 디그니티(E) 스킬이 강화되며, 지속 회복량이 증가합니다.\n\n컨정션 스킬은 별읽기(P) 마다 한 번만 사용할 수 있습니다.",
+        "Adina",
+      ],
+      [
+        "마커스는 기본 공격을 할 때 마다  투지 를 획득합니다.  투지 는 마커스가 비전투 상태가 되면 점점 감소합니다.\n\n충격 : 마커스가 밀어낸 적이 벽에 충돌하면 그 적은 이동 속도가 감소하고 스킬 피해를 입으며  충격  상태가 됩니다.\n마커스가 밀어낸 적이 다른 야생동물 및 실험체에 충돌하면 충돌한 모든 대상에게 같은 효과를 부여하며 밀어냅니다.\n\n일격 : 마커스가 일정 거리 이내에 있는  충격  상태의 적을 기본 공격 대상으로 지정 하면 저지 불가 상태로 돌진하며 기본 공격 피해에 추가 스킬 피해를 입히고 마커스가 부여한 모든  충격  상태를 제거합니다.",
+        "마커스가 다음 기본 공격 3회 동안 공격 속도가 증가하고  투지 를 추가로 획득합니다. 일정 시간동안 기본 공격을 하지 않으면 효과가 사라집니다.\n\n전투 교범  스킬을 사용한 후 마커스는 잠시동안 적 실험체를 향해 이동할 때 이동 속도가 증가합니다. ",
+        "마커스가 지정한 방향을 내려 찍어 적에게 스킬 피해를 주고 공중에 띄웁니다.\n\n투지 가 50 이상이면 적중시킨 적을 마커스의 등 뒤로 넘깁니다.",
+        "마커스가 지정한 방향으로 돌진합니다. 적과 충돌하면 멈추고 해당 적에게 스킬 피해를 주고 짧게 밀어냅니다.\n\n투지 가 50 이상이면 더 큰 스킬 피해를 주고 더 먼 거리로 밀어내고 기절시킵니다.",
+        "마커스가 지정한 방향을 도끼로 내려 찍습니다. 해당 지역을  균열  상태로 만들고 피격 당한 적들은 스킬 피해를 입고 이동 속도가 느려졌다가 빠르게 회복됩니다.\n지각변동 으로 적에게 피해를 입히면 마커스는  투지 를 회복합니다.\n\n균열  지역에서 에어본이나 넉백의 영향을 받으면  충격  피해를 입고  충격  상태가 됩니다. 이 효과는 한  균열  지역에서는 한 번만 받습니다",
+        "Markus",
+      ],
+      [
+        "칼라는 최대 공격 속도가 제한되며, 초과한 공격 속도에 비례하여 스킬 증폭이 증가합니다.\n칼라는 장전 게이지 충전이 완료되면 작살을 발사해 스킬 피해를 입히고 연결이 안 된 작살을 지면에 설치하며 넉백 시킵니다.\n\n칼라는 장전 게이지가 충전되지 않으면 기본 공격을 할 수 없으며, 자동으로 발사되지 않습니다.",
+        "작살을 발사하여 경로상의 적에게 기본 공격 피해를 입히고, 도착 지점에 작살을 설치합니다. 설치된 작살은 칼라와 연결되며, 일정 거리 이상 멀어지면 연결이 끊어지고 짧은 시간 동안 지면에 유지됩니다.\n\n관통 작살 의 쿨다운은   공격 속도 에 따라 감소합니다.",
+        "칼라와 연결된 작살을 회수하여 경로상의 적에게 스킬 피해를 입히고, 이동속도를 감소시킵니다. 피해를 입혔다면 장전 게이지를 획득하고, 적중한 수에 따라 작살 기동의 쿨다운이 감소합니다.",
+        "지면에 설치된 작살을 중심으로 지정한 방향으로 점프하여, 스킬 피해를 입힙니다. 연결이 끊어진 작살에 사용하면 다시 연결됩니다.",
+        "지정한 지점에 거대한 작살을 설치하여 범위 안의 적들을 사슬로 묶어 스킬 피해를 입히고 이동속도를 감소시킵니다. 일정 시간 동안 사슬을 벗어나지 못한 적들은 거대한 작살 쪽으로 당겨지며 스킬 피해를 입고 짧은 시간 동안 기절합니다.",
+        "Karla",
+      ],
+      ["ㅁㅁㅁ", "ㅁㅁㅁ", "ㅁㅁㅁ", "ㅁㅁㅁ", "ㅁㅁㅁ", "Markus"],
 
-  }
-  };
+      ["", "", "", "", "", ""],
+    ];
 
-  ChestEquipmentSearch = (inData) => {
-    var ChestEquipmentSearch = inData; //이거 굳이 안해도됨 무기는 종류가 많아서 해야했지만
-  
-    for (let a = 0; a <= this.state.ChestEquipmentArr.length - 1; a++) {
-      if (this.state.ChestEquipmentArr[a].ItemCode == ChestEquipmentSearch)
-      console.log("요")
-  };
-  }
-  HatEquipmentSearch = (inData) => {
-    var HatEquipmentSearchCode = inData;
-  
-    for (let a = 0; a <= this.state.HatEquipmentArr.length - 1; a++) {
-      if (this.state.HatEquipmentArr[a].ItemCode == HatEquipmentSearchCode)
-      console.log("요")
+    for (let cnt = 0; cnt < SkillExplancation.length; cnt++) {
+      if (this.state.Character_NameE == SkillExplancation[cnt][5]) {
+        return SkillExplancation[cnt][cc];
+        break;
+      }
     }
-    
   };
-  ArmEquipmentSearch = (inData) => {
-    var ArmEquipmentSearch = inData;
-  
-    for (let a = 0; a <= this.state.ArmEquipmentArr.length - 1; a++) {
-      if (this.state.ArmEquipmentArr[a].ItemCode == ArmEquipmentSearch)
-      console.log("요")
-    }
-    
-  };
-  ShoesEquipmentSearch = (inData) => {
-    var ShoesEquipmentSearch = inData;
-  
-    for (let a = 0; a <= this.state.LegEquipmentArr.length - 1; a++) {
-      if (this.state.LegEquipmentArr[a].ItemCode == ShoesEquipmentSearch)
-      console.log("요")
-    }
-    
-  };
-  
-  AccessoryEquipmentSearch = (inData) => {
-    var AccessoryEquipmentSearch = inData;
-  
-    for (let a = 0; a <= this.state.AccessoryEquipmentArr.length - 1; a++) {
-      if (
-        this.state.AccessoryEquipmentArr[a].ItemCode == AccessoryEquipmentSearch
-      )console.log("요")
-    }
-    
-  }
   componentDidMount = () => {
-    this.passaa(this.state.NickName, 0, 0);
-  };
-
-  conlog = () => {
-    this.state.SearchData.length != 0 ? (
-      this.state.SearchData.map((abc, xxx) =>
-        abc.map((xx, cc) => {
-          return <div>"카운트"</div>;
-        })
-      )
-    ) : (
-      <h1>리액트가 아니다.</h1>
-    );
-  };
-  consoleData = (userGames) =>{
-    for (let a = 0; a <= userGames.length - 1; a++) {
-      //배열 슥 보고 안에 내용 알맞게 적어주기   이걸 div랑 css로 꾸며서 출력해주고 안에 다시 팀적 코드 따서 돌려주기
-      console.log(
-        "캐릭 : " +
-          this.state.characterNumArr[userGames[a].characterNum] +
-          "//////////////////"
-      );
-      //여기 첫배열 뒤에부분에 원하는거 적으면 나옴
-      // console.log("순위 : " + userGames[a].gameRank + "여기맞지?");
-      // console.log("킬수 : " + userGames[a].playerKill);
-      // console.log("어시 : " + userGames[a].playerAssistant);
-      // console.log("데스 : " + userGames[a].playerDeaths);
-      // console.log("딜량 : " + userGames[a].damageToPlayer);
-      // console.log("무숙 : " + userGames[a].bestWeapon);
-      // // console.log(userGames[a].skillLevelInfo);
-      // // console.log(userGames[a].skillOrderInfo);
-      // console.log("무기 : " + userGames[a].equipment[0]);
-      // this.WeaponSearch(userGames[a].equipment[0]);
-      // console.log("상의 : " + userGames[a].equipment[1]);
-      // this.ChestEquipmentSearch(userGames[a].equipment[1]);
-      // console.log("모자 : " + userGames[a].equipment[2]);
-      // this.HatEquipmentSearch(userGames[a].equipment[2]);
-      // console.log("팔 : " + userGames[a].equipment[3]);
-      // this.ArmEquipmentSearch(userGames[a].equipment[3]);
-      // console.log("신발 : " + userGames[a].equipment[4]);
-      // this.ShoesEquipmentSearch(userGames[a].equipment[4]);
-      // console.log("악세 : " + userGames[a].equipment[5]);
-      // this.AccessoryEquipmentSearch(userGames[a].equipment[5]); //여기 추가값
-      // console.log("");
-      // console.log("");
-    }
+this.freeCharacters()
   }
-  SearchHistory = async (Nic) => {
-    //서치해서 해당 게임까지 서치
-    const url0 = "https://open-api.bser.io/v1/user/nickname?query=사텐";
-    const url = "https://open-api.bser.io/v1/user/nickname?query=mohai"; //닉넴으로 서치
-    const urlUserNum = "https://open-api.bser.io/v1/user/games/2604769";
-    const url4 = "https://open-api.bser.io/v1/games/19345023"; //게임모두? 잠깐대기
-    const url6 = "https://open-api.bser.io/v1/weaponRoutes/recommend/532117"; ////특성
-    const url7 = "https://open-api.bser.io/v1/data/Emotion";
+  freeCharacters = async() =>{
+   let freeCharacters = "https://open-api.bser.io/v1/freeCharacters/2"
 
-    const SearchUserNum = `https://open-api.bser.io/v1/user/nickname?query=${Nic}`; //닉넴으로 서치
-    const res = axios.get(url4, {
+    const res = await axios.get(freeCharacters, {
       headers: {
         "Content-Type": "application/json",
         "x-api-key": this.state.API_KEY,
       },
     });
-    console.log(res); //기본형
-    const {
-      data: {
-        user: { userNum },
-      },
-    } = await axios.get(SearchUserNum, {
-      // 여기에 e.target text로 데이터 받아서 유저네임 검색
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": this.state.API_KEY,
-      },
-    });
-    
-    const urlUserNumt = `https://open-api.bser.io/v1/user/games/${userNum}`;
-    let urlUserNumtt = `https://open-api.bser.io/v1/user/games/${userNum}?next=19488020`;
-    let {
-      data: { userGames },
-      data: { next },
-    } = await axios.get(urlUserNumt, {
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": this.state.API_KEY,
-      },
-    });
-   
-    this.state.SearchData.push(userGames);
-    this.consoleData(userGames)
-  };
-  passaa = async (Nic, nexta, cnt) => {
-    //서치해서 해당 게임까지 서치
-    //내 num 2604769
-    //여러번 출력하는 내용은 개인용 api가 1초에 1번의 request만 되기 때문에 불가능해 버튼 클릭 시 다음 내용을 가져오게 구성
-    //만약 기업용 api를 사용할 경우 next 유무에 따라 데이터를 받아오고 출력하는 부분에서 페이징 기능을 추가해 타 전적검색 사이트처럼 사용이 가능하다.
-
-    let SearchUserNumUrl = `https://open-api.bser.io/v1/user/nickname?query=${this.state.NickName}`;
-    const {
-      data: {
-        user: { userNum },
-      },
-    } = await axios.get(SearchUserNumUrl, {
-      // 여기에 e.target text로 데이터 받아서 유저네임 검색
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": this.state.API_KEY,
-      },
-    }); //유저넘버를 긁음
-    
-    this.setState({PlusUserNum:userNum})
-    let urlUserNumt = "";
-    if (cnt == 0) {
-      urlUserNumt = `https://open-api.bser.io/v1/user/games/${userNum}`;
-    } else {
-      urlUserNumt = `https://open-api.bser.io/v1/user/games/${userNum}?next=${nexta}`;
-    } //위에 타 전적검색 사이트 이야기의 코드가 이 부분
-    
-    let {
-      data: { userGames },
-      data: { next },
-    } = await axios.get(urlUserNumt, {
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": this.state.API_KEY,
-      },
-    });
-   
-    this.setState({PlusNext:next})
-    this.state.SearchData.push(userGames);
- 
-    this.consoleData(userGames)
-    cnt++;
-    // if (cnt < 1) this.passaa(Nic, next, cnt);
-    //else console.log("끝");
-    this.conlog();
-    this.makeDiv(); //이걸 해야 로딩에서 state가 변경되면서 화면의 삼항연산자가 작동
-  };
-
-  PlusSearchGame = async (Nic, nexta, cnt) => {
-    let urlUserNumt = `https://open-api.bser.io/v1/user/games/${this.state.PlusUserNum}?next=${this.state.PlusNext}`;
-    //pass에서 setState를 설정하여 이용 cnt 류는 위에 서술과 같이 기업용 api의 경우 사용가능 
- 
-    let {
-      data: { userGames },
-      data: { next },
-    } = await axios.get(urlUserNumt, {
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": this.state.API_KEY,
-      },
-    });
-
-    this.setState({PlusNext:next}) // 플러스 세팅
-    this.state.SearchData.push(userGames);
-
-
-  
-
-    cnt++;
-
-   // if (cnt < 1) this.passaa(Nic, next, cnt);
-    //else console.log("끝");
-    this.conlog();
-    this.makeDiv();
-  };
-
-  pass = () => {
-    const urlq = "https://lostark.game.onstove.com/Profile/Character/abcdefg";
-    const url = "https://open-api.bser.io/v1/user/nickname?query=mohai"; //여기가 그냥 닉으로 가져오는거?
-    const url2 = "https://open-api.bser.io/v1/user/games/2604769"; //유저의 게임내용 단판? 가져옿기
-    const url4 = "https://open-api.bser.io/v1/games/19102821"; //게임모두? 잠깐대기
-    const url5 = "https://open-api.bser.io/v1/data/Skill";
-    const url6 = "https://open-api.bser.io/v1/data/Trait/Name/"; ////특성
-    const url7 = "https://open-api.bser.io/v1/data/Emotion";
-    const res = axios.get(url6, {
-      //기본형
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": this.state.API_KEY,
-      },
-    });
-    console.log(res);
-  };
-
-  getMovies2 = async () => {
-    //나를 도와준 착한 블로그야
-    const {
-      data: {
-        data: { movies },
-      },
-    } = await axios.get("https://yts-proxy.now.sh/list_movies.json");
-    console.log(movies);
-  };
-  makeDiv = () => {
-    this.setState({ apiSys: "use" });
-  };
-
-  OrderInfoArr = (inputArr) => {
-    for (let a = 1; a <= 25; a++) {
-      if (inputArr[a] === undefined) {
-        break;
-      } else console.log(inputArr[a]);
-    }
-  };
-
-  GameRank = (GameRank, matchingMode, matchingTeamMode, totalTime) => {
-    let MatchingMode = "게임 모드";
-    let MatchingTeamMode = "";
-    let TotalTime = totalTime;
-
-    if (matchingMode == 2) {
-      MatchingMode = "노말";
-    } else if (matchingMode == 3) {
-      MatchingMode = "랭크";
-    } else {
-      MatchingMode = "코발트";
-    }
-
-    if (matchingTeamMode == 1) {
-      MatchingTeamMode = "솔로";
-    } else if (matchingTeamMode == 2) {
-      MatchingTeamMode = "듀오";
-    } else if (matchingTeamMode == 3) {
-      MatchingTeamMode = "스쿼드";
-    }
-
-    let TotalTimeMin = TotalTime / 60;
-    TotalTimeMin = Math.floor(TotalTimeMin);
-    let TotalTimeSec = TotalTime % 60;
-
-    if (TotalTimeMin < 10) {
-      TotalTimeMin = "0" + TotalTimeMin;
-    }
-    if (TotalTimeSec < 10) {
-      TotalTimeSec = "0" + TotalTimeSec;
-    }
-
-    TotalTime = TotalTimeMin + ":" + TotalTimeSec;
-
-    if (matchingMode < 4) {
-      return GameRank <= 3 ? (
-        <div className="GameRecordWinLose left">
-          <div
-            style={{
-              color: "yellowgreen",
-              fontSize: "20px",
-              marginBottom: "10px",
-            }}
-          >{`#${GameRank}`}</div>
-          <div
-            style={{
-              fontFamily: "NEXON Lv1 Gothic OTF Bold",
-              fontSize: "11px",
-              float: "left",
-            }}
-          >
-            {MatchingMode}&nbsp;
-          </div>
-          <div
-            style={{
-              fontFamily: "NEXON Lv1 Gothic OTF Bold",
-              fontSize: "11px",
-              marginRight: "3px",
-              marginBottom: "5px",
-            }}
-          >
-            {MatchingTeamMode}
-          </div>
-          <div
-            style={{
-              fontFamily: "NEXON Lv1 Gothic OTF Bold",
-              fontSize: "11px",
-            }}
-          >
-            {TotalTime}
-          </div>
-        </div>
-      ) : (
-        <div className="GameRecordWinLose left">
-          <div
-            style={{
-              color: "red",
-              fontSize: "20px",
-              marginBottom: "10px",
-            }}
-          >{`#${GameRank}`}</div>
-          <div
-            style={{
-              fontFamily: "NEXON Lv1 Gothic OTF Bold",
-              fontSize: "11px",
-              float: "left",
-              marginRight: "3px",
-            }}
-          >
-            {MatchingMode}
-          </div>
-          <div
-            style={{
-              fontFamily: "NEXON Lv1 Gothic OTF Bold",
-              fontSize: "11px",
-              marginBottom: "5px",
-            }}
-          >
-            {MatchingTeamMode}
-          </div>
-          <div
-            style={{
-              fontFamily: "NEXON Lv1 Gothic OTF Bold",
-              fontSize: "11px",
-            }}
-          >
-            {TotalTime}
-          </div>
-        </div>
-      );
-    } else {
-      return GameRank == 1 ? (
-        <div className="GameRecordWinLose left">
-          <div
-            style={{
-              color: "yellowgreen",
-              fontSize: "20px",
-              marginBottom: "10px",
-            }}
-          >{`#${GameRank}`}</div>
-          <div
-            style={{
-              fontFamily: "NEXON Lv1 Gothic OTF Bold",
-              fontSize: "11px",
-              float: "left",
-            }}
-          >
-            {MatchingMode}&nbsp;&nbsp;
-          </div>
-          <div
-            style={{
-              fontFamily: "NEXON Lv1 Gothic OTF Bold",
-              fontSize: "11px",
-              marginRight: "3px",
-              marginBottom: "5px",
-            }}
-          >
-            {MatchingTeamMode}
-          </div>
-          <br></br>
-          <div
-            style={{
-              fontFamily: "NEXON Lv1 Gothic OTF Bold",
-              fontSize: "11px",
-            }}
-          >
-            {TotalTime}
-          </div>
-        </div>
-      ) : (
-        <div className="GameRecordWinLose left">
-          <div
-            style={{
-              color: "red",
-              fontSize: "20px",
-              marginBottom: "10px",
-            }}
-          >{`#${GameRank}`}</div>
-          <div
-            style={{
-              fontFamily: "NEXON Lv1 Gothic OTF Bold",
-              fontSize: "11px",
-              float: "left",
-              marginRight: "3px",
-            }}
-          >
-            {MatchingMode}
-          </div>
-          <div
-            style={{
-              fontFamily: "NEXON Lv1 Gothic OTF Bold",
-              fontSize: "11px",
-            }}
-          >
-            {MatchingTeamMode}
-          </div>
-          <br></br>
-          <div
-            style={{
-              fontFamily: "NEXON Lv1 Gothic OTF Bold",
-              fontSize: "11px",
-            }}
-          >
-            {TotalTime}
-          </div>
-        </div>
-      );
-    }
-  };
-
-  GameDetail = (
-    playerKill,
-    playerDeaths,
-    playerAssistant,
-    killMonsters,
-    damageToPlayer,
-    SurveillanceCamera,
-    TelephotoCamera,
-  ) => {
-   // console.log("감카 : " + SurveillanceCamera +" 망카 : "+ TelephotoCamera)
-    let killMonstersCnt = 0;
-
-    for (let cnt = 0; cnt <= 15; cnt++) {
-      if (killMonsters[cnt] != undefined)
-        killMonstersCnt = killMonstersCnt + killMonsters[cnt];
-    }
-    return (
-      <div className="GameDetail">
-        <ul>
-          <li>{playerKill}</li>
-          <li>{playerDeaths}</li>
-          <li>{playerAssistant}</li>
-          <li>{killMonstersCnt}</li>
-          <li style={{ width: "15px" }}></li>
-          <li>{damageToPlayer}</li>
-        </ul>
-        <ul className="GameDetailEx">
-          <li>K</li>
-          <li>D</li>
-          <li>A</li>
-          <li>H</li>
-          <li style={{ width: "15px" }}></li>
-          <li>피해량</li>
-        </ul>
-      </div>
-    );
-  };
-  routeIdOfStart = (routeIdOfStart) => {
-    if (routeIdOfStart != 0) {
-      return <div className="GameRecordRoute">{routeIdOfStart}</div>;
-    } else {
-      return <div></div>;
-    }
-  };
-  ItemIcon = (Weapon, Chest, Hat, Arm, Leg, Accessory) => {
-   let TierArr = []
-    if(isNaN(Weapon)) //아이템 빈공간 확인
-      TierArr.push(this.state.WeaponEmpty)
-    else
-      TierArr.push(this.WeaponSearch(Weapon))
-
-    if(Chest==undefined)TierArr.push(this.state.ChestEquipmentArr[this.state.ChestEquipmentArr.length-1])
-    else
-    for (let a = 0; a < this.state.ChestEquipmentArr.length; a++) {
-      if (Chest == this.state.ChestEquipmentArr[a].ItemCode){
-        TierArr.push(this.state.ChestEquipmentArr[a]) 
-        break;
-      }else  if(a==this.state.ChestEquipmentArr.length-1)TierArr.push(this.state.ChestEquipmentArr[a])
-    }
-
-    if(Hat==undefined)TierArr.push(this.state.HatEquipmentArr[this.state.HatEquipmentArr.length-1])
-    else
-    for (let a = 0; a < this.state.HatEquipmentArr.length; a++) {
-      if (Hat == this.state.HatEquipmentArr[a].ItemCode) {
-        TierArr.push(this.state.HatEquipmentArr[a])
-        break;
-      }else  if(a==this.state.HatEquipmentArr.length-1)TierArr.push(this.state.ArmEquipmentArr[a])
-    }
-
-    if(Arm==undefined)TierArr.push(this.state.ArmEquipmentArr[this.state.ArmEquipmentArr.length-1])
-    else
-    for (let a = 0; a < this.state.ArmEquipmentArr.length; a++) {
-      if (Arm == this.state.ArmEquipmentArr[a].ItemCode){
-        TierArr.push(this.state.ArmEquipmentArr[a])
-        break;
-      }else  if(a==this.state.ArmEquipmentArr.length-1)TierArr.push(this.state.ArmEquipmentArr[a])
-    }
-
-    if(Leg==undefined)TierArr.push(this.state.LegEquipmentArr[this.state.LegEquipmentArr.length-1])
-    else
-    for (let a = 0; a < this.state.LegEquipmentArr.length; a++) {
-      if (Leg == this.state.LegEquipmentArr[a].ItemCode){
-      TierArr.push(this.state.LegEquipmentArr[a])
-      break;
-    }else  if(a==this.state.LegEquipmentArr.length-1)TierArr.push(this.state.LegEquipmentArr[a])
-    }
-
-    if(Accessory==undefined)TierArr.push(this.state.AccessoryEquipmentArr[this.state.AccessoryEquipmentArr.length-1])
-    else
-    for (let a = 0; a < this.state.AccessoryEquipmentArr.length; a++) {
-      if (Accessory == this.state.AccessoryEquipmentArr[a].ItemCode) {
-        TierArr.push(this.state.AccessoryEquipmentArr[a])
-        break;
-      }else  if(a==this.state.AccessoryEquipmentArr.length-1)TierArr.push(this.state.AccessoryEquipmentArr[a])
-      }
-
-    return(<div className="Itema">
-      <img
-      className={`ItemIcon ItemTier${TierArr[0].ItemTier}`}
-      src={`/image/Item/Weapon/${TierArr[0].ItemCode}.png`}
-        />
-      <img
-      className={`ItemIcon ItemTier${TierArr[1].ItemTier}`}
-      src={`/image/Item/Chest/${TierArr[1].ItemCode}.png`}
-        />
-      <img
-      className={`ItemIcon ItemTier${TierArr[2].ItemTier}`}
-      src={`/image/Item/Hat/${TierArr[2].ItemCode}.png`}
-        ></img><br></br>
-        <img
-      className={`ItemIcon ItemTier${TierArr[3].ItemTier}`}
-      src={`/image/Item/Arm/${TierArr[3].ItemCode}.png`}
-        />
-         <img
-      className={`ItemIcon ItemTier${TierArr[4].ItemTier}`}
-      src={`/image/Item/Leg/${TierArr[4].ItemCode}.png`}
-        />
-        <img
-      className={`ItemIcon ItemTier${TierArr[5].ItemTier}`}
-      src={`/image/Item/Accessory/${TierArr[5].ItemCode}.png`}
-        />
-    </div>)
-  };
-  
-  MoreGameItem = (Weapon, Chest, Hat, Arm, Leg, Accessory) => {
-    let TierArr = []
-     if(isNaN(Weapon)) //아이템 빈공간 확인
-       TierArr.push(this.state.WeaponEmpty)
-     else
-       TierArr.push(this.WeaponSearch(Weapon))
- 
-     if(Chest==undefined)TierArr.push(this.state.ChestEquipmentArr[this.state.ChestEquipmentArr.length-1])
-     else
-     for (let a = 0; a < this.state.ChestEquipmentArr.length; a++) {
-       if (Chest == this.state.ChestEquipmentArr[a].ItemCode){
-         TierArr.push(this.state.ChestEquipmentArr[a]) 
-         break;
-       }else  if(a==this.state.ChestEquipmentArr.length-1)TierArr.push(this.state.ChestEquipmentArr[a])
-     }
- 
-     if(Hat==undefined)TierArr.push(this.state.HatEquipmentArr[this.state.HatEquipmentArr.length-1])
-     else
-     for (let a = 0; a < this.state.HatEquipmentArr.length; a++) {
-       if (Hat == this.state.HatEquipmentArr[a].ItemCode) {
-         TierArr.push(this.state.HatEquipmentArr[a])
-         break;
-       }else  if(a==this.state.HatEquipmentArr.length-1)TierArr.push(this.state.ArmEquipmentArr[a])
-     }
- 
-     if(Arm==undefined)TierArr.push(this.state.ArmEquipmentArr[this.state.ArmEquipmentArr.length-1])
-     else
-     for (let a = 0; a < this.state.ArmEquipmentArr.length; a++) {
-       if (Arm == this.state.ArmEquipmentArr[a].ItemCode){
-         TierArr.push(this.state.ArmEquipmentArr[a])
-         break;
-       }else  if(a==this.state.ArmEquipmentArr.length-1)TierArr.push(this.state.ArmEquipmentArr[a])
-     }
- 
-     if(Leg==undefined)TierArr.push(this.state.LegEquipmentArr[this.state.LegEquipmentArr.length-1])
-     else
-     for (let a = 0; a < this.state.LegEquipmentArr.length; a++) {
-       if (Leg == this.state.LegEquipmentArr[a].ItemCode){
-       TierArr.push(this.state.LegEquipmentArr[a])
-       break;
-     }else  if(a==this.state.LegEquipmentArr.length-1)TierArr.push(this.state.LegEquipmentArr[a])
-     }
- 
-     if(Accessory==undefined)TierArr.push(this.state.AccessoryEquipmentArr[this.state.AccessoryEquipmentArr.length-1])
-     else
-     for (let a = 0; a < this.state.AccessoryEquipmentArr.length; a++) {
-       if (Accessory == this.state.AccessoryEquipmentArr[a].ItemCode) {
-         TierArr.push(this.state.AccessoryEquipmentArr[a])
-         break;
-       }else  if(a==this.state.AccessoryEquipmentArr.length-1)TierArr.push(this.state.AccessoryEquipmentArr[a])
-       }
-     return(<div className="Itema">
-       <img
-       className={`MoreGameItemIcon ItemTier${TierArr[0].ItemTier}`}
-       src={`/image/Item/Weapon/${TierArr[0].ItemCode}.png`}
-         />
-       <img
-       className={`MoreGameItemIcon ItemTier${TierArr[1].ItemTier}`}
-       src={`/image/Item/Chest/${TierArr[1].ItemCode}.png`}
-         />
-       <img
-       className={`MoreGameItemIcon ItemTier${TierArr[2].ItemTier}`}
-       src={`/image/Item/Hat/${TierArr[2].ItemCode}.png`}
-         ></img><br></br>
-         <img
-       className={`MoreGameItemIcon ItemTier${TierArr[3].ItemTier}`}
-       src={`/image/Item/Arm/${TierArr[3].ItemCode}.png`}
-         />
-          <img
-       className={`MoreGameItemIcon ItemTier${TierArr[4].ItemTier}`}
-       src={`/image/Item/Leg/${TierArr[4].ItemCode}.png`}
-         />
-         <img
-       className={`MoreGameItemIcon ItemTier${TierArr[5].ItemTier}`}
-       src={`/image/Item/Accessory/${TierArr[5].ItemCode}.png`}
-         />
-     </div>)
-   };
-  MoreGameType = (type, gameId, matchingTeamMode) => {
-    if(type==6)
-    return <div className="MoreGameData" onClick={() => this.MoreGameDataC(gameId)
-    }>
-      <div>+</div>
-    </div>  
-    else 
-    return <div className="MoreGameData" onClick={() => this.MoreGameDataB(gameId,matchingTeamMode)}>
-      <div>+</div>
-    </div>  
+    this.state.freeCharacters.push(res.data.freeCharacters)
+    this.state.freeCharacters[0].push("hey")
+    console.log(this.state.freeCharacters)
   }
-  MoreGameDataB  = async (gameid,matchingTeamMode) =>{
-
-   
-   const SearchGameId =`https://open-api.bser.io/v1/games/${gameid}`; 
-   let {
-    data: { userGames },
-  
-  } = await axios.get(SearchGameId, {
-    headers: {
-      "Content-Type": "application/json",
-      "x-api-key": this.state.API_KEY,
-    },
-  });
-  let user1 = [];
-  let user2 = [[],[],[],[],[],[],[],[],[]];
-  let user3 = [[],[],[],[],[],[]]
-  if(matchingTeamMode==1){
-    this.setState({matchingTeamMode:matchingTeamMode})
-    userGames.map((solo,solok)=>{
-      user1[solo.gameRank-1] = solo
-    })
-    console.log(user1)
-    this.state.User1.push(user1)
- 
-  }
-  else if(matchingTeamMode==2){
-    this.setState({matchingTeamMode:matchingTeamMode})
-    userGames.map((duo,duok)=>{
-    user2[duo.gameRank-1].push(duo)
-    })
-    console.log(user2)
-    this.state.User2.push(user2)
-  }
-  else if(matchingTeamMode==3){
-    this.setState({matchingTeamMode:matchingTeamMode})
-    userGames.map((squad,squadk)=>{
-    user3[squad.gameRank-1].push(squad)
-    })
-    this.state.User3.push(user3)
-    
-  }
-
-
-  this.OpenModalB();
- }
-///////////////////////
-
-  MoreGameDataC  = async (gameid) =>{
-    this.setState({damageToPlayerMax:10})
-    const SearchGameId =`https://open-api.bser.io/v1/games/${gameid}`; 
-    let {
-       data: { userGames },
-    } = await axios.get(SearchGameId, {
-       headers: {
-       "Content-Type": "application/json",
-       "x-api-key": this.state.API_KEY,
-      },
-  });
-    let Team1 = []
-    let Team2 = []
- userGames.map((qqq,www)=>{
-  if(qqq.teamNumber==1){
-    Team1.push(qqq)
-  }else{
-    Team2.push(qqq)
-  }
- })
-
- this.state.Team1.push(Team1)
- this.state.Team2.push(Team2)
- this.OpenModalC();
- }
-  OpenModalB = () => {
-    console.log("원"+this.state.User1)
-    console.log("")
-    console.log("투"+this.state.User2)
-    console.log("")
-    console.log("쓰리"+this.state.User3[5])
-    this.setState({
-      HaveVisibleB: true,
-      btnB: "after",
-      damageToPlayerMax:10,
-    });
-  };
-  CloseModalB = () => {
-
-    this.setState({
-      HaveVisibleB: false,
-      damageToPlayerMax: 10
-    });
-  };
-  OpenModalC = () => {
-
-    this.setState({
-      HaveVisibleC: true,
-      btnC: "after",
-      damageToPlayerMax:10,
-    });
-   }
-  CloseModalC = () => {
-
-    this.setState({
-      HaveVisibleC: false,
-      damageToPlayerMax: 10
-    });
- 
-  };
-  damageToPlayerMax (){
-    this.setState({damageToPlayerMax:10})
-  }
-
-
   render() {
-    const customStyles = { //모달용
-      content: {
-        position:"fixed",
-        top: '90px',
-        left: '25%',
-        width: '700px',
-        height: '700px'
-      },
-    };
-    return (
-      <div className="Search_User"> 
-          <div style={{
-            position:"fixed",
-            left:"100px",
-            top:"300px",
-          }}> {this.state.damageToPlayerMax}</div>
-        {this.state.apiSys != "before" ? (
-          this.state.SearchData.map((abc, xxx) =>
-            abc.map((xx, cc) => {
-              return (
-                <div className="GameRecord">
-                  <div>
-                    <div className="GameRecordLeft">
-                      {this.GameRank(
-                        xx.gameRank,
-                        xx.matchingMode,
-                        xx.matchingTeamMode,
-                        xx.totalTime
-                      )}
-                      <div className="left">
-                        <img
-                          className="CharThum"
-                          src={`/image/Character_Img/${
-                            this.state.CharacterArr[xx.characterNum][1]
-                          }/Thumbnail/Default/Mini.png`}
-                        />
-        
-                      </div>
-                      {this.GameDetail(
-                        xx.playerKill,
-                        xx.playerDeaths,
-                        xx.playerAssistant,
-                        xx.killMonsters,
-                        xx.damageToPlayer,
-                        xx.addSurveillanceCamera,
-                        xx.addTelephotoCamera,
-                      )}
-
-                      <br></br>
-                    </div>
-                    <div className="GameRecordRight">
-                      {this.ItemIcon(
-                        xx.equipment[0],
-                        xx.equipment[1],
-                        xx.equipment[2],
-                        xx.equipment[3],
-                        xx.equipment[4],
-                        xx.equipment[5]
-                      )}
-                 
-                    </div>
-                  </div>
-                  {this.MoreGameType(xx.matchingMode,xx.gameId,xx.matchingTeamMode)}
-                  <div className="GameRecordUnder">
-                    {this.routeIdOfStart(xx.routeIdOfStart)}
-                  </div>
-                  <div className="clear"></div>
-                 
-                    
-                </div>
-                
-              );
-            })
-          )
-        ) : (
-          <h1>loading...</h1>
-        )}
-        <div onClick={() => this.makeDiv()}>메이크디비</div>
-        <div onClick={() => this.PlusSearchGame()}>플러스 플러스</div>
-        <div onClick={() => this.OpenModalC()}>간간다다</div>
     
+    let Character = [
+      ["재키", "Jackie",1],
+      ["아야", "Aya",2],
+      ["현우", "Hyunwoo",3],
+      ["매그너스", "Magnus",4],
+      ["피오라", "Fiora",5],
+      ["나딘", "Nadine",6],
+      ["자히르", "Zahir",7],
+      ["하트", "Hart",8],
+      ["아이솔", "Isol",9],
+      ["리다이린", "LiDailin",10],
+      ["유키", "Yuki",11],
+      ["혜진", "Hyejin",12],
+      ["쇼우", "Xiukai",13],
+      ["시셀라", "Sissela",14],
+      ["키아라", "Chiara",15],
+      ["아드리아나", "Adriana",16],
+      ["실비아", "Silvia",17],
+      ["쇼이치", "Shoichi",18],
+      ["엠마", "Emma",19],
+      ["레녹스", "Lenox",20],
+      ["로지", "Rozzi",21],
+      ["루크", "Luke",22],
+      ["캐시", "Cathy",23],
+      ["아델라", "Adela",24],
+      ["버니스", "Bernice",25],
+      ["바바라", "Barbara",26],
+      ["알렉스", "Alex",27],
+      ["수아", "Sua",28],
+      ["레온", "Leon",29],
+      ["일레븐", "Eleven",30],
+      ["리오", "Rio",31],
+      ["윌리엄", "William",32],
+      ["니키", "Nicky",33],
+      ["나타폰", "Nathapon",34],
+      ["얀", "Jan",35],
+      ["이바", "Eva",36],
+      ["다니엘", "Daniel",37],
+      ["제니", "Jenny",38],
+      ["카밀로", "Camilo",39],
+      ["클로에", "Chloe",40],
+      ["요한", "Johann",41],
+      ["비앙카", "Bianca",42],
+      ["셀린", "Celine",43],
+      ["에키온", "Echion",44],
+      ["마이", "Mai",45],
+      ["에이든", "Aiden",46],
+      ["라우라", "Laura",47],
+      ["띠아", "Tia",48],
+      ["펠릭스", "Felix",49],
+      ["엘레나", "Elena",50],
+      ["프리야", "Priya",51],
+      ["아디나", "Adina",52],
+      ["마커스", "Markus",53],
+      ["칼라", "Karla",54],
+      ["에스텔","Estelle",55]
+    ];
 
-        <div id="GameRecord">
-          <div></div>
-          <div>{String(this.state.HaveVisibleB)}</div>
-        </div>
-        <MoreGame> </MoreGame>
-        <Modal
-        isOpen={this.state.HaveVisibleB}
-        style={customStyles}
-        onRequestClose={() => this.CloseModalB()}
-      >
+    let CharacterSort = Character.sort();
+    //   console.log(Character.sort());
+    //  console.log(CharacterSort);
+    let mapCnt = 1;
 
-       {this.state.matchingTeamMode == 1 ? (
-        <div>
-         <div className="OneLineth">
-          <li className="OneLineChar">&nbsp; </li>
-          <li className="OneLineNick left"> 닉네임</li>
-          <li className="OneLineKill left"> K</li>    
-          <li className="OneLineAss left"> H</li>
-          <li className="OneLineDamage left"> 딜량</li>
-        </div>   <br></br><br></br>
-        {this.state.User1[this.state.User1.length-1].map((solo, solok)=>{
-          if(solo.damageToPlayer > this.state.damageToPlayerMax){
-            this.setState({damageToPlayerMax :solo.damageToPlayer })
-          }
-          return(
-            <div className="OneLineInfo">
+    return (
+
+
+      <div id="Character_Infomation">
+    <div id ="abc" >
+      <img 
+        id="abcde"
+        src={`/image/info_Img/${this.state.Character_NameE}_0.png`}
+      />
+      <div id ="abcd"></div>
+      </div>
+      
+          <div id="Character_SelectBoard">
+            {CharacterSort.map((arrSort, ababab) => {
+              for(let a= 0; a<=10;a++){console.log(this.state.freeCharacters[a])
+                if(arrSort[2]==this.state.freeCharacters[a]){
+                  console.log("겟챠")
+                }
+              }
+              return (
+                <div>     
+                  <div
+                    onClick={() => this.Character_NameE_Click(arrSort[1])}
+                    id={arrSort[1]}
+                    className="CharThumb"
+                  >
+                    <img
+                      className="ThunbnailIcon"
+                      src={`/image/Character_Img/${arrSort[1]}/Thumbnail/Default/Mini.png`}
+                    />
+                    <li>{arrSort[0]}</li>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <div className="clear"></div>
+          <br></br><br></br>
+          <div id="SkillInfo">   
             <img
-              className="OneLineChar"
-              src={`/image/Character_Img/${
-                this.state.CharacterArr[solo.characterNum][1]
-              }/Thumbnail/Default/Mini.png`}
+              id="SkillGif"
+              src={`/image/Character_Img/${this.state.Character_NameE}/SkillIconGif/${this.state.ClickSkill}.gif`}
             />
-       
-          <li className="OneLineNick left"> {solo.nickname}</li>
-          <li className="OneLineKill left"> {solo.playerKill}</li>   
-          <li className="OneLineAss left"> {solo.monsterKill}</li>
-          <li className="OneLineDamage left"> {solo.damageToPlayer}</li>
-          <progress className = "OneLineProgress"value={solo.damageToPlayer} max={this.state.damageToPlayerMax}></progress>
-          {this.MoreGameItem(solo.equipment[0],solo.equipment[1],solo.equipment[2],solo.equipment[3],solo.equipment[4],solo.equipment[5])}
-         
+            <div>
+              <ul id="SkillIcon">
+                <li>
+                  <img
+                    id="SkillPImg"
+                    className="SkillBtn"
+                    onClick={this.ClickP}
+                    src={`/image/Character_Img/${this.state.Character_NameE}/SkillIcon/P.png`}
+                  />
+                </li>
+                <li>
+                  <img
+                    id="SkillQImg"
+                    className="SkillBtn"
+                    onClick={this.ClickQ}
+                    src={`/image/Character_Img/${this.state.Character_NameE}/SkillIcon/Q.png`}
+                  />
+                </li>
+                <li>
+                  <img
+                    id="SkillWImg"
+                    className="SkillBtn"
+                    onClick={this.ClickW}
+                    src={`/image/Character_Img/${this.state.Character_NameE}/SkillIcon/W.png`}
+                  />
+                </li>
+                <li>
+                  <img
+                    id="SkillEImg"
+                    className="SkillBtn"
+                    onClick={this.ClickE}
+                    src={`/image/Character_Img/${this.state.Character_NameE}/SkillIcon/E.png`}
+                  />
+                </li>
+                <li>
+                  <img
+                    id="SkillRImg"
+                    className="SkillBtn"
+                    onClick={this.ClickR}
+                    src={`/image/Character_Img/${this.state.Character_NameE}/SkillIcon/R.png`}
+                  />
+                </li>
+              </ul>
 
+              <ul id="SkillExplancation">
+                <li id="SkillName">
+                  {this.SkillName(this.state.ClickSkillName)}
+                </li>
+
+                <div id="SkillExplanationBorder"></div>
+
+                <li id="SkillExplancationSelect">
+                  {this.SkillExplancation(this.state.ClickSkillExplancation)}
+                </li>
+                <li></li>
+                <li></li>
+              </ul>
             </div>
-          )
-        })}
-        
-      
-        <button onClick={() => this.CloseModalB()}>닫아</button>
-        </div>) :this.state.matchingTeamMode==2 ? (
-        
-        <div>
-
-            듀오자리에요 여기
-        </div>) 
-        
-        : (<div><div className="OneLineth">
-        <li className="OneLineChar">&nbsp; </li>
-        <li className="OneLineNick left"> 닉네임</li>
-        <li className="OneLineKill left"> K</li>
-        <li className="OneLineDeath left">D</li>
-        <li className="OneLineAss left"> A</li>
-        <li className="OneLineDamage left"> 딜량</li>
-      </div>   <br></br><br></br>
-
-      {this.state.User3.map((squad,squadk)=>{
-        squad.map((squadIn,bb)=>{
-          squadIn.map((squadInIn,dd)=>{
-         
-            return(<div>asd</div>)
-          })
-        })
-      })}
-      </div>
-      
-      )
-
-
-
-      }
-
-      
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </Modal>
-      <Modal
-        isOpen={this.state.HaveVisibleC}
-        style={customStyles }
-        onRequestClose={() => this.CloseModalC()}
-      >
-       
-        {this.state.btnC == "after" ? (
-        <div>
-         <div className="OneLineth">
-          <li className="OneLineChar">&nbsp; </li>
-          <li className="OneLineNick left"> 닉네임</li>
-          <li className="OneLineKill left"> K</li>
-          <li className="OneLineDeath left">D</li>
-          <li className="OneLineAss left"> A</li>
-          <li className="OneLineDamage left"> 딜량</li>
-        </div>   <br></br><br></br>
-          {this.state.Team1[this.state.Team1.length-1].map((Team1User,xx)=>{
-  
-            if(Team1User.damageToPlayer > this.state.damageToPlayerMax){
-              this.setState({damageToPlayerMax :Team1User.damageToPlayer })
-            }
-            return(<div className="OneLineInfo">
-              <img
-                className="OneLineChar"
-                src={`/image/Character_Img/${
-                  this.state.CharacterArr[Team1User.characterNum][1]
-                }/Thumbnail/Default/Mini.png`}
-              />
-         
-            <li className="OneLineNick left"> {Team1User.nickname}</li>
-            <li className="OneLineKill left"> {Team1User.playerKill}</li>
-            <li className="OneLineDeath left">{Team1User.playerDeaths}</li>
-            <li className="OneLineAss left"> {Team1User.playerAssistant}</li>
-            <li className="OneLineDamage left"> {Team1User.damageToPlayer}</li>
-            <progress className = "OneLineProgress"value={Team1User.damageToPlayer} max={this.state.damageToPlayerMax}></progress>
-            {this.MoreGameItem(Team1User.equipment[0],Team1User.equipment[1],Team1User.equipment[2],Team1User.equipment[3],Team1User.equipment[4],Team1User.equipment[5])}
-           
-
-              </div>)
-          })}
-       
-        <h2>-------------------------절취선------------------------</h2>
-        {this.state.Team2[this.state.Team2.length-1].map((Team2User,xx)=>{
-            if(Team2User.damageToPlayer > this.state.damageToPlayerMax){
-              this.setState({damageToPlayerMax :Team2User.damageToPlayer })
-            }
-            return(<div className="OneLineInfo">
-            <img
-              className="OneLineChar"
-              src={`/image/Character_Img/${
-                this.state.CharacterArr[Team2User.characterNum][1]
-              }/Thumbnail/Default/Mini.png`}
-            />
-       
-          <li className="OneLineNick left"> {Team2User.nickname}</li>
-          <li className="OneLineKill left"> {Team2User.playerKill}</li>
-          <li className="OneLineDeath left">{Team2User.playerDeaths}</li>
-          <li className="OneLineAss left"> {Team2User.playerAssistant}</li>
-          <li className="OneLineDamage left"> {Team2User.damageToPlayer}</li>
-          <progress className = "OneLineProgress"value={Team2User.damageToPlayer} max={this.state.damageToPlayerMax}></progress>
-          {this.MoreGameItem(Team2User.equipment[0],Team2User.equipment[1],Team2User.equipment[2],Team2User.equipment[3],Team2User.equipment[4],Team2User.equipment[5])}
-         
-            </div>)
-          })}
-      
-        <button onClick={() => this.CloseModalC()}>닫아</button>
-        </div>) : 
-        
-        
-        
-        (<div>다시 눌러주세요<br></br>
-        <button onClick={() => this.CloseModalC()}>close</button></div>)}
-        
-      </Modal>
-     
-      </div>
+          </div>
+        </div>
+ 
     );
   }
 }
-
-export default Search_User;
+export default Character_Infomation;
