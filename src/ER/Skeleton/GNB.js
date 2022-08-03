@@ -45,11 +45,9 @@ class GNB extends Component {
             <Link to="/Search_User">검색창</Link>
           </li>
           <li>
-            <Link to="/Search_User/?NickName=흑인42호">모하이예아</Link>
+            <Link to="/Search_User/?NickName=흑인42호">ex</Link>
           </li>
-          <li>
-            <Link to="/Search_User/?NickName=누나홀닭">아리가또</Link>
-          </li>
+          
           <form action="/Search_User/">
             <input
               className="SearchBox"

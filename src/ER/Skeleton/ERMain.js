@@ -29,8 +29,8 @@ class ERMain extends Component {
           left:"0px",
         }}
       >
-        <button onClick={this.mama}>시즌3</button>
-        <button onClick={this.mama2}>시즌6</button>
+        {/* <button onClick={this.mama}>시즌3</button>
+        <button onClick={this.mama2}>시즌6</button> */}
         {/* <img
           id="MainImg"
           src="/image/Character_Img/Rio/Thumbnail/Default/Full.png"

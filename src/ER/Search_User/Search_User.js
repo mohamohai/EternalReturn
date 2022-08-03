@@ -45,8 +45,15 @@ class Search_User extends Component {
 
       Team1:[],
       Team2:[],
-    
-      User1:[],
+      
+      User1:[], //팀원수별 배열
+      User2:[],
+      User2arr:[],
+      User3:[],
+      User3arr:[],
+
+      matchingTeamMode:0,
+
       damageToPlayerMax : 1000,
 
       CharacterArr: [
@@ -471,6 +478,7 @@ class Search_User extends Component {
         { ItemCode: 119401, ItemName: "대소반룡곤", ItemTier: 4 },
         { ItemCode: 119402, ItemName: "초진동눈차크", ItemTier: 4 },
         { ItemCode: 119403, ItemName: "케르베로스", ItemTier: 4 },
+        { ItemCode: 119404, ItemName: "블루3", ItemTier: 4 },
         { ItemCode: 119501, ItemName: "히드라", ItemTier: 5 },
       ],
       WeaponRapier: [
@@ -642,6 +650,7 @@ class Search_User extends Component {
         { ItemCode: 201412, ItemName: "모호크 헬멧", ItemTier: 4 },
         { ItemCode: 201413, ItemName: "비질란테", ItemTier: 4 },
         { ItemCode: 201414, ItemName: "다이아뎀", ItemTier: 4 },
+        { ItemCode: 201415, ItemName: "성기사의 투구", ItemTier: 4 },
         { ItemCode: 201501, ItemName: "천사의 고리", ItemTier: 5 },
         { ItemCode: 201502, ItemName: "빛의 증표", ItemTier: 5 },
         { ItemCode: 701451, ItemName: "택티컬 바이저", ItemTier: 6 },
@@ -707,7 +716,8 @@ class Search_User extends Component {
         { ItemCode: 204411, ItemName: "클링온 부츠", ItemTier: 4 },
         { ItemCode: 204412, ItemName: "타키온 브레이스", ItemTier: 4 },
         { ItemCode: 204413, ItemName: "탭루트", ItemTier: 5 },
-        { ItemCode: 204414, ItemName:"아이언메이든",ItemTier:5},
+        { ItemCode: 204414, ItemName: "아이언메이든",ItemTier:5},
+        { ItemCode: 204415, ItemName: "SCV", ItemTier: 4 },
         { ItemCode: 204501, ItemName: "헤르메스의 부츠", ItemTier: 5 },
         { ItemCode: 204502, ItemName: "분홍신", ItemTier: 5 },
         
@@ -1500,7 +1510,7 @@ class Search_User extends Component {
         break;
       }else  if(a==this.state.AccessoryEquipmentArr.length-1)TierArr.push(this.state.AccessoryEquipmentArr[a])
       }
-    console.log(TierArr)
+
     return(<div className="Itema">
       <img
       className={`ItemIcon ItemTier${TierArr[0].ItemTier}`}
@@ -1530,7 +1540,6 @@ class Search_User extends Component {
   };
   
   MoreGameItem = (Weapon, Chest, Hat, Arm, Leg, Accessory) => {
-    console.log(Weapon)
     let TierArr = []
      if(isNaN(Weapon)) //아이템 빈공간 확인
        TierArr.push(this.state.WeaponEmpty)
@@ -1581,7 +1590,6 @@ class Search_User extends Component {
          break;
        }else  if(a==this.state.AccessoryEquipmentArr.length-1)TierArr.push(this.state.AccessoryEquipmentArr[a])
        }
-     console.log(TierArr)
      return(<div className="Itema">
        <img
        className={`MoreGameItemIcon ItemTier${TierArr[0].ItemTier}`}
@@ -1609,22 +1617,21 @@ class Search_User extends Component {
          />
      </div>)
    };
-  MoreGameType = (type, gameId) => {
-    
+  MoreGameType = (type, gameId, matchingTeamMode) => {
     if(type==6)
     return <div className="MoreGameData" onClick={() => this.MoreGameDataC(gameId)
     }>
       <div>+</div>
     </div>  
     else 
-    return <div className="MoreGameData" onClick={() => this.MoreGameDataB(gameId)}>
+    return <div className="MoreGameData" onClick={() => this.MoreGameDataB(gameId,matchingTeamMode)}>
       <div>+</div>
     </div>  
   }
-  MoreGameDataB  = async (gameid) =>{
- 
+  MoreGameDataB  = async (gameid,matchingTeamMode) =>{
+
+   
    const SearchGameId =`https://open-api.bser.io/v1/games/${gameid}`; 
-   console.log(SearchGameId)
    let {
     data: { userGames },
   
@@ -1634,19 +1641,50 @@ class Search_User extends Component {
       "x-api-key": this.state.API_KEY,
     },
   });
+  let user1 = [];
+  let user2 = [[],[],[],[],[],[],[],[],[]];
+  let user3 = [[],[],[],[],[],[]]
+  if(matchingTeamMode==1){
+    this.setState({matchingTeamMode:matchingTeamMode})
+    userGames.map((solo,solok)=>{
+      user1[solo.gameRank-1] = solo
+    })
+    console.log(user1)
+    this.state.User1.push(user1)
+ 
+  }
+  else if(matchingTeamMode==2){
+    this.setState({matchingTeamMode:matchingTeamMode})
+    userGames.map((duo,duok)=>{
+    user2[duo.gameRank-1].push(duo)
+    })
+    for(let a=0; a<=8; a++){
+      for(let b=0; b<=1; b++){
+        this.state.User2arr.push(user2[a][b])
+      }
+    }
+  }
+  else if(matchingTeamMode==3){
+    this.setState({matchingTeamMode:matchingTeamMode})
+    userGames.map((squad,squadk)=>{
+    user3[squad.gameRank-1].push(squad)
+    })
 
-  let arr = [,,,,,,,,,,,,,,,,,,];
-  userGames.map((aa,bb)=>{
-        arr[aa.gameRank-1] = aa
-     
-  })
-console.log(arr)
+    for(let a=0; a<=5; a++){
+      for(let b=0; b<=2; b++){
+        this.state.User3arr.push(user3[a][b])
+      }
+    }
+    console.log(this.state.User3arr)
+ 
+    
+  }
+
+
   this.OpenModalB();
  }
 ///////////////////////
-damageToPlayerMax (){
-  this.setState({damageToPlayerMax:10})
-}
+
   MoreGameDataC  = async (gameid) =>{
     this.setState({damageToPlayerMax:10})
     const SearchGameId =`https://open-api.bser.io/v1/games/${gameid}`; 
@@ -1673,30 +1711,45 @@ damageToPlayerMax (){
  this.OpenModalC();
  }
   OpenModalB = () => {
-  
+    console.log("원"+this.state.User1)
+    console.log("")
+    console.log("투"+this.state.User2)
+    console.log("")
+    console.log("쓰리"+this.state.User3[5])
     this.setState({
       HaveVisibleB: true,
+      btnB: "after",
+      damageToPlayerMax:10,
     });
   };
   CloseModalB = () => {
 
     this.setState({
       HaveVisibleB: false,
+      damageToPlayerMax: 10,
+      User3arr:[],
+      User2arr:[],
     });
   };
   OpenModalC = () => {
+
     this.setState({
       HaveVisibleC: true,
       btnC: "after",
+      damageToPlayerMax:10,
     });
-   };
+   }
   CloseModalC = () => {
 
     this.setState({
       HaveVisibleC: false,
+      damageToPlayerMax: 10
     });
+ 
   };
-
+  damageToPlayerMax (){
+    this.setState({damageToPlayerMax:10})
+  }
 
 
   render() {
@@ -1704,13 +1757,18 @@ damageToPlayerMax (){
       content: {
         position:"fixed",
         top: '90px',
-        left: '25%',
-        width: '700px',
+        left: '0%',
+        width: '900px',
         height: '700px'
       },
     };
     return (
       <div className="Search_User"> 
+          <div style={{
+            position:"fixed",
+            left:"100px",
+            top:"300px",
+          }}> {this.state.damageToPlayerMax}</div>
         {this.state.apiSys != "before" ? (
           this.state.SearchData.map((abc, xxx) =>
             abc.map((xx, cc) => {
@@ -1754,10 +1812,10 @@ damageToPlayerMax (){
                         xx.equipment[4],
                         xx.equipment[5]
                       )}
-                      
+                 
                     </div>
                   </div>
-                  {this.MoreGameType(xx.matchingMode,xx.gameId)}
+                  {this.MoreGameType(xx.matchingMode,xx.gameId,xx.matchingTeamMode)}
                   <div className="GameRecordUnder">
                     {this.routeIdOfStart(xx.routeIdOfStart)}
                   </div>
@@ -1785,16 +1843,148 @@ damageToPlayerMax (){
         <Modal
         isOpen={this.state.HaveVisibleB}
         style={customStyles}
-        clickAway={this.CloseModalB} //나ㅣ중에 화ㅓㄱ인
+        onRequestClose={() => this.CloseModalB()}
       >
 
-  
-        {this.state.User1[2]}
-        <h2>배틀로얄입니다</h2>
-        <button onClick={() => this.CloseModalB()}>close</button>
-        <div>I am a modal</div>
+       {this.state.matchingTeamMode == 1 ? (
+        <div>
+         <div className="OneLineth">
+          <li className="OneLineChar">&nbsp; </li>
+          <li className="OneLineNick left"> 닉네임</li>
+          <li className="OneLineKill left"> K</li>    
+          <li className="OneLineAss left"> H</li>
+          <li className="OneLineDamage left"> 딜량</li>
+        </div>   <br></br><br></br>
+        {this.state.User1[this.state.User1.length-1].map((solo, solok)=>{
+          if(solo.damageToPlayer > this.state.damageToPlayerMax){
+            this.setState({damageToPlayerMax :solo.damageToPlayer })
+          }
+          return(
+            <div className="OneLineInfo">
+            <img
+              className="OneLineChar"
+              src={`/image/Character_Img/${
+                this.state.CharacterArr[solo.characterNum][1]
+              }/Thumbnail/Default/Mini.png`}
+            />
+       
+          <li className="OneLineNick left"> {solo.nickname}</li>
+          <li className="OneLineKill left"> {solo.playerKill}</li>   
+          <li className="OneLineAss left"> {solo.monsterKill}</li>
+          <li className="OneLineDamage left"> {solo.damageToPlayer}</li>
+          <progress className = "OneLineProgress"value={solo.damageToPlayer} max={this.state.damageToPlayerMax}></progress>
+          {this.MoreGameItem(solo.equipment[0],solo.equipment[1],solo.equipment[2],solo.equipment[3],solo.equipment[4],solo.equipment[5])}
+         
+
+            </div>
+          )
+        })}
+        
+      
+        <button onClick={() => this.CloseModalB()}>닫아</button>
+        </div>) :this.state.matchingTeamMode==2 ? 
+        (
+        <div className="center"><div className="OneLineth">
+        <li className="OneLineChar">&nbsp; </li>
+        <li className="OneLineNick left"> 닉네임</li>
+        <li className="OneLineKill left"> K</li>
+        <li className="OneLineDeath left">D</li>
+        <li className="OneLineAss left"> A</li>
+        <li className="OneLineAss left"> H</li>
+        <li className="OneLineDamage left"> 딜량</li>
+      </div>   <br></br><br></br>
+
+      {this.state.User3arr.map((squad,squadk)=>{
+        if(squad.damageToPlayer > this.state.damageToPlayerMax){
+          this.setState({damageToPlayerMax :squad.damageToPlayer })
+        }
+        return(
+          <div className="OneLineInfo">
+          <img
+            className="OneLineChar"
+            src={`/image/Character_Img/${
+              this.state.CharacterArr[squad.characterNum][1]
+            }/Thumbnail/Default/Mini.png`}
+          />
      
+        <li className="OneLineNick left"> {squad.nickname}</li>
+        <li className="OneLineKill left"> {squad.playerKill}</li> 
+        <li className="OneLineAss left"> {squad.playerDeaths}</li>
+        <li className="OneLineAss left"> {squad.playerAssistant}</li>  
+        <li className="OneLineAss left"> {squad.monsterKill}</li>
+        <li className="OneLineDamage left"> {squad.damageToPlayer}</li>
+        <progress className = "OneLineProgress"value={squad.damageToPlayer} max={this.state.damageToPlayerMax}></progress>
+        {this.MoreGameItem(squad.equipment[0],squad.equipment[1],squad.equipment[2],squad.equipment[3],squad.equipment[4],squad.equipment[5])}
+       
+
+          </div>)
+      })}
+      </div>
+      
+      )
+        
+        : (
+        <div className="center"><div className="OneLineth">
+        <li className="OneLineChar">&nbsp; </li>
+        <li className="OneLineNick left"> 닉네임</li>
+        <li className="OneLineKill left"> K</li>
+        <li className="OneLineDeath left">D</li>
+        <li className="OneLineAss left"> A</li>
+        <li className="OneLineAss left"> H</li>
+        <li className="OneLineDamage left"> 딜량</li>
+      </div>   <br></br><br></br>
+
+      {this.state.User3arr.map((squad,squadk)=>{
+        if(squad.damageToPlayer > this.state.damageToPlayerMax){
+          this.setState({damageToPlayerMax :squad.damageToPlayer })
+        }
+        return(
+          <div className="OneLineInfo">
+          <img
+            className="OneLineChar"
+            src={`/image/Character_Img/${
+              this.state.CharacterArr[squad.characterNum][1]
+            }/Thumbnail/Default/Mini.png`}
+          />
      
+        <li className="OneLineNick left"> {squad.nickname}</li>
+        <li className="OneLineKill left"> {squad.playerKill}</li> 
+        <li className="OneLineAss left"> {squad.playerDeaths}</li>
+        <li className="OneLineAss left"> {squad.playerAssistant}</li>  
+        <li className="OneLineAss left"> {squad.monsterKill}</li>
+        <li className="OneLineDamage left"> {squad.damageToPlayer}</li>
+        <progress className = "OneLineProgress"value={squad.damageToPlayer} max={this.state.damageToPlayerMax}></progress>
+        {this.MoreGameItem(squad.equipment[0],squad.equipment[1],squad.equipment[2],squad.equipment[3],squad.equipment[4],squad.equipment[5])}
+       
+
+          </div>)
+      })}
+      </div>
+      
+      )
+
+
+
+      }
+
+      
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       </Modal>
       <Modal
         isOpen={this.state.HaveVisibleC}
@@ -1813,6 +2003,7 @@ damageToPlayerMax (){
           <li className="OneLineDamage left"> 딜량</li>
         </div>   <br></br><br></br>
           {this.state.Team1[this.state.Team1.length-1].map((Team1User,xx)=>{
+  
             if(Team1User.damageToPlayer > this.state.damageToPlayerMax){
               this.setState({damageToPlayerMax :Team1User.damageToPlayer })
             }
