@@ -1830,6 +1830,7 @@ class Search_User extends Component {
           }
           return(
             <div className="OneLineInfo">
+              <div className="TeamNum">#{solo.gameRank}</div>
             <img
               className="OneLineChar"
               src={`/image/Character_Img/${
@@ -1910,6 +1911,7 @@ class Search_User extends Component {
         }
         return(
           <div className="OneLineInfo">
+            <div className="TeamNum">#{squad.gameRank}</div>
           <img
             className="OneLineChar"
             src={`/image/Character_Img/${
