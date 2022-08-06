@@ -1,53 +1,98 @@
+import { useState, useEffect, useRef } from "react";
+
+import "./GameIntroduce.css"
 
 
-import "./GameIntroduce.css";
-import React, { Component, useState, useEffect } from "react";
 
-class GameIntroduce extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        FullPage :0,
-        TotheTop:window.innerHeight,
-        tata:getBoundingClientRect().bottom,
+const DIVIDER_HEIGHT = 5;
+
+function GameIntroduce() {
+  const outerDivRef = useRef();
+  const [scrollIndex, setScrollIndex] = useState(1);
+  useEffect(() => {
+    const wheelHandler = (e) => {
+      e.preventDefault(); // preventDefault 이벤트 발동 케어
+      const { deltaY } = e;
+      const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
+      const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
+
+      if (deltaY > 0) {
+        // 스크롤 내릴 때
+        if (scrollTop >= 0 && scrollTop < pageHeight) {
+          //현재 1페이지
+          console.log("현재 1페이지, down");
+          outerDivRef.current.scrollTo({
+            top: pageHeight + DIVIDER_HEIGHT,
+            left: 0,
+            behavior: "smooth",
+          });
+          setScrollIndex(2);
+        } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
+          //현재 2페이지
+          console.log("현재 2페이지, down");
+          outerDivRef.current.scrollTo({
+            top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
+            left: 0,
+            behavior: "smooth",
+          });
+          setScrollIndex(3);
+        } else {
+          // 현재 3페이지
+          console.log("현재 3페이지, down");
+          outerDivRef.current.scrollTo({
+            top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
+            left: 0,
+            behavior: "smooth",
+          });
+          setScrollIndex(3);
+        }
+      } else {
+        // 스크롤 올릴 때
+        if (scrollTop >= 0 && scrollTop < pageHeight) {
+          //현재 1페이지
+          console.log("현재 1페이지, up");
+          outerDivRef.current.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+          });
+          setScrollIndex(1);
+        } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
+          //현재 2페이지
+          console.log("현재 2페이지, up");
+          outerDivRef.current.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+          });
+          setScrollIndex(1);
+        } else {
+          // 현재 3페이지
+          console.log("현재 3페이지, up");
+          outerDivRef.current.scrollTo({
+            top: pageHeight + DIVIDER_HEIGHT,
+            left: 0,
+            behavior: "smooth",
+          });
+          setScrollIndex(2);
+        }
       }
-    }
-  
-ToScrollgogo = () =>{
-  console.log(this.state.TotheTop)
-
-  window.scrollTo({ left: 0, top: 2000, behavior: "smooth" });
+    };
+    const outerDivRefCurrent = outerDivRef.current;
+    outerDivRefCurrent.addEventListener("wheel", wheelHandler);
+    return () => {
+      outerDivRefCurrent.removeEventListener("wheel", wheelHandler);
+    };
+  }, []);
+  return (
+    <div ref={outerDivRef} className="outer">
+      <div className="inner Page">1</div>
+   
+      <div className="inner Page">2</div>
+   
+      <div className="inner Page">3</div>
+    </div>
+  );
 }
-componentDidMount = () => {
 
-  };
-    render(){
-
-
-    return(<div className="FullPageScroll">
-            <div className="Page">
-              <button onClick={this.ToScrollgogo}>asdsad</button>
-              <div className="heightcheck">{this.state.TotheTop}</div>
-              <div className="heightcheck">{this.state.tata}</div>
-            </div>
-            <div className="Page"  style={{
-          background: `linear-gradient( to bottom,        rgba(255, 255, 255, 0) 10%,        rgba(255, 255, 255, 0.25) 25%,        rgba(255, 255, 255, 0.5) 50%,        rgba(255, 255, 255, 0.75) 75%,        rgba(255, 255, 255, 1) 100%        ), url('/image/Main/Season3.png')   `,
-          backgroundSize: "cover",
-        }}
-      ></div>
-            
-            <div 
-        className="Page"
-        style={{
-          background: `linear-gradient( to bottom,        rgba(255, 255, 255, 0) 10%,        rgba(255, 255, 255, 0.25) 25%,        rgba(255, 255, 255, 0.5) 50%,        rgba(255, 255, 255, 0.75) 75%,        rgba(255, 255, 255, 1) 100%        ), url('/image/Main/Season6.png')   `,
-          backgroundSize: "cover",
-        }}
-      ></div>
-
-    </div>)
-    }
-}
 export default GameIntroduce;
-
-
- 
