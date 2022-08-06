@@ -1,6 +1,6 @@
 import React, { Component, useState, useEffect } from "react";
 import axios from "axios";
-import { Cheerio } from "cheerio";
+
 class Statistics extends Component {
     constructor(props) {
       super(props);
@@ -9,8 +9,15 @@ class Statistics extends Component {
    
 
 first  = async() =>{
-    let ab = await axios.get("https://playeternalreturn.com/stats");
-    console.log(ab.data)
+
+
+    const axios = require('axios');
+    axios.get(`https://thebook.io/080212`)
+    .then(dataa => {
+        console.log(dataa);
+    });
+
+    
 }
 
 

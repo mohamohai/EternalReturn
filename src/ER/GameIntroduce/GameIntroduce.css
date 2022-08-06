@@ -1,0 +1,39 @@
+#GameIntroduce {
+
+    width: 100vw;
+    height: 4000px;
+
+    position: absolute;
+    left: 0px;
+    background-color: red;
+}
+
+.FullPageScroll {
+    margin: 60px 0 0 0;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+
+}
+
+.Page {
+
+    width: 100vw;
+    height: 95vh;
+    display: flex;
+}
+
+
+.Page:nth-child(odd) {
+    background-color: #333;
+}
+
+.heightcheck {
+    position: fixed;
+    left: 500px;
+    top: 700px;
+    font-size: 50px;
+    z-index: 99;
+    color: red;
+}

@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ap.cx/react-fullpage": "^0.2.0",
     "@babel/core": "^7.16.0",
+    "@fullpage/react-fullpage": "^0.1.26",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
     "@svgr/webpack": "^5.5.0",
     "@testing-library/jest-dom": "^5.16.4",
@@ -49,6 +51,8 @@
     "react-app-polyfill": "^3.0.0",
     "react-dev-utils": "^12.0.1",
     "react-dom": "^18.2.0",
+    "react-full-page-scroller": "^0.1.6",
+    "react-fullpage": "^0.1.19",
     "react-modal": "^3.15.1",
     "react-refresh": "^0.11.0",
     "react-router-dom": "^6.3.0",
