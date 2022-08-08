@@ -31,7 +31,7 @@ function GameIntroduce() {
             left: 0,
             behavior: "smooth",
           });
-          target1.style.visibility="visible"
+          target1.style.opacity="0%"
           setScrollIndex(2);
         } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
           //현재 2페이지
@@ -42,7 +42,7 @@ function GameIntroduce() {
             behavior: "smooth",
           });
           setScrollIndex(3);
-          target1.style.visibility="hidden"
+         
         } else {
           // 현재 3페이지
           console.log("현재 3페이지, down");
@@ -71,8 +71,10 @@ function GameIntroduce() {
             top: 0,
             left: 0,
             behavior: "smooth",
-          });target1.style.display="block"
-          target1.style.transitionDuration="1s"
+          });
+          target1.style.transition="1s"
+          target1.style.opacity="100%"
+      
           setScrollIndex(1);
         } else {
           // 현재 3페이지

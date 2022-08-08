@@ -95,8 +95,8 @@ body {
     position: fixed;
     top: 30%;
     left: 20%;
-    display: none;
-
+    opacity: 100%;
+    transition: 1s all;
 }
 
 #testtes {
