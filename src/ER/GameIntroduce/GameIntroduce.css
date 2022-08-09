@@ -45,7 +45,7 @@
 
 body {
     margin: 0;
-    overflow-y: hidden;
+
 }
 
 .outer {
@@ -90,13 +90,14 @@ body {
     height: 100vh;
 }
 
-#testtest {
+#InfoOne {
     font-size: 50px;
     position: fixed;
     top: 30%;
-    left: 20%;
-    opacity: 100%;
+    left: 15%;
+    opacity: 0%;
     transition: 1s all;
+    display: none;
 }
 
 #testtes {
@@ -106,4 +107,16 @@ body {
     top: 30%;
     left: 20%;
 
+}
+
+
+.charimg {
+    position: fixed;
+    z-index: 100;
+    width: 1024px;
+    height: 1024px;
+    left: 120px;
+    top: 200px;
+    transition: all 1s;
+    opacity: 100%;
 }

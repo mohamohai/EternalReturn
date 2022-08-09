@@ -12,14 +12,16 @@ function GameIntroduce() {
   const [scrollIndex, setScrollIndex] = useState(1);
 
   useEffect(() => {
-   
-    const wheelHandler = (e) => { 
+  const wheelHandler = (e) => { 
+      if(outerDivRef.current=="div.outer")
+      console.log(outerDivRef)
+      console.log("")
       e.preventDefault(); // preventDefault 이벤트 발동 케어
       const { deltaY } = e;
       const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
       const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
 
-      const target1=document.getElementById("testtest")
+      const InfoOne=document.getElementById("InfoOne")
       if (deltaY > 0) {
         // 스크롤 내릴 때
         if (scrollTop >= 0 && scrollTop < pageHeight) {
@@ -31,7 +33,7 @@ function GameIntroduce() {
             left: 0,
             behavior: "smooth",
           });
-          target1.style.opacity="0%"
+          InfoOne.style.opacity="0%"
           setScrollIndex(2);
         } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
           //현재 2페이지
@@ -68,12 +70,12 @@ function GameIntroduce() {
           //현재 2페이지
           console.log("현재 2페이지, up");
           outerDivRef.current.scrollTo({
-            top: 0,
+            top: pageHeight,
             left: 0,
             behavior: "smooth",
           });
-          target1.style.transition="1s"
-          target1.style.opacity="100%"
+          InfoOne.style.transition="1s"
+          InfoOne.style.opacity="100%"
       
           setScrollIndex(1);
         } else {
@@ -94,6 +96,12 @@ function GameIntroduce() {
       outerDivRefCurrent.removeEventListener("wheel", wheelHandler);
     };
   }, []);
+
+
+
+
+
+
   return (
     <div ref={outerDivRef} className="outer">
       <div className="inner Page"
@@ -101,10 +109,21 @@ function GameIntroduce() {
               backgroundImage:"url(/image/gameInfo/a.jpg)",
               backgroundSize:"cover"}}
     >
-      <div id="testtest">가나다라마바사아자차카타파</div>
+      <div id="InfoOne">
+        <div>제작, 전투, 그리고 생존</div>
+        <div>line</div>
+        <div>세상과 떨어진 섬 루미아에서, 과학 집단 이글라이아가 인간을
+          대상으로 신인류가 되기 위한 비밀스러운 생존 실험을 벌입니다.
+        </div>
       </div>
-      <div id="testtes"
-     ></div>
+      </div>
+        <div className="charimg"
+        style={{
+          backgroundImage:"url(/image/Character_Img/Rozzi/skin.png)",
+          backgroundSize:"cover"}}
+        >
+로지
+        </div>
    
       <div className="inner Page"
       style={{
