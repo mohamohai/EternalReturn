@@ -1,11 +1,10 @@
 import { useState, useEffect, useRef } from "react";
-import "./GameIntroduce.css"
+import "./Character_Detail.css"
 const DIVIDER_HEIGHT = 5;
 
-function GameIntroduce() {
-  
-  const outerDivRef = useRef();
-  const [scrollIndex, setScrollIndex] = useState(1);
+function Character_Detail() {
+  const SkillName = []
+
 
   useEffect(() => {
     const wheelHandler = (e) => { 
@@ -136,4 +135,4 @@ function GameIntroduce() {
   );
 }
 
-export default GameIntroduce;
+export default Character_Detail;

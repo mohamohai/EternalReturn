@@ -8,6 +8,7 @@ import Record from "./ER/Record/Record.js";
 import Search_User from "./ER/Search_User/Search_User.js";
 import GameIntroduce from "./ER/GameIntroduce/GameIntroduce.js";
 import Statistics from "./ER/Statistics/Statistics.js";
+import Character_Detail from "./ER/Character_Information/Character_Detail.js";
 import {
   BrowserRouter,
   Route,
@@ -36,12 +37,13 @@ class App extends Component {
               path="/Character_Infomation"
               element={<Character_Infomation />}
             />
+                        <Route path="/Character_Infomation/Character_Detail/:CharName" element={<Character_Detail/>}/>
             <Route path="/Search_User" element={<Search_User />} />
             <Route path="/Search_User/:NickName" element={<Search_User />} />
             <Route path="/Record" element={<Record />} />
             <Route path="/GameIntroduce" element={<GameIntroduce/>}/>
             <Route path="/Statistics" element={<Statistics/>}/>
-            
+
           </Routes>
         </BrowserRouter>
       </div>
