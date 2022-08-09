@@ -57,11 +57,11 @@ class Search_User extends Component {
         ["한글", "영어"],
         ["재키", "Jackie"],
         ["아야", "Aya"],
-        ["현우", "Hyunwoo"],
+        ["피오라", "Fiora"],    
         ["매그너스", "Magnus"],
-        ["피오라", "Fiora"],
-        ["나딘", "Nadine"],
         ["자히르", "Zahir"],
+        ["나딘", "Nadine"],
+        ["현우", "Hyunwoo"],
         ["하트", "Hart"],
         ["아이솔", "Isol"],
         ["리다이린", "LiDailin"],
@@ -110,69 +110,11 @@ class Search_User extends Component {
         ["마커스", "Markus"],
         ["칼라", "Karla"],
         ["에스텔", "Estelle"],
-        ["", "Estelle"],
-        ["", ""],
+        ["파울로", "Paulo"],
+        ["마르티나", "mar"],
         ["", ""],
       ],
-      characterNumArr: [
-        "캐릭터이름",
-        "재키",
-        "아야",
-        "피오라",
-        "매그너스",
-        "자히르",
-        "나딘",
-        "현우",
-        "하트",
-        "아이솔",
-        "리다이린",
-        "유키",
-        "혜진",
-        "쇼우",
-        "키아라",
-        "시셀라",
-        "실비아",
-        "아드리아나",
-        "쇼이치",
-        "엠마",
-        "레녹스",
-        "로지",
-        "루크",
-        "캐시",
-        "아델라",
-        "버니스",
-        "바바라",
-        "알렉스",
-        "수아",
-        "레온",
-        "일레븐",
-        "리오",
-        "윌리엄",
-        "니키",
-        "나타폰",
-        "얀",
-        "이바",
-        "다니엘",
-        "제니",
-        "카밀로",
-        "클로에",
-        "요한",
-        "비앙카",
-        "셀린",
-        "에키온",
-        "마이",
-        "에이든",
-        "라우라",
-        "띠아",
-        "펠릭스",
-        "엘레나",
-        "프리야",
-        "아디나",
-        "마커스",
-        "칼라",
-        "에스텔",
-        "피올로",
-      ],
+     
       WeaponEmpty:
       { ItemCode: "empty",   ItemName: "empty", ItemTier: 0 },
       WeaponDagger: [
@@ -362,6 +304,7 @@ class Search_User extends Component {
         { ItemCode: 112405, ItemName: "파이어 볼", ItemTier: 4 },
         { ItemCode: 112406, ItemName: "프리즘 볼", ItemTier: 5 },
         { ItemCode: 112407, ItemName: "아스트라페", ItemTier: 4 },
+        { ItemCode: 112408, ItemName: "점착폭탄", ItemTier: 4 },
       ],
       WeaponShuriken: [
         { ItemCode: 113101, ItemName: "면도칼", ItemTier: 1 },
@@ -772,6 +715,7 @@ class Search_User extends Component {
         { ItemCode: 205409, ItemName: "살라딘의 화살통 MK2", ItemTier: 5 },
         { ItemCode: 205501, ItemName: "에메랄드 타블렛", ItemTier: 5 },
         { ItemCode: 205502, ItemName: "파초선", ItemTier: 5 },
+        { ItemCode: 705502, ItemName: "파초선MK2", ItemTier: 5 },
         { ItemCode: 205503, ItemName: "쿤달라", ItemTier: 5 },
         { ItemCode: 205504, ItemName: "아티팩트", ItemTier: 5 },
         { ItemCode: 205505, ItemName: "호루스의 눈", ItemTier: 5 },
@@ -1569,7 +1513,13 @@ class Search_User extends Component {
        }else  if(a==this.state.AccessoryEquipmentArr.length-1)TierArr.push(this.state.AccessoryEquipmentArr[a])
        }
      return(<div className="Itema">
-      {console.log(TierArr[0].ItemCode)}
+        {console.log(TierArr[0].ItemCode)}
+        {console.log(TierArr[1].ItemCode)}
+        {console.log(TierArr[2].ItemCode)}
+        {console.log(TierArr[3].ItemCode)}
+        {console.log(TierArr[4].ItemCode)}
+        {console.log(TierArr[5].ItemCode)}
+        {console.log("")}{console.log("")}
        <img
        className={`MoreGameItemIcon ItemTier${TierArr[0].ItemTier}`}
        src={`/image/Item/Weapon/${TierArr[0].ItemCode}.png`}
@@ -1586,6 +1536,7 @@ class Search_User extends Component {
        className={`MoreGameItemIcon ItemTier${TierArr[3].ItemTier}`}
        src={`/image/Item/Arm/${TierArr[3].ItemCode}.png`}
          />
+       
           <img
        className={`MoreGameItemIcon ItemTier${TierArr[4].ItemTier}`}
        src={`/image/Item/Leg/${TierArr[4].ItemCode}.png`}
@@ -1750,7 +1701,8 @@ class Search_User extends Component {
             abc.map((xx, cc) => {
               return (
                 <div className="GameRecord">
-                  <div>
+                  <div>     {xx.gameId}<br></br>
+                  {xx.startDtm}
                     <div className="GameRecordLeft">
                       {this.GameRank(
                         xx.gameRank,
@@ -1765,7 +1717,7 @@ class Search_User extends Component {
                             this.state.CharacterArr[xx.characterNum][1]
                           }/Thumbnail/Default/Mini.png`}
                         />
-        
+                 
                       </div>
                       {this.GameDetail(
                         xx.playerKill,
@@ -1836,13 +1788,20 @@ class Search_User extends Component {
               src={`/image/Character_Img/${
                 this.state.CharacterArr[solo.characterNum][1]
               }/Thumbnail/Default/Mini.png`}
-            />
-       
+            />{console.log("더보기입니다")}
+               {console.log(solo.equipment[0])}
+          {console.log(solo.equipment[1])}
+          {console.log(solo.equipment[2])}
+          {console.log(solo.equipment[3])}
+          {console.log(solo.equipment[4])}
+          {console.log(solo.equipment[5])}
+          {console.log("")}
           <a href={`/Search_User/?NickName=${solo.nickname}`} className="OneLineNick left"> {solo.nickname}</a>
           <li className="OneLineKill left"> {solo.playerKill}</li>   
           <li className="OneLineAss left"> {solo.monsterKill}</li>
           <li className="OneLineDamage left"> {solo.damageToPlayer}</li>
           <progress className = "OneLineProgress"value={solo.damageToPlayer} max={this.state.damageToPlayerMax}></progress>
+       
           {this.MoreGameItem(solo.equipment[0],solo.equipment[1],solo.equipment[2],solo.equipment[3],solo.equipment[4],solo.equipment[5])}
             </div>
           )
