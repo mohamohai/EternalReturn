@@ -1,0 +1,574 @@
+[
+    {
+        "KorName": "재키",
+        "EngName": "Jackie",
+        "CharNum": 1,
+        "Consonant": [
+            "ㅈ",
+            "쟄"
+        ]
+    },
+    {
+        "KorName": "아야",
+        "EngName": "Aya",
+        "CharNum": 2,
+        "Consonant": [
+            "ㅇ",
+            "앙"
+        ]
+    },
+    {
+        "KorName": "현우",
+        "EngName": "Hyunwoo",
+        "CharNum": 3,
+        "Consonant": [
+            "ㅎ",
+            "혀",
+            "현ㅇ"
+        ]
+    },
+    {
+        "KorName": "매그너스",
+        "EngName": "Magnus",
+        "CharNum": 4,
+        "Consonant": [
+            "ㅁ",
+            "맥",
+            "매근",
+            "매그넛"
+        ]
+    },
+    {
+        "KorName": "피오라",
+        "EngName": "Fiora",
+        "CharNum": 5,
+        "Consonant": [
+            "ㅍ",
+            "핑",
+            "피올"
+        ]
+    },
+    {
+        "KorName": "나딘",
+        "EngName": "Nadine",
+        "CharNum": 6,
+        "Consonant": [
+            "ㄴ",
+            "낟",
+            "나디"
+        ]
+    },
+    {
+        "KorName": "자히르",
+        "EngName": "Zahir",
+        "CharNum": 7,
+        "Consonant": [
+            "ㅈ",
+            "잫",
+            "자힐"
+        ]
+    },
+    {
+        "KorName": "하트",
+        "EngName": "Hart",
+        "CharNum": 8,
+        "Consonant": [
+            "ㅎ",
+            "하ㅌ"
+        ]
+    },
+    {
+        "KorName": "아이솔",
+        "EngName": "Isol",
+        "CharNum": 9,
+        "Consonant": [
+            "ㅇ",
+            "앙",
+            "아잇",
+            "아이소"
+        ]
+    },
+    {
+        "KorName": "리다이린",
+        "EngName": "LiDailin",
+        "CharNum": 10,
+        "Consonant": [
+            "ㄹ",
+            "릳",
+            "리당",
+            "리다일",
+            "리다이리"
+        ]
+    },
+    {
+        "KorName": "유키",
+        "EngName": "Yuki",
+        "CharNum": 11,
+        "Consonant": [
+            "ㅇ",
+            "윸"
+        ]
+    },
+    {
+        "KorName": "혜진",
+        "EngName": "Hyejin",
+        "CharNum": 12,
+        "Consonant": [
+            "ㅎ",
+            "혲",
+            "혜지"
+        ]
+    },
+    {
+        "KorName": "쇼우",
+        "EngName": "Xiukai",
+        "CharNum": 13,
+        "Consonant": [
+            "ㅅ",
+            "숑"
+        ]
+    },
+    {
+        "KorName": "시셀라",
+        "EngName": "Sissela",
+        "CharNum": 14,
+        "Consonant": [
+            "ㅅ",
+            "싯",
+            "시셀ㄹ"
+        ]
+    },
+    {
+        "KorName": "키아라",
+        "EngName": "Chiara",
+        "CharNum": 15,
+        "Consonant": [
+            "ㅋ",
+            "킹",
+            "키알"
+        ]
+    },
+    {
+        "KorName": "아드리아나",
+        "EngName": "Adriana",
+        "CharNum": 16,
+        "Consonant": [
+            "ㅇ",
+            "앋",
+            "아들",
+            "아드링"
+        ]
+    },
+    {
+        "KorName": "실비아",
+        "EngName": "Silvia",
+        "CharNum": 17,
+        "Consonant": [
+            "ㅅ",
+            "실",
+            "싧",
+            "실빙"
+        ]
+    },
+    {
+        "KorName": "쇼이치",
+        "EngName": "Shoichi",
+        "CharNum": 18,
+        "Consonant": [
+            "ㅅ",
+            "숑",
+            "쇼잋"
+        ]
+    },
+    {
+        "KorName": "엠마",
+        "EngName": "Emma",
+        "CharNum": 19,
+        "Consonant": [
+            "ㅇ",
+            "에",
+            "엠ㅁ"
+        ]
+    },
+    {
+        "KorName": "레녹스",
+        "EngName": "Lenox",
+        "CharNum": 20,
+        "Consonant": [
+            "ㄹ",
+            "렌",
+            "레노",
+            "레녻"
+        ]
+    },
+    {
+        "KorName": "로지",
+        "EngName": "Rozzi",
+        "CharNum": 21,
+        "Consonant": [
+            "ㄹ",
+            "롲"
+        ]
+    },
+    {
+        "KorName": "루크",
+        "EngName": "Luke",
+        "CharNum": 22,
+        "Consonant": [
+            "ㄹ",
+            "뤀"
+        ]
+    },
+    {
+        "KorName": "캐시",
+        "EngName": "Cathy",
+        "CharNum": 23,
+        "Consonant": [
+            "ㅋ",
+            "캣"
+        ]
+    },
+    {
+        "KorName": "아델라",
+        "EngName": "Adela",
+        "CharNum": 24,
+        "Consonant": [
+            "ㅇ",
+            "앋",
+            "아데",
+            "아델ㄹ"
+        ]
+    },
+    {
+        "KorName": "버니스",
+        "EngName": "Bernice",
+        "CharNum": 25,
+        "Consonant": [
+            "ㅂ",
+            "번",
+            "버닛"
+        ]
+    },
+    {
+        "KorName": "바바라",
+        "EngName": "Barbara",
+        "CharNum": 26,
+        "Consonant": [
+            "ㅂ",
+            "밥",
+            "바발"
+        ]
+    },
+    {
+        "KorName": "알렉스",
+        "EngName": "Alex",
+        "CharNum": 27,
+        "Consonant": [
+            "ㅇ",
+            "아",
+            "알ㄹ",
+            "알레",
+            "알렋"
+        ]
+    },
+    {
+        "KorName": "수아",
+        "EngName": "Sua",
+        "CharNum": 28,
+        "Consonant": [
+            "ㅅ",
+            "숭"
+        ]
+    },
+    {
+        "KorName": "레온",
+        "EngName": "Leon",
+        "CharNum": 29,
+        "Consonant": [
+            "ㄹ",
+            "렝",
+            "레오"
+        ]
+    },
+    {
+        "KorName": "일레븐",
+        "EngName": "Eleven",
+        "CharNum": 30,
+        "Consonant": [
+            "ㅇ",
+            "이",
+            "일ㄹ",
+            "일렙",
+            "일레브"
+        ]
+    },
+    {
+        "KorName": "리오",
+        "EngName": "Rio",
+        "CharNum": 31,
+        "Consonant": [
+            "ㄹ",
+            "링"
+        ]
+    },
+    {
+        "KorName": "윌리엄",
+        "EngName": "William",
+        "CharNum": 32,
+        "Consonant": [
+            "ㅇ",
+            "우",
+            "위",
+            "윌ㄹ",
+            "윌링",
+            "윌리어"
+        ]
+    },
+    {
+        "KorName": "니키",
+        "EngName": "Nicky",
+        "CharNum": 33,
+        "Consonant": [
+            "ㄴ",
+            "닠"
+        ]
+    },
+    {
+        "KorName": "나타폰",
+        "EngName": "Nathapon",
+        "CharNum": 34,
+        "Consonant": [
+            "ㄴ",
+            "낱",
+            "나탚",
+            "나타포"
+        ]
+    },
+    {
+        "KorName": "얀",
+        "EngName": "Jan",
+        "CharNum": 35,
+        "Consonant": [
+            "ㅇ",
+            "야"
+        ]
+    },
+    {
+        "KorName": "이바",
+        "EngName": "Eva",
+        "CharNum": 36,
+        "Consonant": [
+            "ㅇ",
+            "입"
+        ]
+    },
+    {
+        "KorName": "다니엘",
+        "EngName": "Daniel",
+        "CharNum": 37,
+        "Consonant": [
+            "ㄷ",
+            "단",
+            "다닝",
+            "다니에"
+        ]
+    },
+    {
+        "KorName": "제니",
+        "EngName": "Jenny",
+        "CharNum": 38,
+        "Consonant": [
+            "ㅈ",
+            "젠"
+        ]
+    },
+    {
+        "KorName": "카밀로",
+        "EngName": "Camilo",
+        "CharNum": 39,
+        "Consonant": [
+            "ㅋ",
+            "캄",
+            "카미",
+            "카밀ㄹ"
+        ]
+    },
+    {
+        "KorName": "클로에",
+        "EngName": "Chloe",
+        "CharNum": 40,
+        "Consonant": [
+            "ㅋ",
+            "크",
+            "클ㄹ",
+            "클롱"
+        ]
+    },
+    {
+        "KorName": "요한",
+        "EngName": "Johann",
+        "CharNum": 41,
+        "Consonant": [
+            "ㅇ",
+            "욯",
+            "요하"
+        ]
+    },
+    {
+        "KorName": "비앙카",
+        "EngName": "Bianca",
+        "CharNum": 42,
+        "Consonant": [
+            "ㅂ",
+            "빙",
+            "비아",
+            "비앙ㅋ"
+        ]
+    },
+    {
+        "KorName": "셀린",
+        "EngName": "Celine",
+        "CharNum": 43,
+        "Consonant": [
+            "ㅅ",
+            "세",
+            "셀ㄹ",
+            "셀리"
+        ]
+    },
+    {
+        "KorName": "에키온",
+        "EngName": "Echion",
+        "CharNum": 44,
+        "Consonant": [
+            "ㅇ",
+            "엨",
+            "에키ㅇ",
+            "에키오"
+        ]
+    },
+    {
+        "KorName": "마이",
+        "EngName": "Mai",
+        "CharNum": 45,
+        "Consonant": [
+            "ㅁ",
+            "망"
+        ]
+    },
+    {
+        "KorName": "에이든",
+        "EngName": "Aiden",
+        "CharNum": 46,
+        "Consonant": [
+            "ㅇ",
+            "엥",
+            "에읻",
+            "에이드"
+        ]
+    },
+    {
+        "KorName": "라우라",
+        "EngName": "Laura",
+        "CharNum": 47,
+        "Consonant": [
+            "ㄹ",
+            "랑",
+            "라울"
+        ]
+    },
+    {
+        "KorName": "띠아",
+        "EngName": "Tia",
+        "CharNum": 48,
+        "Consonant": [
+            "ㄸ",
+            "띵"
+        ]
+    },
+    {
+        "KorName": "펠릭스",
+        "EngName": "Felix",
+        "CharNum": 49,
+        "Consonant": [
+            "ㅍ",
+            "페",
+            "펠ㄹ",
+            "펠리",
+            "펠릯"
+        ]
+    },
+    {
+        "KorName": "엘레나",
+        "EngName": "Elena",
+        "CharNum": 50,
+        "Consonant": [
+            "ㅇ",
+            "에",
+            "엘ㄹ",
+            "엘렌"
+        ]
+    },
+    {
+        "KorName": "프리야",
+        "EngName": "Priya",
+        "CharNum": 51,
+        "Consonant": [
+            "ㅍ",
+            "플",
+            "프링"
+        ]
+    },
+    {
+        "KorName": "아디나",
+        "EngName": "Adina",
+        "CharNum": 52,
+        "Consonant": [
+            "ㅇ",
+            "앋",
+            "아딘"
+        ]
+    },
+    {
+        "KorName": "마커스",
+        "EngName": "Markus",
+        "CharNum": 53,
+        "Consonant": [
+            "ㅁ",
+            "맠",
+            "마컷"
+        ]
+    },
+    {
+        "KorName": "칼라",
+        "EngName": "Karla",
+        "CharNum": 54,
+        "Consonant": [
+            "ㅋ",
+            "카",
+            "칼ㄹ"
+        ]
+    },
+    {
+        "KorName": "에스텔",
+        "EngName": "Estelle",
+        "CharNum": 55,
+        "Consonant": [
+            "ㅇ",
+            "엣",
+            "에슽",
+            "에스테"
+        ]
+    },
+    {
+        "KorName": "파울로",
+        "EngName": "Paulo",
+        "CharNum": 56,
+        "Consonant": [
+            "ㅍ",
+            "팡",
+            "파우",
+            "파울ㄹ"
+        ]
+    }
+]

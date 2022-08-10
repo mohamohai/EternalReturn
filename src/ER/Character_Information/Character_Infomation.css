@@ -27,10 +27,10 @@
 }
 
 #Character_Infomation {
-    margin-top: 20px;
+    margin-top: 10px;
     width: 100vw;
-    height: 1500px;
-
+    height: auto;
+    border: solid 20px rgb(221, 221, 221);
     position: absolute;
     left: 0px;
 }
@@ -52,9 +52,7 @@
     z-index: -2;
     position: absolute;
     top: -100px;
-
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0)20%, rgba(255, 255, 255, 0.1)30%, rgba(255, 255, 255, 0.3)40%, rgba(255, 255, 255, 0.4)50%, rgba(255, 255, 255, 0.9)60%, rgba(255, 255, 255, 1)70%, rgba(255, 255, 255, 1)100%);
-
 }
 
 #abcde {
@@ -67,10 +65,10 @@
 
 
 #Character_SelectBoard {
-    width: 980px;
-    height: 465px;
+    width: 1200px;
+    height: auto;
     margin-top: 60px;
-    padding: 5px 10px 5px 10px;
+    padding: 10px 10px 10px 10px;
     border: solid 1px rgb(221, 221, 221);
     text-align: center;
 
@@ -78,7 +76,7 @@
 
 .CharThumb {
     float: left;
-    width: 70px;
+    width: 300px;
     text-align: center;
     margin: 10px 0 0 0;
 
@@ -91,8 +89,17 @@
 }
 
 .ThunbnailIcon {
-    width: 65px;
-    border: solid 1px black;
+    width: 200px;
+    transition: 1s all;
+    border-radius: 10px;
+
+}
+
+.ThunbnailIcon:hover {
+    background-color: white;
+    width: 220px;
+    transition: 1s all;
+
 }
 
 #SkillInfo {
@@ -146,4 +153,48 @@
     width: 400px;
     border-bottom: rgb(192, 192, 192) 0.2px solid;
     margin: 10px 0 10px 0;
+}
+
+.CharSearch {
+    width: 400px;
+    height: 100px;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 1s all;
+}
+
+.CharSearchText {
+    width: 400px;
+    height: 40px;
+    padding-left: 50px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 1s all;
+}
+
+.CharSearchConsonant {
+    position: relative;
+    width: 500px;
+    left: 50px;
+}
+
+.Consonant {
+    margin: 3px 10px 0 0;
+    float: left;
+    font-family: NEXON Lv1 Gothic OTF right;
+
+}
+
+.CharacterHalf {
+    display: flex;
+    font-family: NEXON Lv1 Gothic OTF Bold;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 1s all;
+    position: inherit;
+    float: left;
 }
