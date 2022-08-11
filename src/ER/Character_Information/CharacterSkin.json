@@ -1,0 +1,492 @@
+[
+    {
+        "KorName": "재키",
+        "EngName": "Jackie",
+        "CharNum": 1,
+        "Skin": [
+            "처형자",
+            "스칼렛 코사지",
+            "시스템쇼크"
+        ]
+    },
+    {
+        "KorName": "아야",
+        "EngName": "Aya",
+        "CharNum": 2,
+        "Skin": [
+            "경찰",
+            "불꽃놀이"
+        ]
+    },
+    {
+        "KorName": "현우",
+        "EngName": "Hyunwoo",
+        "CharNum": 3,
+        "Skin": [
+            "뒷골목",
+            "레드데블",
+            "사관후보생",
+            "사관후보생 이터니티"
+        ]
+    },
+    {
+        "KorName": "매그너스",
+        "EngName": "Magnus",
+        "CharNum": 4,
+        "Skin": [
+            "보스",
+            "남국"
+        ]
+    },
+    {
+        "KorName": "피오라",
+        "EngName": "Fiora",
+        "CharNum": 5,
+        "Skin": [
+            "장교",
+            "총사"
+        ]
+    },
+    {
+        "KorName": "나딘",
+        "EngName": "Nadine",
+        "CharNum": 6,
+        "Skin": [
+            "헌터",
+            "빨간 망토",
+            "야생의 부름"
+        ]
+    },
+    {
+        "KorName": "자히르",
+        "EngName": "Zahir",
+        "CharNum": 7,
+        "Skin": [
+            "사신",
+            "사이코시스"
+        ]
+    },
+    {
+        "KorName": "하트",
+        "EngName": "Hart",
+        "CharNum": 8,
+        "Skin": [
+            "밴드 리더",
+            "눈꽃축제"
+        ]
+    },
+    {
+        "KorName": "아이솔",
+        "EngName": "Isol",
+        "CharNum": 9,
+        "Skin": [
+            "아포칼립스",
+            "고스트헌터"
+        ]
+    },
+    {
+        "KorName": "리다이린",
+        "EngName": "LiDailin",
+        "CharNum": 10,
+        "Skin": [
+            "여행자",
+            "반항아",
+            "용"
+        ]
+    },
+    {
+        "KorName": "유키",
+        "EngName": "Yuki",
+        "CharNum": 11,
+        "Skin": [
+            "사관후보생",
+            "일도양단",
+            "미드나잇 시노비"
+        ]
+    },
+    {
+        "KorName": "혜진",
+        "EngName": "Hyejin",
+        "CharNum": 12,
+        "Skin": [
+            "목련꽃",
+            "사관후보생",
+            "고스트헌터"
+        ]
+    },
+    {
+        "KorName": "쇼우",
+        "EngName": "Xiukai",
+        "CharNum": 13,
+        "Skin": [
+            "일식요리사",
+            "피구왕"
+        ]
+    },
+    {
+        "KorName": "시셀라",
+        "EngName": "Sissela",
+        "CharNum": 14,
+        "Skin": [
+            "겨울 클로버",
+            "노블",
+            "눈꽃축제"
+        ]
+    },
+    {
+        "KorName": "키아라",
+        "EngName": "Chiara",
+        "CharNum": 15,
+        "Skin": [
+            "심판자",
+            "고스트헌터"
+        ]
+    },
+    {
+        "KorName": "아드리아나",
+        "EngName": "Adriana",
+        "CharNum": 16,
+        "Skin": [
+            "파이어뱃",
+            "해충박멸"
+        ]
+    },
+    {
+        "KorName": "실비아",
+        "EngName": "Silvia",
+        "CharNum": 17,
+        "Skin": [
+            "미드나잇 브리즈",
+            "GoForce Now"
+        ]
+    },
+    {
+        "KorName": "쇼이치",
+        "EngName": "Shoichi",
+        "CharNum": 18,
+        "Skin": [
+            "히트맨",
+            "눈꽃축제",
+            "쇼잋"
+        ]
+    },
+    {
+        "KorName": "엠마",
+        "EngName": "Emma",
+        "CharNum": 19,
+        "Skin": [
+            "메이드",
+            "마녀"
+        ]
+    },
+    {
+        "KorName": "레녹스",
+        "EngName": "Lenox",
+        "CharNum": 20,
+        "Skin": [
+            "언더보스",
+            "성야",
+            "사이버애니악"
+        ]
+    },
+    {
+        "KorName": "로지",
+        "EngName": "Rozzi",
+        "CharNum": 21,
+        "Skin": [
+            "블랙로즈",
+            "네메시스"
+        ]
+    },
+    {
+        "KorName": "루크",
+        "EngName": "Luke",
+        "CharNum": 22,
+        "Skin": [
+            "바텐더",
+            "뒷골목",
+            "사관후보생"
+        ]
+    },
+    {
+        "KorName": "캐시",
+        "EngName": "Cathy",
+        "CharNum": 23,
+        "Skin": [
+            "군의관",
+            "사이키메딕"
+        ]
+    },
+    {
+        "KorName": "아델라",
+        "EngName": "Adela",
+        "CharNum": 24,
+        "Skin": [
+            "화이트 퀸"
+        ]
+    },
+    {
+        "KorName": "버니스",
+        "EngName": "Bernice",
+        "CharNum": 25,
+        "Skin": [
+            "아포칼립스"
+        ]
+    },
+    {
+        "KorName": "바바라",
+        "EngName": "Barbara",
+        "CharNum": 26,
+        "Skin": [
+            "정비공"
+        ]
+    },
+    {
+        "KorName": "알렉스",
+        "EngName": "Alex",
+        "CharNum": 27,
+        "Skin": [
+            "오퍼레이터"
+        ]
+    },
+    {
+        "KorName": "수아",
+        "EngName": "Sua",
+        "CharNum": 28,
+        "Skin": [
+            "사관후보생",
+            "새해의 이야기꾼",
+            "해변가"
+        ]
+    },
+    {
+        "KorName": "레온",
+        "EngName": "Leon",
+        "CharNum": 29,
+        "Skin": [
+            "특수부대",
+            "썸머파티"
+        ]
+    },
+    {
+        "KorName": "일레븐",
+        "EngName": "Eleven",
+        "CharNum": 30,
+        "Skin": [
+            "스위트"
+        ]
+    },
+    {
+        "KorName": "리오",
+        "EngName": "Rio",
+        "CharNum": 31,
+        "Skin": [
+            "무녀",
+            "정의의 마법소녀",
+            "사랑의 마법소녀",
+            "마법소녀"
+        ]
+    },
+    {
+        "KorName": "윌리엄",
+        "EngName": "William",
+        "CharNum": 32,
+        "Skin": [
+            "고요한밤 밤의 신사"
+        ]
+    },
+    {
+        "KorName": "니키",
+        "EngName": "Nicky",
+        "CharNum": 33,
+        "Skin": [
+            "뒷골목",
+            "비치발리볼"
+        ]
+    },
+    {
+        "KorName": "나타폰",
+        "EngName": "Nathapon",
+        "CharNum": 34,
+        "Skin": [
+            "극지탐험"
+        ]
+    },
+    {
+        "KorName": "얀",
+        "EngName": "Jan",
+        "CharNum": 35,
+        "Skin": [
+            "무에타이"
+        ]
+    },
+    {
+        "KorName": "이바",
+        "EngName": "Eva",
+        "CharNum": 36,
+        "Skin": [
+            "별 관찰자",
+            "사관후보생"
+        ]
+    },
+    {
+        "KorName": "다니엘",
+        "EngName": "Daniel",
+        "CharNum": 37,
+        "Skin": [
+            "역병의사"
+        ]
+    },
+    {
+        "KorName": "제니",
+        "EngName": "Jenny",
+        "CharNum": 38,
+        "Skin": [
+            "마피아"
+        ]
+    },
+    {
+        "KorName": "카밀로",
+        "EngName": "Camilo",
+        "CharNum": 39,
+        "Skin": [
+            "연미복"
+        ]
+    },
+    {
+        "KorName": "클로에",
+        "EngName": "Chloe",
+        "CharNum": 40,
+        "Skin": [
+            "메이드"
+        ]
+    },
+    {
+        "KorName": "요한",
+        "EngName": "Johann",
+        "CharNum": 41,
+        "Skin": [
+            "대행자"
+        ]
+    },
+    {
+        "KorName": "비앙카",
+        "EngName": "Bianca",
+        "CharNum": 42,
+        "Skin": [
+            "파자마"
+        ]
+    },
+    {
+        "KorName": "셀린",
+        "EngName": "Celine",
+        "CharNum": 43,
+        "Skin": [
+            "폭탄해체반"
+        ]
+    },
+    {
+        "KorName": "에키온",
+        "EngName": "Echion",
+        "CharNum": 44,
+        "Skin": [
+            "뒷골목"
+        ]
+    },
+    {
+        "KorName": "마이",
+        "EngName": "Mai",
+        "CharNum": 45,
+        "Skin": [
+            "전학생"
+        ]
+    },
+    {
+        "KorName": "에이든",
+        "EngName": "Aiden",
+        "CharNum": 46,
+        "Skin": [
+            "고스트헌터"
+        ]
+    },
+    {
+        "KorName": "라우라",
+        "EngName": "Laura",
+        "CharNum": 47,
+        "Skin": [
+            "프리즌 브레이크"
+        ]
+    },
+    {
+        "KorName": "띠아",
+        "EngName": "Tia",
+        "CharNum": 48,
+        "Skin": [
+            "거리의 화가"
+        ]
+    },
+    {
+        "KorName": "펠릭스",
+        "EngName": "Felix",
+        "CharNum": 49,
+        "Skin": [
+            "놀이공원"
+        ]
+    },
+    {
+        "KorName": "엘레나",
+        "EngName": "Elena",
+        "CharNum": 50,
+        "Skin": [
+            "블랙스완"
+        ]
+    },
+    {
+        "KorName": "프리야",
+        "EngName": "Priya",
+        "CharNum": 51,
+        "Skin": [
+            "영원의 꽃"
+        ]
+    },
+    {
+        "KorName": "아디나",
+        "EngName": "Adina",
+        "CharNum": 52,
+        "Skin": [
+            "운명의 아르카나"
+        ]
+    },
+    {
+        "KorName": "마커스",
+        "EngName": "Markus",
+        "CharNum": 53,
+        "Skin": [
+            "아포칼립스"
+        ]
+    },
+    {
+        "KorName": "칼라",
+        "EngName": "Karla",
+        "CharNum": 54,
+        "Skin": [
+            "해상구조요원"
+        ]
+    },
+    {
+        "KorName": "에스텔",
+        "EngName": "Estelle",
+        "CharNum": 55,
+        "Skin": [
+            "소방기동대"
+        ]
+    },
+    {
+        "KorName": "파울로",
+        "EngName": "Paulo",
+        "CharNum": 56,
+        "Skin": [
+            "도전자"
+        ]
+    }
+]

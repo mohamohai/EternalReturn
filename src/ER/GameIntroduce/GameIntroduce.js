@@ -93,11 +93,6 @@ function GameIntroduce() {
     };
   }, []);
 
-
-
-
-
-
   return (
     <div ref={outerDivRef} className="outer">
       <div className="inner Page"

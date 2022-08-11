@@ -27,12 +27,13 @@
 }
 
 #Character_Infomation {
-    margin-top: 10px;
+
     width: 100vw;
     height: auto;
-    border: solid 20px rgb(221, 221, 221);
     position: absolute;
     left: 0px;
+    top: 20px;
+
 }
 
 #abc {
@@ -66,12 +67,7 @@
 
 #Character_SelectBoard {
     width: 1200px;
-    height: auto;
     margin-top: 60px;
-    padding: 10px 10px 10px 10px;
-    border: solid 1px rgb(221, 221, 221);
-    text-align: center;
-
 }
 
 .CharThumb {
@@ -89,16 +85,18 @@
 }
 
 .ThunbnailIcon {
-    width: 200px;
+    width: 180px;
+
     transition: 1s all;
     border-radius: 10px;
-
+    position: relative
 }
 
 .ThunbnailIcon:hover {
-    background-color: white;
-    width: 220px;
-    transition: 1s all;
+    box-shadow: 5px 3px 5px rgb(115, 115, 115);
+    width: 190px;
+
+    transition: 0.5s all;
 
 }
 
@@ -157,28 +155,25 @@
 
 .CharSearch {
     width: 400px;
-    height: 100px;
-
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    height: 80px;
     transition: 1s all;
+    margin-top: 30px;
 }
 
 .CharSearchText {
     width: 400px;
     height: 40px;
-    padding-left: 50px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    margin: 0px auto;
+    position: relative;
+    left: -10px;
+    padding-left: 20px;
     transition: 1s all;
 }
 
 .CharSearchConsonant {
     position: relative;
-    width: 500px;
-    left: 50px;
+    width: 400px;
+
 }
 
 .Consonant {
@@ -188,13 +183,35 @@
 
 }
 
-.CharacterHalf {
-    display: flex;
-    font-family: NEXON Lv1 Gothic OTF Bold;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+#CharTable {
+    text-align: center;
+    background-color: red;
+    width: 1200px;
     transition: 1s all;
+}
+
+.CharacterHalf {
+    width: 200px;
+    height: 240px;
     position: inherit;
+    font-family: NEXON Lv1 Gothic OTF Bold;
+    display: block;
+    text-align: center;
+    transition: 1s all;
     float: left;
+
+
+}
+
+.HalfDiv {
+    width: 180;
+    height: 30px;
+    z-index: 3;
+    position: relative;
+    top: -30px;
+}
+
+.HalfKorName {
+    position: relative;
+    top: -30px;
 }
