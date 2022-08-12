@@ -869,7 +869,6 @@ this.freeCharacters()
       />
       <div id ="abcd"></div>
       </div>
-      
           <div id="Character_SelectBoard">
             {CharacterSort.map((arrSort, ababab) => {
               for(let a= 0; a<=10;a++){console.log(this.state.freeCharacters[a])
