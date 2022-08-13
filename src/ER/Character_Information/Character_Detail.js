@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect, useRef } from "react";
 import CharacterSkin from "./CharacterSkin.json";
@@ -6,13 +6,16 @@ import "./Character_Detail.css"
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { isAbsolute } from 'path';
 
 
 function Character_Detail() {
   
-
+  
     const { CharName } = useParams();
-    const [SkinData, setSkin] = useState(CharName);
+    const [SkinData, setSkin] = useState("Default");
+    const [ShowSkill, setSkill] = useState("P");
+    
 
     const goDetail= (inName) =>{
       window.location.href = `/Character_Infomation/Character_Detail/${inName}`;
@@ -131,8 +134,8 @@ function Character_Detail() {
       ["Default","언더보스",
       "성야",
       "사이버애니악"],
-      ["Default","BlackRoss",
-      "Nemesis"],
+      ["Default","블랙로즈",
+      "네메시스"],
       ["Default","바텐더",
       "뒷골목",
       "사관후보생"],
@@ -183,7 +186,7 @@ function Character_Detail() {
     const AllSkinEng = [
       ["Default", "시간순"],
       ["Default", "Executioner", "ScarletCorsage", "Overvolt"],
-      ["Default", "On-Duty", "MidsummerFestival"],
+      ["Default", "OnDuty", "MidsummerFestival"],
       ["Default", "StreetFiend", "RedDevil", "Cadet", "Cadet(Immortal)"],
       ["Default", "Boss", "TropicalParty"],
       ["Default", "Lieutenant", "Musketeer"],
@@ -192,7 +195,7 @@ function Character_Detail() {
       ["Default", "Bandleader", "WinterCarnival"],
       ["Default", "Wasteland", "SpiritHunter"],
       ["Default", "JadeDrifter", "Rebel", "DragonDance"],
-      ["Default", "Cadet", "Windblade", "Midnight Shinobi"],
+      ["Default", "Cadet", "Windblade", "MidnightShinobi"],
       ["Default", "MagnoliaOracle", "Cadet", "SpiritHunter"],
       ["Default", "Itamae", "DodgeballKing"],
       ["Default", "FrostClover", "Noblewoman", "WinterCarnival"],
@@ -215,7 +218,7 @@ function Character_Detail() {
       ["Default", "ShrineMaiden", "MagicalGirl", "LovelyMagicalGirl", "Summertime"],
       ["Default", "SnowGame"  ],
       ["Default", "Alleycat", "Beachside"],
-      ["Default", "Arctic Expedition"],
+      ["Default", "ArcticExpedition"],
       ["Default", "Champion"],
       ["Default", "CelestialClocktower", "Cadet"],
       ["Default", "PlagueDoctor"],
@@ -239,7 +242,9 @@ function Character_Detail() {
       ["Default", "SpecOps"],
       ["Default", "Challenger"],
     ] 
-
+// 아드리아나 추가
+//////여기서부터 팬킷에 없는거
+//칼라, 재키, 마커스
     var settings = {
       infinite: true,
       autoplay: true,
@@ -260,18 +265,13 @@ function Character_Detail() {
     <div id="DetailInfo">
        
     <button onClick={() => setSkin("Rio")}>asdasdasd</button>
-    
-        <img
-           src={`/image/Character_Img/${CharName}/Thumbnail/Default/Half.png`}
-         />
-         <img/>
-          <div id ="abc" >
         <img 
-          id="abcde"
+          id="ShowSkin"
           src={`/image/Character_Img/${CharName}/Thumbnail/${SkinData}/Full.png`}
         />
-        <div id ="abcd"></div>
-        </div>
+        
+     
+        
 
         {AllSkinEng[CharCount].map((ChooseSkin,key)=>{
           return(
@@ -284,11 +284,77 @@ function Character_Detail() {
             </div>
           )
         })}
+
+          <div id ="SkillSet">
+          <ul id="SkillIcon">
+              <li>
+                <img
+                  id="SkillPImg"
+                  className="SkillBtn"
+                  onClick={() => setSkill("P")}
+                  src={`/image/Character_Img/${CharName}/SkillIcon/P.png`}
+                />
+              </li>
+              <li>
+                <img
+                  id="SkillQImg"
+                  className="SkillBtn"
+                  onClick={() => setSkill("Q")}
+                  src={`/image/Character_Img/${CharName}/SkillIcon/Q.png`}
+                />
+              </li>
+              <li>
+                <img
+                  id="SkillWImg"
+                  className="SkillBtn"
+                  onClick={() => setSkill("W")}
+                  src={`/image/Character_Img/${CharName}/SkillIcon/W.png`}
+                />
+              </li>
+              <li>
+                <img
+                  id="SkillEImg"
+                  className="SkillBtn"
+                  onClick={() => setSkill("E")}
+                  src={`/image/Character_Img/${CharName}/SkillIcon/E.png`}
+                />
+              </li>
+              <li>
+                <img
+                  id="SkillRImg"
+                  className="SkillBtn"
+                  onClick={() => setSkill("R")}
+                  src={`/image/Character_Img/${CharName}/SkillIcon/R.png`}
+                />
+              </li>
+            </ul>
+            <br></br>
+            <img
+              id="SkillGif"
+              src={`/image/Character_Img/${CharName}/SkillIconGif/${ShowSkill}.gif`}
+            />
+             
+          
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <Slider {...settings}
-        style={{}}>
+        style={{position:"absolute",
+        top:"550px"}}>
       {CharacterSkin.map((CharThumb,key) => {
         return(
-          
           <div
                         id={"acacac"}
                         className="MiniDiv"

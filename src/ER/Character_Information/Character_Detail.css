@@ -33,7 +33,12 @@
 
 
 
-
+#ShowSkin {
+    width: 850px;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+}
 
 
 #acacac {}
@@ -57,3 +62,11 @@
     float: left;
     width: 120px;
 }
+
+/* <div id ="abc" >
+<img 
+  id="abcde"
+  src={`/image/Character_Img/${CharName}/Thumbnail/${SkinData}/Full.png`}
+/>
+<div id ="abcd"></div>
+</div> */
