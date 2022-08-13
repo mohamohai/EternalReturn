@@ -37,7 +37,7 @@ class App extends Component {
               path="/Character_Infomation"
               element={<Character_Infomation />}
             />
-                        <Route path="/Character_Infomation/Character_Detail/:CharName" element={<Character_Detail/>}/>
+            <Route path="/Character_Infomation/Character_Detail/:CharName" element={<Character_Detail/>}/>
             <Route path="/Search_User" element={<Search_User />} />
             <Route path="/Search_User/:NickName" element={<Search_User />} />
             <Route path="/Record" element={<Record />} />
