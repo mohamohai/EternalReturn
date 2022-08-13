@@ -351,8 +351,7 @@ function Character_Detail() {
 
 
         <Slider {...settings}
-        style={{position:"absolute",
-        top:"550px"}}>
+        style={{}}>
       {CharacterSkin.map((CharThumb,key) => {
         return(
           <div
