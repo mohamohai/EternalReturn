@@ -26,9 +26,7 @@
 }
 
 
-.Page:nth-child(odd) {
-    background-color: red;
-}
+
 
 .heightcheck {
     position: fixed;

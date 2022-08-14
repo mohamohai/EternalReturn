@@ -6,9 +6,11 @@ import "./Character_Detail.css"
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+const DIVIDER_HEIGHT = 5;
 
 function Character_Detail() {
+    const outerDivRef = useRef();
+    const [scrollIndex, setScrollIndex] = useState(1);
 
     const { CharName }          = useParams();
     const [SkinData,  setSkin ] = useState("Default");
@@ -21,7 +23,93 @@ function Character_Detail() {
   }
     let CharCount = 0;
 
+    useEffect(() => {
+      const wheelHandler = (e) => { 
+        if(outerDivRef.current=="div.outer")
+        console.log(outerDivRef)
+        console.log(outerDivRef)
+        e.preventDefault(); // preventDefault 이벤트 발동 케어
+        const { deltaY } = e;
+        const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
+        const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
+  
+        const InfoOne=document.getElementById("InfoOne")
+        if (deltaY > 0) {
+          // 스크롤 내릴 때
+          if (scrollTop >= 0 && scrollTop < pageHeight) {
+            //현재 1페이지
+            console.log("현재 1페이지, down");
+            
+            outerDivRef.current.scrollTo({
+              top: pageHeight + DIVIDER_HEIGHT,
+              left: 0,
+              behavior: "smooth",
+            });
+            InfoOne.style.opacity="0%"
+            setScrollIndex(2);
+          } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
+            //현재 2페이지
+            console.log("현재 2페이지, down");
+            outerDivRef.current.scrollTo({
+              top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
+              left: 0,
+              behavior: "smooth",
+            });
+            setScrollIndex(3);
+           
+          } else {
+            // 현재 3페이지
+            console.log("현재 3페이지, down");
+            outerDivRef.current.scrollTo({
+              top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
+              left: 0,
+              behavior: "smooth",
+            });
+            setScrollIndex(3);
+          }
+        } else {
+          // 스크롤 올릴 때
+          if (scrollTop >= 0 && scrollTop < pageHeight) {
+            //현재 1페이지
+            console.log("현재 1페이지, up");
+            outerDivRef.current.scrollTo({
+              top: 0,
+              left: 0,
+              behavior: "smooth",
+            });
+            setScrollIndex(1);
+          } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
+            //현재 2페이지
+            console.log("현재 2페이지,ㅇㄴㅁㅇㄴㅁㅇ up");
+            outerDivRef.current.scrollTo({
+              top: 0,
+              left: 0,
+              behavior: "smooth",
+            });
+            InfoOne.style.transition="1s"
+            InfoOne.style.opacity="100%"
+        
+            setScrollIndex(0);
+          } else {
+            // 현재 3페이지
+            console.log("현재 3페이지, up");
+            outerDivRef.current.scrollTo({
+              top: pageHeight + DIVIDER_HEIGHT,
+              left: 0,
+              behavior: "smooth",
+            });
+            setScrollIndex(2);
+          }
+        }
+      };
+      const outerDivRefCurrent = outerDivRef.current;
+      outerDivRefCurrent.addEventListener("wheel", wheelHandler);
+      return () => {
+        outerDivRefCurrent.removeEventListener("wheel", wheelHandler);
+      };
+    }, []);
 
+    
     const  Character = [
       ["KorName","EngName","CharName"],
       ["재키", "Jackie",1],
@@ -955,104 +1043,103 @@ const ChangeSkill = (InData,InDataArr) => {
     }
   return (
     
-    <div id="DetailInfo">
+    <div ref={outerDivRef} className="outer">
+      <div className="inner Page"
+    >
+          <div id="DetailInfo">
        
-    <button onClick={() => setSkin("Rio")}>asdasdasd</button>
-        <img 
-          id="ShowSkin"
-          src={`/image/Character_Img/${CharName}/Thumbnail/${SkinData}/Full.png`}
-        />
-        
-     
-        
+       <button onClick={() => setSkin("Rio")}>asdasdasd</button>
+           <img 
+             id="ShowSkin"
+             src={`/image/Character_Img/${CharName}/Thumbnail/${SkinData}/Full.png`}
+           />
 
-        {AllSkinEng[CharCount].map((ChooseSkin,key)=>{
-          return(
-            <div>
-              <img
-            id="imga"
-            onClick={()=>setSkin(ChooseSkin)}
-              src = {`/image/Character_Img/${CharName}/Thumbnail/${decodeURI(ChooseSkin)}/Mini.png`}
-            ></img>
-            </div>
-          )
-        })}
-
-          <div id ="SkillSet">
-          <ul id="SkillIcon">
-              <li>
-                <img
-                  id="SkillPImg"
-                  className="SkillBtn"
-                  onClick={() => ChangeSkill("P",0)}
-                  src={`/image/Character_Img/${CharName}/SkillIcon/P.png`}
-                />
-              </li>
-              <li>
-                <img
-                  id="SkillQImg"
-                  className="SkillBtn"
-                  onClick={() => ChangeSkill("Q",1)}
-                  src={`/image/Character_Img/${CharName}/SkillIcon/Q.png`}
-                />
-              </li>
-              <li>
-                <img
-                  id="SkillWImg"
-                  className="SkillBtn"
-                  onClick={() => ChangeSkill("W",2)}
-                  src={`/image/Character_Img/${CharName}/SkillIcon/W.png`}
-                />
-              </li>
-              <li>
-                <img
-                  id="SkillEImg"
-                  className="SkillBtn"
-                  onClick={() => ChangeSkill("E",3)}
-                  src={`/image/Character_Img/${CharName}/SkillIcon/E.png`}
-                />
-              </li>
-              <li>
-                <img
-                  id="SkillRImg"
-                  className="SkillBtn"
-                  onClick={() => ChangeSkill("R",4)}
-                  src={`/image/Character_Img/${CharName}/SkillIcon/R.png`}
-                />
-              </li>
-            </ul>
-            <br></br>
-            <img
-              id="SkillGif"
-              src={`/image/Character_Img/${CharName}/SkillIconGif/${ShowSkill}.gif`}
-            />
-             <div>
-              <ul>
-              <li>{SkillName[CharCount][SkillEx]}</li>
-                <li>bar</li>
-                <li>{SkillExplancation[CharCount][SkillEx]}</li>
-              </ul>
+           {AllSkinEng[CharCount].map((ChooseSkin,key)=>{
+             return(
+               <div>
+                 <img
+               id="imga"
+               onClick={()=>setSkin(ChooseSkin)}
+                 src = {`/image/Character_Img/${CharName}/Thumbnail/${decodeURI(ChooseSkin)}/Mini.png`}
+               ></img>
+               </div>
+             )
+           })}
+   
+             <div id ="SkillSet">
+             <ul id="SkillIcon">
+                 <li>
+                   <img
+                     id="SkillPImg"
+                     className="SkillBtn"
+                     onClick={() => ChangeSkill("P",0)}
+                     src={`/image/Character_Img/${CharName}/SkillIcon/P.png`}
+                   />
+                 </li>
+                 <li>
+                   <img
+                     id="SkillQImg"
+                     className="SkillBtn"
+                     onClick={() => ChangeSkill("Q",1)}
+                     src={`/image/Character_Img/${CharName}/SkillIcon/Q.png`}
+                   />
+                 </li>
+                 <li>
+                   <img
+                     id="SkillWImg"
+                     className="SkillBtn"
+                     onClick={() => ChangeSkill("W",2)}
+                     src={`/image/Character_Img/${CharName}/SkillIcon/W.png`}
+                   />
+                 </li>
+                 <li>
+                   <img
+                     id="SkillEImg"
+                     className="SkillBtn"
+                     onClick={() => ChangeSkill("E",3)}
+                     src={`/image/Character_Img/${CharName}/SkillIcon/E.png`}
+                   />
+                 </li>
+                 <li>
+                   <img
+                     id="SkillRImg"
+                     className="SkillBtn"
+                     onClick={() => ChangeSkill("R",4)}
+                     src={`/image/Character_Img/${CharName}/SkillIcon/R.png`}
+                   />
+                 </li>
+               </ul>
+               <br></br>
+               <img
+                 id="SkillGif"
+                 src={`/image/Character_Img/${CharName}/SkillIconGif/${ShowSkill}.gif`}
+               />
+                <div 
+                id="SkillQWERT">
+                 <ul>
+                 <li>{SkillName[CharCount][SkillEx]}</li>
+                   <li>bar</li>
+                   <li>{SkillExplancation[CharCount][SkillEx]}</li>
+                 </ul>
+                </div>
+             
              </div>
-          
-          </div>
-
-
-
-
-
-
-        
-
-
-
-
-
-
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-        <Slider {...settings}
+</div>   
+      </div>
+       
+   
+      <div className="inner Page"
+      style={{
+        backgroundImage:"url(/image/gameInfo/b.jpg)",
+        backgroundSize:"cover"}}
+>2</div>
+   
+      <div className="inner Page"
+      style={{
+        backgroundImage:"url(/image/gameInfo/c.jpg)",
+        backgroundSize:"cover"}}
+>
+<Slider {...settings}
         style={{}}>
       {CharacterSkin.map((CharThumb,key) => {
         return(
@@ -1071,7 +1158,11 @@ const ChangeSkill = (InData,InDataArr) => {
         )
       })}
       </Slider>
+
+
+</div>
     </div>
+
   );
 
   }

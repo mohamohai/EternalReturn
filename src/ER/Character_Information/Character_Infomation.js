@@ -5,6 +5,8 @@ import CharacterAll from "./CharacterAll.json";
 
 
   function Character_Infomation() {
+
+ 
     const goDetail= (CharName) =>{
         window.location.href = `/Character_Infomation/Character_Detail/${CharName}`;
     }
