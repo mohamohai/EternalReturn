@@ -1047,7 +1047,6 @@ const ChangeSkill = (InData,InDataArr) => {
       <div className="inner Page"
     >
           <div id="DetailInfo">
-       
        <button onClick={() => setSkin("Rio")}>asdasdasd</button>
            <img 
              id="ShowSkin"
@@ -1102,14 +1101,14 @@ const ChangeSkill = (InData,InDataArr) => {
                  </li>
                  <li>
                    <img
-                     id="SkillRImg"
+                     id="SkillEImg"
                      className="SkillBtn"
                      onClick={() => ChangeSkill("R",4)}
                      src={`/image/Character_Img/${CharName}/SkillIcon/R.png`}
                    />
                  </li>
                </ul>
-               <br></br>
+            <br></br>
                <img
                  id="SkillGif"
                  src={`/image/Character_Img/${CharName}/SkillIconGif/${ShowSkill}.gif`}

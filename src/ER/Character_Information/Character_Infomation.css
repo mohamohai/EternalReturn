@@ -88,9 +88,9 @@
 }
 
 .SkillBtn {
-    width: 50px;
+    width: 60px;
     float: left;
-    margin: 0 0 0 20px;
+    margin: 0 0 0 0;
 }
 
 #SkillRImg {
