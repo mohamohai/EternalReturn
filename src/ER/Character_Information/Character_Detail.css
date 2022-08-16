@@ -1,7 +1,9 @@
 #DetailInfo {
-    width: 100vw;
+    width: 1920px;
     padding: 60px 0 0 0 auto;
     margin: 60px 0 0 0 auto;
+    position: absolute;
+    top: 0px;
 }
 
 #abc {
@@ -33,16 +35,6 @@
 }
 
 
-
-#ShowSkin {
-    width: 850px;
-    position: absolute;
-    left: 50%;
-    top: 10%;
-    z-index: -1;
-}
-
-
 #acacac {}
 
 .imgBack {
@@ -54,10 +46,7 @@
     left: 15px;
 }
 
-#imga {
-    position: relative;
 
-}
 
 .MiniDiv {
 
@@ -73,6 +62,9 @@
 <div id ="abcd"></div>
 </div> */
 
+.inner {
+    overflow: hidden;
+}
 
 #SkillIcon {
     width: 400px;
@@ -82,4 +74,57 @@
 #SkillQWERT li {
     font-size: 10px;
     width: 500px;
+}
+
+#CharEx {
+    position: absolute;
+    left: 300px;
+    top: 300px;
+    width: 600px;
+    white-space: pre-line;
+    color: white
+}
+
+#CharName {
+    text-shadow: 5px 5px 30px black;
+    font-size: 50px;
+}
+
+.border {
+    width: 600px;
+    border-bottom: 2px solid white;
+    margin: 30px 0 30px 0;
+}
+
+#CharTip {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    font-size: 18px;
+    line-height: 30px;
+
+}
+
+
+
+#ShowSkin {
+    width: 1024px;
+    position: absolute;
+    left: 800px;
+    top: 15%;
+
+}
+
+
+#CharSkinSet {
+    width: 70px;
+    height: 1000px;
+    position: absolute;
+    left: 1750px;
+    top: 65px;
+}
+
+#ThumbSkin {
+    z-index: 1000;
+    width: 90px;
+    border: 1px solid black;
+
 }

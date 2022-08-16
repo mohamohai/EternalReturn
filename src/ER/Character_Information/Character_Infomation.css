@@ -60,7 +60,6 @@
 
 .ThunbnailIcon {
     width: 180px;
-
     transition: 1s all;
     border-radius: 10px;
     position: relative
@@ -69,10 +68,17 @@
 .ThunbnailIcon:hover {
     box-shadow: 5px 3px 5px rgb(115, 115, 115);
     width: 190px;
-
     transition: 0.5s all;
-
 }
+
+.ThunbnailIcon:hover~.HalfKorName {
+    box-shadow: 5px 3px 5px rgb(115, 115, 115);
+    width: 190px;
+    transition: 0.5s all;
+    border-radius: 0 0 8px 8px;
+}
+
+
 
 #SkillInfo {
     width: 1000px;
@@ -90,7 +96,7 @@
 .SkillBtn {
     width: 60px;
     float: left;
-    margin: 0 0 0 0;
+    margin: 0 15px 0 0;
 }
 
 #SkillRImg {
@@ -166,14 +172,13 @@
 
 .CharacterHalf {
     width: 200px;
-    height: 240px;
+    height: 250px;
     position: inherit;
     font-family: NEXON Lv1 Gothic OTF Bold;
     display: block;
     text-align: center;
     transition: 1s all;
     float: left;
-
 
 }
 
@@ -188,8 +193,10 @@
 .HalfKorName {
     position: relative;
     top: -30px;
-    width: 190px;
+    width: 180px;
     height: 30px;
     background-color: black;
     color: white;
+    transition: 0.5s all;
+
 }
