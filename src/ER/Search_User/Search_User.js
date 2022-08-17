@@ -1701,8 +1701,8 @@ class Search_User extends Component {
             abc.map((xx, cc) => {
               return (
                 <div className="GameRecord">
-                  <div>     {xx.gameId}<br></br>
-                  {xx.startDtm}
+                  <div>     <br></br>
+                
                     <div className="GameRecordLeft">
                       {this.GameRank(
                         xx.gameRank,
@@ -1748,15 +1748,12 @@ class Search_User extends Component {
                     {this.routeIdOfStart(xx.routeIdOfStart)}
                   </div>
                   <div className="clear"></div>
-                 
-                    
                 </div>
-                
               );
             })
           )
         ) : (
-          <h1>loading...</h1>
+          <h1>닉네임을 입력해주세요..</h1>
         )}
         
         <div className="PlusBtn" onClick={() => this.PlusSearchGame()}>플러스 플러스</div>

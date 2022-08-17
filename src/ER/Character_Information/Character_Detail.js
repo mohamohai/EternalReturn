@@ -18,9 +18,15 @@ function Character_Detail() {
     const [SkillEx, setSkillEx] = useState(0);
 
  
-    const goDetail= (inName) =>{
+    const goDetail = (inName) =>{
       window.location.href = `/Character_Infomation/Character_Detail/${inName}`;
   }
+    const goNext = (inCount)=>{
+      window.location.href = `/Character_Infomation/Character_Detail/${Character[inCount+1][1]}`;
+    }
+    const goPre = (inCount)=>{
+      window.location.href = `/Character_Infomation/Character_Detail/${Character[inCount-1][1]}`;
+    }
     let CharCount = 0;
 
     useEffect(() => {
@@ -251,24 +257,24 @@ function Character_Detail() {
       "사관후보생"],
       ["Default", "역병의사"],
       ["Default", "마피아"],
-      ["Default","연미복"],
-      ["Default","메이드"],
-      ["Default","대행자"],
-      ["Default","파자마"],
+      ["Default", "연미복"],
+      ["Default", "메이드"],
+      ["Default", "대행자"],
+      ["Default", "파자마"],
       ["Default", "폭탄해체반"],
-      ["Default","뒷골목"],
+      ["Default", "뒷골목"],
       ["Default", "전학생"],
-      ["Default","고스트헌터"],
-      ["Default","프리즌 브레이크"],
-      ["Default","거리의 화가"],
+      ["Default", "고스트헌터"],
+      ["Default", "프리즌 브레이크"],
+      ["Default", "거리의 화가"],
       ["Default", "놀이공원"],
-      ["Default","블랙스완"],
-      ["Default","영원의 꽃"],
-      ["Default","운명의 아르카나"],
-      ["Default","아포칼립스"],
-      ["Default","해상구조요원"],
-      ["Default","소방기동대"],
-      ["Default","도전자"],
+      ["Default", "블랙스완"],
+      ["Default", "영원의 꽃"],
+      ["Default", "운명의 아르카나"],
+      ["Default", "아포칼립스"],
+      ["Default", "해상구조요원"],
+      ["Default", "소방기동대"],
+      ["Default", "도전자"],
     ]
     const AllSkinEng = [
       ["Default", "시간순"],
@@ -276,7 +282,7 @@ function Character_Detail() {
       ["Default", "OnDuty", "MidsummerFestival"],
       ["Default", "StreetFiend", "RedDevil", "Cadet", "Cadet(Immortal)"],
       ["Default", "Boss", "TropicalParty"],
-      ["Default", "Lieutenant", "Musketeer"],
+      ["Default", "Lieutenant", "Muskateer"],
       ["Default", "NeonHuntress", "LittleNadineRidingHood", "HowlingSpirit"],
       ["Default", "GildedReaper", "CobaltEvolution"],
       ["Default", "Bandleader", "WinterCarnival"],
@@ -290,13 +296,13 @@ function Character_Detail() {
       ["Default", "Firebat", "Exterminator"],
       ["Default", "MidnightBreeze", "GoForceNow"],
       ["Default", "Hitman", "WinterCarnival"],
-      ["Default", "Maid", "Witchy"],
+      ["Default", "Maid", "Witch"],
       ["Default", "Capo", "Mistletoe", "MidnightShinobi"],
       ["Default", "BlackRose", "EliteExecutioner"],
       ["Default", "Bartender", "StreetFiend", "Cathy"],
       ["Default", "CombatMedic","AndroidMedic"],
       ["Default", "WhiteQueen"],
-      ["Wasteland"],
+      ["Default", "Wasteland"],
       ["Default", "ChiefMechanic"],
       ["Default", "Operator"],
       ["Default", "Cadet", "WistfulHeritage", "Summertime"],
@@ -317,7 +323,7 @@ function Character_Detail() {
       ["Default", "DefusalAgent"],
       ["Default", "CrimsonDevil"],
       ["Default", "TransferStudent"],
-      ["Default", "Spirit Hunter"],
+      ["Default", "SpiritHunter"],
       ["Default", "JailhousePhantom"],
       ["Default", "StreetAtelier"],
       ["Default", "Lumialand"],
@@ -389,15 +395,16 @@ function Character_Detail() {
         "모두 해방이에요",
         "Sissela",
       ],
+      ["활활", "방화", "기름 뿌리기", "불길 쇄도", "화염 난사", "Adriana"],
       [
         "그란투리스모",
         "스피드건",
         "피니시라인",
         "스페어휠",
-        "기동잔",
+        "기동전",
         "Silvia",
-      ], // 앤 추가해야됨
-      ["활활", "방화", "기름 뿌리기", "불길 쇄도", "화염 난사", "Adriana"],
+      ], 
+  
       ["부당거래", "표리", "비약", "협상", "무자비", "Shoichi"],
       ["CheerUP", "비둘기 딜러", "폭죽 모자", "마술 토끼", "Change", "Emma"],
       [
@@ -1013,7 +1020,7 @@ function Character_Detail() {
         "지정한 지점에 거대한 작살을 설치하여 범위 안의 적들을 사슬로 묶어 스킬 피해를 입히고 이동속도를 감소시킵니다. 일정 시간 동안 사슬을 벗어나지 못한 적들은 거대한 작살 쪽으로 당겨지며 스킬 피해를 입고 짧은 시간 동안 기절합니다.",
         "Karla",
       ],
-      ["마커스는 기본 공격을 할 때 마다 <color=white>투지</color>를 획득합니다. <color=white>투지</color>는 마커스가 비전투 상태가 되면 점점 감소합니다.\n\n<color=white>충격</color>: 마커스가 밀어낸 적이 벽에 충돌하면 그 적은 이동 속도가 감소하고 스킬 피해를 입으며 <color=white>충격</color> 상태가 됩니다.\n마커스가 밀어낸 적이 다른 야생동물 및 실험체에 충돌하면 충돌한 모든 대상에게 같은 효과를 부여하며 밀어냅니다.\n\n<color=white>일격</color>: 마커스가 일정 거리 이내에 있는 <color=white>충격</color> 상태의 적을 기본 공격 대상으로 지정 하면 저지 불가 상태로 돌진하며 기본 공격 피해에 추가 스킬 피해를 입히고 마커스가 부여한 모든 <color=white>충격</color> 상태를 제거합니다.", "마커스가 다음 기본 공격 3회 동안 공격 속도가 증가하고 <color=white>투지</color>를 추가로 획득합니다. 일정 시간동안 기본 공격을 하지 않으면 효과가 사라집니다.\n\n<color=white>전투 교범</color> 스킬을 사용한 후 마커스는 잠시동안 적 실험체를 향해 이동할 때 이동 속도가 증가합니다. ", "마커스가 지정한 방향을 내려 찍어 적에게 스킬 피해를 주고 공중에 띄웁니다.\n\n<color=white>투지</color>가 50 이상이면 적중시킨 적을 마커스의 등 뒤로 넘깁니다.", "마커스가 지정한 방향으로 돌진합니다. 적과 충돌하면 멈추고 해당 적에게 스킬 피해를 주고 짧게 밀어냅니다.\n\n<color=white>투지</color>가 50 이상이면 더 큰 스킬 피해를 주고 더 먼 거리로 밀어내고 기절시킵니다.ㅁㅁ", "마커스가 지정한 방향을 도끼로 내려 찍습니다. 해당 지역을 <color=white>균열</color> 상태로 만들고 피격 당한 적들은 스킬 피해를 입고 이동 속도가 느려졌다가 빠르게 회복됩니다.\n<color=white>지각변동</color>으로 적에게 피해를 입히면 마커스는 <color=white>투지</color>를 회복합니다.\n\n<color=white>균열</color> 지역에서 에어본이나 넉백의 영향을 받으면 <color=white>충격</color> 피해를 입고 <color=white>충격</color> 상태가 됩니다. 이 효과는 한 <color=white>균열</color> 지역에서는 한 번만 받습니다", "Markus"],
+      
       ["에스텔은 근처의 아군과 자신의 기본 체력재생 효과를 증가시키고, 아군을 소생시킬 때 방해효과로 부터 면역 상태가 되며, 빈사 상태의 아군이 소생될 때 추가로 체력을 회복시킵니다. 에스텔의 한손 소방도끼는 다른 도끼에 비해서 피해량이 약간 감소하지만 더 민첩하게 휘두릅니다.", "에스텔은 진압 스킬을 2회 사용 가능하며, 소방도끼와 방패를 각각 강화하여, 다음 기본 공격의 사거리를 증가시키고 스킬 피해를 추가로 입힙니다. 방패가 강화되면 잠시동안 적을 기절 시킬 수 있습니다.", "에스텔이 방패로 대지를 가격하여, 전방의 범위에 스킬 피해를 입히고, 적의 이동속도를 감소시킵니다. 만약 방패방어(E) 상태에서 스킬을 사용하면, 적에게 일정시간 동안 소화액을 뿌려 범위의 적에게 스킬 피해를 입히며 적의 시야를 감소시키고, 적중시킬 때 마다 추가로 시야를 감소시킵니다.", "에스텔이 소방방패를 펼쳐 짧은 시간 동안의 적의 공격을 막아낼 수 있으며, 아군 보호지대를 생성하여 아군의 피해 또한 감소 시킵니다. 방패방어(E) 상태에서 스킬을 한번 더 사용하면, 정면으로 돌진하여 적에게 스킬 피해를 입히며, 돌진 거리에 따라서 적을 기절 시킵니다. 돌진 중에는 에스텔이 저지불가 상태가 되며, 감시카메라 같은 오브젝트를 단번에 파괴 합니다.", "에스텔이 헬기를 호출하여 자신의 위치에 물 폭탄을 떨어뜨려 스킬 피해를 입힘과 동시에 적의 이동속도를 감소시키고, 자신에게 보호막을 생성합니다. 아군에게 스킬을 사용하면 아군에게 즉시 보호막을 생성하고, 헬기를 타고 아군의 위치로 빠르게 날아가 착지 공격을 통해 넓은 범위에 스킬 피해를 입히며, 적을 공중에 잠시 동안 띄웁니다.", "Estelle"],
       ["<color=white>지속 효과</color>: 피올로는 장비에 의한 쿨다운 감소 영향을 받지 않는 대신 공격 속도로 전환됩니다.\n\n휴식을 3초 이상 지속 후 종료 시 [단련] 상태가 되며 [단련의 성과] 스택을 획득합니다. [단련의 성과]를 보유하고 있을 시, [응징자] 스킬 사용 후 다음 기본 공격이 치명타를 입힙니다.", "<color=white>쌍절난격</color>: 피올로가 지정한 방향으로 빠른 속도로 쌍절곤을 휘둘러 범위 안의 적들에게 지속적으로 스킬 피해를 입히고, 일정 타격마다 강화 스킬 피해를 입힙니다. 지속 시간 끝까지 사용하거나 강화 스킬 피해를 일정 횟수 이상 적중 시켰을 때 <color=white>내려치기</color>가 활성화 됩니다. \n\n<color=white>내려치기</color>: 피올로가 지정한 지점에 쌍절곤을 강하게 내려쳐 스킬 피해를 입힙니다. 중앙 범위와 바깥 범위에 따라 피해량이 달라지며, 피격당한 적은 이동 속도가 감소합니다. ", "<color=white>튕겨내기</color>: 피올로가  자신 중심으로 쌍절곤을 빠르게 휘둘러, 저지불가 상태가 되며 발사된 투사체를 튕겨내 소멸시킵니다. 스킬 종료 시, 튕겨낸 투사체 개수와 받은 피해량에 비례하여 보호막을 획득합니다. 스킬 종료 후, <color=white>휘두르기</color>가 활성화 됩니다.\n\n<color=white>휘두르기</color>: 피올로가 뛰어올라 쌍절곤을 크게 휘두르며 주변의 적들에게 스킬 피해를 입히고 기합을 획득합니다. 피올로는 휘두르는 동안 이동 속도가 증가합니다.", "<color=white>사슬묶기</color>: 피올로가 쌍절곤을 돌리며 던질 준비를 합니다. 충전 시간에 비례하여 사거리가 증가합니다. 다시 사용하면 지정한 방향으로 쌍절곤을 던집니다. 적중 시 스킬 피해를 주고 대상에게 날아가 스킬 피해를 주며 뒤로 밀쳐냅니다. 일정 시간 정신집중을 한 경우 기합을 추가로 획득합니다. 쌍절곤이 적에게 적중하면 <color=white>올려치기</color>가 활성화 됩니다.\n\n<color=white>올려치기</color>: 피올로가 지정한 지점에 쌍절곤을 강하게 올려쳐 스킬 피해를 주며 대상을 공중에 띄웁니다.", "<color=white>지속 효과</color>: [응징자] 스킬 사용 후, 기본 공격으로 적 실험체를 공격했을 시 무기 스킬을 제외한 스킬 쿨다운이 감소합니다.\n\n피올로는 응징의 대상을 놓치지 않습니다. 시전 방향으로 돌진하며 관통한 대상에게는 스킬 피해를 줍니다.\n<color=white>내려치기</color>, <color=white>휘두르기</color>, <color=white>올려치기</color>가 활성화 될 때마다 기합을 획득하고, 스킬 사용 시 기합을 소모합니다. 기합은 비전투 상태에서 일정 시간 뒤에 사라집니다.", "Paulo"],
       ["", "", "", "", "", ""],
@@ -1031,9 +1038,10 @@ const ChangeSkill = (InData,InDataArr) => {
       autoplay: true,
       autoplaySpeed: 3000,
       speed: 1000,
-      slidesToShow: 10,
+      slidesToShow: 6,
       slidesToScroll: 6,
       className: "center",
+      vertical:true,
     };
     
     for(let a =0;a<Character.length;a++){
@@ -1043,15 +1051,14 @@ const ChangeSkill = (InData,InDataArr) => {
     }
   return (
     <div ref={outerDivRef} className="outer">
-      <div className="inner Page"
+      <div className="inner"
         style={{
           width: "100vw",
           height: "100vh",
-          background: `linear-gradient( to bottom,        rgba(255, 255, 255, 0.1) 10%,        rgba(255, 255, 255, 0.1) 25%,        rgba(255, 255, 255, 0.1) 50%,        rgba(255, 255, 255, 0.1) 75%,        rgba(255, 255, 255, 0.1) 100%        ), url('/image/Main/Runway.jpg')   `,
+          background: `linear-gradient( to right,        rgba(255, 255, 255, 0.1) 10%,        rgba(255, 255, 255, 0.1) 25%,        rgba(255, 255, 255, 0.1) 50%,        rgba(255, 255, 255, 0.1) 75%,        rgba(255, 255, 255, 0) 100%        ), url('/image/Main/Runway.jpg')   `,
           backgroundSize: "cover",
           position: "relative",
           left:"0px",
-     
       }}
     >
           <div id="DetailInfo">
@@ -1060,38 +1067,46 @@ const ChangeSkill = (InData,InDataArr) => {
              src={`/image/Character_Img/${CharName}/Thumbnail/${SkinData}/Full.png`}
            />
            <div id = "CharEx">
-            <div id ="CharName">{Character[CharCount][0]}</div>
+            <div id ="CharName">{Character[CharCount][0]} / {Character[CharCount][1]}</div>
             <div className='border'></div>
             <div id="CharTip">{Character[CharCount][3]}</div>
             </div>
             <div id="CharSkinSet">
             {AllSkinEng[CharCount].map((ChooseSkin,key)=>{
              return(
+              <div>
                  <img
                id="ThumbSkin"
+               className={ChooseSkin}
                onClick={()=>setSkin(ChooseSkin)}
                  src = {`/image/Character_Img/${CharName}/Thumbnail/${(ChooseSkin)}/Mini.png`}
                ></img>
+               <div id="hoverAct" >{AllSkinKor[CharCount][key]} {Character[CharCount][0]}</div>
+              </div>
                
              )
            })}
-          
            </div>
-            
         </div>   
       </div>
-       
-   
-      <div className="inner Page"
+      
+      <div className="inner"
       style={{
-        backgroundImage:"url(/image/gameInfo/b.jpg)",
-        backgroundSize:"cover"}}
->
-<div id ="SkillSet">
+        backgroundSize:"cover",
+        width: "100vw",
+        height: "100vh",
+        background: `linear-gradient( to right,        rgba(255, 255, 255, 0.1) 10%,        rgba(255, 255, 255, 0.1) 25%,        rgba(255, 255, 255, 0.1) 50%,        rgba(255, 255, 255, 0.1) 75%,        rgba(255, 255, 255, 0) 100%        ), url('/image/Main/ddd.jpg')   `,
+        position: "relative",
+        left:"0px",
+        }}>
+          <div id ="SkillSet">
+            <div></div>
+            <div id = "SG">
              <img
                  id="SkillGif"
                  src={`/image/Character_Img/${CharName}/SkillIconGif/${ShowSkill}.gif`}
                />
+               <div>
              <ul id="SkillIcon">
                  <li>
                    <img
@@ -1099,7 +1114,7 @@ const ChangeSkill = (InData,InDataArr) => {
                      className="SkillBtn"
                      onClick={() => ChangeSkill("P",0)}
                      src={`/image/Character_Img/${CharName}/SkillIcon/P.png`}
-                   />
+                   /><li>P</li>
                  </li>
                  <li>
                    <img
@@ -1107,7 +1122,7 @@ const ChangeSkill = (InData,InDataArr) => {
                      className="SkillBtn"
                      onClick={() => ChangeSkill("Q",1)}
                      src={`/image/Character_Img/${CharName}/SkillIcon/Q.png`}
-                   />
+                   /><li>Q</li>
                  </li>
                  <li>
                    <img
@@ -1115,7 +1130,7 @@ const ChangeSkill = (InData,InDataArr) => {
                      className="SkillBtn"
                      onClick={() => ChangeSkill("W",2)}
                      src={`/image/Character_Img/${CharName}/SkillIcon/W.png`}
-                   />
+                   /><li>W</li>
                  </li>
                  <li>
                    <img
@@ -1123,7 +1138,7 @@ const ChangeSkill = (InData,InDataArr) => {
                      className="SkillBtn"
                      onClick={() => ChangeSkill("E",3)}
                      src={`/image/Character_Img/${CharName}/SkillIcon/E.png`}
-                   />
+                   /><li>E</li>
                  </li>
                  <li>
                    <img
@@ -1131,37 +1146,40 @@ const ChangeSkill = (InData,InDataArr) => {
                      className="SkillBtn"
                      onClick={() => ChangeSkill("R",4)}
                      src={`/image/Character_Img/${CharName}/SkillIcon/R.png`}
-                   />
+                   /><li>R</li>
                  </li>
                </ul>
+               </div>
             <br></br>
-               
                 <div 
                 id="SkillQWERT">
-                  
                  <ul>
-                 <li>{SkillName[CharCount][SkillEx]}</li>
-                   <li>bar</li>
-                   <li>{SkillExplancation[CharCount][SkillEx]}</li>
+                 <li id ="SkillTitle">{SkillName[CharCount][SkillEx]}</li>
+                   <li id ="SkillBar"></li>
+                   <li id = "SkillSub">{SkillExplancation[CharCount][SkillEx]}</li>
                  </ul>
                 </div>
-             
              </div>
-</div>
-   
-      <div className="inner Page"
-      style={{
-        backgroundImage:"url(/image/gameInfo/c.jpg)",
-        backgroundSize:"cover"}}
->
+             </div>
+            
+</div> 
 <Slider {...settings}
-        style={{}}>
+        style={{
+          position:'fixed',
+          top:'0px',
+          left:'5vw',
+          zIndex:'3000',
+          width:'100px',
+          display:'none',
+        }}>
+
+{/* 리모콘 버튼으로 출력 */}
       {CharacterSkin.map((CharThumb,key) => {
         return(
           <div
                         id={"acacac"}
                         className="MiniDiv"
-                      >
+                      > 
                         <div className='imgBack'></div>
             <img
             id="imga"
@@ -1173,11 +1191,70 @@ const ChangeSkill = (InData,InDataArr) => {
         )
       })}
       </Slider>
-
-
-</div>
+      <div>{
+        CharCount==1 ? <div 
+        onClick={() => goNext(CharCount)}
+        style={{
+          width:"22px",
+          height:"22px",
+          borderRadius:"10px",
+          backgroundColor:"rgb(170,170,170)",
+          textAlign:"center",    
+          padding:"0px auto",
+          position:'fixed',
+          right:"2%",
+          top:"45%",
+          opacity:"50%",
+      }}>
+        &gt;</div> :CharCount==Character.length ? <div
+        onClick={() => goPre(CharCount)}
+          style={{
+            width:"22px",
+            height:"22px",
+            borderRadius:"10px",
+            backgroundColor:"rgb(170,170,170)",
+            textAlign:"center",    
+            padding:"0px auto",
+            position:'fixed',
+            left:"3%",
+            top:"45%",
+            opacity:"50%",
+        }}>
+          &lt;</div> : <div><div
+          onClick={() => goPre(CharCount)}
+          style={{
+            width:"22px",
+            height:"22px",
+            borderRadius:"10px",
+            backgroundColor:"rgb(170,170,170)",
+            textAlign:"center",    
+            padding:"0px auto",
+            position:'fixed',
+            left:"3%",
+            top:"45%",
+            opacity:"50%",
+        }}>
+          &lt;</div>
+        <div 
+         onClick={() => goNext(CharCount)}
+          style={{
+            width:"22px",
+            height:"22px",
+            borderRadius:"10px",
+            backgroundColor:"rgb(170,170,170)",
+            textAlign:"center",    
+            padding:"0px auto",
+            position:'fixed',
+            right:"2%",
+            top:"45%",
+            opacity:"50%",
+        }}>
+          &gt;</div></div>
+        }
+        
+     </div>
     </div>
-
+    
   );
 
   }

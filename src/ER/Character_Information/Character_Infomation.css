@@ -80,18 +80,7 @@
 
 
 
-#SkillInfo {
-    width: 1000px;
-    position: relative;
 
-
-}
-
-#SkillGif {
-    width: 500px;
-    float: left;
-    margin: 0 40px 0 0;
-}
 
 .SkillBtn {
     width: 60px;
