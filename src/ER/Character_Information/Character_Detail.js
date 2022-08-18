@@ -1046,7 +1046,7 @@ const ChangeUnderBtn = (InData,) =>{
       autoplay: true,
       autoplaySpeed: 3000,
       speed: 1000,
-      slidesToShow: 10,
+      slidesToShow: 12,
       slidesToScroll: 8,
       className: "center",
     };
