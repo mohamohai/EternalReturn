@@ -60,6 +60,7 @@
 
 .ThunbnailIcon {
     width: 180px;
+    height: 230px;
     transition: 1s all;
     border-radius: 10px;
     position: relative
@@ -68,6 +69,7 @@
 .ThunbnailIcon:hover {
     box-shadow: 5px 3px 5px rgb(115, 115, 115);
     width: 190px;
+    height: auto;
     transition: 0.5s all;
 }
 
