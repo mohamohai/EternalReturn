@@ -23,7 +23,7 @@ class ERMain extends Component {
         style={{
           width: "100vw",
           height: "80vh",
-          background: `linear-gradient( to bottom,        rgba(255, 255, 255, 0) 10%,        rgba(255, 255, 255, 0.25) 25%,        rgba(255, 255, 255, 0.5) 50%,        rgba(255, 255, 255, 0.75) 75%,        rgba(255, 255, 255, 1) 100%        ), url('/image/Main/${this.state.backgroundImg}.png')   `,
+          background: `linear-gradient( to bottom,        rgba(255, 255, 255, 0) 10%,        rgba(255, 255, 255, 0.25) 25%,        rgba(255, 255, 255, 0.5) 50%,        rgba(255, 255, 255, 0.75) 75%,        rgba(255, 255, 255, 1) 100%        ), url('/image/Main/Season3.png')   `,
           backgroundSize: "cover",
           position:"fixed",
           left:"0px",
