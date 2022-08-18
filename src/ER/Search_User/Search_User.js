@@ -596,7 +596,7 @@ class Search_User extends Component {
         { ItemCode: 201501, ItemName: "천사의 고리", ItemTier: 5 },
         { ItemCode: 201502, ItemName: "빛의 증표", ItemTier: 5 },
         { ItemCode: 701451, ItemName: "택티컬 바이저", ItemTier: 6 },
-        { ItemCode: "empty",   ItemName: "empty", ItemTier: 0 },
+        { ItemCode: "empty",ItemName: "empty", ItemTier: 0 },
       ],
       ArmEquipmentArr: [
         { ItemCode: 203101, ItemName: "손목시계", ItemTier: 1 },
@@ -724,7 +724,7 @@ class Search_User extends Component {
         { ItemCode: 705504, ItemName: "쿤달라", ItemTier: 5 },
         { ItemCode: 705601, ItemName: "미니어쳐솔라시스템", ItemTier: 6 },
         { ItemCode: 705602, ItemName: "코발트블루", ItemTier: 6 },
-        { ItemCode: "empty",   ItemName: "empty", ItemTier: 0 },
+        { ItemCode: "empty",ItemName: "empty", ItemTier: 0 },
       ],
       equipmentArr: [
         //배열을 장비위치나 재료별로 종류별로 세팅해서 맵을 최대한 적게 돌리게끔 설정?
@@ -1111,7 +1111,7 @@ class Search_User extends Component {
   pass = () => {
     const urlq = "https://lostark.game.onstove.com/Profile/Character/abcdefg";
     const url = "https://open-api.bser.io/v1/user/nickname?query=mohai"; //여기가 그냥 닉으로 가져오는거?
-    const url2 = "https://open-api.bser.io/v1/user/games/2604769"; //유저의 게임내용 단판? 가져옿기
+    const url2 = "https://open-api.bser.io/v1/user/games/2604769"; //유저의 게임내용 단판? 가져오기
     const url4 = "https://open-api.bser.io/v1/games/19102821"; //게임모두? 잠깐대기
     const url5 = "https://open-api.bser.io/v1/data/Skill";
     const url6 = "https://open-api.bser.io/v1/data/Trait/Name/"; ////특성
@@ -1127,7 +1127,7 @@ class Search_User extends Component {
   };
 
   getMovies2 = async () => {
-    //나를 도와준 착한 블로그야
+    // 나를 도와준 착한 블로그야
     const {
       data: {
         data: { movies },
@@ -1612,7 +1612,6 @@ class Search_User extends Component {
 
   this.OpenModalB();
  }
-///////////////////////
 
   MoreGameDataC  = async (gameid) =>{
     this.setState({damageToPlayerMax:10})
@@ -1925,8 +1924,6 @@ class Search_User extends Component {
             <li className="OneLineDamage left"> {Team1User.damageToPlayer}</li>
             <progress className = "OneLineProgress"value={Team1User.damageToPlayer} max={this.state.damageToPlayerMax}></progress>
             {this.MoreGameItem(Team1User.equipment[0],Team1User.equipment[1],Team1User.equipment[2],Team1User.equipment[3],Team1User.equipment[4],Team1User.equipment[5])}
-           
-
               </div>)
           })}
        
@@ -1946,7 +1943,7 @@ class Search_User extends Component {
        <a href={`/Search_User/?NickName=${Team2User.nickname}`} className="OneLineNick left"> {Team2User.nickname}</a>
           <li className="OneLineKill left"> {Team2User.playerKill}</li>
           <li className="OneLineDeath left">{Team2User.playerDeaths}</li>
-          <li className="OneLineAss left"> {Team2User.playerAssistant}</li>
+          <li className="OneLineAss left">   {Team2User.playerAssistant}</li>
           <li className="OneLineDamage left"> {Team2User.damageToPlayer}</li>
           <progress className = "OneLineProgress"value={Team2User.damageToPlayer} max={this.state.damageToPlayerMax}></progress>
           {this.MoreGameItem(Team2User.equipment[0],Team2User.equipment[1],Team2User.equipment[2],Team2User.equipment[3],Team2User.equipment[4],Team2User.equipment[5])}

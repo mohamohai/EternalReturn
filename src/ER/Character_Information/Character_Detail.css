@@ -38,6 +38,7 @@
 
 #imga {
     width: 100px;
+    z-index: 105;
 }
 
 .imgBack {
@@ -52,7 +53,8 @@
 .MiniDiv {
     float: left;
     width: 150px;
-    background-color: rgb(179, 179, 179);
+    background-color: white;
+
 }
 
 /* <div id ="abc" >
@@ -222,4 +224,25 @@
 #SkillSub {
     font-size: 18px;
     font-family: 'NEXON Lv1 Gothic OTF';
+}
+
+
+#UnderDiv {
+
+    z-Index: 3000;
+    width: 1800px;
+    transition: all 0.5s;
+
+}
+
+#UnderBtn {
+    position: relative;
+    text-align: center;
+    z-index: 102;
+    width: 80px;
+    height: 40px;
+    background-color: white;
+    top: 0px;
+    left: -920px;
+    border-radius: 10px 10px 0 0;
 }

@@ -16,6 +16,7 @@ function Character_Detail() {
     const [SkinData,  setSkin ] = useState("Default");
     const [ShowSkill, setSkill] = useState("P");
     const [SkillEx, setSkillEx] = useState(0);
+    const [UnderBtn, setUnderBtn] = useState("96%");
 
  
     const goDetail = (inName) =>{
@@ -1029,6 +1030,13 @@ const ChangeSkill = (InData,InDataArr) => {
   setSkill(InData);
   setSkillEx((InDataArr));
 }
+const ChangeUnderBtn = (InData,) =>{
+  if(InData=="96%"){
+    setUnderBtn("82%")
+  }else{
+    setUnderBtn("96%")
+  }
+}
 
 // 아드리아나 추가
 //////여기서부터 팬킷에 없는거
@@ -1038,10 +1046,9 @@ const ChangeSkill = (InData,InDataArr) => {
       autoplay: true,
       autoplaySpeed: 3000,
       speed: 1000,
-      slidesToShow: 6,
-      slidesToScroll: 6,
+      slidesToShow: 10,
+      slidesToScroll: 8,
       className: "center",
-      vertical:true,
     };
     
     for(let a =0;a<Character.length;a++){
@@ -1163,17 +1170,18 @@ const ChangeSkill = (InData,InDataArr) => {
              </div>
             
 </div> 
+<div id="UnderDiv"
+style={{
+  position:'fixed',
+  left:'0px',
+  top:UnderBtn,
+  width:'1920px',
+}}
+><div id="UnderBtn" onClick={() => ChangeUnderBtn(UnderBtn)}>+</div>
 <Slider {...settings}
         style={{
-          position:'fixed',
-          top:'0px',
-          left:'5vw',
-          zIndex:'3000',
-          width:'100px',
-          display:'none',
+          width:"1920px"
         }}>
-
-{/* 리모콘 버튼으로 출력 */}
       {CharacterSkin.map((CharThumb,key) => {
         return(
           <div
@@ -1191,6 +1199,8 @@ const ChangeSkill = (InData,InDataArr) => {
         )
       })}
       </Slider>
+
+      </div>
       <div>{
         CharCount==1 ? <div 
         onClick={() => goNext(CharCount)}
@@ -1220,7 +1230,9 @@ const ChangeSkill = (InData,InDataArr) => {
             top:"45%",
             opacity:"50%",
         }}>
-          &lt;</div> : <div><div
+          &lt;</div> : 
+          
+          <div><div
           onClick={() => goPre(CharCount)}
           style={{
             width:"22px",
