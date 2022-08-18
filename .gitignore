@@ -13,6 +13,7 @@
 *.jpg
 *.png
 *.gif
+*.gif
 # production
 /build
 
