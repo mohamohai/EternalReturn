@@ -28,9 +28,10 @@ class GNB extends Component {
       <div className="GNB">
         <li>
           <Link to="/">
-            <img src={require("./image/ER Logo White.png")}></img>
+            <img src={"/image/ERLogoWhite.png"}></img>
           </Link>
         </li>
+      
 
         <ul className="GNB_LeftMenu">
           <li>
