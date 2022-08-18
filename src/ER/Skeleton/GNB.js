@@ -52,7 +52,7 @@ class GNB extends Component {
         <ul className="GNB_RightMenu">
           
           <li>
-            <Link to="/Search_User/?NickName=흑인42호">ex</Link>
+            <Link to="/Search_User/?NickName=Mohai">검색창 닉네임용</Link>
           </li>
           
           <form action="/Search_User/">

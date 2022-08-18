@@ -151,6 +151,8 @@ class Search_User extends Component {
         { ItemCode: 102411, ItemName: "호푸어드", ItemTier: 4 },
         { ItemCode: 102412, ItemName: "빛의 검", ItemTier: 5 },
         { ItemCode: 102501, ItemName: "다인슬라이프", ItemTier: 5 },
+        { ItemCode: 102502, ItemName: "알마스", ItemTier: 5 },
+
       ],
       WeaponDualSwords: [
         { ItemCode: 103201, ItemName: "쌍칼", ItemTier: 1 },
@@ -595,6 +597,7 @@ class Search_User extends Component {
         { ItemCode: 201416, ItemName: "만개하는 선율", ItemTier: 4 },
         { ItemCode: 201501, ItemName: "천사의 고리", ItemTier: 5 },
         { ItemCode: 201502, ItemName: "빛의 증표", ItemTier: 5 },
+        { ItemCode: 201503, ItemName: "더 클래식", ItemTier: 5 },
         { ItemCode: 701451, ItemName: "택티컬 바이저", ItemTier: 6 },
         { ItemCode: "empty",ItemName: "empty", ItemTier: 0 },
       ],
@@ -1766,7 +1769,8 @@ class Search_User extends Component {
        {this.state.matchingTeamMode == 1 ? (
         <div>
          <div className="OneLineth">
-          <li className="OneLineChar">&nbsp; </li>
+         <li className="OneLineChar">&nbsp; </li>
+          
           <li className="OneLineNick left"> 닉네임</li>
           <li className="OneLineKill left"> K</li>    
           <li className="OneLineAss left"> H</li>
