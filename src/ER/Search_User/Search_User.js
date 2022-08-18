@@ -1693,7 +1693,7 @@ class Search_User extends Component {
             position:"fixed",
             left:"100px",
             top:"300px",
-          }}> {this.state.damageToPlayerMax}</div>
+          }}></div>
         
         {this.state.apiSys != "before" ? (
           this.state.SearchData.map((abc, xxx) =>
