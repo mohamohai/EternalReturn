@@ -1946,7 +1946,12 @@ class Search_User extends Component {
             </div>)
           })}
       
-        <button onClick={() => this.CloseModalC()}>닫아</button>
+        <button
+        style={{
+          position:"relative",
+          left:"45%"
+        }}
+        onClick={() => this.CloseModalC()}>닫기</button>
         </div>) : 
         
         
