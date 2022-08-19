@@ -1931,7 +1931,7 @@ class Search_User extends Component {
               </div>)
           })}
        
-        <h2>-------------------------절취선------------------------</h2>
+        <h2>---------------------------------------------------------</h2>
         {this.state.Team2[this.state.Team2.length-1].map((Team2User,xx)=>{
             if(Team2User.damageToPlayer > this.state.damageToPlayerMax){
               this.setState({damageToPlayerMax :Team2User.damageToPlayer })

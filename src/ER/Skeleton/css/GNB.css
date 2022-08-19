@@ -124,6 +124,10 @@ a :visited {
     float: left;
 }
 
+.GNB li {
+    color: white;
+}
+
 .GNB_LeftMenu li {
     float: left;
     margin: 1em;
