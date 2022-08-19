@@ -120,13 +120,24 @@ a :visited {
     float: left;
 }
 
+.GNB li:link {
+
+    color: white;
+}
+
+.GNB li:visited {
+    color: white;
+}
+
+.GNB li:active {
+    color: white;
+}
+
 .GNB_LeftMenu {
     float: left;
 }
 
-.GNB li {
-    color: white;
-}
+
 
 .GNB_LeftMenu li {
     float: left;
@@ -149,7 +160,11 @@ a :visited {
     color: white;
 }
 
-.GNB_RightMenu li :visited {
+.GNB_RightMenu li :link {
+    color: white;
+}
+
+.GNB_RightMenu li :active {
     color: white;
 }
 
