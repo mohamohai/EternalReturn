@@ -149,6 +149,14 @@ a :visited {
     color: white;
 }
 
+.GNB_LeftMenu li :active {
+    color: white;
+}
+
+.GNB_LeftMenu li :link {
+    color: white;
+}
+
 .GNB_RightMenu {
     margin-right: 10px;
 
