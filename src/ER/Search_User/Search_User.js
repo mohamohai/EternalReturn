@@ -509,6 +509,8 @@ class Search_User extends Component {
         {ItemCode:602409 , ItemName: "레바테인Mk2", ItemTier: 5 },
         {ItemCode:607406 , ItemName: "화첨창Mk2", ItemTier: 5 },
         {ItemCode:610501 , ItemName: "주작자문Mk2", ItemTier: 5 },
+        {ItemCode:601503 , ItemName: "데스애더퀸", ItemTier: 5 },
+
       ],
      
       ChestEquipmentArr: [
@@ -1465,6 +1467,7 @@ class Search_User extends Component {
   };
   
   MoreGameItem = (Weapon, Chest, Hat, Arm, Leg, Accessory) => {
+    console.log(Weapon, Chest, Hat, Arm, Leg, Accessory)
     let TierArr = []
      if(isNaN(Weapon)) //아이템 빈공간 확인
        TierArr.push(this.state.WeaponEmpty)
@@ -1516,13 +1519,7 @@ class Search_User extends Component {
        }else  if(a==this.state.AccessoryEquipmentArr.length-1)TierArr.push(this.state.AccessoryEquipmentArr[a])
        }
      return(<div className="Itema">
-        {console.log(TierArr[0].ItemCode)}
-        {console.log(TierArr[1].ItemCode)}
-        {console.log(TierArr[2].ItemCode)}
-        {console.log(TierArr[3].ItemCode)}
-        {console.log(TierArr[4].ItemCode)}
-        {console.log(TierArr[5].ItemCode)}
-        {console.log("")}{console.log("")}
+        
        <img
        className={`MoreGameItemIcon ItemTier${TierArr[0].ItemTier}`}
        src={`/image/Item/Weapon/${TierArr[0].ItemCode}.png`}
@@ -1539,7 +1536,6 @@ class Search_User extends Component {
        className={`MoreGameItemIcon ItemTier${TierArr[3].ItemTier}`}
        src={`/image/Item/Arm/${TierArr[3].ItemCode}.png`}
          />
-       
           <img
        className={`MoreGameItemIcon ItemTier${TierArr[4].ItemTier}`}
        src={`/image/Item/Leg/${TierArr[4].ItemCode}.png`}
@@ -1555,15 +1551,15 @@ class Search_User extends Component {
     return <div className="MoreGameData" onClick={() => this.MoreGameDataC(gameId)
     }>
       <div>+</div>
-    </div>  
+    </div> 
     else 
     return <div className="MoreGameData" onClick={() => this.MoreGameDataB(gameId,matchingTeamMode)}>
       <div>+</div>
     </div>  
   }
   MoreGameDataB  = async (gameid,matchingTeamMode) =>{
-
-   
+  this.setState({damageToPlayerMax:10})
+  this.damageToPlayerMax();
    const SearchGameId =`https://open-api.bser.io/v1/games/${gameid}`; 
    let {
     data: { userGames },
@@ -1584,7 +1580,6 @@ class Search_User extends Component {
     })
     console.log(user1)
     this.state.User1.push(user1)
- 
   }
   else if(matchingTeamMode==2){
     this.setState({matchingTeamMode:matchingTeamMode})
@@ -1608,15 +1603,12 @@ class Search_User extends Component {
       }
     }
     console.log(this.state.User3arr)
- 
-    
   }
-
-
   this.OpenModalB();
  }
 
   MoreGameDataC  = async (gameid) =>{
+    this.damageToPlayerMax();
     this.setState({damageToPlayerMax:10})
     const SearchGameId =`https://open-api.bser.io/v1/games/${gameid}`; 
     let {
@@ -1649,7 +1641,6 @@ class Search_User extends Component {
     });
   };
   CloseModalB = () => {
-
     this.setState({
       HaveVisibleB: false,
       damageToPlayerMax: 10,
@@ -1666,7 +1657,6 @@ class Search_User extends Component {
     });
    }
   CloseModalC = () => {
-
     this.setState({
       HaveVisibleC: false,
       damageToPlayerMax: 10
@@ -1747,7 +1737,8 @@ class Search_User extends Component {
                   </div>
                   {this.MoreGameType(xx.matchingMode,xx.gameId,xx.matchingTeamMode)}
                   <div className="GameRecordUnder">
-                    {this.routeIdOfStart(xx.routeIdOfStart)}
+                  {this.routeIdOfStart(xx.routeIdOfStart)}
+                  {console.log(xx.routeIdOfStart)}
                   </div>
                   <div className="clear"></div>
                 </div>
@@ -1765,7 +1756,7 @@ class Search_User extends Component {
         style={customStyles}
         onRequestClose={() => this.CloseModalB()}
       >
-
+        
        {this.state.matchingTeamMode == 1 ? (
         <div>
          <div className="OneLineth">

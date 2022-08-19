@@ -22,7 +22,9 @@ class GNB extends Component {
   conlog() {
     console.log("된다링된다");
   }
-
+   goS = () =>{
+    window.location.href = "/Search_User/?NickName=Mohai";
+  }
   render() {
     return (
       <div className="GNB">
@@ -51,8 +53,8 @@ class GNB extends Component {
         </ul>
         <ul className="GNB_RightMenu">
           
-          <li>
-            <Link to="/Search_User/?NickName=Mohai">검색창 닉네임용</Link>
+          <li onClick={() => this.goS()}>
+            검색창 닉네임용
           </li>
           
           <form action="/Search_User/">

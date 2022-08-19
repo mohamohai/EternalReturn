@@ -176,6 +176,10 @@ a :visited {
     color: white;
 }
 
+.GNB_RightMenu li :visited {
+    color: white;
+}
+
 .clear {
     clear: both;
 }
