@@ -133,6 +133,8 @@ class Search_User extends Component {
         { ItemCode: 101405, ItemName: "프라가라흐", ItemTier: 5 },
         { ItemCode: 101406, ItemName: "다마스커스 가시", ItemTier: 4 },
         { ItemCode: 101407, ItemName: "마하라자", ItemTier: 4 },
+        { ItemCode: 101501, ItemName: "월식", ItemTier: 5 },
+
       ],
       WeaponTwoHanedeSword: [
         { ItemCode: 102101, ItemName: "녹슨 검", ItemTier: 1 },
