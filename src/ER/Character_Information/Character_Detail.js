@@ -33,7 +33,9 @@ function Character_Detail() {
     useEffect(() => {
       const wheelHandler = (e) => { 
         if(outerDivRef.current=="div.outer")
-       
+        console.log(outerDivRef)
+        console.log(outerDivRef)
+
         e.preventDefault(); // preventDefault 이벤트 발동 케어
         const { deltaY } = e;
         const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
@@ -44,8 +46,9 @@ function Character_Detail() {
           // 스크롤 내릴 때
           if (scrollTop >= 0 && scrollTop < pageHeight) {
             //현재 1페이지
-         
-            
+            console.log("1, down");
+
+
             outerDivRef.current.scrollTo({
               top: pageHeight + DIVIDER_HEIGHT,
               left: 0,
@@ -55,17 +58,19 @@ function Character_Detail() {
             setScrollIndex(2);
           } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
             //현재 2페이지
-           
+            console.log("2, down");
+
             outerDivRef.current.scrollTo({
               top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
               left: 0,
               behavior: "smooth",
             });
             setScrollIndex(3);
-           
+
           } else {
             // 현재 3페이지
-         
+            console.log("3, down");
+
             outerDivRef.current.scrollTo({
               top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
               left: 0,
@@ -77,7 +82,8 @@ function Character_Detail() {
           // 스크롤 올릴 때
           if (scrollTop >= 0 && scrollTop < pageHeight) {
             //현재 1페이지
-          
+            console.log("1, up");
+
             outerDivRef.current.scrollTo({
               top: 0,
               left: 0,
@@ -86,7 +92,8 @@ function Character_Detail() {
             setScrollIndex(1);
           } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
             //현재 2페이지
-         
+            console.log("2,up");
+
             outerDivRef.current.scrollTo({
               top: 0,
               left: 0,
@@ -98,7 +105,8 @@ function Character_Detail() {
             setScrollIndex(0);
           } else {
             // 현재 3페이지
-          
+            console.log("3, up");
+
             outerDivRef.current.scrollTo({
               top: pageHeight + DIVIDER_HEIGHT,
               left: 0,
