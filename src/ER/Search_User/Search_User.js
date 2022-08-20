@@ -1717,14 +1717,14 @@ class Search_User extends Component {
         <span style={{
           position:"fixed",
           left:"100px",
-          height:"50%",
+          height:"50%", visibility:"hidden"
 
         }}>{this.state.damageToPlayerMax}</span>
         <span style={{
           position:"fixed",
           left:"50px",
           height:"500px",
-
+          visibility:"hidden"
         }}>{this.state.damageToPlayerMaxC}</span>
 
 
@@ -1802,7 +1802,7 @@ class Search_User extends Component {
        {this.state.matchingTeamMode == 1 ? (
         <div>
          <div className="OneLineth">
-         <li className="OneLineChar">&nbsp; </li>
+         <li className="OneLineChar">&nbsp; </li><li className="OneLineChar">&nbsp; </li>
           
           <li className="OneLineNick left"> 닉네임</li>
           <li className="OneLineKill left"> K</li>    
@@ -1853,12 +1853,12 @@ class Search_User extends Component {
         (
         <div className="center"><div className="OneLineth">
         <div className="TeamNum">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </div>
-        <li className="OneLineChar">&nbsp; </li>
-        <li className="OneLineNick left"> 닉네임</li>
-        <li className="OneLineKill left"> K</li>
-        <li className="OneLineDeath left">D</li>
-        <li className="OneLineAss left"> A</li>
-        <li className="OneLineAss left"> H</li>
+        <li className="OneLineChar">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </li>
+        <li className="OneLineNick left marrig"> 닉네임</li>
+        <li className="OneLineKill left marrig"> K</li>
+        <li className="OneLineDeath left marrig">D</li>
+        <li className="OneLineAss left marrig"> A</li>
+        <li className="OneLineAss left marrig"> H</li>
         <li className="OneLineDamage left"> 딜량</li>
       </div>   <br></br><br></br>
 
@@ -1895,11 +1895,11 @@ class Search_User extends Component {
         : (  /////////////////////////////////////// 여기부터 트리오
         <div className="center"><div className="OneLineth">
         <li className="OneLineChar">&nbsp; </li>
-        <li className="OneLineNick left"> 닉네임</li>
-        <li className="OneLineKill left"> K</li>
-        <li className="OneLineDeath left">D</li>
-        <li className="OneLineAss left"> A</li>
-        <li className="OneLineAss left"> H</li>
+        <li className="OneLineNick left spadding" style={{padding:"0 0 0 30px"}}> 닉네임</li>
+        <li className="OneLineKill left marrig"> K</li>
+        <li className="OneLineDeath left marrig">D</li>
+        <li className="OneLineAss left marrig"> A</li>
+        <li className="OneLineAss left marrig"> H</li>
         <li className="OneLineDamage left"> 딜량</li>
       </div>   <br></br><br></br>
 
