@@ -1728,8 +1728,6 @@ class Search_User extends Component {
         }}>{this.state.damageToPlayerMaxC}</span>
 
 
-
-
         {this.state.apiSys != "before" ? (
           this.state.SearchData.map((abc, xxx) =>
             abc.map((xx, cc) => {
@@ -1940,11 +1938,11 @@ class Search_User extends Component {
         {this.state.btnC == "after" ? (
         <div>
          <div className="OneLineth">
-          <li className="OneLineChar">&nbsp; </li>
-          <li className="OneLineNick left"> 닉네임</li>
-          <li className="OneLineKill left"> K</li>
-          <li className="OneLineDeath left">D</li>
-          <li className="OneLineAss left"> A</li>
+          <li className="OneLineChar marrig">&nbsp; </li>
+          <li className="OneLineNick left marrig"> 닉네임</li>
+          <li className="OneLineKill left marrig"> K</li>
+          <li className="OneLineDeath left marrig">D</li>
+          <li className="OneLineAss left marrig"> A</li>
           <li className="OneLineDamage left"> 딜량</li>
         </div>   <br></br><br></br>
           {this.state.Team1[this.state.Team1.length-1].map((Team1User,xx)=>{

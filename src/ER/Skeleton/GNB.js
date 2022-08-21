@@ -42,13 +42,13 @@ class GNB extends Component {
           <li>
             <Link to="/Search_User">검색창</Link>
           </li>
-          {/* <li>
+        <li>
             <Link to="/GameIntroduce">소개</Link>
           </li>
- 
+{/* 
           <li>
             <Link to="/Statistics">통계</Link>
-          </li> */}
+          </li>  */}
           
         </ul>
         <ul className="GNB_RightMenu">
