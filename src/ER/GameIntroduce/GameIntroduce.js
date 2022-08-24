@@ -1,15 +1,18 @@
+
+
+
 import { useState, useEffect, useRef } from "react";
 import Slider from "react-slick";
-
+import {FullPage, Slide} from 'react-fullpage';
 import "./GameIntroduce.css"
-
+const DIVIDER_HEIGHT = 5;
 function GameIntroduce() {
   const txt = "냉장고에서 꺼내 먹어..";    //타이핑에 쓸 문구
   const [Text, setText] = useState('');    //입력 할 문자 하나
   const [Count, setCount] = useState(0);   //val i
 
   const source = document.getElementById("Motion");
-
+  
   useEffect(() => {
     const interval = setInterval(() => {
         setText(Text + txt[Count]); // 이전 set한 문자 + 다음 문자
@@ -36,10 +39,10 @@ const TryAgain=() =>{// 특정 마우스 휠에서 작동시키면 지웠다가 
     setText('');
   }
 
-
   return (
   
-   
+
+    
     <div className="GameIntroduce">
     <div className="TomatoGNB">
      <div id = "TomatoLeftMenu">
@@ -108,7 +111,7 @@ const TryAgain=() =>{// 특정 마우스 휠에서 작동시키면 지웠다가 
     </div>
     
    
-  
+
 
   );
 }
