@@ -8,7 +8,7 @@ function GameIntroduce() {
   const txt = "Pixel";    //타이핑에 쓸 문구
   const [Text, setText] = useState('');    //입력 할 문자 하나
   const [Count, setCount] = useState(0);   //val i
-  const streamer = ["0802","aduck","aguippo","aguippo","badgirl","bbibu","bbonge","chabi","cham","ddolbok","gambler","gangg_wide","jahee","jinu","jjondeuk","kimdduddi","kosi","leechohong","magenta","manggae","nanayang","purin","sahyang","silph","snowwhite",]
+  const streamer = ["0828","aduck","aguippo","aguippo","badgirl","bbibu","bbonge","chabi","cham","ddolbok","gambler","gangg_wide","jahee","jinu","jjondeuk","kimdduddi","kosi","leechohong","magenta","manggae","nanayang","purin","sahyang","silph","snowwhite",]
   const source = document.getElementById("Motion");
   
 
@@ -180,18 +180,18 @@ const TryAgain=() =>{// 특정 마우스 휠에서 작동시키면 지웠다가 
         <div>
 
         </div>
-        <div className="Pixel3Table"></div>
+        <div className="Pixel3Table">
         <Slider {...settingsa}>
-
         {streamer.map((NameS,key)=>{
-            return(<img style={{width:"200px"}} src={`/image/Pixel/Main3/${NameS}.jpg`}></img>)
+            return(<img height="200px" width="180px"  src={`/image/Pixel/Main3/${NameS}.jpg`}></img>)
           })}
         {/* <div style={{width:"200px",height:"200px",
             fontSize:"1rem",
             background: `linear-gradient( to bottom,        rgba(255, 255, 255, 0) 10%,        rgba(255, 255, 255, 0.25) 25%,        rgba(255, 255, 255, 0.5) 50%,        rgba(255, 255, 255, 0.75) 75%,        rgba(255, 255, 255, 1) 100%        ), url('/image/Pixel/Main3/${NameS}.jpg')   `,
           }}></div> */}
-          <div ></div>
+      
         </Slider>
+        </div>
         </div>
      </div>
      <div className="Pixel4 page">4</div>

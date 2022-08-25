@@ -17,6 +17,8 @@
 
 }
 
+
+
 .Page {
     width: 100vw;
     height: 95vh;
@@ -260,6 +262,11 @@ body {
     line-height: 4vh;
 }
 
+.Pixel3Table img {
+    width: 100px;
+
+
+}
 
 
 #Motion {
