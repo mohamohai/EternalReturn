@@ -43,7 +43,7 @@ class GNB extends Component {
             <Link to="/Search_User">검색창</Link>
           </li>
         <li>
-            <Link to="/GameIntroduce">픽셀네트워크 모작 연습ing</Link>
+            <Link to="/GameIntroduce">픽셀네트워크 모작 연습중ing</Link>
           </li>
 {/* 
           <li>
