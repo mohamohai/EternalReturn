@@ -142,20 +142,113 @@ body {
     height: 100vh;
     display: flex;
     background: cover;
+    font-size: 5rem;
+    /* justify-content: center;
+    align-items: center; 상하센터 */
+}
+
+.PixelGNB {
+    position: fixed;
+    height: 50px;
+    background-color: black;
+    width: 100vw;
+}
+
+.PixelGNB span {
+    float: left;
+    color: white;
+    margin: 11px 0 0 20px;
+    width: 150px
+}
+
+.PixelGNB ul {
+    position: relative;
+
+    text-align: center;
+    width: 800px;
+}
+
+.PixelStoreLink {
+    float: right;
+    position: relative;
+    left: 20%;
+}
+
+.PixelGNB ul li {
+    margin: 11px 70px 0 0;
+    color: white;
+    float: left;
+}
+
+.Pixel1 {
+    background-color: black;
     justify-content: center;
     align-items: center;
 }
 
-.Pixel1 {}
+.clear {
+    clear: both;
+}
 
-.Pixel2 {}
+.Pixel2Word {
+    position: relative;
+    top: 10%;
+    left: 10%;
+    width: 70vw;
+}
 
-.Pixel3 {}
+.Pixel2Word2 {
+    position: relative;
+}
+
+.Pixel2PixelStore {
+    border: 1px solid white;
+    color: white;
+    padding: 5px 15px 5px 15px;
+    border-radius: 15px;
+    background-color: black;
+    width: 100px;
+    float: left;
+    margin: 40px 50px 0 0;
+
+}
+
+.Pixel2Contact {
+    border: 1px solid black;
+    padding: 5px 15px 5px 15px;
+    border-radius: 15px;
+    width: 100px;
+    float: left;
+}
+
+.Pixel2 li {
+    font-size: 1rem;
+    margin-top: 30px;
+}
+
+.Pixel3 {
+    background-color: black;
+}
+
+.Pixel3Creators {
+    color: white;
+    width: 70vw;
+    height: 50vh;
+    position: relative;
+    background-color: red;
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    font-size: 1rem;
+}
 
 #Motion {
     font-size: 80px;
     position: relative;
-
+    color: white;
+    float: left;
 }
 
 .blink {
@@ -206,13 +299,4 @@ body {
     font-weight: 600px;
     line-height: 1.8;
     font-size: 26px;
-}
-
-
-(scrollTop>=pageHeight*4) {
-    DivRef.current.scrollTo({
-        top: pageHeight * 3,
-        left: 0,
-        behavior: "smooth",
-    });
 }

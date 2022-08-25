@@ -11,7 +11,7 @@ function GameIntroduce() {
 
   const source = document.getElementById("Motion");
   
-const DIVIDER_HEIGHT = 5;
+
   useEffect(() => {
     const interval = setInterval(() => {
         setText(Text + txt[Count]); // 이전 set한 문자 + 다음 문자
@@ -43,32 +43,34 @@ const TryAgain=() =>{// 특정 마우스 휠에서 작동시키면 지웠다가 
     const wheelHandler = (e) => {
   
       const { deltaY } = e;
-   
-      const { scrollTop } = DivRef.current; // 스크롤 위쪽 끝부분 위치
+      const { scrollTop } =DivRef.current; // 스크롤 위쪽 끝부분 위치
       const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
     
       console.log( scrollTop +"  "+ pageHeight)
       if(deltaY > 0){
         if(scrollTop<pageHeight)
-        {
+        {console.log("1p down")
           DivRef.current.scrollTo({
           top: pageHeight *1,
           left: 0,
           behavior: "smooth",
         });
-      }else if(scrollTop<=pageHeight*2 && scrollTop>pageHeight){
+      }else if(scrollTop<pageHeight*2 && scrollTop>=pageHeight){
+        console.log("2p down")
         DivRef.current.scrollTo({
         top: pageHeight *2,
         left: 0,
         behavior: "smooth",
       });
-      } else if(scrollTop<=pageHeight*3 && scrollTop>pageHeight*2){
+      } else if(scrollTop<pageHeight*3 && scrollTop>=pageHeight*2){
+        console.log("3p down")
         DivRef.current.scrollTo({
         top: pageHeight *3,
         left: 0,
         behavior: "smooth",
       });
-      }else if(scrollTop<=pageHeight*4 && scrollTop>=pageHeight*3){
+      }else if(scrollTop<pageHeight*4 && scrollTop>=pageHeight*3){
+        console.log("4p down")
         DivRef.current.scrollTo({
         top: pageHeight *4,
         left: 0,
@@ -76,57 +78,94 @@ const TryAgain=() =>{// 특정 마우스 휠에서 작동시키면 지웠다가 
       });
     }
       }else{
-        if(scrollTop>=pageHeight)
-        {
+        if(scrollTop>=pageHeight*4 )
+        { console.log("5p up")
           DivRef.current.scrollTo({
-          top: pageHeight *0,
+          top: pageHeight *3,
           left: 0,
           behavior: "smooth",
         });
-      }else if(scrollTop>=pageHeight*2)
-      {
-        DivRef.current.scrollTo({
-        top: pageHeight * 1,
-        left: 0,
-        behavior: "smooth",
-      });
-      } else if(scrollTop>=pageHeight*3)
-      {
+      }else if(scrollTop>=pageHeight*3 && scrollTop<=pageHeight*4)
+      {console.log("4p up")
         DivRef.current.scrollTo({
         top: pageHeight * 2,
         left: 0,
         behavior: "smooth",
       });
-      }else if(scrollTop>=pageHeight*4)
-      {
+      }else if(scrollTop>=pageHeight*2 && scrollTop<=pageHeight*3)
+      {console.log("3p up")
         DivRef.current.scrollTo({
-        top: pageHeight * 3,
+        top: pageHeight * 1,
         left: 0,
         behavior: "smooth",
       });
-      }
+      } 
+      else if(scrollTop>=pageHeight*1 && scrollTop<=pageHeight*2)
+      {console.log("2p up")
+        DivRef.current.scrollTo({
+        top: pageHeight * 0,
+        left: 0,
+        behavior: "smooth",
+      });
+      } 
     };
   }
     const DivRefCurrent = DivRef.current;
     DivRefCurrent.addEventListener("wheel", wheelHandler);
     return () => {
-   
     };
   }, []);
   return (
 
     <div className="GameIntroduce" ref={DivRef}>
-    <div className="Pixel1 page">1
-      <div className="title">::before, ::after</div>
-      <div>특정 요소의 앞이나 뒤에 지정한 내용(텍스트 또는 이미지)을 추가할 수 있습니다.</div>
+      <div className="PixelGNB">
+        <span>Pixel network</span>
+        <ul>
+          <li>ABOUT US</li>
+          <li>CREATORS</li>
+          <li>PR CONTENTS</li>
+          <li>CLIENTS</li>
+          <li>CONTACT US</li>
+        </ul>
+        <span className="PixelStoreLink">pixel store</span>
+      </div>
+    <div className="Pixel1 page">
+
+     
+      
    
       <div id="Motion">
       { Text }<span className="blink"></span>
-      <button onClick={() => stopyes()}>초기화용 버튼</button>
+      
       </div> 
      </div>
-     <div className="Pixel2 page">2</div>
-     <div className="Pixel3 page">3</div>
+     
+      <div className="Pixel2 page">
+      <div className="Pixel2Word">
+      <h1>Pixel</h1>
+      <ul>
+        <li>크리에이터 자신의 브랜드 가치를 온전히 인정받을 수 있도록</li>
+        <li>픽셀네트워크는 '크리에이터 자신의 브랜드 가치를 온전히 인정받을 수 있도록' 하고자 설립된 회사입니다.<br></br>
+크리에이터가 직접 설립한 회사로 높은 신뢰도를 바탕으로 영향력 있는 크리에이터들이 뭉쳐있습니다.<br></br></li>
+        <li>크리에이터가 콘텐츠 제작에만 집중할 수 있도록, 동시에 더 많은 수익을 창출할 수 있도록 돕는 것이 픽셀네트워크의 목표입니다.
+전문 디자이너와 MCN, 게임 업계 출신 인력들이 함께하고 있어 크리에이터에게는 온전한 브랜드 가치를, 파트너사에게는 긴밀한 솔루션을 제공합니다.
+ </li><br></br>
+          <li className="Pixel2PixelStore">Pixel Store</li>
+          <li className="Pixel2Contact">contact us</li>
+      </ul>
+      </div>
+      <div className="clear"></div>
+     
+     </div>
+     <div className="Pixel3 page">
+      <div className="Pixel3Creators">
+        <div>
+          <h5>Pixel creators</h5>
+          <span>픽셀 네트워크 소속 크리에이터를 소개합니다.</span>
+        </div>
+        <div className="Pixel3Table"></div>
+      </div>
+     </div>
      <div className="Pixel4 page">4</div>
      <div className="Pixel5 page">5</div>
     </div>
