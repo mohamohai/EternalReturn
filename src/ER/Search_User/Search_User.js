@@ -1861,8 +1861,11 @@ class Search_User extends Component {
       </div>   <br></br><br></br>
 
       {this.state.User2arr.map((duo,squadk)=>{
-       mapCount++
-        console.log(mapCount)
+         mapCount++
+        if(duo==null){
+          return console.log("끝")
+        }
+     
         if(duo.damageToPlayer > this.state.damageToPlayerMax){
           this.setState({damageToPlayerMax :duo.damageToPlayer })
         }
@@ -1902,6 +1905,10 @@ class Search_User extends Component {
       </div>   <br></br><br></br>
 
       {this.state.User3arr.map((squad,squadk)=>{
+
+if(squad==null){
+  return console.log("끝")
+}
         if(squad.damageToPlayer > this.state.damageToPlayerMax){
           this.setState({damageToPlayerMax :squad.damageToPlayer })
         }

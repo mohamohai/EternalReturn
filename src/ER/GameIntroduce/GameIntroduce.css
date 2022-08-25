@@ -235,14 +235,32 @@ body {
     width: 70vw;
     height: 50vh;
     position: relative;
-    background-color: red;
+
     justify-content: center;
     align-items: center;
+    top: 20%;
 }
 
-* {
+.Pixel3Text {
+    width: 70vw;
+    height: 4vh;
+    border-bottom: 1px solid white;
     font-size: 1rem;
+    padding-bottom: 5px;
 }
+
+.Pixel3Text a {
+    float: left;
+    font-size: 2rem;
+    line-height: 4vh;
+}
+
+.Pixel3Text span {
+    float: right;
+    line-height: 4vh;
+}
+
+
 
 #Motion {
     font-size: 80px;
@@ -254,7 +272,7 @@ body {
 .blink {
     animation: blink 1s infinite;
     font-size: 80px;
-    border-left: 3px solid black;
+    border-left: 3px solid white;
 }
 
 @keyframes blink {
