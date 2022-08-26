@@ -1958,6 +1958,7 @@ if(squad==null){
               this.setState({damageToPlayerMaxC :Team1User.damageToPlayer })
             }
             return(<div className="OneLineInfo">
+              <div className="TeamNum">#{Team1User.gameRank}</div>
               <img
                 className="OneLineChar"
                 src={`/image/Character_Img/${
@@ -1981,6 +1982,7 @@ if(squad==null){
               this.setState({damageToPlayerMaxC :Team2User.damageToPlayer })
             }
             return(<div className="OneLineInfo">
+              <div className="TeamNum">#{Team2User.gameRank}</div>
             <img
               className="OneLineChar"
               src={`/image/Character_Img/${

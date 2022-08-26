@@ -8,7 +8,7 @@ function GameIntroduce() {
   const txt = "Pixel";    //타이핑에 쓸 문구
   const [Text, setText] = useState('');    //입력 할 문자 하나
   const [Count, setCount] = useState(0);   //val i
-  const streamer = ["0828","aduck","aguippo","aguippo","badgirl","bbibu","bbonge","chabi","cham","ddolbok","gambler","gangg_wide","jahee","jinu","jjondeuk","kimdduddi","kosi","leechohong","magenta","manggae","nanayang","purin","sahyang","silph","snowwhite",]
+  const streamer = ["0828","aduck","aguippo","badgirl","bbibu","bbonge","chabi","cham","ddolbok","gambler","gangg_wide","jahee","jinu","jjondeuk","kimdduddi","kosi","leechohong","magenta","manggae","nanayang","purin","sahyang","silph","snowwhite",]
   const source = document.getElementById("Motion");
   
 
@@ -23,7 +23,6 @@ function GameIntroduce() {
        
     }
     return () => {
-    
       clearInterval(interval);
     };
 
@@ -120,14 +119,15 @@ const TryAgain=() =>{// 특정 마우스 휠에서 작동시키면 지웠다가 
 
   const settingsa = {
     // slide 해주고 싶은 단위
-    className: "center",
-    centerMode: true,
-    infinite: true,
-    centerPadding: "60px",
-    slidesToShow: 3,
-    speed: 500,
-    rows: 2,
-    
+  //  className: "center",
+  className: "center",
+  centerMode: true,
+  infinite: true,
+  centerPadding: "60px",
+  slidesToShow: 2.5,
+  speed: 500,
+  rows: 2,
+  slidesPerRow: 2
   };
   return (
 
@@ -181,20 +181,23 @@ const TryAgain=() =>{// 특정 마우스 휠에서 작동시키면 지웠다가 
 
         </div>
         <div className="Pixel3Table">
-        <Slider {...settingsa}>
+        <Slider {...settingsa}
+        style={{height:"550px",}}>
         {streamer.map((NameS,key)=>{
-            return(<img height="200px" width="180px"  src={`/image/Pixel/Main3/${NameS}.jpg`}></img>)
+            return(<div className="StreamerDiv" ><img src={`/image/Pixel/Main3/${NameS}.jpg`}></img>
+         <div className="StreamerDivName">{NameS}</div>
+         </div>)
           })}
-        {/* <div style={{width:"200px",height:"200px",
-            fontSize:"1rem",
-            background: `linear-gradient( to bottom,        rgba(255, 255, 255, 0) 10%,        rgba(255, 255, 255, 0.25) 25%,        rgba(255, 255, 255, 0.5) 50%,        rgba(255, 255, 255, 0.75) 75%,        rgba(255, 255, 255, 1) 100%        ), url('/image/Pixel/Main3/${NameS}.jpg')   `,
-          }}></div> */}
-      
         </Slider>
+        
         </div>
         </div>
      </div>
-     <div className="Pixel4 page">4</div>
+     <div className="Pixel4 page">
+      <div className="Pixel4TItle">
+        <li className="Pixel4Text1 left">Pixel PR contents</li>
+        <li className="Pixel4Text2 right">픽셀 네트워크와 함께한 광고 컨텐츠를 소개합니다.</li>
+      </div></div>
      <div className="Pixel5 page">5</div>
     </div>
     
