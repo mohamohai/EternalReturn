@@ -314,34 +314,94 @@ body {
 }
 
 .Pixel4 {
-    background-color: black;
+    background-color: white;
 }
 
 .Pixel4TItle {
     position: relative;
     top: 10%;
+    left: 10%;
+    text-align: center;
+
     width: 1200px;
     height: 70px;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid black;
 }
 
 .Pixel4Text1 {
-    color: white;
+    color: black;
     font-size: 2.5rem;
 }
 
 .Pixel4Text2 {
     float: right;
     font-size: 1rem;
-    color: white;
+    color: black;
     line-height: 70px;
 }
 
 .Pixel4TItle span {
-    color: white;
+    color: whblackite;
     font-size: 1rem;
 }
 
+.Pixel4ViewTable {
+    position: relative;
+    color: black;
+    width: 1200px;
+    height: 70vh;
+    top: 200px;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.Pixel4View {
+    text-align: left;
+    width: 270px;
+    height: 500px;
+}
+
+.Pixel4ViewImgform {
+    width: 270px;
+    height: 151px;
+    background-color: RED;
+    overflow: hidden;
+    float: left;
+}
+
+.Pixel4View img:hover {
+    transition: all 0.5s;
+    transform: scale(1.1);
+}
+
+.Pixel4View p {
+    float: left;
+    text-align: left;
+    ;
+}
+
+.AdItemUl {
+    width: 15vw;
+    text-align: left;
+    float: left;
+
+}
+
+.AdItemUl div {
+
+    padding: 5px 10px 5px 10px;
+    border: 1px solid black;
+    margin: 5px 10px 10px 0;
+}
+
+.Pixel4TitleName {
+    position: relative;
+    top: 100px;
+    text-align: left;
+    width: 270px;
+    height: 100px;
+    background-color: red;
+}
 
 #Motion {
     font-size: 80px;

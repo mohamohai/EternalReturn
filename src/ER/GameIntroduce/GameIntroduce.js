@@ -127,7 +127,7 @@ const TryAgain=() =>{// 특정 마우스 휠에서 작동시키면 지웠다가 
   slidesToShow: 2.5,
   speed: 500,
   rows: 2,
-  slidesPerRow: 2
+  slidesPerRow: 2,
   };
   return (
 
@@ -197,7 +197,23 @@ const TryAgain=() =>{// 특정 마우스 휠에서 작동시키면 지웠다가 
       <div className="Pixel4TItle">
         <li className="Pixel4Text1 left">Pixel PR contents</li>
         <li className="Pixel4Text2 right">픽셀 네트워크와 함께한 광고 컨텐츠를 소개합니다.</li>
-      </div></div>
+      </div>
+  
+      <div className="Pixel4ViewTable">
+            <div className="Pixel4View">
+              <div className="Pixel4ViewImgform">
+              <img src="/image/Pixel/Main3/AdItem.jpg"></img></div>
+              <ul className="AdItemUl">
+                <div className="left">회사이름</div>
+                <div className="left">게임이름</div>
+              </ul><br></br><br></br><br></br><br></br>
+            <div className="Pixel4TitleName">
+              <div>영상제목</div>
+              <div>크리에이터이름</div>
+            </div>
+            </div>
+          </div>
+      </div>
      <div className="Pixel5 page">5</div>
     </div>
     
