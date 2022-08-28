@@ -205,7 +205,7 @@ const TryAgain=() =>{// 특정 마우스 휠에서 작동시키면 지웠다가 
               <img src="/image/Pixel/Main3/AdItem.jpg"></img></div>
               <ul className="AdItemUl">
                 <div className="left">회사이름</div>
-                <div className="left">게임이름</div>
+                <div className="left">게임이a름</div>
               </ul><br></br><br></br><br></br><br></br>
             <div className="Pixel4TitleName">
               <div>영상제목</div>
