@@ -6,6 +6,7 @@ import "./Character_Detail.css"
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
 const DIVIDER_HEIGHT = 5;
 
 function Character_Detail() {
@@ -47,8 +48,6 @@ function Character_Detail() {
           if (scrollTop >= 0 && scrollTop < pageHeight) {
             //현재 1페이지
             console.log("1, down");
-
-
             outerDivRef.current.scrollTo({
               top: pageHeight + DIVIDER_HEIGHT,
               left: 0,
@@ -338,7 +337,7 @@ function Character_Detail() {
       ["Default", "BlackSwan"],
       ["Default", "EverlastingBlossom"],
       ["Default", "ArcanaofFate"],
-      ["Default"],
+      ["Default","Wasteland"],
       ["Default"],
       ["Default", "SpecOps"],
       ["Default"],
@@ -1015,7 +1014,7 @@ function Character_Detail() {
         "Adina",
       ],
       [
-        "마커스는 기본 공격을 할 때 마다  투지 를 획득합니다.  투지 는 마커스가 비전투 상태가 되면 점점 감소합니다.\n\n충격 : 마커스가 밀어낸 적이 벽에 충돌하면 그 적은 이동 속도가 감소하고 스킬 피해를 입으며  충격  상태가 됩니다.\n마커스가 밀어낸 적이 다른 야생동물 및 실험체에 충돌하면 충돌한 모든 대상에게 같은 효과를 부여하며 밀어냅니다.\n\n일격 : 마커스가 일정 거리 이내에 있는  충격  상태의 적을 기본 공격 대상으로 지정 하면 저지 불가 상태로 돌진하며 기본 공격 피해에 추가 스킬 피해를 입히고 마커스가 부여한 모든  충격  상태를 제거합니다.",
+        "마커스는 기본 공격을 할 때 마다  투지 를 획득합니다.  투지 는 마커스가 비전투 상태가 되면 점점 감소합니다.\n\n충격 : 마커스가 밀어낸 적이 벽에 충돌하면 그 적은 이동 속도가 감소하고 스킬 피해를 입으며  충격  상태가 됩니다.\n마커스가 밀어낸 적이 다른 야생동물 및 실험체에 충돌하면 충돌한 모든 대상에게 같은 효과를 부여하며 밀어냅니다.\n\n일격 : 마커스가 일정 거리 이내에 있는  충격  상태의 적을 기본 공격 대상으로 지정 하면 저지 불가 상태로 돌진하며 기본 공격 피해에 추가 스킬 피해를 입히고 마커스가 부여한 모든  충격  상태를 제거합니다. \n\nfankit에 gif가 없으니 일단 엑박상태로 보류",
         "마커스가 다음 기본 공격 3회 동안 공격 속도가 증가하고  투지 를 추가로 획득합니다. 일정 시간동안 기본 공격을 하지 않으면 효과가 사라집니다.\n\n전투 교범  스킬을 사용한 후 마커스는 잠시동안 적 실험체를 향해 이동할 때 이동 속도가 증가합니다. ",
         "마커스가 지정한 방향을 내려 찍어 적에게 스킬 피해를 주고 공중에 띄웁니다.\n\n투지 가 50 이상이면 적중시킨 적을 마커스의 등 뒤로 넘깁니다.",
         "마커스가 지정한 방향으로 돌진합니다. 적과 충돌하면 멈추고 해당 적에게 스킬 피해를 주고 짧게 밀어냅니다.\n\n투지 가 50 이상이면 더 큰 스킬 피해를 주고 더 먼 거리로 밀어내고 기절시킵니다.",
@@ -1189,7 +1188,7 @@ style={{
 ><div id="UnderBtn" onClick={() => ChangeUnderBtn(UnderBtn)}>+</div>
 <Slider {...settings}
         style={{
-          width:"1920px"
+          width:"100vw",position:"absolute", left:"0px"
         }}>
       {CharacterSkin.map((CharThumb,key) => {
         return(

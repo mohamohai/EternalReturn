@@ -156,7 +156,7 @@ const TryAgain=() =>{// 특정 마우스 휠에서 작동시키면 지웠다가 
      
       <div className="Pixel2 page">
       <div className="Pixel2Word">
-      <h1>Pixel</h1>
+      <a>Pixel</a>
       <ul>
         <li>크리에이터 자신의 브랜드 가치를 온전히 인정받을 수 있도록</li>
         <li>픽셀네트워크는 '크리에이터 자신의 브랜드 가치를 온전히 인정받을 수 있도록' 하고자 설립된 회사입니다.<br></br>
@@ -164,9 +164,9 @@ const TryAgain=() =>{// 특정 마우스 휠에서 작동시키면 지웠다가 
         <li>크리에이터가 콘텐츠 제작에만 집중할 수 있도록, 동시에 더 많은 수익을 창출할 수 있도록 돕는 것이 픽셀네트워크의 목표입니다.
 전문 디자이너와 MCN, 게임 업계 출신 인력들이 함께하고 있어 크리에이터에게는 온전한 브랜드 가치를, 파트너사에게는 긴밀한 솔루션을 제공합니다.
  </li>
-          <li className="Pixel2PixelStore">Pixel Store</li>
-          <li className="Pixel2Contact">contact us</li>
       </ul>
+      <ul className="Pixel2Footer"> <li className="Pixel2PixelStore">Pixel Store</li>
+          <li className="Pixel2Contact">contact us</li></ul>
       </div>
       <div className="clear"></div>
      
@@ -197,9 +197,65 @@ const TryAgain=() =>{// 특정 마우스 휠에서 작동시키면 지웠다가 
       <div className="Pixel4TItle">
         <li className="Pixel4Text1 left">Pixel PR contents</li>
         <li className="Pixel4Text2 right">픽셀 네트워크와 함께한 광고 컨텐츠를 소개합니다.</li>
-      </div>
-  
-      <div className="Pixel4ViewTable">
+      </div><br></br><div className="clear"></div>
+          <div className="Pixel4Table">
+          <div className="Pixel4TableArr">
+              <div className="Pixel4TableImgBox">
+                <img src="/image/Pixel/Main3/AdItem.jpg"></img>
+              </div>
+              <div className="Pixel4EnterPrise"><ul><a className="left">회사이름</a><a className="left"> 게임이a름</a></ul></div><br></br><br></br>
+              <div><ul><li>영상제목</li><li>크리에이터이름</li></ul></div>
+            </div>
+            <div className="Pixel4TableArr">
+              <div className="Pixel4TableImgBox">
+                <img src="/image/Pixel/Main3/AdItem.jpg"></img>
+              </div>
+              <div className="Pixel4EnterPrise"><ul><a className="left">회사이름</a><a className="left"> 게임이a름</a></ul></div><br></br><br></br>
+              <div><ul><li>영상제목</li><li>크리에이터이름</li></ul></div>
+            </div>
+            <div className="Pixel4TableArr">
+              <div className="Pixel4TableImgBox">
+                <img src="/image/Pixel/Main3/AdItem.jpg"></img>
+              </div>
+              <div className="Pixel4EnterPrise"><ul><a className="left">회사이름</a><a className="left"> 게임이a름</a></ul></div><br></br><br></br>
+              <div><ul><li>영상제목</li><li>크리에이터이름</li></ul></div>
+            </div>
+            <div className="Pixel4TableArr">
+              <div className="Pixel4TableImgBox">
+                <img src="/image/Pixel/Main3/AdItem.jpg"></img>
+              </div>
+              <div className="Pixel4EnterPrise"><ul><a className="left">회사이름</a><a className="left"> 게임이a름</a></ul></div><br></br><br></br>
+              <div><ul><li>영상제목</li><li>크리에이터이름</li></ul></div>
+            </div><div className="Pixel4TableArr">
+              <div className="Pixel4TableImgBox">
+                <img src="/image/Pixel/Main3/AdItem.jpg"></img>
+              </div>
+              <div className="Pixel4EnterPrise"><ul><a className="left">회사이름</a><a className="left"> 게임이a름</a></ul></div><br></br><br></br>
+              <div><ul><li>영상제목</li><li>크리에이터이름</li></ul></div>
+            </div>
+            <div className="Pixel4TableArr">
+              <div className="Pixel4TableImgBox">
+                <img src="/image/Pixel/Main3/AdItem.jpg"></img>
+              </div>
+              <div className="Pixel4EnterPrise"><ul><a className="left">회사이름</a><a className="left"> 게임이a름</a></ul></div><br></br><br></br>
+              <div><ul><li>영상제목</li><li>크리에이터이름</li></ul></div>
+            </div>
+            <div className="Pixel4TableArr">
+              <div className="Pixel4TableImgBox">
+                <img src="/image/Pixel/Main3/AdItem.jpg"></img>
+              </div>
+              <div className="Pixel4EnterPrise"><ul><a className="left">회사이름</a><a className="left"> 게임이a름</a></ul></div><br></br><br></br>
+              <div><ul><li>영상제목</li><li>크리에이터이름</li></ul></div>
+            </div>
+            <div className="Pixel4TableArr">
+              <div className="Pixel4TableImgBox">
+                <img src="/image/Pixel/Main3/AdItem.jpg"></img>
+              </div>
+              <div className="Pixel4EnterPrise"><ul><a className="left">회사이름</a><a className="left"> 게임이a름</a></ul></div><br></br><br></br>
+              <div><ul><li>영상제목</li><li>크리에이터이름</li></ul></div>
+            </div>
+          </div>
+      {/* <div className="Pixel4ViewTable">
             <div className="Pixel4View">
               <div className="Pixel4ViewImgform">
               <img src="/image/Pixel/Main3/AdItem.jpg"></img></div>
@@ -212,8 +268,10 @@ const TryAgain=() =>{// 특정 마우스 휠에서 작동시키면 지웠다가 
               <div>크리에이터이름</div>
             </div>
             </div>
-          </div>
+          </div> */}
+
       </div>
+     
      <div className="Pixel5 page">5</div>
     </div>
     

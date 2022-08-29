@@ -140,11 +140,12 @@ body {
 
 
 .page {
+    overflow: hidden;
     width: 100vw;
     height: 100vh;
     display: flex;
     background: cover;
-    font-size: 5rem;
+    font-size: 1rem;
     /* justify-content: center;
     align-items: center; 상하센터 */
 }
@@ -154,6 +155,7 @@ body {
     height: 50px;
     background-color: black;
     width: 100vw;
+    z-index: 10000;
 }
 
 .PixelGNB span {
@@ -199,6 +201,15 @@ body {
     width: 70vw;
 }
 
+.Pixel2Word a {
+    font-size: 4rem;
+}
+
+.Pixel2Footer {
+    position: relative;
+    top: 20vh;
+}
+
 .Pixel2Word2 {
     position: relative;
 }
@@ -229,6 +240,7 @@ body {
 }
 
 .Pixel3 {
+
     background-color: black;
 }
 
@@ -266,6 +278,7 @@ body {
 .Pixel3Table {
     width: 1000px;
     position: relative;
+
 }
 
 .StreamerDiv {}
@@ -315,31 +328,71 @@ body {
 
 .Pixel4 {
     background-color: white;
+    width: 100vw;
 }
 
 .Pixel4TItle {
-    position: relative;
-    top: 10%;
-    left: 10%;
+    position: absolute;
+    margin-top: 100px;
     text-align: center;
-
+    left: 19vw;
     width: 1200px;
     height: 70px;
     border-bottom: 1px solid black;
 }
 
-.Pixel4Text1 {
+.Pixel4TItle li:nth-child(1) {
     color: black;
     font-size: 2.5rem;
 }
 
-.Pixel4Text2 {
+
+.Pixel4TItle li:nth-child(2) {
     float: right;
     font-size: 1rem;
     color: black;
     line-height: 70px;
 }
 
+.Pixel4Table {
+    width: 1200px;
+    height: 100px;
+
+    position: absolute;
+    left: 19vw;
+    margin-top: 200px;
+
+}
+
+.Pixel4TableArr {
+    width: 280px;
+    float: left;
+    margin: 0 20px 0 0;
+
+}
+
+.Pixel4TableImgBox {
+    overflow: hidden;
+}
+
+.Pixel4EnterPrise ul {}
+
+.Pixel4EnterPrise a {
+    margin: 5px 5px 5px 0;
+
+    text-align: center;
+    padding: 5px 10px 5px 10px;
+    border: 1px solid black;
+    overflow: hidden;
+
+}
+
+.Pixel4TableArr img:hover {
+    transition: all 0.5s;
+    transform: scale(1.1);
+}
+
+/*
 .Pixel4TItle span {
     color: whblackite;
     font-size: 1rem;
@@ -369,10 +422,7 @@ body {
     float: left;
 }
 
-.Pixel4View img:hover {
-    transition: all 0.5s;
-    transform: scale(1.1);
-}
+
 
 .Pixel4View p {
     float: left;
@@ -402,6 +452,10 @@ body {
     height: 50px;
     background-color: red;
 }
+
+*/
+
+
 
 #Motion {
     font-size: 80px;
