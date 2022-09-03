@@ -1,0 +1,41 @@
+.SignInBox {
+    width: 500px; height: 400px;
+    position: relative;
+    top: 10vh;
+    margin: 0 0 0 0 auto;
+    border: none;
+    box-shadow: 0px 0px 10px gray;
+    color: white;
+}
+
+.SignInBox h2{
+    padding-top: 30px;
+    text-align: center;
+    background-color: #2198F2;
+    height: 70px;
+}
+
+.idpa{
+    width: 400px;
+    margin: 40px 0 0 50px; padding: 0 0 20px 0;
+    border: 0px;
+    border-bottom: 1px gray solid;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: left;
+       
+}
+
+.idpaBtn{
+    width: 400px; height: 40px;
+    margin-left: 50px;
+    background-color: #24A69A;
+    border: none;
+    color: white;
+    
+}
+
+.SignInBoxSignUp {
+    text-align: right;
+    padding: 5px 50px 0 0;
+}

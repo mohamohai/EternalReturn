@@ -1,0 +1,137 @@
+
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+*   { 
+               margin : 0 auto; padding: 0px;
+               font-family: 'Spoqa Han Sans Neo', 'sans-serif';             
+               list-style: none;  
+               text-decoration: none;
+}
+li:visited{color:black}
+a :visited{color:black}
+
+.open{
+   z-index: 99;
+   width: 500px;
+   height: 500px;
+   background-color: red;
+}
+.close{
+   z-index: 99;
+   background-color: blue;
+   transition: 1s;
+}
+.clear          { 
+               clear: both;
+}
+
+.gnbContainer   {
+               width: 100vw; height: 80px;
+               border-bottom: 0.5px solid rgb(200, 200, 200);
+               position: relative;    
+}
+.SideBar       {
+   position: fixed; left:-320px;top: 80px;
+   width: 323px; height: 90vh; background-color: rgb(181, 216, 110);
+   opacity: 50%; z-index: 0;
+   transition: 0.5s;
+}
+.SideBarClick   {
+   position: fixed; left: 0px;top: 80px;
+   width: 323px; height: 90vh; background-color: rgb(192, 234, 110);
+   opacity: 50%; z-index: 0;
+   transition: 0.5s;
+}
+
+.ViewBtn        {
+               width: 70px; height: 50px;  
+               margin: 15px 10px 0 0; padding: 5px 0 0 0;
+               float: left;    ;
+}
+
+.menuBtnTwo        {
+   width: 70px; height: 50px;  
+   margin: 15px 10px 0 0; padding: 5px 0 0 0;
+   float: left;   
+}
+
+.line1, .line2 , .line3     {
+                           width: 30px;  height: 5px;
+                           margin : 5px 0px 5px -20px; 
+                           background-color: black;
+                           border-radius: 3px; 
+                           position: relative; left: 50%;  
+                           transition: all 0.5s;
+}
+
+
+
+.line1Click    {
+               width: 30px;  height: 5px;
+               margin : 5px 0px 5px -20px; 
+               background-color: black;
+               border-radius: 3px; 
+               position: relative; left: 50%;  
+               transition: all 0.5s;
+               transform: rotate(-45deg) translate(-5px,9px);    
+}
+
+.line2Click    {
+               width: 30px;  height: 5px;
+               margin : 5px 0px 5px -20px; 
+               background-color: black;
+               border-radius: 3px; 
+               position: relative; left: 50%;  
+               opacity: 0;
+               transform: rotate(-45deg) translate(-5px,9px); 
+               transition: all 0.5s;  
+}
+
+.line3Click    {
+               width: 30px;  height: 5px;
+               margin : 5px 0px 5px -20px; 
+               background-color: black;
+               border-radius: 3px; 
+               position: relative; left: 50%;  
+               transform: rotate(45deg) translate(-5px,-9px);
+               transition: all 0.5s;
+}
+
+.logo           { 
+               margin: 22px 0 0 -20px;
+               float:left;
+               font-size: 20px;
+               color: red;   font-weight: bold;
+
+}
+
+.gnbUser        {
+               margin: 0 0 0 -20px; padding-top: 30px;;
+               float: right; 
+               font-size: 15px;   font-weight: bold;
+}
+
+.gnbUser ul li  {
+               margin-right: 30px;
+               float: left;    
+}
+.show           {
+   width:  100px; width: 100px;
+   background-color: brown;
+}
+.hide           {
+   width:  100px; width: 100px;
+   background-color: blue;
+}
+
+.onBtn {
+   position: fixed; top:10px;
+   width: 50px; height: 50px; opacity: 0;
+}
+.offBtn {
+   position: fixed; top:10px;
+   width: 50px; height: 50px; opacity: 0;
+}
+
+.hideBtn{
+   display: none;
+}

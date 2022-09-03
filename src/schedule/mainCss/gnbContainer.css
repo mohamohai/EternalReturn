@@ -1,0 +1,93 @@
+
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+ *   { 
+                margin : 0 auto; padding: 0px;
+                font-family: 'Spoqa Han Sans Neo', 'sans-serif';             
+                list-style: none;  
+                text-decoration: none;
+}
+li:visited{color:black}
+a :visited{color:black}
+
+
+.clear          { 
+                clear: both;
+}
+
+.homePage       { 
+                width: 100vw; height: 100vh;
+                overflow: hidden;
+}
+
+.gnbContainer   {
+                width: 100vw; height: 80px;
+                border-bottom: 0.5px solid rgb(200, 200, 200);
+                position: relative;    
+}
+
+.menuBtn        {
+                width: 70px; height: 50px;  
+                margin: 15px 10px 0 0; padding: 5px 0 0 0;
+                float: left;    
+}
+
+.line1, .line2 , .line3     {
+                            width: 30px;  height: 5px;
+                            margin : 5px 0px 5px -20px; 
+                            background-color: rgb(0, 0, 0);
+                            border-radius: 3px; 
+                            position: relative; left: 50%;  
+                            transition: all 0.5s;
+}
+
+.closeMenuBtn{ 
+            width: 70px; height: 50px; 
+            margin: 15px 10px 0 0; padding: 5px 0 0 0;
+            display: none;
+            position: fixed;
+            z-index: 999;
+}
+
+.closeMenuBtn.Click{
+                    display: block; opacity: 0;
+}
+
+.line1.Click    {
+                transform: rotate(-45deg) translate(-5px,9px); 
+}
+
+.line2.Click    {
+                opacity: 0;
+}
+
+.line3.Click    {
+                transform: rotate(45deg) translate(-5px,-9px);
+}
+
+.logo           { 
+                margin: 22px 0 0 -20px;
+                float:left;
+                font-size: 20px;
+                color: red;   font-weight: bold;
+
+}
+
+.gnbUser        {
+                margin: 0 0 0 -20px; padding-top: 30px;;
+                float: right; 
+                font-size: 15px;   font-weight: bold;
+}
+
+.gnbUser ul li  {
+                margin-right: 30px;
+                float: left;    
+}
+.show           {
+    width:  100px; width: 100px;
+    background-color: brown;
+}
+.hide           {
+    width:  100px; width: 100px;
+    background-color: blue;
+}
+

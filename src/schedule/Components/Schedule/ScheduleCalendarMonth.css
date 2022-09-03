@@ -1,0 +1,23 @@
+.ScheduleCalendarMonth  {
+
+}
+
+.MonthView {
+  width: 100vw;
+}
+.MonthDay td{
+  text-align: center;
+}
+.MonthShow td           {
+                  font-size: 30px;
+                  height: 10vh;
+                  text-align: center;
+                  border: solid 1px #e0e0e0;
+}
+.MonthRow td            {
+                  height:  15vh;
+                  border: solid 1px #e0e0e0;
+                  font-size: 15px;
+
+
+}

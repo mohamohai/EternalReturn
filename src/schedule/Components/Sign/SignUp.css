@@ -1,0 +1,14 @@
+.SignUpBox {
+    width: 20vw;
+    position: relative;
+    top: 10vh;
+    margin: 0 0 0 0 auto;
+    border: 1px solid gray;
+    
+}
+
+.SignUpBox input{
+    margin: 30px 0 0 0;
+    border: 0px solid black;
+    border-bottom: 0.5px solid gray;
+}

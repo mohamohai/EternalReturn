@@ -1,0 +1,43 @@
+.ScheduleAddBox   {
+  
+  position: relative; left: 40%; 
+  width: 40vw; height: 70vh;
+  margin : 100px 0 0 0;  
+  text-align: center;
+  
+}
+.ScheduleAddBox input{
+  border: none;
+}
+
+.ScheduleAddAccount    {
+  width: 40vw; height: 1vh;
+}
+
+.ScheduleAddTitle    {
+  width: 40vw; height: 10vh;     
+  font-weight: bold; 
+  font-size:  20px;
+
+}
+
+.ScheduleAddContent    {
+  width: 40vw; height: 20vh;
+}
+
+.ScheduleAddLocation   {
+  width: 40vw; height: 5vh;
+}
+
+.ScheduleAddTime    {
+  width: 40vw; height: 5vh;
+}
+
+.ScheduleAddEtc    {
+  width: 40vw; height: 5vh;
+}
+
+.ScheduleAddBtn    {
+  width: 40vw; 
+  background-color: white
+}

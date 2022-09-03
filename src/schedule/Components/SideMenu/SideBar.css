@@ -1,0 +1,10 @@
+.SideMenu{
+            width: 400px; height: 90vh;
+            position: fixed; left: 0px;
+            background-color: red;  
+}
+
+.SideMenuClick{
+
+}
+
