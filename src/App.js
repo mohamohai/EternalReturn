@@ -9,6 +9,7 @@ import Search_User from "./ER/Search_User/Search_User.js";
 import GameIntroduce from "./ER/GameIntroduce/GameIntroduce.js";
 import Statistics from "./ER/Statistics/Statistics.js";
 import Character_Detail from "./ER/Character_Information/Character_Detail.js";
+import MainSite from "./MainSite.js";
 import {
   BrowserRouter,
   Route,
@@ -32,7 +33,11 @@ class App extends Component {
         <BrowserRouter>
           <GNB></GNB>
           <Routes>
-            <Route exact path="/" element={<ERMain />} />
+            <Route exact path="/" element={<MainSite />} />
+            <Route
+              path="/ER"
+              element={<ERMain />}
+            />
             <Route
               path="/Character_Infomation"
               element={<Character_Infomation />}
