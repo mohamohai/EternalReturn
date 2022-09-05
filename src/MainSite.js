@@ -128,20 +128,9 @@ const TryAgain=() =>{// 특정 마우스 휠에서 작동시키면 지웠다가 
   slidesPerRow: 2,
   };
   return (
-
-    <div className="GameIntroduce" ref={DivRef}>
-      <div className="PixelGNB">
-        <span>Pixel network</span>
-        <ul>
-          <li>ABOUT US</li>
-          <li>CREATORS</li>
-          <li>PR CONTENTS</li>
-          <li>CLIENTS</li>
-          <li>CONTACT US</li>
-        </ul>
-        <span className="PixelStoreLink">pixel store</span>
-      </div>
-    <div className="Pixel1 page">
+    <div className="MainSite" ref={DivRef}>
+     
+    <div className="page">
 
      
       
