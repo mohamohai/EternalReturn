@@ -1,0 +1,29 @@
+
+.YearMonth{
+  width: 150px;
+}
+
+.rightAngleBracket{
+  
+}
+.selectMon {
+  height: 70px;
+  background-color: white;
+}
+.selectMon ul {
+  width: 15vw;
+  position: relative;  top:10px; 
+}
+.selectMon ul li{
+  background-color: white;
+  font-size: 25px;  
+   float:left;
+}
+
+.MainCalMonth{
+  width: 1920px;
+  text-align: center;
+  margin-top:20px;
+}
+
+

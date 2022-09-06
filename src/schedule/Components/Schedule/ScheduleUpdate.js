@@ -2,28 +2,52 @@ import { Component } from "react";
 import React, { useState } from "react";
 import axios from "axios";
 import "./ScheduleAdd.css";
-import { useLocation } from "react-router-dom";
-import { min } from "date-fns";
 
-class ScheduleAdd extends React.Component {
+class ScheduleUpdate extends React.Component {
   constructor(props) {
     super(props);
-    let monCnt = new Date().getMonth() + 1;
-    let dayCnt = new Date().getDate();
 
+    const ParamsDate2 = props.match.params.Clock;
+    const ParamsId = props.match.params.Id;
+    const ParamsTitle = props.match.params.Title;
+    const ParamsContent = props.match.params.Content;
+    const ParamsLocation = props.match.params.Location;
+    const ParamsEtc = props.match.params.Etc;
+    const ParamsDate = props.match.params.Date;
+    const ParamsClock = props.match.params.Clock;
+
+    const araara = [
+      ParamsId,
+      ParamsTitle,
+      ParamsContent,
+      ParamsLocation,
+      ParamsEtc,
+      ParamsDate,
+      ParamsClock,
+    ];
+
+    let monCnt = ParamsDate.substring(4, 6);
+    let dayCnt = ParamsDate.substring(6, 8);
+
+    console.log(ParamsDate);
     this.state = {
       account: "",
-      title: "",
-      content: "",
-      location: "",
-      time: "",
-      etc: "",
-      hour: "",
-      min: "",
-      clock: "",
+      title: ParamsTitle,
+      content: ParamsContent,
+      location: ParamsLocation,
+      time: ParamsDate,
+      etc: ParamsEtc,
+      clock: ParamsClock,
       year: new Date().getFullYear() + "",
       month: monCnt,
       day: dayCnt,
+      ParamsYear: ParamsDate.substring(0, 4),
+      ParamsMonth: ParamsDate.substring(4, 6),
+      ParamsDay: ParamsDate.substring(6, 8),
+      hour: ParamsDate2.substring(0, 2),
+      min: ParamsDate2.substring(2, 4),
+      // id : ParamsId
+      id: ParamsId,
     };
   }
 
@@ -31,7 +55,7 @@ class ScheduleAdd extends React.Component {
     let nextState = {};
     nextState[e.target.name] = e.target.value;
     this.setState(nextState);
-    this.setState({ clock: this.state.hour });
+    console.log(nextState);
   }
 
   _addData = async (e) => {
@@ -41,18 +65,13 @@ class ScheduleAdd extends React.Component {
     const { location } = this.state;
     const { etc } = this.state;
     const { year } = this.state;
-    const { clock } = this.state;
-    const { hour } = this.state;
-    const { min } = this.state;
     let { month } = this.state;
     let { day } = this.state;
 
-    if (day < 10) {
-      day = "0" + day;
-    }
-    if (month < 10) {
-      month = "0" + month;
-    }
+    const { clock } = this.state;
+    const { hour } = this.state;
+    const { min } = this.state;
+    const { id } = this.state;
 
     const data = {
       account: sessionStorage.getItem("uid"),
@@ -62,18 +81,18 @@ class ScheduleAdd extends React.Component {
       time: year + month + day,
       etc: etc,
       clock: hour + min,
+      id: id,
     };
-
     e.preventDefault();
 
-    const res = await axios("/add/Schedule", {
+    const res = await axios("/set/Schedule", {
       method: "POST",
       data: data,
-      Headers: new Headers(),
+      headers: new Headers(),
     });
 
-    alert("데이터를 추가했습니다.");
-    return window.location.replace("http://localhost:3000/ScheduleMain");
+    alert("데이터를 추가했습니다."); //이거 where을 조리있게 해야됨 안그럼 나처럼 다 바뀌니까 웨얼을 바꾸던 디비를 까서 고유값을 하나 파던 처음에 가져올때 id 값도 가져오던 셋중 하나는 해야 된다 나야 아이고 아기오야
+    //return window.location.replace("http://localhost:3000/ScheduleMain"); //나중에 바꿔라 나야
   };
 
   render() {
@@ -127,14 +146,14 @@ class ScheduleAdd extends React.Component {
     ];
     return (
       <div>
-        {this.state.clock}
+        aaa
         <form method="POST" onSubmit={this._addData} className="ScheduleAddBox">
           <input
             className="ScheduleAddTitle"
             type="text"
             name="title"
             maxLength="20"
-            placeholder="titlePlz"
+            placeholder={this.state.title}
             onChange={(e) => this.ScheduleAdd(e)}
           />
 
@@ -147,6 +166,7 @@ class ScheduleAdd extends React.Component {
             placeholder="content"
             onChange={(e) => this.ScheduleAdd(e)}
           />
+
           <br></br>
           <input
             className="ScheduleAddLocation"
@@ -168,7 +188,7 @@ class ScheduleAdd extends React.Component {
           <br></br>
           <select name="year" onChange={(e) => this.ScheduleAdd(e)}>
             {yearCount.map((cnt1, year) => {
-              if (cnt1 == 2022)
+              if (cnt1 == this.state.ParamsYear)
                 return (
                   <option defaultValue value={cnt1} key={year}>
                     {cnt1}
@@ -184,7 +204,7 @@ class ScheduleAdd extends React.Component {
           <select name="month" onChange={(e) => this.ScheduleAdd(e)}>
             {monthCount.map((cnt2, month) => {
               if (cnt2 < 10)
-                if (cnt2 == new Date().getMonth() + 1)
+                if (cnt2 == this.state.ParamsMonth)
                   return (
                     <option defaultValue value={cnt2} key={month} selected>
                       0{cnt2}
@@ -197,7 +217,7 @@ class ScheduleAdd extends React.Component {
                     </option>
                   );
               if (cnt2 >= 10)
-                if (cnt2 == new Date().getMonth() + 1)
+                if (cnt2 == this.state.ParamsMonth)
                   return (
                     <option defaultValue value={cnt2} key={month} selected>
                       {cnt2}
@@ -211,10 +231,11 @@ class ScheduleAdd extends React.Component {
                   );
             })}
           </select>
+
           <select name="day" onChange={(e) => this.ScheduleAdd(e)}>
             {dayCount.map((cnt3, day) => {
               if (cnt3 < 10)
-                if (cnt3 == new Date().getDate())
+                if (cnt3 == this.state.ParamsDay)
                   return (
                     <option defaultValue value={cnt3} key={day} selected>
                       0{cnt3}
@@ -227,7 +248,7 @@ class ScheduleAdd extends React.Component {
                     </option>
                   );
               if (cnt3 >= 10)
-                if (cnt3 == new Date().getDate())
+                if (cnt3 == this.state.ParamsDay)
                   return (
                     <option defaultValue value={cnt3} key={day} selected>
                       {cnt3}
@@ -241,7 +262,6 @@ class ScheduleAdd extends React.Component {
                   );
             })}
           </select>
-
           <select name="hour" onChange={(e) => this.ScheduleAdd(e)}>
             {Thour.map((cnt4, thour) => {
               return <option>{cnt4}</option>;
@@ -254,8 +274,9 @@ class ScheduleAdd extends React.Component {
           </select>
           <input className="ScheduleAddBtn" type="submit" value="Add" />
         </form>
+        {}
       </div>
     );
   }
 }
-export default ScheduleAdd;
+export default ScheduleUpdate;

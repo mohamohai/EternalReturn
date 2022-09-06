@@ -2,14 +2,16 @@ import { Component } from "react";
 import React, { useState } from "react";
 import axios from "axios";
 import "./ScheduleAdd.css";
-import { useLocation } from "react-router-dom";
-import { min } from "date-fns";
 
-class ScheduleAdd extends React.Component {
+class testadd extends React.Component {
   constructor(props) {
     super(props);
-    let monCnt = new Date().getMonth() + 1;
-    let dayCnt = new Date().getDate();
+    const ParamsDate = props.match.params.Date;
+    const ParamsDate2 = props.match.params.Clock;
+    let monCnt = ParamsDate.substring(4, 6);
+    let dayCnt = ParamsDate.substring(6, 8);
+    let ClockHour = ParamsDate2.substring(0, 2);
+    let ClockMin = ParamsDate2.substring(2, 4);
 
     this.state = {
       account: "",
@@ -18,12 +20,15 @@ class ScheduleAdd extends React.Component {
       location: "",
       time: "",
       etc: "",
-      hour: "",
-      min: "",
-      clock: "",
       year: new Date().getFullYear() + "",
       month: monCnt,
       day: dayCnt,
+
+      ParamsYear: ParamsDate.substring(0, 4),
+      ParamsMonth: ParamsDate.substring(4, 6),
+      ParamsDay: ParamsDate.substring(6, 8),
+      hour: ParamsDate2.substring(0, 2),
+      min: ParamsDate2.substring(2, 4),
     };
   }
 
@@ -31,7 +36,6 @@ class ScheduleAdd extends React.Component {
     let nextState = {};
     nextState[e.target.name] = e.target.value;
     this.setState(nextState);
-    this.setState({ clock: this.state.hour });
   }
 
   _addData = async (e) => {
@@ -41,19 +45,18 @@ class ScheduleAdd extends React.Component {
     const { location } = this.state;
     const { etc } = this.state;
     const { year } = this.state;
-    const { clock } = this.state;
-    const { hour } = this.state;
-    const { min } = this.state;
     let { month } = this.state;
     let { day } = this.state;
 
-    if (day < 10) {
-      day = "0" + day;
-    }
-    if (month < 10) {
-      month = "0" + month;
-    }
-
+    const { clock } = this.state;
+    const { hour } = this.state;
+    const { min } = this.state;
+    // if (day < 10) {
+    //   day = "0" + day;
+    // }
+    // if (month < 10) {
+    //   month = "0" + month;
+    // }
     const data = {
       account: sessionStorage.getItem("uid"),
       title: title,
@@ -63,17 +66,16 @@ class ScheduleAdd extends React.Component {
       etc: etc,
       clock: hour + min,
     };
-
     e.preventDefault();
 
     const res = await axios("/add/Schedule", {
       method: "POST",
       data: data,
-      Headers: new Headers(),
+      headers: new Headers(),
     });
 
     alert("데이터를 추가했습니다.");
-    return window.location.replace("http://localhost:3000/ScheduleMain");
+    return window.location.replace("http://localhost:3000/ScheduleMain"); //나중에 바꿔라 나야
   };
 
   render() {
@@ -127,7 +129,7 @@ class ScheduleAdd extends React.Component {
     ];
     return (
       <div>
-        {this.state.clock}
+        aaa
         <form method="POST" onSubmit={this._addData} className="ScheduleAddBox">
           <input
             className="ScheduleAddTitle"
@@ -147,6 +149,7 @@ class ScheduleAdd extends React.Component {
             placeholder="content"
             onChange={(e) => this.ScheduleAdd(e)}
           />
+
           <br></br>
           <input
             className="ScheduleAddLocation"
@@ -168,7 +171,7 @@ class ScheduleAdd extends React.Component {
           <br></br>
           <select name="year" onChange={(e) => this.ScheduleAdd(e)}>
             {yearCount.map((cnt1, year) => {
-              if (cnt1 == 2022)
+              if (cnt1 == this.state.ParamsYear)
                 return (
                   <option defaultValue value={cnt1} key={year}>
                     {cnt1}
@@ -184,7 +187,7 @@ class ScheduleAdd extends React.Component {
           <select name="month" onChange={(e) => this.ScheduleAdd(e)}>
             {monthCount.map((cnt2, month) => {
               if (cnt2 < 10)
-                if (cnt2 == new Date().getMonth() + 1)
+                if (cnt2 == this.state.ParamsMonth)
                   return (
                     <option defaultValue value={cnt2} key={month} selected>
                       0{cnt2}
@@ -197,7 +200,7 @@ class ScheduleAdd extends React.Component {
                     </option>
                   );
               if (cnt2 >= 10)
-                if (cnt2 == new Date().getMonth() + 1)
+                if (cnt2 == this.state.ParamsMonth)
                   return (
                     <option defaultValue value={cnt2} key={month} selected>
                       {cnt2}
@@ -211,10 +214,11 @@ class ScheduleAdd extends React.Component {
                   );
             })}
           </select>
+
           <select name="day" onChange={(e) => this.ScheduleAdd(e)}>
             {dayCount.map((cnt3, day) => {
               if (cnt3 < 10)
-                if (cnt3 == new Date().getDate())
+                if (cnt3 == this.state.ParamsDay)
                   return (
                     <option defaultValue value={cnt3} key={day} selected>
                       0{cnt3}
@@ -227,7 +231,7 @@ class ScheduleAdd extends React.Component {
                     </option>
                   );
               if (cnt3 >= 10)
-                if (cnt3 == new Date().getDate())
+                if (cnt3 == this.state.ParamsDay)
                   return (
                     <option defaultValue value={cnt3} key={day} selected>
                       {cnt3}
@@ -241,7 +245,6 @@ class ScheduleAdd extends React.Component {
                   );
             })}
           </select>
-
           <select name="hour" onChange={(e) => this.ScheduleAdd(e)}>
             {Thour.map((cnt4, thour) => {
               return <option>{cnt4}</option>;
@@ -254,8 +257,9 @@ class ScheduleAdd extends React.Component {
           </select>
           <input className="ScheduleAddBtn" type="submit" value="Add" />
         </form>
+        {}
       </div>
     );
   }
 }
-export default ScheduleAdd;
+export default testadd;

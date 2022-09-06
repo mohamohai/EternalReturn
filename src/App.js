@@ -10,6 +10,7 @@ import GameIntroduce from "./ER/GameIntroduce/GameIntroduce.js";
 import Statistics from "./ER/Statistics/Statistics.js";
 import Character_Detail from "./ER/Character_Information/Character_Detail.js";
 import MainSite from "./MainSite.js";
+import ScheduleMain from "./schedule/Components/Schedule/ScheduleMain.js";
 import {
   BrowserRouter,
   Route,
@@ -48,6 +49,10 @@ class App extends Component {
             <Route path="/Record" element={<Record />} />
             <Route path="/GameIntroduce" element={<GameIntroduce/>}/>
             <Route path="/Statistics" element={<Statistics/>}/>
+            
+
+            <Route path="/ScheduleMain" element={<ScheduleMain/>}/>
+            
 
           </Routes>
         </BrowserRouter>
