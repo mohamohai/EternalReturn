@@ -421,12 +421,7 @@ class ScheduleMain extends Component {
     return (
       <div className="Select">
         <div className="c1image">
-          <img
-            className="phoneImage"
-            alt="iPhone_01"
-            src={require("./Fountain Pen.png")}
-          />
-          <img src={require("./Fountain Pen.png")} />
+          
         </div>
         <div className="selectMon">
           <ul>

@@ -3,6 +3,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Slider from "react-slick";
+import "./MainSite.css"
 function MainSite() {
   const txt = "Pixel";    //타이핑에 쓸 문구
   const [Text, setText] = useState('');    //입력 할 문자 하나
@@ -132,16 +133,41 @@ const TryAgain=() =>{// 특정 마우스 휠에서 작동시키면 지웠다가 
      
     <div className="page">
 
-     
-      
-   
-      <div id="Motion">
+    <div class="wrap">
+    <div class="circle">
+
+    <div class="wave-one"></div>
+    <div class="wave-two"></div>
+    <div class="wave-three"></div>
+    <div class="wave-four"></div>
+    
+
+    <i class="fas fa-moon">☆</i>
+    <i class="fas fa-moon blur"></i>
+    
+
+    <div class="star">
+      <i class="fas fa-asterisk star1">*</i>
+      <i class="fas fa-asterisk star2">*</i>
+      <i class="fas fa-asterisk star3">*</i>
+      <i class="fas fa-asterisk star4">*</i>
+      <i class="fas fa-asterisk star5">*</i>
+    </div>
+  </div>
+</div>
+ 
+      <div id="MainSitePage">
       { Text }<span className="blink"></span>
       
       </div> 
      </div>
      
-     <div className="page">2</div>
+     <div className="page">
+     2
+     <div class="cdcd">간다간다간다
+     간다간다간다간다</div>
+
+     </div>
      <div className="page">3 </div>
      <div className="page">4</div>
      
