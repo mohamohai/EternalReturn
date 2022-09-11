@@ -225,3 +225,58 @@ body {
     opacity: 1;
   }
 }
+
+
+
+
+.wrapper {
+  height: 100%;
+  margin: 0 auto;
+  background: #ddd;
+}
+
+.btn {
+  color: #fff;
+  border: 3px solid #fff;
+  padding: 12px 30px;
+  font-size: 22px;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  transition: all 1s;
+}
+
+.btn:before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 100px;
+  background-color: #0097e6;
+  top: 45px;
+  left: 50%;
+  transform: translate(-50%);
+  animation: wave 5s infinite linear;
+  transition: all 1s;
+}
+
+.btn:hover:before {
+  top: 10px;
+}
+
+span {
+  position: relative;
+}
+
+@keyframes wave {
+  0% {
+    transform: translate(-50%) rotate(-180deg);
+  }
+
+  100% {
+    transform: translate(-50%) rotate(360deg);
+  }
+}
