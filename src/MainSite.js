@@ -3,7 +3,8 @@
 
 import { useState, useEffect, useRef } from "react";
 import Slider from "react-slick";
-import "./MainSite.css"
+import "./MainSite.css";
+import ReactAudioPlayer from 'react-audio-player';
 function MainSite() {
   const txt = "Pixel";    //타이핑에 쓸 문구
   const [Text, setText] = useState('');    //입력 할 문자 하나
@@ -65,10 +66,15 @@ const TryAgain=() =>{// 특정 마우스 휠에서 작동시키면 지웠다가 
  
       <div id="MainSitePage">
       { Text }<span className="blink"></span>
-      <audio
-        src='https://docs.google.com/uc?export=open&id=14JlzHWUE2TqAsN237ft43SOw02xDPori'
-        autoPlay={true}>
-      </audio>
+      
+
+      <ReactAudioPlayer
+  src="https://docs.google.com/uc?export=open&id=14JlzHWUE2TqAsN237ft43SOw02xDPori"
+
+
+  controls={true}
+
+/>
       </div> 
      </div>
      
