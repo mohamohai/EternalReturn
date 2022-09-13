@@ -80,13 +80,22 @@ const TryAgain=() =>{// 특정 마우스 휠에서 작동시키면 지웠다가 
      
      <div className="page">
      <div className="wrapper"> 
-  <a href="#" className="btn">
+  <a href="#" className="btn"> 
     <span>wave</span>
   </a> 
 </div> 
 
      </div>
-     <div className="page">3 </div>
+     <div className="page">
+     <div className="spinBox">
+      <div className="spinBoxCover"></div>
+    <div className="spinBoxOne">
+    <div>Elit ut aute fugiat id veniam cillum. Duis nisi deserunt laboris ipsum cupidatat nulla aliqua commodo ut. Anim proident labore velit eiusmod ut do irure nisi veniam. Anim voluptate excepteur dolore laboris reprehenderit veniam esse dolore. Laborum nulla culpa est aliquip laborum. Adipisicing excepteur aliqua dolor ad ex ullamco    </div>
+     </div>
+     </div>
+
+
+     </div>
      <div className="page">4</div>
      
      <div className="page">5</div>

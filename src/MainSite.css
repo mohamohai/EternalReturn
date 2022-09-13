@@ -280,3 +280,35 @@ span {
     transform: translate(-50%) rotate(360deg);
   }
 }
+
+
+
+
+
+.spinBox {
+  width: 300px;
+  height: 200px;
+  background-color: white;
+  color: black;
+}
+
+.spinBoxOne {
+  width: 300px;
+  height: 200px;
+
+  background-color: red;
+}
+
+.spinBoxCover {
+  width: 300px;
+  height: 200px;
+  background-color: green;
+  position: absolute;
+}
+
+.spinBox:hover .spinBoxCover {
+  transform: translateY(-100%) rotateX(-90deg);
+  transition: all 0.8s;
+}
+
+.spinBoxOne:hover {}
