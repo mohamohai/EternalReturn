@@ -97,7 +97,9 @@ const TryAgain=() =>{// 특정 마우스 휠에서 작동시키면 지웠다가 
 
 
      </div>
-     <div className="page">4</div>
+     <div className="page">4 <div className="minWidth">Amet excepteur in officia officia. Ex nostrud consequat adipisicing consequat dolor veniam eu eiusmod do voluptate ut est ipsum. Pariatur minim sunt cupidatat aliquip cillum proident incididunt.
+
+Dolore proident adipisicing ea laboris ipsum officia irure nulla quis ullamco aliqua eiusmod velit. Proident et proident commodo cupidatat enim enim pariatur nulla magna eiusmod ea veniam aliqua. Culpa labore occaecat non id.</div></div>
      
      <div className="page">5</div>
     </div>
