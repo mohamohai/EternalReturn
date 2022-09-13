@@ -290,25 +290,43 @@ span {
   height: 200px;
   background-color: white;
   color: black;
+  overflow: hidden;
+
+  -webkit-box-reflect: below 0px linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 1));
 }
 
-.spinBoxOne {
-  width: 300px;
-  height: 200px;
 
-  background-color: red;
-}
 
 .spinBoxCover {
   width: 300px;
   height: 200px;
   background-color: green;
   position: absolute;
+
+  transform-origin: top;
+  transition: all 1s;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .spinBox:hover .spinBoxCover {
-  transform: translateY(-100%) rotateX(-90deg);
-  transition: all 0.8s;
+  transform: rotateX(90deg);
+  transition: all 1s;
+  transform-origin: top;
 }
 
-.spinBoxOne:hover {}
+.spinBoxOne {
+  width: 300px;
+  height: 200px;
+  background-color: red;
+  transform: rotateX(90deg);
+  transition: all 0.5s;
+  transform-origin: bottom;
+}
+
+.spinBox:hover .spinBoxOne {
+  transform: rotateX(0deg);
+  transition: all 1.5s;
+  transform-origin: bottom;
+
+}

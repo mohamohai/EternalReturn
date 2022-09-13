@@ -88,7 +88,8 @@ const TryAgain=() =>{// 특정 마우스 휠에서 작동시키면 지웠다가 
      </div>
      <div className="page">
      <div className="spinBox">
-      <div className="spinBoxCover"></div>
+      <img src="/image/Pixel/Main3/jinu.jpg"className="spinBoxCover"></img>
+     
     <div className="spinBoxOne">
     <div>Elit ut aute fugiat id veniam cillum. Duis nisi deserunt laboris ipsum cupidatat nulla aliqua commodo ut. Anim proident labore velit eiusmod ut do irure nisi veniam. Anim voluptate excepteur dolore laboris reprehenderit veniam esse dolore. Laborum nulla culpa est aliquip laborum. Adipisicing excepteur aliqua dolor ad ex ullamco    </div>
      </div>
