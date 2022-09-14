@@ -300,19 +300,21 @@ span {
 .spinBoxCover {
   width: 300px;
   height: 200px;
-  background-color: green;
+  background-color: white;
   position: absolute;
-
   transform-origin: top;
   transition: all 1s;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
+
+
 .spinBox:hover .spinBoxCover {
   transform: rotateX(90deg);
   transition: all 1s;
   transform-origin: top;
+  background-color: #1e1e1e;
 }
 
 .spinBoxOne {
@@ -328,7 +330,7 @@ span {
   transform: rotateX(0deg);
   transition: all 1.5s;
   transform-origin: bottom;
-
+  background-color: #0097e6;
 }
 
 

@@ -11,6 +11,8 @@ import Statistics from "./ER/Statistics/Statistics.js";
 import Character_Detail from "./ER/Character_Information/Character_Detail.js";
 import MainSite from "./MainSite.js";
 
+import CopyWeb from "./copyWeb/copyWeb.js";
+
 import {
   BrowserRouter,
   Route,
@@ -95,6 +97,10 @@ class App extends Component {
           <Route path="/UserSelect" element={<UserSelect/>} />
 
           <Route path="*"  element={<MainSite />} />
+
+          <Route path="/copyWeb" element={<CopyWeb/>}/>
+
+
           <Route exact path="/" element={<MainSite />} />
 
         </Routes>
