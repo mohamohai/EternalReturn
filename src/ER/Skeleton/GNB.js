@@ -29,7 +29,7 @@ class GNB extends Component {
     return (
       <div className="GNB">
         <li>
-          <Link to="/">
+          <Link to="/ER">
             <img src={"/image/ERLogoWhite.png"}></img>
           </Link>
         </li>

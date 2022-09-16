@@ -9,8 +9,8 @@ import Search_User from "./ER/Search_User/Search_User.js";
 import GameIntroduce from "./ER/GameIntroduce/GameIntroduce.js";
 import Statistics from "./ER/Statistics/Statistics.js";
 import Character_Detail from "./ER/Character_Information/Character_Detail.js";
+import Ingredient from "./ingredient.js";
 import MainSite from "./MainSite.js";
-
 import CopyWeb from "./copyWeb/copyWeb.js";
 
 import {
@@ -53,9 +53,9 @@ class App extends Component {
         <GNB></GNB>
         <Routes>
           <Route exact path="/" element={<MainSite />} />
+          <Route exact path="/in" element={<Ingredient />} />
           <Route
-            path="/ER"
-            element={<ERMain />}
+            path="/ER"    element={<ERMain />}
           />
           <Route
             path="/Character_Infomation"
@@ -67,7 +67,7 @@ class App extends Component {
           <Route path="/Record" element={<Record />} />
           <Route path="/GameIntroduce" element={<GameIntroduce/>}/>
           <Route path="/Statistics" element={<Statistics/>}/>
-          
+
 
           <Route path="/ScheduleMain" element={<ScheduleMain/>}/>
         
@@ -96,12 +96,12 @@ class App extends Component {
             path="/ScheduleUpdate/:Date/:Title/:content/:location/:time/:etc" element={}/> */}
           <Route path="/UserSelect" element={<UserSelect/>} />
 
-          <Route path="*"  element={<MainSite />} />
+          <Route path="*"  element={<Ingredient />} />
 
           <Route path="/copyWeb" element={<CopyWeb/>}/>
 
 
-          <Route exact path="/" element={<MainSite />} />
+          <Route exact path="/" element={<Ingredient />} />
 
         </Routes>
       </BrowserRouter>
