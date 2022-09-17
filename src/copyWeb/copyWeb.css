@@ -68,25 +68,40 @@
 }
 
 .neonLogin {
-    position: absolute;
+    position: relative;
     z-index: 5000;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 100px 0 0 0;
+    color: white;
+}
+
+.neonLogin div {
+    margin-bottom: 50px;
 }
 
 .neoninput {
-    background-color: #45f3ff;
+    background-color: rgb(47, 40, 40);
     border: none;
-    height: 5px;
+    height: 10px;
     transition: 0.5s all;
+    transform: translateY(10px);
+    border-bottom: solid 1px #45f3ff;
 }
 
-.neoninput:focus {
-    height: 15px;
-    transition: 0.5s all;
-}
-
+.neoninput:focus,
 .neoninput:valid {
     height: 15px;
     transition: 0.5s all;
+}
+
+
+
+.neonLogin span {
+
+    position: absolute;
+
 }
 
 
