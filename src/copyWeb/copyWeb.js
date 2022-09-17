@@ -15,15 +15,30 @@ function CopyWeb() {
           <li>a</li>
           <li>b</li>
           <li>c</li>
-        </ul>
+        </ul> 
         <div className="copyWebMainOne">
+          
+          
           <div className="neonBox">
-             <div className="neonBoxOne">holy moly</div> 
+             <div className="neonBoxOne"></div> 
+             <div className="neonLogin">
+              <div className="neonLoginId">
+              <span className="neonLoginIdText">ID</span>
+              <input type="text" className="neonLoginIdInput neoninput" required></input>
+             </div>
+             <div className="neonLoginPw">
+              <span className="neonLoginPwText">PassWord</span>
+              <input type="password" className="neonLoginIdInput neoninput" required ></input>
+             </div>
+             </div>
           </div>
+          <div className="clean"></div>
+         
+         
           <div className="boxbox"> 
             <div className="boxboxfront chch"><h1>front</h1></div>
             <div className="boxboxback chch"><img src="./image/Pixel/Main3/jinu.jpg"></img></div>
-          </div>
+          </div><div className="clean"></div>
         </div>
       </div>
     </div>

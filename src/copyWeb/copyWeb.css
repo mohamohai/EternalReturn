@@ -38,7 +38,7 @@
     content: "";
     width: 500px;
     height: 550px;
-    background: linear-gradient(0deg, transparent, blue);
+    background: linear-gradient(0deg, transparent, #45f3ff);
     position: absolute;
     top: -50%;
     left: -50%;
@@ -50,22 +50,46 @@
     content: "";
     width: 500px;
     height: 550px;
-    background: linear-gradient(0deg, transparent, rgb(133, 244, 166));
+    background: linear-gradient(0deg, transparent, #45f3ff);
     position: absolute;
     top: -50%;
     left: -50%;
     transform-origin: bottom right;
     animation: neonBoxMove 6s linear infinite;
-    animation-delay: 0.8s;
+    animation-delay: 3s;
 }
 
 .neonBoxOne {
     position: absolute;
-    inset: 3px;
+    inset: 5px;
     z-index: 10;
     background-color: rgb(47, 40, 40);
     ;
 }
+
+.neonLogin {
+    position: absolute;
+    z-index: 5000;
+}
+
+.neoninput {
+    background-color: #45f3ff;
+    border: none;
+    height: 5px;
+    transition: 0.5s all;
+}
+
+.neoninput:focus {
+    height: 15px;
+    transition: 0.5s all;
+}
+
+.neoninput:valid {
+    height: 15px;
+    transition: 0.5s all;
+}
+
+
 
 .boxbox {
     position: relative;
