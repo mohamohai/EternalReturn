@@ -68,40 +68,61 @@
 }
 
 .neonLogin {
-    position: relative;
+    position: absolute;
     z-index: 5000;
     justify-content: center;
     align-items: center;
     text-align: center;
     margin: 100px 0 0 0;
     color: white;
+    left: 175px;
 }
 
 .neonLogin div {
     margin-bottom: 50px;
 }
 
+.neonLoginText {
+    z-index: 2000;
+}
+
 .neoninput {
     background-color: rgb(47, 40, 40);
     border: none;
-    height: 10px;
+    height: 20px;
     transition: 0.5s all;
     transform: translateY(10px);
     border-bottom: solid 1px #45f3ff;
+    position: relative;
+    top: 5px;
+
 }
 
-.neoninput:focus,
-.neoninput:valid {
-    height: 15px;
+/* 이걸 겹치게 한 다음에 클릭하면 위로 올가가게 배경색은 없이 */
+
+.neonBox input:focus,
+.neonBox input:valid {
+    height: 25px;
     transition: 0.5s all;
+    background-color: #45f3ff;
+    border-radius: 4px;
+}
+
+.neonBox input:focus+span,
+.neonBox input:valid+span {
+    height: 25px;
+    transition: 0.5s all;
+    color: #45f3ff;
+    font-size: 0.5rem;
+    transform: translateY(-10px)
 }
 
 
 
 .neonLogin span {
-
     position: absolute;
-
+    left: 0px;
+    transition: 0.5s all;
 }
 
 

@@ -23,12 +23,12 @@ function CopyWeb() {
              <div className="neonBoxOne"></div> 
              <div className="neonLogin">
               <div className="neonLoginId">
-              <span className="neonLoginIdText neonLoginText">ID</span>
               <input type="text" className="neonLoginIdInput neoninput" required></input>
+              <span className="neonLoginIdText neonLoginText">ID</span>
              </div>
              <div className="neonLoginPw">
-              <span className="neonLoginPwText neonLoginText">PassWord</span>
               <input type="password" className="neonLoginIdInput neoninput" required ></input>
+              <span className="neonLoginPwText neonLoginText">PassWord</span>
              </div>
              </div>
           </div>
