@@ -1,0 +1,29 @@
+.Vhom {
+    width: 100vw;
+    height: 500vh;
+    z-index: 9000;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.VhomGNB {
+    position: fixed;
+    left: 50vw;
+    float: right;
+    width: 800px;
+    height: 100px;
+    background-color: aquamarine;
+}
+
+.VhomGNBMenu {
+    position: absolute;
+    top: 50px;
+}
+
+.VhomGNBMenu li {
+    float: left;
+    padding: 20px;
+
+}

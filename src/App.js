@@ -12,6 +12,7 @@ import Character_Detail from "./ER/Character_Information/Character_Detail.js";
 import Ingredient from "./ingredient.js";
 import MainSite from "./MainSite.js";
 import CopyWeb from "./copyWeb/copyWeb.js";
+import Vhom from "./VHOM/vhom.js";
 
 import {
   BrowserRouter,
@@ -99,6 +100,7 @@ class App extends Component {
           <Route path="*"  element={<Ingredient />} />
 
           <Route path="/copyWeb" element={<CopyWeb/>}/>
+          <Route path="/vhom" element={<Vhom/>}/>
 
 
           <Route exact path="/" element={<Ingredient />} />

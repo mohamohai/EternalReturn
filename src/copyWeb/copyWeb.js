@@ -19,7 +19,7 @@ function CopyWeb() {
         <div className="copyWebMainOne">
           
           
-          <div className="neonBox">
+          <form className="neonBox">
              <div className="neonBoxOne"></div> 
              <div className="neonLogin">
               <div className="neonLoginId">
@@ -31,7 +31,8 @@ function CopyWeb() {
               <span className="neonLoginPwText neonLoginText">PassWord</span>
              </div>
              </div>
-          </div>
+           
+          </form>
           <div className="clean"></div>
          
          
