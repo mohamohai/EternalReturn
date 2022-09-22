@@ -59,8 +59,10 @@ const TryAgain=() =>{// 특정 마우스 휠에서 작동시키면 지웠다가 
         <div className="weather">
         <div className="weatherCould"></div>
         <div className="snow">
-          <div data-value="1"></div>
-          <span></span>
+          <div></div>
+         <div>
+   css Variable
+</div>
           <span></span>
           <span></span>
           <span></span>
