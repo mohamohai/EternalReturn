@@ -340,3 +340,84 @@ span {
   height: 300px;
   background-color: yellowgreen;
 }
+
+.weather {
+  background-color: #464343;
+  width: 500px;
+  height: 600px;
+  position: absolute;
+  left: 500px;
+  top: 200px;
+}
+
+.weatherCould {
+  width: 300px;
+  height: 100px;
+  background-color: red;
+  border-radius: 100px;
+  position: absolute;
+}
+
+.weatherCould::before {
+  content: "";
+  width: 130px;
+  height: 150px;
+  background-color: red;
+  position: absolute;
+  left: 35px;
+  top: -50px;
+  border-radius: 100px;
+}
+
+.weatherCould::after {
+  content: "";
+  width: 150px;
+  height: 150px;
+  background-color: red;
+  position: absolute;
+  left: 100px;
+  top: -75px;
+  border-radius: 100px;
+}
+
+.snow {
+  position: absolute;
+  height: 500px;
+  display: flex;
+}
+
+.snow span {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  background: snow;
+  color: white;
+  content: "";
+  margin: 0 13px 0 0;
+  animation: snowfall 1s infinite linear;
+  animation-duration: calc(15s/1);
+  border-radius: 10px;
+}
+
+.snow span:nth-child(1) {
+  position: absolute;
+  top: 10px;
+}
+
+
+@keyframes snowfall {
+  0% {
+    transform: translateY(0px) scale(1);
+
+  }
+
+  95% {
+    transform: translateY(400px) scale(1);
+
+  }
+
+  100% {
+    transform: translateY(500px) scale(0);
+
+  }
+}
