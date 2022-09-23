@@ -6,7 +6,7 @@
     position: absolute;
     left: 0px;
     top: 0px;
-    display: flex;
+
 }
 
 .VHOMGNB {
@@ -38,15 +38,77 @@
 
 .VHOMGNBRight {
     text-align: right;
-
+    min-width: 800px;
+    height: 20vh;
+    background-color: blueviolet;
 }
+
+.VHOMGNBUserInfo {
+    margin-right: 20px;
+}
+
+.VHOMGNBUserInfo ul {
+    text-align: right;
+}
+
+.VHOMGNBUserInfo li {
+    float: right;
+}
+
+.VHOMGNBUserInfo li::after {
+    content: "";
+    border-right: 1px solid gray;
+    margin: 0 10px 0 10px;
+}
+
+
+.VHOMGNBMenu ul {
+    margin-top: 20px;
+    height: 20px;
+    float: right;
+    line-height: 20px;
+}
+
+.VHOMGNBMenu li {}
+
+.VHOMGNBMenuRightOne {
+    margin-right: 20px;
+}
+
+.VHOMGNBMenuRightOne li {
+    font-size: 1.2rem;
+    margin-right: 15px;
+    float: right;
+}
+
+.VHOMGNBMenuRightTwo {
+    margin-right: 20px;
+}
+
+.VHOMGNBMenuRightTwo li {
+    margin-right: 15px;
+    font-size: 1rem;
+    /* 폰트얇게 */
+    float: right;
+}
+
+.VHOMGNBMenuRightThree {
+
+    margin-right: 20px;
+}
+
+.VHOMGNBMenuRightThree li {
+    margin-right: 15px;
+    float: right;
+}
+
 
 .VHOMSideBarText {
     position: fixed;
     transform: rotate(90deg);
     float: left;
     left: -30px;
-    margin-top: 30px;
+    margin-top: 0vh;
     background: none;
     font-size: 0.8rem;
 }
@@ -54,7 +116,26 @@
 .VHOMSideBarBorder {
     width: 5px;
     height: 40vh;
-    background-color: cyan;
+    background-color: #00B190;
     position: fixed;
     transition: all 1s;
+    top: 0px;
+}
+
+
+
+
+
+
+.flexbox {
+    display: flex;
+    width: 1200;
+    justify-content: flex-start;
+}
+
+.boax {
+    width: 200px;
+    height: 100px;
+    background-color: brown;
+
 }
