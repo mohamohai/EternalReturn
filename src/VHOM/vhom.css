@@ -1,10 +1,15 @@
 .VHOM {
     width: 100vw;
-    z-index: 5000;
-    background-color: white;
+    height: 400vh;
     position: absolute;
     left: 0px;
     top: 0px;
+    z-index: 1000;
+    background-color: white;
+    height: 100vh;
+    overflow-y: auto;
+    position: absolute;
+    left: 0px;
 }
 
 
@@ -14,6 +19,8 @@
     height: 20vh;
     background: orange;
     position: fixed;
+    display: flex;
+    justify-content: space-between
 }
 
 .VHOMGNBLeft {
@@ -22,6 +29,7 @@
     float: left;
     height: 20vh;
     background-color: aqua;
+
 }
 
 .VHOMGNBLeft a {
@@ -39,87 +47,56 @@
 
 .VHOMGNBRight {
     text-align: right;
-    width: 100vw;
-    min-width: 1920px;
+    min-width: 1000px;
     height: 20vh;
-    background-color: blueviolet;
+    background-color: wheat;
+
 }
 
-.VHOMGNBUserInfo {}
+.VHOMGNBRightMenu {}
 
-.VHOMGNBUserInfo ul {
-    text-align: right;
-    margin: 0 10px 0 10px;
-}
+.VHOMGNBRightMenu ul li {}
 
-.VHOMGNBUserInfo li {
+.VHOMGNBRightUserMenu ul li {
     float: right;
+    padding: 20px 10px 0 0;
 }
 
+.VHOMGNBRightMenuBarOne {}
 
-
-.VHOMGNBUserInfoLine::after {
-    content: "";
-    border-right: 1px solid gray;
-    margin: 0 10px 0 10px;
-}
-
-.VHOMGNBMenu {
-    width: 100vw;
-    position: relative;
-}
-
-.VHOMGNBMenu ul {
-    margin-top: 20px;
-    height: 20px;
+.VHOMGNBRightMenuBarOne ul li {
     float: right;
+    margin: 0 10px 0 0;
+    font-size: 1.1rem;
     line-height: 20px;
 }
 
-.VHOMGNBMenu li {}
+.VHOMGNBRightMenuBarTwo {}
 
-.VHOMGNBMenuRightOne {
-    margin-right: 20px;
-
-}
-
-.VHOMGNBMenuRightOne li {
-    font-size: 1.2rem;
-    margin-right: 15px;
+.VHOMGNBRightMenuBarTwo ul li {
     float: right;
-}
-
-.VHOMGNBMenuRightTwo {
-    margin-right: 20px;
+    margin: 0 10px 0 0;
+    line-height: 20px;
 
 }
 
-.VHOMGNBMenuRightTwo li {
-    margin-right: 15px;
-    font-size: 1rem;
-    /* 폰트얇게 */
-    float: right;
-}
 
-.VHOMGNBMenuRightThree {
-    width: 150px;
-    margin-right: 20px;
-}
 
-.VHOMGNBMenuRightThree li {
-
-    float: right;
-}
 
 
 .VHOMSideBarText {
     position: fixed;
     transform: rotate(90deg);
-    float: left;
-    left: -30px;
-    margin-top: 0vh;
+
+    left: -70px;
     background: none;
-    font-size: 0.8rem;
+    font-size: 1rem;
+    z-index: 10000;
+    transition: all 1s;
+    width: 170px;
+
+    text-align: right;
+
 }
 
 .VHOMSideBarBorder {
@@ -129,4 +106,15 @@
     position: fixed;
     transition: all 1s;
     top: 0px;
+    z-index: 10000;
+}
+
+
+
+.full {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
 }
