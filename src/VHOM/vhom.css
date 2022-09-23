@@ -1,22 +1,23 @@
 .VHOM {
     width: 100vw;
-    height: 500vh;
     z-index: 5000;
     background-color: white;
     position: absolute;
     left: 0px;
     top: 0px;
-
 }
+
+
 
 .VHOMGNB {
     width: 100vw;
     height: 20vh;
     background: orange;
+    position: fixed;
 }
 
 .VHOMGNBLeft {
-    min-width: 500px;
+    min-width: 700px;
     text-align: left;
     float: left;
     height: 20vh;
@@ -38,29 +39,35 @@
 
 .VHOMGNBRight {
     text-align: right;
-    min-width: 800px;
+    width: 100vw;
+    min-width: 1920px;
     height: 20vh;
     background-color: blueviolet;
 }
 
-.VHOMGNBUserInfo {
-    margin-right: 20px;
-}
+.VHOMGNBUserInfo {}
 
 .VHOMGNBUserInfo ul {
     text-align: right;
+    margin: 0 10px 0 10px;
 }
 
 .VHOMGNBUserInfo li {
     float: right;
 }
 
-.VHOMGNBUserInfo li::after {
+
+
+.VHOMGNBUserInfoLine::after {
     content: "";
     border-right: 1px solid gray;
     margin: 0 10px 0 10px;
 }
 
+.VHOMGNBMenu {
+    width: 100vw;
+    position: relative;
+}
 
 .VHOMGNBMenu ul {
     margin-top: 20px;
@@ -73,6 +80,7 @@
 
 .VHOMGNBMenuRightOne {
     margin-right: 20px;
+
 }
 
 .VHOMGNBMenuRightOne li {
@@ -83,6 +91,7 @@
 
 .VHOMGNBMenuRightTwo {
     margin-right: 20px;
+
 }
 
 .VHOMGNBMenuRightTwo li {
@@ -93,12 +102,12 @@
 }
 
 .VHOMGNBMenuRightThree {
-
+    width: 150px;
     margin-right: 20px;
 }
 
 .VHOMGNBMenuRightThree li {
-    margin-right: 15px;
+
     float: right;
 }
 
@@ -120,22 +129,4 @@
     position: fixed;
     transition: all 1s;
     top: 0px;
-}
-
-
-
-
-
-
-.flexbox {
-    display: flex;
-    width: 1200;
-    justify-content: flex-start;
-}
-
-.boax {
-    width: 200px;
-    height: 100px;
-    background-color: brown;
-
 }
