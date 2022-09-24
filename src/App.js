@@ -10,7 +10,7 @@ import GameIntroduce from "./ER/GameIntroduce/GameIntroduce.js";
 import Statistics from "./ER/Statistics/Statistics.js";
 import Character_Detail from "./ER/Character_Information/Character_Detail.js";
 import Ingredient from "./ingredient.js";
-import MainSite from "./MainSite.js";
+import Pixel from "./MainSite.js";
 import CopyWeb from "./copyWeb/copyWeb.js";
 import Vhom from "./VHOM/vhom.js";
 
@@ -53,7 +53,7 @@ class App extends Component {
       <BrowserRouter>
         <GNB></GNB>
         <Routes>
-          <Route exact path="/" element={<MainSite />} />
+          <Route exact path="/" element={<Pixel/>} />
           <Route exact path="/in" element={<Ingredient />} />
           <Route
             path="/ER"    element={<ERMain />}

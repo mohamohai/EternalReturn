@@ -7,7 +7,7 @@ function Vhom() {
   const [SideBarVh, setSideBarVh] = useState(10);
   const [SideBarBorder, setSideBarBorder] = useState(20);
   const [Count, setCount] = useState(0); 
-  
+  const [SlideCnt,setSlideCnt]=useState(1);
   const DivRef = useRef();
   const [scrollIndex, setScrollIndex] = useState(1);
 
@@ -121,7 +121,7 @@ function Vhom() {
         </div><div className="VHOMSideBarBorder" style={{height:`${SideBarBorder}vh`}}></div>
       <div className="VHOMGNB">
         <div className="VHOMGNBLeft">
-          <a href="#">VHOM</a>
+          <a href="#" style={{color:"#00B190"}}>VHOM</a>
           <span>한솔이 만든 토탈 인테리어</span>
         </div>
         <div className="VHOMGNBRight">
@@ -149,19 +149,52 @@ function Vhom() {
               </ul>
             </div>
             </div>
-            
-            
-            
           </div>
         </div>
       </div>
       <div className="clear"></div><br></br>
       <div className="VHOMMainPageOne  page">
-       <div>
-        <li></li>
-       </div>
+      <div className="xxxz">aa</div>
+      <div className="axz">
+        <div className="SlideOne SlideBox">
+                <p class="intro-desc">
+									전문가가 구성한
+									<br></br>트렌디하고 모던한
+									<br></br>7개 스타일로
+									<br></br><span class="fw-medium">실패 없는 인테리어!</span>
+								</p>
+        </div>
+        <div className="SlideTwo SlideBox"><p class="intro-desc">
+									전문가가 구성한
+									<br></br>트렌디하고 모던한
+									<br></br>7개 스타일로
+									<br></br><span class="fw-medium">실패 없는 인테리어!</span>
+								</p></div>
+        <div  className="SlideThree SlideBox"><p class="intro-desc">
+									전문가가 구성한
+									<br></br>트렌디하고 모던한
+									<br></br>7개 스타일로
+									<br></br><span class="fw-medium">실패 없는 인테리어!</span>
+								</p></div>
+        <div  className="SlideFour SlideBox">
+          <p class="intro-desc">
+									전문가가 구성한
+									<br></br>트렌디하고 모던한
+									<br></br>7개 스타일로
+									<br></br><span class="fw-medium">실패 없는 인테리어!</span>
+								</p></div>
       </div>
-      <div className="VHOMMainPageTwo   page">2</div>
+      </div>
+      <div className="VHOMMainPageTwo   page">
+      <div className="VHOMSilder">
+               <ul>
+                  <li className="p1"><div>a</div></li>
+                  <li className="p2"><div>b</div></li>
+                  <li className="p3"><div>c</div></li>
+                  <li className="p4"><div>d</div></li>
+                </ul>
+        </div>
+      </div>
       <div className="VHOMMainPageThree page">3</div>
       <div className="VHOMMainPageFour  page">4</div>
     </div>
