@@ -34,8 +34,22 @@ function Vhom() {
     var divdiv = document.getElementById("zxxz");
     var pCount = SlideCnt+1
     console.log("본판 : " + SlideCnt+"계산판 " +pCount)
+
+    switch(SlideCnt){
+      case 0 :
+        console.log("1바꾸기")
+        break;
+      case 1 :
+        console.log("2바꾸기")
+        break;
+      case 2 :
+        console.log("3바꾸기")
+        break;
+      case 3 :
+        console.log("4예정바꾸기")
+        break;
+    } //돌아가기로 하든 포커스를 맞추던 ㄱ
     if(SlideCnt<3){
-     
      setSlideCnt(SlideCnt+1)
      divdiv.style.transform=`translateX(${pCount*-450}px)`
   }
@@ -196,20 +210,22 @@ function Vhom() {
       <input type = "button" value="right" onClick={Changeright} />
         <div id="zxxz">
         <div className="SlideOne SlideBox" id ="xxaax">
-                <p className="intro-desc">
+          <p className="intro-desc">
 									브랜드 따로
 									<br></br>상담 따로가 아닌
 									<br></br>설계, 시공, AS
 									<br></br><span className="fw-medium">모두를 책임지니까</span>
 								</p>
         </div>
-        <div className="SlideTwo SlideBox" id ="xxaax"><p className="intro-desc">
+        <div className="SlideTwo SlideBox" id ="xxaax">
+          <p className="intro-desc">
 									전문가가 구성한
 									<br></br>트렌디하고 모던한
 									<br></br>7개 스타일로 
 									<br></br><span className="fw-medium">실패 없는 인테리어</span>
 								</p></div>
-        <div  className="SlideThree SlideBox" id ="xxaax"><p className="intro-desc">
+        <div  className="SlideThree SlideBox" id ="xxaax">
+          <p className="intro-desc">
                   3D도면에서
 									<br></br>스타일패키지 입혀보고
 									<br></br>3분 만에 우리집 견적
@@ -220,8 +236,15 @@ function Vhom() {
 									처음 견적 그대로
 									<br></br>시공까지!
 									<br></br><span className="fw-medium">우리집 맞춤 견적 제공</span>
-									<br></br>
+									<br></br>&nbsp;
 								</p></div>
+              <div  className="SlideFour SlideBox" id ="xxaax">
+          <p className="intro-desc">
+                Super E0 강마루와
+                <br></br>친환경인증 실크벽지
+                <br></br><span className="fw-medium">헤펠레, 벤자민무어</span>
+                <br></br>브랜드 자재까지
+              </p></div>
       </div>
       </div>
       </div>
