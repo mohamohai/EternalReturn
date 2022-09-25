@@ -192,5 +192,6 @@
 
 
 .SlideBox {
-    transform: translateX(-450px);
+
+    background-color: red;
 }

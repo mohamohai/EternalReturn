@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useRef } from "react";
 import "./VHOM.css";
 
@@ -8,8 +9,41 @@ function Vhom() {
   const [SideBarBorder, setSideBarBorder] = useState(20);
   const [Count, setCount] = useState(0); 
   const [SlideCnt,setSlideCnt]=useState(1);
+  const [SlideCnt2,setSlideCnt2]=useState(1);
+
   const DivRef = useRef();
   const [scrollIndex, setScrollIndex] = useState(1);
+
+
+  function Changeleft() {
+    console.log("leftbtn")
+   //document.getElementById("xxaax").style.transform = "rotate(7deg)";
+      var divdiv = document.getElementById("zxxz");
+      var mCount = SlideCnt-1
+      console.log("본판 : " + SlideCnt+"계산판 " +mCount)
+      if(SlideCnt!=0){
+        setSlideCnt(SlideCnt-1)    
+        divdiv.style.transform=`translateX(${mCount*-450}px)`   
+      }
+      else if (SlideCnt==1){
+        setSlideCnt(SlideCnt-1)    
+        divdiv.style.transform=`translateX(${mCount*-450}px)` 
+      }
+  }
+
+ function Changeright() {
+  console.log("leftright")
+    // document.getElementById("xxaax").style.transform = "rotate(7deg)";
+    var divdiv = document.getElementById("zxxz");
+      
+    if(SlideCnt<4){
+     console.log(SlideCnt*-450)
+     setSlideCnt(SlideCnt+1)
+     divdiv.style.transform=`translateX(${SlideCnt*-450}px)`
+  }
+ }
+
+
 
   useEffect(() => {
     const wheelHandler = (e) => {
@@ -154,35 +188,42 @@ function Vhom() {
       </div>
       <div className="clear"></div><br></br>
       <div className="VHOMMainPageOne  page">
-      <div className="xxxz">aa</div>
+      <div className="xxxz">aa
+      <input type = "button" value="left" onClick={Changeleft} />
+      <input type = "button" value="right" onClick={Changeright} />
+      {SlideCnt}
+      
+      </div>
       <div className="axz">
-        <div className="SlideOne SlideBox">
-                <p class="intro-desc">
+        <div id="zxxz">
+        <div className="SlideOne SlideBox" id ="xxaax">
+                <p className="intro-desc">
 									전문가가 구성한
 									<br></br>트렌디하고 모던한
 									<br></br>7개 스타일로
-									<br></br><span class="fw-medium">실패 없는 인테리어!</span>
+									<br></br><span className="fw-medium">실패 없는 인테리어!</span>
 								</p>
         </div>
-        <div className="SlideTwo SlideBox"><p class="intro-desc">
-									전문가가 구성한
-									<br></br>트렌디하고 모던한
-									<br></br>7개 스타일로
-									<br></br><span class="fw-medium">실패 없는 인테리어!</span>
+        <div className="SlideTwo SlideBox" id ="xxaax"><p className="intro-desc">
+									a
+									<br></br>b
+									<br></br>c
+									<br></br><span className="fw-medium">d</span>
 								</p></div>
-        <div  className="SlideThree SlideBox"><p class="intro-desc">
-									전문가가 구성한
-									<br></br>트렌디하고 모던한
-									<br></br>7개 스타일로
-									<br></br><span class="fw-medium">실패 없는 인테리어!</span>
+        <div  className="SlideThree SlideBox" id ="xxaax"><p className="intro-desc">
+									1
+									<br></br>2
+									<br></br>3
+									<br></br><span className="fw-medium">4</span>
 								</p></div>
-        <div  className="SlideFour SlideBox">
-          <p class="intro-desc">
-									전문가가 구성한
-									<br></br>트렌디하고 모던한
-									<br></br>7개 스타일로
-									<br></br><span class="fw-medium">실패 없는 인테리어!</span>
+        <div  className="SlideFour SlideBox" id ="xxaax">
+          <p className="intro-desc">
+									5
+									<br></br>6
+									<br></br>7
+									<br></br><span className="fw-medium">9</span>
 								</p></div>
+      </div>
       </div>
       </div>
       <div className="VHOMMainPageTwo   page">
