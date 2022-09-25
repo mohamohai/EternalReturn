@@ -114,16 +114,14 @@
 
 
 .VHOMMainPageOne {
-
-
     height: 800px;
-    padding-top: 20vh;
-    background-color: gainsboro;
+    padding-top: 18vh;
+
 
 }
 
 .xxxz {
-    width: 60vw;
+    min-width: 700px;
     height: 700px;
     background-color: turquoise;
 }
@@ -132,12 +130,29 @@
     width: 1000px;
     overflow: hidden;
     height: 700px;
-    background-color: antiquewhite;
     white-space: nowrap;
-    box-shadow: inset white 5px 5px 5px
+    z-index: 1;
+    margin-top: 100px;
+}
+
+.axz::before {
+    z-index: 2;
+    content: "";
+    width: 10px;
+    overflow: hidden;
+    height: 700px;
+
+    position: absolute;
+    margin-left: -20px;
+    box-shadow: 5px 1px 10px 10px white;
 }
 
 .axz div {
+    transition: all 1s;
+}
+
+.axz div div {
+
     width: 350px;
     height: 400px;
     display: inline-block;
@@ -145,7 +160,8 @@
     margin-right: 100px;
     transition: all 1s;
     transform: translate();
-    box-shadow: rgb(188, 188, 188) 2px 2px 2px 2px;
+    box-shadow: rgb(188, 188, 188) 0px 1px 10px 1px;
+    margin-left: 10px;
 }
 
 .SlideBox span {
@@ -194,4 +210,5 @@
 .SlideBox {
 
     background-color: red;
+
 }

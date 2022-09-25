@@ -8,7 +8,7 @@ function Vhom() {
   const [SideBarVh, setSideBarVh] = useState(10);
   const [SideBarBorder, setSideBarBorder] = useState(20);
   const [Count, setCount] = useState(0); 
-  const [SlideCnt,setSlideCnt]=useState(0);
+  const [SlideCnt,setSlideCnt]=useState(1);
   const [SlideCnt2,setSlideCnt2]=useState(1);
 
   const DivRef = useRef();
@@ -21,23 +21,25 @@ function Vhom() {
       var divdiv = document.getElementById("zxxz");
       var mCount = SlideCnt-1
       console.log("본판 : " + SlideCnt+"계산판 " +mCount)
-      if(SlideCnt>0){
+      if(SlideCnt!=0){
         setSlideCnt(SlideCnt-1)    
         divdiv.style.transform=`translateX(${mCount*-450}px)`   
       }
-   
+      else if (SlideCnt==1){
+        setSlideCnt(SlideCnt-1)    
+        divdiv.style.transform=`translateX(${mCount*-450}px)` 
+      }
   }
 
  function Changeright() {
   console.log("leftright")
     // document.getElementById("xxaax").style.transform = "rotate(7deg)";
     var divdiv = document.getElementById("zxxz");
-    var pCount = SlideCnt+1
-    console.log("본판 : " + SlideCnt+"계산판 " +pCount)
-    if(SlideCnt<3){
-     
+      
+    if(SlideCnt<4){
+     console.log(SlideCnt*-450)
      setSlideCnt(SlideCnt+1)
-     divdiv.style.transform=`translateX(${pCount*-450}px)`
+     divdiv.style.transform=`translateX(${SlideCnt*-450}px)`
   }
  }
 
@@ -187,40 +189,39 @@ function Vhom() {
       <div className="clear"></div><br></br>
       <div className="VHOMMainPageOne  page">
       <div className="xxxz">aa
-      
+      <input type = "button" value="left" onClick={Changeleft} />
+      <input type = "button" value="right" onClick={Changeright} />
       {SlideCnt}
       
       </div>
       <div className="axz">
-      <input type = "button" value="left" onClick={Changeleft} />
-      <input type = "button" value="right" onClick={Changeright} />
         <div id="zxxz">
         <div className="SlideOne SlideBox" id ="xxaax">
                 <p className="intro-desc">
-									브랜드 따로
-									<br></br>상담 따로가 아닌
-									<br></br>설계, 시공, AS
-									<br></br><span className="fw-medium">모두를 책임지니까</span>
+									전문가가 구성한
+									<br></br>트렌디하고 모던한
+									<br></br>7개 스타일로
+									<br></br><span className="fw-medium">실패 없는 인테리어!</span>
 								</p>
         </div>
         <div className="SlideTwo SlideBox" id ="xxaax"><p className="intro-desc">
-									전문가가 구성한
-									<br></br>트렌디하고 모던한
-									<br></br>7개 스타일로 
-									<br></br><span className="fw-medium">실패 없는 인테리어</span>
+									a
+									<br></br>b
+									<br></br>c
+									<br></br><span className="fw-medium">d</span>
 								</p></div>
         <div  className="SlideThree SlideBox" id ="xxaax"><p className="intro-desc">
-                  3D도면에서
-									<br></br>스타일패키지 입혀보고
-									<br></br>3분 만에 우리집 견적
-									<br></br><span className="fw-medium">바로 확인!</span>
+									1
+									<br></br>2
+									<br></br>3
+									<br></br><span className="fw-medium">4</span>
 								</p></div>
         <div  className="SlideFour SlideBox" id ="xxaax">
           <p className="intro-desc">
-									처음 견적 그대로
-									<br></br>시공까지!
-									<br></br><span className="fw-medium">우리집 맞춤 견적 제공</span>
-									<br></br>
+									5
+									<br></br>6
+									<br></br>7
+									<br></br><span className="fw-medium">9</span>
 								</p></div>
       </div>
       </div>
