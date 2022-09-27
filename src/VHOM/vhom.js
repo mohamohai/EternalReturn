@@ -6,10 +6,16 @@ function Vhom() {
  
   const [SideBarText, setSideBarText] = useState('VHOM서비스소개');  
   const [SideBarVh, setSideBarVh] = useState(10);
-  const [SideBarBorder, setSideBarBorder] = useState(20);
+  const [SideBarBorder, setSideBarBorder] = useState(20); //좌측 사이드 진행도
+
   const [Count, setCount] = useState(0); 
-  const [SlideCnt,setSlideCnt]=useState(0);
-  const [SlideCnt2,setSlideCnt2]=useState(1);
+  const [SlideCnt,setSlideCnt]=useState(0); //1page 이벤트 배너용
+  const [SlideCnt2,setSlideCnt2]=useState(0);
+
+  const [HoverAct,setHoverAct]=useState("none");
+  
+
+  
 
   const DivRef = useRef();
   const [scrollIndex, setScrollIndex] = useState(1);
@@ -42,14 +48,14 @@ function Vhom() {
       case 1 :
         console.log("2바꾸기")
         break;
-      case 2 :
+      case 2 : 
         console.log("3바꾸기")
         break;
       case 3 :
         console.log("4예정바꾸기")
         break;
     } //돌아가기로 하든 포커스를 맞추던 ㄱ
-    if(SlideCnt<3){
+    if(SlideCnt<4){
      setSlideCnt(SlideCnt+1)
      divdiv.style.transform=`translateX(${pCount*-450}px)`
   }
@@ -164,12 +170,15 @@ function Vhom() {
     <div className="VHOM" ref={DivRef}>
       <div className="VHOMSideBarText" style={{top:`${SideBarVh}vh`}}>
           {SideBarText} {/* 좌측바 */}
-        </div><div className="VHOMSideBarBorder" style={{height:`${SideBarBorder}vh`}}></div>
+        </div>
+        <div className="VHOMSideBarBorder" style={{height:`${SideBarBorder}vh`}}>
+        </div>
       <div className="VHOMGNB">
         <div className="VHOMGNBLeft">
           <a href="#" style={{color:"#00B190"}}>VHOM</a>
           <span>한솔이 만든 토탈 인테리어</span>
         </div>
+        <div></div>
         <div className="VHOMGNBRight">
           <div className="VHOMGNBRightMenu">
             <div className="VHOMGNBRightUserMenu">
@@ -200,7 +209,13 @@ function Vhom() {
       </div>
       <div className="clear"></div><br></br>
       <div className="VHOMMainPageOne  page">
-      <div className="xxxz">aa
+      <div className="xxxz">
+        <div className="VHOMBannerOne">
+          <div className="VHOMBannerOnemm">
+            <div className="VHOMBannerOnemmm"></div>
+          </div>
+   
+        </div>
       
       {SlideCnt}
       
@@ -249,17 +264,38 @@ function Vhom() {
       </div>
       </div>
       <div className="VHOMMainPageTwo   page">
-      <div className="VHOMSilder">
-               <ul>
-                  <li className="p1"><div>a</div></li>
-                  <li className="p2"><div>b</div></li>
-                  <li className="p3"><div>c</div></li>
-                  <li className="p4"><div>d</div></li>
-                </ul>
+        <div className="VHOMRemodelingPackage">
+          <ul>
+            <li className="VHOMRemodelingPackageHoverBox"></li>
+          </ul>
         </div>
       </div>
-      <div className="VHOMMainPageThree page">3</div>
-      <div className="VHOMMainPageFour  page">4</div>
+      <div className="VHOMMainPageThree page">
+        <div className="kakao">
+          <div className="headad">
+            <div className="earc">
+              <div className="ear"></div>
+              <div className="ear2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="VHOMMainPageFour  page">
+      <div class="ryan">  
+  <div class="ear left"></div>
+  <div class="ear right"></div>
+  
+  <div class="face">
+    <div class="eyebrow left"></div>
+    <div class="eyebrow right"></div>
+    <div class="eye left"></div>
+    <div class="eye right"></div>
+    <div class="nose"></div>
+    <div class="mouth left"></div>
+    <div class="mouth right"></div>
+  </div>
+</div>
+      </div>
     </div>
     
   );
