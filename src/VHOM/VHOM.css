@@ -231,6 +231,14 @@
     left: 50px;
 }
 
+
+
+.VHOMRemodelingPackage {
+    width: 100vw;
+    height: 100vh;
+
+}
+
 .onmouse {
     position: fixed;
     top: 300px;

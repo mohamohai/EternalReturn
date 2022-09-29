@@ -12,7 +12,7 @@ function Vhom() {
   const [SlideCnt,setSlideCnt]=useState(0); //1page 이벤트 배너용
   const [SlideCnt2,setSlideCnt2]=useState(0);
 
-  const [HoverAct,setHoverAct]=useState("none");
+  const [HoverAct,setHoverAct]=useState("hoverboxhide");
   
 
   
@@ -263,12 +263,19 @@ function Vhom() {
       </div>
       </div>
       </div>
-      <div className="VHOMMainPageTwo  page">
+      <div className="VHOMMainPageTwo  page" style={{backgroundImage:`url("./image/vhom/pastel.jpg)`}}>
         <div className="VHOMRemodelingPackage">
-          <p className="onmouse">{HoverAct}</p>
+          <p className="onmouse">{HoverAct}
+          <img src={`./image/vhom/${HoverAct}.jpg`}></img></p>
           <ul>
+          <li className="VHOMRemodelingPackageHoverBox"
+            onMouseEnter={()=>{setHoverAct("pastel")}}
+            onMouseLeave={()=>{setHoverAct("hoverboxhide")}}>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>
             <li className="VHOMRemodelingPackageHoverBox"
-            onMouseEnter={()=>{setHoverAct("hoverbox1")}}
+            onMouseEnter={()=>{setHoverAct("simple")}}
+            onMouseLeave={()=>{setHoverAct("hoverboxhide")}}>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>
+            <li className="VHOMRemodelingPackageHoverBox"
+            onMouseEnter={()=>{setHoverAct("vivid")}}
             onMouseLeave={()=>{setHoverAct("hoverboxhide")}}>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>
           </ul>
         </div>
