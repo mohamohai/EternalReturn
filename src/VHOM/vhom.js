@@ -263,25 +263,24 @@ function Vhom() {
       </div>
       </div>
       </div>
-      <div className="VHOMMainPageTwo   page">
+      <div className="VHOMMainPageTwo  page">
         <div className="VHOMRemodelingPackage">
+          <p className="onmouse">{HoverAct}</p>
           <ul>
-            <li className="VHOMRemodelingPackageHoverBox"></li>
+            <li className="VHOMRemodelingPackageHoverBox"
+            onMouseEnter={()=>{setHoverAct("hoverbox1")}}
+            onMouseLeave={()=>{setHoverAct("hoverboxhide")}}>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>
           </ul>
         </div>
       </div>
       <div className="VHOMMainPageThree page">
-        <div className="kakao">
-          <div className="headad">
-            <div className="earc">
-              <div className="ear"></div>
-              <div className="ear2"></div>
-            </div>
-          </div>
-        </div>
+        
+       
       </div>
       <div className="VHOMMainPageFour  page">
       <div class="ryan">  
+
+
   <div class="ear left"></div>
   <div class="ear right"></div>
   

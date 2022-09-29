@@ -231,73 +231,187 @@
     left: 50px;
 }
 
+.onmouse {
+    position: fixed;
+    top: 300px;
+    left: 500px;
+    width: 100px;
+    background-color: brown;
+    height: 100px;
+}
 
+.VHOMRemodelingPackageHoverBox {
+    position: fixed;
+    top: 500px;
+    left: 500px;
+    width: 100px;
+    background-color: brown;
+    height: 100px;
+}
 
 
 .kakao {
     position: absolute;
     left: 0px;
-    top: 200px;
+    top: 250px;
     background-color: mistyrose;
     width: 1000px;
     height: 800px;
+
 }
 
 .headad {
-    position: absolute;
-    top: 10px;
-    height: 10px;
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
+    background: #d59729;
     border-radius: 100%;
-    background-color: orange;
-    border: 7px solid black;
-    z-index: 10010;
+    position: relative;
+    border: 10px black solid;
+    z-index: 1000;
 }
 
-.earc {
-    width: 400px;
+.kEar {
+    width: 300px;
     height: 100px;
-    position: absolute;
-    z-index: 1515;
+
+    position: relative;
+    left: 0px;
+    top: -300px;
+    z-index: 500;
 }
 
 .ear {
-    height: 10px;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
+    background: #d59729;
     border-radius: 100%;
-    background-color: orange;
-    border: 7px solid black;
     position: relative;
-    left: 100px;
-    top: -10px;
-    z-index: 10009;
+    border: 10px black solid;
+    top: -30px;
+    right: 80px;
 }
 
 .ear2 {
-    height: 10px;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
+    background: #d59729;
     border-radius: 100%;
-    background-color: orange;
-    border: 7px solid black;
     position: relative;
-    left: -100px;
-    top: -110px;
-    z-index: 10009;
+    border: 10px black solid;
+    top: -130px;
+    left: 80px;
+}
+
+.kEyes {
+    width: 300px;
+    height: 100px;
+
+    position: relative;
+    left: -10px;
+    top: 80px;
+}
+
+.eye {
+    width: 75px;
+    height: 13px;
+    background-color: black;
+    border-radius: 10px;
+    position: relative;
+    right: 50px;
+}
+
+.eye2 {
+    width: 75px;
+    height: 13px;
+    background-color: black;
+    border-radius: 10px;
+    position: relative;
+    left: 50px;
+    top: -13px;
+}
+
+.kEye {
+    width: 300px;
+    height: 100px;
+    position: relative;
+    left: -10px;
+    top: 0px;
+}
+
+.ey {
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    border-radius: 20px;
+    position: relative;
+    right: 45px;
+}
+
+.ey2 {
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    border-radius: 20px;
+    position: relative;
+    left: 45px;
+    top: -20px;
+}
+
+.knose {
+    width: 300px;
+    height: 100px;
+
+    position: relative;
+    top: -70px;
+    left: -10px;
+}
+
+.nosea {
+    position: relative;
+    width: 25px;
+    height: 20px;
+    background-color: black;
+    border-radius: 50% 50% 100% 100%;
+    z-index: 1200;
+}
+
+.leftmouth {
+    position: relative;
+
+    width: 50px;
+    height: 50px;
+    border: 10px solid #000;
+    border-radius: 100%;
+    background: #fff;
+    top: -15px;
+    right: 18px;
+}
+
+.naseaa {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    border-radius: 30px;
+    background-color: white;
+    z-index: 3000;
+    top: 10px;
+    left: -3px;
+}
+
+.rightmouth {
+    position: relative;
+
+    width: 50px;
+    height: 50px;
+    border: 10px solid #000;
+    border-radius: 100%;
+    background: #fff;
+    top: -65px;
+    left: 18px;
 }
 
 
-*,
-*:after,
-*:before {
-    box-sizing: border-box;
-}
 
-body {
-    background: #313654;
-}
 
 .ryan {
     position: relative;
