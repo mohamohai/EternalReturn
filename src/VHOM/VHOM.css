@@ -12,6 +12,9 @@
     left: 0px;
 }
 
+.VHOMPersonalColor {
+    color: #00B190;
+}
 
 
 .VHOMGNB {
@@ -28,7 +31,7 @@
     text-align: left;
     float: left;
     height: 20vh;
-    background-color: seagreen;
+
 
 }
 
@@ -115,18 +118,44 @@
 .VHOMMainPageOne {
     height: 800px;
     padding-top: 18vh;
-
-
+    display: flex;
+    white-space: nowrap;
 }
 
-.xxxz {
-    min-width: 700px;
+.VHOMOneLeft {
+    min-width: 960px;
     height: 700px;
-    background-color: turquoise;
+    margin-right: 50px;
 }
 
-.axz {
-    width: 1000px;
+.VHOMOneLeftShowOne {
+    display: flex;
+    position: relative;
+}
+
+.VHOMOneLeftShowOne ul {
+    text-align: center;
+}
+
+.VHOMOneLeftShowOnet1 {
+    font-size: 3rem;
+}
+
+.VHOMOneLeftShowOnet2 {
+    font-size: 1rem;
+}
+
+.VHOMOneLeftShowOneI {
+    width: 700px;
+    height: 500px;
+}
+
+
+
+.VHOMOneLeftShowOne ul {}
+
+.VHOMOneRight {
+    width: 960px;
     overflow: hidden;
     height: 700px;
     white-space: nowrap;
@@ -134,38 +163,43 @@
     margin-top: 100px;
 }
 
-.axz::before {
+.VHOMOneRight::before {
     z-index: 2;
     content: "";
-    width: 10px;
+    width: 5px;
     overflow: hidden;
     height: 700px;
-
     position: absolute;
-    margin-left: -20px;
+    margin-left: -10px;
     box-shadow: 5px 1px 10px 10px white;
 }
 
-.axz div {
+.VHOMOneRight div {
     transition: all 1s;
 }
 
-.axz div div {
+.SlideBox {
 
     width: 350px;
     height: 400px;
     display: inline-block;
     background-color: white;
-    margin-right: 100px;
     transition: all 1s;
-    transform: translate();
     box-shadow: rgb(188, 188, 188) 0px 1px 10px 1px;
-    margin-left: 10px;
+    margin-left: 25px;
+
+
+}
+
+..SlideBox {
+    display: flex;
 }
 
 .SlideBox span {
     color: #00B190;
 }
+
+.intro-desc {}
 
 
 
@@ -203,44 +237,17 @@
 
 .p2 {}
 
-.VHOMBannerOne {
-    /* perspective: 900px; */
-}
-
-.VHOMBannerOne div {}
-
-.VHOMBannerOnemm {
-    /* width: 500px;
-    height: 300px;
-    border: 1px black solid;
-    transform-style: preserve-3d;
-    background-color: aquamarine;
-    transform: rotateY(45deg); */
-    width: 400px;
-    height: 300px;
-    border: 1px black solid;
-    position: absolute;
-}
-
-.VHOMBannerOnemmm {
-    width: 300px;
-    height: 200px;
-    border: 1px black solid;
-    position: absolute;
-    top: 50px;
-    left: 50px;
-}
 
 
 
 .VHOMRemodelingPackage {
     width: 100vw;
     height: 100vh;
-
+    background-color: red;
 }
 
 .onmouse {
-    position: fixed;
+    position: relative;
     top: 300px;
     left: 500px;
     width: 100px;
@@ -248,8 +255,17 @@
     height: 100px;
 }
 
+.VHOMRemodelingPackageHover {
+    position: relative;
+    top: 500px;
+    left: 500px;
+    width: 100px;
+    background-color: brown;
+    height: 100px;
+}
+
 .VHOMRemodelingPackageHoverBox {
-    position: fixed;
+    position: relative;
     top: 500px;
     left: 500px;
     width: 100px;

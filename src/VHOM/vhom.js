@@ -24,12 +24,12 @@ function Vhom() {
   function Changeleft() {
     console.log("leftbtn")
    //document.getElementById("xxaax").style.transform = "rotate(7deg)";
-      var divdiv = document.getElementById("zxxz");
+      var divdiv = document.getElementById("ChangeForm");
       var mCount = SlideCnt-1
       console.log("본판 : " + SlideCnt+"계산판 " +mCount)
       if(SlideCnt>0){
         setSlideCnt(SlideCnt-1)    
-        divdiv.style.transform=`translateX(${mCount*-450}px)`   
+        divdiv.style.transform=`translateX(${mCount*-320}px)`   
       }
    
   }
@@ -37,7 +37,7 @@ function Vhom() {
  function Changeright() {
   console.log("leftright")
     // document.getElementById("xxaax").style.transform = "rotate(7deg)";
-    var divdiv = document.getElementById("zxxz");
+    var divdiv = document.getElementById("ChangeForm");
     var pCount = SlideCnt+1
     console.log("본판 : " + SlideCnt+"계산판 " +pCount)
 
@@ -57,7 +57,7 @@ function Vhom() {
     } //돌아가기로 하든 포커스를 맞추던 ㄱ
     if(SlideCnt<4){
      setSlideCnt(SlideCnt+1)
-     divdiv.style.transform=`translateX(${pCount*-450}px)`
+     divdiv.style.transform=`translateX(${pCount*-320}px)`
   }
  }
 
@@ -208,24 +208,26 @@ function Vhom() {
         </div>
       </div>
       <div className="clear"></div><br></br>
+
       <div className="VHOMMainPageOne  page">
-      <div className="xxxz">
-        <div className="VHOMBannerOne">
-          <div className="VHOMBannerOnemm">
-            <div className="VHOMBannerOnemmm"></div>
-          </div>
-   
+      <div className="VHOMOneLeft">
+      <div>
+        <div className="VHOMOneLeftShowOne">
+          <ul>
+            <li className="VHOMOneLeftShowOnet1">다이렉트 인테리어</li>
+            <li className="VHOMOneLeftShowOnet2">우리집 리모델링 <span className="VHOMPersonalColor">VHOM</span>으로 스마트하게 해결하세요!</li>
+            <li className="VHOMOneLeftShowOneI"><img src="./image/vhom/pastel.jpg"></img></li>
+          </ul>
         </div>
-      
-      {SlideCnt}
-      
       </div>
-      <div className="axz">
+      </div>
+
+      <div className="VHOMOneRight">
       <input type = "button" value="left" onClick={Changeleft} />
       <input type = "button" value="right" onClick={Changeright} />
-        <div id="zxxz">
+        <div id="ChangeForm">
         <div className="SlideOne SlideBox" id ="xxaax">
-          <p className="intro-desc">
+                <p className="intro-desc">
 									브랜드 따로
 									<br></br>상담 따로가 아닌
 									<br></br>설계, 시공, AS
@@ -263,18 +265,21 @@ function Vhom() {
       </div>
       </div>
       </div>
-      <div className="VHOMMainPageTwo  page" style={{backgroundImage:`url("./image/vhom/pastel.jpg)`}}>
+
+
+      <div className="VHOMMainPageTwo  page" >
         <div className="VHOMRemodelingPackage">
           <p className="onmouse">{HoverAct}
           <img src={`./image/vhom/${HoverAct}.jpg`}></img></p>
-          <ul>
-          <li className="VHOMRemodelingPackageHoverBox"
+          <ul className="VHOMRemodelingPackageHover">
+          <li className="VHOMRemodelingPackageHoverBox1"
             onMouseEnter={()=>{setHoverAct("pastel")}}
             onMouseLeave={()=>{setHoverAct("hoverboxhide")}}>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>
-            <li className="VHOMRemodelingPackageHoverBox"
+            <li className="VHOMRemodelingPackageHoverBox2"
             onMouseEnter={()=>{setHoverAct("simple")}}
             onMouseLeave={()=>{setHoverAct("hoverboxhide")}}>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>
-            <li className="VHOMRemodelingPackageHoverBox"
+            <li clas
+            sName="VHOMRemodelingPackageHoverBox3"
             onMouseEnter={()=>{setHoverAct("vivid")}}
             onMouseLeave={()=>{setHoverAct("hoverboxhide")}}>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>
           </ul>
