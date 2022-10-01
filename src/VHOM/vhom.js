@@ -29,7 +29,7 @@ function Vhom() {
       console.log("본판 : " + SlideCnt+"계산판 " +mCount)
       if(SlideCnt>0){
         setSlideCnt(SlideCnt-1)    
-        divdiv.style.transform=`translateX(${mCount*-320}px)`   
+        divdiv.style.transform=`translateX(${mCount*-375}px)`   
       }
    
   }
@@ -43,10 +43,13 @@ function Vhom() {
 
     switch(SlideCnt){
       case 0 :
-        console.log("1바꾸기")
+        
         break;
       case 1 :
         console.log("2바꾸기")
+        var divdivz = document.getElementsByClassName("SlideBox");
+        divdivz[1].style.color="red";
+        console.log(divdivz)
         break;
       case 2 : 
         console.log("3바꾸기")
@@ -57,7 +60,7 @@ function Vhom() {
     } //돌아가기로 하든 포커스를 맞추던 ㄱ
     if(SlideCnt<4){
      setSlideCnt(SlideCnt+1)
-     divdiv.style.transform=`translateX(${pCount*-320}px)`
+     divdiv.style.transform=`translateX(${pCount*-375}px)`
   }
  }
 
@@ -223,45 +226,69 @@ function Vhom() {
       </div>
 
       <div className="VHOMOneRight">
-      <input type = "button" value="left" onClick={Changeleft} />
-      <input type = "button" value="right" onClick={Changeright} />
+        <div className="SlideBtn">
+      <input type = "button" value="<" onClick={Changeleft} />
+      <input type = "button" value=">" onClick={Changeright} />
+      </div>
         <div id="ChangeForm">
         <div className="SlideOne SlideBox" id ="xxaax">
-                <p className="intro-desc">
-									브랜드 따로
-									<br></br>상담 따로가 아닌
-									<br></br>설계, 시공, AS
-									<br></br><span className="fw-medium">모두를 책임지니까</span>
-								</p>
+         <div>
+          <p>
+           Trust <br></br>
+           든든한 내 편! <br></br>
+          </p>
+            <p className="intro-desc">
+              브랜드 따로
+              <br></br>상담 따로가 아닌
+              <br></br>설계, 시공, AS
+              <br></br><span >모두를 책임지니까</span>
+            </p>
+            </div>
         </div>
         <div className="SlideTwo SlideBox" id ="xxaax">
+          <p>
+           Package <br></br>
+           인알못도 문제 없이! <br></br>
+          </p>
           <p className="intro-desc">
 									전문가가 구성한
 									<br></br>트렌디하고 모던한
 									<br></br>7개 스타일로 
-									<br></br><span className="fw-medium">실패 없는 인테리어</span>
+									<br></br><span >실패 없는 인테리어</span>
 								</p></div>
         <div  className="SlideThree SlideBox" id ="xxaax">
+          <p>
+           Direct <br></br>
+           혼자서도 척척! <br></br>
+          </p>
           <p className="intro-desc">
                   3D도면에서
 									<br></br>스타일패키지 입혀보고
 									<br></br>3분 만에 우리집 견적
-									<br></br><span className="fw-medium">바로 확인!</span>
+									<br></br><span >바로 확인!</span>
 								</p></div>
         <div  className="SlideFour SlideBox" id ="xxaax">
+          <p>
+           Price <br></br>
+           Real 견적! <br></br>
+          </p>
           <p className="intro-desc">
 									처음 견적 그대로
 									<br></br>시공까지!
-									<br></br><span className="fw-medium">우리집 맞춤 견적 제공</span>
+									<br></br><span >우리집 맞춤 견적 제공</span>
 									<br></br>&nbsp;
 								</p></div>
-              <div  className="SlideFour SlideBox" id ="xxaax">
+        <div  className="SlideFour SlideBox" id ="xxaax">
+          <p>
+           Quality <br></br>
+           친환경 자재와 디테일의 차이! <br></br>
+          </p>
           <p className="intro-desc">
                 Super E0 강마루와
                 <br></br>친환경인증 실크벽지
-                <br></br><span className="fw-medium">헤펠레, 벤자민무어</span>
+                <br></br><span >헤펠레, 벤자민무어</span>
                 <br></br>브랜드 자재까지
-              </p></div>
+          </p></div>
       </div>
       </div>
       </div>

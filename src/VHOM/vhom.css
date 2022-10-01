@@ -97,7 +97,7 @@
     z-index: 10000;
     transition: all 1s;
     width: 160px;
-    background-color: red;
+
     text-align: right;
 
 }
@@ -116,21 +116,25 @@
 
 
 .VHOMMainPageOne {
-    height: 800px;
-    padding-top: 18vh;
+    height: 100vh;
+    margin-top: -25px;
     display: flex;
     white-space: nowrap;
+
 }
 
 .VHOMOneLeft {
     min-width: 960px;
     height: 700px;
     margin-right: 50px;
+    background-color: white;
+    margin-top: 20vh;
 }
 
 .VHOMOneLeftShowOne {
     display: flex;
     position: relative;
+
 }
 
 .VHOMOneLeftShowOne ul {
@@ -160,7 +164,7 @@
     height: 700px;
     white-space: nowrap;
     z-index: 1;
-    margin-top: 100px;
+    padding-top: 20vh;
 }
 
 .VHOMOneRight::before {
@@ -174,12 +178,32 @@
     box-shadow: 5px 1px 10px 10px white;
 }
 
+.SlideBtn {
+    width: 500px;
+    height: 90px;
+}
+
+.SlideBtn input {
+    margin: 10px 50px;
+    background-color: white;
+    border: solid 1px black;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+
+}
+
+.ChangeForm {
+    background-color: #d59729;
+    padding-top: 20px;
+
+}
+
 .VHOMOneRight div {
     transition: all 1s;
 }
 
 .SlideBox {
-
     width: 350px;
     height: 400px;
     display: inline-block;
@@ -187,13 +211,19 @@
     transition: all 1s;
     box-shadow: rgb(188, 188, 188) 0px 1px 10px 1px;
     margin-left: 25px;
-
-
+    vertical-align: center;
 }
 
-..SlideBox {
-    display: flex;
+.SlideBox div {
+    width: 250px;
+    height: 300px;
+    margin: 50px 50px;
 }
+
+.intro-desc {
+    margin-top: 100px;
+}
+
 
 .SlideBox span {
     color: #00B190;
@@ -243,7 +273,7 @@
 .VHOMRemodelingPackage {
     width: 100vw;
     height: 100vh;
-    background-color: red;
+
 }
 
 .onmouse {
@@ -251,7 +281,7 @@
     top: 300px;
     left: 500px;
     width: 100px;
-    background-color: brown;
+
     height: 100px;
 }
 
