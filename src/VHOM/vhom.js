@@ -43,13 +43,13 @@ function Vhom() {
 
     switch(SlideCnt){
       case 0 :
-        
-        break;
-      case 1 :
-        console.log("2바꾸기")
         var divdivz = document.getElementsByClassName("SlideBox");
         divdivz[1].style.color="red";
-        console.log(divdivz)
+        break; 
+      case 1 :
+        console.log("2바꾸기")
+        
+      
         break;
       case 2 : 
         console.log("3바꾸기")
@@ -169,7 +169,6 @@ function Vhom() {
 
 
   return (
-
     <div className="VHOM" ref={DivRef}>
       <div className="VHOMSideBarText" style={{top:`${SideBarVh}vh`}}>
           {SideBarText} {/* 좌측바 */}
@@ -219,7 +218,22 @@ function Vhom() {
           <ul>
             <li className="VHOMOneLeftShowOnet1">다이렉트 인테리어</li>
             <li className="VHOMOneLeftShowOnet2">우리집 리모델링 <span className="VHOMPersonalColor">VHOM</span>으로 스마트하게 해결하세요!</li>
-            <li className="VHOMOneLeftShowOneI"><img src="./image/vhom/pastel.jpg"></img></li>
+            <li className="VHOMOneLeftShowOneI">
+              <div className="kakaofriend">
+                <div className="ryanHead"></div>
+                <div className="ryanEarleft"></div>
+                <div className="ryanEarright"></div>
+                <div className="ryanEyebrowleft"></div>
+                <div className="ryanEyebrowright"></div>
+                <div className="ryanEyeleft"></div>
+                <div className="ryanEyeright"></div>
+                <div className="ryanNose"></div>
+                <div className="ryanNoseleft"></div>
+                <div className="ryanNoseright"></div>
+                <div className="ryanNosewhitebox"></div>
+                <div className="ryanNosewhitebox2"></div>
+     
+              </div></li>
           </ul>
         </div>
       </div>
@@ -246,6 +260,7 @@ function Vhom() {
             </div>
         </div>
         <div className="SlideTwo SlideBox" id ="xxaax">
+          <div>
           <p>
            Package <br></br>
            인알못도 문제 없이! <br></br>
@@ -255,8 +270,9 @@ function Vhom() {
 									<br></br>트렌디하고 모던한
 									<br></br>7개 스타일로 
 									<br></br><span >실패 없는 인테리어</span>
-								</p></div>
+								</p></div></div>
         <div  className="SlideThree SlideBox" id ="xxaax">
+        <div>
           <p>
            Direct <br></br>
            혼자서도 척척! <br></br>
@@ -266,8 +282,9 @@ function Vhom() {
 									<br></br>스타일패키지 입혀보고
 									<br></br>3분 만에 우리집 견적
 									<br></br><span >바로 확인!</span>
-								</p></div>
+								</p></div></div>
         <div  className="SlideFour SlideBox" id ="xxaax">
+        <div>
           <p>
            Price <br></br>
            Real 견적! <br></br>
@@ -277,8 +294,9 @@ function Vhom() {
 									<br></br>시공까지!
 									<br></br><span >우리집 맞춤 견적 제공</span>
 									<br></br>&nbsp;
-								</p></div>
+								</p></div></div>
         <div  className="SlideFour SlideBox" id ="xxaax">
+        <div>
           <p>
            Quality <br></br>
            친환경 자재와 디테일의 차이! <br></br>
@@ -288,7 +306,7 @@ function Vhom() {
                 <br></br>친환경인증 실크벽지
                 <br></br><span >헤펠레, 벤자민무어</span>
                 <br></br>브랜드 자재까지
-          </p></div>
+          </p></div></div>
       </div>
       </div>
       </div>
@@ -317,22 +335,7 @@ function Vhom() {
        
       </div>
       <div className="VHOMMainPageFour  page">
-      <div class="ryan">  
-
-
-  <div class="ear left"></div>
-  <div class="ear right"></div>
-  
-  <div class="face">
-    <div class="eyebrow left"></div>
-    <div class="eyebrow right"></div>
-    <div class="eye left"></div>
-    <div class="eye right"></div>
-    <div class="nose"></div>
-    <div class="mouth left"></div>
-    <div class="mouth right"></div>
-  </div>
-</div>
+      
       </div>
     </div>
     
