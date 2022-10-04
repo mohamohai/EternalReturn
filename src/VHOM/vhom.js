@@ -232,8 +232,11 @@ function Vhom() {
                 <div className="ryanNoseright"></div>
                 <div className="ryanNosewhitebox"></div>
                 <div className="ryanNosewhitebox2"></div>
-     
+
               </div></li>
+              <div>
+          
+              </div>
           </ul>
         </div>
       </div>
@@ -311,9 +314,20 @@ function Vhom() {
       </div>
       </div>
 
+      
 
       <div className="VHOMMainPageTwo  page" >
-        <div className="VHOMRemodelingPackage">
+        <div className="VHOMSelectBox" style={{backgroundColor:"blue"}}> 
+        {/* 여기가 메인 배경 바뀌고 선태ㅔㄱ하고 밑에 호버*/}
+          <ul>
+            <li className="VHOMChose1">1</li>
+            <li className="VHOMChose2">2</li>
+            <li className="VHOMChose3">3</li>
+          </ul>         
+
+        </div>
+         
+        {/* <div className="VHOMRemodelingPackage">
           <p className="onmouse">{HoverAct}
           <img src={`./image/vhom/${HoverAct}.jpg`}></img></p>
           <ul className="VHOMRemodelingPackageHover">
@@ -323,16 +337,15 @@ function Vhom() {
             <li className="VHOMRemodelingPackageHoverBox2"
             onMouseEnter={()=>{setHoverAct("simple")}}
             onMouseLeave={()=>{setHoverAct("hoverboxhide")}}>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>
-            <li clas
-            sName="VHOMRemodelingPackageHoverBox3"
+            <li className="VHOMRemodelingPackageHoverBox3"
             onMouseEnter={()=>{setHoverAct("vivid")}}
             onMouseLeave={()=>{setHoverAct("hoverboxhide")}}>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>
           </ul>
-        </div>
+        </div> */}
       </div>
       <div className="VHOMMainPageThree page">
         
-       
+
       </div>
       <div className="VHOMMainPageFour  page">
       
