@@ -314,40 +314,56 @@ function Vhom() {
       </div>
       </div>
 
-      
-
       <div className="VHOMMainPageTwo  page" >
-        <div className="VHOMSelectBox" style={{backgroundColor:"blue"}}> 
+        <div className="VHOMSelectBox" style={{backgroundImage:`url(./image/vhom/${HoverAct}_big.jpg)`}}> 
         {/* 여기가 메인 배경 바뀌고 선태ㅔㄱ하고 밑에 호버*/}
-          <ul>
-            <li className="VHOMChose1">1</li>
-            <li className="VHOMChose2">2</li>
-            <li className="VHOMChose3">3</li>
+          <ul onMouseLeave={()=>{setHoverAct("hoverboxhide")}}>
+            <li className="VHOMChose1 qwq" onMouseEnter={()=>{setHoverAct("simple")}}><p>Simple</p></li>
+            <li className="VHOMChose2 qwq" onMouseEnter={()=>{setHoverAct("pastel")}}><p>Pastel</p></li>
+            <li className="VHOMChose3 qwq" onMouseEnter={()=>{setHoverAct("vivid")}}><p>Vivid</p></li>
           </ul>         
-
         </div>
          
-        {/* <div className="VHOMRemodelingPackage">
-          <p className="onmouse">{HoverAct}
-          <img src={`./image/vhom/${HoverAct}.jpg`}></img></p>
-          <ul className="VHOMRemodelingPackageHover">
-          <li className="VHOMRemodelingPackageHoverBox1"
-            onMouseEnter={()=>{setHoverAct("pastel")}}
-            onMouseLeave={()=>{setHoverAct("hoverboxhide")}}>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>
-            <li className="VHOMRemodelingPackageHoverBox2"
-            onMouseEnter={()=>{setHoverAct("simple")}}
-            onMouseLeave={()=>{setHoverAct("hoverboxhide")}}>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>
-            <li className="VHOMRemodelingPackageHoverBox3"
-            onMouseEnter={()=>{setHoverAct("vivid")}}
-            onMouseLeave={()=>{setHoverAct("hoverboxhide")}}>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>
-          </ul>
-        </div> */}
+       
       </div>
       <div className="VHOMMainPageThree page">
-        
-
+        <div>
+          <div>
+              <img src="./image/vhom/pagethree/white1.jpg"></img>
+              <div>
+                <ul>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </div>
+            </div>
+            <div>
+              <img src="./image/vhom/pagethree/pastel1.jpg"></img>
+              <div>
+                <ul>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </div>
+            </div>
+            <div>
+              <img src="./image/vhom/pagethree/vivid1.jpg"></img>
+              <div>
+                <ul>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </div>
+            </div>
+          </div>
       </div>
       <div className="VHOMMainPageFour  page">
+      
+      </div>
+      <div className="VHOMMainPageFive  page">
       
       </div>
     </div>
