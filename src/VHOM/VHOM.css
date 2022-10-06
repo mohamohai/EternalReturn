@@ -335,9 +335,31 @@
     background-size: 100% 100%;
 }
 
+.VHOMMainPageThree div ul {
+    display: flex;
+}
+
+.item1 {
+    float: left;
+}
 
 
+.VHOMShop {
+    width: 100vw;
+    height: 30vh;
+    background-color: red;
+    margin-top: 20.5vh;
+    gap: 30px;
+}
 
+.VHOMShopItem1 {
+    float: left;
+    margin-right: 50px;
+}
+
+.VHOMShopItem1 img {
+    float: left;
+}
 
 .VHOMRemodelingPackage {
     width: 100vw;
