@@ -327,30 +327,20 @@ function Vhom() {
        
       </div>
       <div className="VHOMMainPageThree page">
-        <div>
+        <div className="PageThreeSlide">
           <ul>
             <li className="item1">
-              <img src="./image/vhom/pagethree/white1.jpg"></img>
               <div>
-                <ul>
-                  <li>모던함과 깔끔함이 돋보이는</li>
-                  <li>심플 화이트</li>
-                  <li>미니멀하고 깨끗한 'Simple White'스타일에 추천하는 아이템이에요</li>
-                  <li>테이플얍얍</li>
-                </ul>
+                <img src="./image/vhom/pagethree/white1.jpg"></img>
               </div>
+              <ul>
+                <li>모던함과 깔끔함이 돋보이는</li>
+                <li>심플 화이트</li>
+                <li>미니멀하고 깨끗한 'Simple White'스타일에 추천하는 아이템이에요</li>
+                <li>테이플얍얍</li>
+              </ul>              
             </li>
-            <li className="item2">
-              <img src="./image/vhom/pagethree/white1.jpg"></img>
-              <div>
-                <ul>
-                  <li>모던함과 깔끔함이 돋보이는</li>
-                  <li>심플 화이트</li>
-                  <li>미니멀하고 깨끗한 'Simple White'스타일에 추천하는 아이템이에요</li>
-                  <li>테이플얍얍</li>
-                </ul>
-              </div>
-            </li>
+            
             <li></li>
           </ul>
         </div>

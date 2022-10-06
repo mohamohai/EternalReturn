@@ -337,11 +337,23 @@
 
 .VHOMMainPageThree div ul {
     display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.PageThreeSlide {
+    margin-top: 20vh;
 }
 
 .item1 {
-    float: left;
+    display: flex;
 }
+
+.item1 ul {
+    flex-direction: column;
+}
+
+
 
 
 .VHOMShop {
