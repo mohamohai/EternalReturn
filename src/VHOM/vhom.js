@@ -40,7 +40,6 @@ function Vhom() {
     var divdiv = document.getElementById("ChangeForm");
     var pCount = SlideCnt+1
     console.log("본판 : " + SlideCnt+"계산판 " +pCount)
-
     switch(SlideCnt){
       case 0 :
         var divdivz = document.getElementsByClassName("SlideBox");
@@ -48,8 +47,6 @@ function Vhom() {
         break; 
       case 1 :
         console.log("2바꾸기")
-        
-      
         break;
       case 2 : 
         console.log("3바꾸기")
@@ -331,58 +328,135 @@ function Vhom() {
           <ul>
             <li className="item1">
               <div>
-                <img src="./image/vhom/pagethree/white1.jpg"></img>
+                <img className="item1img" src="./image/vhom/pagethree/white1.jpg"></img>
               </div>
-              <ul>
-                <li>모던함과 깔끔함이 돋보이는</li>
-                <li>심플 화이트</li>
-                <li>미니멀하고 깨끗한 'Simple White'스타일에 추천하는 아이템이에요</li>
-                <li>테이플얍얍</li>
+              <ul className="itemul">
+                <span>모던함과 깔끔함이 돋보이는</span>
+                <span>심플 화이트</span>
+                <span>미니멀하고 깨끗한 'Simple White'스타일에 추천하는 아이템이에요</span>
+                <li>
+                  <ul className="itemulul"  style={{flexDirection:"row"}}>
+                    <li>
+                      <div className="itemululdiv">
+                        <li><img src="./image/vhom/pagethree/white2.jpg"></img></li>
+                        <li>피카 웍 26cm</li>
+                        <li>34,000원</li>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="itemululdiv">
+                        <li><img src="./image/vhom/pagethree/white3.jpg"></img></li>
+                        <li>원형 러그</li>
+                        <li>53,900원</li>
+                      </div></li>
+                    <li>
+                      <div className="itemululdiv">
+                        <li><img src="./image/vhom/pagethree/white4.jpg"></img></li>
+                        <li>장스탠드</li>
+                        <li>65,900원</li>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
               </ul>              
             </li>
-            
-            <li></li>
+          </ul>
+          <ul>
+            <li className="item1">
+              <div>
+                <img className="item1img" src="./image/vhom/pagethree/white1.jpg"></img>
+              </div>
+              <ul className="itemul">
+                <span>모던함과 깔끔함이 돋보이는</span>
+                <span>심플 화이트</span>
+                <span>미니멀하고 깨끗한 'Simple White'스타일에 추천하는 아이템이에요</span>
+                <li>
+                  <ul className="itemulul"  style={{flexDirection:"row"}}>
+                    <li>
+                      <div className="itemululdiv">
+                        <li><img src="./image/vhom/pagethree/white2.jpg"></img></li>
+                        <li>피카 웍 26cm</li>
+                        <li>34,000원</li>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="itemululdiv">
+                        <li><img src="./image/vhom/pagethree/white3.jpg"></img></li>
+                        <li>원형 러그</li>
+                        <li>53,900원</li>
+                      </div></li>
+                    <li>
+                      <div className="itemululdiv">
+                        <li><img src="./image/vhom/pagethree/white4.jpg"></img></li>
+                        <li>장스탠드</li>
+                        <li>65,900원</li>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>              
+            </li>
+          </ul>
+          <ul>
+            <li className="item1">
+              <div>
+                <img className="item1img" src="./image/vhom/pagethree/white1.jpg"></img>
+              </div>
+              <ul className="itemul">
+                <span>모던함과 깔끔함이 돋보이는</span>
+                <span>심플 화이트</span>
+                <span>미니멀하고 깨끗한 'Simple White'스타일에 추천하는 아이템이에요</span>
+                <li>
+                  <ul className="itemulul"  style={{flexDirection:"row"}}>
+                    <li>
+                      <div className="itemululdiv">
+                        <li><img src="./image/vhom/pagethree/white2.jpg"></img></li>
+                        <li>피카 웍 26cm</li>
+                        <li>34,000원</li>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="itemululdiv">
+                        <li><img src="./image/vhom/pagethree/white3.jpg"></img></li>
+                        <li>원형 러그</li>
+                        <li>53,900원</li>
+                      </div></li>
+                    <li>
+                      <div className="itemululdiv">
+                        <li><img src="./image/vhom/pagethree/white4.jpg"></img></li>
+                        <li>장스탠드</li>
+                        <li>65,900원</li>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>              
+            </li>
           </ul>
         </div>
 
-        {/* <div className="VHOMShop">
-        <div className="VHOMShopItem1">
-              <img src="./image/vhom/pagethree/white1.jpg"></img>
-              <div>
-                <ul>
-                  <li>a</li>
-                  <li>b</li>
-                  <li>c</li>
-                </ul>
-              </div>
-            </div>
-            <div>
-              <img src="./image/vhom/pagethree/pastel1.jpg"></img>
-              <div>
-                <ul>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul>
-              </div>
-            </div>
-            <div>
-              <img src="./image/vhom/pagethree/vivid1.jpg"></img>
-              <div>
-                <ul>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul>
-              </div>
-            </div>
-        </div> */}
+   
       </div>
-      <div className="VHOMMainPageFour  page">
+      <div className="VHOMMainPageFour  page" style={{background:"url(./image/vhom/pagefour/white1.jpg)",
+                                                      backgroundSize:"100% 100%"}}>
+        <div className="PageFourPop">
+          <div className="PageFourPopOne">
+            <ul>
+              <li>스타일 갤러리</li>
+              <li>스타일갤러리 둘러보고 취향에 맞는 스타일을 찾아보세요</li>
+            </ul>
+          </div>
+          <div className="PageFourPopTwo">
+            <div>좌우바에어쩌고</div>
+            <div> <img src="./image/vhom/pagefour/whited1.jpg"></img></div>
+          </div>
+
+          <div className="PageFourPopbottom">자세히 보기</div>
+        </div>
       
       </div>
       <div className="VHOMMainPageFive  page">
-      
+       여기가 
       </div>
     </div>
     

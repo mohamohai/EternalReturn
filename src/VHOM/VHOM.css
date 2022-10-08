@@ -37,14 +37,14 @@
 
 .VHOMGNBLeft a {
     float: left;
-    margin-left: 50px;
+    margin-left: 45px;
     font-size: 3rem;
-    line-height: 20vh;
+    line-height: 15vh;
 }
 
 .VHOMGNBLeft span {
     font-size: 1rem;
-    line-height: 20vh;
+    line-height: 15vh;
     margin-left: 20px;
 }
 
@@ -342,15 +342,74 @@
 }
 
 .PageThreeSlide {
-    margin-top: 20vh;
+    margin: 20.5vh 0 0 10vw;
+    display: flex;
+    width: 100vw;
+
 }
 
 .item1 {
     display: flex;
+    margin-right: 5vw;
 }
 
-.item1 ul {
+.item1img {
+    width: 500px;
+    height: 500px;
+}
+
+.itemul {
     flex-direction: column;
+    width: 500px;
+    height: 500px;
+}
+
+.itemul li {
+    margin-left: 10px;
+    width: 500px;
+    text-align: left;
+}
+
+.itemul span:nth-child(1) {
+    margin-left: 20px;
+    width: 500px;
+    text-align: left;
+}
+
+.itemul span:nth-child(2) {
+    margin-left: 20px;
+    width: 500px;
+    text-align: left;
+    font-size: 3rem;
+}
+
+.itemul span:nth-child(3) {
+    margin-left: 20px;
+    width: 500px;
+    text-align: left;
+    font-size: 0.8rem;
+}
+
+
+.itemulul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 500px;
+    margin: 220px 0 0 auto;
+}
+
+.itemululdiv li:nth-child(2) {
+    color: red;
+}
+
+.itemululdiv li:nth-child(3) {
+    color: blue;
+}
+
+.itemululdiv {
+    width: 150px;
+    justify-content: space-between;
 }
 
 
@@ -384,7 +443,6 @@
     top: 300px;
     left: 500px;
     width: 100px;
-
     height: 100px;
 }
 
@@ -405,6 +463,66 @@
     background-color: brown;
     height: 100px;
 }
+
+
+
+.VHOMMainPageFour {
+    background-color: red;
+    position: absolute;
+    background-repeat: no-repeat;
+
+}
+
+.PageFourPop {
+    width: 500px;
+    height: 600px;
+    background-color: white;
+    position: absolute;
+    left: 100px;
+    top: 150px;
+}
+
+.PageFourPopbottom {
+    width: 500px;
+    height: 50px;
+    background-color: #00B190;
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.PageFourPopOne {
+    text-align: center;
+}
+
+.PageFourPopOne li:nth-child(1) {
+    font-size: 3rem;
+    margin: 40px 0 20px 0;
+}
+
+.PageFourPopOne li:nth-child(2) {
+    color: red;
+}
+
+.PageFourPopTwo {
+    text-align: center;
+}
+
+.PageFourPopTwo div:nth-child(1) {
+    margin-top: 40px;
+
+
+}
+
+.PageFourPopTwo div:nth-child(2) {
+    color: blue;
+}
+
+
+
+
+
 
 
 
@@ -549,7 +667,6 @@
     width: 30px;
     height: 30px;
     background-color: white;
-
     transform: rotate(45deg);
     position: absolute;
     z-index: 102;
