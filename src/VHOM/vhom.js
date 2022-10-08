@@ -456,7 +456,7 @@ function Vhom() {
       
       </div>
       <div className="VHOMMainPageFive  page">
-       여기가 
+       
       </div>
     </div>
     
