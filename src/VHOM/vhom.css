@@ -1,6 +1,6 @@
 .VHOM {
     width: 100vw;
-    height: 400vh;
+    height: 100vh;
     position: absolute;
     left: 0px;
     top: 0px;
@@ -468,17 +468,24 @@
 
 .VHOMMainPageFour {
     background-color: red;
-    position: absolute;
     background-repeat: no-repeat;
+    transition: all 0.3s;
+}
 
+.pagefourpan {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+    opacity: 0.5;
 }
 
 .PageFourPop {
     width: 500px;
     height: 600px;
     background-color: white;
-    position: absolute;
-    left: 100px;
+    position: relative;
+    left: -610px;
     top: 150px;
 }
 
@@ -501,26 +508,43 @@
     margin: 40px 0 20px 0;
 }
 
-.PageFourPopOne li:nth-child(2) {
-    color: red;
-}
+.PageFourPopOne li:nth-child(2) {}
 
 .PageFourPopTwo {
+    width: 500px;
     text-align: center;
+}
+
+.PageFourPopTwo span:nth-child(1) {
+    position: absolute;
+    left: 100px;
+}
+
+.PageFourPopTwo span:nth-child(2) {
+    width: 200px;
+    height: 10px;
+}
+
+.PageFourPopTwo span:nth-child(3) {
+    position: absolute;
+    left: 390px;
 }
 
 .PageFourPopTwo div:nth-child(1) {
     margin-top: 40px;
-
-
 }
 
 .PageFourPopTwo div:nth-child(2) {
     color: blue;
 }
 
+.PageFourPopProgress {
+    text-align: center;
+    width: 500px;
+    position: relative;
+}
 
-
+.VHOMMainPageFive {}
 
 
 

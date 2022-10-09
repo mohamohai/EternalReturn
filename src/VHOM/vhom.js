@@ -1,5 +1,5 @@
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Component } from "react";
 import "./VHOM.css";
 
 function Vhom() {
@@ -13,13 +13,21 @@ function Vhom() {
   const [SlideCnt2,setSlideCnt2]=useState(0);
 
   const [HoverAct,setHoverAct]=useState("hoverboxhide");
-  
+
+  const [pagefourSlide, setpagefourSlide]=useState(0);
+  const [pagefourSlidecnt, setpagefourSlidecnt]=useState(1);
+  let pagefour = ["white","vivid","wood"];
+  let pagefourtag = ["심플 화이트 프리미엄", ["비비드 네이비 프리미엄"], ["심플 우드 베이직"]]
 
   
 
+
+
+{
+    console.log("componentDidMount 호출");
+}
   const DivRef = useRef();
   const [scrollIndex, setScrollIndex] = useState(1);
-
 
   function Changeleft() {
     console.log("leftbtn")
@@ -31,7 +39,6 @@ function Vhom() {
         setSlideCnt(SlideCnt-1)    
         divdiv.style.transform=`translateX(${mCount*-375}px)`   
       }
-   
   }
 
  function Changeright() {
@@ -61,6 +68,51 @@ function Vhom() {
   }
  }
 
+ function fourleftbtn() {
+  console.log("fourleftbtn")
+ //document.getElementById("xxaax").style.transform = "rotate(7deg)";
+    var divdiv = document.getElementById("VHOMMainPageFour");
+    switch (pagefourSlide){
+      case 0 :
+        setpagefourSlide(2);
+        break;
+      case 1 :
+        setpagefourSlide(0);
+        break;
+      case 2 :
+        setpagefourSlide(1);
+        break;
+    }
+    divdiv.style.background=`url(./image/vhom/pagefour/${pagefour[pagefourSlide]}${pagefourSlidecnt}.jpg)`
+}
+function fourrightbtn() {
+  console.log("right")
+ //document.getElementById("xxaax").style.transform = "rotate(7deg)";
+    var divdiv = document.getElementById("VHOMMainPageFour");
+    switch (pagefourSlide){
+      case 0 :
+        setpagefourSlide(1);
+        break;
+      case 1 :
+        setpagefourSlide(2);
+        break;
+      case 2 :
+        setpagefourSlide(0);
+        break;
+    }
+    divdiv.style.background=`url(./image/vhom/pagefour/${pagefour[pagefourSlide]}${pagefourSlidecnt}.jpg)`
+}
+function pagefourcntbtn() {
+  console.log("next")
+ //document.getElementById("xxaax").style.transform = "rotate(7deg)";
+    var divdiv = document.getElementById("VHOMMainPageFour");
+    if(pagefourSlidecnt<4){
+      setpagefourSlidecnt(pagefourSlidecnt+1);
+    }else if(pagefourSlidecnt==4){
+      setpagefourSlidecnt(1);
+    }
+    divdiv.style.background=`url(./image/vhom/pagefour/${pagefour[pagefourSlide]}${pagefourSlidecnt}.jpg)`
+}
 
 
   useEffect(() => {
@@ -437,8 +489,12 @@ function Vhom() {
 
    
       </div>
-      <div className="VHOMMainPageFour  page" style={{background:"url(./image/vhom/pagefour/white1.jpg)",
-                                                      backgroundSize:"100% 100%"}}>
+      <div className="VHOMMainPageFour  page" id ="VHOMMainPageFour" 
+          style={{background:`url(./image/vhom/pagefour/${pagefour[pagefourSlide]+pagefourSlidecnt}.jpg)`,
+          backgroundSize:"100% 100%",
+          }}>
+            <div className="pagefourpan"style={{cursor:"pointer"}} 
+            onClick={pagefourcntbtn}></div>
         <div className="PageFourPop">
           <div className="PageFourPopOne">
             <ul>
@@ -447,16 +503,18 @@ function Vhom() {
             </ul>
           </div>
           <div className="PageFourPopTwo">
-            <div>좌우바에어쩌고</div>
-            <div> <img src="./image/vhom/pagefour/whited1.jpg"></img></div>
+            <div><span onClick={fourleftbtn}> &lt;</span>
+            &nbsp;&nbsp;<span>{pagefourtag[pagefourSlide]}</span>&nbsp;&nbsp;    
+              <span onClick={fourrightbtn}>&gt;</span>
+            </div>
+            <div> <img id ="pagefourpopupimg" src={`./image/vhom/pagefour/${pagefour[pagefourSlide]+"d"+pagefourSlidecnt}.jpg`}></img></div>
           </div>
-
+          <div className="PageFourPopProgress"> {pagefourSlidecnt} / 4</div>
           <div className="PageFourPopbottom">자세히 보기</div>
         </div>
-      
       </div>
       <div className="VHOMMainPageFive  page">
-       
+        가나다
       </div>
     </div>
     
