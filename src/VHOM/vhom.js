@@ -19,13 +19,8 @@ function Vhom() {
   let pagefour = ["white","vivid","wood"];
   let pagefourtag = ["심플 화이트 프리미엄", ["비비드 네이비 프리미엄"], ["심플 우드 베이직"]]
 
-  
 
 
-
-{
-    console.log("componentDidMount 호출");
-}
   const DivRef = useRef();
   const [scrollIndex, setScrollIndex] = useState(1);
 
@@ -229,7 +224,7 @@ function pagefourcntbtn() {
           <a href="#" style={{color:"#00B190"}}>VHOM</a>
           <span>한솔이 만든 토탈 인테리어</span>
         </div>
-        <div></div>
+        <div ></div>
         <div className="VHOMGNBRight">
           <div className="VHOMGNBRightMenu">
             <div className="VHOMGNBRightUserMenu">
@@ -514,7 +509,50 @@ function pagefourcntbtn() {
         </div>
       </div>
       <div className="VHOMMainPageFive  page">
-        가나다
+        <div className="pageFiverow1">
+          <img src="./image/vhom/pagefive/event1.jpg"></img>
+          <img src="./image/vhom/pagefive/event2.jpg"></img>
+        </div>
+        <div className="pageFiverow2">
+          <div>
+            <div className="pageFiverow2in">
+              <div className="pageFiverow2inmiddle">
+                <div>NOTICE</div>
+                <div>more</div>
+                <div>제품검색</div>
+                <div>고객센터</div>
+              </div>
+              <div className="pageFiverow2inbottom">
+                <div>
+                  <ul>
+                    <li>물적분할에 따른 개인정보 이전 안내</li>
+                    <li>2022-09-15</li>
+                  </ul>
+                </div>                
+                <div>
+                  <ul>
+                    <li>국내최초 다이렉트 인테리어 VHOM</li>
+                    <li>2022-02-18</li>
+                  </ul>
+                </div>
+                <div>
+                  <ul>
+                    <input type="textbox" placeholder="검색"/>
+                  </ul>
+                </div>  
+                <div>
+                  <ul>
+                    <li>xxxx-xxxx</li>
+                    <li>평일 09:00 ~ 18:00 주말, 공휴일 휴무</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            
+          </div>
+        </div>
       </div>
     </div>
     

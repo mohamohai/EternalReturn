@@ -22,7 +22,7 @@
     height: 20vh;
     position: fixed;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     z-index: 55555;
 }
 
@@ -31,9 +31,9 @@
     text-align: left;
     float: left;
     height: 20vh;
-
-
 }
+
+
 
 .VHOMGNBLeft a {
     float: left;
@@ -53,9 +53,9 @@
     min-width: 880px;
     height: 20vh;
     background-color: white;
-
-
 }
+
+
 
 .VHOMGNBRightMenu {}
 
@@ -400,12 +400,10 @@
 }
 
 .itemululdiv li:nth-child(2) {
-    color: red;
+    font-size: 0.8rem;
 }
 
-.itemululdiv li:nth-child(3) {
-    color: blue;
-}
+.itemululdiv li:nth-child(3) {}
 
 .itemululdiv {
     width: 150px;
@@ -544,8 +542,94 @@
     position: relative;
 }
 
-.VHOMMainPageFive {}
+.VHOMMainPageFive {
+    display: flex;
+    flex-direction: column;
+}
 
+.pageFiverow1 {
+    margin-top: 21vh;
+    width: 1400px;
+    height: 200px;
+    display: flex;
+
+}
+
+.pageFiverow1 img {
+    width: 600px;
+    height: 180px;
+
+}
+
+.pageFiverow2 {
+    margin-top: 1vh;
+    width: 1400px;
+    height: 300px;
+
+}
+
+.pageFiverow2inmiddle {
+    padding-top: 100px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 100px;
+}
+
+.pageFiverow2inmiddle div {
+    width: 250px;
+    height: 100px;
+}
+
+.pageFiverow2inmiddle div:nth-child(1) {}
+
+.pageFiverow2inmiddle div:nth-child(2) {
+    text-decoration: underline;
+
+    text-align: right;
+}
+
+.pageFiverow2inmiddle div:nth-child(3) {}
+
+.pageFiverow2inmiddle div:nth-child(4) {}
+
+
+.pageFiverow2inbottom {
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 100px;
+}
+
+.pageFiverow2inbottom div {
+    width: 250px;
+    height: 100px;
+}
+
+.pageFiverow2inbottom input {
+    width: 230px;
+    padding-left: 20px;
+    height: 50px;
+}
+
+
+
+:root {}
+
+.pageFiverow2 p {
+    --p: 1;
+    font-size: calc(var(--p) * 1rem);
+}
+
+.pageFiverow2 li {
+    --p: 1;
+    font-size: calc(var(--p) * 1rem);
+}
 
 
 
