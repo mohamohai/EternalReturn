@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 import Character_Infomation from "./ER/Character_Information/Character_Infomation.js";
-import GNB from "./ER/Skeleton/GNB.js";
+
 import ERMain from "./ER/Skeleton/ERMain.js";
 import Record from "./ER/Record/Record.js";
 import Search_User from "./ER/Search_User/Search_User.js";
@@ -13,7 +13,7 @@ import Ingredient from "./ingredient.js";
 import Pixel from "./MainSite.js";
 import CopyWeb from "./copyWeb/copyWeb.js";
 import Vhom from "./VHOM/vhom.js";
-
+import Stealien from "./Stealien/Stealien.js";
 import {
   BrowserRouter,
   Route,
@@ -51,7 +51,7 @@ class App extends Component {
     return (
       <div className="App">
       <BrowserRouter>
-        <GNB></GNB>
+     
         <Routes>
           <Route exact path="/" element={<Pixel/>} />
           <Route exact path="/in" element={<Ingredient />} />
@@ -101,7 +101,7 @@ class App extends Component {
 
           <Route path="/copyWeb" element={<CopyWeb/>}/>
           <Route path="/vhom" element={<Vhom/>}/>
-
+          <Route path="/Stealien" element={<Stealien/>}/>
 
           <Route exact path="/" element={<Ingredient />} />
 

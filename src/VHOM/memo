@@ -1,246 +1,783 @@
-
-import { useState, useEffect, useRef } from "react";
-import "./VHOM.css";
-
-function Vhom() {
- 
-  const [SideBarText, setSideBarText] = useState('VHOM서비스소개');  
-  const [SideBarVh, setSideBarVh] = useState(10);
-  const [SideBarBorder, setSideBarBorder] = useState(20);
-  const [Count, setCount] = useState(0); 
-  const [SlideCnt,setSlideCnt]=useState(1);
-  const [SlideCnt2,setSlideCnt2]=useState(1);
-
-  const DivRef = useRef();
-  const [scrollIndex, setScrollIndex] = useState(1);
-
-
-  function Changeleft() {
-    console.log("leftbtn")
-   //document.getElementById("xxaax").style.transform = "rotate(7deg)";
-      var divdiv = document.getElementById("zxxz");
-      var mCount = SlideCnt-1
-      console.log("본판 : " + SlideCnt+"계산판 " +mCount)
-      if(SlideCnt!=0){
-        setSlideCnt(SlideCnt-1)    
-        divdiv.style.transform=`translateX(${mCount*-450}px)`   
-      }
-      else if (SlideCnt==1){
-        setSlideCnt(SlideCnt-1)    
-        divdiv.style.transform=`translateX(${mCount*-450}px)` 
-      }
-  }
-
- function Changeright() {
-  console.log("leftright")
-    // document.getElementById("xxaax").style.transform = "rotate(7deg)";
-    var divdiv = document.getElementById("zxxz");
-      
-    if(SlideCnt<4){
-     console.log(SlideCnt*-450)
-     setSlideCnt(SlideCnt+1)
-     divdiv.style.transform=`translateX(${SlideCnt*-450}px)`
-  }
- }
-
-
-
-  useEffect(() => {
-    const wheelHandler = (e) => {
-  
-      const { deltaY } = e;
-      const { scrollTop } =DivRef.current; // 스크롤 위쪽 끝부분 위치
-      const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
-    
-      console.log( scrollTop +"  "+ pageHeight)
-      if(deltaY > 0){
-        if(scrollTop<pageHeight)
-        {console.log("1p down")
-          DivRef.current.scrollTo({
-          top: pageHeight *1,
-          left: 0,
-          behavior: "smooth",
-        });
-        setSideBarText("VHOM리모델링");
-        setSideBarVh(30);
-        setSideBarBorder(40)
-      }else if(scrollTop<pageHeight*2 && scrollTop>=pageHeight){
-        console.log("2p down")
-        DivRef.current.scrollTo({
-        top: pageHeight *2,
-        left: 0,
-        behavior: "smooth",
-      });
-      setSideBarText("VHOM추천아이템");
-      setSideBarVh(50);
-      setSideBarBorder(60)
-      } else if(scrollTop<pageHeight*3 && scrollTop>=pageHeight*2){
-        console.log("3p down")
-        DivRef.current.scrollTo({
-        top: pageHeight *3,
-        left: 0,
-        behavior: "smooth",
-      });
-      setSideBarText("VHOM스타일갤러리");
-      setSideBarVh(70);
-      setSideBarBorder(80)
-      }else if(scrollTop<pageHeight*4 && scrollTop>=pageHeight*3){
-        console.log("4p down")
-        DivRef.current.scrollTo({
-        top: pageHeight *4,
-        left: 0,
-        behavior: "smooth",
-      });
-      setSideBarText("CS Center");
-      setSideBarVh(90);
-      setSideBarBorder(100)
-    }
-      }else{
-        if(scrollTop>=pageHeight*4 )
-        { console.log("5p up")
-          DivRef.current.scrollTo({
-          top: pageHeight *3,
-          left: 0,
-          behavior: "smooth",
-        });setSideBarText("VHOM스타일갤러리");
-        setSideBarVh(70);
-        setSideBarBorder(80)
-      }else if(scrollTop>=pageHeight*3 && scrollTop<=pageHeight*4)
-      {console.log("4p up")
-        DivRef.current.scrollTo({
-        top: pageHeight * 2,
-        left: 0,
-        behavior: "smooth",
-      });
-      setSideBarText("VHOM추천아이템");
-      setSideBarVh(50);
-      setSideBarBorder(60)
-      }else if(scrollTop>=pageHeight*2 && scrollTop<=pageHeight*3)
-      {console.log("3p up")
-        DivRef.current.scrollTo({
-        top: pageHeight * 1,
-        left: 0,
-        behavior: "smooth",
-      });
-        setSideBarText("VHOM리모델링");
-        setSideBarVh(30);
-        setSideBarBorder(40)
-      } 
-      else if(scrollTop>=pageHeight*1 && scrollTop<=pageHeight*2)
-      {console.log("2p up")
-        DivRef.current.scrollTo({
-        top: pageHeight * 0,
-        left: 0,
-        behavior: "smooth",
-      });
-        setSideBarText("VHOM서비스소개");
-        setSideBarVh(10);
-        setSideBarBorder(20)
-      } 
-    };
-  }
-    const DivRefCurrent = DivRef.current;
-    DivRefCurrent.addEventListener("wheel", wheelHandler);
-    return () => {
-    };
-  }, []);
-
-
-
-  return (
-
-    <div className="VHOM" ref={DivRef}>
-      <div className="VHOMSideBarText" style={{top:`${SideBarVh}vh`}}>
-          {SideBarText} {/* 좌측바 */}
-        </div><div className="VHOMSideBarBorder" style={{height:`${SideBarBorder}vh`}}></div>
-      <div className="VHOMGNB">
-        <div className="VHOMGNBLeft">
-          <a href="#" style={{color:"#00B190"}}>VHOM</a>
-          <span>한솔이 만든 토탈 인테리어</span>
-        </div>
-        <div className="VHOMGNBRight">
-          <div className="VHOMGNBRightMenu">
-            <div className="VHOMGNBRightUserMenu">
-              <ul>
-                <li>회원가입</li>
-                <li>고객센터</li>
-                <li>로그인</li>
-              </ul>
-            </div><br></br><br></br>
-            <div style={{margin:"10px 0 0 0"}}>
-            <div className="VHOMGNBRightMenuBarTwo">
-              <ul>
-                <li>우리동네봄</li>
-                <li>스타일갤러리</li>
-              </ul>
-            </div>
-            <div className="VHOMGNBRightMenuBarOne">
-              <ul>
-                <li>이벤트 / 기획전</li>
-                <li>스토어</li>
-                <li>VHOM나들이</li>
-                <li>토탈인테리어</li>
-              </ul>
-            </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="clear"></div><br></br>
-      <div className="VHOMMainPageOne  page">
-      <div className="xxxz">aa
-      <input type = "button" value="left" onClick={Changeleft} />
-      <input type = "button" value="right" onClick={Changeright} />
-      {SlideCnt}
-      
-      </div>
-      <div className="axz">
-        <div id="zxxz">
-        <div className="SlideOne SlideBox" id ="xxaax">
-                <p className="intro-desc">
-									전문가가 구성한
-									<br></br>트렌디하고 모던한
-									<br></br>7개 스타일로
-									<br></br><span className="fw-medium">실패 없는 인테리어!</span>
-								</p>
-        </div>
-        <div className="SlideTwo SlideBox" id ="xxaax"><p className="intro-desc">
-									a
-									<br></br>b
-									<br></br>c
-									<br></br><span className="fw-medium">d</span>
-								</p></div>
-        <div  className="SlideThree SlideBox" id ="xxaax"><p className="intro-desc">
-									1
-									<br></br>2
-									<br></br>3
-									<br></br><span className="fw-medium">4</span>
-								</p></div>
-        <div  className="SlideFour SlideBox" id ="xxaax">
-          <p className="intro-desc">
-									5
-									<br></br>6
-									<br></br>7
-									<br></br><span className="fw-medium">9</span>
-								</p></div>
-      </div>
-      </div>
-      </div>
-      <div className="VHOMMainPageTwo   page">
-      <div className="VHOMSilder">
-               <ul>
-                  <li className="p1"><div>a</div></li>
-                  <li className="p2"><div>b</div></li>
-                  <li className="p3"><div>c</div></li>
-                  <li className="p4"><div>d</div></li>
-                </ul>
-        </div>
-      </div>
-      <div className="VHOMMainPageThree page">3</div>
-      <div className="VHOMMainPageFour  page">4</div>
-    </div>
-    
-  );
+.VHOM {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 1000;
+  background-color: white;
+  height: 100vh;
+  overflow-y: auto;
+  position: absolute;
+  left: 0px;
 }
 
-export default Vhom;
+.VHOMPersonalColor {
+  color: #00B190;
+}
+
+
+.VHOMGNB {
+  width: 100vw;
+  height: 20vh;
+  position: fixed;
+  display: flex;
+  justify-content: flex-start;
+  z-index: 55555;
+}
+
+.VHOMGNBLeft {
+  min-width: 700px;
+  text-align: left;
+  float: left;
+  height: 20vh;
+}
+
+
+
+.VHOMGNBLeft a {
+  float: left;
+  margin-left: 45px;
+  font-size: 3rem;
+  line-height: 15vh;
+}
+
+.VHOMGNBLeft span {
+  font-size: 1rem;
+  line-height: 15vh;
+  margin-left: 20px;
+}
+
+.VHOMGNBRight {
+  text-align: right;
+  min-width: 880px;
+  height: 20vh;
+  background-color: white;
+}
+
+
+
+.VHOMGNBRightMenu {}
+
+.VHOMGNBRightMenu ul li {}
+
+.VHOMGNBRightUserMenu ul li {
+  float: right;
+  padding: 20px 10px 0 0;
+}
+
+.VHOMGNBRightMenuBarOne {}
+
+.VHOMGNBRightMenuBarOne ul li {
+  float: right;
+  margin: 0 10px 0 0;
+  font-size: 1.1rem;
+  line-height: 20px;
+}
+
+.VHOMGNBRightMenuBarTwo {}
+
+.VHOMGNBRightMenuBarTwo ul li {
+  float: right;
+  margin: 0 10px 0 0;
+  line-height: 20px;
+
+}
+
+
+
+
+
+.VHOMSideBarText {
+  position: fixed;
+  transform: rotate(90deg);
+  left: -60px;
+  background: none;
+  font-size: 15px;
+  z-index: 10000;
+  transition: all 1s;
+  width: 160px;
+  text-align: right;
+  color: #00B190;
+
+}
+
+.VHOMSideBarBorder {
+  width: 5px;
+  height: 40vh;
+  background-color: #00B190;
+  position: fixed;
+  transition: all 1s;
+  top: 0px;
+  z-index: 10000;
+}
+
+
+
+
+.VHOMMainPageOne {
+  height: 100vh;
+  margin-top: -25px;
+  display: flex;
+  white-space: nowrap;
+
+}
+
+.VHOMOneLeft {
+  min-width: 960px;
+  height: 700px;
+  margin-right: 50px;
+  background-color: white;
+  margin-top: 20vh;
+}
+
+.VHOMOneLeftShowOne {
+  display: flex;
+  position: relative;
+
+}
+
+.VHOMOneLeftShowOne ul {
+  text-align: center;
+}
+
+.VHOMOneLeftShowOnet1 {
+  font-size: 3rem;
+}
+
+.VHOMOneLeftShowOnet2 {
+  font-size: 1rem;
+}
+
+.VHOMOneLeftShowOneI {
+  width: 700px;
+  height: 500px;
+}
+
+
+
+.VHOMOneLeftShowOne ul {}
+
+.VHOMOneRight {
+  width: 960px;
+  overflow: hidden;
+  height: 700px;
+  white-space: nowrap;
+  z-index: 1;
+  padding-top: 20vh;
+}
+
+.VHOMOneRight::before {
+  z-index: 2;
+  content: "";
+  width: 5px;
+  overflow: hidden;
+  height: 700px;
+  position: absolute;
+  margin-left: -10px;
+  box-shadow: 5px 1px 10px 10px white;
+}
+
+.SlideBtn {
+  width: 500px;
+  height: 90px;
+}
+
+.SlideBtn input {
+  margin: 10px 50px;
+  background-color: white;
+  border: solid 1px black;
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+
+}
+
+.ChangeForm {
+  background-color: #d59729;
+  padding-top: 20px;
+
+}
+
+.VHOMOneRight div {
+  transition: all 1s;
+}
+
+.SlideBox {
+  width: 350px;
+  height: 400px;
+  display: inline-block;
+  background-color: white;
+  transition: all 1s;
+  box-shadow: rgb(188, 188, 188) 0px 1px 10px 1px;
+  margin-left: 25px;
+
+}
+
+.SlideBox div {
+  width: 250px;
+  height: 300px;
+  margin: 50px 50px 0 50px;
+}
+
+.intro-desc {
+  margin-top: 100px;
+}
+
+
+.SlideBox span {
+  color: #00B190;
+}
+
+.intro-desc {}
+
+
+
+
+
+.VHOMSilder {
+  width: 700px;
+  margin: 0 auto;
+
+}
+
+.VHOMSilder ul {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.VHOMSilder li {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+  height: 300px;
+  transition: all 1s;
+}
+
+.VHOMSilder li div {
+  width: 100%;
+  height: 300px;
+  background-color: rebeccapurple;
+}
+
+.p1 {
+  width: 100px;
+}
+
+.p2 {}
+
+
+.VHOMMainPageTwo {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.VHOMSelectBox {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  transition: all 0.3s;
+}
+
+.VHOMSelectBox ul {
+  display: flex;
+
+}
+
+.VHOMSelectBox ul li {
+  width: 500px;
+  height: 400px;
+  margin-right: 50px;
+  color: white;
+  font-size: 2rem;
+  transition: all 0.3s;
+}
+
+.VHOMSelectBox ul li:hover {
+  position: relative;
+  border: inset 1px white solid;
+  background: none;
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: all 0.3s;
+}
+
+.VHOMSelectBox ul:hover li {
+  position: relative;
+  background: none;
+  background-color: rgba(255, 255, 255, 0.3);
+
+}
+
+
+
+.VHOMSelectBox ul li p {
+  margin: 20px;
+}
+
+.VHOMChose1 {
+  background-image: url("./image/simple.jpg");
+  background-size: 100% 100%;
+}
+
+.VHOMChose2 {
+  background-image: url("./image/pastel.jpg");
+  background-size: 100% 100%;
+}
+
+.VHOMChose3 {
+  background-image: url("./image/vivid.jpg");
+  background-size: 100% 100%;
+}
+
+.VHOMMainPageThree div ul {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.PageThreeSlide {
+  margin: 20.5vh 0 0 10vw;
+  display: flex;
+  width: 100vw;
+
+}
+
+.item1 {
+  display: flex;
+  margin-right: 5vw;
+}
+
+.item1img {
+  width: 500px;
+  height: 500px;
+}
+
+.itemul {
+  flex-direction: column;
+  width: 500px;
+  height: 500px;
+}
+
+.itemul li {
+  margin-left: 10px;
+  width: 500px;
+  text-align: left;
+}
+
+.itemul span:nth-child(1) {
+  margin-left: 20px;
+  width: 500px;
+  text-align: left;
+}
+
+.itemul span:nth-child(2) {
+  margin-left: 20px;
+  width: 500px;
+  text-align: left;
+  font-size: 3rem;
+}
+
+.itemul span:nth-child(3) {
+  margin-left: 20px;
+  width: 500px;
+  text-align: left;
+  font-size: 0.8rem;
+}
+
+
+.itemulul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 500px;
+  margin: 220px 0 0 auto;
+}
+
+.itemululdiv li:nth-child(2) {
+  font-size: 0.8rem;
+}
+
+.itemululdiv li:nth-child(3) {}
+
+.itemululdiv {
+  width: 150px;
+  justify-content: space-between;
+}
+
+
+
+
+.VHOMShop {
+  width: 100vw;
+  height: 30vh;
+  background-color: red;
+  margin-top: 20.5vh;
+  gap: 30px;
+}
+
+.VHOMShopItem1 {
+  float: left;
+  margin-right: 50px;
+}
+
+.VHOMShopItem1 img {
+  float: left;
+}
+
+.VHOMRemodelingPackage {
+  width: 100vw;
+  height: 100vh;
+
+}
+
+.onmouse {
+  position: relative;
+  top: 300px;
+  left: 500px;
+  width: 100px;
+  height: 100px;
+}
+
+.VHOMRemodelingPackageHover {
+  position: relative;
+  top: 500px;
+  left: 500px;
+  width: 100px;
+  background-color: brown;
+  height: 100px;
+}
+
+.VHOMRemodelingPackageHoverBox {
+  position: relative;
+  top: 500px;
+  left: 500px;
+  width: 100px;
+  background-color: brown;
+  height: 100px;
+}
+
+
+
+.VHOMMainPageFour {
+  background-color: red;
+  background-repeat: no-repeat;
+  transition: all 0.3s;
+}
+
+.pagefourpan {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
+  opacity: 0.5;
+}
+
+.PageFourPop {
+  width: 500px;
+  height: 600px;
+  background-color: white;
+  position: relative;
+  left: -610px;
+  top: 150px;
+}
+
+.PageFourPopbottom {
+  width: 500px;
+  height: 50px;
+  background-color: #00B190;
+  position: absolute;
+  bottom: 0px;
+  text-align: center;
+  line-height: 50px;
+}
+
+.PageFourPopOne {
+  text-align: center;
+}
+
+.PageFourPopOne li:nth-child(1) {
+  font-size: 3rem;
+  margin: 40px 0 20px 0;
+}
+
+.PageFourPopOne li:nth-child(2) {}
+
+.PageFourPopTwo {
+  width: 500px;
+  text-align: center;
+}
+
+.PageFourPopTwo span:nth-child(1) {
+  position: absolute;
+  left: 100px;
+}
+
+.PageFourPopTwo span:nth-child(2) {
+  width: 200px;
+  height: 10px;
+}
+
+.PageFourPopTwo span:nth-child(3) {
+  position: absolute;
+  left: 390px;
+}
+
+.PageFourPopTwo div:nth-child(1) {
+  margin-top: 40px;
+}
+
+.PageFourPopTwo div:nth-child(2) {
+  color: blue;
+}
+
+.PageFourPopProgress {
+  text-align: center;
+  width: 500px;
+  position: relative;
+}
+
+.VHOMMainPageFive {
+  display: flex;
+  flex-direction: column;
+}
+
+.pageFiverow1 {
+  margin-top: 21vh;
+  width: 1400px;
+  height: 200px;
+  display: flex;
+
+}
+
+.pageFiverow1 img {
+  width: 600px;
+  height: 180px;
+
+}
+
+.pageFiverow2 {
+  margin-top: 1vh;
+  width: 1400px;
+  height: 300px;
+
+}
+
+.pageFiverow2inmiddle {
+  padding-top: 100px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 100px;
+}
+
+.pageFiverow2inmiddle div {
+  width: 250px;
+  height: 100px;
+}
+
+.pageFiverow2inmiddle div:nth-child(1) {}
+
+.pageFiverow2inmiddle div:nth-child(2) {
+  text-decoration: underline;
+
+  text-align: right;
+}
+
+.pageFiverow2inmiddle div:nth-child(3) {}
+
+.pageFiverow2inmiddle div:nth-child(4) {}
+
+
+.pageFiverow2inbottom {
+
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 100px;
+}
+
+.pageFiverow2inbottom div {
+  width: 250px;
+  height: 100px;
+}
+
+.pageFiverow2inbottom input {
+  width: 230px;
+  padding-left: 20px;
+  height: 50px;
+}
+
+
+
+:root {}
+
+.pageFiverow2 p {
+  --p: 1;
+  font-size: calc(var(--p) * 1rem);
+}
+
+.pageFiverow2 li {
+  --p: 1;
+  font-size: calc(var(--p) * 1rem);
+}
+
+
+
+
+
+.kakaofriend {
+  position: absolute;
+  left: 0px;
+  width: 1000px;
+  height: 800px;
+
+}
+
+.ryanHead {
+  width: 400px;
+  height: 350px;
+  background: #d59729;
+  border-radius: 100%;
+  position: absolute;
+  border: 10px black solid;
+  z-index: 100;
+}
+
+.ryanEarleft {
+  width: 100px;
+  height: 100px;
+  background: #d59729;
+  border-radius: 100%;
+  position: absolute;
+  border: 10px black solid;
+  left: 50px;
+  top: -25px;
+}
+
+.ryanEarright {
+  width: 100px;
+  height: 100px;
+  background: #d59729;
+  border-radius: 100%;
+  position: absolute;
+  border: 10px black solid;
+  left: 250px;
+  top: -25px;
+}
+
+.ryanEyebrowleft {
+  width: 90px;
+  height: 1px;
+  background: black;
+  border-radius: 15px 15px 15px 15px;
+  position: absolute;
+  border: 8px black solid;
+  z-index: 105;
+  top: 100px;
+  left: 75px;
+}
+
+.ryanEyebrowright {
+  width: 90px;
+  height: 1px;
+  background: black;
+  border-radius: 15px 15px 15px 15px;
+  position: absolute;
+  border: 8px black solid;
+  z-index: 105;
+  top: 100px;
+  left: 235px;
+}
+
+.ryanEyeleft {
+  width: 15px;
+  height: 15px;
+  background: black;
+  border-radius: 100%;
+  position: absolute;
+  border: 8px black solid;
+  z-index: 105;
+  top: 135px;
+  left: 115px;
+}
+
+.ryanEyeright {
+  width: 15px;
+  height: 15px;
+  background: black;
+  border-radius: 100%;
+  position: absolute;
+  border: 8px black solid;
+  z-index: 105;
+  top: 135px;
+  left: 275px;
+}
+
+.ryanNose {
+  width: 30px;
+  height: 30px;
+  background-color: black;
+  border-radius: 10px 10px 15px 15px;
+  position: absolute;
+  z-index: 105;
+  top: 180px;
+  left: 195px;
+}
+
+.ryanNoseleft {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border: solid 10px black;
+  border-radius: 100%;
+  position: absolute;
+  z-index: 102;
+  top: 180px;
+  left: 150px;
+}
+
+.ryanNoseright {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border: solid 10px black;
+  border-radius: 100%;
+  position: absolute;
+  z-index: 101;
+  top: 180px;
+  left: 200px;
+}
+
+.ryanNosewhitebox {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+
+  transform: rotate(45deg);
+  position: absolute;
+  z-index: 102;
+  top: 194px;
+  left: 190px;
+}
+
+
+.ryanNosewhitebox2 {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  transform: rotate(45deg);
+  position: absolute;
+  z-index: 102;
+  top: 194px;
+  left: 201px;
+}

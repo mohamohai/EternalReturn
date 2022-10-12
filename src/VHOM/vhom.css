@@ -209,8 +209,13 @@
     display: inline-block;
     background-color: white;
     transition: all 1s;
-    box-shadow: rgb(188, 188, 188) 0px 1px 10px 1px;
     margin-left: 25px;
+    border: 1px solid #e0e0e0;
+    color: #e0e0e0;
+}
+
+.SlideBox span {
+    /* color: #00B190;  */
 
 }
 
@@ -225,9 +230,7 @@
 }
 
 
-.SlideBox span {
-    color: #00B190;
-}
+
 
 .intro-desc {}
 

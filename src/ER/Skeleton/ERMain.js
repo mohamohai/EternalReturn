@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./css/ERMain.css";
-
+import GNB from "./GNB.js";
 class ERMain extends Component {
   constructor(props) {
     super(props);
@@ -29,6 +29,7 @@ class ERMain extends Component {
           left:"0px",
         }}
       >
+        <GNB></GNB>
         {/* <button onClick={this.mama}>시즌3</button>
         <button onClick={this.mama2}>시즌6</button> */}
         {/* <img
