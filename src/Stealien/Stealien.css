@@ -1,19 +1,23 @@
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .StealienMain {
     z-index: 10000;
     width: 100%;
     position: absolute;
     left: 0px;
-
 }
 
 .StealienGNB {
     width: 1400px;
     height: 100px;
-    background: red;
     position: fixed;
-    margin: 0 auto;
-    left: 0;
-    right: 0;
+
+    margin-left: 260px;
     display: flex;
     align-items: center;
     justify-items: center;
@@ -48,7 +52,7 @@
 
 .StealienDropDown li {
     margin: 30px;
-    color: #501A9B;
+    color: white
 }
 
 
@@ -94,7 +98,7 @@
 
     position: absolute;
     left: 260px;
-    top: 250px;
+    top: 220px;
 
 }
 
@@ -102,7 +106,7 @@
     width: 10px;
     height: 10px;
     border-radius: 10px;
-    background-color: gray;
+    background-color: #b4b4b4;
     margin-right: 15px;
 }
 
@@ -118,9 +122,74 @@
     width: 500px;
     position: absolute;
     left: 260px;
-    top: 250px;
+    top: 300px;
+    opacity: 0;
+    transition: all 0.5s;
+
+}
+
+.StealienPageOneModel1SlideText h1 {
+    font-family: NEXON Lv1 Gothic OTF Light;
 }
 
 .StealienPageOneModel1 p {
-    width: 500px;
+    width: 700px;
+    font-family: NEXON Lv1 Gothic OTF Light;
+    font-size: 1.2rem;
+}
+
+.StealienPageTwo {
+    width: 1920px;
+    display: flex;
+    flex-direction: column;
+}
+
+.StealienPageTwo h1 {
+    color: #363636;
+    line-height: 110px;
+}
+
+.StealienPageTwoModel1 {
+    width: 1500px;
+    height: 1000px;
+}
+
+.StealienPageTwoIntroduceSlide {
+    width: 1400px;
+    overflow: hidden;
+    height: 400px;
+    display: flex;
+}
+
+.StealienPageTwoIntroduce {
+    display: flex;
+    flex-wrap: nowrap;
+    transition: all 0.5s;
+}
+
+.StealienPageTwoIntroduce li {
+    width: 300px;
+    height: 220px;
+    background-color: black;
+    margin: 0 25px;
+}
+
+.StealienPageTwoIntroduce li p {
+    text-align: center;
+    font-family: NEXON Lv1 Gothic OTF Light;
+    font-weight: 900;
+    margin-top: 20px;
+}
+
+#StealienPageTwoModel1Frame {
+    display: flex;
+    flex-direction: row;
+
+}
+
+#StealienPageTwoModel1Frame span {
+    font-size: 3rem;
+    color: #e0e0e0;
+    width: 50px;
+    line-height: 200px;
 }
