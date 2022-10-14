@@ -5,6 +5,10 @@
     font-style: normal;
 }
 
+* {
+    resize: none;
+}
+
 .StealienMain {
     z-index: 10000;
     width: 100%;
@@ -52,14 +56,43 @@
 
 .StealienDropDown li {
     margin: 30px;
-    color: white
+    color: white;
+    text-align: center;
+    width: 100px;
 }
 
+.StealienDropDownIn {
+    border-top: 4px solid #501A9B;
+    flex-direction: column;
+    position: absolute;
+    margin-left: -80px;
+    gap: 0px;
+}
+
+.StealienDropDownIn li {
+    width: 200px;
+    height: 50px;
+    background-color: rgb(0, 0, 0, 0.7);
+    line-height: 50px;
+}
+
+.aaa {
+    width: 250px;
+    height: 30px;
+    font-family: NEXON Lv1 Gothic OTF;
+    font-weight: normal;
+    background-color: rgb(255, 255, 255, 0.5);
+    text-align: center;
+}
+
+.StealienDropDown li:hover .StealienDropDownIn {
+    display: flex;
+
+}
 
 .StealienPageOne {
     width: 100vw;
     height: 810px;
-
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-evenly;
@@ -192,4 +225,27 @@
     color: #e0e0e0;
     width: 50px;
     line-height: 200px;
+}
+
+
+.qqq {
+    width: 500px;
+}
+
+.qqq li {
+    float: left;
+    color: red;
+    width: 100px;
+    height: 50px;
+    background-color: rgb(125, 10, 12, 0.4);
+    text-align: center;
+}
+
+.qqq li ul {
+    margin-top: 50px;
+    border-top: solid 4px #501A9B;
+}
+
+.qqq li ul li {
+    float: none;
 }
