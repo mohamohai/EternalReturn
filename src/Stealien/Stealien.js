@@ -128,9 +128,18 @@ function Stealien() {
 
     const StealienFull = useRef();
     useEffect(()=>{
+        var pageHeight = window.innerHeight;
+        var StealienGNB = document.getElementsByClassName("StealienGNB");
+        var StealienGNBMenu = document.getElementsByClassName("StealienGNBMenu");
+        var logo = document.getElementById("logo");
+        var logoon = document.getElementById("logoon")
         const wheelHandler = (e) =>{
             const { scrollTop } =StealienFull.current;
-            console.log(scrollTop);
+            //이벤트리스너
+            StealienGNB[0].style.backgroundColor="white";
+            logoon.style.transform="translateY(-50px)" 
+            logo.style.transform="translateY(-50px)" 
+            StealienGNBMenu[0].style.color="black"
         }
         const StealienFullCurrent = StealienFull.current;
         StealienFullCurrent.addEventListener("wheel", wheelHandler);
@@ -140,40 +149,49 @@ function Stealien() {
         <div className="StealienMain" ref={StealienFull}>
             <div className="StealienGNB">
                 <a className="StealienLogoA" href="/Stealien">
-                    <img src="./image/Stealien/logo.png"></img>
-                    <img src="./image/Stealien/logo_on.png"></img>
+                    <img id="logo" src="./image/Stealien/logo.png"></img>
+                    <img id="logoon" src="./image/Stealien/logo_on.png"></img>
                 </a>
-                <ul className="StealienDropDown">
-                    <li>회사소개
-                        <ul className="StealienDropDownIn">
-                            <li>회사개요</li>
-                            <li>연혁</li>
-                            <li>press</li>
-                            <li>멘토링 프로그램</li>
+                <div>
+                        <ul className="StealienGNBMenu">
+                            <li>회사소개
+                                <ul>
+                                    <li>회사개요</li>
+                                    <li>연혁</li>  
+                                    <li>press</li>
+                                    <li>멘토링 프로그램</li>
+                                </ul>
+                            </li>
+                            <li>제품
+                                <ul>
+                                    <li>AppSuitSeries</li>
+                                    <li>CyberDrillSystem</li>  
+                                </ul>
+                            </li>
+                            <li>서비스
+                                <ul>
+                                    <li>보안컨설팅(모의해킹)</li>
+                                    <li>R&D</li>  
+                                </ul>
+                            </li>
+                            <li>채용</li>
+                            <li>Resources
+                                <ul>
+                                    <li>도입 사례</li>
+                                    <li>자주 묻는 질문</li>
+                                    <li>기술 블로그</li>
+                                    <li>CI</li>  
+                                </ul>
+                            </li>
+                            <li>Ko
+                                <ul>
+                                    <li>ENG</li>
+                                    <li>일본어</li>
+                                    <li>Indonesia</li>  
+                                </ul>
+                            </li>
                         </ul>
-                    </li>
-                    <li>제품
-                        <ul className="StealienDropDownIn">
-                            <li>AppSuitSeries</li>
-                            <li>CyberDrillSystem</li>
-                        </ul>
-                    </li>
-                    <li>서비스
-                        <ul className="StealienDropDownIn">
-                            <li>보안컨설팅(모의해킹)</li>
-                            <li>R&D</li>
-                        </ul>
-                    </li>
-                    <li>채용                    </li>
-                    <li>Resources
-                        <ul className="StealienDropDownIn">
-                            <li>도입 사례</li>
-                            <li>자주 묻는 질문</li>
-                            <li>기술블로그</li>
-                            <li>CI</li>
-                        </ul></li>
-                    <li>ko</li>
-                </ul>
+                        </div>
             </div>
             <div className="StealienPageOne" id="StealienPageOne" style={{background:"url(./image/Stealien/0.jpg)", backgroundRepeat:"no-repeat",backgroundSize:"1920px 810px" }}>
                 <span onClick={StealienMainSlideleft}>&lt;</span>
@@ -234,31 +252,7 @@ function Stealien() {
                     </div>
                 </div>
                 <div className="StealienPageTwoModel2">
-                    <div>
-                        <ul className="qqq">
-                            <li>a
-                                <ul>
-                                    <li>a1</li>
-                                    <li>a2</li>  
-                                    <li>a3</li>
-                                </ul>
-                            </li>
-                            <li>b
-                                <ul>
-                                    <li>b1</li>
-                                    <li>b2</li>  
-                                    <li>b3</li>
-                                </ul>
-                            </li>
-                            <li>c
-                                <ul>
-                                    <li>c1</li>
-                                    <li>c2</li>  
-                                    <li>c3</li>
-                                </ul>
-                            </li>
-                        </ul>
-                        </div>
+                    
                     <div></div>
                 </div>
             </div>

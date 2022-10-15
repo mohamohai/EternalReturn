@@ -17,31 +17,39 @@
 }
 
 .StealienGNB {
-    width: 1400px;
+    width: 1920px;
     height: 100px;
     position: fixed;
-
-    margin-left: 260px;
+    left: 0px;
     display: flex;
     align-items: center;
     justify-items: center;
+    z-index: 100;
+    color: white;
 
 }
 
 .StealienLogoA {
     width: 300px;
     position: relative;
-    left: -117px;
+    height: 50px;
+    overflow: hidden;
 }
 
 .StealienLogoA img:nth-child(1) {
     width: 200px;
-    line-height: 50px;
+    position: absolute;
+    left: 75px;
+    top: 0px;
+    transition: all 0.5s;
 }
 
 .StealienLogoA img:nth-child(2) {
     width: 200px;
-    display: none;
+    position: absolute;
+    left: 75px;
+    top: 50px;
+    transition: all 0.5s;
 }
 
 .StealienDropDown {
@@ -210,7 +218,7 @@
 .StealienPageTwoIntroduce li p {
     text-align: center;
     font-family: NEXON Lv1 Gothic OTF Light;
-    font-weight: 900;
+    font-weight: 800px;
     margin-top: 20px;
 }
 
@@ -228,24 +236,42 @@
 }
 
 
-.qqq {
-    width: 500px;
+.StealienGNBMenu {
+    width: 900px;
+
 }
 
-.qqq li {
+.StealienGNBMenu li {
     float: left;
-    color: red;
-    width: 100px;
+    width: 130px;
     height: 50px;
-    background-color: rgb(125, 10, 12, 0.4);
     text-align: center;
+    line-height: 50px;
+    transition: all 0.5s;
+    cursor: pointer;
+
 }
 
-.qqq li ul {
-    margin-top: 50px;
+.StealienGNBMenu li ul {
+
     border-top: solid 4px #501A9B;
+    display: none;
+    color: white;
+
 }
 
-.qqq li ul li {
+.StealienGNBMenu li:hover ul {
+    display: block;
+}
+
+.StealienGNBMenu li ul li {
     float: none;
+    font-size: 0.8rem;
+    background-color: rgb(0, 0, 0, 0.5);
+    border-top: solid rgb(12, 12, 12, 0.2) 0.1px;
+}
+
+.StealienGNBMenu li ul li:hover {
+    background-color: rgb(0, 0, 0);
+    transition: all 0.5s;
 }
