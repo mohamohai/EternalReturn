@@ -5,21 +5,21 @@ import { useState, useEffect, useRef } from "react";
 import "./MainSite.css";
 import Slider from "react-slick";
 function MainSite() {
-  const txt = "Pixel";    //타이핑에 쓸 문구
+  const [txt,settxt] = useState("Pixel");    //타이핑에 쓸 문구
   const [Text, setText] = useState('');    //입력 할 문자 하나
   const [Count, setCount] = useState(0);   //val i
   const streamer = ["0828","aduck","aguippo","badgirl","bbibu","bbonge","chabi","cham","ddolbok","gambler","gangg_wide","jahee","jinu","jjondeuk","kimdduddi","kosi","leechohong","magenta","manggae","nanayang","purin","sahyang","silph","snowwhite",]
-  const source = document.getElementById("Motion");
   
-
   useEffect(() => {
     const interval = setInterval(() => {
         setText(Text + txt[Count]); // 이전 set한 문자 + 다음 문자
         setCount(Count + 1); // 개수 만큼 체크 
         
     }, 200);
-    if(Count >= txt.length)  {  // 문자열 길이 맞으면 아래 실행인데 클리어로 반복 없애기
-        clearInterval(interval); 
+    if(Count-1 == txt.length)  {  // 문자열 길이 맞으면 아래 실행인데 클리어로 반복 없애기
+      settxt("Change")
+      setText("");
+      setCount(0);
        
     }
     return () => {

@@ -462,7 +462,7 @@ body {
 }
 
 .blink {
-    animation: blink 1s infinite;
+    animation: blink 0.4s infinite;
     font-size: 80px;
     border-left: 3px solid white;
 }
