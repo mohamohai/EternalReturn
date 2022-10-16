@@ -421,7 +421,7 @@ function Stealien() {
                         주소 : xxxx-xxxx-xxxx <br></br>
                         TEL : xx-xxx-xxxxFAX: xx-xxx-xxxx <br></br>
                         E-mail : xxx@xxxxxx.com <br></br> <br></br>
-                        COPYRIGHT © 2020 STEALIEN Inc. ALL RIGHTS RESERVED.
+                        COPYRIGHT © 2020 STEALIEN Inc. ALL RIGHTS RESERVED
                     </p>
                 </div>
             </div>
