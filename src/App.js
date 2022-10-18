@@ -14,6 +14,8 @@ import Pixel from "./MainSite.js";
 import CopyWeb from "./copyWeb/copyWeb.js";
 import Vhom from "./VHOM/vhom.js";
 import Stealien from "./Stealien/Stealien.js";
+import My from "./my/my.js"
+
 import {
   BrowserRouter,
   Route,
@@ -100,10 +102,11 @@ class App extends Component {
           <Route path="*"  element={<Ingredient />} />
 
           <Route path="/copyWeb" element={<CopyWeb/>}/>
+          
           <Route path="/vhom" element={<Vhom/>}/>
           <Route path="/Stealien" element={<Stealien/>}/>
-
-          <Route exact path="/" element={<Ingredient />} />
+          <Route path="/My" element={<My/>}/>
+          <Route exact path="/" element={<My />} />
 
         </Routes>
       </BrowserRouter>

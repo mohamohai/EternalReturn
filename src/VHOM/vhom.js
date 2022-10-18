@@ -26,10 +26,45 @@ function Vhom() {
 
   function Changeleft() {
     console.log("leftbtn")
-   //document.getElementById("xxaax").style.transform = "rotate(7deg)";
       var divdiv = document.getElementById("ChangeForm");
       var mCount = SlideCnt-1
-      console.log("본판 : " + SlideCnt+"계산판 " +mCount)
+      console.log("본판 : " + SlideCnt+"계산판 " +mCount);
+      var divdivz = document.getElementsByClassName("SlideBox");
+      var divdivx = document.getElementsByClassName("VhomColor");
+      for(var i=0;i<divdivz.length;i++){
+        divdivz[i].style.color="rgb(190, 190, 190)";
+        divdivz[i].style.boxShadow="rgb(190, 190, 190) 0px 1px 10px 1px";
+        divdivx[i].style.color="rgb(190, 190, 190)";
+        divdivx[divdivz.length+i].style.color="rgb(190, 190, 190)";
+        console.log(i)
+}
+      switch(SlideCnt){
+        case 1 :
+              divdivz[0].style.color="black";
+              divdivz[0].style.boxShadow="rgb(190, 190, 190) 0px 1px 10px 1px";
+              divdivx[0].style.color="#00B190";
+              divdivx[1].style.color="#00B190";
+
+          break; 
+        case 2 :
+              divdivz[1].style.color="black";
+              divdivz[1].style.boxShadow="rgb(190, 190, 190) 0px 1px 10px 1px";
+              divdivx[2].style.color="#00B190";
+              divdivx[3].style.color="#00B190";
+          break;
+        case 3 : 
+              divdivz[2].style.color="black";
+              divdivz[2].style.boxShadow="rgb(190, 190, 190) 0px 1px 10px 1px";
+              divdivx[4].style.color="#00B190";
+              divdivx[5].style.color="#00B190";
+          break;
+        case 4 :
+              divdivz[3].style.color="black";
+              divdivz[3].style.boxShadow="rgb(190, 190, 190) 0px 1px 10px 1px";
+              divdivx[6].style.color="#00B190";
+            divdivx[7].style.color="#00B190";
+          break;
+      }
       if(SlideCnt>0){
         setSlideCnt(SlideCnt-1)    
         divdiv.style.transform=`translateX(${mCount*-375}px)`   
@@ -37,29 +72,42 @@ function Vhom() {
   }
 
  function Changeright() {
-  console.log("leftright")
-    // document.getElementById("xxaax").style.transform = "rotate(7deg)";
     var divdiv = document.getElementById("ChangeForm");
     var pCount = SlideCnt+1;
     var divdivz = document.getElementsByClassName("SlideBox");
     var divdivx = document.getElementsByClassName("VhomColor");
-    console.log("본판 : " + SlideCnt+"계산판 " +pCount)
+    console.log("본판 : " + SlideCnt+"계산판 " +pCount);
+    console.log(divdivz.length)
+    for(var i=0;i<divdivz.length;i++){
+            divdivz[i].style.color="rgb(190, 190, 190)";
+            divdivz[i].style.boxShadow="rgb(190, 190, 190) 0px 1px 10px 1px";
+            divdivx[i].style.color="rgb(190, 190, 190)";
+            divdivx[divdivz.length+i].style.color="rgb(190, 190, 190)";
+    }
     switch(SlideCnt){
       case 0 :
-        
-            divdivz[1].style.color="blue";
-            divdivz[1].style.boxShadow="rgb(188, 188, 188) 0px 1px 10px 1px";
-            divdivx[1].style.color="#00B190";
-        
+            divdivz[1].style.color="black";
+            divdivz[1].style.boxShadow="rgb(190, 190, 190) 0px 1px 10px 1px";
+            divdivx[2].style.color="#00B190";
+            divdivx[3].style.color="#00B190";
         break; 
       case 1 :
-        console.log("2바꾸기")
+            divdivz[2].style.color="black";
+            divdivz[2].style.boxShadow="rgb(190, 190, 190) 0px 1px 10px 1px";
+            divdivx[4].style.color="#00B190";
+            divdivx[5].style.color="#00B190";
         break;
       case 2 : 
-        console.log("3바꾸기")
+            divdivz[3].style.color="black";
+            divdivz[3].style.boxShadow="rgb(190, 190, 190) 0px 1px 10px 1px";
+            divdivx[6].style.color="#00B190";
+            divdivx[7].style.color="#00B190";
         break;
       case 3 :
-        console.log("4예정바꾸기")
+            divdivz[4].style.color="black";
+            divdivz[4].style.boxShadow="rgb(190, 190, 190) 0px 1px 10px 1px";
+            divdivx[8].style.color="#00B190";
+            divdivx[9].style.color="#00B190";
         break;
     } //돌아가기로 하든 포커스를 맞추던 ㄱ
     if(SlideCnt<4){
@@ -116,8 +164,7 @@ function pagefourcntbtn() {
 
 
   useEffect(() => {
-    const wheelHandler = (e) => {
-  
+      const wheelHandler = (e) => {
       const { deltaY } = e;
       const { scrollTop } =DivRef.current; // 스크롤 위쪽 끝부분 위치
       const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
@@ -299,9 +346,9 @@ function pagefourcntbtn() {
         <div id="ChangeForm">
         <div className="SlideOne SlideBox" id ="xxaax">
          <div>
-          <p>
+          <p><span className="VhomColor">
            Trust <br></br>
-           든든한 내 편! <br></br>
+           든든한 내 편! </span><br></br>
           </p>
             <p className="intro-desc">
               브랜드 따로
@@ -313,10 +360,10 @@ function pagefourcntbtn() {
         </div>
         <div className="SlideTwo SlideBox" id ="xxaax">
           <div>
-          <p>
+          <p><span className="VhomColor">
            Package <br></br>
            인알못도 문제 없이! <br></br>
-          </p>
+          </span></p>
           <p className="intro-desc">
 									전문가가 구성한
 									<br></br>트렌디하고 모던한
@@ -325,9 +372,10 @@ function pagefourcntbtn() {
 								</p></div></div>
         <div  className="SlideThree SlideBox" id ="xxaax">
         <div>
-          <p>
+          <p><span className="VhomColor">
            Direct <br></br>
            혼자서도 척척! <br></br>
+           </span>
           </p>
           <p className="intro-desc">
                   3D도면에서
@@ -337,9 +385,10 @@ function pagefourcntbtn() {
 								</p></div></div>
         <div  className="SlideFour SlideBox" id ="xxaax">
         <div>
-          <p>
+          <p><span className="VhomColor">
            Price <br></br>
            Real 견적! <br></br>
+           </span>
           </p>
           <p className="intro-desc">
 									처음 견적 그대로
@@ -349,9 +398,10 @@ function pagefourcntbtn() {
 								</p></div></div>
         <div  className="SlideFour SlideBox" id ="xxaax">
         <div>
-          <p>
+          <p><span className="VhomColor">
            Quality <br></br>
            친환경 자재와 디테일의 차이! <br></br>
+           </span>
           </p>
           <p className="intro-desc">
                 Super E0 강마루와
@@ -377,6 +427,8 @@ function pagefourcntbtn() {
       </div>
       <div className="VHOMMainPageThree page">
         <div className="PageThreeSlide">
+          <div className="PageThreeSlidelt">&lt;</div>
+          <div className="PageThreeSlidegt">&gt;</div>
           <ul>
             <li className="item1">
               <div>
@@ -513,6 +565,9 @@ function pagefourcntbtn() {
           <div className="PageFourPopbottom">자세히 보기</div>
         </div>
       </div>
+
+
+
       <div className="VHOMMainPageFive  page">
         <div className="pageFiverow1">
           <img src="./image/vhom/pagefive/event1.jpg"></img>

@@ -1,0 +1,60 @@
+:root {
+    --wid: 1520px;
+}
+
+.pageFiverow2 p {
+    --p: 1;
+    font-size: calc(var(--p) * 1rem);
+}
+
+
+.page2 {}
+
+.zerozero {
+    z-index: 0;
+    background-size: contain;
+}
+
+.oneone {
+    z-index: 1;
+}
+
+.twotwo {
+    z-index: 2;
+}
+
+.thrthr {
+    z-index: 3;
+
+}
+
+.thrthr img {
+    transition: 1s;
+}
+
+.fullviewer {
+    position: fixed;
+    left: 0px;
+    margin: 0 auto;
+    width: 100vw;
+    height: 100vh;
+    transition: all 1s;
+
+}
+
+.wheelbtn {
+    width: 100px;
+    height: 50px;
+    background-color: white;
+    position: fixed;
+    z-index: 100;
+}
+
+.wheelbtn2 {
+    width: 100px;
+    height: 50px;
+    background-color: white;
+    position: fixed;
+    z-index: 100;
+    top: 50px;
+}

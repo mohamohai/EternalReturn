@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef, Component } from "react";
 import "./Stealien.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLightbulb,faGears,faBriefcase,faHeadset,fa2 } from "@fortawesome/free-solid-svg-icons";
-
+import { faLightbulb,faGears,faBriefcase,faHeadset,faFurniture } from "@fortawesome/free-solid-svg-icons";
 
 
 function Stealien() {
@@ -211,7 +210,7 @@ function Stealien() {
                         </ul>
                         </div>
             </div>
-            <div className="StealienPageOne" id="StealienPageOne" style={{background:"url(./image/Stealien/0.jpg)", backgroundRepeat:"no-repeat",backgroundSize:"1920px 810px" }}>
+            <div className="StealienPageOne" id="StealienPageOne" style={{background:"url(./image/Stealien/0.jpg)", backgroundRepeat:"no-repeat",backgroundSize:"100vw 810px" }}>
                 <span onClick={StealienMainSlideleft}>&lt;</span>
                 <div className="StealienPageOneModel1">
                    <div>

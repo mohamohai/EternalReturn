@@ -56,7 +56,6 @@
 }
 
 
-
 .VHOMGNBRightMenu {}
 
 .VHOMGNBRightMenu ul li {}
@@ -95,7 +94,8 @@
     background: none;
     font-size: 15px;
     z-index: 10000;
-    transition: all 1s;
+    transition: all 0.5s;
+
     width: 160px;
     text-align: right;
     color: #00B190;
@@ -107,7 +107,8 @@
     height: 40vh;
     background-color: #00B190;
     position: fixed;
-    transition: all 1s;
+    transition: all 0.5s;
+
     top: 0px;
     z-index: 10000;
 }
@@ -200,7 +201,8 @@
 }
 
 .VHOMOneRight div {
-    transition: all 1s;
+    transition: all 0.5s;
+
 }
 
 .SlideBox {
@@ -208,11 +210,21 @@
     height: 400px;
     display: inline-block;
     background-color: white;
-    transition: all 1s;
+    transition: all 0.5s;
     margin-left: 25px;
     border: 1px solid #e0e0e0;
     color: #e0e0e0;
 }
+
+.SlideOne {
+    color: black;
+    box-shadow: rgb(190, 190, 190) 0px 1px 10px 1px;
+}
+
+.SlideOne span {
+    color: #00B190;
+}
+
 
 .SlideBox span {
     /* color: #00B190;  */
@@ -255,7 +267,8 @@
     vertical-align: middle;
     width: 100%;
     height: 300px;
-    transition: all 1s;
+    transition: all 0.5s;
+
 }
 
 .VHOMSilder li div {
@@ -348,12 +361,27 @@
     margin: 20.5vh 0 0 10vw;
     display: flex;
     width: 100vw;
+}
+
+.PageThreeSlidelt {
+
+    z-index: 5;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border-radius: 100px;
+    text-align: center;
+    line-height: 100px;
 
 }
+
+
 
 .item1 {
     display: flex;
     margin-right: 5vw;
+    transform: translateX(-1000px);
+    transition: all 0.5s;
 }
 
 .item1img {
@@ -486,8 +514,13 @@
     height: 600px;
     background-color: white;
     position: relative;
-    left: -610px;
-    top: 150px;
+    top: 20%;
+    left: 5%;
+    margin: 0px;
+}
+
+.VhomColor {
+    transition: all 0.5s;
 }
 
 .PageFourPopbottom {
