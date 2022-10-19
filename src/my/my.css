@@ -7,26 +7,69 @@
     font-size: calc(var(--p) * 1rem);
 }
 
+.wheelbtn {
+    width: 100px;
+    height: 50px;
+    background-color: greenyellow;
+    position: fixed;
+    z-index: 100;
+}
 
-.page2 {}
+.wheelbtn2 {
+    width: 100px;
+    height: 50px;
+    background-color: purple;
+    position: fixed;
+    z-index: 100;
+    top: 50px;
+}
 
-.zerozero {
-    z-index: 0;
+#My {
+    width: 100vw;
+    height: 8000px;
+}
+
+.bodo {
+    width: 500px;
+    height: 500px;
+    position: fixed;
+    z-index: 20;
+    border-radius: 100px;
+    border: 1px solid black;
+    overflow-x: hidden;
+}
+
+.bododo {
+    width: 100px;
+    height: 50px;
+    overflow: hidden;
+    position: relative;
+    left: 200px;
+    background-color: blue;
+    border-radius: 100px;
+    border: 1px solid black;
+    transition: all 1s;
+    transform: scale(3);
+}
+
+.MyPageMove1 {
+    z-index: -1;
+}
+
+.MyPageMove2 {
+    z-index: -2;
+}
+
+.MyPageMove3 {
+    z-index: -3;
+
+}
+
+.MyPageMove4 {
+    z-index: -4;
     background-size: contain;
 }
 
-.oneone {
-    z-index: 1;
-}
-
-.twotwo {
-    z-index: 2;
-}
-
-.thrthr {
-    z-index: 3;
-
-}
 
 .thrthr img {
     transition: 1s;
@@ -40,21 +83,4 @@
     height: 100vh;
     transition: all 1s;
 
-}
-
-.wheelbtn {
-    width: 100px;
-    height: 50px;
-    background-color: white;
-    position: fixed;
-    z-index: 100;
-}
-
-.wheelbtn2 {
-    width: 100px;
-    height: 50px;
-    background-color: white;
-    position: fixed;
-    z-index: 100;
-    top: 50px;
 }

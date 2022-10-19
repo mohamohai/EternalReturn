@@ -193,3 +193,48 @@
         transform: rotate(360deg);
     }
 }
+
+
+
+.rainbow {
+    margin-top: 10px;
+    width: 300px;
+    height: 30px;
+    background-color: black;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+    position: fixed;
+    top: 100px;
+    left: 20px;
+}
+
+.rainbow::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, red, orange, yellow, yellowgreen, green, blue, purple);
+    animation: moverainbow 20s linear infinite;
+    background-size: 500%;
+
+
+}
+
+.rainbow::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, red, orange, yellow, yellowgreen, green, blue, purple);
+    background-size: 500%;
+    filter: blur(10px);
+    animation: moverainbow 20s linear infinite;
+    border-radius: 20px;
+}
+
+@keyframes moverainbow {
+    0% {
+        background-position: 0 0;
+    }
+
+    0% {
+        background-position: -500% 0;
+    }
+}

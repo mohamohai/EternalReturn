@@ -14,7 +14,9 @@ import Pixel from "./MainSite.js";
 import CopyWeb from "./copyWeb/copyWeb.js";
 import Vhom from "./VHOM/vhom.js";
 import Stealien from "./Stealien/Stealien.js";
-import My from "./my/my.js"
+import My from "./my/my.js";
+
+import HerenNow from "./HerenNow/HerenNow.js"
 
 import {
   BrowserRouter,
@@ -99,14 +101,16 @@ class App extends Component {
             path="/ScheduleUpdate/:Date/:Title/:content/:location/:time/:etc" element={}/> */}
           <Route path="/UserSelect" element={<UserSelect/>} />
 
-          <Route path="*"  element={<Ingredient />} />
 
           <Route path="/copyWeb" element={<CopyWeb/>}/>
           
           <Route path="/vhom" element={<Vhom/>}/>
           <Route path="/Stealien" element={<Stealien/>}/>
+          <Route path="/HerenNow" element={<HerenNow/>}/>
           <Route path="/My" element={<My/>}/>
           <Route exact path="/" element={<My />} />
+          <Route path="*"  element={<My />} />
+
 
         </Routes>
       </BrowserRouter>

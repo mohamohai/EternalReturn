@@ -1,0 +1,29 @@
+.HerenNow {
+    width: 100vw;
+    height: 1700px;
+    position: fixed;
+    background-color: white;
+}
+
+.menutitlea {
+    width: 1920px;
+    height: 100vh;
+    background: url("./image/HerenNow/mountain.jpg");
+    background-repeat: no-repeat;
+
+}
+
+.menutitlea span {
+    position: absolute;
+    top: 20%;
+    left: 54%;
+    font-size: 5rem;
+    transition: all 1s;
+}
+
+.menutitlea img {
+
+    position: fixed;
+    top: 50%;
+    left: 54%;
+}

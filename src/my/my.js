@@ -4,78 +4,87 @@ import "./my.css";
 
 function My() {
     const [ActCnt,setActCnt]=useState(0);
-    var zerozero=document.getElementsByClassName("zerozero");
-    var oneone = document.getElementsByClassName("oneone");
-    var twotwo = document.getElementsByClassName("twotwo");
+    var MyPageMove4=document.getElementsByClassName("MyPageMove4");
+    var MyPageMove3 = document.getElementsByClassName("MyPageMove3");
+    var MyPageMove2 = document.getElementsByClassName("MyPageMove2");
     var thrthr = document.getElementsByClassName("thrthr");
-    var oneLeft = document.getElementsByClassName("oneLeft");
-    var oneRight = document.getElementsByClassName("oneRight");
+    var MyPageMove1Left = document.getElementsByClassName("MyPageMove1Left");
+    var MyPageMove1Right = document.getElementsByClassName("MyPageMove1Right");
 
   function wheelact(){
     switch(ActCnt){
         case 0 :    
-            oneLeft[0].style.transform= "translateX(-50vw)"
-            oneRight[0].style.transform= "translateX(50vw)"
+            MyPageMove1Left[0].style.transform= "translateX(-50vw)"
+            MyPageMove1Right[0].style.transform= "translateX(50vw)"
             setActCnt(ActCnt+1);
             break;
         case 1 :    
-            twotwo[0].style.transform="scale(5) translateY(-25vh)";
+            MyPageMove2[0].style.transform="scale(5) translateY(-25vh)";
             setActCnt(ActCnt+1);
             setTimeout(() => {
-                twotwo[0].style.opacity= "0";}, 700);
+                MyPageMove2[0].style.opacity= "0";}, 700);
             break;
         case 2 :
-            oneone[0].style.transform="scale(5) translate(30vw, -25vh)"
+            MyPageMove3[0].style.transform="scale(5) translate(30vw, -25vh)"
             setActCnt(ActCnt+1);
             setTimeout(() => {
-                oneone[0].style.opacity= "0";}, 700);
+                MyPageMove3[0].style.opacity= "0";}, 700);
             break;
-            break;
+            
         case 3 :
     }
 }
 function wheelactdown() {
     switch(ActCnt){
         case 1 :    
-            thrthr[0].style.transform= "translateX(100vw)";
-            setActCnt(ActCnt-1);
-            break;
+        MyPageMove1Left[0].style.transform= "translateX(0vw)"
+        MyPageMove1Right[0].style.transform= "translateX(0vw)"
+        setActCnt(ActCnt-1);
+        break;
         case 2 :    
-            twotwo[0].style.opacity= "1";
-         
+            MyPageMove2[0].style.opacity= "1";
             setActCnt(ActCnt-1);
             setTimeout(() => {
-                twotwo[0].style.transform= "scale(1) translateY(0)";
+                MyPageMove2[0].style.transform= "scale(1) translateY(0)";
                 }, 700);
             break;
-        case 2 :
+        case 3 :
+            MyPageMove3[0].style.opacity= "1"
             setActCnt(ActCnt-1);
+            setTimeout(() => {
+            MyPageMove3[0].style.transform="scale(1) translate(0vw, 0vh)"
+            ;}, 700);
             break;
-        
     }
 }
 useEffect(()=>{
-    console.log("mamama")
-},[])
+    console.log("ddd")
+    // const wheelHandler = (e) =>{
+    // }
+    // const StealienFullCurrent = StealienFull.current;
+    // StealienFullCurrent.addEventListener("wheel", wheelHandler);
+})
 
 
     return(
-        <div id="My">
+        <div id="My" onWheel={(e)=>console.log(e)}>
             <div className="page1">
-                <div className="thrthr fullviewer"   >
-                    <img className="oneLeft" src="./image/my/oneLeft.jpg"></img>
-                    <img className="oneRight"src="./image/my/oneRight.jpg"></img>
-
+                <div className="bodo">aaaaaa
+                    <div className="bododo">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
                 </div>
-                <div className="twotwo fullviewer"   style={{background:"url(./image/my/mybghome.jpg)",backgroundRepeat:"no-repeat",backgroundSize:"100vw 100vh"}}></div>
-                <div className="oneone fullviewer"   style={{background:"url(./image/my/pad.gif)",backgroundRepeat:"no-repeat",backgroundSize:"100vw 100vh"}}></div>
-                <div className="zerozero fullviewer" style={{background:"url(./image/my/marioyo.gif)",backgroundRepeat:"no-repeat",backgroundSize:"100vw 100vh"}}></div>
+                <div className="thrthr fullviewer"   >
+                    <img className="MyPageMove1Left  MyPageMove1" src="./image/my/MyPageMove1Left.jpg"></img>
+                    <img className="MyPageMove1Right MyPageMove1" src="./image/my/MyPageMove1Right.jpg"></img>
+                </div>
+                <div className="MyPageMove2 fullviewer"   style={{background:"url(./image/my/mybghome.jpg)",backgroundRepeat:"no-repeat",backgroundSize:"100vw 100vh"}}></div>
+                <div className="MyPageMove3 fullviewer"   style={{background:"url(./image/my/pad.gif)",backgroundRepeat:"no-repeat",backgroundSize:"100vw 100vh"}}></div>
+                <div className="MyPageMove4 fullviewer"   style={{background:"url(./image/my/marioyo.gif)",backgroundRepeat:"no-repeat",backgroundSize:"100vw 100vh"}}></div>
                
 
 
             </div>
-            <div className="wheelbtn" onClick={wheelact}>zxc{ActCnt}</div>
-            <div className="wheelbtn2" onClick={wheelactdown}>asd{ActCnt}</div>
+            <div className="wheelbtn" onClick={wheelact}><img src="./image/my/monitor.svg"></img>{ActCnt}</div>
+            <div className="wheelbtn2" onClick={wheelactdown}>{window.scrollY} /{ActCnt}</div>
         </div>
     )
 }export default My;

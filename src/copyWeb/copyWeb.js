@@ -12,9 +12,7 @@ function CopyWeb() {
     <div className="copyWeb" >
       <div className="copyWebGNB">
         <ul>
-          <li>a</li>
-          <li>b</li>
-          <li>c</li>
+          <div className="rainbow"></div>
         </ul> 
         <div className="copyWebMainOne">
           
