@@ -1,29 +1,64 @@
 .HerenNow {
-    width: 100vw;
-    height: 1700px;
+    perspective: 100px;
+}
+
+.xxzzzxx {
+    -webkit-text-stroke: 1px black;
+    color: transparent;
+}
+
+.xxzzzxx:nth-child(1) {
     position: fixed;
-    background-color: white;
-}
-
-.menutitlea {
-    width: 1920px;
-    height: 100vh;
-    background: url("./image/HerenNow/mountain.jpg");
-    background-repeat: no-repeat;
-
-}
-
-.menutitlea span {
-    position: absolute;
-    top: 20%;
-    left: 54%;
+    left: 500px;
+    top: 300px;
     font-size: 5rem;
-    transition: all 1s;
+    transform: translate3d(5px, 6px, 1px);
 }
 
-.menutitlea img {
-
+.xxzzzxx:nth-child(2) {
     position: fixed;
-    top: 50%;
-    left: 54%;
+    left: 500px;
+    top: 300px;
+    font-size: 5rem;
+    transform: translate3d(5px, 6px, 2px);
+}
+
+.xxzzzxx:nth-child(3) {
+    position: fixed;
+    left: 500px;
+    top: 300px;
+    font-size: 5rem;
+    transform: translate3d(5px, 6px, 3px);
+}
+
+.xxzzzxx:nth-child(4) {
+    position: fixed;
+    left: 500px;
+    top: 300px;
+    font-size: 5rem;
+    transform: translate3d(5px, 6px, 4px);
+}
+
+.xxzzzxx:nth-child(5) {
+    position: fixed;
+    left: 500px;
+    top: 300px;
+    font-size: 5rem;
+    transform: translate3d(5px, 6px, 5px);
+}
+
+.xxzzzxx:nth-child(6) {
+    position: fixed;
+    left: 500px;
+    top: 300px;
+    font-size: 5rem;
+    transform: translate3d(5px, 6px, 6px);
+}
+
+.xxzzzxx:nth-child(7) {
+    position: fixed;
+    left: 500px;
+    top: 300px;
+    font-size: 5rem;
+    transform: translate3d(5px, 6px, 7px);
 }

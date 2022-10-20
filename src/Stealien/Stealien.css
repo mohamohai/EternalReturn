@@ -474,7 +474,7 @@
     animation-fill-mode: forwards;
 }
 
-@keyframes mymove {
+@keyframes myi {
     0% {
         left: 0px;
     }
@@ -485,7 +485,7 @@
     }
 
     100% {
-        left: calc(80% - 40px);
+        left: calc(75% - 40px);
         width: 40px;
     }
 }

@@ -67,7 +67,7 @@ function Vhom() {
       }
       if(SlideCnt>0){
         setSlideCnt(SlideCnt-1)    
-        divdiv.style.transform=`translateX(${mCount*-375}px)`   
+        divdiv.style.   transform=`translateX(${mCount*-375}px)`   
       }
   }
 
@@ -427,7 +427,7 @@ function pagefourcntbtn() {
       </div>
       <div className="VHOMMainPageThree page">
         <div className="PageThreeSlide">
-          <div className="PageThreeSlidelt">&lt;</div>
+        <div className="PageThreeSlidelt">&lt;</div>
           <div className="PageThreeSlidegt">&gt;</div>
           <ul>
             <li className="item1">
@@ -504,7 +504,7 @@ function pagefourcntbtn() {
           <ul>
             <li className="item1">
               <div>
-                <img className="item1img" src="./image/vhom/pagethree/white1.jpg"></img>
+                <img className="item1img" src="./image/vhom/pagethree/vivid1.jpg"></img>
               </div>
               <ul className="itemul">
                 <span>모던함과 깔끔함이 돋보이는</span>
@@ -514,20 +514,20 @@ function pagefourcntbtn() {
                   <ul className="itemulul"  style={{flexDirection:"row"}}>
                     <li>
                       <div className="itemululdiv">
-                        <li><img src="./image/vhom/pagethree/white2.jpg"></img></li>
+                        <li><img src="./image/vhom/pagethree/vivid2.jpg"></img></li>
                         <li>피카 웍 26cm</li>
                         <li>34,000원</li>
                       </div>
                     </li>
                     <li>
                       <div className="itemululdiv">
-                        <li><img src="./image/vhom/pagethree/white3.jpg"></img></li>
+                        <li><img src="./image/vhom/pagethree/vivid3.jpg"></img></li>
                         <li>원형 러그</li>
                         <li>53,900원</li>
                       </div></li>
                     <li>
                       <div className="itemululdiv">
-                        <li><img src="./image/vhom/pagethree/white4.jpg"></img></li>
+                        <li><img src="./image/vhom/pagethree/vivid4.jpg"></img></li>
                         <li>장스탠드</li>
                         <li>65,900원</li>
                       </div>

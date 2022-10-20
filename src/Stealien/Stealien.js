@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, Component } from "react";
 import "./Stealien.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLightbulb,faGears,faBriefcase,faHeadset,faFurniture } from "@fortawesome/free-solid-svg-icons";
-
+import { faTwitter,faYoutube,faFacebook } from '@fortawesome/free-brands-svg-icons'
 
 function Stealien() {
 
