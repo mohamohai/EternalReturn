@@ -1,64 +1,44 @@
 .HerenNow {
     perspective: 100px;
+
+    background-color: #101010;
+    position: absolute;
+    overflow: hidden;
 }
 
-.xxzzzxx {
-    -webkit-text-stroke: 1px black;
+.HerenNowDown {
+    position: absolute;
+    left: 10vw;
+    transition: all 1s;
+    transform: translateY(0);
+}
+
+.HerenNowDownScroll {
+    font-size: 7rem;
+    -webkit-text-stroke: 1.5px #929292;
     color: transparent;
+    position: relative;
+    left: 15%;
+    height: 15rem;
+    transition: all 1s;
+
+
+
 }
 
-.xxzzzxx:nth-child(1) {
-    position: fixed;
-    left: 500px;
-    top: 300px;
-    font-size: 5rem;
-    transform: translate3d(5px, 6px, 1px);
+.HerenNowDownScroll:hover {
+    transition: all 1s;
+    transform: translateX(2rem);
 }
 
-.xxzzzxx:nth-child(2) {
-    position: fixed;
-    left: 500px;
-    top: 300px;
-    font-size: 5rem;
-    transform: translate3d(5px, 6px, 2px);
-}
 
-.xxzzzxx:nth-child(3) {
-    position: fixed;
-    left: 500px;
-    top: 300px;
-    font-size: 5rem;
-    transform: translate3d(5px, 6px, 3px);
-}
+.circle {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: none;
 
-.xxzzzxx:nth-child(4) {
-    position: fixed;
-    left: 500px;
-    top: 300px;
-    font-size: 5rem;
-    transform: translate3d(5px, 6px, 4px);
-}
-
-.xxzzzxx:nth-child(5) {
-    position: fixed;
-    left: 500px;
-    top: 300px;
-    font-size: 5rem;
-    transform: translate3d(5px, 6px, 5px);
-}
-
-.xxzzzxx:nth-child(6) {
-    position: fixed;
-    left: 500px;
-    top: 300px;
-    font-size: 5rem;
-    transform: translate3d(5px, 6px, 6px);
-}
-
-.xxzzzxx:nth-child(7) {
-    position: fixed;
-    left: 500px;
-    top: 300px;
-    font-size: 5rem;
-    transform: translate3d(5px, 6px, 7px);
+    background: white;
+    border-radius: 100%;
+    mix-blend-mode: difference;
 }

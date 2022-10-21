@@ -570,5 +570,26 @@
             "파우",
             "파울ㄹ"
         ]
+    },
+    {
+        "KorName": "마르티나",
+        "EngName": "Martina",
+        "CharNum": 57,
+        "Consonant": [
+            "ㅁ",
+            "말",
+            "마릍",
+            "마르틴"
+        ]
+    },
+    {
+        "KorName": "헤이즈",
+        "EngName": "Haze",
+        "CharNum": 58,
+        "Consonant": [
+            "ㅎ",
+            "헹",
+            "헤잊"
+        ]
     }
 ]

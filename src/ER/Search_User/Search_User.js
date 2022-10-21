@@ -15,11 +15,10 @@ class Search_User extends Component {
       NickName: decodeURIComponent(window.location.search).substring(10),
       SearchData: [], //10개 넘어옴
       characterNum: "", //사용 캐릭터
-      gameRank: "", // 현게임 등수
-      playerKill: "", // 현게임 킬수
-      playerAssistant: "", // 현게임 어시
-      playerDeaths: "", // 현게임 데스
-
+      gameRank: "", //  등수
+      playerKill: "", //  킬수
+      playerAssistant: "", //  어시
+      playerDeaths: "", //  데스
       damageToPlayer: "", // 현게임 총딜량
       bestWeapon: "", // 무숙
 
@@ -116,8 +115,8 @@ class Search_User extends Component {
         ["칼라", "Karla"],
         ["에스텔", "Estelle"],
         ["파울로", "Paulo"],
-        ["마르티나", "mar"],
-        ["", ""],
+        ["마르티나", "Martina"],
+        ["헤이즈", "Haze"],
       ],
      
       WeaponEmpty:
@@ -206,6 +205,7 @@ class Search_User extends Component {
         { ItemCode: 105407, ItemName: "저거너트", ItemTier: 4 },
         { ItemCode: 105501, ItemName: "반고부", ItemTier: 5 },
         { ItemCode: 105408, ItemName: "반고부", ItemTier: 5 },
+        { ItemCode: 105501, ItemName: "낙원의 낫", ItemTier: 5 },
         
       ],
       WeaponSpear: [
@@ -287,7 +287,10 @@ class Search_User extends Component {
         { ItemCode: 111403, ItemName: "마이쏙", ItemTier: 4 },
         { ItemCode: 111404, ItemName: "플라즈마 톤파", ItemTier: 4 },
         { ItemCode: 111405, ItemName: "윈드러너", ItemTier: 5 },
+        { ItemCode: 111406, ItemName: "홀스터 톤파", ItemTier: 5 },
         { ItemCode: 111501, ItemName: "흑요석 짓테", ItemTier: 5 },
+        { ItemCode: 111502, ItemName: "만년한파", ItemTier: 5 },
+
       ],
       WeaponThrow: [
         { ItemCode: 112101, ItemName: "돌멩이", ItemTier: 1 },
@@ -406,6 +409,8 @@ class Search_User extends Component {
         { ItemCode: 117405, ItemName: "XCR", ItemTier: 4 },
         { ItemCode: 117406, ItemName: "저지먼트", ItemTier: 5 },
         { ItemCode: 117501, ItemName: "아그니", ItemTier: 4 },
+        { ItemCode: 117502, ItemName: "피안화", ItemTier: 5 },
+        { ItemCode: 117407, ItemName: "골드 러시", ItemTier: 4 },
       ],
       WeaponSniperRifle: [
         { ItemCode: 118101, ItemName: "화승총", ItemTier: 1 },
@@ -430,6 +435,7 @@ class Search_User extends Component {
         { ItemCode: 119403, ItemName: "케르베로스", ItemTier: 4 },
         { ItemCode: 119404, ItemName: "블루3", ItemTier: 4 },
         { ItemCode: 119501, ItemName: "히드라", ItemTier: 5 },
+        { ItemCode: 119502, ItemName: "비익련리", ItemTier: 5 },
       ],
       WeaponRapier: [
         { ItemCode: 120101, ItemName: "바늘", ItemTier: 1 },
@@ -570,6 +576,8 @@ class Search_User extends Component {
         { ItemCode: 702601, ItemName: "이단심판관", ItemTier: 6 },
         { ItemCode: 202504, ItemName: "버건디 47", ItemTier: 5 },
         { ItemCode: 202505, ItemName: "아오자이", ItemTier: 5},
+        { ItemCode: 202507, ItemName: "가디언슈트", ItemTier: 5},
+
         { ItemCode: 202601, ItemName: "이단심판관", ItemTier: 6},
   
         { ItemCode: "empty",   ItemName: "empty", ItemTier: 0 },
@@ -607,6 +615,8 @@ class Search_User extends Component {
         { ItemCode: 201501, ItemName: "천사의 고리", ItemTier: 5 },
         { ItemCode: 201502, ItemName: "빛의 증표", ItemTier: 5 },
         { ItemCode: 201503, ItemName: "더 클래식", ItemTier: 5 },
+        { ItemCode: 201504, ItemName: "예언자의 터번", ItemTier: 5 },
+        { ItemCode: 201505, ItemName: "레이싱 헬멧", ItemTier: 5 },
         { ItemCode: 701451, ItemName: "택티컬 바이저", ItemTier: 6 },
         { ItemCode: "empty",ItemName: "empty", ItemTier: 0 },
       ],
@@ -643,6 +653,9 @@ class Search_User extends Component {
         { ItemCode: 203502, ItemName: "레이더", ItemTier: 4 },
         { ItemCode: 203503, ItemName: "오토-암즈", ItemTier: 5 },
         { ItemCode: 203504, ItemName: "프로미넌스", ItemTier: 5 },
+        { ItemCode: 203505, ItemName: "가시지네 견갑", ItemTier: 5 },
+        { ItemCode: 203506, ItemName: "스포츠 시계", ItemTier: 4 },
+        { ItemCode: 203507, ItemName: "틴달로스의 군주", ItemTier: 5 },
         { ItemCode: "empty",   ItemName: "empty", ItemTier: 0 },
       ],
       LegEquipmentArr: [
@@ -676,6 +689,8 @@ class Search_User extends Component {
         { ItemCode: 204415, ItemName: "SCV", ItemTier: 4 },
         { ItemCode: 204501, ItemName: "헤르메스의 부츠", ItemTier: 5 },
         { ItemCode: 204502, ItemName: "분홍신", ItemTier: 5 },
+        { ItemCode: 204503, ItemName: "블레이드 부츠", ItemTier: 5 },
+        { ItemCode: 204504, ItemName: "알렉산드로스", ItemTier: 5 },
         
         { ItemCode: "empty",   ItemName: "empty", ItemTier: 0 },
         
@@ -716,6 +731,7 @@ class Search_User extends Component {
         { ItemCode: 205310, ItemName: "능동 위장", ItemTier: 3 },
         { ItemCode: 205311, ItemName: "마도서", ItemTier: 3 },
         { ItemCode: 205312, ItemName: "아이테르 깃털", ItemTier: 3 },
+        { ItemCode: 205313, ItemName: "파일 벙커", ItemTier: 3 },
         { ItemCode: 205401, ItemName: "달빛 펜던트", ItemTier: 5 },
         { ItemCode: 205402, ItemName: "만년빙", ItemTier: 4 },
         { ItemCode: 205403, ItemName: "삼매진화", ItemTier: 4 },
@@ -725,7 +741,7 @@ class Search_User extends Component {
         { ItemCode: 205407, ItemName: "미스릴 퀴버", ItemTier: 5 },
         { ItemCode: 205408, ItemName: "살라딘의 화살통", ItemTier: 5 },
         { ItemCode: 205409, ItemName: "살라딘의 화살통 MK2", ItemTier: 5 },
-        { ItemCode: 205501, ItemName: "에메랄드 타블렛", ItemTier: 5 },
+        { ItemCode: 205501, ItemName: "운명의 주사위", ItemTier: 5 },
         { ItemCode: 205502, ItemName: "파초선", ItemTier: 5 },
         { ItemCode: 705502, ItemName: "파초선MK2", ItemTier: 5 },
         { ItemCode: 205503, ItemName: "쿤달라", ItemTier: 5 },
@@ -733,9 +749,16 @@ class Search_User extends Component {
         { ItemCode: 205505, ItemName: "호루스의 눈", ItemTier: 5 },
         { ItemCode: 205506, ItemName: "쿤달라MK2", ItemTier: 5 },
         { ItemCode: 205507, ItemName: "네크로노미콘", ItemTier: 5 },
+        { ItemCode: 205508, ItemName: "에메랄드 타블렛", ItemTier: 5 },
         { ItemCode: 705504, ItemName: "쿤달라", ItemTier: 5 },
         { ItemCode: 705601, ItemName: "미니어쳐솔라시스템", ItemTier: 6 },
         { ItemCode: 705602, ItemName: "코발트블루", ItemTier: 6 },
+        { ItemCode: 705603, ItemName: "하트 온 파이어", ItemTier: 6 },
+        { ItemCode: 705604, ItemName: "클라다 반지", ItemTier: 6 },
+        { ItemCode: 705605, ItemName: "머큐리", ItemTier: 6 },
+        { ItemCode: 705606, ItemName: "아크 리액터", ItemTier: 6 },
+        { ItemCode: 705607, ItemName: "토템", ItemTier: 6 },
+        { ItemCode: 705608, ItemName: "임세티", ItemTier: 6 },
         { ItemCode: "empty",ItemName: "empty", ItemTier: 0 },
       ],
       equipmentArr: [
@@ -1728,13 +1751,13 @@ class Search_User extends Component {
         }}>{this.state.damageToPlayerMaxC}</span>
 
 
-        {this.state.apiSys != "before" ? (
-          this.state.SearchData.map((abc, xxx) =>
-            abc.map((xx, cc) => {
+        {
+        this.state.apiSys != "before" ? (
+          this.state.SearchData.map((SearchD, xxx) =>
+            SearchD.map((xx, cc) => {
               return (
                 <div className="GameRecord">
-                  <div>     <br></br>
-                
+                  <div>
                     <div className="GameRecordLeft">
                       {this.GameRank(
                         xx.gameRank,
