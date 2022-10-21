@@ -5,26 +5,26 @@ import "./HerenNow.css"
 function HerenNow(){
     const StealienFull = useRef();
     const [xy,setXY]=useState({x:0,y:0});
-    const [ClickNameCnt,setClickNameCnt]=useState(1);
+    const [ClickNameCnt,setClickNameCnt]=useState(0);
     const HorizontalView = document.getElementsByClassName("HerenNowDown");
+    const HorizontalEle = document.getElementsByClassName("HerenNowDownScroll");
+
     const handleMouseMove=(e)=>{
         console.log(xy)
-        setXY({x:e.clientX-50,y:e.clientY-50});
+        setXY({x:e.clientX-200,y:e.clientY-50});
     }
-
     function ClickName(cnt){
         HorizontalView[0].style.transform=`translateY(-${cnt*15}rem)`
-        console.log(cnt*6.5)
+        setClickNameCnt(cnt);
     }
     useEffect(()=>{
         
         let scrollLocation = document.documentElement.scrollTop;
         var pageHeight = window.innerHeight;
         var winY = window.pageYOffset;
-        var StealienGNB = document.getElementsByClassName("StealienGNB");
-        var StealienGNBMenu = document.getElementsByClassName("StealienGNBMenu");
-        var logo = document.getElementById("logo");
-        var logoon = document.getElementById("logoon")
+        HorizontalEle[ClickNameCnt+1].style.color="white";
+
+       
         const wheelHandler = (e) =>{
             console.log(window.scrollY)
             
@@ -35,13 +35,12 @@ function HerenNow(){
         }
         const StealienFullCurrent = StealienFull.current;
         StealienFullCurrent.addEventListener("wheel", wheelHandler);
-    },[]);
+    },[ClickNameCnt]);
     
     return(
         <div className="HerenNow"  onMouseMove={(e)=>handleMouseMove(e)} ref={StealienFull}
         style={{width:window.innerWidth,
                 height:window.innerHeight}}>
-                    <div className="circle" style={{left:xy.x, top:xy.y}} onMouseMove={()=>handleMouseMove}></div>
            <div className="HerenNowDown">
             <div className="HerenNowDownScroll" onClick={()=>ClickName(8)}>rincos</div>
             <div className="HerenNowDownScroll" onClick={()=>ClickName(0)}>한화모티브</div>
@@ -55,6 +54,7 @@ function HerenNow(){
             <div className="HerenNowDownScroll" onClick={()=>ClickName(8)}>rincos</div>
             <div className="HerenNowDownScroll" onClick={()=>ClickName(0)}>한화모티브</div>
             <div className="HerenNowDownScroll" onClick={()=>ClickName(1)}>TS샴푸</div>
+            <div className="circle" style={{left:xy.x, top:xy.y}} onMouseMove={()=>handleMouseMove}></div>
 
            </div>
         </div>

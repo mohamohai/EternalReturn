@@ -21,12 +21,9 @@
     left: 15%;
     height: 15rem;
     transition: all 1s;
-
-
-
 }
 
-.HerenNowDownScroll:hover {
+. .HerenNowDownScroll:hover {
     transition: all 1s;
     transform: translateX(2rem);
 }
@@ -41,4 +38,5 @@
     background: white;
     border-radius: 100%;
     mix-blend-mode: difference;
+    display: block;
 }
