@@ -1,4 +1,3 @@
-import { faCircleNodes } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect, useRef, Component } from "react";
 import "./HerenNow.css"
 
@@ -12,24 +11,23 @@ function HerenNow(){
 
     const handleMouseMove=(e)=>{
         console.log(xy)
-        setXY({x:e.clientX-100,y:e.clientY-50});
+        setXY({x:e.clientX-200,y:e.clientY-50});
     }
     function ClickName(cnt){
-        HorizontalView[0].style.transform=`translateY(-${cnt*15}rem)`
+        for(var i=0 ; i<HorizontalEle.length;i++)
+        document.getElementsByClassName("HerenNowDownScroll")[i].style.color="transparent";
+        document.getElementsByClassName("HerenNowDownScroll")[cnt].style.color="transparent";
+        HorizontalView[0].style.transform=`translateY(-${(cnt*15)}rem)`
+       
+
         setClickNameCnt(cnt);
-    }
-    function CircleOn(){
-        document.getElementsByClassName("circle")[0].style.display="block";
-    }
-    function CircleOff(){
-        document.getElementsByClassName("circle")[0].style.display="none";
     }
     useEffect(()=>{
         
         let scrollLocation = document.documentElement.scrollTop;
         var pageHeight = window.innerHeight;
         var winY = window.pageYOffset;
-        HorizontalEle[ClickNameCnt+1].style.color="white";
+        HorizontalEle[ClickNameCnt+2].style.color="white";
 
        
         const wheelHandler = (e) =>{
@@ -48,22 +46,26 @@ function HerenNow(){
         <div className="HerenNow"  onMouseMove={(e)=>handleMouseMove(e)} ref={StealienFull}
         style={{width:window.innerWidth,
                 height:window.innerHeight}}>
+                    <div className="HerenNowLogo">
+                        <span>here</span>&now
+                    </div>
            <div className="HerenNowDown">
-                <li className="HerenNowDownScroll" onClick={()=>ClickName(8)} onMouseEnter={()=>CircleOn()} onMouseLeave={()=>CircleOff()}>rincos</li>
-                <li className="HerenNowDownScroll" onClick={()=>ClickName(0)}>한화모티브</li>
-                <li className="HerenNowDownScroll" onClick={()=>ClickName(1)}>TS샴푸</li>
-                <li className="HerenNowDownScroll" onClick={()=>ClickName(2)}>교보에듀케어서비스</li>
-                <li className="HerenNowDownScroll" onClick={()=>ClickName(3)}>방통대 출판문화원</li>
-                <li className="HerenNowDownScroll" onClick={()=>ClickName(4)}>영통 푸르지오</li>
-                <li className="HerenNowDownScroll" onClick={()=>ClickName(5)}>연등회</li>
-                <li className="HerenNowDownScroll" onClick={()=>ClickName(6)}>대광건영</li>
-                <li className="HerenNowDownScroll" onClick={()=>ClickName(7)}>애드베리</li>
-                <li className="HerenNowDownScroll" onClick={()=>ClickName(8)}>rincos</li>
-                <li className="HerenNowDownScroll" onClick={()=>ClickName(0)}>한화모티브</li>
-                <li className="HerenNowDownScroll" onClick={()=>ClickName(1)}>TS샴푸</li>
-           </div>
-           <div className="circle" style={{left:xy.x, top:xy.y}} onMouseMove={()=>handleMouseMove}></div>
+            <div className="HerenNowDownScroll" onClick={()=>ClickName(7)}>애드베리</div>
+            <div className="HerenNowDownScroll" onClick={()=>ClickName(8)}>rincos</div>
+            <div className="HerenNowDownScroll" onClick={()=>ClickName(0)}>한화모티브</div>
+            <div className="HerenNowDownScroll" onClick={()=>ClickName(1)}>TS샴푸</div>
+            <div className="HerenNowDownScroll" onClick={()=>ClickName(2)}>교보에듀케어서비스</div>
+            <div className="HerenNowDownScroll" onClick={()=>ClickName(3)}>방통대 출판문화원</div>
+            <div className="HerenNowDownScroll" onClick={()=>ClickName(4)}>영통 푸르지오</div>
+            <div className="HerenNowDownScroll" onClick={()=>ClickName(5)}>연등회</div>
+            <div className="HerenNowDownScroll" onClick={()=>ClickName(6)}>대광건영</div>
+            <div className="HerenNowDownScroll" onClick={()=>ClickName(7)}>애드베리</div>
+            <div className="HerenNowDownScroll" onClick={()=>ClickName(8)}>rincos</div>
+            <div className="HerenNowDownScroll" onClick={()=>ClickName(0)}>한화모티브</div>
+            <div className="HerenNowDownScroll" onClick={()=>ClickName(1)}>TS샴푸</div>
+            <div className="circle" style={{left:xy.x, top:xy.y}} onMouseMove={()=>handleMouseMove}></div>
 
+           </div>
         </div>
     )
 }export default HerenNow;

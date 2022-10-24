@@ -4,11 +4,23 @@
     background-color: #101010;
     position: absolute;
     overflow: hidden;
+    left: 0px;
+}
+
+.HerenNowLogo {
+    position: absolute;
+    color: white;
+    top: 4rem;
+    left: 5rem;
+    font-family: NEXON Lv1 Gothic OTF Light;
+    font-size: 2rem;
+    cursor: pointer;
 }
 
 .HerenNowDown {
     position: absolute;
     left: 10vw;
+    top: -8rem;
     transition: all 1s;
     transform: translateY(0);
 }
@@ -18,12 +30,14 @@
     -webkit-text-stroke: 1.5px #929292;
     color: transparent;
     position: relative;
-    left: 5%;
-    height: 15rem;
-    width: 200rem;
-    height: 200px;
+    left: 15%;
+    height: 13rem;
+    line-height: 11rem;
+    margin: 2rem 0 2rem 0;
     transition: all 1s;
 }
+
+
 
 .HerenNowDownScroll:hover {
     transition: all 1s;
