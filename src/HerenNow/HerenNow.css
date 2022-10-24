@@ -18,12 +18,14 @@
     -webkit-text-stroke: 1.5px #929292;
     color: transparent;
     position: relative;
-    left: 15%;
+    left: 5%;
     height: 15rem;
+    width: 200rem;
+    height: 200px;
     transition: all 1s;
 }
 
-. .HerenNowDownScroll:hover {
+.HerenNowDownScroll:hover {
     transition: all 1s;
     transform: translateX(2rem);
 }
@@ -38,5 +40,5 @@
     background: white;
     border-radius: 100%;
     mix-blend-mode: difference;
-    display: block;
+    display: none;
 }
