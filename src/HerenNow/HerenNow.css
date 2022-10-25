@@ -35,9 +35,18 @@
     line-height: 11rem;
     margin: 2rem 0 2rem 0;
     transition: all 1s;
+    overflow: hidden;
 }
 
+.adadad {
+    width: 500px;
+    height: 500px;
+    background-color: red;
+    position: absolute;
+    top: -50px;
+    overflow: hidden;
 
+}
 
 .HerenNowDownScroll:hover {
     transition: all 1s;
@@ -55,4 +64,25 @@
     border-radius: 100%;
     mix-blend-mode: difference;
     display: none;
+}
+
+.HerenNowDownBar {
+    position: absolute;
+    top: 10rem;
+    left: 10rem;
+    width: 1px;
+    height: 40rem;
+    background-color: #929292;
+    transition: all 1s;
+}
+
+.HerenNowDownBarRed {
+    position: absolute;
+    left: -1px;
+    top: 0rem;
+    width: 3px;
+    height: 5rem;
+    background-color: red;
+    display: block;
+    transition: all 1s;
 }

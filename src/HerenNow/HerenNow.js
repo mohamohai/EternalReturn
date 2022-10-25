@@ -8,6 +8,7 @@ function HerenNow(){
     const [ClickNameCnt,setClickNameCnt]=useState(0);
     const HorizontalView = document.getElementsByClassName("HerenNowDown");
     const HorizontalEle = document.getElementsByClassName("HerenNowDownScroll");
+    const BarRed = document.getElementsByClassName("HerenNowDownBarRed");
 
     const handleMouseMove=(e)=>{
         console.log(xy)
@@ -15,11 +16,10 @@ function HerenNow(){
     }
     function ClickName(cnt){
         for(var i=0 ; i<HorizontalEle.length;i++)
-        document.getElementsByClassName("HerenNowDownScroll")[i].style.color="transparent";
-        document.getElementsByClassName("HerenNowDownScroll")[cnt].style.color="transparent";
-        HorizontalView[0].style.transform=`translateY(-${(cnt*15)}rem)`
-       
-
+        HorizontalEle[i].style.color="transparent";
+        HorizontalEle[cnt].style.color="transparent";
+        HorizontalView[0].style.transform=`translateY(-${(cnt*15)}rem)`;
+        BarRed[0].style.top=`${cnt*5}rem`;
         setClickNameCnt(cnt);
     }
     useEffect(()=>{
@@ -52,8 +52,8 @@ function HerenNow(){
            <div className="HerenNowDown">
             <div className="HerenNowDownScroll" onClick={()=>ClickName(7)}>애드베리</div>
             <div className="HerenNowDownScroll" onClick={()=>ClickName(8)}>rincos</div>
-            <div className="HerenNowDownScroll" onClick={()=>ClickName(0)}>한화모티브</div>
-            <div className="HerenNowDownScroll" onClick={()=>ClickName(1)}>TS샴푸</div>
+            <div className="HerenNowDownScroll" onClick={()=>ClickName(0)}>한화모티브     </div>
+            <div className="HerenNowDownScroll" onClick={()=>ClickName(1)}>TS샴푸            </div>
             <div className="HerenNowDownScroll" onClick={()=>ClickName(2)}>교보에듀케어서비스</div>
             <div className="HerenNowDownScroll" onClick={()=>ClickName(3)}>방통대 출판문화원</div>
             <div className="HerenNowDownScroll" onClick={()=>ClickName(4)}>영통 푸르지오</div>
@@ -64,7 +64,9 @@ function HerenNow(){
             <div className="HerenNowDownScroll" onClick={()=>ClickName(0)}>한화모티브</div>
             <div className="HerenNowDownScroll" onClick={()=>ClickName(1)}>TS샴푸</div>
             <div className="circle" style={{left:xy.x, top:xy.y}} onMouseMove={()=>handleMouseMove}></div>
-
+           </div>
+           <div className="HerenNowDownBar">
+            <div className="HerenNowDownBarRed"></div>
            </div>
         </div>
     )
