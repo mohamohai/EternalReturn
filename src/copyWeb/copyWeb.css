@@ -95,7 +95,6 @@
     border-bottom: solid 1px #45f3ff;
     position: relative;
     top: 5px;
-
 }
 
 /* 이걸 겹치게 한 다음에 클릭하면 위로 올가가게 배경색은 없이 */
@@ -142,12 +141,12 @@
     width: 100%;
     height: 100%;
     color: white;
-    transform-style: preserve-3d;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: 2s ease-in-out;
     backface-visibility: hidden;
+    transform-style: preserve-3d;
     transform: perspective(500px) rotateY(0deg);
 
 }
@@ -234,7 +233,128 @@
         background-position: 0 0;
     }
 
-    0% {
+    100% {
         background-position: -500% 0;
     }
+
+    0% {
+        background-position: 0 0;
+    }
+}
+
+:root {
+    --flip1: 0;
+    --flip2: 1;
+    --flip3: 2;
+    --flip4: 3;
+}
+
+.flipPage {
+
+    display: flex;
+
+    height: 100vh;
+}
+
+.flipPagew {
+    width: 600px;
+    height: 360px;
+    transform: rotate(-15deg) skew(15deg);
+    transition: 0.5s;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+}
+
+.flipPagew:hover {
+    transform: rotate(-25deg) skew(-25deg) translateY(-20px);
+}
+
+.flipPagew:hover+.flipshadow {
+    transform: rotate(-25deg) skew(-25deg) translateY(-20px);
+}
+
+.flipPagew span {
+    width: 25%;
+    background: url("./halloween.png");
+    background-size: cover;
+    height: 100%;
+    display: block;
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.flipshadow span {
+    width: 25%;
+    background-size: cover;
+    height: 100%;
+    display: block;
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.flipPagew span:nth-child(1) {
+    background-position: calc(-150px * var(--flip1))
+}
+
+.flipPagew span:nth-child(2) {
+    background-position: calc(-150px * var(--flip2))
+}
+
+.flipPagew span:nth-child(3) {
+    background-position: calc(-150px * var(--flip3))
+}
+
+.flipPagew span:nth-child(4) {
+    background-position: calc(-150px * var(--flip4))
+}
+
+.flipshadow span:nth-child(1) {
+    background-position: calc(-150px * var(--flip1))
+}
+
+.flipshadow span:nth-child(2) {
+    background-position: calc(-150px * var(--flip2))
+}
+
+.flipshadow span:nth-child(3) {
+    background-position: calc(-150px * var(--flip3))
+}
+
+.flipshadow span:nth-child(4) {
+    background-position: calc(-150px * var(--flip4))
+}
+
+
+.flipPagew:hover span:nth-child(odd) {
+    transform: skewY(30deg);
+    box-shadow: inset 20px 0 50px rgba(0, 0, 0, 0.5);
+}
+
+.flipPagew:hover span:nth-child(even) {
+    transform: skewY(-30deg);
+    box-shadow: inset 20px 0 50px rgba(0, 0, 0, 0.5);
+
+}
+
+.flipPagew:hover+.flipshadow span:nth-child(odd) {
+    transform: skewY(30deg);
+    box-shadow: 20px 0 50px rgba(0, 0, 0, 0.5);
+}
+
+.flipPagew:hover+.flipshadow span:nth-child(even) {
+    transform: skewY(-30deg);
+    box-shadow: 20px 0 50px rgba(0, 0, 0, 0.5);
+}
+
+
+.flipshadow {
+    width: 600px;
+    height: 360px;
+    transform: rotate(-15deg) skew(15deg);
+    transition: 0.5s;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    z-index: -1;
 }

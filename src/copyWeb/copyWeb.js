@@ -10,13 +10,14 @@ function CopyWeb() {
   const [Count, setCount] = useState(0);   //val iaaaa
   return (
     <div className="copyWeb" >
-      <div className="copyWebGNB">
         <ul>
           <div className="rainbow"></div>
         </ul> 
+
+
+
+
         <div className="copyWebMainOne">
-          
-          
           <form className="neonBox">
              <div className="neonBoxOne"></div> 
              <div className="neonLogin">
@@ -29,8 +30,10 @@ function CopyWeb() {
               <span className="neonLoginPwText neonLoginText">PassWord</span>
              </div>
              </div>
-           
           </form>
+
+
+
           <div className="clean"></div>
          
          
@@ -38,8 +41,26 @@ function CopyWeb() {
             <div className="boxboxfront chch"><h1>front</h1></div>
             <div className="boxboxback chch"><img src="./image/Pixel/Main3/jinu.jpg"></img></div>
           </div><div className="clean"></div>
+
+        <div className="flipPage">
+          <div className="flipPagew">
+            <span className="flip1"></span>
+            <span className="flip2"></span>
+            <span className="flip3"></span>
+            <span className="flip4"></span>
+          </div>
+          <div className="flipshadow">
+            <span className="flip1"></span>
+            <span className="flip2"></span>
+            <span className="flip3"></span>
+            <span className="flip4"></span>
+          </div>
         </div>
-      </div>
+
+
+
+        </div>
+      
     </div>
     
   );
