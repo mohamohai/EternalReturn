@@ -17,6 +17,52 @@
     cursor: pointer;
 }
 
+.HerenNowRight {
+    z-index: -2;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    gap: 100px;
+    transform: translateX(-400px);
+    transition: all 1s;
+
+}
+
+.HerenNowRightScroll {
+    position: relative;
+    margin-top: 10rem;
+    width: 60rem;
+    height: 40rem;
+    background-color: #929292;
+    transition: all 1s;
+    z-index: -2;
+
+}
+
+.HerenNowRightScroll:nth-child(2) {
+    background-color: aqua;
+    z-index: 1;
+    animation: RightMainMove 1s forwards;
+
+}
+
+@keyframes RightMainMove {
+    0% {
+        transform: translateX(-10px);
+
+    }
+
+    95% {
+        transform: translateX(-250px);
+    }
+
+    100% {
+        transform: translateX(-200px);
+
+    }
+}
+
 .HerenNowDown {
     position: absolute;
     left: 10vw;

@@ -14,6 +14,9 @@ function HerenNow(){
         console.log(xy)
         setXY({x:e.clientX-200,y:e.clientY-50});
     }
+    function ClickRight(cnt){
+        console.log(cnt)
+    }
     function ClickName(cnt){
         for(var i=0 ; i<HorizontalEle.length;i++)
         HorizontalEle[i].style.color="transparent";
@@ -46,25 +49,37 @@ function HerenNow(){
         <div className="HerenNow"  onMouseMove={(e)=>handleMouseMove(e)} ref={StealienFull}
         style={{width:window.innerWidth,
                 height:window.innerHeight}}>
-                    <div className="HerenNowLogo">
-                        <span>here</span>&now
-                    </div>
+            <div className="HerenNowLogo">
+                <span>here</span>&now
+            </div>
+            <div className="HerenNowRight">
+                <div className="HerenNowRightScroll" onClick={()=>ClickRight(8)}></div>
+                <div className="HerenNowRightScroll" onClick={()=>ClickRight(0)}>asd</div>
+                <div className="HerenNowRightScroll" onClick={()=>ClickRight(1)}></div>
+                <div className="HerenNowRightScroll" onClick={()=>ClickRight(2)}></div>
+                <div className="HerenNowRightScroll" onClick={()=>ClickRight(3)}></div>
+                <div className="HerenNowRightScroll" onClick={()=>ClickRight(4)}></div>
+                <div className="HerenNowRightScroll" onClick={()=>ClickRight(5)}></div>
+                <div className="HerenNowRightScroll" onClick={()=>ClickRight(6)}></div>
+                <div className="HerenNowRightScroll" onClick={()=>ClickRight(7)}></div>
+                
+            </div>
            <div className="HerenNowDown">
-            <div className="HerenNowDownScroll" onClick={()=>ClickName(7)}>애드베리</div>
-            <div className="HerenNowDownScroll" onClick={()=>ClickName(8)}>rincos</div>
-            <div className="HerenNowDownScroll" onClick={()=>ClickName(0)}>한화모티브     </div>
-            <div className="HerenNowDownScroll" onClick={()=>ClickName(1)}>TS샴푸            </div>
-            <div className="HerenNowDownScroll" onClick={()=>ClickName(2)}>교보에듀케어서비스</div>
-            <div className="HerenNowDownScroll" onClick={()=>ClickName(3)}>방통대 출판문화원</div>
-            <div className="HerenNowDownScroll" onClick={()=>ClickName(4)}>영통 푸르지오</div>
-            <div className="HerenNowDownScroll" onClick={()=>ClickName(5)}>연등회</div>
-            <div className="HerenNowDownScroll" onClick={()=>ClickName(6)}>대광건영</div>
-            <div className="HerenNowDownScroll" onClick={()=>ClickName(7)}>애드베리</div>
-            <div className="HerenNowDownScroll" onClick={()=>ClickName(8)}>rincos</div>
-            <div className="HerenNowDownScroll" onClick={()=>ClickName(0)}>한화모티브</div>
-            <div className="HerenNowDownScroll" onClick={()=>ClickName(1)}>TS샴푸</div>
-            <div className="circle" style={{left:xy.x, top:xy.y}} onMouseMove={()=>handleMouseMove}></div>
-           </div>
+                <div className="HerenNowDownScroll" onClick={()=>ClickName(7)}>애드베리</div>
+                <div className="HerenNowDownScroll" onClick={()=>ClickName(8)}>rincos</div>
+                <div className="HerenNowDownScroll" onClick={()=>ClickName(0)}>한화모티브     </div>
+                <div className="HerenNowDownScroll" onClick={()=>ClickName(1)}>TS샴푸            </div>
+                <div className="HerenNowDownScroll" onClick={()=>ClickName(2)}>교보에듀케어서비스</div>
+                <div className="HerenNowDownScroll" onClick={()=>ClickName(3)}>방통대 출판문화원</div>
+                <div className="HerenNowDownScroll" onClick={()=>ClickName(4)}>영통 푸르지오</div>
+                <div className="HerenNowDownScroll" onClick={()=>ClickName(5)}>연등회</div>
+                <div className="HerenNowDownScroll" onClick={()=>ClickName(6)}>대광건영</div>
+                <div className="HerenNowDownScroll" onClick={()=>ClickName(7)}>애드베리</div>
+                <div className="HerenNowDownScroll" onClick={()=>ClickName(8)}>rincos</div>
+                <div className="HerenNowDownScroll" onClick={()=>ClickName(0)}>한화모티브</div>
+                <div className="HerenNowDownScroll" onClick={()=>ClickName(1)}>TS샴푸</div>
+                <div className="circle" style={{left:xy.x, top:xy.y}} onMouseMove={()=>handleMouseMove}></div>
+            </div>
            <div className="HerenNowDownBar">
             <div className="HerenNowDownBarRed"></div>
            </div>
