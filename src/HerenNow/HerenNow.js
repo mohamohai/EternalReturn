@@ -53,21 +53,22 @@ function HerenNow(){
                 <span>here</span>&now
             </div>
             <div className="HerenNowRight">
-                <div className="HerenNowRightScroll" onClick={()=>ClickRight(8)}></div>
-                <div className="HerenNowRightScroll" onClick={()=>ClickRight(0)}>asd</div>
-                <div className="HerenNowRightScroll" onClick={()=>ClickRight(1)}></div>
-                <div className="HerenNowRightScroll" onClick={()=>ClickRight(2)}></div>
-                <div className="HerenNowRightScroll" onClick={()=>ClickRight(3)}></div>
-                <div className="HerenNowRightScroll" onClick={()=>ClickRight(4)}></div>
-                <div className="HerenNowRightScroll" onClick={()=>ClickRight(5)}></div>
-                <div className="HerenNowRightScroll" onClick={()=>ClickRight(6)}></div>
-                <div className="HerenNowRightScroll" onClick={()=>ClickRight(7)}></div>
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/9.jpg')" ,backgroundSize: "100% 100%"}} onClick={()=>ClickRight(8)}></div>
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/1.jpg')" ,backgroundSize: "100% 100%", transform: `translateX(${window.innerWidth-60}px)`}} onClick={()=>ClickRight(0)}>asd</div>
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/2.jpg')" ,backgroundSize: "100% 100%", animation: "RightMainMove 1s forwards"}} onClick={()=>ClickRight(1)}></div>
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/3.jpg')" ,backgroundSize: "100% 100%"}} onClick={()=>ClickRight(2)}></div>
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/4.jpg')" ,backgroundSize: "100% 100%"}} onClick={()=>ClickRight(3)}></div>
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/5.jpg')" ,backgroundSize: "100% 100%"}} onClick={()=>ClickRight(4)}></div>
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/6.jpg')" ,backgroundSize: "100% 100%"}} onClick={()=>ClickRight(5)}></div>
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/7.jpg')" ,backgroundSize: "100% 100%"}} onClick={()=>ClickRight(6)}></div>
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/8.jpg')" ,backgroundSize: "100% 100%"}} onClick={()=>ClickRight(7)}></div>
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/9.jpg')" ,backgroundSize: "100% 100%"}} onClick={()=>ClickRight(8)}></div>
                 
             </div>
            <div className="HerenNowDown">
                 <div className="HerenNowDownScroll" onClick={()=>ClickName(7)}>애드베리</div>
                 <div className="HerenNowDownScroll" onClick={()=>ClickName(8)}>rincos</div>
-                <div className="HerenNowDownScroll" onClick={()=>ClickName(0)}>한화모티브     </div>
+                <div className="HerenNowDownScroll" onClick={()=>ClickName(0)}>한화모티브 </div>
                 <div className="HerenNowDownScroll" onClick={()=>ClickName(1)}>TS샴푸            </div>
                 <div className="HerenNowDownScroll" onClick={()=>ClickName(2)}>교보에듀케어서비스</div>
                 <div className="HerenNowDownScroll" onClick={()=>ClickName(3)}>방통대 출판문화원</div>

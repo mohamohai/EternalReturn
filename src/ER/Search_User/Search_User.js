@@ -1075,7 +1075,7 @@ class Search_User extends Component {
         "x-api-key": this.state.API_KEY,
       },
     });
-   
+    
     this.state.SearchData.push(userGames);
   };
   passaa = async (Nic, nexta, cnt) => {
