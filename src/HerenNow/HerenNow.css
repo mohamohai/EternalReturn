@@ -40,45 +40,50 @@
 }
 
 .HerenNowRightScroll:nth-child(1) {
-    transform: translateX(-900px);
+    left: 100vw;
 }
 
 .HerenNowRightScroll:nth-child(2) {
-    transform: translateX(40vw);
-    z-index: 10;
+    right: -800px;
 }
 
 .HerenNowRightScroll:nth-child(3) {
-    transform: translateX(1920px);
-
+    left: 100vw;
 }
 
 .HerenNowRightScroll:nth-child(4) {
-    transform: translateX(960px);
+    left: 100vw;
 }
 
 .HerenNowRightScroll:nth-child(5) {
-    transform: translateX(960px);
+    left: 100vw;
+
 }
 
 .HerenNowRightScroll:nth-child(6) {
-    transform: translateX(960px);
+    left: 100vw;
+
 }
 
 .HerenNowRightScroll:nth-child(7) {
-    transform: translateX(960px);
+    left: 100vw;
+
 }
 
 .HerenNowRightScroll:nth-child(8) {
-    transform: translateX(960px);
+    left: 100vw;
+
 }
 
 .HerenNowRightScroll:nth-child(9) {
-    transform: translateX(960px);
+    left: 100vw;
+
 }
 
 .HerenNowRightScroll:nth-child(10) {
-    transform: translateX(960px);
+    left: 100vw;
+
+    /* animation: "RightMainMove 1s forwards" */
 }
 
 
@@ -133,21 +138,27 @@
 .HerenNowDownScroll:hover {
     transition: all 1s;
     transform: translateX(2rem);
+    /* border: white;
+    -webkit-text-stroke: 1.5px white; */
 
 
 }
 
 
 .circle {
-    position: absolute;
+    position: fixed;
     width: 100px;
     height: 100px;
     border: none;
-
+    pointer-events: none;
     background: white;
     border-radius: 100%;
     mix-blend-mode: difference;
-    display: none;
+    display: block;
+
+
+
+
 }
 
 .HerenNowDownBar {

@@ -58,7 +58,7 @@ class App extends Component {
      
         <Routes>
           <Route exact path="/" element={<Pixel/>} />
-          <Route exact path="/in" element={<Ingredient />} />
+          <Route path="/in" element={<Ingredient />} />
           <Route
             path="/ER"    element={<ERMain />}
           />
