@@ -40,51 +40,46 @@
 }
 
 .HerenNowRightScroll:nth-child(1) {
-    left: 100vw;
+    z-index: 1;
 }
 
 .HerenNowRightScroll:nth-child(2) {
-    right: -800px;
+    z-index: 9;
 }
 
 .HerenNowRightScroll:nth-child(3) {
-    left: 100vw;
+    z-index: 8;
 }
 
 .HerenNowRightScroll:nth-child(4) {
-    left: 100vw;
+    z-index: 7;
 }
 
 .HerenNowRightScroll:nth-child(5) {
-    left: 100vw;
-
+    z-index: 6;
 }
 
 .HerenNowRightScroll:nth-child(6) {
-    left: 100vw;
-
+    z-index: 5;
 }
 
 .HerenNowRightScroll:nth-child(7) {
-    left: 100vw;
-
+    z-index: 4;
 }
 
 .HerenNowRightScroll:nth-child(8) {
-    left: 100vw;
-
+    z-index: 3;
 }
 
 .HerenNowRightScroll:nth-child(9) {
-    left: 100vw;
-
+    z-index: 2;
 }
 
 .HerenNowRightScroll:nth-child(10) {
-    left: 100vw;
-
-    /* animation: "RightMainMove 1s forwards" */
+    z-index: 1;
 }
+
+
 
 
 @keyframes RightMainMove {
@@ -103,17 +98,19 @@
     }
 }
 
+
+
 .HerenNowDown {
     position: absolute;
     left: 10vw;
     top: -8rem;
     transition: all 1s;
     transform: translateY(0);
+    cursor: none;
 }
 
 .HerenNowDownScroll {
     font-size: 7rem;
-    -webkit-text-stroke: 1.5px #929292;
     color: transparent;
     position: relative;
     left: 15%;
@@ -122,7 +119,20 @@
     margin: 2rem 0 2rem 0;
     transition: all 1s;
     overflow: hidden;
+}
 
+.whitea {
+    color: white
+}
+
+.xxxx {
+    z-index: 500;
+
+    top: -100px;
+}
+
+.StrokeGray {
+    -webkit-text-stroke: 1.5px #929292;
 }
 
 .adadad {
@@ -154,11 +164,11 @@
     background: white;
     border-radius: 100%;
     mix-blend-mode: difference;
+    display: none;
+}
+
+.nonedis {
     display: block;
-
-
-
-
 }
 
 .HerenNowDownBar {
