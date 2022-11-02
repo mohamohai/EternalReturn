@@ -61,10 +61,7 @@ function HerenNow(){
         HorizontalView[0].style.transform=`translateY(-${(cnt*15)}rem)`;
         HorizontalEle[cnt+2].classList.remove("StrokeGray","whitea");
         HorizontalEle[cnt+2].style.color="white";
-
-
         setClickNameCnt(cnt);
-
 
     }
     useEffect(()=>{
