@@ -26,28 +26,14 @@ function HerenNow(){
 
     const UpUp=(e)=>{
         if(e.clientX<DownX){
-            if(ClickNameNum==9){
-                ClickName(0);
-                ClickImg(1);
-                setClickNameNum(1);
-            }else{
-            console.log("우측사진 주세요")
-            ClickImg(ClickNameNum+1);
-            ClickName(ClickNameNum);
+            console.log("우측사지눚세연")
+            ClickImg(ClickNameNum+1)
             setClickNameNum(ClickNameNum+1)
-            }
         }
-        else if (e.clientX>DownX) {
-            console.log("좌측사진 주세요")
-            if(ClickNameNum==1){
-                ClickName(8);
-                ClickImg(9);
-                setClickNameNum(9);
-            }else{
-            ClickImg(ClickNameNum-1);
-            ClickName(ClickNameNum-2);
-            setClickNameNum(ClickNameNum-1);
-            }
+        else{
+            console.log("좌측사지눚세연")
+            ClickImg(ClickNameNum-1)
+            setClickNameNum(ClickNameNum-1)
         }
       }
 
@@ -61,7 +47,6 @@ function HerenNow(){
     }
 
     function ClickImg(cnt){
-        setClickNameNum(cnt)
         console.log(cnt)
         for(var i = 0; i<VerticalEle.length;i++){
             if(i<cnt){
@@ -128,19 +113,17 @@ function HerenNow(){
             <div className="HerenNowLogo">
                 <span>here</span>&now
             </div>
-
-            <span className="spinarr"></span>
             <div className="HerenNowRight"  onMouseDown={DownDown} onMouseUp={UpUp}>
-                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/9.jpg')" ,backgroundSize: "100% 100%", left:`${-900}px`     }} ></div>
-                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/1.jpg')" ,backgroundSize: "100% 100%", left:`${winX-1060}px`}} ></div>
-                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/2.jpg')" ,backgroundSize: "100% 100%", left:`${winX-60}px`  }} ></div>
-                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/3.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} ></div>
-                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/4.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} ></div>
-                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/5.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} ></div>
-                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/6.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} ></div>
-                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/7.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} ></div>
-                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/8.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} ></div>
-                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/9.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} ></div>
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/9.jpg')" ,backgroundSize: "100% 100%", left:`${-900}px`     }} onClick={()=>{ClickImg(0); ClickName(8)}} ></div>
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/1.jpg')" ,backgroundSize: "100% 100%", left:`${winX-1060}px`}} onClick={()=>{ClickImg(1); ClickName(0)}} ></div>
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/2.jpg')" ,backgroundSize: "100% 100%", left:`${winX-60}px`  }} onClick={()=>{ClickImg(2); ClickName(1)}}></div>
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/3.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} onClick={()=>{ClickImg(3); ClickName(2)}}></div>
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/4.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} onClick={()=>{ClickImg(4); ClickName(3)}}></div>
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/5.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} onClick={()=>{ClickImg(5); ClickName(4)}}></div>
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/6.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} onClick={()=>{ClickImg(6); ClickName(5)}}></div>
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/7.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} onClick={()=>{ClickImg(7); ClickName(6)}}></div>
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/8.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} onClick={()=>{ClickImg(8); ClickName(7)}}></div>
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/9.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} onClick={()=>{ClickImg(9); ClickName(8)}}></div>
                 
             </div>
            <div className="HerenNowDown">
