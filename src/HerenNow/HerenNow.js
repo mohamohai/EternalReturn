@@ -6,23 +6,44 @@ function HerenNow(){
     const StealienFull = useRef();
     const [xy,setXY]=useState({x:0,y:0});
     const [ClickNameCnt,setClickNameCnt]=useState(0);
+    const [DownX,setDownX]=useState(0);
+    const [ClickNameNum, setClickNameNum]=useState(1);
+
     const HorizontalView = document.getElementsByClassName("HerenNowDown");
     const HorizontalEle = document.getElementsByClassName("HerenNowDownScroll");
     const BarRed = document.getElementsByClassName("HerenNowDownBarRed");
     const VerticalEle = document.getElementsByClassName("HerenNowRightScroll");
     const circleEle = document.getElementsByClassName("circle");
- var winX = window.innerWidth ;
+    var winX = window.innerWidth ;
 
     const handleMouseMove=(e)=>{
         setXY({x:e.clientX -50,y:e.clientY-50});
     }
+    const DownDown=(e)=>{
+        setDownX(e.clientX)
+      
+    }
+
+    const UpUp=(e)=>{
+        if(e.clientX<DownX){
+            console.log("우측사지눚세연")
+            ClickImg(ClickNameNum+1)
+            setClickNameNum(ClickNameNum+1)
+        }
+        else{
+            console.log("좌측사지눚세연")
+            ClickImg(ClickNameNum-1)
+            setClickNameNum(ClickNameNum-1)
+        }
+      }
+
+
     function MouseDispaly(){
         console.log(circleEle)
         circleEle[0].classList.add("nonedis")
     }
     function MouseDispalyNone(){
         circleEle[0].classList.remove("nonedis")
-
     }
 
     function ClickImg(cnt){
@@ -46,13 +67,9 @@ function HerenNow(){
                 }
            }
         }
-  
-
     }
-
-
     function ClickName(cnt){
-        BarRed[0].style.top=`${cnt*5}rem`;
+        BarRed[0].style.top=`${cnt*4.44}rem`;
 
         for(var i=0 ; i<HorizontalEle.length;i++){
             HorizontalEle[i].style.color="transparent";
@@ -62,8 +79,10 @@ function HerenNow(){
         HorizontalEle[cnt+2].classList.remove("StrokeGray","whitea");
         HorizontalEle[cnt+2].style.color="white";
         setClickNameCnt(cnt);
-
     }
+
+
+
     useEffect(()=>{
         
         let scrollLocation = document.documentElement.scrollTop;
@@ -73,9 +92,12 @@ function HerenNow(){
 
        
         const wheelHandler = (e) =>{
-            console.log(window.scrollY)
+            console.log(e.deltaY)
             const { scrollTop } =StealienFull.current;
-            //이벤트리스너
+            if(e.deltaY>50){
+                ClickImg(1); 
+                ClickName(0);
+            }
           
         }
         const StealienFullCurrent = StealienFull.current;
@@ -84,15 +106,17 @@ function HerenNow(){
     
     return(
         <div className="HerenNow"  onMouseMove={(e)=>handleMouseMove(e)} ref={StealienFull}
-        style={{width:winX,
-                height:window.innerHeight}}>
+                style={{width:winX,
+                height:window.innerHeight}} 
+                
+                >
             <div className="HerenNowLogo">
                 <span>here</span>&now
             </div>
-            <div className="HerenNowRight">
-                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/9.jpg')" ,backgroundSize: "100% 100%", left:`${-900}px`     }} onClick={()=>{ClickImg(0)}}></div>
-                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/1.jpg')" ,backgroundSize: "100% 100%", left:`${winX-1060}px`}} onClick={()=>{ClickImg(1); ClickName(0)}}></div>
-                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/2.jpg')" ,backgroundSize: "100% 100%", left:`${winX-60}px`  }} onClick={()=>{ClickImg(2); ClickName(1)} }></div>
+            <div className="HerenNowRight"  onMouseDown={DownDown} onMouseUp={UpUp}>
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/9.jpg')" ,backgroundSize: "100% 100%", left:`${-900}px`     }} onClick={()=>{ClickImg(0); ClickName(8)}} ></div>
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/1.jpg')" ,backgroundSize: "100% 100%", left:`${winX-1060}px`}} onClick={()=>{ClickImg(1); ClickName(0)}} ></div>
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/2.jpg')" ,backgroundSize: "100% 100%", left:`${winX-60}px`  }} onClick={()=>{ClickImg(2); ClickName(1)}}></div>
                 <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/3.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} onClick={()=>{ClickImg(3); ClickName(2)}}></div>
                 <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/4.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} onClick={()=>{ClickImg(4); ClickName(3)}}></div>
                 <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/5.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} onClick={()=>{ClickImg(5); ClickName(4)}}></div>
@@ -103,19 +127,19 @@ function HerenNow(){
                 
             </div>
            <div className="HerenNowDown">
-                <div className="HerenNowDownScroll StrokeGray" onClick={()=>ClickName(7)} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>애드베리</div>
-                <div className="HerenNowDownScroll StrokeGray" onClick={()=>ClickName(8)} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>rincos</div>
-                <div className="HerenNowDownScroll whitea"     onClick={()=>ClickName(0)} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>한화모티브 </div>
-                <div className="HerenNowDownScroll StrokeGray" onClick={()=>ClickName(1)} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>TS샴푸            </div>
-                <div className="HerenNowDownScroll StrokeGray" onClick={()=>ClickName(2)} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>교보에듀케어서비스</div>
-                <div className="HerenNowDownScroll StrokeGray" onClick={()=>ClickName(3)} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>방통대 출판문화원</div>
-                <div className="HerenNowDownScroll StrokeGray" onClick={()=>ClickName(4)} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>영통 푸르지오</div>
-                <div className="HerenNowDownScroll StrokeGray" onClick={()=>ClickName(5)} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>연등회</div>
-                <div className="HerenNowDownScroll StrokeGray" onClick={()=>ClickName(6)} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>대광건영</div>
-                <div className="HerenNowDownScroll StrokeGray" onClick={()=>ClickName(7)} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>애드베리</div>
-                <div className="HerenNowDownScroll StrokeGray" onClick={()=>ClickName(8)} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>rincos</div>
-                <div className="HerenNowDownScroll StrokeGray" onClick={()=>ClickName(0)} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>한화모티브</div>
-                <div className="HerenNowDownScroll StrokeGray" onClick={()=>ClickName(1)} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>TS샴푸</div>
+                <div className="HerenNowDownScroll StrokeGray" onClick={()=>{ClickName(7);ClickImg(8)}} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>애드베리</div>
+                <div className="HerenNowDownScroll StrokeGray" onClick={()=>{ClickName(8);ClickImg(9)}} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>rincos</div>
+                <div className="HerenNowDownScroll whitea"     onClick={()=>{ClickName(0);ClickImg(1)}} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>한화모티브 </div>
+                <div className="HerenNowDownScroll StrokeGray" onClick={()=>{ClickName(1);ClickImg(2)}} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>TS샴푸            </div>
+                <div className="HerenNowDownScroll StrokeGray" onClick={()=>{ClickName(2);ClickImg(3)}} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>교보에듀케어서비스</div>
+                <div className="HerenNowDownScroll StrokeGray" onClick={()=>{ClickName(3);ClickImg(4)}} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>방통대 출판문화원</div>
+                <div className="HerenNowDownScroll StrokeGray" onClick={()=>{ClickName(4);ClickImg(5)}} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>영통 푸르지오</div>
+                <div className="HerenNowDownScroll StrokeGray" onClick={()=>{ClickName(5);ClickImg(6)}} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>연등회</div>
+                <div className="HerenNowDownScroll StrokeGray" onClick={()=>{ClickName(6);ClickImg(7)}} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>대광건영</div>
+                <div className="HerenNowDownScroll StrokeGray" onClick={()=>{ClickName(7);ClickImg(8)}} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>애드베리</div>
+                <div className="HerenNowDownScroll StrokeGray" onClick={()=>{ClickName(8);ClickImg(9)}} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>rincos</div>
+                <div className="HerenNowDownScroll StrokeGray" onClick={()=>{ClickName(0);ClickImg(1)}} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>한화모티브</div>
+                <div className="HerenNowDownScroll StrokeGray" onClick={()=>{ClickName(1);ClickImg(2)}} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>TS샴푸</div>
             </div>
             <div className="circle" style={{left:xy.x, top:xy.y}} onMouseMove={()=>handleMouseMove}></div>
 

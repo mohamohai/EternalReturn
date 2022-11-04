@@ -15,6 +15,7 @@
     font-family: NEXON Lv1 Gothic OTF Light;
     font-size: 2rem;
     cursor: pointer;
+    user-select: none;
 }
 
 .HerenNowRight {
@@ -22,6 +23,7 @@
     position: absolute;
     display: flex;
     flex-direction: row;
+    width: 100vw;
     height: 100vh;
     gap: 20rem;
     transition: all 1s;
@@ -36,6 +38,7 @@
     background-color: #929292;
     transition: all 1s;
     z-index: -2;
+    user-select: none;
 
 }
 
