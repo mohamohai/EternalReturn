@@ -57,7 +57,9 @@ function CopyWeb() {
           </div>
         </div>
 
-
+        <div className="circleRotate">
+          <div className="circleRotatea"></div>
+        </div>
 
         </div>
       

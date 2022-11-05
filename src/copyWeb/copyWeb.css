@@ -358,3 +358,36 @@
     position: absolute;
     z-index: -1;
 }
+
+
+.circleRotate {
+    width: 300px;
+    height: 300px;
+    border: 1px black solid;
+    border-radius: 100%;
+    position: absolute;
+    left: 200px;
+    top: 1500px;
+}
+
+.circleRotatea {
+    width: 50px;
+    height: 50px;
+    background-color: plum;
+    position: relative;
+    border-radius: 100%;
+    animation: circleRotateK 4s infinite linear;
+    top: 125px
+}
+
+@keyframes circleRotateK {
+    0% {
+        transform: rotate(0deg) translate(150px)
+    }
+
+
+
+    100% {
+        transform: rotate(360deg) translate(150px)
+    }
+}

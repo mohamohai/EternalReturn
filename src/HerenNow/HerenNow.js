@@ -8,6 +8,8 @@ function HerenNow(){
     const [ClickNameCnt,setClickNameCnt]=useState(0);
     const [DownX,setDownX]=useState(0);
     const [ClickNameNum, setClickNameNum]=useState(1);
+    const [WheelY,setWheelY]=useState(1);
+
 
     const HorizontalView = document.getElementsByClassName("HerenNowDown");
     const HorizontalEle = document.getElementsByClassName("HerenNowDownScroll");
@@ -107,14 +109,33 @@ function HerenNow(){
 
        
         const wheelHandler = (e) =>{
-            console.log(e.deltaY)
-            const { scrollTop } =StealienFull.current;
             if(e.deltaY>50){
-                ClickImg(1); 
-                ClickName(0);
+                if(ClickNameNum==9){
+                    ClickName(0);
+                    ClickImg(1);
+                    setClickNameNum(1);
+                }else{
+                console.log("우측사진 주세요")
+                ClickImg(ClickNameNum+1);
+                ClickName(ClickNameNum);
+                setClickNameNum(ClickNameNum+1)
+                }
             }
-          
-        }
+            else if (e.deltaY<50) {
+                console.log("좌측사진 주세요")
+                if(ClickNameNum==1){
+                    ClickName(8);
+                    ClickImg(9);
+                    setClickNameNum(9);
+                }else{
+                ClickImg(ClickNameNum-1);
+                ClickName(ClickNameNum-2);
+                setClickNameNum(ClickNameNum-1);
+                }
+            }
+          }
+
+     
         const StealienFullCurrent = StealienFull.current;
         StealienFullCurrent.addEventListener("wheel", wheelHandler);
     },[ClickNameCnt]);
@@ -129,7 +150,7 @@ function HerenNow(){
                 <span>here</span>&now
             </div>
 
-            <span className="spinarr"></span>
+            
             <div className="HerenNowRight"  onMouseDown={DownDown} onMouseUp={UpUp}>
                 <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/9.jpg')" ,backgroundSize: "100% 100%", left:`${-900}px`     }} ></div>
                 <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/1.jpg')" ,backgroundSize: "100% 100%", left:`${winX-1060}px`}} ></div>
@@ -143,7 +164,7 @@ function HerenNow(){
                 <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/9.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} ></div>
                 
             </div>
-           <div className="HerenNowDown">
+           <div className="HerenNowDown" >
                 <div className="HerenNowDownScroll StrokeGray" onClick={()=>{ClickName(7);ClickImg(8)}} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>애드베리</div>
                 <div className="HerenNowDownScroll StrokeGray" onClick={()=>{ClickName(8);ClickImg(9)}} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>rincos</div>
                 <div className="HerenNowDownScroll whitea"     onClick={()=>{ClickName(0);ClickImg(1)}} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>한화모티브 </div>

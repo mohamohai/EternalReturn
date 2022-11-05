@@ -202,7 +202,7 @@
     height: 200px;
     position: absolute;
     top: 200px;
-    left: 200px;
+    left: 600px;
     overflow: hidden;
 
     border: 2px solid red;
@@ -213,18 +213,25 @@
     display: inline;
     position: absolute;
     width: 51px;
-    top: 21px;
+    height: 1rem;
+    background: blue;
+    top: 20px;
     left: 4px;
-
-    border-bottom: 3px solid red;
+    font-size: 2rem;
+    line-height: 2rem;
+    border-bottom: 5px solid red;
 }
 
 .spinarr::after {
     content: ">";
     display: block;
     position: absolute;
-    left: 50px;
+    width: 52px;
+    height: 2rem;
+    left: 40px;
     top: 10px;
+    font-size: 2rem;
+    line-height: 3.5rem;
     color: red;
 
 }
