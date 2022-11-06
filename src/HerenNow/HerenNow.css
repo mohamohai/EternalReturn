@@ -18,6 +18,89 @@
     user-select: none;
 }
 
+.HereGNB {
+    float: right;
+}
+
+.HereGNB ul {
+    margin: 50px;
+}
+
+.HereGNB li {
+    float: left;
+    margin-right: 50px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    text-align: center;
+    transition: all 0.5s;
+    width: 100px;
+
+}
+
+.HereGNB li::after {
+    display: block;
+    content: "";
+    width: 0px;
+    height: 3px;
+    background-color: white;
+    position: relative;
+    top: 1px;
+    transition: all 1s;
+    left: 50px;
+
+
+}
+
+.HereGNB li:hover::after {
+    transition: 1s all;
+    width: 80px;
+    transform: translateX(-40px);
+
+
+}
+
+.asdasd {
+    color: red;
+    transition: all 0.5s;
+    position: fixed;
+    top: 500px;
+    left: 1000px;
+    z-index: 9999;
+
+}
+
+.asdasd:hover {
+    animation: textspin 1s infinite linear;
+
+}
+
+@keyframes textspin {
+    0% {
+        transform: scale(3);
+    }
+
+    50% {
+        transform: scale(2);
+        border-bottom: 3px solid white;
+    }
+
+    100% {
+        transform: scale(3);
+    }
+}
+
+/* .HereGNB li::after {
+    content: "";
+    width: 60px;
+    height: 5px;
+    background-color: white;
+    display: block;
+    text-align: center;
+    transition: all 1s;
+} */
+
+
 .HerenNowRight {
     z-index: -2;
     position: absolute;

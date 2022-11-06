@@ -5,11 +5,28 @@ import { useState, useEffect, useRef } from "react";
 import "./copyWeb.css";
 
 function CopyWeb() {
-
+  const CopyWebRef= useRef();
   const [Text, setText] = useState('');    //입력 할 문자 하나
   const [Count, setCount] = useState(0);   //val iaaaa
+
+  useEffect(()=>{
+    const wheelCircle = document.getElementsByClassName("wheelCircle")
+    
+   
+    
+    
+    const wheelHandler = (e) =>{
+      let scrollLocation = document.documentElement.scrollTop;
+      var pageHeight = window.innerHeight;
+      var winY = window.pageYOffset/100;
+      console.log(window.pageYOffset)
+      wheelCircle[0].style.transform=`scale(${winY})`
+      }
+      const CopyWebRefCurrent = CopyWebRef.current;
+      CopyWebRefCurrent.addEventListener("wheel", wheelHandler);
+});
   return (
-    <div className="copyWeb" >
+    <div className="copyWeb"ref={CopyWebRef} >
         <ul>
           <div className="rainbow"></div>
         </ul> 
@@ -60,7 +77,7 @@ function CopyWeb() {
         <div className="circleRotate">
           <div className="circleRotatea"></div>
         </div>
-
+          <div className="wheelCircle"></div>
         </div>
       
     </div>

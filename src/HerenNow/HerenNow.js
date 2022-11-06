@@ -64,7 +64,7 @@ function HerenNow(){
 
     function ClickImg(cnt){
         setClickNameNum(cnt)
-        console.log(cnt)
+        console.log(cnt+"xsxs")
         for(var i = 0; i<VerticalEle.length;i++){
             if(i<cnt){
                 if(i<cnt-1){
@@ -105,15 +105,13 @@ function HerenNow(){
         let scrollLocation = document.documentElement.scrollTop;
         var pageHeight = window.innerHeight;
         var winY = window.pageYOffset;
-    
-
        
         const wheelHandler = (e) =>{
             if(e.deltaY>50){
                 if(ClickNameNum==9){
                     ClickName(0);
                     ClickImg(1);
-                    setClickNameNum(1);
+                    setClickNameNum(1); 
                 }else{
                 console.log("우측사진 주세요")
                 ClickImg(ClickNameNum+1);
@@ -150,6 +148,13 @@ function HerenNow(){
                 <span>here</span>&now
             </div>
 
+            <div className="HereGNB">
+                <ul>
+                    <li>company</li>
+                    <li>Projects</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
             
             <div className="HerenNowRight"  onMouseDown={DownDown} onMouseUp={UpUp}>
                 <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/9.jpg')" ,backgroundSize: "100% 100%", left:`${-900}px`     }} ></div>
