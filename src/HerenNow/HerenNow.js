@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef, Component } from "react";
 import "./HerenNow.css"
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLightbulb,faGears,faBriefcase,faHeadset,faFurniture,faSun,faMoon } from "@fortawesome/free-solid-svg-icons";
+import { faTwitter,faYoutube,faFacebook, } from '@fortawesome/free-brands-svg-icons'
 
 function HerenNow(){
     const StealienFull = useRef();
@@ -9,7 +11,14 @@ function HerenNow(){
     const [DownX,setDownX]=useState(0);
     const [ClickNameNum, setClickNameNum]=useState(1);
     const [WheelY,setWheelY]=useState(1);
+    const [TextDW,setTextDW]=useState("rgba(255,255,255)");
 
+    const HerenNow=document.getElementsByClassName("HerenNow"); //다크모드 관할
+    const HerenNowLogo=document.getElementsByClassName("HerenNowLogo");
+    const GNBText=document.getElementsByClassName("GNBText");
+    const HereDark=document.getElementsByClassName("hereDark");
+    const HeretoggleBtn = document.getElementsByClassName("HeretoggleBtn");
+    const hereIcon = document.getElementsByClassName("hereIcon");
 
     const HorizontalView = document.getElementsByClassName("HerenNowDown");
     const HorizontalEle = document.getElementsByClassName("HerenNowDownScroll");
@@ -53,13 +62,52 @@ function HerenNow(){
         }
       }
 
+    function DarkLight(){
+        console.log("작동")
+        if(TextDW=="rgba(255,255,255)"){
+            HorizontalEle[ClickNameCnt+2].style.color="rgba(16,16,16)"; //글자색
+            HerenNowLogo[0].style.color="rgba(16,16,16)";
+            for(var i=0; i<GNBText.length;i++){
+                GNBText[i].classList.toggle("TextW");
+                GNBText[i].classList.toggle("TextD");
+                GNBText[i].style.color="rgba(16,16,16)"
+            }
+            HereDark[0].style.transform="translateX(50px)"
+            HereDark[0].style.backgroundColor="rgba(16,16,16)";
+            HeretoggleBtn[0].style.border="rgba(16,16,16) 1px solid"
+            hereIcon[0].classList.toggle("visible");hereIcon[1].classList.toggle("visible");
+            
+            HerenNow[0].style.backgroundColor="rgba(255,255,255)";
+            setTextDW("rgba(16,16,16)");
+        }else{
+            HorizontalEle[ClickNameCnt+2].style.color="rgba(255,255,255)"; //글자색
+            HerenNowLogo[0].style.color="rgba(255,255,255)"
+            for(var i=0; i<GNBText.length;i++){
+                GNBText[i].classList.toggle("TextW");
+                GNBText[i].classList.toggle("TextD");
+                GNBText[i].style.color="rgba(255,255,255)"
+            }
+            HereDark[0].style.transform="translateX(0px)"
+            HereDark[0].style.backgroundColor="rgba(255,255,255)";
+            HeretoggleBtn[0].style.border="rgba(255,255,255) 1px solid";
+            hereIcon[0].classList.toggle("visible");hereIcon[1].classList.toggle("visible");
 
+
+
+            HerenNow[0].style.backgroundColor="rgba(16,16,16)";
+            setTextDW("rgba(255,255,255)");
+        }
+      
+        
+
+        
+    }
     function MouseDispaly(){
         console.log(circleEle)
-        circleEle[0].classList.add("nonedis")
+        circleEle[0].classList.toggle("nonedis")
     }
     function MouseDispalyNone(){
-        circleEle[0].classList.remove("nonedis")
+        circleEle[0].classList.toggle("nonedis")
     }
 
     function ClickImg(cnt){
@@ -94,7 +142,7 @@ function HerenNow(){
         }
         HorizontalView[0].style.transform=`translateY(-${(cnt*15)}rem)`;
         HorizontalEle[cnt+2].classList.remove("StrokeGray","whitea");
-        HorizontalEle[cnt+2].style.color="white";
+        HorizontalEle[cnt+2].style.color=TextDW; //변수로 색 다크
         setClickNameCnt(cnt);
     }
 
@@ -150,10 +198,17 @@ function HerenNow(){
 
             <div className="HereGNB">
                 <ul>
-                    <li>company</li>
-                    <li>Projects</li>
-                    <li>Contact</li>
+                    <li className="GNBText TextD">company</li>
+                    <li className="GNBText TextD">Projects</li>
+                    <li className="GNBText TextD">Contact</li>
+                    <div className="HeretoggleBtn" onClick={DarkLight}>
+                        <div className="hereDark">
+                            <div><FontAwesomeIcon icon={faMoon} className="hereMoon  hereIcon"/></div>
+                            <div><FontAwesomeIcon icon={faSun} className="hereSun visible hereIcon"/></div>
+                        </div>
+                    </div>
                 </ul>
+                
             </div>
             
             <div className="HerenNowRight"  onMouseDown={DownDown} onMouseUp={UpUp}>
@@ -172,7 +227,7 @@ function HerenNow(){
            <div className="HerenNowDown" >
                 <div className="HerenNowDownScroll StrokeGray" onClick={()=>{ClickName(7);ClickImg(8)}} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>애드베리</div>
                 <div className="HerenNowDownScroll StrokeGray" onClick={()=>{ClickName(8);ClickImg(9)}} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>rincos</div>
-                <div className="HerenNowDownScroll whitea"     onClick={()=>{ClickName(0);ClickImg(1)}} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>한화모티브 </div>
+                <div className="HerenNowDownScroll whitea"     onClick={()=>{ClickName(0);ClickImg(1)}} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>한화모티브  </div>
                 <div className="HerenNowDownScroll StrokeGray" onClick={()=>{ClickName(1);ClickImg(2)}} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>TS샴푸            </div>
                 <div className="HerenNowDownScroll StrokeGray" onClick={()=>{ClickName(2);ClickImg(3)}} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>교보에듀케어서비스</div>
                 <div className="HerenNowDownScroll StrokeGray" onClick={()=>{ClickName(3);ClickImg(4)}} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>방통대 출판문화원</div>
