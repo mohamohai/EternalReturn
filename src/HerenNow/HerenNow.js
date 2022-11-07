@@ -4,7 +4,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLightbulb,faGears,faBriefcase,faHeadset,faFurniture,faSun,faMoon } from "@fortawesome/free-solid-svg-icons";
 import { faTwitter,faYoutube,faFacebook, } from '@fortawesome/free-brands-svg-icons'
 
+
+
 function HerenNow(){
+
     const StealienFull = useRef();
     const [xy,setXY]=useState({x:0,y:0});
     const [ClickNameCnt,setClickNameCnt]=useState(0);
@@ -32,9 +35,18 @@ function HerenNow(){
     }
     const DownDown=(e)=>{
         setDownX(e.clientX)
-      
     }
-
+    const MoveImg =(e)=>{
+        var rect = e.target.getBoundingClientRect();
+        console.log(rect)
+        console.log(e.nativeEvent.offsetX-480)
+        console.log(e.nativeEvent.offsetY-320)
+       
+        VerticalEle[ClickNameNum].style.transform=`translateX(${(e.nativeEvent.offsetX-480)/10}px) translateY(${(e.nativeEvent.offsetY-320)/10}px) `
+    }
+    function MoveImgReturn(){
+        VerticalEle[ClickNameNum].style.transform=`translate(0px,0px) `
+    }
     const UpUp=(e)=>{
         if(e.clientX<DownX){
             if(ClickNameNum==9){
@@ -72,7 +84,7 @@ function HerenNow(){
                 GNBText[i].classList.toggle("TextD");
                 GNBText[i].style.color="rgba(16,16,16)"
             }
-            HereDark[0].style.transform="translateX(50px)"
+            HereDark[0].style.transform="translateX(25px)"
             HereDark[0].style.backgroundColor="rgba(16,16,16)";
             HeretoggleBtn[0].style.border="rgba(16,16,16) 1px solid"
             hereIcon[0].classList.toggle("visible");hereIcon[1].classList.toggle("visible");
@@ -109,7 +121,7 @@ function HerenNow(){
     function MouseDispalyNone(){
         circleEle[0].classList.toggle("nonedis")
     }
-
+    
     function ClickImg(cnt){
         setClickNameNum(cnt)
         console.log(cnt+"xsxs")
@@ -145,7 +157,7 @@ function HerenNow(){
         HorizontalEle[cnt+2].style.color=TextDW; //변수로 색 다크
         setClickNameCnt(cnt);
     }
-
+  
 
 
     useEffect(()=>{
@@ -192,8 +204,8 @@ function HerenNow(){
                 height:window.innerHeight}} 
                 
                 >
-            <div className="HerenNowLogo">
-                <span>here</span>&now
+            <div className="HerenNowLogo" onClick={MoveImgReturn}>
+                <span>here</span>&now 
             </div>
 
             <div className="HereGNB">
@@ -201,28 +213,29 @@ function HerenNow(){
                     <li className="GNBText TextD">company</li>
                     <li className="GNBText TextD">Projects</li>
                     <li className="GNBText TextD">Contact</li>
+                    <li>
                     <div className="HeretoggleBtn" onClick={DarkLight}>
                         <div className="hereDark">
                             <div><FontAwesomeIcon icon={faMoon} className="hereMoon  hereIcon"/></div>
                             <div><FontAwesomeIcon icon={faSun} className="hereSun visible hereIcon"/></div>
                         </div>
                     </div>
+                    </li>
                 </ul>
                 
             </div>
             
             <div className="HerenNowRight"  onMouseDown={DownDown} onMouseUp={UpUp}>
-                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/9.jpg')" ,backgroundSize: "100% 100%", left:`${-900}px`     }} ></div>
-                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/1.jpg')" ,backgroundSize: "100% 100%", left:`${winX-1060}px`}} ></div>
-                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/2.jpg')" ,backgroundSize: "100% 100%", left:`${winX-60}px`  }} ></div>
-                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/3.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} ></div>
-                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/4.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} ></div>
-                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/5.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} ></div>
-                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/6.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} ></div>
-                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/7.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} ></div>
-                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/8.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} ></div>
-                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/9.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} ></div>
-                
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/9.jpg')" ,backgroundSize: "100% 100%", left:`${-900}px`     }} onMouseMove={MoveImg} onMouseLeave={MoveImgReturn}></div>
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/1.jpg')" ,backgroundSize: "100% 100%", left:`${winX-1060}px`}} onMouseMove={MoveImg} onMouseLeave={MoveImgReturn}></div>
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/2.jpg')" ,backgroundSize: "100% 100%", left:`${winX-60}px`  }} onMouseMove={MoveImg} onMouseLeave={MoveImgReturn}></div>
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/3.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} onMouseMove={MoveImg} onMouseLeave={MoveImgReturn}></div> 
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/4.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} onMouseMove={MoveImg} onMouseLeave={MoveImgReturn}></div>
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/5.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} onMouseMove={MoveImg} onMouseLeave={MoveImgReturn}></div>
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/6.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} onMouseMove={MoveImg} onMouseLeave={MoveImgReturn}></div>
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/7.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} onMouseMove={MoveImg} onMouseLeave={MoveImgReturn}></div>
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/8.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} onMouseMove={MoveImg} onMouseLeave={MoveImgReturn}></div>
+                <div className="HerenNowRightScroll" style={{background:"url('./image/HerenNow/9.jpg')" ,backgroundSize: "100% 100%", left:`${winX}px`     }} onMouseMove={MoveImg} onMouseLeave={MoveImgReturn}></div>
             </div>
            <div className="HerenNowDown" >
                 <div className="HerenNowDownScroll StrokeGray" onClick={()=>{ClickName(7);ClickImg(8)}} onMouseEnter={MouseDispaly} onMouseLeave={MouseDispalyNone}>애드베리</div>

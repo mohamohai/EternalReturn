@@ -25,6 +25,7 @@
 
 .HereGNB ul {
     margin: 50px;
+
 }
 
 .HereGNB li {
@@ -71,10 +72,8 @@
 }
 
 .HeretoggleBtn {
-    position: relative;
-    top: 50px;
-    width: 100px;
-    height: 50px;
+    width: 50px;
+    height: 25px;
     border: white 1px solid;
     border-radius: 25px 25px 25px 25px;
     transition: all 1s;
@@ -82,10 +81,10 @@
 
 .hereDark {
     position: absolute;
-    width: 50px;
-    height: 50px;
+    width: 25px;
+    height: 25px;
     background-color: white;
-    left: -25px;
+    left: -12.5px;
     border-radius: 25px 25px 25px 25px;
     transition: all 1s;
 }
@@ -97,22 +96,22 @@
 }
 
 .hereMoon {
-    width: 40px;
-    height: 40px;
+    width: 20px;
+    height: 20px;
     color: black;
     position: absolute;
     left: 3px;
-    top: 5px;
+    top: 2px;
     animation: iconrotate infinite 2s linear;
 }
 
 .hereSun {
-    width: 35px;
-    height: 35px;
+    width: 15px;
+    height: 15px;
     color: white;
     position: absolute;
-    top: 7px;
-    left: 7px;
+    top: 5px;
+    left: 5px;
     animation: iconrotate infinite 2s linear;
 }
 
@@ -193,7 +192,7 @@
     transition: all 1s;
     z-index: -2;
     user-select: none;
-
+    transform: translate(0px, 0px);
 }
 
 .HerenNowRightScroll:nth-child(1) {
