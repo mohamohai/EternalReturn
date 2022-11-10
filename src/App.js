@@ -15,6 +15,7 @@ import CopyWeb from "./copyWeb/copyWeb.js";
 import Vhom from "./VHOM/vhom.js";
 import Stealien from "./Stealien/Stealien.js";
 import My from "./my/my.js";
+import MyMy from "./mymy/mymy.js"
 
 import HerenNow from "./HerenNow/HerenNow.js"
 
@@ -57,7 +58,7 @@ class App extends Component {
       <BrowserRouter>
      
         <Routes>
-          <Route exact path="/" element={<Pixel/>} />
+          <Route exact path="/" element={<MyMy/>} />
           <Route path="/in" element={<Ingredient />} />
           <Route
             path="/ER"    element={<ERMain />}
@@ -108,6 +109,7 @@ class App extends Component {
           <Route path="/Stealien" element={<Stealien/>}/>
           <Route path="/HerenNow" element={<HerenNow/>}/>
           <Route path="/My" element={<My/>}/>
+          <Route path="/MyMy" element={<MyMy/>}/>
           <Route exact path="/" element={<My />} />
           <Route path="*"  element={<My />} />
 
