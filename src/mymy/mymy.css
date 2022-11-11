@@ -47,58 +47,29 @@
     transform: scale(1, 1);
 }
 
-.L {
-    transition: all 1s;
-    transform: translate(0px, 0px);
-}
-
-.e {
-    transition: all 1s;
-    transform: translate(0px, 20px);
-}
-
-.e2 {
-    transition: all 5s;
-    transform: translate(50vw, 50vh) scale(3);
+.LeeJongHyunWord {
+    transition: all 4s;
 
 }
 
-.J {
-    transition: all 1s;
-    transform: translate(0px, 20px);
-}
+.L {}
 
-.o {
-    transition: all 1s;
-    transform: translate(0px, 20px);
-}
+.e {}
 
-.n {
-    transition: all 1s;
-    transform: translate(0px, 20px);
-}
+.e2 {}
 
-.g {
-    transition: all 1s;
-    transform: translate(0px, 20px);
-}
+.J {}
 
-.H {
-    transition: all 1s;
-    transform: translate(0px, 20px);
-}
+.o {}
 
-.y {
-    transition: all 1s;
-    transform: translate(0px, 20px);
-}
+.n {}
 
-.u {
-    transition: all 1s;
-    transform: translate(0px, 20px);
-}
+.g {}
 
-.n2 {
-    transition: all 1s;
-    transform: translate(0px, 20px);
-}
+.H {}
+
+.y {}
+
+.u {}
+
+.n2 {}
