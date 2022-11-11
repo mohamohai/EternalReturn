@@ -46,15 +46,11 @@
 .mymyPage3 {
     width: 100vw;
     height: 100vh;
-    position: relative;
-    background: linear-gradient(to right, #111, #0e0f19);
-    overflow: hidden;
+
 }
 
 .MyNameIS2 {
     position: relative;
-    top: 500px;
-    z-index: 200;
     transition: all 1s;
     transform: scale(1, 1);
 }
@@ -62,41 +58,11 @@
 .LeeJongHyunWord {
     transition: all 1s;
     color: white;
+    transform: scale(0.68);
 
 }
 
-.sky {
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: moveStar 60s linear infinite;
-}
-
-
-/* 별 */
-.star {
-    fill: #fff;
-    stroke: none;
-    stroke-width: 0px;
-    width: 500px;
-    z-index: 2222;
-    position: fixed;
-    top: 500px;
-    left: 500px;
-
-}
-
-/* 별 이동효과 */
-
-
-.L {
-    transform: scale(1) rotate(12deg);
-}
-
-
+.L {}
 
 .e {}
 
@@ -118,34 +84,23 @@
 
 .n2 {}
 
-
-
-
-
-
-
-
-
-
-
 .backSky {
-    width: 100vw;
+    width: 150vw;
     height: 100vw;
     position: relative;
     background: linear-gradient(to right, #111, #0e0f19);
-    overflow: hidden;
 }
 
 /* 별을 감싼 부모 */
 .sky {
-    width: 100vw;
+    width: 170vw;
     z-index: 2;
     height: 100vw;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    animation: moveStar 260s linear infinite;
+    animation: moveStar 400s linear infinite;
 }
 
 /* 별 */

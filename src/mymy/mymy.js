@@ -29,9 +29,6 @@ function MyMy(){
 const $sky = document.getElementsByClassName("sky");
 
 // 브라우저 창 크기에 따른 별 생성
-window.onresize = () => {
-  makeStars();
-}
 
 const makeStars = () => {
   // 브라우저 가장 큰 크기
@@ -39,7 +36,7 @@ const makeStars = () => {
 
   // 랜덤한 X 위치 값
   const getRandomX = () => Math.random() * maxSize;
-
+    
   // 랜덤한 Y 위치 값
   const getRandomY = () => Math.random() * maxSize;
 
@@ -60,13 +57,19 @@ const makeStars = () => {
   $sky[0].innerHTML = htmlDummy;
 }
 
-window.onload = () => {
-  makeStars();
-}
 
+window.onresize = () => {
+    makeStars();
+  }
+  window.onload = () => {
+      makeStars();
+}
+document.ready = () => {
+    makeStars();
+}
+   
 
     useEffect((e)=>{
-        makeStars();
 
         const zxcasd=document.getElementsByClassName("zxcasd");
         let scrollLocation = document.documentElement.scrollTop;
@@ -74,17 +77,16 @@ window.onload = () => {
         var view = window.innerHeight;//내 모니터 y값
 
 
-
-
-
         const wheelHandler = (e) =>{
         setpageYOffseta(window.pageYOffset)
         e.preventDefault();
       
             if(e.deltaY>0){//마우스 휠
+               
+
                 if(window.pageYOffset < view){
+                    makeStars();
                     PhaseAct(1);
-                        console.log(PageOneText)
                     if( PageOneText==2){
                         console.log("왜...")
                     window.scrollTo({
@@ -133,35 +135,35 @@ window.onload = () => {
                         LeeJongHyunWord[0].style.transform="translate(50vw, 50vh) scale(3)"
                         setPageThreeText(2)
                     }else if(PageThreeText==2){
-                        LeeJongHyunWord[10].style.transform="translate(50vw, 50vh) scale(3)"
+                        LeeJongHyunWord[10].style.transform="translate(-50vw, 10vh) scale(3)"
                         setPageThreeText(3)
                     }
                     else if(PageThreeText==3){
-                        LeeJongHyunWord[2].style.transform="translate(50vw, 50vh) scale(3)"
+                        LeeJongHyunWord[2].style.transform="translate(0vw, -150vh) scale(3)"
                         setPageThreeText(4)
                     }
                     else if(PageThreeText==4){
-                        LeeJongHyunWord[9].style.transform="translate(50vw, 50vh) scale(3)"
+                        LeeJongHyunWord[9].style.transform="translate(25vw, -50vh) scale(3)"
                         setPageThreeText(5)
                     }
                     else if(PageThreeText==5){
-                        LeeJongHyunWord[6].style.transform="translate(50vw, 50vh) scale(3)"
+                        LeeJongHyunWord[6].style.transform="translate(-50vw, 21vh) scale(3)"
                         setPageThreeText(6)
                     }
                     else if(PageThreeText==6){
-                        LeeJongHyunWord[8].style.transform="translate(50vw, 50vh) scale(3)"
+                        LeeJongHyunWord[8].style.transform="translate(-10vw, -40vh) scale(3)"
                         setPageThreeText(7)
                     }
                     else if(PageThreeText==7){
-                        LeeJongHyunWord[4].style.transform="translate(50vw, 50vh) scale(3)"
+                        LeeJongHyunWord[4].style.transform="translate(73vw, 50vh) scale(3)"
                         setPageThreeText(8)
                     }
                     else if(PageThreeText==8){
-                        LeeJongHyunWord[1].style.transform="translate(50vw, 50vh) scale(3)"
+                        LeeJongHyunWord[1].style.transform="translate(-50vw, 350vh) scale(3)"
                         setPageThreeText(9)
                     }
                     else if(PageThreeText==9){
-                        LeeJongHyunWord[5].style.transform="translate(50vw, 50vh) scale(3)"
+                        LeeJongHyunWord[5].style.transform="translate(90vw, -60vh) scale(3)"
                         setPageThreeText(10)
                     }
                     else if(PageThreeText==10){
@@ -515,7 +517,7 @@ window.onload = () => {
             <svg className="sky">
                 
             </svg>
-    </div>
+            
             <svg className="MyNameIS2 "  version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100%" viewBox="0 0 600 300" >
            
                     <path className=" LeeJongHyunWord g" fill="#ffffff" opacity="1.000000" stroke="none" 
@@ -699,6 +701,7 @@ window.onload = () => {
                     z"/>
 
                     </svg>
+                    </div>
                
             </div>
             <div className="mymyPage4 mymyFull"> </div>
