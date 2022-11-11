@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLightbulb,faGears,faBriefcase,faHeadset,faFurniture,faSun,faMoon } from "@fortawesome/free-solid-svg-icons";
 import { faTwitter,faYoutube,faFacebook, } from '@fortawesome/free-brands-svg-icons'
 
+
 function MyMy(){
     const mymyPage = useRef();
 
@@ -20,7 +21,53 @@ function MyMy(){
     function PhaseAct(cnt){
         setPageOneText(2);
     }
+
+
+
+// 브라우저 창 크기에 따른 별 생성
+
+const $sky = document.getElementsByClassName("sky");
+
+// 브라우저 창 크기에 따른 별 생성
+window.onresize = () => {
+  makeStars();
+}
+
+const makeStars = () => {
+  // 브라우저 가장 큰 크기
+  const maxSize = Math.max(window.innerWidth, window.innerHeight)
+
+  // 랜덤한 X 위치 값
+  const getRandomX = () => Math.random() * maxSize;
+
+  // 랜덤한 Y 위치 값
+  const getRandomY = () => Math.random() * maxSize;
+
+  // 랜덤한 크기 (circle는 반지름이 크기)
+  const randomRadius = () =>  Math.random() * 0.7 + 0.6;
+  
+  // 임의의 값
+  const _size = Math.floor(maxSize / 2);
+  
+  const htmlDummy = new Array(_size).fill().map((_, i) => {
+    return  `<circle 
+				cx=${getRandomX()}
+        cy=${getRandomY()}
+        r=${randomRadius()}
+        className="star" fill="#ffffff"/>`
+  }).join('');
+  console.log($sky)
+  $sky[0].innerHTML = htmlDummy;
+}
+
+window.onload = () => {
+  makeStars();
+}
+
+
     useEffect((e)=>{
+        makeStars();
+
         const zxcasd=document.getElementsByClassName("zxcasd");
         let scrollLocation = document.documentElement.scrollTop;
         var winY = window.pageYOffset;// 현재 내 위치 y값
@@ -264,16 +311,24 @@ function MyMy(){
     });
     return(
         <div className="mymyFullPage"  ref={mymyPage}>
+            
+{/* <svg width="500" height="500">
+            <circle 
+		cx="100"
+        cy="100"
+        r="100.2"
+        stroke="black"  fill="red"
+        className="star" />
+               
+               
+               </svg> */}
             <div className="mymyPage1 mymyFull">
-                
-               
-               
+            
             </div>
-          
             <div className="mymyPage2 mymyFull">
             <svg className="MyNameIS" style={{ transform:`scale(45) translate(-50px, 275px)`   
 }} version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100%" viewBox="0 0 600 300" >
-                    <path className="g" fill="#000000" opacity="1.000000" stroke="none" 
+                    <path className="g" fill="#ffffff" opacity="1.000000" stroke="none" 
                         d="
                     M303.811920,102.318024 
                         C293.102325,93.689972 294.297424,65.403717 311.853516,61.675179 
@@ -295,7 +350,7 @@ function MyMy(){
                         C307.831116,82.941933 308.660736,89.881210 312.544434,94.087074 
                         C316.229340,98.077652 320.180328,97.465981 324.943634,94.586563 
                     z"/>
-                    <path fill="#000000" opacity="1.000000" stroke="none" 
+                    <path fill="#ffffff" opacity="1.000000" stroke="none" 
                         d="
                     M355.040802,45.000000 
                         C357.498413,45.000000 359.473907,45.000000 361.844116,45.000000 
@@ -312,7 +367,7 @@ function MyMy(){
                         C350.263062,85.007263 350.263062,65.270950 350.263062,45.000000 
                         C351.688446,45.000000 353.123566,45.000000 355.040802,45.000000 
                     z"/>
-                    <path fill="#000000" opacity="1.000000" stroke="none" 
+                    <path fill="#ffffff" opacity="1.000000" stroke="none" 
                         d="
                     M437.716583,94.703278 
                         C434.682068,101.830566 432.160431,108.764351 429.042084,115.418533 
@@ -330,7 +385,7 @@ function MyMy(){
                         C438.208893,61.288330 438.206573,61.287571 449.853088,62.458977 
                         C445.825775,73.272842 441.894470,83.828926 437.716583,94.703278 
                     z"/>
-                    <path fill="#000000" opacity="1.000000" stroke="none" 
+                    <path fill="#ffffff" opacity="1.000000" stroke="none" 
                         d="
                     M244.072556,91.770615 
                         C241.017120,101.835495 232.108765,106.174492 224.599014,106.127563 
@@ -346,7 +401,7 @@ function MyMy(){
                         C213.793808,96.223846 222.568802,98.748131 227.916611,95.690132 
                         C234.297470,92.041374 235.280502,79.067795 228.834839,72.303574 
                     z"/>
-                    <path fill="#000000" opacity="1.000000" stroke="none" 
+                    <path fill="#ffffff" opacity="1.000000" stroke="none" 
                         d="
                     M143.080658,106.000000 
                         C130.827484,107.026505 121.046532,98.646553 121.889290,82.224686 
@@ -361,7 +416,7 @@ function MyMy(){
                         C140.441544,68.445366 136.235031,71.592934 134.226379,78.998543 
                         C139.225983,78.998543 144.158615,78.998543 149.998718,78.977348 
                     z"/>
-                    <path fill="#000000" opacity="1.000000" stroke="none" 
+                    <path fill="#ffffff" opacity="1.000000" stroke="none" 
                         d="
                     M251.383942,104.590500 
                         C251.054352,90.307022 251.054352,76.372597 251.054352,62.220135 
@@ -377,7 +432,7 @@ function MyMy(){
                         C262.880951,89.320747 263.000061,96.805046 263.000061,104.939545 
                         C259.191101,104.939545 255.452316,104.939545 251.383942,104.590500 
                     z"/>
-                    <path fill="#000000" opacity="1.000000" stroke="none" 
+                    <path fill="#ffffff" opacity="1.000000" stroke="none" 
                         d="
                     M538.363708,65.868103 
                         C539.439941,69.895798 540.753052,73.640694 540.893311,77.429016 
@@ -394,7 +449,7 @@ function MyMy(){
                         C517.775513,62.975483 522.806152,60.083790 528.702087,61.167969 
                         C531.984863,61.771629 534.955933,64.070267 538.363708,65.868103 
                     z"/>
-                    <path fill="#000000" opacity="1.000000" stroke="none" 
+                    <path fill="#ffffff" opacity="1.000000" stroke="none" 
                         d="
                     M80.632957,71.849892 
                         C86.430244,62.019753 96.420357,59.317028 104.129669,61.660862 
@@ -411,7 +466,7 @@ function MyMy(){
                         C93.435318,70.680283 90.416039,74.502998 90.487968,78.679688 
                         C95.928398,78.679688 101.365364,78.679688 106.983238,77.820343 
                     z"/>
-                    <path fill="#000000" opacity="1.000000" stroke="none" 
+                    <path fill="#ffffff" opacity="1.000000" stroke="none" 
                         d="
                     M485.084686,62.000011 
                         C487.867462,62.000000 490.172882,62.000000 492.737732,62.000000 
@@ -429,7 +484,7 @@ function MyMy(){
                         C481.005798,79.400665 481.157959,72.396156 480.926117,65.404587 
                         C480.826691,62.406631 481.934265,61.574699 485.084686,62.000011 
                     z"/>
-                    <path fill="#000000" opacity="1.000000" stroke="none" 
+                    <path fill="#ffffff" opacity="1.000000" stroke="none" 
                         d="
                     M63.980545,105.000000 
                         C55.841858,105.000000 48.200909,105.000000 40.281075,105.000000 
@@ -440,7 +495,7 @@ function MyMy(){
                         C74.719666,98.292702 74.719666,101.366875 74.719666,105.000000 
                         C71.362206,105.000000 67.920242,105.000000 63.980545,105.000000 
                     z"/>
-                    <path fill="#000000" opacity="1.000000" stroke="none" 
+                    <path fill="#ffffff" opacity="1.000000" stroke="none" 
                         d="
                     M191.417480,94.093033 
                         C186.657547,104.358444 176.836807,109.002762 166.648209,105.753532 
@@ -456,8 +511,18 @@ function MyMy(){
                     </svg>
             </div>
             <div className="mymyPage3 mymyFull">
-            <svg className="MyNameIS2"  version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100%" viewBox="0 0 600 300" >
-                    <path className=" LeeJongHyunWord g" fill="#000000" opacity="1.000000" stroke="none" 
+            <div className="backSky">
+            <svg className="sky">
+                
+            </svg>
+    </div>
+            <svg className="MyNameIS2 "  version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100%" viewBox="0 0 600 300" >
+            {/* <circle
+            cx="100"
+            cy="100"
+            r="1.2"
+            className="star" /> */}
+                    <path className=" LeeJongHyunWord g" fill="#ffffff" opacity="1.000000" stroke="none" 
                         d="
                     M303.811920,102.318024 
                         C293.102325,93.689972 294.297424,65.403717 311.853516,61.675179 
@@ -479,7 +544,7 @@ function MyMy(){
                         C307.831116,82.941933 308.660736,89.881210 312.544434,94.087074 
                         C316.229340,98.077652 320.180328,97.465981 324.943634,94.586563 
                     z"/>
-                    <path fill="#000000" className="LeeJongHyunWord H" opacity="1.000000" stroke="none" 
+                    <path fill="#ffffff" className="LeeJongHyunWord H" opacity="1.000000" stroke="none" 
                         d="
                     M355.040802,45.000000 
                         C357.498413,45.000000 359.473907,45.000000 361.844116,45.000000 
@@ -496,7 +561,7 @@ function MyMy(){
                         C350.263062,85.007263 350.263062,65.270950 350.263062,45.000000 
                         C351.688446,45.000000 353.123566,45.000000 355.040802,45.000000 
                     z"/>
-                    <path fill="#000000" className=" LeeJongHyunWord y" opacity="1.000000" stroke="none" 
+                    <path fill="#ffffff" className=" LeeJongHyunWord y" opacity="1.000000" stroke="none" 
                         d="
                     M437.716583,94.703278 
                         C434.682068,101.830566 432.160431,108.764351 429.042084,115.418533 
@@ -514,7 +579,7 @@ function MyMy(){
                         C438.208893,61.288330 438.206573,61.287571 449.853088,62.458977 
                         C445.825775,73.272842 441.894470,83.828926 437.716583,94.703278 
                     z"/>
-                    <path fill="#000000" className=" LeeJongHyunWord o" opacity="1.000000" stroke="none" 
+                    <path fill="#ffffff" className=" LeeJongHyunWord o" opacity="1.000000" stroke="none" 
                         d="
                     M244.072556,91.770615 
                         C241.017120,101.835495 232.108765,106.174492 224.599014,106.127563 
@@ -530,7 +595,7 @@ function MyMy(){
                         C213.793808,96.223846 222.568802,98.748131 227.916611,95.690132 
                         C234.297470,92.041374 235.280502,79.067795 228.834839,72.303574 
                     z"/>
-                    <path fill="#000000" className=" LeeJongHyunWord e2" opacity="1.000000" stroke="none" 
+                    <path fill="#ffffff" className=" LeeJongHyunWord e2" opacity="1.000000" stroke="none" 
                         d="
                     M143.080658,106.000000 
                         C130.827484,107.026505 121.046532,98.646553 121.889290,82.224686 
@@ -545,7 +610,7 @@ function MyMy(){
                         C140.441544,68.445366 136.235031,71.592934 134.226379,78.998543 
                         C139.225983,78.998543 144.158615,78.998543 149.998718,78.977348 
                     z"/>
-                    <path fill="#000000"  className=" LeeJongHyunWord n" opacity="1.000000" stroke="none" 
+                    <path fill="#ffffff"  className=" LeeJongHyunWord n" opacity="1.000000" stroke="none" 
                         d="
                     M251.383942,104.590500 
                         C251.054352,90.307022 251.054352,76.372597 251.054352,62.220135 
@@ -561,7 +626,7 @@ function MyMy(){
                         C262.880951,89.320747 263.000061,96.805046 263.000061,104.939545 
                         C259.191101,104.939545 255.452316,104.939545 251.383942,104.590500 
                     z"/>
-                    <path fill="#000000" className=" LeeJongHyunWord n2" opacity="1.000000" stroke="none" 
+                    <path fill="#ffffff" className=" LeeJongHyunWord n2" opacity="1.000000" stroke="none" 
                         d="
                     M538.363708,65.868103 
                         C539.439941,69.895798 540.753052,73.640694 540.893311,77.429016 
@@ -578,7 +643,7 @@ function MyMy(){
                         C517.775513,62.975483 522.806152,60.083790 528.702087,61.167969 
                         C531.984863,61.771629 534.955933,64.070267 538.363708,65.868103 
                     z"/>
-                    <path fill="#000000" className=" LeeJongHyunWord e" opacity="1.000000" stroke="none" 
+                    <path fill="#ffffff" className=" LeeJongHyunWord e" opacity="1.000000" stroke="none" 
                         d="
                     M80.632957,71.849892 
                         C86.430244,62.019753 96.420357,59.317028 104.129669,61.660862 
@@ -595,7 +660,7 @@ function MyMy(){
                         C93.435318,70.680283 90.416039,74.502998 90.487968,78.679688 
                         C95.928398,78.679688 101.365364,78.679688 106.983238,77.820343 
                     z"/>
-                    <path fill="#000000" className=" LeeJongHyunWord u" opacity="1.000000" stroke="none" 
+                    <path fill="#ffffff" className=" LeeJongHyunWord u" opacity="1.000000" stroke="none" 
                         d="
                     M485.084686,62.000011 
                         C487.867462,62.000000 490.172882,62.000000 492.737732,62.000000 
@@ -613,7 +678,7 @@ function MyMy(){
                         C481.005798,79.400665 481.157959,72.396156 480.926117,65.404587 
                         C480.826691,62.406631 481.934265,61.574699 485.084686,62.000011 
                     z"/>
-                    <path fill="#000000"className=" LeeJongHyunWord L"opacity="1.000000" stroke="none" 
+                    <path fill="#ffffff"className=" LeeJongHyunWord L"opacity="1.000000" stroke="none" 
                         d="
                     M63.980545,105.000000 
                         C55.841858,105.000000 48.200909,105.000000 40.281075,105.000000 
@@ -624,7 +689,7 @@ function MyMy(){
                         C74.719666,98.292702 74.719666,101.366875 74.719666,105.000000 
                         C71.362206,105.000000 67.920242,105.000000 63.980545,105.000000 
                     z"/>
-                    <path fill="#000000" className=" LeeJongHyunWord J" opacity="1.000000" stroke="none" 
+                    <path fill="#ffffff" className=" LeeJongHyunWord J" opacity="1.000000" stroke="none" 
                         d="
                     M191.417480,94.093033 
                         C186.657547,104.358444 176.836807,109.002762 166.648209,105.753532 
@@ -638,15 +703,15 @@ function MyMy(){
                     z"/>
 
                     </svg>
+               
             </div>
-            <div className="mymyPage4 mymyFull"></div>
+            <div className="mymyPage4 mymyFull"> </div>
             <div className="mymyPage5 mymyFull"></div>
             <div className="mymyPage6 mymyFull"></div>
             <div className="mymyPage7 mymyFull"></div>
             <div className="mymyPage8 mymyFull"></div>
             <div className="mymyPage9 mymyFull"></div>
-            
-            <div className="markone">{window.pageXOffset} , {window.innerHeight}</div>
+    
 
         </div>
     )
