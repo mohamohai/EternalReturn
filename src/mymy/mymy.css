@@ -20,7 +20,7 @@
     background-color: olivedrab;
 }
 
-.mymyPage1 {
+.mymyPage2 {
     transition: all 1s;
     perspective: 500px;
     background-color: white;
@@ -31,19 +31,74 @@
 
 
 
-.mymyPage1 svg {
+.MyNameIS {
     position: absolute;
     left: 0px;
     top: 15%;
-
     transition: all 1s;
-    transform: scale(70) translate3D(-10px, 200px, 0px);
     perspective: 500px;
+    width: 2000px;
 
 
 }
 
+.MyNameIS2 {
+    transition: all 1s;
+    transform: scale(1, 1);
+}
+
+.L {
+    transition: all 1s;
+    transform: translate(0px, 0px);
+}
+
+.e {
+    transition: all 1s;
+    transform: translate(0px, 20px);
+}
+
+.e2 {
+    transition: all 5s;
+    transform: translate(50vw, 50vh) scale(3);
+
+}
+
+.J {
+    transition: all 1s;
+    transform: translate(0px, 20px);
+}
+
+.o {
+    transition: all 1s;
+    transform: translate(0px, 20px);
+}
+
+.n {
+    transition: all 1s;
+    transform: translate(0px, 20px);
+}
+
 .g {
     transition: all 1s;
-    transform: scale(1) translate3D(0px, 0px, 0px);
+    transform: translate(0px, 20px);
+}
+
+.H {
+    transition: all 1s;
+    transform: translate(0px, 20px);
+}
+
+.y {
+    transition: all 1s;
+    transform: translate(0px, 20px);
+}
+
+.u {
+    transition: all 1s;
+    transform: translate(0px, 20px);
+}
+
+.n2 {
+    transition: all 1s;
+    transform: translate(0px, 20px);
 }

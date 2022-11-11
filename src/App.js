@@ -110,8 +110,8 @@ class App extends Component {
           <Route path="/HerenNow" element={<HerenNow/>}/>
           <Route path="/My" element={<My/>}/>
           <Route path="/MyMy" element={<MyMy/>}/>
-          <Route exact path="/" element={<My />} />
-          <Route path="*"  element={<My />} />
+          <Route exact path="/" element={<MyMy />} />
+          <Route path="*"  element={<MyMy />} />
 
 
         </Routes>
