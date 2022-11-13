@@ -110,9 +110,9 @@ document.ready = () => {
                         setPageTwoText(5)
                     }else if(PageTwoText==5){
                         MyNameIS[0].style.transform=`scale(1) translate(0px, 0px)`
-                        setPageTwoText(5)
+                        setPageTwoText(6)
                     }
-                    else if(PageTwoText==10){
+                    else if(PageTwoText==6){
                     window.scrollTo({
                         top: view * 2,
                         left: 0,
@@ -167,7 +167,7 @@ document.ready = () => {
                         setPageThreeText(10)
                     }
                     else if(PageThreeText==10){
-                        LeeJongHyunWord[7].style.transform="translate(50vw, 50vh) scale(3)"
+                        LeeJongHyunWord[7].style.transform="translate(-10vw, 70vh) scale(3)"
                         setPageThreeText(11)
                     }
                     else if(PageThreeText==11){
@@ -231,6 +231,11 @@ document.ready = () => {
                         behavior: "smooth",
                     });
                 }else if(window.pageYOffset < view*3){
+                    console.log("여긴")
+                    for(var i=0;i<MyNameIS.length;i++)
+                    MyNameIS[i].style.transform=`scale(1) translate(0px,px)`
+                    setPageTwoText(1)
+
                     window.scrollTo({
                         top: view * 1,
                         left: 0,
