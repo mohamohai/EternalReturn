@@ -111,8 +111,9 @@ document.ready = () => {
                     }else if(PageTwoText==5){
                         MyNameIS[0].style.transform=`scale(1) translate(0px, 0px)`
                         setPageTwoText(6)
-                    }
-                    else if(PageTwoText==6){
+                    setPageTwoText(1)
+
+                    }else if(PageTwoText==6){
                     window.scrollTo({
                         top: view * 2,
                         left: 0,
@@ -232,9 +233,9 @@ document.ready = () => {
                     });
                 }else if(window.pageYOffset < view*3){
                     console.log("여긴")
-                    for(var i=0;i<MyNameIS.length;i++)
-                    MyNameIS[i].style.transform=`scale(1) translate(0px,px)`
-                    setPageTwoText(1)
+                   
+                    MyNameIS[0].style.transform=`scale(45) translate(-50px, 275px)`
+
 
                     window.scrollTo({
                         top: view * 1,
