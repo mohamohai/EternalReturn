@@ -93,7 +93,7 @@ document.ready = () => {
                         top: view * 1,
                         left: 0,
                         behavior: "smooth",
-                    });
+                    });//checkasd
                     }
                 }else if(window.pageYOffset+100 > view && window.pageYOffset+100 < view*2){
                     if(PageTwoText==1){
