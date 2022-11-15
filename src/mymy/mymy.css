@@ -21,15 +21,9 @@
 }
 
 .mymyPage2 {
-    transition: all 1s;
-    perspective: 500px;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-content: center;
+    width: 100vw;
+    height: 100vh;
 }
-
-
 
 .MyNameIS {
     position: absolute;
@@ -43,11 +37,7 @@
 
 }
 
-.mymyPage3 {
-    width: 100vw;
-    height: 100vh;
-
-}
+.mymyPage3 {}
 
 .MyNameIS2 {
     position: relative;
@@ -93,14 +83,14 @@
 
 /* 별을 감싼 부모 */
 .sky {
-    width: 170vw;
+    width: 200vw;
     z-index: 2;
-    height: 100vw;
+    height: 200vw;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    animation: moveStar 400s linear infinite;
+    animation: moveStar 150s linear infinite;
 }
 
 /* 별 */
@@ -113,10 +103,21 @@
 /* 별 이동효과 */
 @keyframes moveStar {
     from {
-        transform: translate(-50%, -50%) rotate(0);
+        transform: translate(-75%, -50%) rotate(0);
     }
 
     to {
         transform: translate(-50%, -50%) rotate(360deg);
     }
+}
+
+
+
+.fixtext {
+    position: fixed;
+    top: 200px;
+    left: 500px;
+    font-size: 5rem;
+    color: blue;
+    z-index: 99963;
 }
