@@ -83,8 +83,8 @@ document.ready = () => {
       
             if(e.deltaY>0){//마우스 휠
                 if(window.pageYOffset < view){
+                    console.log("1페이지 내려")
                     makeStars();
-                    PhaseAct(1);
                     if( PageOneText==1){
                     window.scrollTo({
                         top: view * 1,
@@ -92,171 +92,110 @@ document.ready = () => {
                         behavior: "smooth",
                     });
                     }
-                }else if(window.pageYOffset+100 > view && window.pageYOffset+100 < view*2){
-                    if(PageThreeText==1){
-                        LeeJongHyunWord[0].style.transform="translate(1px,1px) scale(1)"
-                        setPageThreeText(2)
-                    }else if(PageThreeText==2){
-                        LeeJongHyunWord[10].style.transform="translate(-50vw, 10vh) scale(3)"
-
-                        setPageThreeText(3)
-                    }
-                    else if(PageThreeText==3){
-                        LeeJongHyunWord[2].style.transform="translate(0vw, -150vh) scale(3)"
-                        setPageThreeText(4)
-                    }
-                    else if(PageThreeText==4){
-                        LeeJongHyunWord[9].style.transform="translate(25vw, -50vh) scale(3)"
-                        setPageThreeText(5)
-                    }
-                    else if(PageThreeText==5){
-                        LeeJongHyunWord[6].style.transform="translate(-50vw, 21vh) scale(3)"
-                        setPageThreeText(6)
-                    }
-                    else if(PageThreeText==6){
-                        LeeJongHyunWord[8].style.transform="translate(-10vw, -40vh) scale(3)"
-                        setPageThreeText(7)
-                    }
-                    else if(PageThreeText==7){
-                        LeeJongHyunWord[4].style.transform="translate(73vw, 50vh) scale(3)"
-                        setPageThreeText(8)
-                    }
-                    else if(PageThreeText==8){
-                        LeeJongHyunWord[1].style.transform="translate(-50vw, 350vh) scale(3)"
-                        setPageThreeText(9)
-                    }
-                    else if(PageThreeText==9){
-                        LeeJongHyunWord[5].style.transform="translate(90vw, -60vh) scale(3)"
-                        setPageThreeText(10)
-                    }
-                    else if(PageThreeText==10){
-                        LeeJongHyunWord[7].style.transform="translate(-10vw, 70vh) scale(3)"
-                        setPageThreeText(11)
-                    }
-                    else if(PageThreeText==11){
-                        LeeJongHyunWord[3].style.transform="translate(50vw, 50vh) scale(3)"
-                        setPageThreeText(12)
-                    }
-                    else if(PageThreeText==12){
-                        for(var i = 0; i<LeeJongHyunWord.length;i++){
-                            console.log(i)
-                        LeeJongHyunWord[i].style.transform="translate(0px,0px) scale(0.68)"
+                }else if(window.pageYOffset+100 > view && window.pageYOffset+100 < view*2){console.log("2페이지 내려")
+                    switch(PageThreeText){
+                        case 1:
+                            LeeJongHyunWord[0].style.transform="translate(1px,1px) scale(1)"
+                            setPageThreeText(2)
+                            break;
+                        case 2:
+                            LeeJongHyunWord[10].style.transform="translate(-50vw, 10vh) scale(3)"
+                            setPageThreeText(3)
+                            break;
+                        case 3:
+                            LeeJongHyunWord[2].style.transform="translate(0vw, -150vh) scale(3)"
+                            setPageThreeText(4)
+                            break;
+                        case 4:
+                            LeeJongHyunWord[9].style.transform="translate(25vw, -50vh) scale(3)"
+                            setPageThreeText(5)
+                            break;
+                        case 5:
+                            LeeJongHyunWord[6].style.transform="translate(-50vw, 21vh) scale(3)"
+                            setPageThreeText(6)
+                            break;
+                        case 6:
+                            LeeJongHyunWord[8].style.transform="translate(-10vw, -40vh) scale(3)"
+                            setPageThreeText(7)
+                            break;
+                        case 7:
+                            LeeJongHyunWord[4].style.transform="translate(73vw, 50vh) scale(3)"
+                            setPageThreeText(8)
+                            break;
+                        case 8:
+                            LeeJongHyunWord[1].style.transform="translate(-50vw, 350vh) scale(3)"
+                            setPageThreeText(9)
+                            break;
+                        case 9:
+                            LeeJongHyunWord[5].style.transform="translate(90vw, -60vh) scale(3)"
+                            setPageThreeText(10)
+                        case 10:
+                            LeeJongHyunWord[7].style.transform="translate(-10vw, 70vh) scale(3)"
+                            setPageThreeText(11)
+                            break;
+                        case 11:
+                            LeeJongHyunWord[3].style.transform="translate(50vw, 50vh) scale(3)"
+                            setPageThreeText(12)
+                            break;
+                        case 12:
+                            for(var i = 0; i<LeeJongHyunWord.length;i++){
+                                console.log(i)
+                            LeeJongHyunWord[i].style.transform="translate(0px,0px) scale(0.68)"
+                            }
+                            setPageThreeText(13)
+                            break;
+                        case 13:
+                            window.scrollTo({
+                                top: view * 2,
+                                left: 0,
+                                behavior: "smooth",
+                            });
+                            break;
                         }
-                        
-                        setPageThreeText(13)
-                    }
-                    else if(PageThreeText==13){
-                        window.scrollTo({
-                            top: view * 2,
-                            left: 0,
-                            behavior: "smooth",
-                        });
-                        setPageThreeText(1)
-
-                    }
-                    else if(PageThreeText==14){
-                        
                     }
                 
-              
-                }
-                else if(window.pageYOffset+100 > view*2 &&window.pageYOffset+100 < view*3){
-                 
-
-                    
-                    if(PageThreeText==1){
-                        LeeJongHyunWord[0].style.transform="translate(50vw, 50vh) scale(3)"
-                        setPageThreeText(2)
-                    }else if(PageThreeText==2){
-                        LeeJongHyunWord[10].style.transform="translate(-50vw, 10vh) scale(3)"
-                        setPageThreeText(3)
-                    }
-                    else if(PageThreeText==3){
-                        LeeJongHyunWord[2].style.transform="translate(0vw, -150vh) scale(3)"
-                        setPageThreeText(4)
-                    }
-                    else if(PageThreeText==4){
-                        LeeJongHyunWord[9].style.transform="translate(25vw, -50vh) scale(3)"
-                        setPageThreeText(5)
-                    }
-                    else if(PageThreeText==5){
-                        LeeJongHyunWord[6].style.transform="translate(-50vw, 21vh) scale(3)"
-                        setPageThreeText(6)
-                    }
-                    else if(PageThreeText==6){
-                        LeeJongHyunWord[8].style.transform="translate(-10vw, -40vh) scale(3)"
-                        setPageThreeText(7)
-                    }
-                    else if(PageThreeText==7){
-                        LeeJongHyunWord[4].style.transform="translate(73vw, 50vh) scale(3)"
-                        setPageThreeText(8)
-                    }
-                    else if(PageThreeText==8){
-                        LeeJongHyunWord[1].style.transform="translate(-50vw, 350vh) scale(3)"
-                        setPageThreeText(9)
-                    }
-                    else if(PageThreeText==9){
-                        LeeJongHyunWord[5].style.transform="translate(90vw, -60vh) scale(3)"
-                        setPageThreeText(10)
-                    }
-                    else if(PageThreeText==10){
-                        LeeJongHyunWord[7].style.transform="translate(-10vw, 70vh) scale(3)"
-                        setPageThreeText(11)
-                    }
-                    else if(PageThreeText==11){
-                        LeeJongHyunWord[3].style.transform="translate(50vw, 50vh) scale(3)"
-                        setPageThreeText(12)
-                    }
-                    else if(PageThreeText==12){
-                        LeeJongHyunWord[8].style.transform="translate(50vw, 50vh) scale(3)"
-                        setPageThreeText(13)
-                    }
-                    else if(PageThreeText==13){
-                        LeeJongHyunWord[8].style.transform="translate(50vw, 50vh) scale(3)"
-                        setPageThreeText(14)
-                    }
-                    else if(PageThreeText==14){
+                else if(window.pageYOffset+100 > view*2 &&window.pageYOffset+100 < view*3){console.log("3페이지 내려")
                         window.scrollTo({
                             top: view * 3,
                             left: 0,
                             behavior: "smooth",
                         });
-                    }
-                    
-                    
                 }
-                else if( window.pageYOffset+100 > view*3 &&window.pageYOffset+100 < view*4){
+                else if( window.pageYOffset+100 > view*3 &&window.pageYOffset+100 < view*4){console.log("4페이지 내려")
                     window.scrollTo({
                         top: view * 4,
                         left: 0,
                         behavior: "smooth",
                     });
-                }else if( window.pageYOffset+100 > view*4 &&window.pageYOffset+100 < view*5){
+                }else if( window.pageYOffset+100 > view*4 &&window.pageYOffset+100 < view*5){console.log("5페이지 내려")
                     window.scrollTo({
                         top: view * 5,
                         left: 0,
                         behavior: "smooth",
                     });
-                }else if(window.pageYOffset+100 > view*5 &&window.pageYOffset+100 < view*6){
+                }else if(window.pageYOffset+100 > view*5 &&window.pageYOffset+100 < view*6){console.log("6페이지 내려")
                     window.scrollTo({
                         top: view * 6,
                         left: 0,
                         behavior: "smooth",
                     });
-                }else if(window.pageYOffset+100 > view*6 &&window.pageYOffset+100 < view*7){
+                }else if(window.pageYOffset+100 > view*6 &&window.pageYOffset+100 < view*7){console.log("7페이지 내려")
                     window.scrollTo({
                         top: view * 7,
                         left: 0,
                         behavior: "smooth",
                     });
-                }else if(window.pageYOffset+100 > view*7 && window.pageYOffset+100 < view*8){
+                }else if(window.pageYOffset+100 > view*7 && window.pageYOffset+100 < view*8){console.log("8페이지 내려")
                     window.scrollTo({
                         top: view * 8,
                         left: 0,
                         behavior: "smooth",
                     });
                 }
-            }else{
+            }
+            
+            //위로위로
+            else{
                 if(window.pageYOffset < view*2){
                     window.scrollTo({
                         top: 0,
@@ -264,6 +203,7 @@ document.ready = () => {
                         behavior: "smooth",
                     });
                 }else if(window.pageYOffset < view*3){
+                    setPageThreeText(1)
                     console.log("여긴")
                     window.scrollTo({
                         top: view * 1,
@@ -298,24 +238,6 @@ document.ready = () => {
                 }else if(window.pageYOffset < view*8){
                     window.scrollTo({
                         top: view * 6,
-                        left: 0,
-                        behavior: "smooth",
-                    });
-                }else if(window.pageYOffset < view*9){
-                    window.scrollTo({
-                        top: view * 7,
-                        left: 0,
-                        behavior: "smooth",
-                    });
-                }else if(window.pageYOffset < view*10){
-                    window.scrollTo({
-                        top: view * 8,
-                        left: 0,
-                        behavior: "smooth",
-                    });
-                }else if(window.pageYOffset < view*11){
-                    window.scrollTo({
-                        top: view * 9,
                         left: 0,
                         behavior: "smooth",
                     });
