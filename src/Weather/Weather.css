@@ -1,67 +1,325 @@
-* {
-    margin: 0;
-    padding: 0;
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 100;
+    src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff2) format('woff2'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff) format('woff'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format('opentype');
 }
 
-div {
-    width: 100px;
-    height: 100px;
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 300;
+    src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2) format('woff2'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff) format('woff'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 400;
+    src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format('woff2'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff2) format('woff2'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff) format('woff'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff2) format('woff2'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff) format('woff'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 900;
+    src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff2) format('woff2'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff) format('woff'), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.otf) format('opentype');
+}
+
+
+.MainCube {
     position: absolute;
-}
-
-#out_box {
-    top: calc(50% - 50px);
-    left: calc(50% - 50px);
-    background-color: silver;
+    width: 500px;
+    height: 500px;
+    background-color: red;
     transform-style: preserve-3d;
-    animation: rotates 4s linear infinite;
 }
 
-@keyframes rotates {
-    0% {
-        transform: rotateX(0) rotateY(0);
-    }
-
-    100% {
-        transform: rotateX(360deg) rotateY(180deg);
-    }
-}
-
-.in_box {
-    top: 0;
-    left: 0;
+.MainCube div {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    left: 25%;
+    top: 25%;
     text-align: center;
-    line-height: 100px;
-    font-size: 25px;
+    opacity: 0.5;
+    transform-style: preserve-3d;
+    transform: translateZ(50px) perspective(300px)rotateX(89deg);
+}
+
+.MainCube div:nth-child(1) {
+    transform: translateZ(50px) perspective(300px);
+    background-color: rgba(70, 120, 130, 0.5);
+
+}
+
+.MainCube div:nth-child(2) {
+    transform: translateZ(-50px) perspective(300px);
+    background-color: rgba(0, 20, 180, 0.5);
+
+}
+
+.MainCube div:nth-child(3) {
+
+
+    background-color: rgba(70, 220, 110, 0.5);
+
+}
+
+.MainCube div:nth-child(4) {
+    background-color: rgba(150, 20, 50, 0.5);
+
+}
+
+.MainCube div:nth-child(5) {
+    background-color: rgba(90, 20, 130, 0.5);
+
+}
+
+.MainCube div:nth-child(6) {
+    background-color: rgba(180, 130, 150, 0.5);
+}
+
+/* 
+.cubeMain {
+
+    position: absolute;
+    left: 300px;
+    top: 300px;
+    width: 200px;
+    height: 200px;
+    box-sizing: border-box;
+    border: 2px solid white;
+    perspective: 400px;
+
+} */
+
+.cube {
+
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+
+}
+
+@keyframes rotateCube {
+
+    from {
+        transform: rotateX(360deg) rotateY(0deg) rotateZ(0deg);
+    }
+
+    to {
+        transform: rotateX(0deg) rotateY(360deg) rotateZ(360deg);
+    }
+
+}
+
+.cube-face {
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 3px solid white;
+    box-shadow: 0px 0px 40px 5px yellow;
+
+}
+
+.cube-face-front {
+    background: hsla(0, 100%, 50%, 0.5);
+}
+
+.cube-face-right {
+    background: hsla(60, 100%, 50%, 0.5);
+}
+
+.cube-face-back {
+    background: hsla(120, 100%, 50%, 0.5);
+}
+
+.cube-face-left {
+    background: hsla(180, 100%, 50%, 0.5);
+}
+
+.cube-face-top {
+    background: hsla(240, 100%, 50%, 0.5);
+}
+
+.cube-face-bottom {
+    background: hsla(300, 100%, 50%, 0.5);
+}
+
+
+.cube-face-front {
+    transform: rotateY(0deg) translateZ(100px);
+}
+
+.cube-face-back {
+    transform: rotateY(180deg) translateZ(100px);
+}
+
+.cube-face-right {
+    transform: rotateY(90deg) translateZ(100px);
+}
+
+.cube-face-left {
+    transform: rotateY(-90deg) translateZ(100px);
+}
+
+.cube-face-top {
+    transform: rotateX(90deg) translateZ(100px);
+}
+
+.cube-face-bottom {
+    transform: rotateX(-90deg) translateZ(100px);
+}
+
+.cubeMain {
     transform-style: preserve-3d;
 }
 
-.in_box:nth-child(1) {
-    transform: translateZ(50px) perspective(300px);
-    background-color: pink;
+.DiceMain {
+    position: absolute;
+
+    width: 100vw;
+    height: 100vh;
+    transform-style: preserve-3d;
+    perspective: 100vw;
+
 }
 
-.in_box:nth-child(2) {
-    transform: translateZ(-50px) perspective(300px);
-    background-color: skyblue;
+.DiceMain div {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+
 }
 
-.in_box:nth-child(3) {
-    transform: translateX(50px) rotateY(90deg) perspective(300px);
-    background-color: yellowgreen;
+
+
+.DiceMain div:nth-child(1) {
+    background-color: rgba(150, 20, 50, 0.5);
+    transform: rotateY(0deg) translateZ(0px);
 }
 
-.in_box:nth-child(4) {
-    transform: translateX(-50px) rotateY(90deg) perspective(300px);
-    background-color: paleturquoise;
+.DiceMain div:nth-child(2) {
+    background-color: rgba(70, 20, 100, 0.5);
+    transform: rotateY(180deg) translateZ(50vw);
 }
 
-.in_box:nth-child(5) {
-    transform: translateY(50px) rotateX(90deg) perspective(300px);
-    background-color: snow;
+.DiceMain div:nth-child(3) {
+    background-color: rgba(170, 20, 100, 0.5);
+    transform: rotateY(270deg) translateZ(50vw);
 }
 
-.in_box:nth-child(6) {
-    transform: translateY(-50px) rotateX(90deg) perspective(300px);
-    background-color: ivory;
+.DiceMain div:nth-child(4) {
+    background-color: rgba(10, 220, 180, 0.5);
+    transform: rotateY(90deg) translateZ(50vw);
+}
+
+.DiceMain div:nth-child(5) {
+    background-color: rgba(10, 220, 100, 0.5);
+    transform: rotateX(90deg) translate3D(0, -25.5vw, 50vh)
+}
+
+.DiceMain div:nth-child(6) {
+    background-color: rgba(120, 20, 100, 0.5);
+    transform: rotateX(-90deg) translate3D(0, 25.5vw, 50vh);
+}
+
+
+
+
+.WaterMill {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    transform-style: preserve-3d;
+    perspective: 100vw;
+    left: 0px;
+    top: 0px;
+}
+
+.WaterMillContainer {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    transform-style: preserve-3d;
+    perspective: 100vw;
+    left: 0px;
+    top: 0px;
+}
+
+.WaterMillPageOne {
+
+    position: absolute;
+    font-size: 4rem;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-stroke: 1px black;
+}
+
+.WaterMillPageOne::before {
+    content: "awsdasd";
+    font-size: 4rem;
+    color: red;
+    position: absolute;
+    width: 0%;
+    overflow: hidden;
+    transition: all 1s;
+}
+
+.WaterMillPageOne::before:hover {
+    width: 100%;
+}
+
+.WaterMillPageOne:hover::before {
+    width: 100%;
+}
+
+
+.WaterMillPageTwo {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    background-color: red;
+    transform: perspective(500px) translate3D(100px, 100px, -010px);
+}
+
+.WaterMillPageThree {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    background-color: blue;
+    transform: perspective(500px) translate3D(50px, 50px, -010px);
+
+}
+
+.WaterMillPagefour {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    background-color: green;
+    transform: perspective(500px) translate3D(0px, 00px, -10px) rotateX(180deg);
+
 }
