@@ -16,7 +16,7 @@ import Vhom from "./VHOM/vhom.js";
 import Stealien from "./Stealien/Stealien.js";
 import My from "./my/my.js";
 import MyMy from "./mymy/mymy.js"
-
+import Weather from "./Weather/Weather.js"
 import HerenNow from "./HerenNow/HerenNow.js"
 
 import {
@@ -110,6 +110,7 @@ class App extends Component {
           <Route path="/HerenNow" element={<HerenNow/>}/>
           <Route path="/My" element={<My/>}/>
           <Route path="/MyMy" element={<MyMy/>}/>
+          <Route path="/Main" element={<Weather/>}/>
           <Route exact path="/" element={<MyMy />} />
           <Route path="*"  element={<MyMy />} />
 

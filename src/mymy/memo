@@ -40,10 +40,10 @@ const makeStars = () => {
   const getRandomY = () => Math.random() * maxSize*2;
 
   // 랜덤한 크기 (circle는 반지름이 크기)
-  const randomRadius = () =>  Math.random() * 0.7 + 0.3;
+  const randomRadius = () =>  Math.random() * 0.7 + 0.6;
   
   // 임의의 값
-  const _size = Math.floor(maxSize*5);
+  const _size = Math.floor(maxSize / 2);
   
   const htmlDummy = new Array(_size).fill().map((_, i) => {
     return  `<circle 
@@ -58,20 +58,23 @@ const makeStars = () => {
 
 
 window.onresize = () => {
-    console.log("hey")
-}
-window.onload = () => {
+    makeStars();
+  }
+  window.onload = () => {
+      makeStars();
 }
 document.ready = () => {
+    makeStars();
 }
    
 
     useEffect((e)=>{
+
         const zxcasd=document.getElementsByClassName("zxcasd");
         let scrollLocation = document.documentElement.scrollTop;
         var winY = window.pageYOffset;// 현재 내 위치 y값
         var view = window.innerHeight;//내 모니터 y값
-        makeStars();
+
 
         const wheelHandler = (e) =>{
         setpageYOffseta(window.pageYOffset)
@@ -79,18 +82,75 @@ document.ready = () => {
       
             if(e.deltaY>0){//마우스 휠
                 if(window.pageYOffset < view){
+                    console.log("1페이지 내려")
+                    makeStars();
+                    if( PageOneText==1){
                     window.scrollTo({
                         top: view * 1,
                         left: 0,
                         behavior: "smooth",
                     });
+                    }
                 }else if(window.pageYOffset+100 > view && window.pageYOffset+100 < view*2){console.log("2페이지 내려")
-                   
-                        window.scrollTo({
-                            top: view * 2,
-                            left: 0,
-                            behavior: "smooth",
-                        });
+                    switch(PageThreeText){
+                        case 1:
+                            LeeJongHyunWord[0].style.transform="translate(1px,1px) scale(1)"
+                            setPageThreeText(2)
+                            break;
+                        case 2:
+                            LeeJongHyunWord[10].style.transform="translate(-50vw, 10vh) scale(3)"
+                            setPageThreeText(3)
+                            break;
+                        case 3:
+                            LeeJongHyunWord[2].style.transform="translate(0vw, -150vh) scale(3)"
+                            setPageThreeText(4)
+                            break;
+                        case 4:
+                            LeeJongHyunWord[9].style.transform="translate(25vw, -50vh) scale(3)"
+                            setPageThreeText(5)
+                            break;
+                        case 5:
+                            LeeJongHyunWord[6].style.transform="translate(-50vw, 21vh) scale(3)"
+                            setPageThreeText(6)
+                            break;
+                        case 6:
+                            LeeJongHyunWord[8].style.transform="translate(-10vw, -40vh) scale(3)"
+                            setPageThreeText(7)
+                            break;
+                        case 7:
+                            LeeJongHyunWord[4].style.transform="translate(73vw, 50vh) scale(3)"
+                            setPageThreeText(8)
+                            break;
+                        case 8:
+                            LeeJongHyunWord[1].style.transform="translate(-50vw, 350vh) scale(3)"
+                            setPageThreeText(9)
+                            break;
+                        case 9:
+                            LeeJongHyunWord[5].style.transform="translate(90vw, -60vh) scale(3)"
+                            setPageThreeText(10)
+                        case 10:
+                            LeeJongHyunWord[7].style.transform="translate(-10vw, 70vh) scale(3)"
+                            setPageThreeText(11)
+                            break;
+                        case 11:
+                            LeeJongHyunWord[3].style.transform="translate(50vw, 50vh) scale(3)"
+                            setPageThreeText(12)
+                            break;
+                        case 12:
+                            for(var i = 0; i<LeeJongHyunWord.length;i++){
+                                console.log(i)
+                            LeeJongHyunWord[i].style.transform="translate(0px,0px) scale(0.68)"
+                            }
+                            setPageThreeText(13)
+                            break;
+                        case 13:
+                            window.scrollTo({
+                                top: view * 2,
+                                left: 0,
+                                behavior: "smooth",
+                            });
+                            break;
+                        }
                     }
                 
                 else if(window.pageYOffset+100 > view*2 &&window.pageYOffset+100 < view*3){console.log("3페이지 내려")
@@ -142,7 +202,8 @@ document.ready = () => {
                         behavior: "smooth",
                     });
                 }else if(window.pageYOffset < view*3){
-                    
+                    setPageThreeText(1)
+                    console.log("여긴")
                     window.scrollTo({
                         top: view * 1,
                         left: 0,
@@ -186,11 +247,20 @@ document.ready = () => {
      
         const mymyPageCurrent = mymyPage.current;
         mymyPageCurrent.addEventListener("wheel", wheelHandler);
-    },[]);
+    });
     return(
         <div className="mymyFullPage"  ref={mymyPage}>
             
-
+{/* <svg width="500" height="500">
+            <circle 
+		cx="100"
+        cy="100"
+        r="100.2"
+        stroke="black"  fill="red"
+        className="star" />
+               
+               
+               </svg> */}
             <div className="mymyPage1 mymyFull">
                <div className="fixtext">
                 {PageThreeText}
