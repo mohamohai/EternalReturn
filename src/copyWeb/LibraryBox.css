@@ -1,0 +1,404 @@
+.Part {
+    width: 100vw;
+    height: 100vh;
+}
+
+.Part:nth-child(1) {
+    background-color: red;
+}
+
+.Part:nth-child(2) {
+    background-color: green;
+}
+
+
+.rainbow {
+    margin-top: 10px;
+    width: 300px;
+    height: 30px;
+    background-color: black;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+    position: absolute;
+    top: 100px;
+    left: 520px;
+}
+
+.rainbow::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, red, orange, yellow, yellowgreen, green, blue, purple);
+    animation: moverainbow 20s linear infinite;
+    background-size: 500%;
+
+
+}
+
+.rainbow::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, red, orange, yellow, yellowgreen, green, blue, purple);
+    background-size: 500%;
+    filter: blur(10px);
+    animation: moverainbow 20s linear infinite;
+    border-radius: 20px;
+}
+
+@keyframes moverainbow {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: -500% 0;
+    }
+
+    0% {
+        background-position: 0 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.neonBox {
+    width: 500px;
+    height: 550px;
+    background-color: rgb(47, 40, 40);
+    position: relative;
+    overflow: hidden;
+}
+
+.neonBox::before {
+    content: "";
+    width: 500px;
+    height: 550px;
+    background: linear-gradient(0deg, transparent, #45f3ff);
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    transform-origin: bottom right;
+    animation: neonBoxMove 6s linear infinite;
+}
+
+.neonBox::after {
+    content: "";
+    width: 500px;
+    height: 550px;
+    background: linear-gradient(0deg, transparent, #45f3ff);
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    transform-origin: bottom right;
+    animation: neonBoxMove 6s linear infinite;
+    animation-delay: 3s;
+}
+
+.neonBoxOne {
+    position: absolute;
+    inset: 5px;
+    z-index: 10;
+    background-color: rgb(47, 40, 40);
+    ;
+}
+
+.neonLogin {
+    position: absolute;
+    z-index: 5000;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 100px 0 0 0;
+    color: white;
+    left: 175px;
+}
+
+.neonLogin div {
+    margin-bottom: 50px;
+}
+
+.neonLoginText {
+    z-index: 2000;
+}
+
+.neoninput {
+    background-color: rgb(47, 40, 40);
+    border: none;
+    height: 20px;
+    transition: 0.5s all;
+    transform: translateY(10px);
+    border-bottom: solid 1px #45f3ff;
+    position: relative;
+    top: 5px;
+}
+
+/* 이걸 겹치게 한 다음에 클릭하면 위로 올가가게 배경색은 없이 */
+
+.neonBox input:focus,
+.neonBox input:valid {
+    height: 25px;
+    transition: 0.5s all;
+    background-color: #45f3ff;
+    border-radius: 4px;
+}
+
+.neonBox input:focus+span,
+.neonBox input:valid+span {
+    height: 25px;
+    transition: 0.5s all;
+    color: #45f3ff;
+    font-size: 0.5rem;
+    transform: translateY(-10px)
+}
+
+.neonLogin span {
+    position: absolute;
+    left: 0px;
+    transition: 0.5s all;
+}
+
+
+
+.boxbox {
+    position: relative;
+    left: -500px;
+    top: -200px;
+    width: 300px;
+    height: 400px;
+    transform-style: preserve-3d;
+
+}
+
+.chch {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 2s ease-in-out;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transform: perspective(500px) rotateY(0deg);
+
+}
+
+.boxboxfront {
+    background-color: rgb(180, 180, 6);
+}
+
+.boxboxback {
+    background-color: rgb(112, 112, 185);
+    transform: perspective(500px) rotateY(180deg);
+}
+
+.boxbox:hover .boxboxfront.chch {
+    transform: perspective(500px) rotateY(180deg);
+}
+
+.boxbox:hover .boxboxback.chch {
+    transform: perspective(500px) rotateY(360deg);
+}
+
+.boxbox h1 {
+    font-size: 4rem;
+    text-transform: uppercase;
+    transform: perspective(500px) translateZ(50px);
+}
+
+.boxbox img {
+    font-size: 4rem;
+    text-transform: uppercase;
+    transform: perspective(500px) translateZ(50px);
+}
+
+
+
+@keyframes neonBoxMove {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
+
+:root {
+    --flip1: 0;
+    --flip2: 1;
+    --flip3: 2;
+    --flip4: 3;
+}
+
+.flipPage {
+
+    display: flex;
+
+    height: 100vh;
+}
+
+.flipPagew {
+    width: 600px;
+    height: 360px;
+    transform: rotate(-15deg) skew(15deg);
+    transition: 0.5s;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+}
+
+.flipPagew:hover {
+    transform: rotate(-25deg) skew(-25deg) translateY(-20px);
+}
+
+.flipPagew:hover+.flipshadow {
+    transform: rotate(-25deg) skew(-25deg) translateY(-20px);
+}
+
+.flipPagew span {
+    width: 25%;
+    background: url("./halloween.png");
+    background-size: cover;
+    height: 100%;
+    display: block;
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.flipshadow span {
+    width: 25%;
+    background-size: cover;
+    height: 100%;
+    display: block;
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.flipPagew span:nth-child(1) {
+    background-position: calc(-150px * var(--flip1))
+}
+
+.flipPagew span:nth-child(2) {
+    background-position: calc(-150px * var(--flip2))
+}
+
+.flipPagew span:nth-child(3) {
+    background-position: calc(-150px * var(--flip3))
+}
+
+.flipPagew span:nth-child(4) {
+    background-position: calc(-150px * var(--flip4))
+}
+
+.flipshadow span:nth-child(1) {
+    background-position: calc(-150px * var(--flip1))
+}
+
+.flipshadow span:nth-child(2) {
+    background-position: calc(-150px * var(--flip2))
+}
+
+.flipshadow span:nth-child(3) {
+    background-position: calc(-150px * var(--flip3))
+}
+
+.flipshadow span:nth-child(4) {
+    background-position: calc(-150px * var(--flip4))
+}
+
+
+.flipPagew:hover span:nth-child(odd) {
+    transform: skewY(30deg);
+    box-shadow: inset 20px 0 50px rgba(0, 0, 0, 0.5);
+}
+
+.flipPagew:hover span:nth-child(even) {
+    transform: skewY(-30deg);
+    box-shadow: inset 20px 0 50px rgba(0, 0, 0, 0.5);
+
+}
+
+.flipPagew:hover+.flipshadow span:nth-child(odd) {
+    transform: skewY(30deg);
+    box-shadow: 20px 0 50px rgba(0, 0, 0, 0.5);
+}
+
+.flipPagew:hover+.flipshadow span:nth-child(even) {
+    transform: skewY(-30deg);
+    box-shadow: 20px 0 50px rgba(0, 0, 0, 0.5);
+}
+
+
+.flipshadow {
+    width: 600px;
+    height: 360px;
+    transform: rotate(-15deg) skew(15deg);
+    transition: 0.5s;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    z-index: -1;
+}
+
+
+.circleRotate {
+    width: 300px;
+    height: 300px;
+    border: 1px black solid;
+    border-radius: 100%;
+    position: absolute;
+    left: 200px;
+    top: 1500px;
+}
+
+.circleRotatea {
+    width: 50px;
+    height: 50px;
+    background-color: plum;
+    position: relative;
+    border-radius: 100%;
+    animation: circleRotateK 4s infinite linear;
+    top: 125px
+}
+
+@keyframes circleRotateK {
+    0% {
+        transform: rotate(0deg) translate(150px)
+    }
+
+
+
+    100% {
+        transform: rotate(360deg) translate(150px)
+    }
+}
+
+
+.wheelCircle {
+    width: 50px;
+    height: 50px;
+    background-color: pink;
+    position: fixed;
+    left: 800px;
+    top: 300px;
+    border-radius: 100%;
+    transition: all 1s;
+    transform: scale(1);
+
+}

@@ -18,7 +18,7 @@ import My from "./my/my.js";
 import MyMy from "./mymy/mymy.js"
 import Weather from "./Weather/Weather.js"
 import HerenNow from "./HerenNow/HerenNow.js"
-
+import LibraryBox from "./copyWeb/LibraryBox.js";
 import {
   BrowserRouter,
   Route,
@@ -111,10 +111,12 @@ class App extends Component {
           <Route path="/My" element={<My/>}/>
           <Route path="/MyMy" element={<MyMy/>}/>
           <Route path="/Main" element={<Weather/>}/>
+          <Route path="Pixel"  element={<Pixel />} />
+          <Route path="LibraryBox"  element={<LibraryBox />} />
           <Route exact path="/" element={<MyMy />} />
           <Route path="*"  element={<MyMy />} />
-
-
+     
+          
         </Routes>
       </BrowserRouter>
     </div>
