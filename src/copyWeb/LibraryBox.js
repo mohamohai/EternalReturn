@@ -4,10 +4,17 @@
 import { useState, useEffect, useRef } from "react";
 import "./LibraryBox.css";
 
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLightbulb,faGears,faBriefcase,faHeadset,faFurniture } from "@fortawesome/free-solid-svg-icons";
+import { faTwitter,faYoutube,faFacebook } from '@fortawesome/free-brands-svg-icons'
+
 function LibraryBox() {
   const LibraryBoxRef= useRef();
   const [Text, setText] = useState('');    //입력 할 문자 하나
   const [Count, setCount] = useState(0);   //val iaaaa
+  const [rangeProgress, setrangeProgress] = useState(50);
+  const aazz = document.getElementById("aazz");
 
   useEffect(()=>{
     const wheelCircle = document.getElementsByClassName("wheelCircle")
@@ -16,10 +23,10 @@ function LibraryBox() {
     
     
     const wheelHandler = (e) =>{
+      setrangeProgress(document.getElementById("aazz").value)
       let scrollLocation = document.documentElement.scrollTop;
       var pageHeight = window.innerHeight;
       var winY = window.pageYOffset/100;
-      console.log(window.pageYOffset)
       wheelCircle[0].style.transform=`scale(${winY})`
       }
       const LibraryBoxCurrent = LibraryBoxRef.current;
@@ -84,11 +91,17 @@ function LibraryBox() {
         </div>
 
         <div className="Part">
-
+          <div className="dragBox">
+          
+            <input type="range" id="aazz" className="rangeBox" min="0" max="100"></input>
+            {rangeProgress}
+          </div>
         </div>
 
         <div className="Part">
-
+          <div className="WaterMillPageOne">awsdasd
+                    
+          </div>
         </div>
 
         <div className="Part">

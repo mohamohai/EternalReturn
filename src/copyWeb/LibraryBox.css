@@ -3,13 +3,14 @@
     height: 100vh;
 }
 
-.Part:nth-child(1) {
+.Part:nth-child(2n+1) {
     background-color: red;
 }
 
-.Part:nth-child(2) {
+.Part:nth-child(2n) {
     background-color: green;
 }
+
 
 
 .rainbow {
@@ -400,4 +401,38 @@
     transition: all 1s;
     transform: scale(1);
 
+}
+
+.dragBox {
+    position: relative;
+    top: 500px;
+    left: 500px;
+}
+
+
+
+.WaterMillPageOne {
+    position: absolute;
+    font-size: 4rem;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-stroke: 1px black;
+}
+
+.WaterMillPageOne::before {
+    content: "awsdasd";
+    font-size: 4rem;
+    color: red;
+    position: absolute;
+    width: 0%;
+    overflow: hidden;
+    transition: all 1s;
+}
+
+.WaterMillPageOne::before:hover {
+    width: 100%;
+}
+
+.WaterMillPageOne:hover::before {
+    width: 100%;
 }
