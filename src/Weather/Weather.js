@@ -36,16 +36,43 @@ const makeStars = () => {
   $sky[0].innerHTML = htmlDummy;
 }
 
-const fff = ()=>{
+function fff(){
     console.log("aaa")
+   
 }
 
+useEffect((e)=>{
+    makeStars();
+},[])
+  const [txt,settxt] = useState("Pixel");    //타이핑에 쓸 문구
+  const [Text, setText] = useState('');    //입력 할 문자 하나
+  const [Count, setCount] = useState(0); 
+useEffect(() => {
+    const interval = setInterval(() => {
+        setText(Text + txt[Count]); // 이전 set한 문자 + 다음 문자
+        setCount(Count + 1); // 개수 만큼 체크 
+        
+    }, 200);
+    if(Count-1 == txt.length)  {  // 문자열 길이 맞으면 아래 실행인데 클리어로 반복 없애기
+      settxt("LeeJongHyun")
+      setText("");
+      setCount(0);
+       
+    }
+    return () => {
+      clearInterval(interval);
+    };
 
+})
     return(
         <div className="Mission">
+            
             <div className="MissionPageOne">
-                <div className="sky"></div>
-                <div onClick={()=>fff}>1,2,3,4,5,6,7,8,9</div>
+                <svg className="sky"></svg>
+                <div className="MissionPageOneText">
+                { Text }<span className="blink"></span>
+            </div> 
+                
             </div>
 
 
