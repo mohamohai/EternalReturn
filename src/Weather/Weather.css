@@ -252,3 +252,10 @@ table {
         opacity: 0;
     }
 }
+
+.fixText {
+    position: fixed;
+    top: 50px;
+    left: 500px;
+    font-size: 5rem;
+}

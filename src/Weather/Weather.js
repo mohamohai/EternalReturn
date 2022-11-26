@@ -30,54 +30,42 @@ const makeStars = () => {
 
 const [TypingWords,setTypingWords] = useState("Lee Jong Hyun");    //타이핑에 쓸 문구
 const [TypingStep, setTypingStep] = useState('');    //새로 생기는 문자
-const [TypingWordsCountUp, setTypingWordsCountUp] = useState(0);  //문자 위치
-const [TypingWordsCountDown, setTypingWordsCountDown] = useState(0);
-const [TypingPhase, setTypingPhase]= useState(0);
+const [TypingCountUp, setTypingCountUp] = useState(0);  //문자 위치
 
 
-function ChangeTextFunction(){ //한글자씩 추가
-  setTypingWordsCountUp  (TypingWordsCountUp+1); // 개수 만큼 체크 
-  setTypingWordsCountDown(TypingWordsCountUp+1);
-  setTypingStep(TypingStep + TypingWords[TypingWordsCountUp])
-  
-}
-function ChangeTextFunctionReturn(){
- 
-    console.log(TypingStep.substring(0,5))
-    setTypingWordsCountUp  (TypingWordsCountUp-1); // 개수 만큼 체크 
-    setTypingWordsCountDown(TypingWordsCountUp-1);
-  
-  //setTypingStep(TypingStep.substring(0,TypingWords.length-1))
-}
-
-function ChangeTextFunctionTwo(){ //다 쓰면 뭐할래
-  if(TypingWordsCountUp-1 == TypingWords.length)  {  // 문자열 길이 맞으면 아래 실행인데 클리어로 반복 없애기
-    setTypingWords("Lee Dae Gyu")
-    setTypingStep("");
-    setTypingWordsCountUp(0);
+function ChangeTextFunction(){
+  console.log(TypingWords.length,TypingCountUp )
+  if(TypingWords.length!=TypingCountUp){
+    setTypingStep(TypingStep + TypingWords[TypingCountUp])
+    setTypingCountUp(TypingCountUp + 1); // 개수 만큼 체크 
   }
+  
 }
+
 useEffect((e)=>{
   makeStars();
+
 },[])
-  
+var interval = setInterval(() => {
+  ChangeTextFunction();
+  }, 400);
 useEffect(() => {
-    const interval = setInterval(() => {
-    ChangeTextFunction();
-    }, 500);
+   
     
-    if(TypingWordsCountUp-1 == TypingWords.length-1 && TypingPhase==0){
-      ChangeTextFunctionReturn();
+    if(TypingWords.length==TypingCountUp){
       clearInterval(interval)
+      console.log("끝")
+      setTypingCountUp(1)
     }
 
     return () => {
       clearInterval(interval);
     };
+
 })
     return(
         <div className="Mission">
-            <div className="MissionPageOne">
+          <div className="MissionPageOne">
                 <svg className="sky"></svg>
                 <div className="MissionPageOneText">
                   <div className="TypingWord">
