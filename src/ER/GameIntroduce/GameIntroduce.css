@@ -461,17 +461,6 @@ body {
     float: left;
 }
 
-.blink {
-    animation: blink 0.4s infinite;
-    font-size: 80px;
-    border-left: 3px solid white;
-}
-
-@keyframes blink {
-    to {
-        opacity: 0;
-    }
-}
 
 
 .box {

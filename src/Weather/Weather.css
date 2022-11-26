@@ -175,7 +175,7 @@ table {
 }
 
 .MissionPageOne {
-    width: 150vw;
+    width: 100vw;
     height: 100vh;
     position: relative;
     color: white;
@@ -184,9 +184,19 @@ table {
 }
 
 /* 별을 감싼 부모 */
+/* .sky {
+    width: 200vw;
+    z-index: 1;
+    height: 200vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: moveStar 150s linear infinite;
+} */
 .sky {
     width: 200vw;
-    z-index: 2;
+    z-index: 1;
     height: 200vw;
     position: absolute;
     top: 50%;
@@ -215,9 +225,30 @@ table {
 
 
 .MissionPageOneText {
-    font-size: 50rem;
+    font-size: 10rem;
     color: white;
     font-family: "Noto Sans Kr";
     position: relative;
 
+}
+
+.TypingWord {
+    position: relative;
+    line-height: 90vh;
+    text-align: center;
+    font-family: "Noto Sans KR";
+}
+
+.blink {
+    animation: blink 0.4s infinite;
+    font-size: 80px;
+    border-left: 3px solid white;
+    height: 10rem;
+    margin-top: 38vh;
+}
+
+@keyframes blink {
+    to {
+        opacity: 0;
+    }
 }
