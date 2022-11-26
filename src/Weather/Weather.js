@@ -32,6 +32,8 @@ const [TypingWords,setTypingWords] = useState("Lee Jong Hyun");    //타이핑�
 const [TypingStep, setTypingStep] = useState('');    //새로 생기는 문자
 const [TypingCountUp, setTypingCountUp] = useState(0);  //문자 위치
 
+const number_ref = useRef(0);
+
 
 function ChangeTextFunction(){
   console.log(TypingWords.length,TypingCountUp )
@@ -49,13 +51,12 @@ useEffect((e)=>{
 var interval = setInterval(() => {
   ChangeTextFunction();
   }, 400);
+  
 useEffect(() => {
-   
-    
     if(TypingWords.length==TypingCountUp){
       clearInterval(interval)
       console.log("끝")
-      setTypingCountUp(1)
+      
     }
 
     return () => {
@@ -63,6 +64,39 @@ useEffect(() => {
     };
 
 })
+
+
+function useInterval(callback, delay) {
+  const savedCallback = useRef();
+  useEffect(() => {
+      savedCallback.current = callback;
+  }, [callback]);
+
+  useEffect(() => {
+      function tick() {
+          savedCallback.current();
+      }
+      if (delay !== null) {
+          let id = setInterval(tick, delay);
+          return () => clearInterval(id);
+      }
+  }, [delay]);
+}
+
+function Test(){
+const [count, setCount] = useState(0);
+
+useInterval(()=>{
+  setCount(count => count+1);
+  console.log(count)
+}, 1000);
+}
+
+
+
+
+
+
     return(
         <div className="Mission">
           <div className="MissionPageOne">
