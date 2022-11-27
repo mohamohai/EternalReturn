@@ -93,7 +93,7 @@ useEffect((e)=>{
   
   // 초기 실행
   setTimeout(typing, 500);
-  
+  "dev": "concurrently \"nodemon server/server.js\" \"node scripts/start.js\"",
 },[])
 
   
