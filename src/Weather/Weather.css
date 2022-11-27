@@ -253,6 +253,19 @@ table {
     }
 }
 
+.text2 {
+    position: fixed;
+    top: 100px;
+    left: 400px;
+    color: red;
+}
+
+.text {
+
+
+    color: red;
+}
+
 .fixText {
     position: fixed;
     top: 50px;

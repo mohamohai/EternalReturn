@@ -31,15 +31,10 @@ const makeStars = () => {
 const [TypingWords,setTypingWords] = useState("Lee Jong Hyun");    //타이핑에 쓸 문구
 const [TypingStep, setTypingStep] = useState('');    //새로 생기는 문자
 const [TypingCountUp, setTypingCountUp] = useState(0);  //문자 위치
-const letters = [
-  "HTML",
-  "CSS", 
-  "JavaScript"
-];
-const number_ref = useRef(0);
-const $text = document.getElementsByClassName("text");
 
-// 글자 모음
+const number_ref = useRef(0);
+
+
 function ChangeTextFunction(){
   console.log(TypingWords.length,TypingCountUp )
   if(TypingWords.length!=TypingCountUp){
@@ -50,57 +45,13 @@ function ChangeTextFunction(){
 
 useEffect((e)=>{
   makeStars();
-  // 글자 입력 속도
-  const speed = 100;
-  let i = 0;
-  setTimeout(()=> console.log("1초 딜레이"),3000)
-  // 타이핑 효과
-  const typing = async () => {  
-    const letter = letters[i].split("");
-    
-    while (letter.length) {
-      await wait(speed);
-      $text[0].innerHTML += letter.shift(); 
-    }
-    
-    // 잠시 대기
-    await wait(800);
-    
-    // 지우는 효과
-    remove();
-  }
-  
-  // 글자 지우는 효과
-  const remove = async () => {
-    const letter = letters[i].split("");
-    
-    while (letter.length) {
-      await wait(speed);
-      
-      letter.pop();
-      $text[0].innerHTML = letter.join(""); 
-    }
-    
-    // 다음 순서의 글자로 지정, 타이핑 함수 다시 실행
-    i = !letters[i+1] ? 0 : i + 1;
-    typing();
-  }
-  
-  // 딜레이 기능 ( 마이크로초 )
-  function wait(ms) {
-    return new Promise(res => setTimeout(res, ms))
-  }
-  
-  // 초기 실행
-  setTimeout(typing, 500);
-  
-},[])
 
+},[])
+var interval = setInterval(() => {
+  ChangeTextFunction();
+  }, 400);
   
 useEffect(() => {
-  const interval = setInterval(() => {
-    ChangeTextFunction();
-    }, 400);
     if(TypingWords.length==TypingCountUp){
       clearInterval(interval)
       console.log("끝")
@@ -114,6 +65,36 @@ useEffect(() => {
 })
 
 
+function useInterval(callback, delay) {
+  const savedCallback = useRef();
+  useEffect(() => {
+      savedCallback.current = callback;
+  }, [callback]);
+
+  useEffect(() => {
+      function tick() {
+          savedCallback.current();
+      }
+      if (delay !== null) {
+          let id = setInterval(tick, delay);
+          return () => clearInterval(id);
+      }
+  }, [delay]);
+}
+
+function Test(){
+const [count, setCount] = useState(0);
+
+useInterval(()=>{
+  setCount(count => count+1);
+  console.log(count)
+}, 1000);
+}
+
+
+
+
+
 
     return(
         <div className="Mission">
@@ -122,7 +103,6 @@ useEffect(() => {
                 <div className="MissionPageOneText">
                   <div className="TypingWord">
                     { TypingStep }<span className="blink"></span>
-                    <div className="text2">Language! <h1 className="text">aa</h1><span className="blink"></span></div>
                   </div>
                 </div> 
             </div>
@@ -141,3 +121,66 @@ useEffect(() => {
         </div>
     )
 } export default Weather;
+
+
+
+
+
+
+
+
+
+
+
+const $text = document.querySelector(".text");
+
+// 글자 모음
+const letters = [
+  "HTML",
+  "CSS", 
+  "JavaScript"
+];
+
+// 글자 입력 속도
+const speed = 100;
+let i = 0;
+
+// 타이핑 효과
+const typing = async () => {  
+  const letter = letters[i].split("");
+  
+  while (letter.length) {
+    await wait(speed);
+    $text.innerHTML += letter.shift(); 
+  }
+  
+  // 잠시 대기
+  await wait(800);
+  
+  // 지우는 효과
+  remove();
+}
+
+// 글자 지우는 효과
+const remove = async () => {
+  const letter = letters[i].split("");
+  
+  while (letter.length) {
+    await wait(speed);
+    
+    letter.pop();
+    $text.innerHTML = letter.join(""); 
+  }
+  
+  // 다음 순서의 글자로 지정, 타이핑 함수 다시 실행
+  i = !letters[i+1] ? 0 : i + 1;
+  typing();
+}
+
+// 딜레이 기능 ( 마이크로초 )
+function wait(ms) {
+  return new Promise(res => setTimeout(res, ms))
+}
+
+// 초기 실행
+setTimeout(typing, 1500);
