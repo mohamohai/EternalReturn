@@ -32,23 +32,27 @@ const [TypingWords,setTypingWords] = useState("Lee Jong Hyun");    //타이핑�
 const [TypingStep, setTypingStep] = useState('');    //새로 생기는 문자
 const [TypingCountUp, setTypingCountUp] = useState(0);  //문자 위치
 const letters = [
-  "HTML",
-  "CSS", 
-  "JavaScript"
+  "가나다라마바사아자차카타파하",
+  "abcedfghijklmnopqrstuvwxyz", 
+  "12345678910"
 ];
 const number_ref = useRef(0);
-const $text = document.getElementsByClassName("text");
+const $TypingChange = document.getElementsByClassName("TypingChange");
 
 // 글자 모음
-function ChangeTextFunction(){
-  console.log(TypingWords.length,TypingCountUp )
-  if(TypingWords.length!=TypingCountUp){
-    setTypingStep(TypingStep + TypingWords[TypingCountUp])
-    setTypingCountUp(TypingCountUp + 1); // 개수 만큼 체크 
-  }
-}
+// function ChangeTextFunction(){
+//   console.log(TypingWords.length,TypingCountUp )
+//   if(TypingWords.length!=TypingCountUp){
+//     setTypingStep(TypingStep + TypingWords[TypingCountUp])
+//     setTypingCountUp(TypingCountUp + 1); // 개수 만큼 체크 
+//   }
+// }
 
 useEffect((e)=>{
+  window.scrollTo({
+    top: 0,
+    left: 0,
+});
   makeStars();
   // 글자 입력 속도
   const speed = 100;
@@ -60,7 +64,7 @@ useEffect((e)=>{
     
     while (letter.length) {
       await wait(speed);
-      $text[0].innerHTML += letter.shift(); 
+      $TypingChange[0].innerHTML += letter.shift(); 
     }
     
     // 잠시 대기
@@ -78,11 +82,12 @@ useEffect((e)=>{
       await wait(speed);
       
       letter.pop();
-      $text[0].innerHTML = letter.join(""); 
+      $TypingChange[0].innerHTML = letter.join(""); 
     }
     
     // 다음 순서의 글자로 지정, 타이핑 함수 다시 실행
     i = !letters[i+1] ? 0 : i + 1;
+    console.log(letters[i+1])
     typing();
   }
   
@@ -93,25 +98,24 @@ useEffect((e)=>{
   
   // 초기 실행
   setTimeout(typing, 500);
-  "dev": "concurrently \"nodemon server/server.js\" \"node scripts/start.js\"",
 },[])
 
   
-useEffect(() => {
-  const interval = setInterval(() => {
-    ChangeTextFunction();
-    }, 400);
-    if(TypingWords.length==TypingCountUp){
-      clearInterval(interval)
-      console.log("끝")
+// useEffect(() => {
+//   const interval = setInterval(() => {
+//     ChangeTextFunction();
+//     }, 400);
+//     if(TypingWords.length==TypingCountUp){
+//       clearInterval(interval)
+//       console.log("끝")
       
-    }
+//     }
 
-    return () => {
-      clearInterval(interval);
-    };
+//     return () => {
+//       clearInterval(interval);
+//     };
 
-})
+// })
 
 
 
@@ -119,10 +123,12 @@ useEffect(() => {
         <div className="Mission">
           <div className="MissionPageOne">
                 <svg className="sky"></svg>
+                
                 <div className="MissionPageOneText">
                   <div className="TypingWord">
-                    { TypingStep }<span className="blink"></span>
-                    <div className="text2">Language! <h1 className="text">aa</h1><span className="blink"></span></div>
+                    <div className="ohmygod">HelloWorld</div>
+                    <h2 className="TypingChange"></h2> 
+                    <span className="blink"></span>
                   </div>
                 </div> 
             </div>
@@ -135,7 +141,7 @@ useEffect(() => {
 
             </div>
             <div className="MissionPageFour">
-
+              <h1>asdasd</h1>
             </div>
           
         </div>

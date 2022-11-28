@@ -181,19 +181,12 @@ table {
     color: white;
     left: 0px;
     background: linear-gradient(to bottom, rgb(30, 30, 30), rgba(3, 3, 3));
+    animation: PageFour 2s linear forwards;
+    perspective: 500;
+    transform-style: preserve-3d;
 }
 
-/* 별을 감싼 부모 */
-/* .sky {
-    width: 200vw;
-    z-index: 1;
-    height: 200vw;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: moveStar 150s linear infinite;
-} */
+
 .sky {
     width: 200vw;
     z-index: 1;
@@ -225,18 +218,19 @@ table {
 
 
 .MissionPageOneText {
-    font-size: 10rem;
     color: white;
-    font-family: "Noto Sans Kr";
+    font-family: "Noto Sans KR";
     position: relative;
 
 }
 
 .TypingWord {
     position: relative;
-    line-height: 90vh;
     text-align: center;
     font-family: "Noto Sans KR";
+    font-weight: 100;
+    display: flex;
+    flex-direction: row;
 }
 
 .blink {
@@ -244,31 +238,70 @@ table {
     font-size: 80px;
     border-left: 3px solid white;
     height: 10rem;
-    margin-top: 38vh;
+    position: relative;
 }
+
 
 @keyframes blink {
     to {
         opacity: 0;
     }
+
+    form {
+        opacity: 1;
+    }
 }
 
-.text2 {
-    position: fixed;
-    top: 100px;
-    left: 400px;
-    color: red;
-}
 
-.text {
-
-
-    color: red;
-}
-
-.fixText {
-    position: fixed;
-    top: 50px;
-    left: 500px;
+.ohmygod {
+    float: left;
     font-size: 5rem;
+}
+
+.TypingChange {
+    position: relative;
+    font-family: "Noto Sans KR";
+    font-weight: 100;
+    color: white;
+    font-size: 4rem;
+    float: left;
+    width: auto;
+    text-align: left;
+}
+
+
+.MissionPageFour {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: plum;
+    z-index: 50;
+    transition: all 2s;
+    animation: PageFour2 2s linear forwards;
+    perspective: 1000;
+    transform-style: preserve-3d;
+}
+
+.front {}
+
+@keyframes PageFour {
+    0% {}
+
+    1% {}
+
+    100% {
+        transform: rotateY(-90deg) translate3D(-50vw, 0px, 50vw);
+    }
+}
+
+@keyframes PageFour2 {
+    0% {
+        transform: rotateY(-90deg) translate3D(50vw, 0px, -50vw);
+    }
+
+    1% {}
+
+    100% {
+        transform: rotateY(0deg) translate3D(0, 0, 0);
+    }
 }
