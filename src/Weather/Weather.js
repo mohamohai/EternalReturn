@@ -1,12 +1,36 @@
 import { useState, useEffect, useRef, Component } from "react";
 import "./Weather.css"
+import "./Weather.scss"
 
 function Weather(){
 // 브라우저 창 크기에 따른 별 생성
 const $sky = document.getElementsByClassName("sky");
+const $snowMap = document.getElementsByClassName("snowMap");
 // 브라우저 창 크기에 따른 별 생성
+
+const [TypingWords,setTypingWords] = useState("Lee Jong Hyun");    //타이핑에 쓸 문구
+const [TypingStep, setTypingStep] = useState('');    //새로 생기는 문자
+const [TypingCountUp, setTypingCountUp] = useState(0);  //문자 위치
+const letters = [
+  "가나다라마바사아자차카타파하",
+  "abcedfghijklmnopqrstuvwxyz", 
+  "12345678910"
+];
+
+const snowEleArr = [];
+const snowEleArr2 = new Array(50);
+const number_ref = useRef(0);
+const $TypingChange = document.getElementsByClassName("TypingChange");
+
+// 글자 모음
+// function ChangeTextFunction(){
+//   console.log(TypingWords.length,TypingCountUp )
+//   if(TypingWords.length!=TypingCountUp){
+//     setTypingStep(TypingStep + TypingWords[TypingCountUp])
+//     setTypingCountUp(TypingCountUp + 1); // 개수 만큼 체크 
+//   }
+// }
 const makeStars = () => {
-    console.log("red")
   // 브라우저 가장 큰 크기
   const maxSize = Math.max(window.innerWidth*2, window.innerHeight*2)
   // 랜덤한 X 위치 값
@@ -26,34 +50,39 @@ const makeStars = () => {
   }).join('');
   $sky[0].innerHTML = htmlDummy;
 }
+const makeSnow=()=>{
+  var inW=window.innerWidth;
+  var inH=window.innerHeight;
+  const maxSize = Math.max(window.innerWidth*2, window.innerHeight*2)
+
+  const _size2 = Math.floor(maxSize*5);
+  function TopH(){
+    return Math.floor(Math.random()*inH)
+  }
+  function LeftW(){
+    return Math.floor(Math.random()*inW)
+  }
+  // for(let i=1; i<inW/10; i++){
+  //   snowEleArr.push(`<div className='snowArr' style={{left:"${LeftW()}px", 
+  //                                             top:"${TopH()}px"}}></div>`)
+  // }                 
+  const htmlDummy2 = new Array(_size2).fill().map((_, i) => {
+    return `<div className='snowArr' style={{left:'${LeftW()}px', 
+    top:'${TopH()}px'}}></div>`
+  }).join('');
+  $snowMap[0].innerHTML = htmlDummy2.replace("\"");
+  console.log(htmlDummy2.replace("\""))
 
 
-const [TypingWords,setTypingWords] = useState("Lee Jong Hyun");    //타이핑에 쓸 문구
-const [TypingStep, setTypingStep] = useState('');    //새로 생기는 문자
-const [TypingCountUp, setTypingCountUp] = useState(0);  //문자 위치
-const letters = [
-  "가나다라마바사아자차카타파하",
-  "abcedfghijklmnopqrstuvwxyz", 
-  "12345678910"
-];
-const number_ref = useRef(0);
-const $TypingChange = document.getElementsByClassName("TypingChange");
-
-// 글자 모음
-// function ChangeTextFunction(){
-//   console.log(TypingWords.length,TypingCountUp )
-//   if(TypingWords.length!=TypingCountUp){
-//     setTypingStep(TypingStep + TypingWords[TypingCountUp])
-//     setTypingCountUp(TypingCountUp + 1); // 개수 만큼 체크 
-//   }
-// }
-
+}
 useEffect((e)=>{
   window.scrollTo({
     top: 0,
     left: 0,
 });
   makeStars();
+  // makeSnow();
+  //FallSnow();
   // 글자 입력 속도
   const speed = 100;
   let i = 0;
@@ -135,13 +164,30 @@ useEffect((e)=>{
 
 
             <div className="MissionPageTwo">
-
+              <div> zxc</div>
             </div>
             <div className="MissionPageThree">
-
+            <div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/>
+            <div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/>
+            <div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/>
+            <div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/>
+            <div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/>
+            <div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/>
+            <div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/>
+            <div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/>
+            <div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/>
+            <div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/>
+            <div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/><div className="FallSnow"/>
             </div>
-            <div className="MissionPageFour">
-              <h1>asdasd</h1>
+            <div className="MissionPageFour ">
+            <h1>asdasd</h1>
+
+              <div className="snowMap">
+              <div class="snow"></div>
+
+                <div className="snowEle">  </div>
+                <div className='snowArr' style={{top:"120px", left:"500px"}}>zz</div>
+              </div>
             </div>
           
         </div>

@@ -180,10 +180,8 @@ table {
     position: relative;
     color: white;
     left: 0px;
-    background: linear-gradient(to bottom, rgb(30, 30, 30), rgba(3, 3, 3));
-    animation: PageFour 2s linear forwards;
-    perspective: 500;
-    transform-style: preserve-3d;
+    overflow: hidden;
+    background: linear-gradient(to bottom, rgb(30, 30, 30), rgb(3, 3, 3));
 }
 
 
@@ -192,11 +190,14 @@ table {
     z-index: 1;
     height: 200vw;
     position: absolute;
+
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     animation: moveStar 150s linear infinite;
 }
+
+
 
 /* 별 */
 .sky .star {
@@ -225,6 +226,7 @@ table {
 }
 
 .TypingWord {
+    line-height: 95vh;
     position: relative;
     text-align: center;
     font-family: "Noto Sans KR";
@@ -234,6 +236,7 @@ table {
 }
 
 .blink {
+    margin-top: 40vh;
     animation: blink 0.4s infinite;
     font-size: 80px;
     border-left: 3px solid white;
@@ -269,25 +272,130 @@ table {
     text-align: left;
 }
 
+.MissionPageTwo {
+    width: 100vw;
+    height: 100vh;
+}
+
+.MissionPageThree {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(to bottom, rgb(30, 30, 30), rgb(3, 3, 3));
+
+}
+
+.FallSnow {
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    position: relative;
+    border-radius: 100%;
+    top: 100px;
+    left: 200px;
+    opacity: 0.5;
+    filter: brightness(3);
+    filter: drop-shadow(0 0 9px white);
+    /* animation: FallSnowAnimation 10s infinite forwards; */
+}
+
+@keyframes FallSnowAnimation {
+    0% {
+        transform: translate(0vw, 0vh);
+    }
+
+    10% {
+        transform: translate(5vw, 10vh);
+    }
+
+    20% {
+        transform: translate(-5vw, 20vh);
+    }
+
+    30% {
+        transform: translate(5vw, 30vh);
+    }
+
+    40% {
+        transform: translate(-5vw, 40vh);
+    }
+
+    50% {
+        transform: translate(5vw, 50vh);
+    }
+
+    60% {
+        transform: translate(-5vw, 60vh);
+    }
+
+    70% {
+        transform: translate(5vw, 70vh);
+    }
+
+    80% {
+        transform: translate(-5vw, 80vh);
+    }
+
+    90% {
+        transform: translate(5vw, 90vh);
+    }
+
+    100% {
+        transform: translate(-5vw, 100vh);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .MissionPageFour {
     width: 100vw;
     height: 100vh;
-    position: fixed;
-    background-color: plum;
-    z-index: 50;
+    background: linear-gradient(to bottom, rgb(30, 30, 30), rgb(3, 3, 3));
+    z-index: 3;
+    position: relative;
+}
+
+.front {
+    animation: PageFour 1s linear forwards;
+    perspective: 500;
+    transform-style: preserve-3d;
+}
+
+.right {
     transition: all 2s;
-    animation: PageFour2 2s linear forwards;
+    animation: PageFour2 1s linear forwards;
     perspective: 1000;
     transform-style: preserve-3d;
 }
 
-.front {}
-
 @keyframes PageFour {
     0% {}
 
-    1% {}
+    33% {
+        transform: rotateY(-30deg) translate3D(-17vw, 0px, 17vw);
+    }
 
     100% {
         transform: rotateY(-90deg) translate3D(-50vw, 0px, 50vw);
@@ -299,9 +407,74 @@ table {
         transform: rotateY(-90deg) translate3D(50vw, 0px, -50vw);
     }
 
-    1% {}
+    30% {
+        transform: rotateY(-60deg) translate3D(34vw, 0px, -34vw);
+
+    }
 
     100% {
         transform: rotateY(0deg) translate3D(0, 0, 0);
     }
+}
+
+
+.snowMap {
+    width: 100vw;
+    height: 100vh;
+}
+
+.snowEle,
+.snowEle::before,
+.snowEle::after {
+    content: "";
+    display: block;
+    z-index: 650;
+
+}
+
+.abab {
+    position: fixed;
+    top: 100px;
+    height: 100px;
+    width: 100px;
+    left: 100px;
+    background-color: plum;
+    z-index: 500;
+
+}
+
+.snowEle {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: white;
+    position: relative;
+    top: 500px;
+}
+
+/* .snowEle::before {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: white;
+    position: relative;
+    left: 200px;
+
+}
+
+.snowEle::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: white;
+    position: relative;
+} */
+
+@keyframes DownFallSnow {
+    0% {}
+
+    50% {}
+
+    100% {}
 }
