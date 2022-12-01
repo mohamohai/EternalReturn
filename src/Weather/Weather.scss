@@ -5,21 +5,48 @@
 }
 
 .FallSnow {
-    $total: 100;
-    width: 15px;
-    height: 15px;
+    $total: 200;
+    width: 10px;
+    height: 10px;
     border-radius: 100%;
+    left: 0px;
     filter: drop-shadow(0 0 10px white);
     position: absolute;
+    top: 0px;
     z-index: 5;
 
 
     @for $i from 1 through $total {
-        $trans_x: random(1920)+px;
-        $trans_scale: random(10);
+        $trans_x: random(100)+vw; //시작위치, 변수에 px rem같은 단위를 넣어줘야 변수쓸 때 깔끔하게 들어감
+        $trans_scale: random(2000); //선명도인데 이거말고 크기를 좀 만져야 할 듯
+        $startAnimation: $trans_x +300 *1vw; //시작위치   
+
+        $endAnimation: random(1000)*0.1vw; //끝나는위치
+
+        $durationAnimation: random(10)+5s; //지속시간
+        $delayAnimation: random(100)*0.1+1s; // 딜레이
 
         &:nth-child(#{$i}) {
-            transform: translate($trans_x, -20px) scale($trans_scale);
+            transform: translate($trans_x, -20vh) scale($trans_scale*0.001);
+            opacity: random(10000) * 0.0001;
+            animation: FallMove-#{$i} $durationAnimation $delayAnimation linear infinite
+        }
+
+        @keyframes FallMove-#{$i} {
+            0% {
+                transform: translate($trans_x, 0vh);
+            }
+
+            50% {
+                transform: translate($startAnimation, 50vh);
+
+            }
+
+            100% {
+                transform: translate($endAnimation, 100vh);
+            }
+
+
         }
     }
 }
