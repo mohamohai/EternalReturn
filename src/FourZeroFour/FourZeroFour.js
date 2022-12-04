@@ -179,7 +179,7 @@ useEffect((e)=>{
                 <div className="MissionPageOneText">
                   <div className="TypingWord">
                     <div className="CountNumbering">{CountNumber}</div>
-                    <div className="ohmygod">{}&nbsp; </div>
+                    <div className="ohmygod">{window.location.href}&nbsp; </div>
                     <h2 className="TypingChange"></h2> 
                     <span className="blink"></span>
                   </div>
