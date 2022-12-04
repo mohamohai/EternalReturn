@@ -92,10 +92,12 @@ useEffect(()=>{
   setTimeout(()=>{
     if(CountNumber==500){
       console.log("호우! 2:1")
+      setCountNumber(1+1);
+
     }else {
       setCountNumber(CountNumber+1);
     } 
-  },10)
+  },1)
 },[CountNumber])
 useEffect((e)=>{
   window.scrollTo({
@@ -176,7 +178,7 @@ useEffect((e)=>{
                 
                 <div className="MissionPageOneText">
                   <div className="TypingWord">
-                    <span className="CountNumbering">{CountNumber}</span>
+                    <div className="CountNumbering">{CountNumber}</div>
                     <div className="ohmygod">HelloWorld</div>
                     <h2 className="TypingChange"></h2> 
                     <span className="blink"></span>

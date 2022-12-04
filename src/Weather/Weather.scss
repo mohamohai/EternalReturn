@@ -4,10 +4,16 @@
     @return $random_range;
 }
 
+.CountNumbering {
+    width: 100px;
+    ;
+}
+
+
 .FallSnow {
     $total: 200;
-    width: 15px;
-    height: 15px;
+    width: 40px;
+    height: 40px;
     border-radius: 100%;
     left: 0px;
     filter: drop-shadow(0 0 10px white);
@@ -30,6 +36,11 @@
             transform: translate($trans_x, -20vh) scale($trans_scale*0.001);
             opacity: random(10000) * 0.0001;
             animation: FallMove-#{$i} $durationAnimation $delayAnimation linear infinite
+        }
+
+        &:hover {
+            animation-play-state: paused;
+            color: red;
         }
 
         @keyframes FallMove-#{$i} {

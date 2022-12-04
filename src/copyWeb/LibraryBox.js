@@ -105,7 +105,9 @@ function LibraryBox() {
         </div>
 
         <div className="Part">
-
+          <div className="CirleRoading">
+            <div className="CirleRoadingOne"></div>
+          </div>
         </div>
 
         <div className="Part">

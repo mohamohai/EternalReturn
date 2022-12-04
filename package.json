@@ -67,6 +67,7 @@
     "react-slick": "^0.29.0",
     "resolve": "^1.20.0",
     "resolve-url-loader": "^4.0.0",
+    "sass": "^1.56.1",
     "sass-loader": "^12.3.0",
     "semver": "^7.3.5",
     "sequelize": "^6.21.2",

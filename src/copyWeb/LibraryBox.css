@@ -436,3 +436,41 @@
 .WaterMillPageOne:hover::before {
     width: 100%;
 }
+
+
+
+
+.CirleRoading {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    top: 100px;
+    left: 100px;
+    border-radius: 100%;
+    border: green solid 10px;
+    border-top: red solid 10px;
+
+    transition: 4s all;
+    transform: rotate(-360deg);
+    animation: CirleRoadingSpin 4s infinite linear;
+    filter: blur(1px);
+}
+
+@keyframes CirleRoadingSpin {
+    to {
+        transform: rotate(0deg);
+    }
+
+    from {
+        transform: rotate(+360deg);
+    }
+}
+
+.CirleRoadingOne {
+    position: relative;
+    background-color: plum;
+    width: 50px;
+    height: 50px;
+    top: 30px;
+    border-radius: 100%;
+}
