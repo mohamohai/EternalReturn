@@ -19,6 +19,8 @@ import MyMy from "./mymy/mymy.js"
 import Weather from "./Weather/Weather.js"
 import HerenNow from "./HerenNow/HerenNow.js"
 import LibraryBox from "./copyWeb/LibraryBox.js";
+import Zip from "./Zip/Zip.js";
+import FourZeroFour from "./FourZeroFour/FourZeroFour.js"
 import {
   BrowserRouter,
   Route,
@@ -113,8 +115,9 @@ class App extends Component {
           <Route path="/Main" element={<Weather/>}/>
           <Route path="Pixel"  element={<Pixel />} />
           <Route path="LibraryBox"  element={<LibraryBox />} />
-          <Route exact path="/" element={<MyMy />} />
-          <Route path="*"  element={<MyMy />} />
+          <Route path="Zip" element={<Zip/>}/>
+          <Route exact path="/" element={<FourZeroFour />} />
+          <Route path="*"  element={<FourZeroFour />} />
      
           
         </Routes>

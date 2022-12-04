@@ -215,7 +215,7 @@
 }
 
 .StealienPageOneModel1 p {
-    width: 700px;
+    width: 500px;
     font-family: NEXON Lv1 Gothic OTF Light;
     font-size: 1.2rem;
 }
@@ -224,6 +224,8 @@
     width: 1920px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .StealienPageTwo h1 {
@@ -417,8 +419,8 @@
 }
 
 .StealienPageTwoModel2 {
+    justify-content: center;
     display: flex;
-    flex-direction: row;
 }
 
 .StealienPageTwoModel2 div:nth-child(1) {
@@ -474,7 +476,7 @@
     animation-fill-mode: forwards;
 }
 
-@keyframes myi {
+@keyframes mymove {
     0% {
         left: 0px;
     }
@@ -509,12 +511,14 @@
 .StealienPageThree {
     display: flex;
     flex-direction: column;
+
     margin-top: 50px;
     width: 1920px;
 }
 
 .StealienPageThreeModel1 {
-    width: 1360px;
+    justify-content: center;
+    align-content: center;
 
 }
 
@@ -522,6 +526,8 @@
     display: flex;
     flex-direction: row;
     margin-top: 50px;
+    justify-content: center;
+    align-content: center;
 }
 
 .StealienPageThreeModel2LeftBorder {
@@ -583,6 +589,7 @@
     display: flex;
     flex-direction: row;
     width: 1920px;
+    justify-content: center;
 }
 
 .StealienPageFourModel1 {
@@ -680,7 +687,7 @@
 .StealienPageFourModel1RightBottomElement p {}
 
 .StealienPageFourModel1RightBottomElement h2 {
-    width: 120px;
+    width: 200px;
     border-left: #501A9B solid 4px;
 }
 
@@ -688,11 +695,14 @@
     display: flex;
     flex-direction: column;
     width: 1920px;
+    justify-content: center;
+    align-items: center;
 }
 
 .StealienFooterOne {
     width: 1350px;
     height: 100px;
+
 }
 
 .StealienFooterOne ul:nth-child(1) {
