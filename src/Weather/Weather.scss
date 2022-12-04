@@ -6,15 +6,15 @@
 
 .FallSnow {
     $total: 200;
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
     border-radius: 100%;
     left: 0px;
     filter: drop-shadow(0 0 10px white);
     position: absolute;
     top: 0px;
     z-index: 5;
-
+    animation-play-state: paused;
 
     @for $i from 1 through $total {
         $trans_x: random(100)+vw; //시작위치, 변수에 px rem같은 단위를 넣어줘야 변수쓸 때 깔끔하게 들어감

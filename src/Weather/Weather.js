@@ -16,6 +16,7 @@ const letters = [
   "abcedfghijklmnopqrstuvwxyz", 
   "12345678910"
 ];
+const [CountNumber, setCountNumber] = useState(0);
 
 const snowEleArr = [];
 const snowEleArr2 = new Array(50);
@@ -75,6 +76,27 @@ const makeSnow=()=>{
 
 
 }
+useEffect(()=>{
+
+  let CountNumbering = document.getElementsByClassName("CountNumbering");
+  // let CountingStart = setInterval(()=>{
+  //   if(CountNumber == 1000){
+  //     clearInterval(CountingStart);
+  //     return false;
+  //   }
+  //   setCountNumber(CountNumber+1)
+  // },20)   이 방법을 하면 그 타이핑효과에서 안되던 것 처럼 useState가 최신화 된 값을 가져오지 못해서 문제가 생기니 useEffect로 해당 숫자가 변할 때 작동되게 하고, setTimeOut을 넣어서 시간조정 
+              
+  setTimeout(()=> console.log("1초 딜레이"),3000);
+
+  setTimeout(()=>{
+    if(CountNumber==500){
+      console.log("호우! 2:1")
+    }else {
+      setCountNumber(CountNumber+1);
+    } 
+  },10)
+},[CountNumber])
 useEffect((e)=>{
   window.scrollTo({
     top: 0,
@@ -86,7 +108,6 @@ useEffect((e)=>{
   // 글자 입력 속도
   const speed = 100;
   let i = 0;
-  setTimeout(()=> console.log("1초 딜레이"),3000)
   // 타이핑 효과
   const typing = async () => {  
     const letter = letters[i].split("");
@@ -155,6 +176,7 @@ useEffect((e)=>{
                 
                 <div className="MissionPageOneText">
                   <div className="TypingWord">
+                    <span className="CountNumbering">{CountNumber}</span>
                     <div className="ohmygod">HelloWorld</div>
                     <h2 className="TypingChange"></h2> 
                     <span className="blink"></span>
