@@ -1,0 +1,14 @@
+.Page100 {
+    width: 100vw;
+    height: 100vh;
+
+
+}
+
+.Page100:nth-child(2n+1) {
+    background-color: cyan;
+}
+
+.Page100:nth-child(2n) {
+    background-color: plum;
+}

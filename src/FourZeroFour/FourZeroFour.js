@@ -185,11 +185,6 @@ useEffect((e)=>{
                   </div>
                 </div> 
             </div>
-
-
-            <div className="MissionPageTwo">
-              <div> zxc</div>
-            </div>
             <div className="MissionPageThree">
             <div className="FallSnow" onClick={()=>window.history.back()}/><div className="FallSnow" onClick={()=>window.history.back()}/><div className="FallSnow" onClick={()=>window.history.back()}/><div className="FallSnow" onClick={()=>window.history.back()}/><div className="FallSnow" onClick={()=>window.history.back()}/><div className="FallSnow" onClick={()=>window.history.back()}/><div className="FallSnow" onClick={()=>window.history.back()}/><div className="FallSnow" onClick={()=>window.history.back()}/><div className="FallSnow" onClick={()=>window.history.back()}/><div className="FallSnow" onClick={()=>window.history.back()}/>
             <div className="FallSnow" onClick={()=>window.history.back()}/><div className="FallSnow" onClick={()=>window.history.back()}/><div className="FallSnow" onClick={()=>window.history.back()}/><div className="FallSnow" onClick={()=>window.history.back()}/><div className="FallSnow" onClick={()=>window.history.back()}/><div className="FallSnow" onClick={()=>window.history.back()}/><div className="FallSnow" onClick={()=>window.history.back()}/><div className="FallSnow" onClick={()=>window.history.back()}/><div className="FallSnow" onClick={()=>window.history.back()}/><div className="FallSnow" onClick={()=>window.history.back()}/>
