@@ -14,7 +14,7 @@ const [TypingCountUp, setTypingCountUp] = useState(0);  //문자 위치
 const letters = [
   "404NotFound",
   "I am sorry, My Mistake", 
-  "plz Click bubble  "
+  window.location.href
 ];
 const [CountNumber, setCountNumber] = useState(0);
 
@@ -179,7 +179,7 @@ useEffect((e)=>{
                 <div className="MissionPageOneText">
                   <div className="TypingWord">
                     <div className="CountNumbering">{CountNumber}</div>
-                    <div className="ohmygod">{window.location.href}&nbsp; </div>
+                    <div className="ohmygod">Click Bubble Plz&nbsp; </div>
                     <h2 className="TypingChange"></h2> 
                     <span className="blink"></span>
                   </div>
