@@ -2,13 +2,110 @@
     width: 100vw;
     height: 100vh;
 
+}
+
+.Zip {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+
+
+.ZipGNB {
+    width: 100vw;
+    position: fixed;
+    z-index: 10;
+}
+
+.ZipGNB ul {
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
 
 }
 
-.Page100:nth-child(2n+1) {
-    background-color: cyan;
+.ZipGNB li {
+    width: 25vw;
+    height: 5vh;
+    line-height: 5vh;
+
+    justify-items: center;
+    align-items: center;
+
+    font-family: "Noto Sans KR";
+    font-size: 1rem;
+
+    text-align: center;
 }
 
-.Page100:nth-child(2n) {
-    background-color: plum;
+.ZipGNB li:hover::after {
+    content: "";
+    display: block;
+    width: 10vw;
+    border-bottom: 3px solid black;
+}
+
+
+.Zip1 {}
+
+
+
+.FlowBox {
+    width: 100vw;
+    height: 100vh;
+    background-color: aqua;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+
+}
+
+.FlowSection {
+    width: 110vw;
+    height: 50vh;
+    display: flex;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    animation: SectionMove 10s 10s linear infinite
+}
+
+.FlowSection2 {
+    width: 110vw;
+    height: 50vh;
+    display: flex;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    animation: SectionMove 10s 10s linear infinite
+}
+
+@keyframes SectionMove {
+    0% {
+        transform: translateX();
+    }
+
+    50% {
+        transform: translateX(-50vw);
+    }
+
+    100% {
+        transform: translateX(-100vw);
+    }
+}
+
+
+
+
+.FlowCircle {
+    width: 10vw;
+    height: 10vw;
+    margin-right: 1vw;
+    border-radius: 100%;
 }

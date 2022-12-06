@@ -1,0 +1,35 @@
+$FlowTotal: 10;
+
+.FlowCircle {
+    @for $i from 1 through $FlowTotal {
+        &:nth-child(#{$i}) {
+            background-color: rgb(random(255), random(255), random(255));
+            animation: FlowMove-#{$i} 5s $i+s linear infinite;
+        }
+
+        @keyframes FlowMove-#{$i} {
+            0% {
+                transform: translateY(0px);
+            }
+
+            25% {
+                transform: translateY(100px);
+            }
+
+            50% {
+                transform: translateY(0px);
+            }
+
+            75% {
+                transform: translateY(-100px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+    }
+
+
+
+}
