@@ -1,7 +1,10 @@
 import { useState, useEffect, useRef, Component } from "react";
-import "./Zip.css"
-import "./Zip.scss"
+import "./Zip.css";
+import "./Zip.scss";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLightbulb,faGears,faBriefcase,faHeadset,faFurniture,faBook} from "@fortawesome/free-solid-svg-icons";
+import {faFileZipper} from "@fortawesome/free-regular-svg-icons";
 function Zip(){
 useEffect((e)=>{
 
@@ -11,25 +14,25 @@ useEffect((e)=>{
         <div className="Zip">
           <div className="ZipGNB">
             <ul>
-              <li><a href="#Zip_Part1">가나다</a></li>
-              <li><a href="#Zip_Part2">Title</a></li>
-              <li><a href="#Zip_Part3">Body</a></li>
-              <li><a href="#Zip_Part4">Footer</a></li>
+            <a href="#Zip_Part1"> <li>가나다</li></a>
+            <a href="#Zip_Part2"> <li>Title</li></a>
+            <a href="#Zip_Part3"> <li>Body</li></a>
+            <a href="#Zip_Part4"> <li>Footer</li></a>
             </ul>
           </div>
           <div id="Zip_Part1" className="Zip1 Page100">
             <div className="FlowBox">
               <div className="FlowSection">
-                <div className="FlowCircle">1</div>
-                <div className="FlowCircle">2</div>
-                <div className="FlowCircle">3</div>  
-                <div className="FlowCircle">4</div>
-                <div className="FlowCircle">5</div>
-                <div className="FlowiCrcle">6</div>
-                <div className="FlowCircle">7</div>
-                <div className="FlowCircle">8</div>  
-                <div className="FlowCircle">9</div>
-                <div className="FlowCircle">10</div>
+                <div className="FlowCircle"></div>
+                <div className="FlowCircle"></div>
+                <div className="FlowCircle"></div>  
+                <div className="FlowCircle"></div>
+                <div className="FlowCircle"></div>
+                <div className="FlowCircle"></div>
+                <div className="FlowCircle"></div>
+                <div className="FlowCircle"></div>  
+                <div className="FlowCircle"></div> 
+                <div className="FlowCircle">V</div>
               </div>
               <div className="FlowSection2">
                 <div className="FlowCircle"></div>
@@ -37,7 +40,7 @@ useEffect((e)=>{
                 <div className="FlowCircle"></div>  
                 <div className="FlowCircle"></div>
                 <div className="FlowCircle"></div>
-                <div className="FlowiCrcle"></div>
+                <div className="FlowCircle"></div>
                 <div className="FlowCircle"></div>
                 <div className="FlowCircle"></div>  
                 <div className="FlowCircle"></div>
@@ -45,9 +48,17 @@ useEffect((e)=>{
               </div>
 
             </div>
-          </div>
-          <div id="Zip_Part2"className="Zip2 Page100">
-            
+          </div>               
+                                 {/* style={{background:"url('./image/HerenNow/9.jpg')" ,backgroundSize: "100% 100%", */}
+          <div id="Zip_Part2"className="Zip2 Page100" >
+          
+            <div className="BackWord">
+              {/* <div><FontAwesomeIcon icon={faFileZipper} className="FileZip"/></div>  */}
+            <div className="BackCircle"></div>
+            <div className="BackCircle"></div>
+            <div className="BackCircle"></div>
+            <div className="BackCircle"></div><div className="BackCircle"></div>
+            </div>
           </div>
           <div id="Zip_Part3"className="Zip3 Page100">
             

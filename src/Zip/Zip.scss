@@ -2,10 +2,21 @@ $FlowTotal: 10;
 
 .FlowCircle {
     @for $i from 1 through $FlowTotal {
+        $AniDelay: 1-$i;
+
         &:nth-child(#{$i}) {
-            background-color: rgb(random(255), random(255), random(255));
-            animation: FlowMove-#{$i} 5s $i+s linear infinite;
+
+            @if($i>0) {
+                background-color: rgb(random(255), random(255), random(255));
+
+            }
+
+            @else {}
+
+            // animation: FlowMove-#{$i} 10s $AniDelay+s linear infinite;
+            animation: FlowMove-#{$i} 5s linear infinite;
         }
+
 
         @keyframes FlowMove-#{$i} {
             0% {
@@ -13,7 +24,7 @@ $FlowTotal: 10;
             }
 
             25% {
-                transform: translateY(100px);
+                transform: translateY(random(100)+px);
             }
 
             50% {
@@ -21,7 +32,7 @@ $FlowTotal: 10;
             }
 
             75% {
-                transform: translateY(-100px);
+                transform: translateY(random(100)*-1+px);
             }
 
             100% {
@@ -29,7 +40,4 @@ $FlowTotal: 10;
             }
         }
     }
-
-
-
 }

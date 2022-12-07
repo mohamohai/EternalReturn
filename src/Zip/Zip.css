@@ -1,3 +1,7 @@
+* {
+    scroll-behavior: smooth;
+}
+
 .Page100 {
     width: 100vw;
     height: 100vh;
@@ -16,6 +20,8 @@
     width: 100vw;
     position: fixed;
     z-index: 10;
+    background-color: white;
+
 }
 
 .ZipGNB ul {
@@ -23,47 +29,59 @@
     flex-direction: row;
     justify-items: center;
     align-items: center;
-
 }
 
 .ZipGNB li {
     width: 25vw;
-    height: 5vh;
-    line-height: 5vh;
-
-    justify-items: center;
-    align-items: center;
+    height: 7vh;
+    line-height: 7vh;
+    text-align: center;
 
     font-family: "Noto Sans KR";
     font-size: 1rem;
+    font-weight: 500;
 
-    text-align: center;
+    mix-blend-mode: normal;
+    z-index: 12;
+}
+
+.ZipGNB li::after {
+    content: "";
+    display: block;
+    width: 0vw;
+    margin-left: 12.5vw;
+    border-bottom: 2px solid black;
 }
 
 .ZipGNB li:hover::after {
     content: "";
     display: block;
-    width: 10vw;
-    border-bottom: 3px solid black;
+    width: 12.5vw;
+    transition: all 1s;
+    margin-left: 6.25vw;
+    border-bottom: 2px solid black;
 }
 
 
 .Zip1 {}
 
 
-
 .FlowBox {
     width: 100vw;
     height: 100vh;
-    background-color: aqua;
     display: flex;
     justify-items: center;
     align-items: center;
 
+}
+
+.FlowCircle:nth-child(10),
+.FlowCircle:nth-child(20) {
+    background-color: none;
 }
 
 .FlowSection {
-    width: 110vw;
+    width: 120vw;
     height: 50vh;
     display: flex;
     display: flex;
@@ -71,11 +89,11 @@
     align-items: center;
     flex-direction: row;
     flex-wrap: nowrap;
-    animation: SectionMove 10s 10s linear infinite
+    animation: SectionMove 20s linear infinite
 }
 
 .FlowSection2 {
-    width: 110vw;
+    width: 120vw;
     height: 50vh;
     display: flex;
     display: flex;
@@ -83,7 +101,7 @@
     align-items: center;
     flex-direction: row;
     flex-wrap: nowrap;
-    animation: SectionMove 10s 10s linear infinite
+    animation: SectionMove 20s linear infinite
 }
 
 @keyframes SectionMove {
@@ -92,20 +110,47 @@
     }
 
     50% {
-        transform: translateX(-50vw);
+        transform: translateX(-60vw);
     }
 
     100% {
-        transform: translateX(-100vw);
+        transform: translateX(-120vw);
     }
 }
-
-
-
 
 .FlowCircle {
     width: 10vw;
     height: 10vw;
-    margin-right: 1vw;
+    margin-right: 2vw;
     border-radius: 100%;
+    /* scss에 애니메이션효과 있음 */
+}
+
+
+.Zip2 {
+    background: url("./image/mybg.jpg");
+    background-attachment: fixed;
+    height: 300vh;
+}
+
+.BackWord {
+    background-attachment: fixed;
+    position: fixed;
+    top: 500px;
+}
+
+.BackCircle {
+    width: 100px;
+    height: 100px;
+
+}
+
+
+.FileZip {
+    width: 10vw;
+    height: 5vw;
+    margin-top: 5vh;
+    color: black;
+    position: absolute;
+
 }
