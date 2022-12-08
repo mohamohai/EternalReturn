@@ -11,20 +11,32 @@ function Zip(){
   const CircleMove = document.getElementsByClassName("FlowCircle");
   const [XY,setXY]=useState({X:0,Y:0});
   const ZipRef = useRef();
+
+
+
+
+
+
+
   const clipTest = document.getElementsByClassName("clipTest");
+  const Zip1 = document.getElementsByClassName("Zip1");
   var target = document.getElementById("element");
 
 
 
-useEffect((e)=>{
-  
-console.log(window.pageYOffset);
-  clipTest[0].style.transform=` translateY(${window.pageYOffset/10});`
-},)
-const handleMouseMove=(e)=>{console.log(XY.X, XY.Y)
-  setXY({X:e.clientX -50,Y:e.clientY-50});
+  useEffect((e)=>{
+  console.log(window.pageYOffset);//휠 위치에 따라서 zip 이 부분 퍼센트 내리기 at 50% 100%
+  })
 
-}
+  // useEffect((e)=>{
+  //   let pageYmin = window.pageXOffset/10;
+  //   console.log(pageYmin,window.pageXOffset);
+  //   Zip1[0].style.clipPath=`circle(${100-pageYmin}%)`
+  // })
+  const handleMouseMove=(e)=>{
+    setXY({X:e.clientX -50,Y:e.clientY-50});
+
+  }
 
     return(
         <div className="Zip" onMouseMove={(e)=>handleMouseMove(e)} ref={ZipRef}>
