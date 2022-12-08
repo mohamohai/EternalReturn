@@ -5,21 +5,29 @@ import "./Zip.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLightbulb,faGears,faBriefcase,faHeadset,faFurniture,faBook} from "@fortawesome/free-solid-svg-icons";
 import { faFileZipper} from "@fortawesome/free-regular-svg-icons";
+
 function Zip(){
   const [CircleNum, setCircleNum]=useState(1);
   const CircleMove = document.getElementsByClassName("FlowCircle");
   const [XY,setXY]=useState({X:0,Y:0});
+  const ZipRef = useRef();
+  const clipTest = document.getElementsByClassName("clipTest");
+  var target = document.getElementById("element");
+
+
 
 useEffect((e)=>{
-
-},[])
+  
+console.log(window.pageYOffset);
+  clipTest[0].style.transform=` translateY(${window.pageYOffset/10});`
+},)
 const handleMouseMove=(e)=>{console.log(XY.X, XY.Y)
   setXY({X:e.clientX -50,Y:e.clientY-50});
 
 }
 
     return(
-        <div className="Zip" onMouseMove={(e)=>handleMouseMove(e)}>
+        <div className="Zip" onMouseMove={(e)=>handleMouseMove(e)} ref={ZipRef}>
           <div className="ZipGNB">
             <ul>
             <a href="#Zip_Part1"> <li>가나다</li></a>
@@ -29,6 +37,7 @@ const handleMouseMove=(e)=>{console.log(XY.X, XY.Y)
             </ul>
           </div>
           <div id="Zip_Part1" className="Zip1 Page100">
+            <div className="clipTest"></div>
             <div className="FlowBox">
               <div className="FlowSection">
                 <div className="FlowCircle"   >0</div>

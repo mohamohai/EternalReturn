@@ -5,7 +5,7 @@
 .Page100 {
     width: 100vw;
     height: 100vh;
-
+    position: relative;
 }
 
 .Zip {
@@ -64,8 +64,10 @@
 
 
 .Zip1 {
-    clip-path: circle(20%);
+    transition: all 1s;
+    /* clip-path: circle(10% at 50% 100%); */
 }
+
 
 
 .FlowBox {
@@ -135,9 +137,26 @@
 
 
 .Zip2 {
+    position: relative;
     background: url("./image/mybg.jpg");
     background-attachment: fixed;
+    width: 100vw;
+    transition: all 1s;
     height: 300vh;
+}
+
+.clipTest {
+    position: fixed;
+    width: 100vw;
+    top: 0px;
+    height: 100vw;
+    background-color: white;
+    transition: all 1s;
+    clip-path: circle(0%);
+    clip-path: circle(10%);
+
+    transform: translateY(-10vh);
+
 }
 
 .FileZip {
@@ -151,3 +170,8 @@
 
 
 .Zip2Container {}
+
+
+.Zip3 {
+    background-color: aqua;
+}
