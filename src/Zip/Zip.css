@@ -63,7 +63,9 @@
 }
 
 
-.Zip1 {}
+.Zip1 {
+    clip-path: circle(20%);
+}
 
 
 .FlowBox {

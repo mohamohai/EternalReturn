@@ -56,12 +56,17 @@ const handleMouseMove=(e)=>{console.log(XY.X, XY.Y)
               </div>
 
             </div>
+
+<div className="clipcir"></div>
+            {/* <section id="main_home" class="sec sec1 main_home is-inview" data-scroll data-scroll-sticky data-scroll-target="#section_group" style="height: 937px; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 756, 0, 1); clip-path: circle(350.983px at 50vw 89%);"></section> */}
+
+
+            
           </div>               
                                  {/* style={{background:"url('./image/HerenNow/9.jpg')" ,backgroundSize: "100% 100%", */}
           <div id="Zip_Part2"className="Zip2 Page100" >
             <div className="Zip2Container">
                 <div>
-
                 </div>
             </div>
             
