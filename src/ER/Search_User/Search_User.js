@@ -1023,7 +1023,7 @@ class Search_User extends Component {
     this.setState({ scrollTop });
   };
 
-  conlog = () => {
+  conlog = () => {  //어우야 잠깐 디비 날아갔네
     this.state.SearchData.length != 0 ? (
       this.state.SearchData.map((abc, xxx) =>
         abc.map((xx, cc) => {

@@ -109,10 +109,6 @@ function HerenNow(){
             HerenNow[0].style.backgroundColor="rgba(16,16,16)";
             setTextDW("rgba(255,255,255)");
         }
-      
-        
-
-        
     }
     function MouseDispaly(){
         console.log(circleEle)

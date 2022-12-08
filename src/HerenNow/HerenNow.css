@@ -84,7 +84,7 @@
     width: 25px;
     height: 25px;
     background-color: white;
-    left: -12.5px;
+    left: 0px;
     border-radius: 25px 25px 25px 25px;
     transition: all 1s;
 }
