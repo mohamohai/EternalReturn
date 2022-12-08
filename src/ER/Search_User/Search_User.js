@@ -117,6 +117,7 @@ class Search_User extends Component {
         ["파울로", "Paulo"],
         ["마르티나", "Martina"],
         ["헤이즈", "Haze"],
+        ["라우라", "Laura"],["라우라", "Laura"],["라우라", "Laura"],["라우라", "Laura"],
       ],
      
       WeaponEmpty:
@@ -1023,7 +1024,7 @@ class Search_User extends Component {
     this.setState({ scrollTop });
   };
 
-  conlog = () => {  //어우야 잠깐 디비 날아갔네
+  conlog = () => {  
     this.state.SearchData.length != 0 ? (
       this.state.SearchData.map((abc, xxx) =>
         abc.map((xx, cc) => {
@@ -1769,7 +1770,7 @@ class Search_User extends Component {
                         <img
                           className="CharThum"
                           src={`/image/Character_Img/${
-                            this.state.CharacterArr[xx.characterNum][1]
+                            this.state.CharacterArr[xx.characterNum][1] //여기 당장고쳐 나야 새로운 캐릭터를 추가해서 해야됨 예전꺼 전적이 없어서
                           }/Thumbnail/Default/Mini.png`}
                         />
                  
