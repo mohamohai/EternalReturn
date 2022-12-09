@@ -177,4 +177,17 @@
 
 .Zip3 {
     background-color: aqua;
+    width: 100vw;
+    height: 100vh;
+    transition: all 1s;
+    transform: rotate(-90deg);
+    transform-origin: 0% 0%;
+}
+
+.lineT {
+    width: 20vw;
+    height: 20vh;
+    border: 5px solid red;
+    transition: all 1s;
+    transform: rotate(-90deg);
 }
