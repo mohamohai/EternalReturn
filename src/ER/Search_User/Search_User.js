@@ -115,9 +115,9 @@ class Search_User extends Component {
         ["칼라", "Karla"],
         ["에스텔", "Estelle"],
         ["파울로", "Paulo"],
-        ["마르티나", "Martina"],
+        ["마티나", "Martina"],
         ["헤이즈", "Haze"],
-        ["라우라", "Laura"],["라우라", "Laura"],["라우라", "Laura"],["라우라", "Laura"],
+        ["아이작", "Isaac"],["타지아", "Tazia"],["이렘", "Irem"],["라우라", "Laura"],
       ],
      
       WeaponEmpty:
