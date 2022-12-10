@@ -425,7 +425,8 @@ function pagefourcntbtn() {
          
        
       </div>
-      <div className="VHOMMainPageThree page">
+      {/* 여기를 다시 
+        <div className="VHOMMainPageThree page"> 
         <div className="PageThreeSlide">
         <div className="PageThreeSlidelt">&lt;</div>
           <div className="PageThreeSlidegt">&gt;</div>
@@ -538,9 +539,14 @@ function pagefourcntbtn() {
             </li>
           </ul>
         </div>
-
-   
       </div>
+      */}
+      <div className="VHOMMainPageThree page"> 
+        
+      
+      </div>
+
+
       <div className="VHOMMainPageFour  page" id ="VHOMMainPageFour" 
           style={{background:`url(./image/vhom/pagefour/${pagefour[pagefourSlide]+pagefourSlidecnt}.jpg)`,
           backgroundSize:"100% 100%",

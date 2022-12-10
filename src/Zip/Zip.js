@@ -94,24 +94,10 @@ console.log(Zip1Ref.current.getBoundingClientRect().height);
           <div className="lineT"></div>
           <div className="lineT"></div>
           <div className="lineT"></div>
-          <div className="lineT"></div>
-          <div className="lineT"></div>
-          <div className="lineT"></div>
-          <div className="lineT"></div>
-          <div className="lineT"></div>
-          <div className="lineT"></div>
+          
           </div>
        
-          <div class="horizontal-scroll-wrapper squares">
-            <div>item 1</div>
-            <div>item 2</div>
-            <div>item 3</div>
-            <div>item 4</div>
-            <div>item 5</div>
-            <div>item 6</div>
-            <div>item 7</div>
-            <div>item 8</div>
-          </div>
+        
         </div>
     )
 } export default Zip;
