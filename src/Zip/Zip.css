@@ -9,7 +9,7 @@
 }
 
 .Zip {
-    position: absolute;
+    position: relative;
     top: 0px;
     left: 0px;
 }
@@ -70,7 +70,6 @@
     clip-path: circle(10% at 50% 100%);
     top: 0px;
     z-index: 1;
-    background: red;
     position: relative;
 
 }
@@ -147,7 +146,8 @@
     position: relative;
     background: url("./image/mybg.jpg");
     background-attachment: fixed;
-    width: 100vw;
+    left: 0px;
+    width: 100%;
     transition: all 1s;
     height: 300vh;
     z-index: 2;
@@ -179,20 +179,121 @@
 
 .Zip2Container {}
 
+.Zip2Text {
+    opacity: 0;
+}
+
+
+.IntroducePack {
+    width: 700px;
+    transition: all 0.5s;
+    opacity: 0;
+    position: relative;
+    margin-top: -200px;
+}
+
+.IntroducePack:nth-child(odd) {
+    left: 450px;
+}
+
+.IntroducePack:nth-child(even) {
+    left: -450px;
+}
+
+.IntroBox {
+    width: 700px;
+    height: 500px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 40px 40px 40px 40px;
+    justify-content: space-evenly;
+    align-items: center;
+
+    transition: 2s ease-in-out;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transform: perspective(700px) rotateY(0deg);
+
+    box-shadow: rgba(50, 50, 93, 1) 0px 50px 100px -20px, rgba(0, 0, 0, 1) 0px 30px 60px -30px, rgba(10, 37, 64, 1) 0px -2px 6px 0px inset;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
+}
+
+.IntroduceFront {}
+
+.IntroduceBack {
+    transform: perspective(700px) rotateY(180deg);
+    margin-top: -500px;
+}
+
+.IntroducePack:hover .IntroduceFront.IntroBox {
+    transform: perspective(700px) rotateY(180deg);
+}
+
+.IntroducePack:hover .IntroduceBack.IntroBox {
+    transform: perspective(700px) rotateY(360deg);
+}
+
+.FrontImg1 {
+    width: 500px;
+    height: 300px;
+    margin-top: 20px;
+    background-image: url("./image/ER1.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.FrontImg2 {
+    width: 500px;
+    height: 300px;
+    margin-top: 20px;
+    background-image: url("./image/Vhom1.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.FrontImg3 {
+    width: 500px;
+    height: 300px;
+    margin-top: 20px;
+    background-image: url("./image/Stealien1.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.FrontImg4 {
+    width: 500px;
+    height: 300px;
+    margin-top: 20px;
+    background-image: url("./image/FourZeroFour.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.FrontImg5 {
+    width: 500px;
+    height: 300px;
+    margin-top: 20px;
+    background-image: url("./image/Pixel1.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+
+
 
 .Zip3 {
     position: relative;
-    width: 50vw;
+    min-width: 50vw;
     height: 100vw;
     transition: all 1s;
     overflow-y: auto;
     overflow-x: hidden;
+    background-color: blue;
     transform: rotate(-90deg) translateX(25vw);
 
     /* 
-
-  
-    
     transform-origin: right top; */
 
 }
@@ -209,6 +310,12 @@
 
 }
 
-.CloneWeb {
-    width: auto;
+
+
+
+
+
+.dududunga {
+    opacity: 1;
+    transform: translateY(100px);
 }

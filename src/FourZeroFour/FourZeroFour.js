@@ -178,7 +178,7 @@ useEffect((e)=>{
                 
                 <div className="MissionPageOneText">
                   <div className="TypingWord">
-                    <div className="CountNumbering">{CountNumber}</div>
+                    <div className="CountNumbering"></div>
                     <div className="ohmygod">Click Bubble Plz&nbsp; </div>
                     <h2 className="TypingChange"></h2> 
                     <span className="blink"></span>
@@ -209,16 +209,7 @@ useEffect((e)=>{
             <div className="FallSnow" onClick={()=>window.history.back()}/><div className="FallSnow" onClick={()=>window.history.back()}/><div className="FallSnow" onClick={()=>window.history.back()}/><div className="FallSnow" onClick={()=>window.history.back()}/><div className="FallSnow" onClick={()=>window.history.back()}/><div className="FallSnow" onClick={()=>window.history.back()}/><div className="FallSnow" onClick={()=>window.history.back()}/><div className="FallSnow" onClick={()=>window.history.back()}/><div className="FallSnow" onClick={()=>window.history.back()}/><div className="FallSnow" onClick={()=>window.history.back()}/>
 
             </div>
-            <div className="MissionPageFour ">
-            <h1>asdasd</h1>
-
-              <div className="snowMap">
-              <div class="snow"></div>
-
-                <div className="snowEle">  </div>
-                <div className='snowArr' style={{top:"120px", left:"500px"}}>zz</div>
-              </div>
-            </div>
+            
           
         </div>
     )

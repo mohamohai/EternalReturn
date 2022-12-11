@@ -4,14 +4,19 @@ import axios from "axios";
 import Character_Infomation from "./ER/Character_Information/Character_Infomation.js";
 
 import ERMain from "./ER/Skeleton/ERMain.js";
-import Record from "./ER/Record/Record.js";
+import Record from "./ER/Record/Record.js"; //뭐여 이건;;
 import Search_User from "./ER/Search_User/Search_User.js";
 import GameIntroduce from "./ER/GameIntroduce/GameIntroduce.js";
 import Statistics from "./ER/Statistics/Statistics.js";
 import Character_Detail from "./ER/Character_Information/Character_Detail.js";
+import Character_Chose from "./ER/Character_Information/Character_Chose.js";
+
+
 import Ingredient from "./ingredient.js";
 import Pixel from "./MainSite.js";
+
 import CopyWeb from "./copyWeb/copyWeb.js";
+
 import Vhom from "./VHOM/vhom.js";
 import Stealien from "./Stealien/Stealien.js";
 import My from "./my/my.js";

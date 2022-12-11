@@ -17,7 +17,7 @@ function MainSite() {
         
     }, 200);
     if(Count-1 == txt.length)  {  // 문자열 길이 맞으면 아래 실행인데 클리어로 반복 없애기
-      settxt("Change")
+      settxt("Pixel")
       setText("");
       setCount(0);
        
@@ -272,7 +272,7 @@ const TryAgain=() =>{// 특정 마우스 휠에서 작동시키면 지웠다가 
 
       </div>
      
-     <div className="Pixel5 page">5</div>
+    
     </div>
     
   );

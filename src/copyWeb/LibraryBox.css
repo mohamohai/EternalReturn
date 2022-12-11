@@ -191,7 +191,6 @@
     backface-visibility: hidden;
     transform-style: preserve-3d;
     transform: perspective(500px) rotateY(0deg);
-
 }
 
 .boxboxfront {
