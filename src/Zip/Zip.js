@@ -25,10 +25,13 @@ function Zip(){
 
 
   useEffect((e)=>{
-  console.log(window.pageYOffset);//휠 위치에 따라서 zip 이 부분 퍼센트 내리기 at 50% 100%
-console.log(Zip1Ref.current.getBoundingClientRect().height);
-    Zip1[0].style.clipPath=`circle(${(120-(window.pageYOffset/12))}% at 50% 100%)`
-  
+    console.log(window.innerHeight)//브라우저 y값
+    console.log(window.pageYOffset);//휠 위치에 따라서 zip 이 부분 퍼센트 내리기 at 50% 100%
+    console.log(Zip1Ref.current.getBoundingClientRect().height); //요소 크기 잡
+        Zip1[0].style.clipPath=`circle(${(120-(window.pageYOffset/12))}% at 50% 100%)`
+    if(window.pageYOffset>window.innerHeight){
+      console.log("yoyo")
+    }
   })
 
   // useEffect((e)=>{
@@ -90,6 +93,16 @@ console.log(Zip1Ref.current.getBoundingClientRect().height);
             
             </div>
           <div id="Zip_Part3"className="Zip3 Page100">
+          <div className="lineT">
+            <div className="CloneWeb"></div>
+          </div>
+
+
+          
+          <div className="lineT"></div>
+          <div className="lineT"></div>
+          <div className="lineT"></div>
+          <div className="lineT"></div>
           <div className="lineT"></div>
           <div className="lineT"></div>
           <div className="lineT"></div>

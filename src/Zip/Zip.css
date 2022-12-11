@@ -66,10 +66,14 @@
 .Zip1 {
     transition: all 0.5s;
     height: 200vh;
+    width: 100vw;
     clip-path: circle(10% at 50% 100%);
+    top: 0px;
+    z-index: 1;
+    background: red;
+    position: relative;
+
 }
-
-
 
 .FlowBox {
     position: fixed;
@@ -146,6 +150,7 @@
     width: 100vw;
     transition: all 1s;
     height: 300vh;
+    z-index: 2;
 }
 
 .clipTest {
@@ -177,15 +182,13 @@
 
 .Zip3 {
     position: relative;
-    top: 200vh;
-
-    background-color: aqua;
-    width: 100vh;
+    width: 50vw;
     height: 100vw;
     transition: all 1s;
     overflow-y: auto;
     overflow-x: hidden;
-    transform: rotate(-90deg);
+    transform: rotate(-90deg) translateX(25vw);
+
     /* 
 
   
@@ -194,11 +197,18 @@
 
 }
 
+
+
 .lineT {
-    width: 20vw;
-    height: 20vh;
+    width: 700px;
+    height: 800px;
     border: 5px solid red;
     transition: all 1s;
     transform: rotate(90deg);
-    margin-top: 200px;
+    margin-top: 6.5vw;
+
+}
+
+.CloneWeb {
+    width: auto;
 }

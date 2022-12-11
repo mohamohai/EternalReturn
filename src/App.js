@@ -60,7 +60,7 @@ class App extends Component {
       <BrowserRouter>
      
         <Routes>
-          <Route exact path="/" element={<MyMy/>} />
+          <Route exact path="/" element={<Zip/>} />
           <Route path="/in" element={<Ingredient />} />
           <Route
             path="/ER"    element={<ERMain />}
