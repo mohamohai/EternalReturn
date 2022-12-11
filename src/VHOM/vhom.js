@@ -71,6 +71,43 @@ function Vhom() {
       }
   }
 
+  const [DownX,setDownX]=useState(1);
+  const [ChangeItem,setChangeItem]=useState(1);
+  const ChangeItemContan = document.getElementsByClassName("containerVhom");
+  const DownDown=(e)=>{
+    setDownX(e.clientX)
+    console.log(e.clientX, DownX)
+}
+
+  const UpUp=(e)=>{
+    console.log(DownX)
+    if(DownX > e.clientX){
+      if(ChangeItem==1){
+        console.log("뭐냐고;")
+        ChangeItemContan[0].style.transform=`translateX(-1100px)`
+        setChangeItem(ChangeItem+1)
+
+
+      }else if(ChangeItem==2){
+        console.log("뭐냐고;")
+        ChangeItemContan[0].style.transform=`translateX(-2200px)`
+        setChangeItem(ChangeItem+1)
+      }
+  }
+  else{
+    if(ChangeItem==2){
+      console.log("뭐냐고;")
+      ChangeItemContan[0].style.transform=`translateX(0px)`
+      setChangeItem(ChangeItem-1)
+    }else if(ChangeItem==3){
+      ChangeItemContan[0].style.transform=`translateX(-1100px)`
+      setChangeItem(ChangeItem-1)
+    }
+  }
+  }
+
+
+
  function Changeright() {
     var divdiv = document.getElementById("ChangeForm");
     var pCount = SlideCnt+1;
@@ -542,7 +579,86 @@ function pagefourcntbtn() {
       </div>
       */}
       <div className="VHOMMainPageThree page"> 
-        
+        <div className="containerVhom" onMouseDown={DownDown} onMouseUp={UpUp}>
+          
+          <div className="ItemBox">
+            <img className="ItemImg" src="./image/vhom/pagethree/vivid1.jpg"></img>
+              <div className="ItemEx">
+                <span>모던함과 깔끔함이 돋보이는<br></br></span>
+                <span>심플 화이트 <br></br></span>
+                <span>미니멀하고 깨끗한 'Simple White'스타일에 추천하는 아이템이에요 <br></br></span>
+              </div>
+              <div className="PlusItemVhom">
+                  <ul>
+                      <li><img src="./image/vhom/pagethree/vivid3.jpg"></img></li>
+                      <li>원형 러그</li>
+                      <li>53,900원</li>
+                </ul>
+                <ul>
+                      <li><img src="./image/vhom/pagethree/vivid3.jpg"></img></li>
+                      <li>원형 러그</li>
+                      <li>53,900원</li>
+                </ul>
+                <ul>
+                      <li><img src="./image/vhom/pagethree/vivid3.jpg"></img></li>
+                      <li>원형 러그</li>
+                      <li>53,900원</li>
+                </ul>
+              </div>
+          </div>
+
+
+          <div className="ItemBox">
+            <img className="ItemImg" src="./image/vhom/pagethree/vivid1.jpg"></img>
+              <div className="ItemEx">
+                <span>모던함과 깔끔함이 돋보이는<br></br></span>
+                <span>심플 화이트 <br></br></span>
+                <span>미니멀하고 깨끗한 'Simple White'스타일에 추천하는 아이템이에요 <br></br></span>
+              </div>
+              <div className="PlusItemVhom">
+                  <ul>
+                      <li><img src="./image/vhom/pagethree/vivid3.jpg"></img></li>
+                      <li>원형 러그</li>
+                      <li>53,900원</li>
+                </ul>
+                <ul>
+                      <li><img src="./image/vhom/pagethree/vivid3.jpg"></img></li>
+                      <li>원형 러그</li>
+                      <li>53,900원</li>
+                </ul>
+                <ul>
+                      <li><img src="./image/vhom/pagethree/vivid3.jpg"></img></li>
+                      <li>원형 러그</li>
+                      <li>53,900원</li>
+                </ul>
+              </div>
+          </div>
+          <div className="ItemBox">
+            <img className="ItemImg" src="./image/vhom/pagethree/vivid1.jpg"></img>
+              <div className="ItemEx">
+                <span>모던함과 깔끔함이 돋보이는<br></br></span>
+                <span>심플 화이트 <br></br></span>
+                <span>미니멀하고 깨끗한 'Simple White'스타일에 추천하는 아이템이에요 <br></br></span>
+              </div>
+              <div className="PlusItemVhom">
+                  <ul>
+                      <li><img src="./image/vhom/pagethree/vivid3.jpg"></img></li>
+                      <li>원형 러그</li>
+                      <li>53,900원</li>
+                </ul>
+                <ul>
+                      <li><img src="./image/vhom/pagethree/vivid3.jpg"></img></li>
+                      <li>원형 러그</li>
+                      <li>53,900원</li>
+                </ul>
+                <ul>
+                      <li><img src="./image/vhom/pagethree/vivid3.jpg"></img></li>
+                      <li>원형 러그</li>
+                      <li>53,900원</li>
+                </ul>
+              </div>
+          </div>
+        </div>
       
       </div>
 

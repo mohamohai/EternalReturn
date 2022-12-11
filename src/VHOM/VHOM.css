@@ -99,7 +99,6 @@
     width: 160px;
     text-align: right;
     color: #00B190;
-
 }
 
 .VHOMSideBarBorder {
@@ -817,4 +816,59 @@
     z-index: 102;
     top: 194px;
     left: 201px;
+}
+
+
+
+.containerVhom {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    position: relative;
+    transform: translateX(0);
+    transition: all 1s;
+
+}
+
+.ItemBox {
+    width: 1000px;
+    height: 530px;
+    margin-left: 100px;
+    transition: all 1s;
+
+}
+
+.ItemImg {
+    float: left;
+    width: 500px;
+    margin-right: 15px;
+    pointer-events: none;
+
+}
+
+.ItemEx span {}
+
+.ItemEx span:nth-child(1) {}
+
+.ItemEx span:nth-child(2) {
+    font-size: 2rem;
+}
+
+.ItemEx span:nth-child(3) {
+    font-size: 0.7rem;
+}
+
+.PlusItemVhom {
+    height: 170px;
+    margin-top: 230px;
+    width: 470px;
+    float: left;
+
+}
+
+.PlusItemVhom ul {
+    float: left;
+    width: 140px;
 }
