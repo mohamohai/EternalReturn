@@ -1,0 +1,297 @@
+.Oconnect {
+    width: 100vw;
+    height: 500vh;
+    background-color: rgb(20, 20, 20);
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    transition: all 0.5s;
+
+
+}
+
+.OconnectGNB {
+    width: 100vw;
+    height: 70px;
+    line-height: 70px;
+    background-color: rgb(20, 20, 20);
+    position: fixed;
+    z-index: 13;
+
+}
+
+
+.OconnectLogo {
+    float: left;
+    margin: 7px 0 0 40px;
+    width: 300px;
+}
+
+.OconnectLogo img {
+    transition: all 1s;
+
+    float: left;
+}
+
+.OconnectLogo p {
+    transition: all 1s;
+    opacity: 0;
+    font-size: 2rem;
+    margin: -10px 0 0 95px;
+    color: white;
+    font-family: "Noto Sans KR";
+    font-weight: 200;
+}
+
+
+.OconnectLogo:hover img {
+    transform: scale(0.7);
+
+}
+
+.OconnectLogo:hover p {
+    opacity: 1;
+    transform: translateX(-50px);
+    font-family: "Noto Sans KR";
+    font-weight: 200;
+}
+
+
+.OconnectMenu {
+    float: right;
+    color: white;
+}
+
+.OconnectMenu li {
+    float: left;
+    font-family: "Noto Sans KR";
+    font-weight: 100;
+    margin-right: 40px;
+}
+
+.OconnectMenu span {
+    background-color: rgb(0, 113, 227);
+    padding: 5px 10px;
+    border-radius: 15px 15px 15px 15px;
+    margin-right: 40px;
+    font-family: "Noto Sans KR";
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: white;
+}
+
+/*-****--*---*-*-*-*-*-*-*-*-*-*---*-*-*-*-*-*-*-*-*/
+.clear {
+    clear: both
+}
+
+.OconnectPage1 {
+    width: 100%;
+}
+
+
+.OconnectMain1 {
+    text-align: center;
+    width: 70vw;
+    height: 500px;
+    position: relative;
+    top: 30vh;
+    z-index: 5;
+}
+
+.OconnectPage1Text {
+    font-size: 3rem;
+    color: white;
+    text-align: left;
+    margin-bottom: 20px;
+    white-space: nowrap;
+    transition: all 1s;
+}
+
+.OconnectPage1Img img {
+    text-align: left;
+    width: 70vw;
+}
+
+.OconnectBall1 {
+    position: absolute;
+    z-index: 2;
+    transform: scale(0.5);
+    right: 65vw;
+    top: 25vh;
+}
+
+.OconnectBall1::before {
+    width: 1000px;
+    height: 1000px;
+    z-index: 1;
+    display: block;
+    border-radius: 100%;
+    content: '';
+    background-color: transparent;
+    position: absolute;
+    -webkit-box-shadow: 0px 0px 100px 10px rgba(0, 0, 0, 0.5);
+}
+
+.OconnectBall2 {
+    position: absolute;
+    z-index: 3;
+    transform: scale(0.5);
+    left: 70vw;
+    top: 5vh;
+}
+
+.OconnectBall2::before {
+    width: 366px;
+    height: 366px;
+    z-index: 2;
+    display: block;
+    border-radius: 100%;
+    content: '';
+    background-color: transparent;
+    position: absolute;
+    -webkit-box-shadow: 0px 0px 100px 10px rgba(0, 0, 0, 0.5);
+}
+
+.OconnectCir {
+    position: absolute;
+    z-index: 2;
+    transform: scale(0.5);
+    left: 65vw;
+    top: -7vh;
+}
+
+.OconnectCir::before {
+    width: 2000px;
+    height: 2000px;
+    z-index: -51;
+    display: block;
+    border-radius: 100%;
+    content: '';
+    background-color: rgba(15, 15, 15, 1);
+    position: absolute;
+    top: -750px;
+    left: -500px;
+    -webkit-box-shadow: 0px 0px 200px 10px rgba(200, 200, 200, 0.1);
+}
+
+.OconnectPage2 {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    top: 300px;
+    text-align: center;
+}
+
+.animationDown {
+    color: rgb(255, 134, 35);
+    animation: moveBottomPlz 1.5s 0.1s infinite linear;
+    font-size: 4rem;
+    font-weight: 700;
+    font-family: "Noto Sans KR";
+}
+
+.animationDown2 {
+    color: rgb(255, 134, 35);
+    animation: moveBottomPlz 1.5s infinite linear;
+    font-size: 4rem;
+    margin-top: -50px;
+    font-weight: 700;
+    font-family: "Noto Sans KR";
+}
+
+.OconnectPage2Container {
+    margin-top: 100px;
+}
+
+.OconnectPage2Text {
+    width: 80vw;
+
+}
+
+.OconnectPage2Text p {
+    float: left;
+    color: black;
+    width: 1200px;
+    font-size: 2rem;
+    text-align: left;
+}
+
+.OconnectPage2Text p:nth-child(1) {
+    font-family: "Noto Sans KR";
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+.OconnectPage2Text span {
+    color: transparent;
+    -webkit-text-stroke: 1px black;
+}
+
+.OconnectPage2Img img {
+    position: relative;
+    width: 50vw;
+}
+
+.OconnectPage2Rianbow {
+    position: relative;
+    top: 300px;
+    width: 30vw;
+    background-image: linear-gradient(45deg, #3f51b1 0%, #5a55ae 13%, #7b5fac 25%, #8f6aae 38%, #a86aa4 50%, #cc6b8e 62%, #f18271 75%, #f3a469 87%, #f7c978 100%);
+    color: transparent;
+    -webkit-background-clip: text;
+
+    font-weight: bold;
+    font-size: 40px;
+}
+
+@keyframes onloadmove {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes moveBottomPlz {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px)rotate(90deg);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateY(100px)rotate(90deg);
+    }
+
+    80% {
+        opacity: 1;
+        transform: translateY(100px)rotate(90deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(100px)rotate(90deg);
+    }
+}
+
+
+
+@media screen and (max-width: 1100px) {
+    .OconnectMenu {
+        display: none;
+    }
+
+    .OconnectPage1Text {
+        font-size: 2rem;
+    }
+}

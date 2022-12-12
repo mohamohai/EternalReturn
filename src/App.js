@@ -26,6 +26,8 @@ import HerenNow from "./HerenNow/HerenNow.js"
 import LibraryBox from "./copyWeb/LibraryBox.js";
 import Zip from "./Zip/Zip.js";
 import FourZeroFour from "./FourZeroFour/FourZeroFour.js"
+
+import Oconnect from "./Oconnect/Oconnect.js";
 import {
   BrowserRouter,
   Route,
@@ -121,9 +123,12 @@ class App extends Component {
           <Route path="Pixel"  element={<Pixel />} />
           <Route path="LibraryBox"  element={<LibraryBox />} />
           <Route path="Zip" element={<Zip/>}/>
+          <Route path="Oconnect" element={<Oconnect/>}/>
+          
           <Route exact path="/" element={<FourZeroFour />} />
           <Route path="*"  element={<FourZeroFour />} />
-     
+
+
           
         </Routes>
       </BrowserRouter>
