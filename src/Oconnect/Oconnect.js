@@ -107,7 +107,24 @@ useEffect(() => {
                     <div className="OconnectPage2Img" data-aos="fade-up"><img src="./image/Oconnect/cir2.png"></img></div>
                 </div>
             </div><div className="clear"></div>
-            <div className="OconnectPage2Rianbow">사랑해줘요~ 사랑해줘요~ 내가 사랑하는 그녀를~</div><br></br>
+            <div className="OconnectPage2Rainbow">Wherever you are, I always make you smile <br></br>
+            Wherever you are, I'm always by your side</div><br></br>
+            <div className="OconnectPage2Card">
+                <div className="OconnectPage2CardPage">
+                    <h2>여기에 무슨 문구가 주황색</h2>
+                    <p>여기에 멘트가 블라블라 <br></br>
+                    여기에 멘트가 블라블라 <br></br></p>
+                    여기에 멘트가 블라블라 <br></br>
+                    여기에 멘트가 블라블라 <br></br>
+                </div>
+                <div className="OconnectPage2CardPage">
+                <h2>여기에 무슨 문구가 주황색</h2>
+                    <p>여기에 멘트가 블라블라 <br></br>
+                    여기에 멘트가 블라블라 <br></br></p>
+                    여기에 멘트가 블라블라 <br></br>
+                    여기에 멘트가 블라블라 <br></br>
+                </div>
+            </div>
         </div>
     )
 } export default Oconnect;
