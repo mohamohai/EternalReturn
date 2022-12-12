@@ -92,6 +92,7 @@ useEffect(() => {
                 <span className="OconnectCir"> <img src="./image/Oconnect/cir.png"></img></span>
             </div>
             
+
             <div className="OconnectPage2">
                 <div className="animationDown">&gt;</div>
                 <div className="animationDown2">&gt;</div>
@@ -107,22 +108,27 @@ useEffect(() => {
                     <div className="OconnectPage2Img" data-aos="fade-up"><img src="./image/Oconnect/cir2.png"></img></div>
                 </div>
             </div><div className="clear"></div>
-            <div className="OconnectPage2Rainbow">Wherever you are, I always make you smile <br></br>
-            Wherever you are, I'm always by your side</div><br></br>
-            <div className="OconnectPage2Card">
-                <div className="OconnectPage2CardPage">
+
+
+            <div className="OconnectPage3">
+                <div className="OconnectPage3Rainbow">
+                    Wherever you are, I always make you smile <br></br>
+                    Wherever you are, I'm always by your side</div><br></br>
+                <div className="OconnectPage3Card">
+                    <div className="OconnectPage3CardPage">
+                        <h2>여기에 무슨 문구가 주황색</h2>
+                        <p>여기에 멘트가 블라블라 <br></br>
+                        여기에 멘트가 블라블라 <br></br></p>
+                        여기에 멘트가 블라블라 <br></br>
+                        여기에 멘트가 블라블라 <br></br>
+                    </div>
+                    <div className="OconnectPage3CardPage">
                     <h2>여기에 무슨 문구가 주황색</h2>
-                    <p>여기에 멘트가 블라블라 <br></br>
-                    여기에 멘트가 블라블라 <br></br></p>
-                    여기에 멘트가 블라블라 <br></br>
-                    여기에 멘트가 블라블라 <br></br>
-                </div>
-                <div className="OconnectPage2CardPage">
-                <h2>여기에 무슨 문구가 주황색</h2>
-                    <p>여기에 멘트가 블라블라 <br></br>
-                    여기에 멘트가 블라블라 <br></br></p>
-                    여기에 멘트가 블라블라 <br></br>
-                    여기에 멘트가 블라블라 <br></br>
+                        <p>여기에 멘트가 블라블라 <br></br>
+                        여기에 멘트가 블라블라 <br></br></p>
+                        여기에 멘트가 블라블라 <br></br>
+                        여기에 멘트가 블라블라 <br></br>
+                    </div>
                 </div>
             </div>
         </div>

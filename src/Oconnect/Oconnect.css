@@ -185,8 +185,6 @@
     width: 100vw;
     height: 100vh;
     position: relative;
-    background-color: chocolate;
-    top: 300px;
     text-align: center;
 }
 
@@ -195,6 +193,7 @@
     animation: moveBottomPlz 1.5s 0.1s infinite linear;
     font-size: 4rem;
     font-weight: 700;
+    margin-top: -100px;
     font-family: "Noto Sans KR";
 }
 
@@ -239,7 +238,6 @@
     position: relative;
     width: 50vw;
     height: 50vh;
-    background-color: red;
 }
 
 .OconnectPage2Img img {
@@ -247,21 +245,28 @@
     width: 50vw;
 }
 
-.OconnectPage2Rainbow {
+.OconnectPage3 {
+    width: 80vw;
+    height: 100vh;
     position: relative;
-    top: 500px;
-    width: 700px;
+    background-color: palegoldenrod;
+}
+
+.OconnectPage3Rainbow {
+    white-space: nowrap;
+    position: relative;
+    width: 50vw;
+    overflow: hidden;
     background-image: linear-gradient(45deg, #3f51b1 5%, #5a55ae 10%, #7b5fac 15%, #8f6aae 20%, #a86aa4 25%, #cc6b8e 30%, #f18271 35%, #f3a469 40%, #f7c978 45%,
             #3f51b1 51%, #5a55ae 57%, #7b5fac 63%, #8f6aae 69%, #a86aa4 75%, #cc6b8e 80%, #f18271 86%, #f3a469 92%, #f7c978 100%);
     color: transparent;
     -webkit-background-clip: text;
     font-size: 2rem;
     font-weight: bold;
-    white-space: nowrap;
     text-align: center;
 }
 
-.OconnectPage2Card {
+.OconnectPage3Card {
     width: 80vw;
     height: auto;
     background-color: red;
@@ -273,14 +278,14 @@
     align-content: center;
 }
 
-.OconnectPage2CardPage {
+.OconnectPage3CardPage {
     width: 30vw;
     height: 30vh;
     background-color: palegoldenrod;
     text-align: center;
 }
 
-.OconnectPage2CardPage h2 {
+.OconnectPage3CardPage h2 {
     color: rgb(255, 134, 35);
     margin: 30px;
 }
@@ -328,5 +333,9 @@
 
     .OconnectPage1Text {
         font-size: 2rem;
+    }
+
+    .OconnectPage3Rainbow {
+        font-size: 1.5rem;
     }
 }
