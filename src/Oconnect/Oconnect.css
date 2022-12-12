@@ -1,6 +1,6 @@
 .Oconnect {
     width: 100vw;
-    height: 400vh;
+    height: 750vh;
     background-color: rgb(20, 20, 20);
     position: absolute;
     left: 0px;
@@ -249,7 +249,6 @@
     width: 80vw;
     height: 100vh;
     position: relative;
-    background-color: palegoldenrod;
 }
 
 .OconnectPage3Rainbow {
@@ -257,8 +256,7 @@
     position: relative;
     width: 50vw;
     overflow: hidden;
-    background-image: linear-gradient(45deg, #3f51b1 5%, #5a55ae 10%, #7b5fac 15%, #8f6aae 20%, #a86aa4 25%, #cc6b8e 30%, #f18271 35%, #f3a469 40%, #f7c978 45%,
-            #3f51b1 51%, #5a55ae 57%, #7b5fac 63%, #8f6aae 69%, #a86aa4 75%, #cc6b8e 80%, #f18271 86%, #f3a469 92%, #f7c978 100%);
+    background-image: linear-gradient(45deg, #5868c2 10%, #3f51b1 20%, #5a55ae 30%, #7b5fac 40%, #8f6aae 50%, #a86aa4 60%, #cc6b8e 70%, #f18271 80%, #f3a469 90%, #f7c978 100%);
     color: transparent;
     -webkit-background-clip: text;
     font-size: 2rem;
@@ -267,9 +265,8 @@
 }
 
 .OconnectPage3Card {
-    width: 80vw;
+    width: 60vw;
     height: auto;
-    background-color: red;
     position: relative;
 
     display: flex;
@@ -281,13 +278,280 @@
 .OconnectPage3CardPage {
     width: 30vw;
     height: 30vh;
-    background-color: palegoldenrod;
+    text-align: left;
+    margin-left: 10vw;
+}
+
+.OconnectPage3CardPage:nth-child(1) h2 {
+    color: rgba(235, 103, 61);
+}
+
+.OconnectPage3CardPage:nth-child(2) h2 {
+    color: rgba(235, 101, 72);
+}
+
+.OconnectPage3CardPage h2 {}
+
+.OconnectPage3CardPage p {
+    margin: 30px;
+    font-family: "Noto Sans KR";
+    font-weight: 500;
+    font-size: 1.2rem;
+    white-space: nowrap;
+}
+
+
+
+.OconnectPage4 {
+    width: 100vw;
+    height: 100vh;
     text-align: center;
 }
 
-.OconnectPage3CardPage h2 {
-    color: rgb(255, 134, 35);
-    margin: 30px;
+.OconnectPage4Container {
+    width: 80vw;
+    position: relative;
+}
+
+.OconnectPage4Products {
+    text-align: left;
+
+}
+
+.OconnectPage4Products p:nth-child(1) {
+    font-size: 1.3rem;
+    font-family: "Noto Sans KR";
+    font-weight: 400;
+
+}
+
+.OconnectPage4Products p:nth-child(2) {
+    font-size: 2.5rem;
+    margin: 10px 0 10px 0;
+    font-family: "Noto Sans KR";
+    font-weight: 600;
+}
+
+.OconnectPage4Products p:nth-child(3) {
+    font-size: 2rem;
+}
+
+
+.OconnectItem1 {
+    text-align: center;
+    width: 500px;
+}
+
+.OconnectItem1 img {
+    text-align: center;
+    width: 500px;
+    margin-left: 200px;
+}
+
+.OconnectItem1 h2 {
+    font-size: 4rem;
+    -webkit-text-stroke: black 1px;
+    color: transparent;
+    background-clip: text;
+    white-space: nowrap;
+    position: relative;
+    top: -300px;
+}
+
+.OconnectItem1 h2::before {
+    content: "X-STEP";
+    font-size: 4rem;
+    color: black;
+    position: absolute;
+    width: 0%;
+    overflow: hidden;
+    transition: all 1s;
+    white-space: nowrap;
+    text-align: left;
+
+}
+
+.OconnectItem1 h2::before:hover {
+    width: 100%;
+
+    /*여기를 addList addClass로 추가로 변경*/
+}
+
+.OconnectItem1 h2:hover::before {
+    width: 100%;
+}
+
+.OconnectItem1 span {
+    font-size: 1.5rem;
+    position: relative;
+    top: -300px;
+}
+
+.OconnectItem2 {
+    text-align: center;
+    height: 40vh;
+    margin-top: 10vh;
+}
+
+.OconnectItem2 img {
+    text-align: center;
+    width: 70vw;
+    margin-left: -30vw;
+}
+
+.OconnectItem2 h2 {
+    font-size: 4rem;
+    -webkit-text-stroke: black 1px;
+    color: transparent;
+    background-clip: text;
+    white-space: nowrap;
+    position: relative;
+    float: left;
+}
+
+.OconnectItem2 p {
+    position: relative;
+    white-space: nowrap;
+    font-size: 1.5rem;
+    padding: 15px;
+
+}
+
+.OconnectItem2 div {
+    width: 300px;
+}
+
+.OconnectItem3 {
+    width: 50vw;
+    margin-top: 300px;
+}
+
+.OconnectItem3 img {
+    width: 40vw;
+}
+
+.OconnectItem3 div {
+    text-align: left;
+    width: 40vw;
+    top: -20vh;
+    position: relative;
+}
+
+.OconnectItem3 p {
+    position: relative;
+    white-space: nowrap;
+    font-size: 1.5rem;
+}
+
+.OconnectItem3 h2 {
+    font-size: 4rem;
+    -webkit-text-stroke: black 1px;
+    color: transparent;
+    background-clip: text;
+    white-space: nowrap;
+    position: relative;
+    float: left;
+}
+
+.OconnectPage5 {
+    width: 100vw;
+    height: 200vh;
+    background-color: rgb(20, 20, 20);
+    border-radius: 50px 50px 0 0;
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+}
+
+.OconnectPage5BackWord {
+    color: rgb(255, 255, 255, 0.03);
+    font-size: 8rem;
+    line-height: 8rem;
+    text-transform: uppercase;
+    position: absolute;
+    top: 100px;
+    text-align: left;
+}
+
+.OconnectPage5FrontWord {
+    width: 60vw;
+    text-align: left;
+    color: white;
+    font-size: 2.2rem;
+    position: relative;
+}
+
+.OconnectPage5FrontWord span {
+    font-size: 1.2rem;
+}
+
+.OconnectPage5NavBar {
+    width: 300px;
+    height: 1px;
+    background-color: white;
+    text-align: left;
+    margin: -1.5rem 0 0 5rem;
+}
+
+.OconnectPage5SildeBox {
+    width: 50vw;
+    height: 900px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    margin-left: 100px;
+    overflow: hidden;
+    text-align: left;
+    white-space: nowrap;
+
+}
+
+.OconnectPage5SildeBoxContainer {
+    width: 4000px;
+    transition: all 1s;
+
+}
+
+.OconnectPage5SildeBoxCard {
+    width: 378px;
+    height: 400px;
+    float: left;
+    margin-right: 100px;
+    border-radius: 50px;
+    overflow: hidden;
+    margin-top: 50px;
+    margin: 50px 50px 0 50px;
+    background-color: white;
+    box-shadow: rgba(240, 255, 100, 0.1) 0px 24px 80px;
+}
+
+.OconnectPage5SildeBoxCard:hover {
+    transition: all 1s;
+    box-shadow: rgb(240, 255, 100, 0.1) 0px 16px 56px, rgba(240, 255, 100, 0.1) 0px 24px 80px;
+
+}
+
+.OconnectPage5SildeBoxCardImg {
+    width: 400px;
+    height: 300px;
+    overflow: hidden;
+}
+
+.OconnectPage5SildeBoxCard img {
+    transition: all 1s;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s;
+}
+
+.OconnectPage5SildeBoxCard img:hover {
+    transition: all 1s;
+    transform: scale(1.2);
+}
+
+.OconnectPage5SildeBoxCardText {
+    margin: 10px;
 }
 
 @keyframes onloadmove {

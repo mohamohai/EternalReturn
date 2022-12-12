@@ -44,7 +44,7 @@ function Oconnect(){
         //이벤트리스너
       
 
-        if(window.scrollY>pageHeight/2){
+        if(window.scrollY>300){
             ChangeGNBBackgroundDown();
         }else if(window.scrollY<pageHeight){
             ChangeGNBBackgroundUp();
@@ -111,26 +111,120 @@ useEffect(() => {
 
 
             <div className="OconnectPage3">
-                <div className="OconnectPage3Rainbow">
-                    Wherever you are, I always make you smile <br></br>
-                    Wherever you are, I'm always by your side</div><br></br>
-                <div className="OconnectPage3Card">
+                <div className="OconnectPage3Rainbow" data-aos="fade-up">
+                    우리의 생활 속 어디에나 녹아들어<br></br>
+                    삶에 쉽게 적용될 수 있도록.</div><br></br>
+                <div className="OconnectPage3Card" data-aos="fade-up">
                     <div className="OconnectPage3CardPage">
-                        <h2>여기에 무슨 문구가 주황색</h2>
-                        <p>여기에 멘트가 블라블라 <br></br>
-                        여기에 멘트가 블라블라 <br></br></p>
-                        여기에 멘트가 블라블라 <br></br>
-                        여기에 멘트가 블라블라 <br></br>
+                    <p><h2>IDEA</h2>
+                        OCONNECT는 누구나 당연하게 <br></br>
+                        생각하는 것으로부터 <br></br>
+                        아이디어를 착안합니다.
+                        </p>
+                        
                     </div>
                     <div className="OconnectPage3CardPage">
-                    <h2>여기에 무슨 문구가 주황색</h2>
-                        <p>여기에 멘트가 블라블라 <br></br>
-                        여기에 멘트가 블라블라 <br></br></p>
-                        여기에 멘트가 블라블라 <br></br>
-                        여기에 멘트가 블라블라 <br></br>
+                    <p>
+                    <h2>CHANGE</h2>
+                      당연함을 당연시하지 않으며, <br></br>
+                      변화를 주도합니다. <br></br>
+                    </p>
                     </div>
                 </div>
+            </div> <div className="clear"></div>
+            <div className="OconnectPage4">
+                <div className="OconnectPage4Container">
+                    <div className="OconnectPage4Products">
+                        <p>Business Area</p>
+                        <p>Products</p>
+                        <p>방향은 무시. <br></br>
+                        왼쪽, 오른쪽 어느쪽으로든!<br></br>
+                        쉽고 안전한 one STEP</p>
+                    </div>
+                    <div className="OconnectItem1"><img src="./image/Oconnect/prd1.png"></img>
+                        <h2>X-STEP</h2>
+                        <span>새로운 X-Type 콘센트 규격 멀티탭</span>
+                    </div>
+
+                    <div className="OconnectItem2"><img src="./image/Oconnect/prd2.png"></img>
+                        <div>
+                        <h2>ONE-STEP</h2>
+                        <p>아무렇게나 꽂아도 <br></br>
+                        스스로 회전하여 맞춰주는 멀티탭</p>
+                        </div>
+                    </div>
+
+                    <div className="OconnectItem3"><img src="./image/Oconnect/prd3.png"></img>
+                        <div>
+                            <p>
+                            기존의 틀을 벗어나<br></br>
+디자인에 초점을 맞춘 멀티탭
+                            </p>
+                            <h2>DESIGN STEP</h2>
+                        </div>
+                    </div>
+                </div>
+            </div><div className="clear"></div>
+
+            <div className="OconnectPage5">
+                <div className="OconnectPage5BackWord">
+                    oconnect <br></br>
+                    news & <br></br>
+                    media <br></br>
+                </div>
+                <div className="OconnectPage5FrontWord"> 
+                    <p>
+                        <span>NEWS & MEDIA <br></br></span>
+                        OCONNECT & <br></br>
+                        Press Room <br></br>
+                        &lt; &gt;<div className="OconnectPage5NavBar"></div>
+                    </p>
+                </div>
+                <div className="OconnectPage5SildeBox">
+                    <div className="OconnectPage5SildeBoxContainer">
+                        <div className="OconnectPage5SildeBoxCard">
+                            <div className="OconnectPage5SildeBoxCardImg">
+                                <img src="./image/Oconnect/da.jpg"></img>
+                            </div>
+                            <div className="OconnectPage5SildeBoxCardText">
+                                <p>UNIST News <br></br>
+                                <h1>제목제목제목</h1></p>
+                            </div>
+                        </div>
+                        <div className="OconnectPage5SildeBoxCard">
+                            <div className="OconnectPage5SildeBoxCardImg">
+                                <img src="./image/Oconnect/da.jpg"></img>
+                            </div>
+                            <div className="OconnectPage5SildeBoxCardText">
+                                <p>UNIST News <br></br>
+                                <h1>제목제목제목</h1></p>
+                            </div>
+                        </div>
+                        <div className="OconnectPage5SildeBoxCard">
+                            <div className="OconnectPage5SildeBoxCardImg">
+                                <img src="./image/Oconnect/da.jpg"></img>
+                            </div>
+                            <div className="OconnectPage5SildeBoxCardText">
+                                <p>UNIST News <br></br>
+                                <h1>제목제목제목</h1></p>
+                            </div>
+                        </div>
+                        <div className="OconnectPage5SildeBoxCard">
+                            <div className="OconnectPage5SildeBoxCardImg">
+                                <img src="./image/Oconnect/da.jpg"></img>
+                            </div>
+                            <div className="OconnectPage5SildeBoxCardText">
+                                <p>UNIST News <br></br>
+                                <h1>제목제목제목</h1></p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
             </div>
+
+
         </div>
     )
 } export default Oconnect;
