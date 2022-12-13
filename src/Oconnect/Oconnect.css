@@ -418,7 +418,7 @@
 }
 
 .OconnectItem2 div {
-    width: 300px;
+    width: 500px;
 }
 
 .OconnectItem3 {
@@ -509,7 +509,6 @@
 .OconnectPage5SildeBoxContainer {
     width: 4000px;
     transition: all 1s;
-
 }
 
 .OconnectPage5SildeBoxCard {
@@ -552,6 +551,15 @@
 
 .OconnectPage5SildeBoxCardText {
     margin: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.OconnectPage5SildeBoxCardText h1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 @keyframes onloadmove {

@@ -9,14 +9,16 @@ import "aos/dist/aos.css";
 
 function Oconnect(){
   const [XY,setXY]=useState({X:0,Y:0});
+  const [SlideCnt, setSlideCnt]=useState(1);
   const OconnectRef = useRef();
+
   var target = document.getElementById("element");
-
-
   const Oconnect = document.getElementsByClassName("Oconnect");
   const OconnectGNB = document.getElementsByClassName("OconnectGNB");
   const OconnectGNBLeft = document.getElementsByClassName("OconnectLogo");
   const OconnectGNBRight = document.getElementsByClassName("OconnectMenu");
+  const OconnectSlideContainer = document.getElementsByClassName("OconnectPage5SildeBoxContainer")
+  const OconnectPage5SildeBoxCard = document.getElementsByClassName("OconnectPage5SildeBoxCard")
 
   const ChangeGNBBackgroundUp = () => {//휠업
     Oconnect[0].style.backgroundColor="rgb(20, 20, 20)";
@@ -33,6 +35,18 @@ function Oconnect(){
     OconnectGNBLeft[0].style.filter="invert(100)"
     OconnectGNBRight[0].style.color="rgb(20,20,20)"
   }
+
+    const ContainerMove = (a,b) => {
+        var downdown=SlideCnt-1;
+        var upup=SlideCnt+1;
+        if(SlideCnt<OconnectPage5SildeBoxCard.length && a==1){
+        OconnectSlideContainer[0].style.transform=`translateX(${SlideCnt*-478}px)`
+        setSlideCnt(SlideCnt+1);
+        }else if(SlideCnt>0&&b==1){
+             OconnectSlideContainer[0].style.transform=`translateX(${downdown*-478}px)`
+        setSlideCnt(SlideCnt-1);
+        }
+    }
   useEffect(()=>{ 
     let scrollLocation = document.documentElement.scrollTop; //이게 뭐더라 맨위
     var pageHeight = window.innerHeight; //모니터
@@ -177,7 +191,8 @@ useEffect(() => {
                         <span>NEWS & MEDIA <br></br></span>
                         OCONNECT & <br></br>
                         Press Room <br></br>
-                        &lt; &gt;<div className="OconnectPage5NavBar"></div>
+                        <span onClick={()=>ContainerMove(0,1)}>&lt;</span>
+                        <span onClick={()=>ContainerMove(1,0)}>&gt; {SlideCnt}</span><div className="OconnectPage5NavBar"></div>
                     </p>
                 </div>
                 <div className="OconnectPage5SildeBox">
@@ -188,7 +203,7 @@ useEffect(() => {
                             </div>
                             <div className="OconnectPage5SildeBoxCardText">
                                 <p>UNIST News <br></br>
-                                <h1>제목제목제목</h1></p>
+                                <h1>제목제aaaaaaaaaaaaaaaaaaaaaaaaaaa목제목</h1></p>
                             </div>
                         </div>
                         <div className="OconnectPage5SildeBoxCard">
@@ -215,7 +230,7 @@ useEffect(() => {
                             </div>
                             <div className="OconnectPage5SildeBoxCardText">
                                 <p>UNIST News <br></br>
-                                <h1>제목제목제목</h1></p>
+                                <h1>제목제목aaaaaaaaaaaaaaaaaaaaaaaa제목</h1></p>
                             </div>
                         </div>
                         
