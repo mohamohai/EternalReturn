@@ -485,12 +485,44 @@
     font-size: 1.2rem;
 }
 
-.OconnectPage5NavBar {
+/* .OconnectPage5NavBar {
     width: 300px;
     height: 1px;
-    background-color: white;
     text-align: left;
     margin: -1.5rem 0 0 5rem;
+    background-color: #a86aa4;
+}
+
+.OconnectPage5NavBar::before {
+    transition: 1s all;
+    display: block;
+    content: "";
+    width: 60px;
+    height: 1px;
+    text-align: left;
+    background-color: white;
+} */
+
+.OconnectPage5NavBar {
+    transition: 1s all;
+    text-align: left;
+    margin: -1.5rem 0 0 5rem;
+    width: 60px;
+    height: 1px;
+    text-align: left;
+    background-color: white;
+    z-index: 30;
+    display: block;
+}
+
+.OconnectPage5NavBar::before {
+    display: block;
+    content: "";
+    width: 300px;
+    height: 1px;
+    z-index: -50;
+
+    background-color: rgb(255, 255, 255, 0.3);
 }
 
 .OconnectPage5SildeBox {
@@ -509,6 +541,8 @@
 .OconnectPage5SildeBoxContainer {
     width: 4000px;
     transition: all 1s;
+    transform: translateX(-1434px);
+    overflow-x: hidden;
 }
 
 .OconnectPage5SildeBoxCard {
@@ -522,6 +556,7 @@
     margin: 50px 50px 0 50px;
     background-color: white;
     box-shadow: rgba(240, 255, 100, 0.1) 0px 24px 80px;
+
 }
 
 .OconnectPage5SildeBoxCard:hover {
@@ -560,6 +595,59 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.OconnectPageFooter {
+    text-align: center;
+}
+
+.OconnectPage5Form {
+    text-align: left;
+    width: 80vw;
+    position: relative;
+    color: white;
+    top: 340px;
+}
+
+.OconnectPage5FormText {}
+
+.OconnectPage5FormText p {
+    font-size: 3rem;
+    font-family: "Noto Sans KR";
+    font-weight: 700;
+}
+
+.OconnectPage5FormText p span:nth-child(1) {
+    font-size: 3rem;
+    font-family: "Noto Sans KR";
+    font-weight: 300;
+}
+
+.addra {
+    font-size: 1rem;
+    font-family: "Noto Sans KR";
+    font-weight: 800;
+}
+
+
+.OconnectPage5FormTextInfi {
+    width: 100vw;
+    color: rgb(255, 255, 255, 0.03);
+    font-size: 5rem;
+    text-transform: uppercase;
+    animation: moveOconnect 20s linear infinite;
+    float: left;
+    white-space: nowrap;
+}
+
+@keyframes moveOconnect {
+    0% {
+        transform: translateX(0px);
+    }
+
+    100% {
+        transform: translateX(-100vw);
+    }
 }
 
 @keyframes onloadmove {

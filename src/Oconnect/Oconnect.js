@@ -9,7 +9,7 @@ import "aos/dist/aos.css";
 
 function Oconnect(){
   const [XY,setXY]=useState({X:0,Y:0});
-  const [SlideCnt, setSlideCnt]=useState(1);
+  const [SlideCnt, setSlideCnt]=useState(0);
   const OconnectRef = useRef();
 
   var target = document.getElementById("element");
@@ -19,6 +19,7 @@ function Oconnect(){
   const OconnectGNBRight = document.getElementsByClassName("OconnectMenu");
   const OconnectSlideContainer = document.getElementsByClassName("OconnectPage5SildeBoxContainer")
   const OconnectPage5SildeBoxCard = document.getElementsByClassName("OconnectPage5SildeBoxCard")
+  const OconnectProgressBar = document.getElementsByClassName("OconnectPage5NavBar")
 
   const ChangeGNBBackgroundUp = () => {//휠업
     Oconnect[0].style.backgroundColor="rgb(20, 20, 20)";
@@ -37,15 +38,30 @@ function Oconnect(){
   }
 
     const ContainerMove = (a,b) => {
-        var downdown=SlideCnt-1;
-        var upup=SlideCnt+1;
-        if(SlideCnt<OconnectPage5SildeBoxCard.length && a==1){
-        OconnectSlideContainer[0].style.transform=`translateX(${SlideCnt*-478}px)`
-        setSlideCnt(SlideCnt+1);
-        }else if(SlideCnt>0&&b==1){
-             OconnectSlideContainer[0].style.transform=`translateX(${downdown*-478}px)`
-        setSlideCnt(SlideCnt-1);
+        console.log(a,b)
+       if(a>0   &&  SlideCnt<OconnectPage5SildeBoxCard.length-1){
+            OconnectSlideContainer[0].style.transform=`translateX(${a*-478}px)`
+            setSlideCnt(SlideCnt+1);
+            ContainerMoveBar(a+1)
+       }else if(a==OconnectPage5SildeBoxCard.length){
+            OconnectSlideContainer[0].style.transform=`translateX(${0}px)`
+            setSlideCnt(0);
+            ContainerMoveBar(1);
+       }
+       else if(SlideCnt>0){
+            OconnectSlideContainer[0].style.transform=`translateX(${b*-478}px)`
+            setSlideCnt(SlideCnt-1);
+            ContainerMoveBar(b+1)
+       }else if(b==-1){
+            OconnectSlideContainer[0].style.transform=`translateX(${(OconnectPage5SildeBoxCard.length-1)*-478}px)`
+            setSlideCnt(OconnectPage5SildeBoxCard.length-1);
+            ContainerMoveBar(OconnectPage5SildeBoxCard.length);
         }
+        
+    }
+    const ContainerMoveBar = (insert60) => {
+        
+        OconnectProgressBar[0].style.width=`${insert60*60}px`
     }
   useEffect(()=>{ 
     let scrollLocation = document.documentElement.scrollTop; //이게 뭐더라 맨위
@@ -191,8 +207,8 @@ useEffect(() => {
                         <span>NEWS & MEDIA <br></br></span>
                         OCONNECT & <br></br>
                         Press Room <br></br>
-                        <span onClick={()=>ContainerMove(0,1)}>&lt;</span>
-                        <span onClick={()=>ContainerMove(1,0)}>&gt; {SlideCnt}</span><div className="OconnectPage5NavBar"></div>
+                        <span onClick={()=>ContainerMove(0,SlideCnt-1)}>&lt;</span>
+                        <span onClick={()=>ContainerMove(SlideCnt+1,0)}>&gt; {SlideCnt}</span><div className="OconnectPage5NavBar"></div>
                     </p>
                 </div>
                 <div className="OconnectPage5SildeBox">
@@ -233,10 +249,29 @@ useEffect(() => {
                                 <h1>제목제목aaaaaaaaaaaaaaaaaaaaaaaa제목</h1></p>
                             </div>
                         </div>
-                        
+                        <div className="OconnectPage5SildeBoxCard">
+                            <div className="OconnectPage5SildeBoxCardImg">
+                                <img src="./image/Oconnect/da.jpg"></img>
+                            </div>
+                            <div className="OconnectPage5SildeBoxCardText">
+                                <p>UNIST News <br></br>
+                                <h1>제목제목aaaaaaaaaaaaaaaaaaaaaaaa제목</h1></p>
+                            </div>
+                        </div>
+                    </div><div className="clear"></div>
+                </div>
+                <div className="OconnectPageFooter">
+                    <div className="OconnectPage5Form">
+                            <div className="OconnectPage5FormText">
+                                <p><span>Contact</span><br></br>
+                                다양한 기업들은 이미 오커넥트와 함께합니다. <br></br>
+                                당신의 라이프스타일을 혁신해보세요. <br></br>
+                                </p>
+                                <p className="addra"> xx시 xx군 xx읍 xx건물</p>
+                            </div>
+                            <div className="OconnectPage5FormTextInfi">Oconnect Business Partner  Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner</div>
                     </div>
                 </div>
-                
             </div>
 
 
