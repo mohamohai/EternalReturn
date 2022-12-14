@@ -247,8 +247,9 @@
 
 .OconnectPage3 {
     width: 80vw;
-    height: 100vh;
+    height: 70vh;
     position: relative;
+
 }
 
 .OconnectPage3Rainbow {
@@ -459,8 +460,8 @@
     background-color: rgb(20, 20, 20);
     border-radius: 50px 50px 0 0;
     position: absolute;
-    bottom: 0px;
     text-align: center;
+    margin-top: 100px;
 }
 
 .OconnectPage5BackWord {
@@ -482,31 +483,15 @@
 }
 
 .OconnectPage5FrontWord span {
+
     font-size: 1.2rem;
 }
 
-/* .OconnectPage5NavBar {
-    width: 300px;
-    height: 1px;
-    text-align: left;
-    margin: -1.5rem 0 0 5rem;
-    background-color: #a86aa4;
-}
-
-.OconnectPage5NavBar::before {
-    transition: 1s all;
-    display: block;
-    content: "";
-    width: 60px;
-    height: 1px;
-    text-align: left;
-    background-color: white;
-} */
 
 .OconnectPage5NavBar {
     transition: 1s all;
     text-align: left;
-    margin: -1.5rem 0 0 5rem;
+    margin: -1rem 0 0 3rem;
     width: 60px;
     height: 1px;
     text-align: left;
@@ -541,7 +526,6 @@
 .OconnectPage5SildeBoxContainer {
     width: 4000px;
     transition: all 1s;
-    transform: translateX(-1434px);
     overflow-x: hidden;
 }
 
@@ -555,7 +539,7 @@
     margin-top: 50px;
     margin: 50px 50px 0 50px;
     background-color: white;
-    box-shadow: rgba(240, 255, 100, 0.1) 0px 24px 80px;
+    box-shadow: rgba(240, 255, 100, 0.1) 0px 20px 30px;
 
 }
 
@@ -591,13 +575,20 @@
     white-space: nowrap;
 }
 
+.OconnectPage5SildeBoxCardText p {
+    width: 300px;
+}
+
 .OconnectPage5SildeBoxCardText h1 {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-size: 1.2rem;
 }
 
 .OconnectPageFooter {
+    top: 250px;
+    position: relative;
     text-align: center;
 }
 
@@ -623,13 +614,6 @@
     font-weight: 300;
 }
 
-.addra {
-    font-size: 1rem;
-    font-family: "Noto Sans KR";
-    font-weight: 800;
-}
-
-
 .OconnectPage5FormTextInfi {
     width: 100vw;
     color: rgb(255, 255, 255, 0.03);
@@ -638,6 +622,52 @@
     animation: moveOconnect 20s linear infinite;
     float: left;
     white-space: nowrap;
+}
+
+.OconnectPage5FormSubmit {
+    position: relative;
+    margin-top: 100px;
+}
+
+.OconnectPage5FormSubmit form {
+    width: 500px;
+    text-align: center;
+}
+
+.OconnectPage5FormSubmit p {
+    width: 500px;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.OconnectPage5FormSubmit input[type="text"] {
+    width: 500px;
+    margin-bottom: 15px;
+    text-align: left;
+    background-color: rgb(20, 20, 20);
+    color: white;
+    border: none;
+    border-bottom: 1px solid rgb(255, 255, 255, 0.2);
+    font-size: 1rem;
+}
+
+.OconnectPage5FormSubmit input[type="submit"] {
+    width: 500px;
+    height: 50px;
+    background-color: rgb(20, 20, 20);
+    color: white;
+    border: 1px solid rgb(255, 255, 255, 0.2);
+    font-size: 1rem;
+}
+
+.OconnectPage5FormSubmit input[type="submit"]:hover {
+    width: 500px;
+    height: 50px;
+    background-color: white;
+    color: black;
+    border: 1px solid rgb(255, 255, 255, 0.2);
+    font-size: 1rem;
+    transition: all 1s;
 }
 
 @keyframes moveOconnect {
@@ -684,9 +714,23 @@
     }
 }
 
+@media screen and (max-width: 1800px) {
+    .OconnectPage5 {
+        width: 100vw;
+        height: 300vh;
+        background-color: rgb(20, 20, 20);
+        border-radius: 50px 50px 0 0;
+        position: absolute;
+        text-align: center;
+        margin-top: 100px;
+    }
 
+    .OconnectPage3 {
+        margin-top: 200px;
+    }
+}
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1300px) {
     .OconnectMenu {
         display: none;
     }
@@ -698,4 +742,6 @@
     .OconnectPage3Rainbow {
         font-size: 1.5rem;
     }
+
+
 }

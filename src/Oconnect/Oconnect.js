@@ -83,11 +83,25 @@ function Oconnect(){
     const OconnectCurrent = OconnectRef.current;
     OconnectCurrent.addEventListener("wheel", wheelHandler);
 },[window.scrollY]);
-useEffect(() => {
+useEffect(() => {  
     AOS.init({
         duration : 500
     });
 });
+useEffect(() => {   //이거가 setInterval 저 뭐시냐 react에서 쓰면 렌더링이 되면서 여러개가 중첩되서 오류가 좀 심한데 그걸 최대한 적게 만든 ...?
+    const interval = setInterval(() => {
+       setSlideCnt(SlideCnt => SlideCnt +1)
+       ContainerMove(SlideCnt+1,0);
+
+    }, 3000);
+    return () => clearInterval(interval);
+
+},[SlideCnt]);
+
+
+
+
+
   const handleMouseMove=(e)=>{
     setXY({X:e.clientX -50,Y:e.clientY-50});
   }
@@ -196,7 +210,7 @@ useEffect(() => {
                 </div>
             </div><div className="clear"></div>
 
-            <div className="OconnectPage5">
+            <div className="OconnectPage5" onMouseEnter={()=>ContainerMove(SlideCnt+1,0)}>
                 <div className="OconnectPage5BackWord">
                     oconnect <br></br>
                     news & <br></br>
@@ -208,54 +222,54 @@ useEffect(() => {
                         OCONNECT & <br></br>
                         Press Room <br></br>
                         <span onClick={()=>ContainerMove(0,SlideCnt-1)}>&lt;</span>
-                        <span onClick={()=>ContainerMove(SlideCnt+1,0)}>&gt; {SlideCnt}</span><div className="OconnectPage5NavBar"></div>
+                        <span onClick={()=>ContainerMove(SlideCnt+1,0)}>&gt; </span><div className="OconnectPage5NavBar"></div>
                     </p>
                 </div>
                 <div className="OconnectPage5SildeBox">
                     <div className="OconnectPage5SildeBoxContainer">
                         <div className="OconnectPage5SildeBoxCard">
                             <div className="OconnectPage5SildeBoxCardImg">
-                                <img src="./image/Oconnect/da.jpg"></img>
+                                <img src="./image/Oconnect/card1.jpg"></img>
                             </div>
                             <div className="OconnectPage5SildeBoxCardText">
                                 <p>UNIST News <br></br>
-                                <h1>제목제aaaaaaaaaaaaaaaaaaaaaaaaaaa목제목</h1></p>
+                                <h1>UNIST 벤처 '오커넥트', '제임스 다이슨 어워드 2022' 입상</h1></p>
                             </div>
                         </div>
                         <div className="OconnectPage5SildeBoxCard">
                             <div className="OconnectPage5SildeBoxCardImg">
-                                <img src="./image/Oconnect/da.jpg"></img>
+                                <img src="./image/Oconnect/card2.jpg"></img>
                             </div>
                             <div className="OconnectPage5SildeBoxCardText">
-                                <p>UNIST News <br></br>
-                                <h1>제목제목제목</h1></p>
+                                <p>UNIST Magazine  <br></br>
+                                <h1>UNIST UNISPARK 청년 창업가 육성의 장 , UNIST Magazine 2021 겨울</h1></p>
                             </div>
                         </div>
                         <div className="OconnectPage5SildeBoxCard">
                             <div className="OconnectPage5SildeBoxCardImg">
-                                <img src="./image/Oconnect/da.jpg"></img>
+                                <img src="./image/Oconnect/card3.jpg"></img>
                             </div>
                             <div className="OconnectPage5SildeBoxCardText">
-                                <p>UNIST News <br></br>
-                                <h1>제목제목제목</h1></p>
+                                <p>UNIST Magazine<br></br>
+                                <h1>서로의 따뜻함을 ‘연결’하는 ‘국민 콘센트’를 만들다</h1></p>
                             </div>
                         </div>
                         <div className="OconnectPage5SildeBoxCard">
                             <div className="OconnectPage5SildeBoxCardImg">
-                                <img src="./image/Oconnect/da.jpg"></img>
+                                <img src="./image/Oconnect/card4.jpg"></img>
                             </div>
                             <div className="OconnectPage5SildeBoxCardText">
-                                <p>UNIST News <br></br>
-                                <h1>제목제목aaaaaaaaaaaaaaaaaaaaaaaa제목</h1></p>
+                                <p>UNIST Press<br></br>
+                                <h1>UNIST, ‘2021 이노폴리스사업 성과 발표회’ 개최</h1></p>
                             </div>
                         </div>
                         <div className="OconnectPage5SildeBoxCard">
                             <div className="OconnectPage5SildeBoxCardImg">
-                                <img src="./image/Oconnect/da.jpg"></img>
+                                <img src="./image/Oconnect/card5.jpg"></img>
                             </div>
                             <div className="OconnectPage5SildeBoxCardText">
-                                <p>UNIST News <br></br>
-                                <h1>제목제목aaaaaaaaaaaaaaaaaaaaaaaa제목</h1></p>
+                                <p>울산경제<br></br>
+                                <h1>무심코 지나친 가치 재발견 일상에 녹여 삶과 연결한다</h1></p>
                             </div>
                         </div>
                     </div><div className="clear"></div>
@@ -267,7 +281,17 @@ useEffect(() => {
                                 다양한 기업들은 이미 오커넥트와 함께합니다. <br></br>
                                 당신의 라이프스타일을 혁신해보세요. <br></br>
                                 </p>
-                                <p className="addra"> xx시 xx군 xx읍 xx건물</p>
+                            </div>
+                            <div className="OconnectPage5FormSubmit">
+                                <form>
+                                    <p>이름</p>
+                                    <input type="text" placeholder="이름을 적어주세요"></input>
+                                    <p>이메일</p>
+                                    <input type="text" placeholder="이메일을 적어주세요"></input>
+                                    <p>전화번호</p>
+                                    <input type="text" placeholder="전화번호을 적어주세요"></input>
+                                    <input type="submit" value="보내기"></input>
+                                </form>
                             </div>
                             <div className="OconnectPage5FormTextInfi">Oconnect Business Partner  Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner Oconnect Business Partner</div>
                     </div>
