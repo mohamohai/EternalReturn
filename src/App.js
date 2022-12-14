@@ -28,6 +28,7 @@ import Zip from "./Zip/Zip.js";
 import FourZeroFour from "./FourZeroFour/FourZeroFour.js"
 
 import Oconnect from "./Oconnect/Oconnect.js";
+import Hyun from "./Hyun/Hyun.js";
 import {
   BrowserRouter,
   Route,
@@ -124,6 +125,7 @@ class App extends Component {
           <Route path="LibraryBox"  element={<LibraryBox />} />
           <Route path="Zip" element={<Zip/>}/>
           <Route path="Oconnect" element={<Oconnect/>}/>
+            <Route path = "Hyun" element={<Hyun/>}/>
           
           <Route exact path="/" element={<FourZeroFour />} />
           <Route path="*"  element={<FourZeroFour />} />
