@@ -61,7 +61,6 @@ function Oconnect(){
             setSlideCnt(OconnectPage5SildeBoxCard.length-1);
             ContainerMoveBar(OconnectPage5SildeBoxCard.length);
         }
-        
     }
     const ContainerMoveBar = (insert60) => {
         
@@ -74,8 +73,6 @@ function Oconnect(){
     
 
     const wheelHandler = (e) =>{
-  
-
         if(window.scrollY>300){
             ChangeGNBBackgroundDown();
         }else if(window.scrollY<pageHeight){
@@ -128,7 +125,7 @@ useEffect(() => {   //이거가 setInterval 저 뭐시냐 react에서 쓰면 렌
                 </div>
             </div><div className="clear"></div>
 
-            <div className="OconnectPage1">
+            <div className="OconnectPage1" onMouseLeave={()=>console.log("ddddd")}>
                 <div className="OconnectMain1">
                     <p className="OconnectPage1Text">Enlighten your Lifestyle</p>
                     <p className="OconnectPage1Img"><img src="./image/Oconnect/title_main.png"></img></p>
@@ -188,8 +185,10 @@ useEffect(() => {   //이거가 setInterval 저 뭐시냐 react에서 쓰면 렌
                         쉽고 안전한 one STEP</p>
                     </div>
                     <div className="OconnectItem1" onMouseEnter={()=>FillColor(0) }onMouseLeave={()=>FillColor(0)}><img src="./image/Oconnect/prd1.png"></img>
-                        <h2>X-STEP <span className="FillSpan">X-STEP</span></h2>
-                        <span>새로운 X-Type 콘센트 규격 멀티탭</span>
+                        <div>
+                            <h2>X-STEP <span className=" FillSpan">X-STEP</span></h2>
+                            <span className="SorryX">새로운 X-Type 콘센트 규격 멀티탭</span>
+                        </div>
                     </div>
 
                      <div className="OconnectItem2" onMouseEnter={()=>FillColor(1) }onMouseLeave={()=>FillColor(1)}><img src="./image/Oconnect/prd2.png"></img>

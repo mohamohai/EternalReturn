@@ -12,7 +12,7 @@
     font: inherit;
     transition: all 0.5s;
 
-
+    overflow: hidden;
 }
 
 .OconnectGNB {
@@ -305,7 +305,7 @@
 
 .OconnectPage4 {
     width: 100vw;
-    height: 100vh;
+    height: 80vh;
     text-align: center;
 }
 
@@ -340,13 +340,12 @@
 
 .OconnectItem1 {
     text-align: center;
-    width: 500px;
 }
 
 .OconnectItem1 img {
     text-align: center;
-    width: 500px;
-    margin-left: 200px;
+    width: 30vw;
+    margin-left: 300px;
 }
 
 .OconnectItem1 h2 {
@@ -359,34 +358,24 @@
     top: -300px;
 }
 
-.OconnectItem1 h2::before {
-    content: "X-STEP";
-    font-size: 4rem;
-    color: black;
-    position: absolute;
-    width: 0%;
-    overflow: hidden;
-    transition: all 1s;
-    white-space: nowrap;
-    text-align: left;
-
-}
-
-.OconnectItem1 h2::before:hover {
-    width: 100%;
-
-    /*여기를 addList addClass로 추가로 변경*/
-}
-
-.OconnectItem1 h2:hover::before {
-    width: 100%;
-}
-
-.OconnectItem1 span {
-    font-size: 1.5rem;
-    position: relative;
+.SorryX {
     top: -300px;
+    width: 500px;
+    white-space: nowrap;
+
+
 }
+
+.OconnectItem1 div {
+    width: 230px;
+}
+
+.OconnectItem1 div p {
+    position: relative;
+    padding: 15px;
+}
+
+
 
 .OconnectItem2 {
     text-align: center;
@@ -408,20 +397,6 @@
     white-space: nowrap;
     position: relative;
     float: left;
-}
-
-.FillSpan {
-    font-size: 4rem;
-    position: absolute;
-    left: 0px;
-    transition: all 1s;
-    overflow: hidden;
-    width: 0%;
-    color: black;
-}
-
-.widthFocus {
-    width: 100%;
 }
 
 .OconnectItem2 p {
@@ -465,6 +440,21 @@
     white-space: nowrap;
     position: relative;
     float: left;
+}
+
+.FillSpan {
+    font-size: 4rem;
+    position: absolute;
+    left: 0px;
+    transition: all 1s;
+    overflow: hidden;
+    width: 0%;
+    color: black;
+}
+
+
+.widthFocus {
+    width: 100%;
 }
 
 /* .OconnectItem3 h2::after {
@@ -642,6 +632,8 @@
 .OconnectPage5FormTextInfi {
     width: 100vw;
     color: rgb(255, 255, 255, 0.03);
+    background-color: rgb(20, 20, 20);
+    width: 100%;
     font-size: 5rem;
     text-transform: uppercase;
     animation: moveOconnect 20s linear infinite;
@@ -739,10 +731,10 @@
     }
 }
 
-@media screen and (max-width: 1700px) {
+@media screen and (max-width: 2000px) {
     .OconnectPage5 {
         width: 100vw;
-        height: 300vh;
+        height: 230vh;
         background-color: rgb(20, 20, 20);
         border-radius: 50px 50px 0 0;
         position: absolute;
@@ -751,11 +743,11 @@
     }
 
     .OconnectPage3 {
-        margin-top: 200px;
+        margin-top: 0px;
     }
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1700px) {
     .OconnectMenu {
         display: none;
     }
@@ -768,5 +760,8 @@
         font-size: 1.5rem;
     }
 
+    .OconnectPage3 {
+        margin-top: 100px;
+    }
 
 }
