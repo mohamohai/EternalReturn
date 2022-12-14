@@ -6,6 +6,6 @@ import "./css/HyunPageTwo.css"
 function HyunPageTwo(){
    
     return(<div className="HyunPageTwo">
-        <div  data-aos="fade-up">가나가나다</div>
+        <div data-aos="fade-up">가나가나다</div>
     </div>)
 }export default HyunPageTwo;

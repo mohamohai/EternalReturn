@@ -9,6 +9,7 @@ function HyunPageOne(){
     
     return(
         <div className="HyunPageOne">
+            <p data-aos="fade-down" data-aos-delay="1000">익명이</p>
             <div>
                 <div className="FallingSnow"/><div className="FallingSnow"/><div className="FallingSnow"/><div className="FallingSnow"/><div className="FallingSnow"/><div className="FallingSnow"/><div className="FallingSnow"/><div className="FallingSnow"/><div className="FallingSnow"/><div className="FallingSnow"/>
                 <div className="FallingSnow"/><div className="FallingSnow"/><div className="FallingSnow"/><div className="FallingSnow"/><div className="FallingSnow"/><div className="FallingSnow"/><div className="FallingSnow"/><div className="FallingSnow"/><div className="FallingSnow"/><div className="FallingSnow"/>

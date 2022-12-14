@@ -13,7 +13,7 @@ function Hyun(){
         });
     });
     return(<div className="HyunFull">
-            <HyunPageOne/>
-            <HyunPageTwo/>
+                <HyunPageOne/>
+                <HyunPageTwo/>
             </div>)
 }export default Hyun;

@@ -2,7 +2,21 @@
     text-align: center;
     width: 100vw;
     height: 100vh;
-    position: fixed;
-    top: 0px;
-    background-color: rgb(20, 20, 20, 0.9);
+    background-color: rgb(10, 10, 10, 0.99);
+
+}
+
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.HyunPageOne p {
+    font-size: 5rem;
+    font-family: "Cafe24Ssurround";
+    position: relative;
+    top: 2rem;
+    color: white;
 }

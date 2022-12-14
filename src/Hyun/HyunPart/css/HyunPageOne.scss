@@ -1,6 +1,5 @@
 .FallingSnow {
     $total: 200;
-
     border-radius: 100%;
     left: 0px;
     background-color: white;
@@ -61,6 +60,7 @@
     top: calc(100%/2 - 106px);
     perspective: 500px;
     animation: rollringIK 10s infinite linear;
+    background-repeat: no-repeat;
 
     &:hover {
         animation-play-state: paused;
@@ -71,12 +71,23 @@
             transform: rotate(0deg) scale(1);
         }
 
+        49% {
+            transform: rotate(177deg) scale(1.5);
+            background-image: url('./image/Hyun/IK1.png');
+        }
+
         50% {
             transform: rotate(180deg) scale(1.5);
+            background-image: url('./image/Hyun/IKC1.png');
+        }
+
+        99% {
+            background-image: url('./image/Hyun/IKC1.png');
         }
 
         100% {
             transform: rotate(360deg) scale(1);
+
         }
 
     }
