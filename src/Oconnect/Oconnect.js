@@ -17,9 +17,10 @@ function Oconnect(){
   const OconnectGNB = document.getElementsByClassName("OconnectGNB");
   const OconnectGNBLeft = document.getElementsByClassName("OconnectLogo");
   const OconnectGNBRight = document.getElementsByClassName("OconnectMenu");
-  const OconnectSlideContainer = document.getElementsByClassName("OconnectPage5SildeBoxContainer")
-  const OconnectPage5SildeBoxCard = document.getElementsByClassName("OconnectPage5SildeBoxCard")
-  const OconnectProgressBar = document.getElementsByClassName("OconnectPage5NavBar")
+  const OconnectSlideContainer = document.getElementsByClassName("OconnectPage5SildeBoxContainer");
+  const OconnectPage5SildeBoxCard = document.getElementsByClassName("OconnectPage5SildeBoxCard");
+  const OconnectProgressBar = document.getElementsByClassName("OconnectPage5NavBar");
+  const OconnectFill = document.getElementsByClassName("FillSpan");
 
   const ChangeGNBBackgroundUp = () => {//휠업
     Oconnect[0].style.backgroundColor="rgb(20, 20, 20)";
@@ -36,9 +37,12 @@ function Oconnect(){
     OconnectGNBLeft[0].style.filter="invert(100)"
     OconnectGNBRight[0].style.color="rgb(20,20,20)"
   }
+  const FillColor = (a) => {
+   
+    OconnectFill[a].classList.toggle("widthFocus");
+  }
 
     const ContainerMove = (a,b) => {
-        console.log(a,b)
        if(a>0   &&  SlideCnt<OconnectPage5SildeBoxCard.length-1){
             OconnectSlideContainer[0].style.transform=`translateX(${a*-478}px)`
             setSlideCnt(SlideCnt+1);
@@ -70,9 +74,7 @@ function Oconnect(){
     
 
     const wheelHandler = (e) =>{
-        console.log(window.scrollY)
-        //이벤트리스너
-      
+  
 
         if(window.scrollY>300){
             ChangeGNBBackgroundDown();
@@ -185,26 +187,26 @@ useEffect(() => {   //이거가 setInterval 저 뭐시냐 react에서 쓰면 렌
                         왼쪽, 오른쪽 어느쪽으로든!<br></br>
                         쉽고 안전한 one STEP</p>
                     </div>
-                    <div className="OconnectItem1"><img src="./image/Oconnect/prd1.png"></img>
-                        <h2>X-STEP</h2>
+                    <div className="OconnectItem1" onMouseEnter={()=>FillColor(0) }onMouseLeave={()=>FillColor(0)}><img src="./image/Oconnect/prd1.png"></img>
+                        <h2>X-STEP <span className="FillSpan">X-STEP</span></h2>
                         <span>새로운 X-Type 콘센트 규격 멀티탭</span>
                     </div>
 
-                    <div className="OconnectItem2"><img src="./image/Oconnect/prd2.png"></img>
+                     <div className="OconnectItem2" onMouseEnter={()=>FillColor(1) }onMouseLeave={()=>FillColor(1)}><img src="./image/Oconnect/prd2.png"></img>
                         <div>
-                        <h2>ONE-STEP</h2>
+                        <h2>ONE-STEP  <span className="FillSpan">ONE-STEP</span></h2>
                         <p>아무렇게나 꽂아도 <br></br>
                         스스로 회전하여 맞춰주는 멀티탭</p>
                         </div>
                     </div>
 
-                    <div className="OconnectItem3"><img src="./image/Oconnect/prd3.png"></img>
+                    <div className="OconnectItem3" onMouseEnter={()=>FillColor(2) }onMouseLeave={()=>FillColor(2)}><img src="./image/Oconnect/prd3.png"></img>
                         <div>
                             <p>
                             기존의 틀을 벗어나<br></br>
 디자인에 초점을 맞춘 멀티탭
                             </p>
-                            <h2>DESIGN STEP</h2>
+                            <h2 className="DesignStep">DESIGN STEP <span className="FillSpan ">DESIGN STEP</span></h2>
                         </div>
                     </div>
                 </div>

@@ -410,12 +410,25 @@
     float: left;
 }
 
+.FillSpan {
+    font-size: 4rem;
+    position: absolute;
+    left: 0px;
+    transition: all 1s;
+    overflow: hidden;
+    width: 0%;
+    color: black;
+}
+
+.widthFocus {
+    width: 100%;
+}
+
 .OconnectItem2 p {
     position: relative;
     white-space: nowrap;
     font-size: 1.5rem;
     padding: 15px;
-
 }
 
 .OconnectItem2 div {
@@ -454,9 +467,21 @@
     float: left;
 }
 
+/* .OconnectItem3 h2::after {
+    content: "DESIGN STEP";
+    font-size: 4rem;
+    position: absolute;
+    float: left;
+    color: red;
+    left: 0px;
+    width: 0%;
+    overflow: hidden;
+} */
+
+
 .OconnectPage5 {
     width: 100vw;
-    height: 200vh;
+    height: 220vh;
     background-color: rgb(20, 20, 20);
     border-radius: 50px 50px 0 0;
     position: absolute;
@@ -714,7 +739,7 @@
     }
 }
 
-@media screen and (max-width: 1800px) {
+@media screen and (max-width: 1700px) {
     .OconnectPage5 {
         width: 100vw;
         height: 300vh;
