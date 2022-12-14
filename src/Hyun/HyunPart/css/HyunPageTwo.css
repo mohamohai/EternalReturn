@@ -1,6 +1,6 @@
-.HyunPageTwo {
-    width: 100%;
+.HyunPageOne {
+    text-align: center;
+    width: 100vw;
     height: 100vh;
-    background-color: red;
-
+    position: relative;
 }

@@ -1,0 +1,84 @@
+.FallingSnow {
+    $total: 200;
+
+    border-radius: 100%;
+    left: 0px;
+    background-color: white;
+    position: absolute;
+    top: 0px;
+    animation-play-state: paused;
+
+    @for $i from 1 through $total {
+        $trnas_w: random(10)+px;
+        $trnas_h: random(10)+px;
+        $trans_x: random(100)+vw; //시작위치, 변수에 px rem같은 단위를 넣어줘야 변수쓸 때 깔끔하게 들어감
+        $trans_y: random(100)+vh;
+        $trans_scale: random(1); //선명도인데 이거말고 크기를 좀 만져야 할 듯
+        $startAnimation: $trans_x +300 *1vw; //시작위치   
+
+        $endAnimation: random(1000)*0.1vw; //끝나는위치
+
+        $durationAnimation: random(10)+5s; //지속시간
+        $delayAnimation: random(100)*0.1+1s; // 딜레이
+
+        &:nth-child(#{$i}) {
+            width: $trnas_w;
+            height: $trnas_w;
+            transform: translate($trans_x, -20vh) scale($trans_scale*0.001);
+            opacity: random(10000) * 0.0001;
+            animation: FallMove-#{$i} $durationAnimation $delayAnimation linear infinite
+        }
+
+        &:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes FallMove-#{$i} {
+            0% {
+                transform: translate($trans_x, $trans_y);
+            }
+
+            50% {
+                transform: translate($startAnimation, 50vh);
+
+            }
+
+            100% {
+                transform: translate(50vw, 50vh);
+            }
+        }
+    }
+}
+
+
+.ikmyeong {
+    background-image: url("./image/Hyun/IK1.png");
+    text-align: center;
+    width: 278px;
+    height: 211px;
+    position: absolute;
+    left: calc(100%/2 - 139px);
+    top: calc(100%/2 - 106px);
+    perspective: 500px;
+    animation: rollringIK 10s infinite linear;
+
+    &:hover {
+        animation-play-state: paused;
+    }
+
+    @keyframes rollringIK {
+        0% {
+            transform: rotate(0deg) scale(1);
+        }
+
+        50% {
+            transform: rotate(180deg) scale(1.5);
+        }
+
+        100% {
+            transform: rotate(360deg) scale(1);
+        }
+
+    }
+
+}

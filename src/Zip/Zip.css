@@ -1,3 +1,53 @@
+html,
+body,
+div {
+    margin: 0;
+
+
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
 * {
     scroll-behavior: smooth;
 }
@@ -144,10 +194,11 @@
 
 .Zip2 {
     position: relative;
+    text-align: center;
+    left: 0px;
     background: url("./image/mybg.jpg");
     background-attachment: fixed;
-    left: 0px;
-    width: 100%;
+    width: 100vw;
     transition: all 1s;
     height: 300vh;
     z-index: 2;
@@ -177,7 +228,9 @@
 }
 
 
-.Zip2Container {}
+.Zip2Container {
+    text-align: center;
+}
 
 .Zip2Text {
     opacity: 0;
@@ -185,20 +238,16 @@
 
 
 .IntroducePack {
-    width: 700px;
+    width: 1200px;
     transition: all 0.5s;
     opacity: 0;
     position: relative;
-    margin-top: -200px;
+    margin-top: 200px;
 }
 
-.IntroducePack:nth-child(odd) {
-    left: 450px;
-}
+.IntroducePack:nth-child(odd) {}
 
-.IntroducePack:nth-child(even) {
-    left: -450px;
-}
+.IntroducePack:nth-child(even) {}
 
 .IntroBox {
     width: 700px;
