@@ -93,8 +93,21 @@
     font-weight: 600;
     font-size: 0.5rem;
     margin-top: 10px;
+    height: 20px;
     width: 50px;
     text-align: center;
+}
+
+.GameInfoCharatcerLvCube div span {
+    position: relative;
+    top: -5px;
+}
+
+.WeaponType {
+    width: 20px;
+    border-radius: 3px;
+    background-color: rgb(0, 0, 0, 0.8);
+    line-height: ;
 }
 
 .GameInfoCharatcerThum img {
@@ -140,9 +153,10 @@
 }
 
 .mmrGain {
-    font-size: 0.3rem;
+    font-size: 0.8rem;
     position: relative;
     float: left;
+    margin-top: 0.2rem;
 }
 
 .gray {
@@ -173,6 +187,15 @@
     width: 60px;
     margin: 2px;
 }
+
+.ItemTier0 {
+    border: 1.5px rgb(0, 0, 0) solid;
+    border-radius: 5px;
+    background-color: rgb(0, 0, 0, 0.8);
+
+}
+
+
 
 .ItemTier1 {
     border: 1.5px rgb(61, 60, 58) solid;

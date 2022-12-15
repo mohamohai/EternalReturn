@@ -30,9 +30,37 @@ function SearchPlayer(){
 
 
     const ItemSearch=(Weapon, Chest, Hat, Arm, Leg, Accessory )=>{
+        !Weapon   ? Weapon="empty" :Weapon=Weapon;
+        !Chest    ? Chest="empty": Chest=Chest   ;
+        !Hat      ? Hat="empty":  Hat=Hat        ; 
+        !Arm      ? Arm="empty":Arm=Arm          ;
+        !Leg      ? Leg="empty":Leg=Leg          ;
+        !Accessory? Accessory="empty":Accessory=Accessory ;
         let equipmentArr =[
-            [],[],[],[],[],[]
+            [
+                "empty","empty",0
+            ],
+            [
+                "empty","empty",0
+            ],
+            [
+                "empty","empty",0
+            ],
+            [
+                "empty","empty",0
+            ],
+            [
+                "empty","empty",0
+            ],
+            [
+                "empty","empty",0
+            ]
         ]  
+        equipmentArr.map((axs,ss)=>{
+            console.log(axs[0])
+            console.log(axs[1])
+            console.log(axs[2])
+        }) 
         for(let i = 0; i<ItemList.length;i++){
             if(ItemList[i].ItemCode==Weapon){
                 equipmentArr[0][0]=ItemList[i].ItemCode;
@@ -49,36 +77,41 @@ function SearchPlayer(){
                 equipmentArr[2][1]=ItemList[i].ItemName;
                 equipmentArr[2][2]=ItemList[i].ItemTier;
             }
-            if(ItemList[i].ItemCode==Leg){
+            if(ItemList[i].ItemCode==Arm){
                 equipmentArr[3][0]=ItemList[i].ItemCode;
                 equipmentArr[3][1]=ItemList[i].ItemName;
                 equipmentArr[3][2]=ItemList[i].ItemTier;
             }
-            if(ItemList[i].ItemCode==Accessory){
+            if(ItemList[i].ItemCode==Leg){
                 equipmentArr[4][0]=ItemList[i].ItemCode;
                 equipmentArr[4][1]=ItemList[i].ItemName;
                 equipmentArr[4][2]=ItemList[i].ItemTier;
             }
-            if(ItemList[i].ItemCode==Weapon){
+            if(ItemList[i].ItemCode==Accessory){
                 equipmentArr[5][0]=ItemList[i].ItemCode;
                 equipmentArr[5][1]=ItemList[i].ItemName;
                 equipmentArr[5][2]=ItemList[i].ItemTier;
             }
         }
+        
         equipmentArr.map((axs,ss)=>{
+            console.log(axs[0])
             console.log(axs[1])
+            console.log(axs[2])
         }) 
+        console.log("------------------------------------")
+        console.log("------------------------------------")
         return(
             <div className="GameInfoItemMatch">
                 <div>
-                    <img className={`ItemTier${equipmentArr[0][2]}`} src={`/image/Item/all/${Weapon}.png`} />
-                    <img className={`ItemTier${equipmentArr[1][2]}`} src={`/image/Item/all/${Chest}.png`} />
-                    <img className={`ItemTier${equipmentArr[2][2]}`} src={`/image/Item/all/${Hat}.png`} />
+                    <img className={`ItemTier${equipmentArr[0][2]}`} src={`/image/Item/Weapon/${Weapon}.png`} />
+                    <img className={`ItemTier${equipmentArr[1][2]}`} src={`/image/Item/Chest/${Chest}.png`} />
+                    <img className={`ItemTier${equipmentArr[2][2]}`} src={`/image/Item/Hat/${Hat}.png`} />
                 </div>
                 <div>
-                    <img className={`ItemTier${equipmentArr[3][2]}`} src={`/image/Item/all/${Arm}.png`} />
-                    <img className={`ItemTier${equipmentArr[4][2]}`} src={`/image/Item/all/${Leg}.png`} />
-                    <img className={`ItemTier${equipmentArr[5][2]}`} src={`/image/Item/all/${Accessory}.png`} />
+                    <img className={`ItemTier${equipmentArr[3][2]}`} src={`/image/Item/Arm/${Arm}.png`} />
+                    <img className={`ItemTier${equipmentArr[4][2]}`} src={`/image/Item/Leg/${Leg}.png`} />
+                    <img className={`ItemTier${equipmentArr[5][2]}`} src={`/image/Item/Accessory/${Accessory}.png`} />
                 </div>
             </div>
         )
@@ -167,7 +200,7 @@ function SearchPlayer(){
                     <div className="GameInfoCharatcerLv">
                         <div className="GameInfoCharatcerLvCube">
                             <div>Lv : 11</div>
-                            <div>Lv : 11</div>
+                            <div><img className="WeaponType" src="/image/Item/Weapon/2.png"/> ?: 11</div>
                         </div>
                     </div>
 
@@ -198,21 +231,21 @@ function SearchPlayer(){
                             <div>#{DataRow.gameRank}</div>
                             <div>{matchingMode[DataRow.matchingMode]} / {matchingTeamMode[DataRow.matchingTeamMode]} </div> 
                             <div>{Math.floor(DataRow.playTime/60)} : {DataRow.playTime%60}</div>
-                                
                         </div>
                     </div>
+
                     <div className="GameInfoCharatcer">
                         <div className="GameInfoCharatcerLv">
                             <div className="GameInfoCharatcerLvCube">
-                                <div>Lv : {DataRow.characterLevel}</div>
-                                <div>{WeaponType[DataRow.bestWeapon]}: {DataRow.bestWeaponLevel}</div>
+                                <div>Lv &nbsp;{DataRow.characterLevel}</div>
+                                <div><img className="WeaponType" src={`/image/Item/Weapon/${DataRow.bestWeapon}.png`}/> <span>{DataRow.bestWeaponLevel}</span></div>
                             </div>
                         </div>
-    
                         <div className="GameInfoCharatcerThum">
                             <img src={`/image/Character_Img/${CharList[DataRow.characterNum-1].EngName}/Thumbnail/Default/Mini.png`}/>
                         </div>
                     </div>
+
                     <div className="GameInfoKdahd">
                     <div className="GameInfokdahdHead">
                         <div className="left gray">K</div><div className="left gray">D</div><div className="left gray">A</div><div className="left gray">피해량</div><div className="left gray">MMR</div><br></br><br></br>
@@ -220,12 +253,12 @@ function SearchPlayer(){
                     </div>
                 </div>
 
-                <div className="GameInfoItem">
-                        <div>
-                        {ItemSearch(DataRow.equipment[0],DataRow.equipment[1],DataRow.equipment[2],
-                                            DataRow.equipment[3],DataRow.equipment[4],DataRow.equipment[5])
+                    <div className="GameInfoItem">
+                            <div>
+                            {ItemSearch(DataRow.equipment[0],DataRow.equipment[1],DataRow.equipment[2],
+                                                DataRow.equipment[3],DataRow.equipment[4],DataRow.equipment[5])
                             }
-                        </div>
+                            </div>
                     </div>
                 </div>
                 
@@ -233,8 +266,6 @@ function SearchPlayer(){
             })
         }
         </div>
-
-        
         <div onClick={()=>getGame(UserNum,Next)}>가나다</div>
 
     </div>
