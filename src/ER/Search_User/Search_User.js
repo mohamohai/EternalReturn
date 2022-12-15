@@ -117,7 +117,10 @@ class Search_User extends Component {
         ["파울로", "Paulo"],
         ["마티나", "Martina"],
         ["헤이즈", "Haze"],
-        ["아이작", "Isaac"],["타지아", "Tazia"],["이렘", "Irem"],["라우라", "Laura"],
+        ["아이작", "Isaac"],
+        ["타지아", "Tazia"],
+        ["이렘", "Irem"],
+        ["라우라", "Laura"],
       ],
      
       WeaponEmpty:
@@ -1039,7 +1042,7 @@ class Search_User extends Component {
   SearchHistory = async (Nic) => {
     //서치해서 해당 게임까지 서치
     const url0 = "https://open-api.bser.io/v1/user/nickname?query=사텐";
-    const url = "https://open-api.bser.io/v1/user/nickname?query=mohai"; //닉넴으로 서치
+    const url = "https://open-api.bser.io/v1/user/nickname?query=흑인42호";  //닉넴으로 서치
     const urlUserNum = "https://open-api.bser.io/v1/user/games/2604769";
     const url4 = "https://open-api.bser.io/v1/games/19345023"; //게임모두? 잠깐대기
     const url6 = "https://open-api.bser.io/v1/weaponRoutes/recommend/532117"; ////특성
@@ -1115,7 +1118,8 @@ class Search_User extends Component {
         "x-api-key": this.state.API_KEY,
       },
     });
-   
+    console.log("여기야여기" )
+    console.log(userGames[0])
     this.setState({PlusNext:next})
     this.state.SearchData.push(userGames);
  

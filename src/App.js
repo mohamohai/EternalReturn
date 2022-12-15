@@ -50,6 +50,10 @@ import {
   testView,
   testClass,
 } from "./schedule/Components/Schedule/ScheduleExport";
+
+import {
+  SearchPlayer,
+}from "./ER/ERExport.js"
 import { SignUp, SignIn } from "./schedule/Components/Sign/SignExport";
 
 import UserSelect from "./schedule/Components/User/UserSelect";
@@ -126,11 +130,12 @@ class App extends Component {
           <Route path="Zip" element={<Zip/>}/>
           <Route path="Oconnect" element={<Oconnect/>}/>
             <Route path = "Hyun" element={<Hyun/>}/>
+          <Route path="E" element={<SearchPlayer/>}/>
           
           <Route exact path="/" element={<FourZeroFour />} />
           <Route path="*"  element={<FourZeroFour />} />
 
-
+            
           
         </Routes>
       </BrowserRouter>
