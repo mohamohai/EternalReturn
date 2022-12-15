@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, Component } from "react";
 import "./SearchPlayer.css";
 import CharList from "./JsonFile/Char.json"  //characterNum은 1부터니까 -1
+import ItemList from "./JsonFile/Item.json" 
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
@@ -13,9 +14,9 @@ function SearchPlayer(){
     const [UserNick,setUserNick]=useState( key1 );
     const [UserNum,setUserNum]=useState(0);
     const [Next,setNext]=useState(0);
-    console.log( { key1 } )
 
-    const [getGameData, setGameData] = useState( [] );
+    const [getGameData, setGameData] = useState([]);
+    const [Step,setStep] = useState(false);
 
     const matchingTeamMode=[0,"Solo","Duo","Squad"]
     const matchingMode=[0,1,"Normal","Ranked","No","Cobalt"]
@@ -28,14 +29,69 @@ function SearchPlayer(){
 
 
 
-
+    const ItemSearch=(Weapon, Chest, Hat, Arm, Leg, Accessory )=>{
+        let equipmentArr =[
+            [],[],[],[],[],[]
+        ]  
+        for(let i = 0; i<ItemList.length;i++){
+            if(ItemList[i].ItemCode==Weapon){
+                equipmentArr[0][0]=ItemList[i].ItemCode;
+                equipmentArr[0][1]=ItemList[i].ItemName;
+                equipmentArr[0][2]=ItemList[i].ItemTier;
+            }
+            if(ItemList[i].ItemCode==Chest){
+                equipmentArr[1][0]=ItemList[i].ItemCode;
+                equipmentArr[1][1]=ItemList[i].ItemName;
+                equipmentArr[1][2]=ItemList[i].ItemTier;
+            }
+            if(ItemList[i].ItemCode==Hat){
+                equipmentArr[2][0]=ItemList[i].ItemCode;
+                equipmentArr[2][1]=ItemList[i].ItemName;
+                equipmentArr[2][2]=ItemList[i].ItemTier;
+            }
+            if(ItemList[i].ItemCode==Leg){
+                equipmentArr[3][0]=ItemList[i].ItemCode;
+                equipmentArr[3][1]=ItemList[i].ItemName;
+                equipmentArr[3][2]=ItemList[i].ItemTier;
+            }
+            if(ItemList[i].ItemCode==Accessory){
+                equipmentArr[4][0]=ItemList[i].ItemCode;
+                equipmentArr[4][1]=ItemList[i].ItemName;
+                equipmentArr[4][2]=ItemList[i].ItemTier;
+            }
+            if(ItemList[i].ItemCode==Weapon){
+                equipmentArr[5][0]=ItemList[i].ItemCode;
+                equipmentArr[5][1]=ItemList[i].ItemName;
+                equipmentArr[5][2]=ItemList[i].ItemTier;
+            }
+        }
+        equipmentArr.map((axs,ss)=>{
+            console.log(axs[1])
+        }) 
+        return(
+            <div className="GameInfoItemMatch">
+                <div>
+                    <img className={`ItemTier${equipmentArr[0][2]}`} src={`/image/Item/all/${Weapon}.png`} />
+                    <img className={`ItemTier${equipmentArr[1][2]}`} src={`/image/Item/all/${Chest}.png`} />
+                    <img className={`ItemTier${equipmentArr[2][2]}`} src={`/image/Item/all/${Hat}.png`} />
+                </div>
+                <div>
+                    <img className={`ItemTier${equipmentArr[3][2]}`} src={`/image/Item/all/${Arm}.png`} />
+                    <img className={`ItemTier${equipmentArr[4][2]}`} src={`/image/Item/all/${Leg}.png`} />
+                    <img className={`ItemTier${equipmentArr[5][2]}`} src={`/image/Item/all/${Accessory}.png`} />
+                </div>
+            </div>
+        )
+        console.log(Weapon, Chest, Hat, Arm, Leg, Accessory)   
+    }
 
     const StartUrl = `https://open-api.bser.io/v1/user/nickname?query=${UserNick}`
     const NumUrl = `https://open-api.bser.io/v1/games/${UserNum}`//추출한 것을 숫자파트에 삽입
-   
+
     async function getStartData() {
         let SearchUserNumUrl = StartUrl;
-
+        
+      
         const {
           data: {
             user: { userNum },
@@ -68,7 +124,6 @@ function SearchPlayer(){
             },
         });
         setGameData(userGames)
-        console.log(userGames)
         setNext(next);
         setUserNum(InsertNum)
         getGameDetails(userGames[0].gameId)
@@ -102,11 +157,11 @@ function SearchPlayer(){
             <div className="GameInfo">
                 <div className="GameInfoResult"></div>
                 <div className="GameInfoState">
-                    <p>
+                    <div>
                         <div>#1</div>
                         <div>Rank / solo </div> 
                         <div>3일전 </div>
-                    </p>
+                    </div>
                 </div>
                 <div className="GameInfoCharatcer">
                     <div className="GameInfoCharatcerLv">
@@ -139,12 +194,12 @@ function SearchPlayer(){
                     <div key = {key} className="GameInfo">
                     <div className="GameInfoResult"></div>
                     <div className="GameInfoState">
-                        <p>
+                        <div className="GameInfoStatePP">
                             <div>#{DataRow.gameRank}</div>
                             <div>{matchingMode[DataRow.matchingMode]} / {matchingTeamMode[DataRow.matchingTeamMode]} </div> 
                             <div>{Math.floor(DataRow.playTime/60)} : {DataRow.playTime%60}</div>
                                 
-                        </p>
+                        </div>
                     </div>
                     <div className="GameInfoCharatcer">
                         <div className="GameInfoCharatcerLv">
@@ -160,10 +215,18 @@ function SearchPlayer(){
                     </div>
                     <div className="GameInfoKdahd">
                     <div className="GameInfokdahdHead">
-                        <div className="left gray">K</div><div className="left gray">D</div><div className="left gray">A</div><div className="left gray">피해량</div><br></br><br></br>
-                        <div className="left">{DataRow.playerKill}</div><div className="left">{DataRow.playerDeaths}</div><div className="left">{DataRow.playerAssistant}</div><div className="left">{DataRow.damageToPlayer}</div>
+                        <div className="left gray">K</div><div className="left gray">D</div><div className="left gray">A</div><div className="left gray">피해량</div><div className="left gray">MMR</div><br></br><br></br>
+                        <div className="left">{DataRow.playerKill}</div><div className="left">{DataRow.playerDeaths}</div><div className="left">{DataRow.playerAssistant}</div><div className="left">{DataRow.damageToPlayer}</div><div className="left">{DataRow.mmrAfter>0?DataRow.mmrAfter:"-"}</div><span className="mmrGain">{DataRow.mmrAfter>DataRow.mmrBefore? "+" + DataRow.mmrGain: DataRow.mmrGain}</span>    
                     </div>
                 </div>
+
+                <div className="GameInfoItem">
+                        <div>
+                        {ItemSearch(DataRow.equipment[0],DataRow.equipment[1],DataRow.equipment[2],
+                                            DataRow.equipment[3],DataRow.equipment[4],DataRow.equipment[5])
+                            }
+                        </div>
+                    </div>
                 </div>
                 
                 )

@@ -143,21 +143,21 @@
         ]
     },
     {
-        "KorName": "아드리아나",
-        "EngName": "Adriana",
-        "CharNum": 16,
-        "Skin": [
-            "파이어뱃",
-            "해충박멸"
-        ]
-    },
-    {
         "KorName": "실비아",
         "EngName": "Silvia",
-        "CharNum": 17,
+        "CharNum": 16,
         "Skin": [
             "미드나잇 브리즈",
             "GoForce Now"
+        ]
+    },
+    {
+        "KorName": "아드리아나",
+        "EngName": "Adriana",
+        "CharNum": 17,
+        "Skin": [
+            "파이어뱃",
+            "해충박멸"
         ]
     },
     {
@@ -490,9 +490,49 @@
         ]
     },
     {
+        "KorName": "마르티나",
+        "EngName": "Martina",
+        "CharNum": 57,
+        "Skin": [
+            "탐험기자"
+        ]
+    },
+    {
+        "KorName": "헤이즈",
+        "EngName": "Haze",
+        "CharNum": 58,
+        "Skin": [
+            "암흑가"
+        ]
+    },
+    {
+        "KorName": "아이작",
+        "EngName": "Isaac",
+        "CharNum": 59,
+        "Skin": [
+            "암흑가"
+        ]
+    },
+    {
+        "KorName": "타지아",
+        "EngName": "Tazia",
+        "CharNum": 60,
+        "Skin": [
+            "브로큰글래스"
+        ]
+    },
+    {
         "KorName": "이렘",
         "EngName": "Irem",
-        "CharNum": 57,
+        "CharNum": 61,
+        "Skin": [
+            "눈싸움"
+        ]
+    },
+    {
+        "KorName": "테오도르",
+        "EngName": "Theodore",
+        "CharNum": 62,
         "Skin": [
             "도전자"
         ]

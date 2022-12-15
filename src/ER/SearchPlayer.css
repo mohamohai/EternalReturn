@@ -36,7 +36,7 @@
 
 }
 
-.GameInfoState p {
+.GameInfoStatePP {
     margin-left: 20px;
     width: 100px;
     height: 130px;
@@ -45,14 +45,14 @@
 
 }
 
-.GameInfoState p div:nth-child(1) {
+.GameInfoStatePP div:nth-child(1) {
     font-size: 1.5rem;
     color: rgb(255, 200, 60);
     margin-top: 40px;
     height: 25px;
 }
 
-.GameInfoState p div:nth-child(2) {
+.GameInfoStatePP div:nth-child(2) {
     font-size: 0.8rem;
     height: 65px;
     font-family: "Noto Snas KR";
@@ -60,7 +60,7 @@
 
 }
 
-.GameInfoState p div:nth-child(3) {
+.GameInfoStatePP div:nth-child(3) {
     height: 20px;
     font-size: 0.8rem;
 }
@@ -114,19 +114,35 @@
 .GameInfoKdahd {
     float: left;
     text-align: left;
-    width: 150px;
+    width: 300px;
     height: 150px;
     margin-top: 40px;
 }
 
 .GameInfokdahdHead div {
     text-align: center;
-    width: 25px;
+    width: 30px;
 }
 
-.GameInfokdahdHead div:nth-of-type(4n) {
+.GameInfokdahdHead div:nth-of-type(4) {
     text-align: center;
     width: 75px;
+}
+
+.GameInfokdahdHead div:nth-of-type(9) {
+    text-align: center;
+    width: 75px;
+}
+
+.GameInfokdahdHead div:nth-of-type(5n) {
+    text-align: center;
+    width: 60px;
+}
+
+.mmrGain {
+    font-size: 0.3rem;
+    position: relative;
+    float: left;
 }
 
 .gray {
@@ -134,4 +150,62 @@
     font-family: "Noto Sans KR";
     font-weight: 700;
     font-size: 0.8rem;
+}
+
+
+.GameInfoItem {
+    width: 300px;
+    height: 150px;
+    float: right;
+}
+
+
+.GameInfoItemMatch {
+    width: 250px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.GameInfoItemMatch img {
+    width: 60px;
+    margin: 2px;
+}
+
+.ItemTier1 {
+    border: 1.5px rgb(61, 60, 58) solid;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, rgba(61, 60, 58, 0.9) 5%, rgba(61, 60, 58, 0.8) 20%, rgba(61, 60, 58, 0.7) 40%, rgba(61, 60, 58, 0.6) 65%, rgba(61, 60, 58, 0.55) 80%);
+}
+
+.ItemTier2 {
+    border: 1.5px rgb(18, 125, 2) solid;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, rgba(18, 125, 2, 0.9) 5%, rgba(18, 125, 2, 0.8) 20%, rgba(18, 125, 2, 0.7) 40%, rgba(18, 125, 2, 0.6) 65%, rgba(18, 125, 2, 0.55) 80%);
+}
+
+.ItemTier3 {
+    border: 1.5px rgb(100, 140, 199) solid;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, rgba(75, 105, 150, 0.9) 5%, rgba(75, 105, 150, 0.8) 20%, rgba(75, 105, 150, 0.7) 40%, rgba(75, 105, 150, 0.6) 65%, rgba(75, 105, 150, 0.55) 80%);
+}
+
+.ItemTier4 {
+    border: 1.5px rgb(78, 44, 120) solid;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, rgba(78, 44, 120, 0.9) 5%, rgba(78, 44, 120, 0.8) 20%, rgba(78, 44, 120, 0.7) 40%, rgba(78, 44, 120, 0.6) 65%, rgba(78, 44, 120, 0.55) 80%);
+}
+
+.ItemTier5 {
+    border: 1.5px rgb(187, 145, 41) solid;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, rgb(187, 145, 41)10%, rgba(187, 145, 41, 0.9) 25%, rgba(217, 169, 48, 1) 50%, rgba(217, 169, 48, 0.95) 75%, rgba(217, 169, 48, 1) 100%);
+}
+
+.ItemTier6 {
+    border: 1.5px rgb(117, 51, 51) solid;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, rgb(81, 13, 13, 1)10%, rgb(95, 20, 20) 25%, rgb(162, 47, 47, 1) 50%, rgba(177, 57, 57, 1) 75%, rgba(195, 83, 83, 1) 100%);
 }

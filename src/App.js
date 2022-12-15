@@ -130,7 +130,7 @@ class App extends Component {
           <Route path="LibraryBox"  element={<LibraryBox />} />
           <Route path="Zip" element={<Zip/>}/>
           <Route path="Oconnect" element={<Oconnect/>}/>
-          <Route path = "Hyun" element={<Hyun/>}/>
+          <Route path = "IK" element={<Hyun/>}/>
           <Route path="/E" element={<SearchPlayer/>}/>
           <Route path="/E/:key1" element={<SearchPlayer/>}/>
           
