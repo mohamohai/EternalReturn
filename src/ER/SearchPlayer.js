@@ -2,15 +2,18 @@ import { useState, useEffect, useRef, Component } from "react";
 import "./SearchPlayer.css";
 import CharList from "./JsonFile/Char.json"  //characterNum은 1부터니까 -1
 import axios from "axios";
-
-
+import { useParams } from "react-router-dom";
 
 
 const API_KEY = process.env.REACT_APP_ERKEY;
+
 function SearchPlayer(){
-       const [UserNick,setUserNick]=useState("흑인42호");
+    const { key1 } = useParams(); // 
+
+    const [UserNick,setUserNick]=useState( key1 );
     const [UserNum,setUserNum]=useState(0);
     const [Next,setNext]=useState(0);
+    console.log( { key1 } )
 
     const [getGameData, setGameData] = useState( [] );
 
@@ -65,6 +68,7 @@ function SearchPlayer(){
             },
         });
         setGameData(userGames)
+        console.log(userGames)
         setNext(next);
         setUserNum(InsertNum)
         getGameDetails(userGames[0].gameId)
@@ -113,7 +117,7 @@ function SearchPlayer(){
                     </div>
 
                     <div className="GameInfoCharatcerThum">
-                        <img src={`./image/Character_Img/Irem/Thumbnail/Default/Mini.png`}/>
+                        <img src={`/image/Character_Img/Irem/Thumbnail/Default/Mini.png`}/>
                         <div className="GameInfoCharatcerCharacteristic">
                             <div>특</div>
                             <div>특</div>
@@ -125,13 +129,11 @@ function SearchPlayer(){
                         <div className="left gray">K</div><div className="left gray">D</div><div className="left gray">A</div><div className="left gray">피해량</div><br></br><br></br>
                         <div className="left">4</div><div className="left">3</div><div className="left">8</div><div className="left">45212</div>
                     </div>
-
                 </div>
 
             </div>
-        </div>
 
-        {
+            {
             getGameData.map((DataRow,key)=>{
                 return (
                     <div key = {key} className="GameInfo">
@@ -153,14 +155,23 @@ function SearchPlayer(){
                         </div>
     
                         <div className="GameInfoCharatcerThum">
-                            <img src={`./image/Character_Img/${CharList[DataRow.characterNum-1].EngName}/Thumbnail/Default/Mini.png`}/>
+                            <img src={`/image/Character_Img/${CharList[DataRow.characterNum-1].EngName}/Thumbnail/Default/Mini.png`}/>
                         </div>
                     </div>
+                    <div className="GameInfoKdahd">
+                    <div className="GameInfokdahdHead">
+                        <div className="left gray">K</div><div className="left gray">D</div><div className="left gray">A</div><div className="left gray">피해량</div><br></br><br></br>
+                        <div className="left">{DataRow.playerKill}</div><div className="left">{DataRow.playerDeaths}</div><div className="left">{DataRow.playerAssistant}</div><div className="left">{DataRow.damageToPlayer}</div>
+                    </div>
+                </div>
                 </div>
                 
                 )
             })
         }
+        </div>
+
+        
         <div onClick={()=>getGame(UserNum,Next)}>가나다</div>
 
     </div>

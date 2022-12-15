@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+
 import Character_Infomation from "./ER/Character_Information/Character_Infomation.js";
 
 import ERMain from "./ER/Skeleton/ERMain.js";
@@ -129,8 +130,9 @@ class App extends Component {
           <Route path="LibraryBox"  element={<LibraryBox />} />
           <Route path="Zip" element={<Zip/>}/>
           <Route path="Oconnect" element={<Oconnect/>}/>
-            <Route path = "Hyun" element={<Hyun/>}/>
-          <Route path="E" element={<SearchPlayer/>}/>
+          <Route path = "Hyun" element={<Hyun/>}/>
+          <Route path="/E" element={<SearchPlayer/>}/>
+          <Route path="/E/:key1" element={<SearchPlayer/>}/>
           
           <Route exact path="/" element={<FourZeroFour />} />
           <Route path="*"  element={<FourZeroFour />} />

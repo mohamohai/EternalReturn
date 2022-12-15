@@ -4,8 +4,11 @@
 }
 
 .SearchContainer {
-    width: 60vw;
+    width: 80vw;
     height: 100vh;
+    position: relative;
+    left: 25vw;
+
 }
 
 .GameInfo {
@@ -13,9 +16,8 @@
     height: 150px;
     background-color: rgba(155, 214, 230, 0.4);
     border-radius: 10px;
-    overflow: hidden;
     margin-bottom: 10px;
-
+    float: left;
 
 }
 
@@ -90,8 +92,9 @@
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 600;
     font-size: 0.5rem;
-    float: left;
     margin-top: 10px;
+    width: 50px;
+    text-align: center;
 }
 
 .GameInfoCharatcerThum img {
