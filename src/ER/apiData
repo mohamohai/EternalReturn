@@ -1,0 +1,322 @@
+"https://developer.eternalreturn.io/static/media/Docs_KR_20220516.pdf" 정리 pdf
+    "https://d1wkxvul68bth9.cloudfront.net/l10n/l10n-Korean-20221215014240.txt" 코드 txt
+    "userNum": 587229,
+"nickname": "흑인42호",
+"gameId": 22099182, //그 단판 전체 정보
+"seasonId": 13, //시즌제
+"matchingMode": 3, //이걸로 삼항 잡고 코발트랑 분리
+"matchingTeamMode": 1, //솔로
+"characterNum": 28, //캐릭터
+"skinCode": 1028003, //스킨코드 
+"characterLevel": 11, // 캐릭터 레벨
+"gameRank": 9, //순위 이걸 절대로 최대값을 18로 하면 안됨, 18이하의 인원으로 매칭될 수도 있음
+"playerKill": 2, //킬수
+"playerAssistant": 0, //어시인데 솔로유저라 안찍힘
+"monsterKill": 2, // 야생동물 잡은 수
+"bestWeapon": 13, //
+"bestWeaponLevel": 8, //무기숙작
+"masteryLevel": {
+    "13": 8, //25이하는 무기 종류
+    "101": 1, //함정
+    "102": 10, //제작
+    "103": 7, //탐색
+    "104": 8, //이동
+    "201": 8, //체력
+    "202": 10, //방어
+    "204": 3 //사냥
+},
+"equipment": {
+    "0": 104401, //무기
+    "1": 202419, //옷
+    "2": 201409, //머리
+    "3": 203506, //팔
+    "4": 204412, //다리
+    "5": 205201 //장신구 
+},
+"versionMajor": 73, //메인 수정 버전?
+"versionMinor": 0, //마이너수정버전
+"language": "Korean",
+"skillLevelInfo": {
+    "1028100": 2, //패시브
+    "1028200": 5, //q
+    "1028300": 1, //w
+    "1028400": 1, //e
+    "1028500": 1, //r
+    "3013000": 1 //무숙
+},
+"skillOrderInfo": {
+    "1": 1028400, //스킬 찍은 순서
+    "2": 1028200,
+    "3": 1028300,
+    "4": 1028200,
+    "5": 1028100,
+    "6": 1028500,
+    "7": 1028200,
+    "8": 1028200,
+    "9": 1028100,
+    "10": 3013000,
+    "11": 1028200
+},
+"serverName": "Seoul", //여기서부터는 캐릭터 스탯
+"maxHp": 1790,
+"maxSp": 660,
+"attackPower": 108,
+"defense": 102,
+"hpRegen": 4.47,
+"spRegen": 4.92,
+"attackSpeed": 0.79,
+"moveSpeed": 3.86,
+"outOfCombatMoveSpeed": 3.86,
+"sightRange": 9.05,
+"attackRange": 1.75,
+"criticalStrikeChance": 0,
+"criticalStrikeDamage": 0,
+"coolDownReduction": 35,
+"lifeSteal": 0,
+"normalLifeSteal": 0,
+"skillLifeSteal": 0,
+"amplifierToMonster": 6,
+"trapDamage": 3,
+"bonusCoin": 0,
+"gainExp": 110,
+"baseExp": 110,
+"bonusExp": 0,
+"startDtm": "2022-12-11T03:48:27.027+0900", //게임 시작 시간, 이게 또 게임중일 경우 순위가 전체 출력이 안됨
+"duration": 390, //서버의 프?레임 타임
+"mmrBefore": 3442, //기존 mmr
+"mmrGain": 12, //mmr 변동량
+"mmrAfter": 3454, //유저의 신규 mmr
+"playTime": 385, //startDtm으로 게임에 플레이 시간을 볼 수 있음
+"watchTime": 0,
+"totalTime": 385,
+"survivableTime": 40,
+"botAdded": 0,
+"botRemain": 0,
+"restrictedAreaAccelerated": 0,
+"safeAreas": 13,
+"teamNumber": 10,
+"preMade": 1,
+"eventMissionResult": {
+    "165": 2
+},
+"gainedNormalMmrKFactor": 10,
+"victory": 0,
+"craftUncommon": 14,
+"craftRare": 13,
+"craftEpic": 5,
+"craftLegend": 0,
+"damageToPlayer": 5740, //유저상대 딜량
+"damageToPlayer_trap": 0,
+"damageToPlayer_basic": 0,
+"damageToPlayer_skill": 5378, //스킬딜
+"damageToPlayer_itemSkill": 362, //고유피해량
+"damageToPlayer_direct": 0,
+"damageToPlayer_uniqueSkill": 0,
+"damageFromPlayer": 5614, //맞은 딜량
+"damageFromPlayer_trap": 0,
+"damageFromPlayer_basic": 2017,
+"damageFromPlayer_skill": 2870,
+"damageFromPlayer_itemSkill": 252,
+"damageFromPlayer_direct": 475,
+"damageFromPlayer_uniqueSkill": 0,
+"damageToMonster": 2448,
+"damageToMonster_trap": 0,
+"damageToMonster_basic": 0,
+"damageToMonster_skill": 2448,
+"damageToMonster_itemSkill": 0,
+"damageToMonster_direct": 0,
+"damageToMonster_uniqueSkill": 0,
+"damageFromMonster": 126,
+"killMonsters": {
+    "3": 1,
+    "6": 1
+},
+"healAmount": 4250, //피젠량
+"teamRecover": 0, //힐량
+"protectAbsorb": 556, //쉴드
+"addSurveillanceCamera": 1, //감카횟수
+"addTelephotoCamera": 0, //망카횟수 나타폰은 망카로 넣
+"removeSurveillanceCamera": 0, //시야파괴
+"removeTelephotoCamera": 0, //시야파괴망카
+"useHyperLoop": 2, //하이퍼루프 사용 횟수
+"useSecurityConsole": 0,
+"giveUp": 0,
+"teamSpectator": 0,
+"routeIdOfStart": 0,
+"routeSlotId": 1,
+"placeOfStart": "8",
+"mmrAvg": 3268,
+"matchSize": 18,
+"teamKill": 2,
+"accountLevel": 173,
+"killerUserNum": 2100536,
+"killer": "player",
+"killDetail": "코딩덩어리유사겜", //나 죽인 유저, 금구사일 경우 지역이름으로 
+"causeOfDeath": "작품 활동", // 날 죽인 옵젝, 닉   빈값이면 금구사
+"placeOfDeath": "7",
+"killerCharacter": "Daniel",
+"killerWeapon": "OneHandSword",
+"killerUserNum2": 0,
+"killerUserNum3": 0,
+"fishingCount": 0,
+"useEmoticonCount": 0,
+"expireDtm": "2023-03-11T03:56:38.038+0900",
+"traitFirstCore": 7000401, //주특
+"traitFirstSub": [ //주특보조
+    7010101,
+    7010301
+],
+"traitSecondSub": [ //보특보조
+    7210101,
+    7210801
+],
+"airSupplyOpenCount": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+],
+"foodCraftCount": [
+    0,
+    0,
+    6,
+    0,
+    0,
+    0,
+    0
+],
+"beverageCraftCount": [
+    0,
+    2,
+    2,
+    0,
+    0,
+    0,
+    0
+],
+"totalTurbineTakeOver": 0,
+"usedNormalHealPack": 0,
+"usedReinforcedHealPack": 0,
+"usedNormalShieldPack": 0,
+"usedReinforceShieldPack": 0,
+"totalVFCredits": [
+    25,
+    0,
+    10,
+    0,
+    3,
+    10,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+],
+"usedVFCredits": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+],
+"craftMythic": 0,
+"playerDeaths": 1,
+"killGamma": false,
+"scoredPoint": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+],
+"killDetails": "{\"20\":1,\"3\":1}",
+"deathDetails": "{\"37\":1}",
+"killsPhaseOne": 1,
+"killsPhaseTwo": 1,
+"killsPhaseThree": 0,
+"deathsPhaseOne": 0,
+"deathsPhaseTwo": 1,
+"deathsPhaseThree": 0,
+"usedPairLoop": 2,
+"ccTimeToPlayer": 5.716667,
+"creditSource": "{\"PhaseStart\":45,\"ResourceMerge\":6}",
+"boughtInfusion": "{}",
+"itemTransferredConsole": [],
+"itemTransferredDrone": [],
+"afk": false,
+"escapeState": 0,
+"totalDoubleKill": 0,
+"totalTripleKill": 0,
+"totalQuadraKill": 0,
+"totalExtraKill": 0,
+"collectItemForLog": [
+    0,
+    0,
+    1,
+    2,
+    0,
+    0,
+    1
+],
+"equipFirstItemForLog": { //초반에 어떤 아이템으로 빌드업을 하나 보기 위한 코드, 특정 아이템별로 틈정등급까지만 표기됨
+    "0": [
+        104401
+    ],
+    "1": [
+        202419
+    ],
+    "2": [
+        201409
+    ],
+    "3": [
+        203506
+    ],
+    "4": [
+        204412
+    ],
+    "5": [
+        0
+    ]
+}

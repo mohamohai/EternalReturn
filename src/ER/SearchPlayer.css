@@ -2,3 +2,133 @@
     text-align: center;
     width: 100vw;
 }
+
+.SearchContainer {
+    width: 60vw;
+    height: 100vh;
+}
+
+.GameInfo {
+    width: 1000px;
+    height: 150px;
+    background-color: rgba(155, 214, 230, 0.4);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+
+
+}
+
+.GameInfoResult {
+    border-left: 12px solid rgb(255, 200, 60);
+    float: left;
+    height: 150px;
+    background-color: blueviolet;
+}
+
+.GameInfoState {
+    float: left;
+    text-align: left;
+    width: 100px;
+    height: 150px;
+
+}
+
+.GameInfoState p {
+    margin-left: 20px;
+    width: 100px;
+    height: 130px;
+    text-align: left;
+    white-space: nowrap;
+
+}
+
+.GameInfoState p div:nth-child(1) {
+    font-size: 1.5rem;
+    color: rgb(255, 200, 60);
+    margin-top: 40px;
+    height: 25px;
+}
+
+.GameInfoState p div:nth-child(2) {
+    font-size: 0.8rem;
+    height: 65px;
+    font-family: "Noto Snas KR";
+    font-weight: 900;
+
+}
+
+.GameInfoState p div:nth-child(3) {
+    height: 20px;
+    font-size: 0.8rem;
+}
+
+
+.GameInfoCharatcer {
+    float: left;
+    text-align: left;
+    width: 200px;
+    height: 150px;
+    margin-left: 50px;
+}
+
+.GameInfoCharatcerLv {
+    height: 100%;
+    margin-top: 35px;
+    float: left;
+}
+
+.GameInfoCharatcerLvCube {
+    width: 50px;
+    height: 50px;
+    border-radius: 10%;
+    text-align: center;
+
+}
+
+.GameInfoCharatcerLvCube div {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 600;
+    font-size: 0.5rem;
+    float: left;
+    margin-top: 10px;
+}
+
+.GameInfoCharatcerThum img {
+    width: 80px;
+    margin: 10px 0 0 5px;
+    border-radius: 30%;
+    float: left;
+}
+
+.GameInfoCharatcerCharacteristic {
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin-top: 50px;
+}
+
+.GameInfoKdahd {
+    float: left;
+    text-align: left;
+    width: 150px;
+    height: 150px;
+    margin-top: 40px;
+}
+
+.GameInfokdahdHead div {
+    text-align: center;
+    width: 25px;
+}
+
+.GameInfokdahdHead div:nth-of-type(4n) {
+    text-align: center;
+    width: 75px;
+}
+
+.gray {
+    color: rgb(0, 0, 0, 0.3);
+    font-family: "Noto Sans KR";
+    font-weight: 700;
+    font-size: 0.8rem;
+}

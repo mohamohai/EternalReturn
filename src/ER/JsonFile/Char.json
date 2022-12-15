@@ -19,14 +19,12 @@
         ]
     },
     {
-        "KorName": "현우",
-        "EngName": "Hyunwoo",
+        "KorName": "피오라",
+        "EngName": "Fiora",
         "CharNum": 3,
         "Skin": [
-            "뒷골목",
-            "레드데블",
-            "사관후보생",
-            "사관후보생 이터니티"
+            "장교",
+            "총사"
         ]
     },
     {
@@ -39,12 +37,12 @@
         ]
     },
     {
-        "KorName": "피오라",
-        "EngName": "Fiora",
+        "KorName": "자히르",
+        "EngName": "Zahir",
         "CharNum": 5,
         "Skin": [
-            "장교",
-            "총사"
+            "사신",
+            "사이코시스"
         ]
     },
     {
@@ -58,12 +56,14 @@
         ]
     },
     {
-        "KorName": "자히르",
-        "EngName": "Zahir",
+        "KorName": "현우",
+        "EngName": "Hyunwoo",
         "CharNum": 7,
         "Skin": [
-            "사신",
-            "사이코시스"
+            "뒷골목",
+            "레드데블",
+            "사관후보생",
+            "사관후보생 이터니티"
         ]
     },
     {
