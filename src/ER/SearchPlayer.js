@@ -37,30 +37,9 @@ function SearchPlayer(){
         !Leg      ? Leg="empty":Leg=Leg          ;
         !Accessory? Accessory="empty":Accessory=Accessory ;
         let equipmentArr =[
-            [
-                "empty","empty",0
-            ],
-            [
-                "empty","empty",0
-            ],
-            [
-                "empty","empty",0
-            ],
-            [
-                "empty","empty",0
-            ],
-            [
-                "empty","empty",0
-            ],
-            [
-                "empty","empty",0
-            ]
+            [],[],[],[],[],[]
         ]  
-        equipmentArr.map((axs,ss)=>{
-            console.log(axs[0])
-            console.log(axs[1])
-            console.log(axs[2])
-        }) 
+      
         for(let i = 0; i<ItemList.length;i++){
             if(ItemList[i].ItemCode==Weapon){
                 equipmentArr[0][0]=ItemList[i].ItemCode;
@@ -94,13 +73,6 @@ function SearchPlayer(){
             }
         }
         
-        equipmentArr.map((axs,ss)=>{
-            console.log(axs[0])
-            console.log(axs[1])
-            console.log(axs[2])
-        }) 
-        console.log("------------------------------------")
-        console.log("------------------------------------")
         return(
             <div className="GameInfoItemMatch">
                 <div>
@@ -115,7 +87,6 @@ function SearchPlayer(){
                 </div>
             </div>
         )
-        console.log(Weapon, Chest, Hat, Arm, Leg, Accessory)   
     }
 
     const StartUrl = `https://open-api.bser.io/v1/user/nickname?query=${UserNick}`
@@ -156,10 +127,16 @@ function SearchPlayer(){
             "x-api-key": API_KEY,
             },
         });
+        if(userGames){
+            setStep(true);
+        }else{
+            setStep(false)
+        }
         setGameData(userGames)
         setNext(next);
         setUserNum(InsertNum)
-        getGameDetails(userGames[0].gameId)
+
+        // getGameDetails(userGames[0].gameId)
     }
     async function getGameDetails(gameId) {
         let url = `https://open-api.bser.io/v1/games/${gameId}`;
@@ -172,6 +149,7 @@ function SearchPlayer(){
             "x-api-key": API_KEY,
             },
         });
+        console.log(userGames)
     }
 
 
@@ -182,11 +160,66 @@ function SearchPlayer(){
  
     
     return(
+        
         <div className="SearchPlayer">
         <h1>{UserNick}</h1><br></br>
         <h1>{UserNum}</h1><br></br>
         <h1>{Next}</h1><br></br>
         <div className="SearchContainer">
+            {Step? <div className="SearchContainer">
+            {
+            getGameData.map((DataRow,key)=>{
+                return (
+                    <div key = {key} className="GameInfo">
+                    <div className="GameInfoResult"></div>
+                    <div className="GameInfoState">
+                        <div className="GameInfoStatePP">
+                            <div>#{DataRow.gameRank}</div>
+                            <div>{matchingMode[DataRow.matchingMode]} / {matchingTeamMode[DataRow.matchingTeamMode]} </div> 
+                            <div>{Math.floor(DataRow.playTime/60)>=10 ? Math.floor(DataRow.playTime/60) : "0" + Math.floor(DataRow.playTime/60)} : {(DataRow.playTime%60)>=10 ? DataRow.playTime%60 : "0" + DataRow.playTime%60}</div>
+                            
+                        </div>
+                    </div>
+
+                    <div className="GameInfoCharatcer">
+                        <div className="GameInfoCharatcerLv">
+                            <div className="GameInfoCharatcerLvCube">
+                                <div>
+                                    <div>Lv </div>
+                                    <div>{DataRow.characterLevel}</div>
+                                </div>
+                                <div>
+                                    <div><img className="WeaponType" src={`/image/Item/Weapon/${DataRow.bestWeapon}.png`}/></div>
+                                    <div className="WeaponLv">{DataRow.bestWeaponLevel}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="GameInfoCharatcerThum">
+                            <img src={`/image/Character_Img/${CharList[DataRow.characterNum-1].EngName}/Thumbnail/Default/Mini.png`}/>
+                        </div>
+                    </div>
+
+                    <div className="GameInfoKdahd">
+                    <div className="GameInfokdahdHead">
+                        <div className="left gray">K</div><div className="left gray">D</div><div className="left gray">A</div><div className="left gray">피해량</div><div className="left gray">MMR</div><br></br><br></br>
+                        <div className="left">{DataRow.playerKill}</div><div className="left">{DataRow.playerDeaths}</div><div className="left">{DataRow.playerAssistant}</div><div className="left">{DataRow.damageToPlayer}</div><div className="left">{DataRow.mmrAfter>0?DataRow.mmrAfter:"-"}</div><span className="mmrGain">{DataRow.mmrAfter>DataRow.mmrBefore? "+" + DataRow.mmrGain: DataRow.mmrGain}</span>    
+                    </div>
+                </div>
+
+                    <div className="GameInfoItem">
+                            <div>
+                            {ItemSearch(DataRow.equipment[0],DataRow.equipment[1],DataRow.equipment[2],
+                                                DataRow.equipment[3],DataRow.equipment[4],DataRow.equipment[5])
+                            }
+                            </div>
+                    </div>
+                </div>
+                
+                )
+            })
+        }
+
+            </div>:"flase"}
             <div className="GameInfo">
                 <div className="GameInfoResult"></div>
                 <div className="GameInfoState">
@@ -220,52 +253,7 @@ function SearchPlayer(){
                 </div>
 
             </div>
-
-            {
-            getGameData.map((DataRow,key)=>{
-                return (
-                    <div key = {key} className="GameInfo">
-                    <div className="GameInfoResult"></div>
-                    <div className="GameInfoState">
-                        <div className="GameInfoStatePP">
-                            <div>#{DataRow.gameRank}</div>
-                            <div>{matchingMode[DataRow.matchingMode]} / {matchingTeamMode[DataRow.matchingTeamMode]} </div> 
-                            <div>{Math.floor(DataRow.playTime/60)} : {DataRow.playTime%60}</div>
-                        </div>
-                    </div>
-
-                    <div className="GameInfoCharatcer">
-                        <div className="GameInfoCharatcerLv">
-                            <div className="GameInfoCharatcerLvCube">
-                                <div>Lv &nbsp;{DataRow.characterLevel}</div>
-                                <div><img className="WeaponType" src={`/image/Item/Weapon/${DataRow.bestWeapon}.png`}/> <span>{DataRow.bestWeaponLevel}</span></div>
-                            </div>
-                        </div>
-                        <div className="GameInfoCharatcerThum">
-                            <img src={`/image/Character_Img/${CharList[DataRow.characterNum-1].EngName}/Thumbnail/Default/Mini.png`}/>
-                        </div>
-                    </div>
-
-                    <div className="GameInfoKdahd">
-                    <div className="GameInfokdahdHead">
-                        <div className="left gray">K</div><div className="left gray">D</div><div className="left gray">A</div><div className="left gray">피해량</div><div className="left gray">MMR</div><br></br><br></br>
-                        <div className="left">{DataRow.playerKill}</div><div className="left">{DataRow.playerDeaths}</div><div className="left">{DataRow.playerAssistant}</div><div className="left">{DataRow.damageToPlayer}</div><div className="left">{DataRow.mmrAfter>0?DataRow.mmrAfter:"-"}</div><span className="mmrGain">{DataRow.mmrAfter>DataRow.mmrBefore? "+" + DataRow.mmrGain: DataRow.mmrGain}</span>    
-                    </div>
-                </div>
-
-                    <div className="GameInfoItem">
-                            <div>
-                            {ItemSearch(DataRow.equipment[0],DataRow.equipment[1],DataRow.equipment[2],
-                                                DataRow.equipment[3],DataRow.equipment[4],DataRow.equipment[5])
-                            }
-                            </div>
-                    </div>
-                </div>
-                
-                )
-            })
-        }
-        </div>
+           </div>
         <div onClick={()=>getGame(UserNum,Next)}>가나다</div>
 
     </div>
