@@ -1,24 +1,23 @@
 .SearchPlayer {
-    text-align: center;
     width: 100vw;
+    display: flex;
+    justify-content: center;
 }
 
 .SearchContainer {
-    width: 80vw;
+    width: 1000px;
     height: 100vh;
-    position: relative;
-    left: 15vw;
+    display: flex;
+    flex-direction: column;
 
 }
 
 .GameInfo {
     width: 1000px;
     height: 150px;
-    background-color: rgba(155, 214, 230, 0.4);
+    background-color: rgba(155, 214, 230, 0.5);
     border-radius: 10px;
     margin-bottom: 10px;
-    float: left;
-
 }
 
 .GameInfoResult {
@@ -71,18 +70,19 @@
     text-align: left;
     width: 200px;
     height: 150px;
-    margin-left: 50px;
+    margin-left: 30px;
+
 }
 
 .GameInfoCharatcerLv {
     height: 100%;
-    margin-top: 35px;
+    margin-top: 40px;
     float: left;
 }
 
 .GameInfoCharatcerLvCube {
     width: 50px;
-    height: 50px;
+    height: 60px;
     border-radius: 10%;
     text-align: center;
 
@@ -125,11 +125,16 @@
     float: left;
 }
 
-.GameInfoCharatcerCharacteristic {
+.GameInfoCharacterTrait {
     float: left;
     width: 50px;
     height: 50px;
-    margin-top: 50px;
+    margin-top: 30px;
+}
+
+.GameInfoCharacterTrait img {
+    width: 30px;
+    margin: 10px 0 0 10px;
 }
 
 .GameInfoKdahd {
@@ -181,6 +186,14 @@
     float: right;
 }
 
+.GameInfoPlusLine {
+    width: 36px;
+    height: 150px;
+    background-color: rgba(155, 214, 230, 0.5);
+    filter: invert(20%);
+    float: right;
+    border-radius: 0 15px 15px 0;
+}
 
 .GameInfoItemMatch {
     width: 250px;
@@ -196,6 +209,7 @@
     margin: 2px;
 }
 
+
 .ItemTier0 {
     border: 1.5px rgb(0, 0, 0) solid;
     border-radius: 5px;
@@ -204,8 +218,6 @@
     height: 33px;
 
 }
-
-
 
 .ItemTier1 {
     border: 1.5px rgb(61, 60, 58) solid;

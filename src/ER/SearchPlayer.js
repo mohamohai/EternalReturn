@@ -4,7 +4,7 @@ import CharList from "./JsonFile/Char.json"  //characterNum은 1부터니까 -1
 import ItemList from "./JsonFile/Item.json" 
 import axios from "axios";
 import { useParams } from "react-router-dom";
-
+import Hyun from "../Hyun/Hyun";
 
 const API_KEY = process.env.REACT_APP_ERKEY;
 
@@ -162,10 +162,7 @@ function SearchPlayer(){
     return(
         
         <div className="SearchPlayer">
-        <h1>{UserNick}</h1><br></br>
-        <h1>{UserNum}</h1><br></br>
-        <h1>{Next}</h1><br></br>
-        <div className="SearchContainer">
+        <div>asd</div>
             {Step? <div className="SearchContainer">
             {
             getGameData.map((DataRow,key)=>{
@@ -197,30 +194,43 @@ function SearchPlayer(){
                         <div className="GameInfoCharatcerThum">
                             <img src={`/image/Character_Img/${CharList[DataRow.characterNum-1].EngName}/Thumbnail/Default/Mini.png`}/>
                         </div>
+                        <div className="GameInfoCharacterTrait">
+                            <img src={`/image/Trait/all/${DataRow.traitFirstCore}.png`}></img>
+                            <img src={`/image/Trait/all/${  Math.floor(DataRow.traitSecondSub[0]/100000)==70? "Havoc":
+                            Math.floor(DataRow.traitSecondSub[0]/100000)==71? "Fortification": "Support"}.png`}></img>
+                            {console.log(Math.floor(DataRow.traitSecondSub[0]/100000))}
+                            {
+                          
+                            }
+
+                        </div>
                     </div>
 
                     <div className="GameInfoKdahd">
-                    <div className="GameInfokdahdHead">
-                        <div className="left gray">K</div><div className="left gray">D</div><div className="left gray">A</div><div className="left gray">피해량</div><div className="left gray">MMR</div><br></br><br></br>
-                        <div className="left">{DataRow.playerKill}</div><div className="left">{DataRow.playerDeaths}</div><div className="left">{DataRow.playerAssistant}</div><div className="left">{DataRow.damageToPlayer}</div><div className="left">{DataRow.mmrAfter>0?DataRow.mmrAfter:"-"}</div><span className="mmrGain">{DataRow.mmrAfter>DataRow.mmrBefore? "+" + DataRow.mmrGain: DataRow.mmrGain}</span>    
+                        <div className="GameInfokdahdHead">
+                            <div className="left gray">K</div><div className="left gray">D</div><div className="left gray">A</div><div className="left gray">피해량</div><div className="left gray">MMR</div><br></br><br></br>
+                            <div className="left">{DataRow.playerKill}</div><div className="left">{DataRow.playerDeaths}</div><div className="left">{DataRow.playerAssistant}</div><div className="left">{DataRow.damageToPlayer}</div><div className="left">{DataRow.mmrAfter>0?DataRow.mmrAfter:"-"}</div><span className="mmrGain">{DataRow.mmrAfter>DataRow.mmrBefore? "+" + DataRow.mmrGain: DataRow.mmrGain}</span>    
+                        </div>
                     </div>
-                </div>
-
+                    <div className="GameInfoPlusLine"></div>
+                            
                     <div className="GameInfoItem">
-                            <div>
-                            {ItemSearch(DataRow.equipment[0],DataRow.equipment[1],DataRow.equipment[2],
-                                                DataRow.equipment[3],DataRow.equipment[4],DataRow.equipment[5])
-                            }
-                            </div>
+                        <div>
+                        {ItemSearch(DataRow.equipment[0],DataRow.equipment[1],DataRow.equipment[2],
+                                            DataRow.equipment[3],DataRow.equipment[4],DataRow.equipment[5])
+                        }
+                        </div>
                     </div>
+
                 </div>
                 
                 )
             })
         }
-
-            </div>:"flase"}
-            <div className="GameInfo">
+            </div>:<div><Hyun></Hyun></div>}
+            
+            
+            {/* <div className="GameInfo">
                 <div className="GameInfoResult"></div>
                 <div className="GameInfoState">
                     <div>
@@ -252,10 +262,8 @@ function SearchPlayer(){
                     </div>
                 </div>
 
-            </div>
-           </div>
-        <div onClick={()=>getGame(UserNum,Next)}>가나다</div>
-
-    </div>
+            </div> */}
+            <div>asd</div>
+        </div>
     )
 }export default SearchPlayer;
