@@ -35,7 +35,7 @@
         &:nth-child(#{$i}) {
             transform: translate($trans_x, -20vh) scale($trans_scale*0.001);
             opacity: random(10000) * 0.0001;
-            animation: FallMove-#{$i} $durationAnimation $delayAnimation linear infinite
+            animation: FallM-#{$i} $durationAnimation $delayAnimation linear infinite
         }
 
         &:hover {
@@ -43,7 +43,7 @@
             color: red;
         }
 
-        @keyframes FallMove-#{$i} {
+        @keyframes FallM-#{$i} {
             0% {
                 transform: translate($trans_x, 0vh);
             }

@@ -1,4 +1,4 @@
-#ERMain {
+/* #ERMain {
   width: 100vw;
   height: 80vh;
   margin-top: 60px;
@@ -15,7 +15,7 @@
   padding-left: 50px;
   border: none;
   border-radius: 5px;
-}
+} */
 
 /* background: linear-gradient(
             to bottom,
@@ -28,7 +28,79 @@
         background-size: cover; */
 
 
-
+/* 
 #MainImg {
   width: 300px;
+} */
+.ERMain {
+  width: 100vw;
+  height: 100vh;
+  background-attachment: fixed;
+  margin: 0 auto;
+  padding: 0px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.ERMainGNB {
+  width: 100vw;
+  height: 55px;
+  background-color: rgb(20, 20, 20);
+  position: fixed;
+  z-index: 50;
+}
+
+.ERMainLeft {
+  width: 1000px;
+  float: left;
+}
+
+.ERMainGNB img {
+  width: 100px;
+  float: left;
+  margin-left: 10px;
+}
+
+
+.ERMainGNBUl {
+  float: left;
+  width: 400px;
+  height: 100%;
+
+
+}
+
+.ERMainGNBUl li {
+  float: left;
+  font-size: 1.1rem;
+  color: white;
+  font-family: "Noto Sans KR";
+  font-weight: 900;
+  line-height: 55px;
+  margin-left: 20px;
+}
+
+.ERMainGNBUl li a {
+  color: white;
+}
+
+.NickSearchBox {
+  width: 100vw;
+  position: absolute;
+  top: 35vh;
+  text-align: center;
+
+
+}
+
+.NickSearchBox input {
+  width: 400px;
+  height: 30px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+
+
+  box-shadow: 0px 10px 10px -5px #000000;
 }

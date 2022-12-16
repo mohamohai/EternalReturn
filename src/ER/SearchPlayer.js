@@ -3,7 +3,8 @@ import "./SearchPlayer.css";
 import CharList from "./JsonFile/Char.json"  //characterNum은 1부터니까 -1
 import ItemList from "./JsonFile/Item.json" 
 import axios from "axios";
-import Hyun from "../Hyun/Hyun";
+
+import FourZeroFour from "../FourZeroFour/FourZeroFour";
 import SearchPlayerGame from './SearchPlayerGame.js';
 
 
@@ -18,8 +19,8 @@ function SearchPlayer(prop){
     const [getGameData, setGameData] = useState([]);
     const [Step,setStep] = useState(false);
 
-    const matchingTeamMode=[0,"Solo","Duo","Squad"]
-    const matchingMode=[0,1,"Normal","Ranked","No","Cobalt"]
+    const matchingTeamMode=[0," / Solo"," / Duo"," / Squad",""]
+    const matchingMode=[0,1,"Normal","Ranked","Cobalt","Cobalt","Cobalt"]
 
     const WeaponType = ["None","글러브", "톤파", "방망이", "채찍",
                         "투척", "암기", "활", "석궁", "권총",
@@ -129,7 +130,6 @@ function SearchPlayer(prop){
         }else{
             setStep(false)
         }
-        console.log(userGames[0].gameId)
 
         setGameData(userGames)
         setNext(next);
@@ -160,21 +160,34 @@ function SearchPlayer(prop){
  
     
     return(
-        
         <div className="SearchPlayer">
-        <div>
-        </div>
-            {Step ? <div className="SearchContainer">
+             
+            <div className="Last10Game">
+                <p>최근 10게임 간단 정리</p>
+                <div className="Last10GameChar">
+                    <div className="Last10GameCharCon">
+                    {getGameData.map((DataRow10,index)=>{
+                        return(
+                                <div className="Last10GameCharConThum">
+                                    <div style={{backgroundColor:`${}`}}>{DataRow10.gameRank}</div>
+                                    <img src={`/image/Character_Img/${CharList[DataRow10.characterNum-1].EngName}/Thumbnail/Default/Mini.png`}/>
+                                </div>
+                        )
+                    })}
+                    </div>
+                </div>
+            </div>
+            {Step ? <div className="SearchContainer"><div className="MoreGame" onClick={()=>getGame(UserNum,Next)}>더 보기</div>
             {
             getGameData.map((DataRow,index)=>{
                 return (
                     <div key = {index}>
                     <div  className="GameInfo">
-                        <div className="GameInfoResult"></div>
+                        <div className={`GameInfoResult ${DataRow.gameRank<=1? "colorFirstb": DataRow.gameRank<=3? "colorSecondb":"colorThirdb"}`}></div>
                         <div className="GameInfoState">
                             <div className="GameInfoStatePP">
-                                <div>#{DataRow.gameRank}</div>
-                                <div>{matchingMode[DataRow.matchingMode]} / {matchingTeamMode[DataRow.matchingTeamMode]} </div> 
+                                <div className={`${DataRow.gameRank<=1? "colorFirst": DataRow.gameRank<=3? "colorSecond":"colorThird"}`}>#{DataRow.gameRank}</div>
+                                <div>{matchingMode[DataRow.matchingMode]}{matchingTeamMode[DataRow.matchingTeamMode] } </div> 
                                 <div>{Math.floor(DataRow.playTime/60)>=10 ? Math.floor(DataRow.playTime/60) : "0" + Math.floor(DataRow.playTime/60)} : {(DataRow.playTime%60)>=10 ? DataRow.playTime%60 : "0" + DataRow.playTime%60}</div>
                                 
                             </div>
@@ -210,6 +223,7 @@ function SearchPlayer(prop){
                             </div>
                         </div>
                         <div className="GameInfoPlusLine" onClick={()=>window.location.href=`/Eternal/${UserNick}/${DataRow.gameId}`}>
+                           <span> &gt; </span>
                         </div>
 
                         <div className="GameInfoItem">
@@ -227,9 +241,8 @@ function SearchPlayer(prop){
             })
         }
        
-       <div onClick={()=>getGame(UserNum,Next)}>더보기</div> 
         
-        </div>:<div><Hyun></Hyun></div>}
+        </div>:<div><FourZeroFour></FourZeroFour></div>}
             
             
             {/* <div className="GameInfo">

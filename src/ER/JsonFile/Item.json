@@ -205,6 +205,11 @@
         "ItemTier": 4
     },
     {
+        "ItemCode": 103404,
+        "ItemName": "검은 나비",
+        "ItemTier": 4
+    },
+    {
         "ItemCode": 103501,
         "ItemName": "디오스쿠로이",
         "ItemTier": 4
@@ -287,6 +292,11 @@
     {
         "ItemCode": 104501,
         "ItemName": "피스브링어",
+        "ItemTier": 5
+    },
+    {
+        "ItemCode": 104502,
+        "ItemName": "뿅망치",
         "ItemTier": 5
     },
     {
@@ -1075,6 +1085,11 @@
         "ItemTier": 5
     },
     {
+        "ItemCode": 114504,
+        "ItemName": "적궁백시",
+        "ItemTier": 5
+    },
+    {
         "ItemCode": 114407,
         "ItemName": "아르테미스",
         "ItemTier": 5
@@ -1132,6 +1147,11 @@
     {
         "ItemCode": 115405,
         "ItemName": "영광금귀신기노",
+        "ItemTier": 4
+    },
+    {
+        "ItemCode": 115406,
+        "ItemName": "포이즌드 크로스보우",
         "ItemTier": 4
     },
     {
@@ -1520,6 +1540,11 @@
         "ItemTier": 4
     },
     {
+        "ItemCode": 121501,
+        "ItemName": "캡틴 페퍼",
+        "ItemTier": 5
+    },
+    {
         "ItemCode": 122101,
         "ItemName": "렌즈",
         "ItemTier": 1
@@ -1562,6 +1587,11 @@
     {
         "ItemCode": 122404,
         "ItemName": "V.I.C.G",
+        "ItemTier": 4
+    },
+    {
+        "ItemCode": 122405,
+        "ItemName": "폴라로이드 카메라",
         "ItemTier": 4
     },
     {

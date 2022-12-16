@@ -2,13 +2,57 @@
     width: 100vw;
     display: flex;
     justify-content: center;
+    align-content: center;
+}
+
+.Last10Game {
+    width: 500px;
+    height: 500px;
+    position: relative;
+    top: 80px;
+}
+
+.Last10Game p {
+    margin: 10px;
+    font-family: "Noto Sans KR";
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+.Last10GameCharCon {
+    width: 350px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.Last10GameCharConThum {
+    width: 20%;
+    text-align: center;
+}
+
+.Last10GameCharConThum div {
+    width: 14%;
+    height: 16%;
+    text-align: center;
+    color: white;
+    line-height: 80px;
+    position: absolute;
+    font-size: 2rem;
+}
+
+.Last10GameCharConThum img {
+    width: 60px;
 }
 
 .SearchContainer {
     width: 1000px;
     height: 100vh;
+    position: relative;
     display: flex;
     flex-direction: column;
+    top: 70px;
 
 }
 
@@ -19,11 +63,10 @@
     /* background: linear-gradient(to left, rgb(119, 108, 178) 30%, rgb(231, 203, 38) 100%); */
     background-color: rgb(119, 108, 178, 0.12);
     border-radius: 10px;
-    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .GameInfoResult {
-    border-left: 12px solid rgb(255, 200, 60);
     float: left;
     height: 150px;
 }
@@ -47,9 +90,33 @@
 
 .GameInfoStatePP div:nth-child(1) {
     font-size: 1.5rem;
-    color: rgb(255, 200, 60);
     margin-top: 40px;
     height: 25px;
+}
+
+.colorFirst {
+    color: rgb(231, 203, 38);
+}
+
+.colorFirstb {
+    border-left: 12px solid rgb(231, 203, 38);
+
+}
+
+.colorSecond {
+    color: rgb(70, 128, 255);
+}
+
+.colorSecondb {
+    border-left: 12px solid rgb(70, 128, 255);
+}
+
+.colorThird {
+    color: rgb(190, 190, 190);
+}
+
+.colorThirdb {
+    border-left: 12px solid rgb(190, 190, 190);
 }
 
 .GameInfoStatePP div:nth-child(2) {
@@ -194,6 +261,15 @@
     filter: invert(20%);
     float: right;
     border-radius: 0 15px 15px 0;
+    text-align: center;
+}
+
+.GameInfoPlusLine span {
+    position: relative;
+    line-height: 150px;
+    font-size: 1rem;
+    font-family: "Noto Sans KR";
+    font-weight: 700;
 }
 
 .GameInfoItemMatch {
@@ -254,4 +330,13 @@
     border: 1.5px rgb(117, 51, 51) solid;
     border-radius: 5px;
     background: linear-gradient(to bottom, rgb(81, 13, 13, 1)10%, rgb(95, 20, 20) 25%, rgb(162, 47, 47, 1) 50%, rgba(177, 57, 57, 1) 75%, rgba(195, 83, 83, 1) 100%);
+}
+
+.MoreGame {
+    position: absolute;
+    font-family: "Noto Sans KR";
+    font-weight: 500;
+    top: 60px;
+    width: 1000px;
+
 }

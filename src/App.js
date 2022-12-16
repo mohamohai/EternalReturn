@@ -92,13 +92,13 @@ class App extends Component {
           <Route path="/Statistics" element={<Statistics/>}/>
 
 
-          <Route path="/ScheduleMain" element={<ScheduleMain/>}/>
+          {/* <Route path="/ScheduleMain" element={<ScheduleMain/>}/> */}
         
           <Route path="/SignIn" element={<SignIn/>} />
           <Route path="/SignUp" element={<SignUp/>} />
           <Route path="/testView" element={<testView/>} />
           <Route path="/testClass" element={<testClass/>} />
-          <Route path="/ScheduleMain" element={<ScheduleMain/>} />
+          {/* <Route path="/ScheduleMain" element={<ScheduleMain/>} /> */}
           <Route path="/ScheduleAdd/" element={<ScheduleAdd/>} />
           <Route
             path="/ScheduleAddSelect/:Date/:Clock"
