@@ -3,16 +3,15 @@ import "./SearchPlayer.css";
 import CharList from "./JsonFile/Char.json"  //characterNum은 1부터니까 -1
 import ItemList from "./JsonFile/Item.json" 
 import axios from "axios";
-import { useParams } from "react-router-dom";
 import Hyun from "../Hyun/Hyun";
 import SearchPlayerGame from './SearchPlayerGame.js';
 
+
 const API_KEY = process.env.REACT_APP_ERKEY;
 
-function SearchPlayer(){
-    const { key1 } = useParams(); // 
+function SearchPlayer(prop){
 
-    const [UserNick,setUserNick]=useState( key1 );
+    const [UserNick,setUserNick]=useState( prop.value );
     const [UserNum,setUserNum]=useState(0);
     const [Next,setNext]=useState(0);
 
@@ -27,16 +26,6 @@ function SearchPlayer(){
                         "돌격소총", "저격총","결번", "망치", "도끼", "단검",
                         "양손검", "폴암(미사용)", "쌍검", "창", "쌍절곤",
                         "레이피어", "기타", "카메라", "아르카나", "VF의수" ]
-
-
-
-    let UserOne =[
-        1, "Tia","펭귄머신",12,13,2,0,2, 1000, "ㅁ","ㅁ","ㅁ","ㅁ","ㅁ","ㅁ",
-    ]
-
-
-
-
 
 
     const ItemSearch=(Weapon, Chest, Hat, Arm, Leg, Accessory )=>{
@@ -140,12 +129,11 @@ function SearchPlayer(){
         }else{
             setStep(false)
         }
-        console.log(userGames)
+        console.log(userGames[0].gameId)
 
         setGameData(userGames)
         setNext(next);
         setUserNum(InsertNum)
-
         // getGameDetails(userGames[0].gameId)
     }
     async function getGameDetails(gameId) {
@@ -178,10 +166,10 @@ function SearchPlayer(){
         </div>
             {Step ? <div className="SearchContainer">
             {
-            getGameData.map((DataRow,key)=>{
+            getGameData.map((DataRow,index)=>{
                 return (
-                    <div>
-                    <div key = {key} className="GameInfo">
+                    <div key = {index}>
+                    <div  className="GameInfo">
                         <div className="GameInfoResult"></div>
                         <div className="GameInfoState">
                             <div className="GameInfoStatePP">
@@ -223,9 +211,9 @@ function SearchPlayer(){
                                 <div className="left">{DataRow.playerKill}</div><div className="left">{DataRow.playerDeaths}</div><div className="left">{DataRow.playerAssistant}</div><div className="left">{DataRow.damageToPlayer}</div><div className="left">{DataRow.mmrAfter>0?DataRow.mmrAfter:"-"}</div><span className="mmrGain">{DataRow.mmrAfter>DataRow.mmrBefore? "+" + DataRow.mmrGain: DataRow.mmrGain}</span>    
                             </div>
                         </div>
-                        <div className="GameInfoPlusLine">
-                            <input type="button" value="add" onClick={()=>getGameDetails(DataRow.gameId)}></input>
+                        <div className="GameInfoPlusLine" onClick={()=>window.location.href=`/Eternal/${UserNick}/${DataRow.gameId}`}>
                         </div>
+
                         <div className="GameInfoItem">
                             <div>
                             {ItemSearch(DataRow.equipment[0],DataRow.equipment[1],DataRow.equipment[2],
@@ -233,15 +221,17 @@ function SearchPlayer(){
                             }
                             </div>
                         </div>
-                    </div>
-                    <SearchPlayerGame value={getGameDetails(DataRow.gameId)}></SearchPlayerGame>
+                    </div> 
                     </div>
                     
                 
                 )
             })
         }
-            </div>:<div><Hyun></Hyun></div>}
+       
+       <div onClick={()=>getGame(UserNum,Next)}>더보기</div> 
+        
+        </div>:<div><Hyun></Hyun></div>}
             
             
             {/* <div className="GameInfo">

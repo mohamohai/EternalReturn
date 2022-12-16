@@ -1,9 +1,8 @@
-.SearchPlayerGameContainer {
+.SearchContainer {
     width: 1000px;
     display: flex;
     flex-direction: column;
     position: relative;
-
 }
 
 .GameDetailFull {
@@ -11,4 +10,19 @@
     height: 100px;
     background-color: cyan;
 
+}
+
+.GameInfoDetails {
+    width: 1000px;
+    height: 100px;
+    background-color: rgba(155, 214, 230, 0.5);
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.GameInfoDetailsResult {
+    font-size: 1.5rem;
+    color: rgb(255, 200, 60);
+    margin-top: 40px;
+    height: 25px;
 }

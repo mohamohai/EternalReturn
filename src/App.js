@@ -54,6 +54,8 @@ import {
 
 import {
   SearchPlayer,
+  Eternal,
+  Ereturn,
 }from "./ER/ERExport.js"
 import { SignUp, SignIn } from "./schedule/Components/Sign/SignExport";
 
@@ -133,7 +135,8 @@ class App extends Component {
           <Route path ="IK" element={<Hyun/>}/>
           <Route path="/E" element={<SearchPlayer/>}/>
           <Route path="/E/:key1" element={<SearchPlayer/>}/>
-          
+          <Route path="/Eternal/:key1" element={<Eternal/>}/>
+          <Route path="/Eternal/:key1/:key2" element={<Ereturn/>}/>
           <Route exact path="/" element={<FourZeroFour />} />
           <Route path="*"  element={<FourZeroFour />} />
 
