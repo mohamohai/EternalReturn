@@ -1,0 +1,15 @@
+.SearchPlayerGameContainer {
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 500px;
+    position: relative;
+
+}
+
+.GameDetailFull {
+    width: 1000px;
+    height: 100px;
+    background-color: cyan;
+
+}

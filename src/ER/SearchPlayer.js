@@ -5,6 +5,7 @@ import ItemList from "./JsonFile/Item.json"
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import Hyun from "../Hyun/Hyun";
+import SearchPlayerGame from './SearchPlayerGame.js';
 
 const API_KEY = process.env.REACT_APP_ERKEY;
 
@@ -26,6 +27,15 @@ function SearchPlayer(){
                         "돌격소총", "저격총","결번", "망치", "도끼", "단검",
                         "양손검", "폴암(미사용)", "쌍검", "창", "쌍절곤",
                         "레이피어", "기타", "카메라", "아르카나", "VF의수" ]
+
+
+
+    let UserOne =[
+        1, "Tia","펭귄머신",12,13,2,0,2, 1000, "ㅁ","ㅁ","ㅁ","ㅁ","ㅁ","ㅁ",
+    ]
+
+
+
 
 
 
@@ -94,8 +104,6 @@ function SearchPlayer(){
 
     async function getStartData() {
         let SearchUserNumUrl = StartUrl;
-        
-      
         const {
           data: {
             user: { userNum },
@@ -149,7 +157,11 @@ function SearchPlayer(){
             "x-api-key": API_KEY,
             },
         });
-        console.log(userGames)
+        console.log("ASd")
+        return <div>
+            제발 되라구...
+        </div>
+            
     }
 
 
@@ -162,67 +174,66 @@ function SearchPlayer(){
     return(
         
         <div className="SearchPlayer">
-        <div>asd</div>
-            {Step? <div className="SearchContainer">
+        <div>
+        </div>
+            {Step ? <div className="SearchContainer">
             {
             getGameData.map((DataRow,key)=>{
                 return (
                     <div key = {key} className="GameInfo">
-                    <div className="GameInfoResult"></div>
-                    <div className="GameInfoState">
-                        <div className="GameInfoStatePP">
-                            <div>#{DataRow.gameRank}</div>
-                            <div>{matchingMode[DataRow.matchingMode]} / {matchingTeamMode[DataRow.matchingTeamMode]} </div> 
-                            <div>{Math.floor(DataRow.playTime/60)>=10 ? Math.floor(DataRow.playTime/60) : "0" + Math.floor(DataRow.playTime/60)} : {(DataRow.playTime%60)>=10 ? DataRow.playTime%60 : "0" + DataRow.playTime%60}</div>
-                            
-                        </div>
-                    </div>
-
-                    <div className="GameInfoCharatcer">
-                        <div className="GameInfoCharatcerLv">
-                            <div className="GameInfoCharatcerLvCube">
-                                <div>
-                                    <div>Lv </div>
-                                    <div>{DataRow.characterLevel}</div>
-                                </div>
-                                <div>
-                                    <div><img className="WeaponType" src={`/image/Item/Weapon/${DataRow.bestWeapon}.png`}/></div>
-                                    <div className="WeaponLv">{DataRow.bestWeaponLevel}</div>
-                                </div>
+                        <div className="GameInfoResult"></div>
+                        <div className="GameInfoState">
+                            <div className="GameInfoStatePP">
+                                <div>#{DataRow.gameRank}</div>
+                                <div>{matchingMode[DataRow.matchingMode]} / {matchingTeamMode[DataRow.matchingTeamMode]} </div> 
+                                <div>{Math.floor(DataRow.playTime/60)>=10 ? Math.floor(DataRow.playTime/60) : "0" + Math.floor(DataRow.playTime/60)} : {(DataRow.playTime%60)>=10 ? DataRow.playTime%60 : "0" + DataRow.playTime%60}</div>
+                                
                             </div>
                         </div>
-                        <div className="GameInfoCharatcerThum">
-                            <img src={`/image/Character_Img/${CharList[DataRow.characterNum-1].EngName}/Thumbnail/Default/Mini.png`}/>
+
+                        <div className="GameInfoCharatcer">
+                            <div className="GameInfoCharatcerLv">
+                                <div className="GameInfoCharatcerLvCube">
+                                    <div>
+                                        <div>Lv </div>
+                                        <div>{DataRow.characterLevel}</div>
+                                    </div>
+                                    <div>
+                                        <div><img className="WeaponType" src={`/image/Item/Weapon/${DataRow.bestWeapon}.png`}/></div>
+                                        <div className="WeaponLv">{DataRow.bestWeaponLevel}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="GameInfoCharatcerThum">
+                                <img src={`/image/Character_Img/${CharList[DataRow.characterNum-1].EngName}/Thumbnail/Default/Mini.png`}/>
+                            </div>
+                            <div className="GameInfoCharacterTrait">
+                                <img src={`/image/Trait/all/${DataRow.traitFirstCore}.png`}></img>
+                                <img src={`/image/Trait/all/${  Math.floor(DataRow.traitSecondSub[0]/100000)==70? "Havoc":
+                                Math.floor(DataRow.traitSecondSub[0]/100000)==71? "Fortification": "Support"}.png`}></img>
+                                
+
+                            </div>
                         </div>
-                        <div className="GameInfoCharacterTrait">
-                            <img src={`/image/Trait/all/${DataRow.traitFirstCore}.png`}></img>
-                            <img src={`/image/Trait/all/${  Math.floor(DataRow.traitSecondSub[0]/100000)==70? "Havoc":
-                            Math.floor(DataRow.traitSecondSub[0]/100000)==71? "Fortification": "Support"}.png`}></img>
-                            {console.log(Math.floor(DataRow.traitSecondSub[0]/100000))}
-                            {
-                          
+
+                        <div className="GameInfoKdahd">
+                            <div className="GameInfokdahdHead">
+                                <div className="left gray">K</div><div className="left gray">D</div><div className="left gray">A</div><div className="left gray">피해량</div><div className="left gray">MMR</div><br></br><br></br>
+                                <div className="left">{DataRow.playerKill}</div><div className="left">{DataRow.playerDeaths}</div><div className="left">{DataRow.playerAssistant}</div><div className="left">{DataRow.damageToPlayer}</div><div className="left">{DataRow.mmrAfter>0?DataRow.mmrAfter:"-"}</div><span className="mmrGain">{DataRow.mmrAfter>DataRow.mmrBefore? "+" + DataRow.mmrGain: DataRow.mmrGain}</span>    
+                            </div>
+                        </div>
+                        <div className="GameInfoPlusLine">
+                            <input type="button" value="add" onClick={()=>getGameDetails(DataRow.gameId)}></input>
+                        </div>
+                        <div className="GameInfoItem">
+                            <div>
+                            {ItemSearch(DataRow.equipment[0],DataRow.equipment[1],DataRow.equipment[2],
+                                        DataRow.equipment[3],DataRow.equipment[4],DataRow.equipment[5])
                             }
-
+                            </div>
                         </div>
                     </div>
-
-                    <div className="GameInfoKdahd">
-                        <div className="GameInfokdahdHead">
-                            <div className="left gray">K</div><div className="left gray">D</div><div className="left gray">A</div><div className="left gray">피해량</div><div className="left gray">MMR</div><br></br><br></br>
-                            <div className="left">{DataRow.playerKill}</div><div className="left">{DataRow.playerDeaths}</div><div className="left">{DataRow.playerAssistant}</div><div className="left">{DataRow.damageToPlayer}</div><div className="left">{DataRow.mmrAfter>0?DataRow.mmrAfter:"-"}</div><span className="mmrGain">{DataRow.mmrAfter>DataRow.mmrBefore? "+" + DataRow.mmrGain: DataRow.mmrGain}</span>    
-                        </div>
-                    </div>
-                    <div className="GameInfoPlusLine"></div>
-                            
-                    <div className="GameInfoItem">
-                        <div>
-                        {ItemSearch(DataRow.equipment[0],DataRow.equipment[1],DataRow.equipment[2],
-                                            DataRow.equipment[3],DataRow.equipment[4],DataRow.equipment[5])
-                        }
-                        </div>
-                    </div>
-
-                </div>
+                    
                 
                 )
             })
