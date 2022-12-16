@@ -200,8 +200,6 @@ function SearchPlayer(prop){
                                 <img src={`/image/Trait/all/${DataRow.traitFirstCore}.png`}></img>
                                 <img src={`/image/Trait/all/${  Math.floor(DataRow.traitSecondSub[0]/100000)==70? "Havoc":
                                 Math.floor(DataRow.traitSecondSub[0]/100000)==71? "Fortification": "Support"}.png`}></img>
-                                
-
                             </div>
                         </div>
 
@@ -212,6 +210,7 @@ function SearchPlayer(prop){
                             </div>
                         </div>
                         <div className="GameInfoPlusLine" onClick={()=>window.location.href=`/Eternal/${UserNick}/${DataRow.gameId}`}>
+                            {DataRow.killDetail}
                         </div>
 
                         <div className="GameInfoItem">

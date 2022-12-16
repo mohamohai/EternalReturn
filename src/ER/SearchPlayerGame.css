@@ -15,14 +15,168 @@
 .GameInfoDetails {
     width: 1000px;
     height: 100px;
-    background-color: rgba(155, 214, 230, 0.5);
     border-radius: 10px;
     margin-bottom: 10px;
 }
 
+.MyRecord {
+    background-color: blanchedalmond;
+}
+
+.NotMyRecord {
+    background-color: rgb(200, 200, 200, 0.3);
+}
+
 .GameInfoDetailsResult {
+    float: left;
+    width: 50px;
     font-size: 1.5rem;
+    line-height: 100px;
+    height: 100px;
+    margin-left: 15px;
+}
+
+.colorFirst {
     color: rgb(255, 200, 60);
+}
+
+.colorSecond {
+    color: rgb(38, 255, 0);
+}
+
+.colorThird {
+    color: rgb(40, 40, 40);
+}
+
+.GameInfoDetailsCharatcerLv {
+    height: 100%;
+    float: left;
+    width: 70px;
+}
+
+.GameInfoDetailsCharatcerLvCube {
+    width: 100px;
+    height: 60px;
+    border-radius: 10%;
+    text-align: center;
+    margin: 30px;
+}
+
+.GameInfoDetailsCharatcerLvCube div {
+    height: 20px;
+    width: 50px;
+    text-align: center;
+}
+
+.GameInfoDetailsCharatcerLvCube div div {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 600;
+    font-size: 0.5rem;
+    height: 20px;
+    width: 20px;
+    text-align: center;
+    float: left;
+}
+
+.GameInfoDetailsCharatcerThum {
+    width: 70px;
+    float: left;
+}
+
+.GameInfoDetailsCharatcerThum img {
+    width: 50px;
+    border-radius: 30%;
+    margin: 10px;
+}
+
+.GameInfoDetailsCharacterTrait {
+    float: left;
+    width: 50px;
+    height: 100%;
+}
+
+.GameInfoDetailsCharacterTrait img {
+    width: 25px;
+    margin: 15px 0 0 10px;
+
+}
+
+
+.GameInfoDetailsName {
+    font-size: 1.2rem;
+    height: 100%;
+    float: left;
+    width: 150px;
+    white-space: nowrap;
+    cursor: pointer;
+    line-height: 100px;
+}
+
+.GameInfoDetailskdahd {
+    float: left;
+    text-align: left;
+    width: 120px;
+    height: 150px;
     margin-top: 40px;
-    height: 25px;
+    text-align: center;
+
+}
+
+.GameInfoDetailskdahd div {
+    text-align: center;
+    width: 40px;
+    text-align: center;
+
+}
+
+.GameInfoDetailsDamageaa {
+    width: 100px;
+    height: 100px;
+    -webkit-appearance: none;
+    appearance: none;
+    float: left;
+
+}
+
+.GameInfoDetailsDamageProgress {
+    width: 100px;
+    height: 10px;
+    -webkit-appearance: none;
+    appearance: none;
+    margin-top: 42px;
+    float: left;
+
+}
+
+progress[value]::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 4px;
+    border: 1px solid gray;
+}
+
+progress[value]::-webkit-progress-value {
+    background-color: rgb(20, 20, 20, 0.5);
+    border-radius: 2px;
+    background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+
+.GameInfoDetailsDamageNum {
+    font-size: 0.8rem;
+    text-align: center;
+    margin-top: 55px;
+}
+
+.GameInfoItemMatchDetails {
+    float: right;
+    width: 200px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.GameInfoItemMatchDetails img {
+    width: 40px;
+    margin: 2px;
 }

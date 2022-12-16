@@ -1995,6 +1995,11 @@
         "ItemTier": 5
     },
     {
+        "ItemCode": 202508,
+        "ItemName": "진은 드레스",
+        "ItemTier": 5
+    },
+    {
         "ItemCode": 202601,
         "ItemName": "이단심판관",
         "ItemTier": 6
@@ -2352,6 +2357,16 @@
     {
         "ItemCode": 203507,
         "ItemName": "틴달로스의 군주",
+        "ItemTier": 5
+    },
+    {
+        "ItemCode": 203508,
+        "ItemName": "샤를마뉴의 방패",
+        "ItemTier": 5
+    },
+    {
+        "ItemCode": 203509,
+        "ItemName": "혈사조",
         "ItemTier": 5
     },
     {

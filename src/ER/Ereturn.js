@@ -16,9 +16,10 @@ function EReturn(){
     const { key1 } = useParams(); // 
     const { key2 } = useParams(); // 
     console.log(key1)
+    const arr = [key1, key2]
     return(
         <div>
-            <SearchPlayerGame value={key2}></SearchPlayerGame>
+            <SearchPlayerGame value={arr}></SearchPlayerGame>
         </div>
     )
 }export default EReturn

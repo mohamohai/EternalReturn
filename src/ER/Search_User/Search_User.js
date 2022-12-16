@@ -191,7 +191,6 @@ class Search_User extends Component {
         { ItemCode: 104407, ItemName: "금강저", ItemTier: 4 }, //무기군은 봉인에 해머쪽 코드로 작성되어있음
         { ItemCode: 104408, ItemName: "팔괘장", ItemTier: 4 },
         { ItemCode: 104501, ItemName: "피스브링어", ItemTier: 5 },
-      
       ],
       WeaponAxe: [
         { ItemCode: 105102, ItemName: "곡괭이", ItemTier: 1 },
