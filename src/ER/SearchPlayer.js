@@ -140,6 +140,8 @@ function SearchPlayer(){
         }else{
             setStep(false)
         }
+        console.log(userGames)
+
         setGameData(userGames)
         setNext(next);
         setUserNum(InsertNum)
@@ -158,9 +160,7 @@ function SearchPlayer(){
             },
         });
         console.log("ASd")
-        return <div>
-            제발 되라구...
-        </div>
+        return userGames
             
     }
 
@@ -180,6 +180,7 @@ function SearchPlayer(){
             {
             getGameData.map((DataRow,key)=>{
                 return (
+                    <div>
                     <div key = {key} className="GameInfo">
                         <div className="GameInfoResult"></div>
                         <div className="GameInfoState">
@@ -232,6 +233,8 @@ function SearchPlayer(){
                             }
                             </div>
                         </div>
+                    </div>
+                    <SearchPlayerGame value={getGameDetails(DataRow.gameId)}></SearchPlayerGame>
                     </div>
                     
                 
