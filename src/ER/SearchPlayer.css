@@ -15,7 +15,9 @@
 .GameInfo {
     width: 1000px;
     height: 150px;
-    background-color: rgba(155, 214, 230, 0.5);
+
+    /* background: linear-gradient(to left, rgb(119, 108, 178) 30%, rgb(231, 203, 38) 100%); */
+    background-color: rgb(119, 108, 178, 0.12);
     border-radius: 10px;
     margin-bottom: 10px;
 }

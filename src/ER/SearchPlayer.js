@@ -210,7 +210,6 @@ function SearchPlayer(prop){
                             </div>
                         </div>
                         <div className="GameInfoPlusLine" onClick={()=>window.location.href=`/Eternal/${UserNick}/${DataRow.gameId}`}>
-                            {DataRow.killDetail}
                         </div>
 
                         <div className="GameInfoItem">
@@ -266,7 +265,6 @@ function SearchPlayer(prop){
                 </div>
 
             </div> */}
-            <div>asd</div>
         </div>
     )
 }export default SearchPlayer;

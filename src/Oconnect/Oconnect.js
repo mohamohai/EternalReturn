@@ -140,7 +140,7 @@ useEffect(() => {   //이거가 setInterval 저 뭐시냐 react에서 쓰면 렌
                 <div className="animationDown">&gt;</div>
                 <div className="animationDown2">&gt;</div>
                 <div className="OconnectPage2Container">
-                    <div class="OconnectPage2Text" data-aos="fade-up">
+                    <div className="OconnectPage2Text" data-aos="fade-up">
                         <p> Our Approach</p> <br></br><br></br>
                         <p>
                             일상 속에서 무심코 지나간 <br></br>
@@ -185,9 +185,9 @@ useEffect(() => {   //이거가 setInterval 저 뭐시냐 react에서 쓰면 렌
                         쉽고 안전한 one STEP</p>
                     </div>
                     <div className="OconnectItem1" onMouseEnter={()=>FillColor(0) }onMouseLeave={()=>FillColor(0)}><img src="./image/Oconnect/prd1.png"></img>
-                        <div>
+                        <div className="ItemWord1">
                             <h2>X-STEP <span className=" FillSpan">X-STEP</span></h2>
-                            <span className="SorryX">새로운 X-Type 콘센트 규격 멀티탭</span>
+                            <div className="SorryX">새로운 X-Type 콘센트 규격 멀티탭</div>
                         </div>
                     </div>
 

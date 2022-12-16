@@ -1,7 +1,7 @@
 .Oconnect {
     width: 100vw;
-    height: 750vh;
-    background-color: rgb(20, 20, 20);
+    height: 700vh;
+    background-color: rgb(20, 20, 20, 1);
     position: absolute;
     left: 0px;
     top: 0px;
@@ -11,8 +11,9 @@
     font-size: 100%;
     font: inherit;
     transition: all 0.5s;
-
+    text-align: center;
     overflow: hidden;
+    margin: 0 auto;
 }
 
 .OconnectGNB {
@@ -34,7 +35,6 @@
 
 .OconnectLogo img {
     transition: all 1s;
-
     float: left;
 }
 
@@ -98,7 +98,7 @@
 
 .OconnectMain1 {
     text-align: center;
-    width: 70vw;
+    width: 100vw;
     height: 500px;
     position: relative;
     top: 30vh;
@@ -106,12 +106,14 @@
 }
 
 .OconnectPage1Text {
+
+    width: 70vw;
     font-size: 3rem;
     color: white;
-    text-align: left;
     margin-bottom: 20px;
     white-space: nowrap;
     transition: all 1s;
+    text-align: left;
 }
 
 .OconnectPage1Img img {
@@ -182,7 +184,7 @@
 }
 
 .OconnectPage2 {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     position: relative;
     text-align: center;
@@ -201,24 +203,26 @@
     color: rgb(255, 134, 35);
     animation: moveBottomPlz 1.5s infinite linear;
     font-size: 4rem;
-    margin-top: -50px;
+    margin-top: -40px;
     font-weight: 700;
     font-family: "Noto Sans KR";
 }
 
 .OconnectPage2Container {
     margin-top: 100px;
+    width: 100vw;
+    text-align: center;
 }
 
 .OconnectPage2Text {
-    width: 80vw;
+    width: 70vw;
+    text-align: center;
 
 }
 
 .OconnectPage2Text p {
-    float: left;
     color: black;
-    width: 1200px;
+    width: 500px;
     font-size: 2rem;
     text-align: left;
 }
@@ -236,7 +240,7 @@
 
 .OconnectPage2Img {
     position: relative;
-    width: 50vw;
+    width: 100vw;
     height: 50vh;
 }
 
@@ -246,7 +250,7 @@
 }
 
 .OconnectPage3 {
-    width: 80vw;
+    width: 100vw;
     height: 70vh;
     position: relative;
 
@@ -255,7 +259,7 @@
 .OconnectPage3Rainbow {
     white-space: nowrap;
     position: relative;
-    width: 50vw;
+    width: 100vw;
     overflow: hidden;
     background-image: linear-gradient(45deg, #5868c2 10%, #3f51b1 20%, #5a55ae 30%, #7b5fac 40%, #8f6aae 50%, #a86aa4 60%, #cc6b8e 70%, #f18271 80%, #f3a469 90%, #f7c978 100%);
     color: transparent;
@@ -266,10 +270,9 @@
 }
 
 .OconnectPage3Card {
-    width: 60vw;
+    width: 100vw;
     height: auto;
     position: relative;
-
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -277,7 +280,7 @@
 }
 
 .OconnectPage3CardPage {
-    width: 30vw;
+    width: 25vw;
     height: 30vh;
     text-align: left;
     margin-left: 10vw;
@@ -310,13 +313,17 @@
 }
 
 .OconnectPage4Container {
-    width: 80vw;
+    width: 100vw;
     position: relative;
 }
 
 .OconnectPage4Products {
-    text-align: left;
+    width: 100vw;
+}
 
+.OconnectPage4Products p {
+    width: 50vw;
+    text-align: left;
 }
 
 .OconnectPage4Products p:nth-child(1) {
@@ -328,7 +335,7 @@
 
 .OconnectPage4Products p:nth-child(2) {
     font-size: 2.5rem;
-    margin: 10px 0 10px 0;
+    line-height: 60px;
     font-family: "Noto Sans KR";
     font-weight: 600;
 }
@@ -340,6 +347,7 @@
 
 .OconnectItem1 {
     text-align: center;
+    margin-top: -100px;
 }
 
 .OconnectItem1 img {
@@ -356,14 +364,15 @@
     white-space: nowrap;
     position: relative;
     top: -300px;
+    left: 40vw;
 }
 
 .SorryX {
     top: -300px;
     width: 500px;
     white-space: nowrap;
-
-
+    position: relative;
+    left: 40vw;
 }
 
 .OconnectItem1 div {
@@ -397,6 +406,7 @@
     white-space: nowrap;
     position: relative;
     float: left;
+    left: 35vw;
 }
 
 .OconnectItem2 p {
@@ -404,6 +414,7 @@
     white-space: nowrap;
     font-size: 1.5rem;
     padding: 15px;
+    left: 35vw;
 }
 
 .OconnectItem2 div {
@@ -411,7 +422,7 @@
 }
 
 .OconnectItem3 {
-    width: 50vw;
+    width: 100%;
     margin-top: 300px;
 }
 
@@ -420,8 +431,7 @@
 }
 
 .OconnectItem3 div {
-    text-align: left;
-    width: 40vw;
+    width: 100vw;
     top: -20vh;
     position: relative;
 }
@@ -440,16 +450,17 @@
     white-space: nowrap;
     position: relative;
     float: left;
+    left: 40vw;
 }
 
 .FillSpan {
     font-size: 4rem;
     position: absolute;
-    left: 0px;
     transition: all 1s;
     overflow: hidden;
-    width: 0%;
     color: black;
+    left: 0px;
+    width: 0vw;
 }
 
 
@@ -495,6 +506,7 @@
     color: white;
     font-size: 2.2rem;
     position: relative;
+    margin: 100px;
 }
 
 .OconnectPage5FrontWord span {
@@ -602,25 +614,28 @@
 }
 
 .OconnectPageFooter {
-    top: 250px;
+    top: 200px;
     position: relative;
     text-align: center;
 }
 
 .OconnectPage5Form {
     text-align: left;
-    width: 80vw;
+    width: 100vw;
     position: relative;
-    color: white;
+    background-color: rgb(20, 20, 20, 1);
     top: 340px;
 }
 
-.OconnectPage5FormText {}
+.OconnectPage5FormText {
+    margin-left: 100px;
+}
 
 .OconnectPage5FormText p {
     font-size: 3rem;
     font-family: "Noto Sans KR";
     font-weight: 700;
+    color: white;
 }
 
 .OconnectPage5FormText p span:nth-child(1) {
@@ -655,6 +670,7 @@
     width: 500px;
     text-align: left;
     margin-bottom: 15px;
+    color: white;
 }
 
 .OconnectPage5FormSubmit input[type="text"] {
@@ -764,4 +780,16 @@
         margin-top: 100px;
     }
 
+    .OconnectItem1 img {
+        width: 40vw;
+        margin-top: 100px;
+    }
+
+    .OconnectItem2 img {
+        width: 80vw;
+    }
+
+    .OconnectItem3 img {
+        width: 60vw;
+    }
 }
