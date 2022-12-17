@@ -1,0 +1,180 @@
+.Character_Introduce {
+    width: 100vw;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    margin: 0 auto;
+    padding: 0px;
+    background-color: rgb(20, 20, 20);
+
+}
+
+.CharacterEx {
+    min-width: 400px;
+    width: 400px;
+    height: 300px;
+}
+
+.GoGo {
+    position: relative;
+    top: 40vh;
+    color: white;
+
+}
+
+.CharacterExN {
+    font-size: 2rem;
+    font-family: "Noto Sans KR";
+    font-weight: 700;
+    color: white;
+    margin-top: 100px;
+
+}
+
+.CharacterExEx {
+    font-size: 1rem;
+    font-family: "Noto Sans KR";
+    font-weight: 500;
+    color: white;
+    white-space: pre-line;
+}
+
+.CharacterLine {
+    width: 100%;
+    border-bottom: 1px solid white;
+    margin: 10px 0px;
+}
+
+
+
+.CharacterPreview {
+    width: 100vw;
+    height: 100vh;
+    top: 30px;
+    position: relative;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    overflow: hidden;
+    align-content: center;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.1) 10%, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0) 100%), url('Runway.jpg');
+    background-Size: cover;
+
+
+}
+
+.PreviewImg {
+    width: 900px;
+    height: 900px;
+}
+
+.PreviewImg img {
+    width: 700px;
+    transition: all 1s;
+}
+
+.PreviewBtn {
+    position: relative;
+    top: 20px;
+}
+
+.ThumbChar {
+    width: 100px;
+    height: 120px;
+    border-radius: 15px;
+    transition: 1s all;
+
+}
+
+.ThumbChar:hover {
+    transition: 1s all;
+    filter: sepia(60%)
+}
+
+.Character_Introduce2 {
+    width: 100vw;
+    height: 100%;
+    background-color: rgb(20, 20, 20, 0.95);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    gap: 20px;
+    margin-top: 30px;
+
+}
+
+.acacac {
+    width: 1000px;
+    position: fixed;
+    top: 800px;
+}
+
+.Character_SkillInfo {
+    width: 40vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.px500 {
+    height: 300px;
+}
+
+.Charatcer_Skill {
+    width: 40vw;
+    height: 100vh;
+}
+
+.SkillIcon {
+    width: 50px;
+    margin-right: 10px;
+    transition: all 0.7s;
+
+
+}
+
+.SkillIconUp {
+    transition: all 0.7s;
+    transform: translateY(-10px);
+}
+
+.SKillLine2 {
+    width: 100%;
+    border: 0.5px solid white;
+    margin-top: 10px;
+}
+
+.SkillName {
+    white-space: pre-line;
+    margin: 10px 0 10px 0;
+    color: white;
+    font-size: 2rem;
+    font-family: "Noto Sans KR";
+    font-weight: 700;
+}
+
+.SkillEx {
+    white-space: pre-line;
+    font-size: 1rem;
+    line-height: 1.2rem;
+    color: white;
+
+    font-size: 1rem;
+    font-family: "Noto Sans KR";
+    font-weight: 700;
+}
+
+.Charatcer_Skill {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Charatcer_Skill img {
+    width: 600px
+}

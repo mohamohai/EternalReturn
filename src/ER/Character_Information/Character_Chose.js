@@ -39,7 +39,7 @@ import Aos from "aos";
           <div className="CharacterColLeft"><input type="text" placeholder="검색" onChange={(e)=>setViewMode(e.target.value)}></input></div>
           <div className="CharacterColRight">
             <ul>
-              <li className="SelectliOn" onClick={()=>{setViewMode("");SelectliOn(0)}}>All</li>
+              <li className="SelectliOn SelectliOnC" onClick={()=>{setViewMode("");SelectliOn(0)}}>All</li>
               <li className="SelectliOn" onClick={()=>{setViewMode("초보 추천");SelectliOn(1)}}>초보 추천</li>
               <li className="SelectliOn" onClick={()=>{setViewMode("탱커");SelectliOn(2)}}>탱커</li>
               <li className="SelectliOn" onClick={()=>{setViewMode("원거리 딜러");SelectliOn(3)}}>원거리 딜러</li>
@@ -52,7 +52,7 @@ import Aos from "aos";
         </div>
           <div className="Character_Contanier">
             <div>
-              {KorName.filter((val)=>{
+              {reverse.filter((val)=>{
                 if(ViewMode==""){
                   return val;
                 }else if(val.KorName.includes(ViewMode)){

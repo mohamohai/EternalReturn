@@ -70,7 +70,7 @@
 .Character_Contanier {
     text-align: center;
     margin: auto;
-    width: 80vw;
+    width: 76vw;
     top: 100px;
     position: relative;
 }
@@ -79,7 +79,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: left;
 }
 
 .ERCharView {
@@ -88,6 +88,7 @@
     margin: 5px;
     overflow: hidden;
     opacity: 1s all;
+    border-radius: 5px;
 
 }
 
@@ -104,6 +105,7 @@
     transform: rotate(45deg)translate(-170px);
     transition: all 1s;
     z-index: 1;
+    pointer-events: none;
 }
 
 
@@ -114,6 +116,7 @@
 
 @keyframes glassEff {
     0% {
+        transform: rotate(45deg)translate(-170px);
         opacity: 1;
     }
 
