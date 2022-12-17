@@ -13,7 +13,7 @@ function ERGNB(){
             <img src={"/image/ERLogoWhite.png"}></img>
           </Link>
             <ul className="ERMainGNBUl">
-              <li><a href="/ER/Character">실험체</a></li>
+              <li><a href="/Character">실험체</a></li>
               <li><a href="/Eternal/한동그라미">전적검색</a></li>
             </ul>
         </div>

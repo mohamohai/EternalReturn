@@ -1,16 +1,22 @@
 import React, { Component, useState } from "react";
-import axios from "axios";
 import "./Character_Chose.css";
-import CharacterAll from "./CharacterAll.json";
-import CharAll from "../JsonFile/Char.json"
-
+import CharAll from "../JsonFile/Char.json";
+import ERGNB from "../ERGNB";
+import Aos from "aos";
   function Character_Chose() {
 
-    const [ViewMode, setSearchName] = useState(0);
+  const SelectliOnC = document.getElementsByClassName("SelectliOn");
+  const SelectliOn = (cnt) =>{
+    for(let i = 0; i<=SelectliOnC.length-1;i++){
+      SelectliOnC[i].classList.remove("SelectliOnC")
+    }
+    SelectliOnC[cnt].classList.add("SelectliOnC")
+    
+  }
+    const [ViewMode, setViewMode] = useState(0);
     let KorName = CharAll;
     const reverse = [...CharAll].reverse();//최신순
     
-    console.log(KorName)
 
     KorName = [...CharAll].sort(function(a,b){
       let x = a.KorName
@@ -24,27 +30,53 @@ import CharAll from "../JsonFile/Char.json"
       return 0;
     })
 
- 
-    
    
     return (
       <div className="Character_Chose">
+        <ERGNB></ERGNB>
+        <div className="CharacterCol">
+
+          <div className="CharacterColLeft"><input type="text" placeholder="검색" onChange={(e)=>setViewMode(e.target.value)}></input></div>
+          <div className="CharacterColRight">
+            <ul>
+              <li className="SelectliOn" onClick={()=>{setViewMode("");SelectliOn(0)}}>All</li>
+              <li className="SelectliOn" onClick={()=>{setViewMode("초보 추천");SelectliOn(1)}}>초보 추천</li>
+              <li className="SelectliOn" onClick={()=>{setViewMode("탱커");SelectliOn(2)}}>탱커</li>
+              <li className="SelectliOn" onClick={()=>{setViewMode("원거리 딜러");SelectliOn(3)}}>원거리 딜러</li>
+              <li className="SelectliOn" onClick={()=>{setViewMode("암살자");SelectliOn(4)}}>암살자</li>
+              <li className="SelectliOn" onClick={()=>{setViewMode("인파이터");SelectliOn(5)}}>인파이터</li>
+              <li className="SelectliOn" onClick={()=>{setViewMode("스킬 딜러");SelectliOn(6)}}>스킬 딜러</li>
+              <li className="SelectliOn" onClick={()=>{setViewMode("이동 제어");SelectliOn(7)}}>이동 제어</li>
+            </ul>
+          </div>
+        </div>
           <div className="Character_Contanier">
             <div>
-              {reverse.map((Char ,index)=>{
+              {KorName.filter((val)=>{
+                if(ViewMode==""){
+                  return val;
+                }else if(val.KorName.includes(ViewMode)){
+                  return val;
+                }else if(val.Role.includes(ViewMode)){
+                  return val;
+                }
+              }).map((Char ,index)=>{
                 return(
-                  <div key ={index} className="ERCharView">
-                    <img className="ERCharThumb"
-                    src={`/image/Character_Img/${Char.EngName}/Thumbnail/Default/Half.png`}
-                    ></img>
-                    <div className="ERCharThumbName">
-                      <p>{Char.KorName}</p>
+                  <div key ={index} className="ERCharView" onClick={()=>window.location.href=`/Character/${Char.EngName}`}>
+                      <div 
+                      className="ERCharViewHover">
+                      <img className="ERCharThumb"
+                      src={`/image/Character_Img/${Char.EngName}/Thumbnail/Default/Half.png`}
+                      ></img>
+                      <div className="ERCharThumbName">
+                        <p>{Char.KorName}</p>
+                      </div>
                     </div>
-                    
                   </div>
                 )
               })}
             </div>
+       
           </div>
       </div>
         
