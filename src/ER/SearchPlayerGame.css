@@ -1,8 +1,14 @@
+.SearchPlayerGame {
+    width: 100vw;
+
+}
+
 .SearchContainer {
     width: 1000px;
     display: flex;
     flex-direction: column;
     position: relative;
+    margin: 0px auto;
 }
 
 .GameDetailFull {
@@ -168,4 +174,29 @@ progress[value]::-webkit-progress-value {
 .GameInfoItemMatchDetails img {
     width: 40px;
     margin: 2px;
+}
+
+.colorFirst {
+    color: rgb(228, 187, 0);
+}
+
+.colorFirstb {
+    border-left: 12px solid rgb(231, 203, 38);
+
+}
+
+.colorSecond {
+    color: rgb(70, 128, 255);
+}
+
+.colorSecondb {
+    border-left: 12px solid rgb(70, 128, 255);
+}
+
+.colorThird {
+    color: rgb(190, 190, 190);
+}
+
+.colorThirdb {
+    border-left: 12px solid rgb(190, 190, 190);
 }

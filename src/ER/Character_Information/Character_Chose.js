@@ -2,17 +2,17 @@ import React, { Component, useState } from "react";
 import axios from "axios";
 import "./Character_Chose.css";
 import CharacterAll from "./CharacterAll.json";
-
+import CharAll from "../JsonFile/Char.json"
 
   function Character_Chose() {
 
-    const goDetail= (CharName) =>{
-        window.location.href = `/Character_Chose/Character_Detail/${CharName}`;
-    }
-    const [SearchName, setSearchName] = useState('');
-    const CharacterArr = [];
-   
-    let KorName = CharacterAll.sort(function(a,b){
+    const [ViewMode, setSearchName] = useState(0);
+    let KorName = CharAll;
+    const reverse = [...CharAll].reverse();//최신순
+    
+    console.log(KorName)
+
+    KorName = [...CharAll].sort(function(a,b){
       let x = a.KorName
       let y = b.KorName
       if (x < y){
@@ -28,58 +28,25 @@ import CharacterAll from "./CharacterAll.json";
     
    
     return (
-      <div id="Character_Chose">
-          <div id="Character_SelectBoard">
-            <li style={{float:"left"}}>실험체 정보</li>
-            <div className="CharSearch">
-              <input className="CharSearchText" type="text" placeholder="Search..." onChange={(e) => {setSearchName(e.target.value)}}></input>
-              <ul className="CharSearchConsonant">
-                <li className="Consonant"onClick={()=>setSearchName("ㄱ")}>ㄱ</li>
-                <li className="Consonant"onClick={()=>setSearchName("ㄴ")}>ㄴ</li>
-                <li className="Consonant"onClick={()=>setSearchName("ㄷ")}>ㄷ</li>
-                <li className="Consonant"onClick={()=>setSearchName("ㄹ")}>ㄹ</li>
-                <li className="Consonant"onClick={()=>setSearchName("ㅁ")}>ㅁ</li>
-                <li className="Consonant"onClick={()=>setSearchName("ㅂ")}>ㅂ</li>
-                <li className="Consonant"onClick={()=>setSearchName("ㅅ")}>ㅅ</li>
-                <li className="Consonant"onClick={()=>setSearchName("ㅇ")}>ㅇ</li>
-                <li className="Consonant"onClick={()=>setSearchName("ㅈ")}>ㅈ</li>
-                <li className="Consonant"onClick={()=>setSearchName("ㅊ")}>ㅊ</li>
-                <li className="Consonant"onClick={()=>setSearchName("ㅋ")}>ㅋ</li>
-                <li className="Consonant"onClick={()=>setSearchName("ㅌ")}>ㅌ</li>
-                <li className="Consonant"onClick={()=>setSearchName("ㅍ")}>ㅍ</li>
-                <li className="Consonant"onClick={()=>setSearchName("ㅎ")}>ㅎ</li>
-                <li className="Consonant"onClick={()=>setSearchName("")}>" "</li>
-              </ul>
-            </div>
-
-            <br></br>
-              <div id ="CharTable">
-                {CharacterAll.filter((val)=>{
-                  if(SearchName==""){
-                    return val
-                  }else if(val.KorName.includes(SearchName)||val.Consonant.includes(SearchName))
-                    return val
-                }).map((CharacterAllJson,key)=>{
-                  return(
-                    <div className="CharacterHalf" key={key}>
-                      <div
-                        onClick={()=>goDetail(CharacterAllJson.EngName)}
-                        id={CharacterAllJson.EngName}
-                        className="HalfDiv"
-                      >
-                        <img
-                          className="ThunbnailIcon"
-                          src={`/image/Character_Img/${CharacterAllJson.EngName}/Thumbnail/Default/Half.png`}
-                        />
-                        <div className="HalfKorName">{CharacterAllJson.KorName}</div>
-                      </div>
-                      <div></div>
+      <div className="Character_Chose">
+          <div className="Character_Contanier">
+            <div>
+              {reverse.map((Char ,index)=>{
+                return(
+                  <div key ={index} className="ERCharView">
+                    <img className="ERCharThumb"
+                    src={`/image/Character_Img/${Char.EngName}/Thumbnail/Default/Half.png`}
+                    ></img>
+                    <div className="ERCharThumbName">
+                      <p>{Char.KorName}</p>
                     </div>
-                  )
-                })}
-              </div>
+                    
+                  </div>
+                )
+              })}
             </div>
-            </div>
+          </div>
+      </div>
         
  
     );

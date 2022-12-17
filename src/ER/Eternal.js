@@ -17,7 +17,7 @@ function Eternal(){
     return(
         <div className="EternalZip1">
             {/* <img className="ImgLeft" src={`/image/Character_Img/${CharList[CharList.length-2].EngName}/Thumbnail/Default/Half.png`}></img>
-            <img className="ImgRight" src={`/image/Character_Img/${CharList[CharList.length-4].EngName}/Thumbnail/Default/Half.png`}></img>*/}
+            <img className="ImgRight" src={`/image/Character_Img/${CharList[CharList.length-4].EngName}/Thumbnail/Default/Half.png`}></img> */}
             <ERGNB></ERGNB> 
             <SearchPlayer value={key1}></SearchPlayer>
         </div>

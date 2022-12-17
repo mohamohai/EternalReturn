@@ -1,0 +1,86 @@
+.Character_Chose {
+    position: absolute;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    margin: 0px auto;
+    padding: 0px;
+    background-color: rgb(0, 0, 0, 0.07);
+}
+
+.Character_Contanier {
+    text-align: center;
+    margin: auto;
+    width: 80vw;
+    position: relative;
+}
+
+.Character_Contanier div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.ERCharView {
+    width: 200px;
+    height: 256px;
+    margin: 5px;
+    overflow: hidden;
+}
+
+.ERCharView::after {
+    content: "";
+    display: block;
+    opacity: 1;
+    width: 100px;
+    height: 300px;
+    background-color: rgb(255, 255, 255, 0.4);
+    position: absolute;
+    transform: rotate(45deg)translate(-170px);
+    transition: all 1s;
+    overflow: hidden;
+}
+
+.ERCharView:hover::after {
+    animation: glassEff 1s linear forwards;
+}
+
+@keyframes glassEff {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: rotate(45deg)translate(300px);
+        opacity: 1;
+    }
+}
+
+.ERCharView:hover {}
+
+.ERCharThumb {
+    width: 200px;
+    height: 256px;
+}
+
+.ERCharThumb:hover {
+    transition: all 1s;
+    transform: scale(1.1);
+}
+
+.ERCharThumbName {
+    position: relative;
+    bottom: 2rem;
+    width: 200px;
+    height: 2rem;
+    background-color: rgb(20, 20, 20);
+
+}
+
+.ERCharThumbName p {
+    font-size: 1.2rem;
+    color: white;
+    font-family: "Noto Sans KR";
+    font-weight: 600;
+    line-height: 2rem;
+}

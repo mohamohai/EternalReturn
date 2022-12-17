@@ -161,21 +161,22 @@ function SearchPlayer(prop){
     
     return(
         <div className="SearchPlayer">
-             
             <div className="Last10Game">
+            <div className="Last10GameEle">
                 <p>최근 10게임 간단 정리</p>
                 <div className="Last10GameChar">
                     <div className="Last10GameCharCon">
                     {getGameData.map((DataRow10,index)=>{
                         return(
-                                <div className="Last10GameCharConThum">
-                                    <div style={{backgroundColor:`${}`}}>{DataRow10.gameRank}</div>
+                                <div key={index} className="Last10GameCharConThum">
+                                    <div style={{backgroundColor:`${DataRow10.gameRank<=1 ? "rgb(231, 203, 38, 0.7)" : DataRow10.gameRank<=3 ? "rgb(70, 128, 255,0.7)":"rgb(190, 190, 190,0.7)"}`}}>{DataRow10.gameRank}</div>
                                     <img src={`/image/Character_Img/${CharList[DataRow10.characterNum-1].EngName}/Thumbnail/Default/Mini.png`}/>
                                 </div>
                         )
                     })}
                     </div>
                 </div>
+            </div>
             </div>
             {Step ? <div className="SearchContainer"><div className="MoreGame" onClick={()=>getGame(UserNum,Next)}>더 보기</div>
             {
@@ -242,7 +243,7 @@ function SearchPlayer(prop){
         }
        
         
-        </div>:<div><FourZeroFour></FourZeroFour></div>}
+        </div>:<div>Loading...</div>}
             
             
             {/* <div className="GameInfo">
@@ -278,6 +279,7 @@ function SearchPlayer(prop){
                 </div>
 
             </div> */}
+            <div className="os"></div>
         </div>
     )
 }export default SearchPlayer;

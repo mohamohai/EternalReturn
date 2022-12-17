@@ -1,22 +1,29 @@
 .SearchPlayer {
     width: 100vw;
     display: flex;
-    justify-content: center;
     align-content: center;
 }
 
 .Last10Game {
-    width: 500px;
-    height: 500px;
+    width: 25vw;
+    min-width: 350px;
+    height: 100vw;
     position: relative;
-    top: 80px;
+    flex-grow: 1;
+}
+
+.Last10GameEle {
+    min-width: 350px;
+    height: 100%;
+    position: relative;
+    margin: 70px;
 }
 
 .Last10Game p {
-    margin: 10px;
     font-family: "Noto Sans KR";
     font-weight: 600;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
 }
 
 .Last10GameCharCon {
@@ -28,13 +35,13 @@
 }
 
 .Last10GameCharConThum {
-    width: 20%;
+    width: 70px;
     text-align: center;
 }
 
 .Last10GameCharConThum div {
-    width: 14%;
-    height: 16%;
+    width: 70px;
+    height: 80px;
     text-align: center;
     color: white;
     line-height: 80px;
@@ -53,7 +60,12 @@
     display: flex;
     flex-direction: column;
     top: 70px;
+    flex-grow: 2;
+}
 
+.os {
+    position: relative;
+    flex-grow: 1;
 }
 
 .GameInfo {
@@ -61,7 +73,7 @@
     height: 150px;
 
     /* background: linear-gradient(to left, rgb(119, 108, 178) 30%, rgb(231, 203, 38) 100%); */
-    background-color: rgb(119, 108, 178, 0.12);
+    background-color: rgb(119, 108, 178, 0.1);
     border-radius: 10px;
     margin-top: 10px;
 }
@@ -95,7 +107,7 @@
 }
 
 .colorFirst {
-    color: rgb(231, 203, 38);
+    color: rgb(228, 187, 0);
 }
 
 .colorFirstb {
@@ -333,10 +345,8 @@
 }
 
 .MoreGame {
-    position: absolute;
+    position: relative;
     font-family: "Noto Sans KR";
     font-weight: 500;
-    top: 60px;
-    width: 1000px;
 
 }

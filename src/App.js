@@ -137,6 +137,7 @@ class App extends Component {
           <Route path="/E/:key1" element={<SearchPlayer/>}/>
           <Route path="/Eternal/:key1" element={<Eternal/>}/>
           <Route path="/Eternal/:key1/:key2" element={<Ereturn/>}/>
+          <Route path="/Character" element={<Character_Chose/>}/>
           <Route exact path="/" element={<FourZeroFour />} />
           <Route path="*"  element={<FourZeroFour />} />
 
