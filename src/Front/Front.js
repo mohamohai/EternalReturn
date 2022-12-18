@@ -38,7 +38,7 @@ function Front(){
                 </div>
                 
                 <div className="FrontItem">
-                    <img src="/Front/Front_Herennow.png"></img>
+                    <img src="/Front/Front_HerenNow.png"></img>
                     <a href="/Herennow">Herennow<span><FontAwesomeIcon icon={faLink} style={{color:"black"}}/></span></a>
                     <p className="FrontItemEx">Herennow사이트 클론 코딩</p>
                     <p className="FrontItemContents">마우스 커서에 변화를 주고 커서 부분에  mix-blend-mode: difference를 적용해 뒤 요소들의 변화를 줌<br></br><br></br>
