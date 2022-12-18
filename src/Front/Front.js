@@ -11,7 +11,7 @@ import { faLink } from "@fortawesome/free-solid-svg-icons";
 function Front(){
     return(
         <div className="Front">
-            <div className="FrontHead">asd</div>
+            <div className="FrontHead"></div>
             <div className="FrontList">
                 <div className="FrontItem">
                     <img src="/Front/Front_ER.png"></img>
