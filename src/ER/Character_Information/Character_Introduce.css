@@ -59,8 +59,10 @@
     justify-content: space-evenly;
     overflow: hidden;
     align-content: center;
+    background-repeat: no-repeat;
     background: linear-gradient(to right, rgba(255, 255, 255, 0.1) 10%, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0) 100%), url('Runway.jpg');
     background-Size: cover;
+
 
 
 }
