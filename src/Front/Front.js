@@ -69,12 +69,7 @@ function Front(){
                     <p className="FrontItemEx">Pixel네트워크 사이트 클론 코딩</p>
                     <p className="FrontItemContents">Slick Slider 사용, FullPage기능 구현</p>
                 </div> 
-                <div className="FrontItem">
-                    <img src="/Front/Front_Schedule.png"></img>
-                    <a href="#">캘린더<span></span></a>
-                    <p className="FrontItemEx">캘린더</p>
-                    <p className="FrontItemContents"></p>
-                </div>
+               
                 
                 {/*
                 <div className="FrontItem">

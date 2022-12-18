@@ -1,0 +1,53 @@
+.CalendarN {
+    width: 100vw;
+    height: 100vh;
+
+}
+
+.CalendarNContainer {
+    width: 1500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    flex-wrap: wrap;
+
+}
+
+.CalendarDay {
+    width: 200px;
+    height: 15vh;
+    float: left;
+    border: 1px solid gray;
+}
+
+.CalendarDayDate {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    font-family: "Noto Sans KR";
+    font-weight: 300;
+    color: rgb(200, 200, 200);
+}
+
+.CalendarDayTitle {
+    width: 100%;
+    text-align: left;
+    margin: 10px;
+    font-size: 1rem;
+    font-family: "Noto Sans KR";
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.CalendarDayContent {
+    width: 100%;
+    text-align: left;
+    margin-left: 10px;
+    font-size: 0.8rem;
+    font-family: "Noto Sans KR";
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+}
