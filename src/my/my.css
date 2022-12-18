@@ -5,7 +5,8 @@
 .MySpin {
     width: 100vw;
     height: 100vh;
-    position: relative;
+    position: fixed;
+    top: 0px;
     background-color: rgb(20, 20, 20);
     display: flex;
     justify-content: center;

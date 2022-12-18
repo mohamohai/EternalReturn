@@ -1,0 +1,64 @@
+$widthDiv : 300px;
+$heightDiv : 500px;
+
+.Front {
+    width: 100vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.FrontList {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.FrontItem {
+    width: $widthDiv;
+    height: $heightDiv;
+    overflow: hidden;
+    background-color: aliceblue;
+    border-radius: 5px;
+    border: 1px solid rgb(20, 20, 20, 0.2);
+    border-top: none;
+    margin: 10px;
+}
+
+.FrontItem img {
+    width: $widthDiv;
+    padding-bottom: 10px;
+    object-fit: fill;
+
+}
+
+.FrontItem a {
+    font-family: "Noto Sans KR";
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 10px;
+}
+
+.FrontItemEx {
+    font-family: "Noto Sans KR";
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 1rem;
+
+    margin: 10px;
+}
+
+.FrontItemContents {
+    font-family: "Noto Sans KR";
+    font-size: 0.8rem;
+    font-weight: 300;
+    line-height: 1rem;
+
+    margin: 10px;
+    color: rgb(20, 20, 20, 0.8);
+}

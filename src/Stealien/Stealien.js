@@ -87,7 +87,7 @@ function Stealien() {
         }
     }
     function StealienMainSlideDot(liCnt){
-        console.log(liCnt);
+       
         var StealienPageOne = document.getElementById("StealienPageOne");
         var StealienPageOneModel1Dot = document.getElementsByClassName("StealienPageOneModel1Dot");
         var StealienPageOneModel1SlideText = document.getElementsByClassName("StealienPageOneModel1SlideText");
@@ -137,8 +137,9 @@ function Stealien() {
         var StealienGNBMenu = document.getElementsByClassName("StealienGNBMenu");
         var logo = document.getElementById("logo");
         var logoon = document.getElementById("logoon")
+    
         const wheelHandler = (e) =>{
-            console.log(window.scrollY)
+          
             
 
             const { scrollTop } =StealienFull.current;

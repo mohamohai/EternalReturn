@@ -11,7 +11,7 @@ import GameIntroduce from "./ER/GameIntroduce/GameIntroduce.js";
 import Statistics from "./ER/Statistics/Statistics.js";
 import Character_Detail from "./ER/Character_Information/Character_Detail.js";
 import Character_Chose from "./ER/Character_Information/Character_Chose.js";
-
+import Front from "./Front/Front.js";
 
 import Ingredient from "./ingredient.js";
 import Pixel from "./MainSite.js";
@@ -57,7 +57,10 @@ import {
   Eternal,
   Ereturn,
   Character_Introduce,
-}from "./ER/ERExport.js"
+}from "./ER/ERExport.js";
+
+
+
 import { SignUp, SignIn } from "./schedule/Components/Sign/SignExport";
 
 import UserSelect from "./schedule/Components/User/UserSelect";
@@ -76,7 +79,7 @@ class App extends Component {
       <BrowserRouter>
      
         <Routes>
-          <Route exact path="/" element={<Zip/>} />
+          <Route exact path="/" element={<Front/>} />
           <Route path="/in" element={<Ingredient />} />
           <Route
             path="/ER"    element={<ERMain />}
@@ -140,7 +143,6 @@ class App extends Component {
           <Route path="/Eternal/:key1/:key2" element={<Ereturn/>}/>
           <Route path="/Character" element={<Character_Chose/>}/>
           <Route path="/Character/:key1" element={<Character_Introduce/>}/>
-          <Route exact path="/" element={<FourZeroFour />} />
           <Route path="*"  element={<FourZeroFour />} />
 
             

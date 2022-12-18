@@ -178,6 +178,7 @@ function SearchPlayer(prop){
  
     
     return(
+        Step ?
         <div className="SearchPlayer">
             <div className="Last10Game">
             <div className="Last10GameEle">
@@ -196,7 +197,8 @@ function SearchPlayer(prop){
                 </div>
             </div>
             </div>
-            {Step ? <div className="SearchContainer"><div className="MoreGame" onClick={()=>getGame(UserNum,Next)}>더 보기</div>
+             <div className="SearchContainer">
+                        <div className="MoreGame" onClick={()=>getGame(UserNum,Next)}>더 보기</div>
             {
             getGameData.map((DataRow,index)=>{
                 return (
@@ -259,45 +261,11 @@ function SearchPlayer(prop){
                 )
             })
         }
-       
-        
-        </div>:<div><My></My></div>}
-            
-            
-            {/* <div className="GameInfo">
-                <div className="GameInfoResult"></div>
-                <div className="GameInfoState">
-                    <div>
-                        <div>#1</div>
-                        <div>Rank / solo </div> 
-                        <div>3일전 </div>
-                    </div>
-                </div>
-                <div className="GameInfoCharatcer">
-                    <div className="GameInfoCharatcerLv">
-                        <div className="GameInfoCharatcerLvCube">
-                            <div>Lv : 11</div>
-                            <div><img className="WeaponType" src="/image/Item/Weapon/2.png"/> ?: 11</div>
-                        </div>
-                    </div>
-
-                    <div className="GameInfoCharatcerThum">
-                        <img src={`/image/Character_Img/Irem/Thumbnail/Default/Mini.png`}/>
-                        <div className="GameInfoCharatcerCharacteristic">
-                            <div>특</div>
-                            <div>특</div>
-                        </div>
-                    </div>
-                </div>
-                <div className="GameInfoKdahd">
-                    <div className="GameInfokdahdHead">
-                        <div className="left gray">K</div><div className="left gray">D</div><div className="left gray">A</div><div className="left gray">피해량</div><br></br><br></br>
-                        <div className="left">4</div><div className="left">3</div><div className="left">8</div><div className="left">45212</div>
-                    </div>
-                </div>
-
-            </div> */}
-            <div className="os"></div>
         </div>
-    )
+            
+            
+         
+       
+        </div>
+    :<div><My></My></div>)
 }export default SearchPlayer;

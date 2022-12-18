@@ -495,7 +495,7 @@
 
 
 .VHOMMainPageFour {
-    background-color: red;
+
     background-repeat: no-repeat;
     transition: all 0.3s;
 }
@@ -580,6 +580,8 @@
 .VHOMMainPageFive {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .pageFiverow1 {

@@ -17,13 +17,14 @@
 }
 
 .StealienGNB {
-    width: 1920px;
+    width: 100vw;
     height: 100px;
     position: fixed;
     left: 0px;
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    justify-items: center;
     z-index: 100;
     color: white;
 
@@ -70,11 +71,11 @@
 }
 
 .StealienLogoA {
-    width: 300px;
+    width: 250px;
     position: relative;
+    left: -100px;
     height: 50px;
     overflow: hidden;
-    margin-right: 90px;
 
 }
 
@@ -687,8 +688,11 @@
 .StealienPageFourModel1RightBottomElement p {}
 
 .StealienPageFourModel1RightBottomElement h2 {
-    width: 200px;
-    border-left: #501A9B solid 4px;
+    width: 100px;
+    font-size: 2rem;
+    white-space: nowrap;
+    height: 2rem;
+    border-left: #501A9B solid 3px;
 }
 
 .StealienFooter {
