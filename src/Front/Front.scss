@@ -1,5 +1,5 @@
 $widthDiv : 300px;
-$heightDiv : 500px;
+$heightDiv : 400px;
 
 .Front {
     width: 100vw;
@@ -10,11 +10,15 @@ $heightDiv : 500px;
     align-items: center;
 }
 
+.FrontHead {
+    width: 90vw;
+}
+
 .FrontList {
     width: 100vw;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-content: center;
     flex-wrap: wrap;
 }
@@ -28,6 +32,11 @@ $heightDiv : 500px;
     border: 1px solid rgb(20, 20, 20, 0.2);
     border-top: none;
     margin: 10px;
+}
+
+.FrontItem:hover {
+    box-shadow: 0px 2px 15px gray;
+    transition: all 1s;
 }
 
 .FrontItem img {

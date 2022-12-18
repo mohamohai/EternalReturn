@@ -11,8 +11,7 @@ import { faLink } from "@fortawesome/free-solid-svg-icons";
 function Front(){
     return(
         <div className="Front">
-            <div className="FrontHead"></div>
-
+            <div className="FrontHead">asd</div>
             <div className="FrontList">
                 <div className="FrontItem">
                     <img src="/Front/Front_ER.png"></img>
@@ -69,13 +68,15 @@ function Front(){
                     <a href="/Pixel">Pixel<span><FontAwesomeIcon icon={faLink} style={{color:"black"}}/></span></a>
                     <p className="FrontItemEx">Pixel네트워크 사이트 클론 코딩</p>
                     <p className="FrontItemContents">Slick Slider 사용, FullPage기능 구현</p>
-                </div> {/*
+                </div> 
                 <div className="FrontItem">
-                    <img src="/Front/Front_NotFound.png"></img>
-                    <a href=""><span><FontAwesomeIcon icon={faLink} style={{color:"black"}}/></span></a>
-                    <p className="FrontItemEx"></p>
+                    <img src="/Front/Front_Schedule.png"></img>
+                    <a href="#">캘린더<span></span></a>
+                    <p className="FrontItemEx">캘린더</p>
                     <p className="FrontItemContents"></p>
-                </div> */}{/*
+                </div>
+                
+                {/*
                 <div className="FrontItem">
                     <img src="/Front/Front_NotFound.png"></img>
                     <a href=""><span><FontAwesomeIcon icon={faLink} style={{color:"black"}}/></span></a>

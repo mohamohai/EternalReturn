@@ -58,6 +58,9 @@ import {
   Ereturn,
   Character_Introduce,
 }from "./ER/ERExport.js";
+import{
+  CalendarN,
+}from "./Calendar/CalExport"
 
 
 
@@ -88,6 +91,7 @@ class App extends Component {
             path="/Character_Infomation"
             element={<Character_Infomation />}
           />
+          <Route path ="/CA" element={<ScheduleMain/>}/>
           <Route path="/Character_Infomation/Character_Detail/:CharName" element={<Character_Detail/>}/>
           <Route path="/Search_User" element={<Search_User />} />
           <Route path="/Search_User/:NickName" element={<Search_User />} />
@@ -143,6 +147,10 @@ class App extends Component {
           <Route path="/Eternal/:key1/:key2" element={<Ereturn/>}/>
           <Route path="/Character" element={<Character_Chose/>}/>
           <Route path="/Character/:key1" element={<Character_Introduce/>}/>
+
+
+          <Route path="/CalendarN" element={<CalendarN/>}/>
+
           <Route path="*"  element={<FourZeroFour />} />
 
             
