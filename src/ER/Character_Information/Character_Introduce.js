@@ -25,6 +25,7 @@ function Character_Introduce(props) {
           console.log(i)
         } 
       }
+      SkillUp[0].classList.add("SkillIconUp");
     },[])
 
     for(let a =0;a<CharAll.length;a++){
@@ -74,6 +75,7 @@ function Character_Introduce(props) {
           <div className="Character_SkillInfo">
             <div className="px500">
               {SkillArr.map((SkillIconMap,index)=>{
+                console.log(index+1)
                 return(
                 <img key={index} onClick={()=>SkillCntChange(index)} className="SkillIcon" src={`/image/Character_Img/${CharAll[CharCount].EngName}/SkillIcon/${SkillIconMap}.png`}></img>
                 )

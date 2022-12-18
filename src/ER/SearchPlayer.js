@@ -3,7 +3,7 @@ import "./SearchPlayer.css";
 import CharList from "./JsonFile/Char.json"  //characterNum은 1부터니까 -1
 import ItemList from "./JsonFile/Item.json" 
 import axios from "axios";
-
+import My from "../my/my";
 import FourZeroFour from "../FourZeroFour/FourZeroFour";
 import SearchPlayerGame from './SearchPlayerGame.js';
 
@@ -93,6 +93,7 @@ function SearchPlayer(prop){
     const NumUrl = `https://open-api.bser.io/v1/games/${UserNum}`//추출한 것을 숫자파트에 삽입
 
     async function getStartData() {
+        FreeCharacters();
         let SearchUserNumUrl = StartUrl;
         const {
           data: {
@@ -152,6 +153,23 @@ function SearchPlayer(prop){
             
     }
 
+    async function FreeCharacters() {
+        let SearchUserNumUrl = 'https://open-api.bser.io/v1/freeCharacters/2';
+        const {
+       
+            data: { freeCharacters },
+          
+        } = await axios.get(SearchUserNumUrl, {
+          // 여기에 e.target text로 데이터 받아서 유저네임 검색
+          headers: {
+            "Content-Type": "application/json",
+            "x-api-key": API_KEY,
+          },
+        });
+        console.log(freeCharacters)
+      }
+
+
 
 
     useEffect(()=>{
@@ -208,7 +226,7 @@ function SearchPlayer(prop){
                                 </div>
                             </div>
                             <div className="GameInfoCharatcerThum">
-                                <img src={`/image/Character_Img/${CharList[DataRow.characterNum-1].EngName}/Thumbnail/Default/Mini.png`}/>
+                                <img onClick={()=>window.location.href=`/Character/${CharList[DataRow.characterNum-1].EngName}`}  src={`/image/Character_Img/${CharList[DataRow.characterNum-1].EngName}/Thumbnail/Default/Mini.png`}/>
                             </div>
                             <div className="GameInfoCharacterTrait">
                                 <img src={`/image/Trait/all/${DataRow.traitFirstCore}.png`}></img>
@@ -243,7 +261,7 @@ function SearchPlayer(prop){
         }
        
         
-        </div>:<div>Loading...</div>}
+        </div>:<div><My></My></div>}
             
             
             {/* <div className="GameInfo">

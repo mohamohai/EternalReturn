@@ -6,7 +6,7 @@
 
 .Last10Game {
     width: 25vw;
-    min-width: 350px;
+    min-width: 450px;
     height: 100vw;
     position: relative;
     flex-grow: 1;
@@ -200,7 +200,7 @@
 
 .GameInfoCharatcerThum img {
     width: 80px;
-    margin: 10px 0 0 5px;
+    margin: 20px 0 0 5px;
     border-radius: 30%;
     float: left;
 }

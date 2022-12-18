@@ -2,85 +2,60 @@
     --wid: 1520px;
 }
 
-.pageFiverow2 p {
-    --p: 1;
-    font-size: calc(var(--p) * 1rem);
-}
-
-.wheelbtn {
-    width: 100px;
-    height: 50px;
-    background-color: greenyellow;
-    position: fixed;
-    z-index: 100;
-}
-
-.wheelbtn2 {
-    width: 100px;
-    height: 50px;
-    background-color: purple;
-    position: fixed;
-    z-index: 100;
-    top: 50px;
-}
-
-#My {
-    width: 100vw;
-    height: 8000px;
-}
-
-.bodo {
-    width: 500px;
-    height: 500px;
-    position: fixed;
-    z-index: 20;
-    border-radius: 100px;
-    border: 1px solid black;
-    overflow-x: hidden;
-}
-
-.bododo {
-    width: 100px;
-    height: 50px;
-    overflow: hidden;
-    position: relative;
-    left: 200px;
-    background-color: blue;
-    border-radius: 100px;
-    border: 1px solid black;
-    transition: all 1s;
-    transform: scale(3);
-}
-
-.MyPageMove1 {
-    z-index: -1;
-}
-
-.MyPageMove2 {
-    z-index: -2;
-}
-
-.MyPageMove3 {
-    z-index: -3;
-
-}
-
-.MyPageMove4 {
-    z-index: -4;
-    background-size: contain;
-}
-
-
-.thrthr img {
-    transition: 1s;
-}
-
-.fullviewer {
-    position: fixed;
-    left: 0px;
-    margin: 0 auto;
+.MySpin {
     width: 100vw;
     height: 100vh;
+    position: relative;
+    background-color: rgb(20, 20, 20);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.spinFrame {
+    width: 300px;
+    height: 100px;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.spinFrame div {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: rgb(255, 255, 255, 0.2);
+    animation: DotFlash 3s linear infinite;
     transition: all 1s;
 
+
+    float: left;
+}
+
+.spinFrame div:nth-child(1) {}
+
+.spinFrame div:nth-child(2) {
+    animation-delay: 2s;
+
+}
+
+.spinFrame div:nth-child(3) {
+    animation-delay: 3s;
+
+}
+
+@keyframes DotFlash {
+    33% {
+        background-color: white;
+    }
+
+    66% {
+        background-color: rgb(255, 255, 255, 0.2);
+    }
+
+    100% {
+        background-color: rgb(255, 255, 255, 0.2);
+    }
 }

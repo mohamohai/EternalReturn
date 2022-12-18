@@ -72,6 +72,8 @@
 
 .PreviewImg img {
     width: 700px;
+    position: relative;
+    top: 50px;
     transition: all 1s;
 }
 
@@ -134,6 +136,8 @@
     width: 50px;
     margin-right: 10px;
     transition: all 0.7s;
+    padding: 5px;
+    border: 1px solid white;
 
 
 }
@@ -141,21 +145,24 @@
 .SkillIconUp {
     transition: all 0.7s;
     transform: translateY(-10px);
+    border: 1px solid gold;
+
 }
 
 .SKillLine2 {
     width: 100%;
     border: 0.5px solid white;
-    margin-top: 10px;
+    margin: 20px 0 20px 0;
 }
 
 .SkillName {
     white-space: pre-line;
-    margin: 10px 0 10px 0;
     color: white;
     font-size: 2rem;
     font-family: "Noto Sans KR";
     font-weight: 700;
+    margin-bottom: 10px;
+
 }
 
 .SkillEx {
