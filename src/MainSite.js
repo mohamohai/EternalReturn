@@ -132,7 +132,7 @@ const TryAgain=() =>{// 특정 마우스 휠에서 작동시키면 지웠다가 
   return (
 
     <div className="GameIntroduce" ref={DivRef}>
-      <div className="PixelGNB">
+      {/* <div className="PixelGNB">
         <span>Pixel network</span>
         <ul>
           <li>ABOUT US</li>
@@ -142,6 +142,17 @@ const TryAgain=() =>{// 특정 마우스 휠에서 작동시키면 지웠다가 
           <li>CONTACT US</li>
         </ul>
         <span className="PixelStoreLink">pixel store</span>
+      </div> */}
+      <div className="Pixel2GNB">
+        <div>Pixel network</div>
+        <ul className="ULULUL">
+          <li>ABOUT US</li>
+          <li>CREATORS</li>
+          <li>PR CONTENTS</li>
+          <li>CLIENTS</li>
+          <li>CONTACT US</li>
+        </ul>
+        <div>pixel store</div>
       </div>
     <div className="Pixel1 page">
 
@@ -203,55 +214,55 @@ const TryAgain=() =>{// 특정 마우스 휠에서 작동시키면 지웠다가 
               <div className="Pixel4TableImgBox">
                 <img src="/image/Pixel/Main3/AdItem.jpg"></img>
               </div>
-              <div className="Pixel4EnterPrise"><ul><a className="left">회사이름</a><a className="left"> 게임이a름</a></ul></div><br></br><br></br>
+              <div className="Pixel4EnterPrise"><ul><a className="left">회사이름</a><a className="left"> 게임이름</a></ul></div><br></br><br></br>
+              <div><ul><li>영상제목</li><li>크리에이터이름</li></ul></div>
+          </div>
+            <div className="Pixel4TableArr">
+              <div className="Pixel4TableImgBox">
+                <img src="/image/Pixel/Main3/AdItem.jpg"></img>
+              </div>
+              <div className="Pixel4EnterPrise"><ul><a className="left">회사이름</a><a className="left"> 게임이름</a></ul></div><br></br><br></br>
               <div><ul><li>영상제목</li><li>크리에이터이름</li></ul></div>
             </div>
             <div className="Pixel4TableArr">
               <div className="Pixel4TableImgBox">
                 <img src="/image/Pixel/Main3/AdItem.jpg"></img>
               </div>
-              <div className="Pixel4EnterPrise"><ul><a className="left">회사이름</a><a className="left"> 게임이a름</a></ul></div><br></br><br></br>
+              <div className="Pixel4EnterPrise"><ul><a className="left">회사이름</a><a className="left"> 게임이름</a></ul></div><br></br><br></br>
               <div><ul><li>영상제목</li><li>크리에이터이름</li></ul></div>
             </div>
             <div className="Pixel4TableArr">
               <div className="Pixel4TableImgBox">
                 <img src="/image/Pixel/Main3/AdItem.jpg"></img>
               </div>
-              <div className="Pixel4EnterPrise"><ul><a className="left">회사이름</a><a className="left"> 게임이a름</a></ul></div><br></br><br></br>
-              <div><ul><li>영상제목</li><li>크리에이터이름</li></ul></div>
-            </div>
-            <div className="Pixel4TableArr">
-              <div className="Pixel4TableImgBox">
-                <img src="/image/Pixel/Main3/AdItem.jpg"></img>
-              </div>
-              <div className="Pixel4EnterPrise"><ul><a className="left">회사이름</a><a className="left"> 게임이a름</a></ul></div><br></br><br></br>
+              <div className="Pixel4EnterPrise"><ul><a className="left">회사이름</a><a className="left"> 게임이름</a></ul></div><br></br><br></br>
               <div><ul><li>영상제목</li><li>크리에이터이름</li></ul></div>
             </div><div className="Pixel4TableArr">
               <div className="Pixel4TableImgBox">
                 <img src="/image/Pixel/Main3/AdItem.jpg"></img>
               </div>
-              <div className="Pixel4EnterPrise"><ul><a className="left">회사이름</a><a className="left"> 게임이a름</a></ul></div><br></br><br></br>
+              <div className="Pixel4EnterPrise"><ul><a className="left">회사이름</a><a className="left"> 게임이름</a></ul></div><br></br><br></br>
               <div><ul><li>영상제목</li><li>크리에이터이름</li></ul></div>
             </div>
             <div className="Pixel4TableArr">
               <div className="Pixel4TableImgBox">
                 <img src="/image/Pixel/Main3/AdItem.jpg"></img>
               </div>
-              <div className="Pixel4EnterPrise"><ul><a className="left">회사이름</a><a className="left"> 게임이a름</a></ul></div><br></br><br></br>
+              <div className="Pixel4EnterPrise"><ul><a className="left">회사이름</a><a className="left"> 게임이름</a></ul></div><br></br><br></br>
               <div><ul><li>영상제목</li><li>크리에이터이름</li></ul></div>
             </div>
             <div className="Pixel4TableArr">
               <div className="Pixel4TableImgBox">
                 <img src="/image/Pixel/Main3/AdItem.jpg"></img>
               </div>
-              <div className="Pixel4EnterPrise"><ul><a className="left">회사이름</a><a className="left"> 게임이a름</a></ul></div><br></br><br></br>
+              <div className="Pixel4EnterPrise"><ul><a className="left">회사이름</a><a className="left"> 게임이름</a></ul></div><br></br><br></br>
               <div><ul><li>영상제목</li><li>크리에이터이름</li></ul></div>
             </div>
             <div className="Pixel4TableArr">
               <div className="Pixel4TableImgBox">
                 <img src="/image/Pixel/Main3/AdItem.jpg"></img>
               </div>
-              <div className="Pixel4EnterPrise"><ul><a className="left">회사이름</a><a className="left"> 게임이a름</a></ul></div><br></br><br></br>
+              <div className="Pixel4EnterPrise"><ul><a className="left">회사이름</a><a className="left"> 게임이름</a></ul></div><br></br><br></br>
               <div><ul><li>영상제목</li><li>크리에이터이름</li></ul></div>
             </div>
           </div>
@@ -261,7 +272,7 @@ const TryAgain=() =>{// 특정 마우스 휠에서 작동시키면 지웠다가 
               <img src="/image/Pixel/Main3/AdItem.jpg"></img></div>
               <ul className="AdItemUl">
                 <div className="left">회사이름</div>
-                <div className="left">게임이a름</div>
+                <div className="left">게임이름</div>
               </ul><br></br><br></br><br></br><br></br>
             <div className="Pixel4TitleName">
               <div>영상제목</div>

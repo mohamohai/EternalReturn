@@ -63,13 +63,13 @@ function Front(){
                     <p className="FrontItemContents">화면이 내려가면 GNB의 css 변경, hover를 통한 Animtaion 효과<br></br><br></br>
                     Fontawesome을 이용하여 간단한 아이콘 사용</p>
                 </div>  
-                {/*
+
                 <div className="FrontItem">
-                    <img src="/Front/Front_NotFound.png"></img>
-                    <a href=""><span><FontAwesomeIcon icon={faLink} style={{color:"black"}}/></span></a>
-                    <p className="FrontItemEx"></p>
-                    <p className="FrontItemContents"></p>
-                </div> */}{/*
+                    <img src="/Front/Front_Pixel.png"></img>
+                    <a href="/Pixel">Pixel<span><FontAwesomeIcon icon={faLink} style={{color:"black"}}/></span></a>
+                    <p className="FrontItemEx">Pixel네트워크 사이트 클론 코딩</p>
+                    <p className="FrontItemContents">Slick Slider 사용, FullPage기능 구현</p>
+                </div> {/*
                 <div className="FrontItem">
                     <img src="/Front/Front_NotFound.png"></img>
                     <a href=""><span><FontAwesomeIcon icon={faLink} style={{color:"black"}}/></span></a>

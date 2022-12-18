@@ -162,13 +162,47 @@ body {
     width: 150px
 }
 
+.Pixel2GNB {
+    width: 100vw;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    background-color: black;
+    position: fixed;
+    top: 0px;
+    z-index: 5;
+}
+
+.Pixel2GNB div {
+    margin: 0 10px 0 10px;
+    width: 200px;
+    white-space: nowrap;
+}
+
+.Pixel2GNB ul {
+    white-space: nowrap;
+    width: 700px;
+}
+
 .PixelGNB ul {
     position: relative;
-
     text-align: center;
     width: 1100px;
     margin-top: 5px;
 }
+
+.Pixel2GNB ul li {
+    float: left;
+    white-space: nowrap;
+    margin-right: 30px;
+    width: 100px;
+}
+
+
+
 
 .PixelStoreLink {
     float: right;
@@ -182,12 +216,6 @@ body {
     float: left;
     white-space: nowrap;
     width: 100px;
-}
-
-@media all and (max-width:1000px) {
-    .PixelGNB ul {
-        display: none;
-    }
 }
 
 
@@ -247,7 +275,6 @@ body {
 }
 
 .Pixel3 {
-
     background-color: black;
 }
 
@@ -256,9 +283,8 @@ body {
     width: 1000px;
     height: 50vh;
     position: relative;
-    justify-content: center;
-    align-items: center;
-    top: 20%;
+    margin: auto;
+    top: -100px;
 
 }
 
@@ -382,10 +408,13 @@ body {
     overflow: hidden;
 }
 
+.ULULUL {
+    min-width: 100px;
+}
+
 .Pixel4EnterPrise ul {}
 
 .Pixel4EnterPrise a {
-    margin: 5px 5px 5px 0;
 
     text-align: center;
     padding: 5px 10px 5px 10px;
