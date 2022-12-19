@@ -107,17 +107,8 @@ useEffect(()=>{//이게 지도 옮길때마다 반응하는 쪽
             }}>
             </div>
             
-     
-            <p id="result">asdsad</p>   
-            <div className="WeatherAll">
-                <div>최고 온도 : {WeatherTemp.max}</div>
-                <div>최저 온도 : {WeatherTemp.min}</div>
-                <div>체감 온도 : {WeatherTemp.like}</div>
-                <div>실제 온도 : {WeatherTemp.temp}</div>
-              
-            
-                <div></div>
-            </div>
+            <p id="result" ></p>
+           
             <div className="Weather">
                 <div className="WeatherTop">
                     <div className="WeatherTopLeft">
