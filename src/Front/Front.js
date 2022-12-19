@@ -19,6 +19,12 @@ function Front(){
                     <p className="FrontItemEx">이터널 리턴 게임의 OpenApi를 통해 게임의 전적검색과 캐릭터 정보가 있는 사이트 구성</p>
                     <p className="FrontItemContents">사용자의 닉네임을 받아 Axios를 이용하여 데이터를 가져오고 map함수를 통해 사용자들이 볼 수 있도록 구현 <br></br><br></br>api로 제공하는 json 파일 형식의 데이터를 재가공하여 사용자가 볼 수 있도록 구현 </p>
                 </div>
+                <div className="FrontItem">
+                    <img src="/Front/Front_ER.png"></img>
+                    <a href="/Weather">Weather <span> <FontAwesomeIcon icon={faLink} style={{color:"black"}}/></span></a>
+                    <p className="FrontItemEx">kakaoMap Api 와 OpenWeather </p>
+                    <p className="FrontItemContents">사용자의 닉네임을 받아 Axios를 이용하여 데이터를 가져오고 map함수를 통해 사용자들이 볼 수 있도록 구현 <br></br><br></br>api로 제공하는 json 파일 형식의 데이터를 재가공하여 사용자가 볼 수 있도록 구현 </p>
+                </div>
                
                 <div className="FrontItem">
                     <img src="/Front/Front_NotFound.png"></img>
