@@ -23,6 +23,10 @@ const [WeatherType, setWeatherType]=useState({main:"기본",description:"기본"
 const [WeatherSys, setWeatherSys]=useState({country:"KR", sunrise:0, sunset:0})
 const [WeatherEnv, setWeatherEnv]=useState({humidity:0, wind:0})
 const [WeatherIcon, setWeatherIcon]=useState("faSun");
+const [WordT, setWordT]=useState("서울역");
+
+const [pressBtn,setpressBtn]=useState(0);
+
  async function getStartData() {                                                                           
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${MyLocation.lat}&lon=${MyLocation.lon}&appid=${API_KEY}&lang=kr&units=metric`
     const SearchWeather =(
@@ -33,7 +37,6 @@ const [WeatherIcon, setWeatherIcon]=useState("faSun");
     //         const data = responseData.data;
     //         console.log(data)
     //   });
-    console.log(SearchWeather)
          setWeatherTemp({temp:SearchWeather.data.main.temp
                         ,min:SearchWeather.data.main.temp_min
                         ,max:SearchWeather.data.main.temp_max
@@ -47,7 +50,6 @@ const [WeatherIcon, setWeatherIcon]=useState("faSun");
                         country:SearchWeather.data.sys.country,
                         sunrise:SearchWeather.data.sys.sunrise,
                         sunset:SearchWeather.data.sys.sunset})
-                        console.log(SearchWeather.data.weather[0].icon)
         setWeatherEnv({
                         humidity:SearchWeather.data.main.humidity,
                         wind:SearchWeather.data.wind.speed
@@ -70,16 +72,55 @@ const [WeatherIcon, setWeatherIcon]=useState("faSun");
  useEffect(()=>{
     getStartData();
 
-    var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스\
-    var options = { //지도를 생성할 때 필요한 기본 옵션
-        center: new kakao.maps.LatLng(MyLocation.lat, MyLocation.lon), //지도의 중심좌표.
-        level: 6 //지도의 레벨(확대, 축소 정도)
-    };
-    
-    var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
-    var zoomControl = new kakao.maps.ZoomControl();
+    var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 
-    map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+        mapOption = {
+            center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
+            level: 3 // 지도의 확대 레벨
+        };  
+    
+    // 지도를 생성합니다    
+    var map = new kakao.maps.Map(mapContainer, mapOption); 
+    
+    // 장소 검색 객체를 생성합니다
+    var ps = new kakao.maps.services.Places(); 
+    
+    // 키워드로 장소를 검색합니다
+    ps.keywordSearch(WordT, placesSearchCB); 
+    
+    // 키워드 검색 완료 시 호출되는 콜백함수 입니다
+    function placesSearchCB (data, status, pagination) {
+        if (status === kakao.maps.services.Status.OK) {
+    
+            // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+            // LatLngBounds 객체에 좌표를 추가합니다
+            var bounds = new kakao.maps.LatLngBounds();
+            for (var i=0; i<data.length; i++) {
+                displayMarker(data[i]);    
+                bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+            }       
+            // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+            map.setBounds(bounds);
+        } 
+    }
+    // 지도에 마커를 표시하는 함수입니다
+    function displayMarker(place) {
+        // 마커를 생성하고 지도에 표시합니다
+        var marker = new kakao.maps.Marker({
+            map: map,
+            position: new kakao.maps.LatLng(place.y, place.x) 
+        });
+    
+        // 마커에 클릭이벤트를 등록합니다
+        kakao.maps.event.addListener(marker, 'click', function() {
+            // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+            infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
+            infowindow.open(map, marker);
+        });
+    }
+
+
     kakao.maps.event.addListener(map, 'dragend', function() {        //좌표 얻는 css
         var latlng = map.getCenter(); // 지도 중심좌표를 얻어옵니다 
      
@@ -89,7 +130,69 @@ const [WeatherIcon, setWeatherIcon]=useState("faSun");
 
 useEffect(()=>{//이게 지도 옮길때마다 반응하는 쪽
     getStartData();
+    
 },[MyLocation.lat])
+
+useEffect(()=>{
+    console.log("왜")
+    getStartData();
+
+    var infowindow = new kakao.maps.InfoWindow({zIndex:1});
+
+    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+        mapOption = {
+            center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
+            level: 3 // 지도의 확대 레벨
+        };  
+    
+    // 지도를 생성합니다    
+    var map = new kakao.maps.Map(mapContainer, mapOption); 
+    
+    // 장소 검색 객체를 생성합니다
+    var ps = new kakao.maps.services.Places(); 
+    
+    // 키워드로 장소를 검색합니다
+    ps.keywordSearch(WordT, placesSearchCB); 
+    
+    // 키워드 검색 완료 시 호출되는 콜백함수 입니다
+    function placesSearchCB (data, status, pagination) {
+        if (status === kakao.maps.services.Status.OK) {
+    
+            // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+            // LatLngBounds 객체에 좌표를 추가합니다
+            var bounds = new kakao.maps.LatLngBounds();
+            for (var i=0; i<data.length; i++) {
+                displayMarker(data[i]);    
+                bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+            }       
+            // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+            map.setBounds(bounds);
+        } 
+    }
+    // 지도에 마커를 표시하는 함수입니다
+    function displayMarker(place) {
+        // 마커를 생성하고 지도에 표시합니다
+        var marker = new kakao.maps.Marker({
+            map: map,
+            position: new kakao.maps.LatLng(place.y, place.x) 
+        });
+    
+        // 마커에 클릭이벤트를 등록합니다
+        kakao.maps.event.addListener(marker, 'click', function() {
+            // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+            infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
+            infowindow.open(map, marker);
+        });
+    }
+
+
+    kakao.maps.event.addListener(map, 'dragend', function() {        //좌표 얻는 css
+        var latlng = map.getCenter(); // 지도 중심좌표를 얻어옵니다 
+     
+        setMyLocation({lat:latlng.getLat(), lon:latlng.getLng()})
+        console.log(latlng.getLat(),latlng.getLng())
+    });
+},[pressBtn])
 
     return(
         <div className="CalendarN">
@@ -120,10 +223,16 @@ useEffect(()=>{//이게 지도 옮길때마다 반응하는 쪽
                     </div>
                     <div>
                     <FontAwesomeIcon icon={faWind} color="white" size="2x" /><br></br>
-                        {WeatherEnv.wind}
+                        {WeatherEnv.wind} 
                     </div>
                 </div>
             </div>
+                <input type="text"  onChange={(e)=>setWordT(e.target.value)}></input>
+
+                <input type="button" value={"찾기"} onClick={()=>setpressBtn(pressBtn+1)}></input>
+            <input type="button" value="길찾기" onClick={()=>window.location.href=`	https://map.kakao.com/link/to/${WordT},${MyLocation.lat},${MyLocation.lon}`}></input>
+                        
+                 
         </div>
     )
 }export default Calendar

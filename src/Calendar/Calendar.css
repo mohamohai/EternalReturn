@@ -37,7 +37,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    background-color: red;
+    background-color: lightsalmon;
+    border-radius: 15px;
 }
 
 .WeatherTop {
@@ -86,3 +87,6 @@
     color: white;
 
 }
+
+
+/* center: new kakao.maps.LatLng(MyLocation.lon, MyLocation.lat), // 지도의 중심좌표 */
