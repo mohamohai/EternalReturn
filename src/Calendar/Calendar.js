@@ -1,7 +1,6 @@
 import React, { Component, useEffect, useState } from "react";
 import axios from "axios";
 import "./Calendar.css";
-import useGeolocation from "react-hook-geolocation"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCloud, faWater } from "@fortawesome/free-solid-svg-icons";
 import { faSun } from "@fortawesome/free-regular-svg-icons";
@@ -18,7 +17,6 @@ const API_KEY = process.env.REACT_APP_WEATHER;
 const {kakao} = window;
 
 function Calendar(){
-  
 const [MyLocation,setMyLocation]=useState({lat:37.55492015596435,lon:126.97000927150914})
 const [WeatherTemp, setWeatherTemp]=useState({temp:0,min:0,max:0,like:0})
 const [WeatherType, setWeatherType]=useState({main:"기본",description:"기본",id:0,name:"기본",pic:""})
@@ -31,13 +29,10 @@ const [WeatherIcon, setWeatherIcon]=useState("faSun");
         await axios.get(url)
         .then(response=>response)
         )
-
     //     axios.get(url).then((responseData) => {
     //         const data = responseData.data;
     //         console.log(data)
     //   });
-
-
     console.log(SearchWeather)
          setWeatherTemp({temp:SearchWeather.data.main.temp
                         ,min:SearchWeather.data.main.temp_min
@@ -71,7 +66,6 @@ const [WeatherIcon, setWeatherIcon]=useState("faSun");
                 setWeatherIcon(faSmog);
             }
  }  
-            
     
  useEffect(()=>{
     getStartData();
@@ -83,13 +77,12 @@ const [WeatherIcon, setWeatherIcon]=useState("faSun");
     };
     
     var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
-    
+    var zoomControl = new kakao.maps.ZoomControl();
+
+    map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
     kakao.maps.event.addListener(map, 'dragend', function() {        //좌표 얻는 css
         var latlng = map.getCenter(); // 지도 중심좌표를 얻어옵니다 
-        var message = '변경된 지도 중심좌표는 ' + latlng.getLat() + ' 이고, ';
-        message += '경도는 ' + latlng.getLng() + ' 입니다';
-        var resultDiv = document.getElementById('result');  
-        resultDiv.innerHTML = message;
+     
         setMyLocation({lat:latlng.getLat(), lon:latlng.getLng()})
     });
 },[])
