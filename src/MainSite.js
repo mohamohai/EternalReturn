@@ -144,7 +144,7 @@ const TryAgain=() =>{// 특정 마우스 휠에서 작동시키면 지웠다가 
         <span className="PixelStoreLink">pixel store</span>
       </div> */}
       <div className="Pixel2GNB">
-        <div>Pixel network</div>
+        <div onClick={()=>window.location.href="/"}>Pixel network</div>
         <ul className="ULULUL">
           <li>ABOUT US</li>
           <li>CREATORS</li>
