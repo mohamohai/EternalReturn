@@ -28,16 +28,23 @@ const [WordT, setWordT]=useState("서울역");
 
 const [pressBtn,setpressBtn]=useState(0);
 
+
+const [WeatherArr,setWeatherArr] = useState([]);
  async function getStartData() {                                                                           
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${MyLocation.lat}&lon=${MyLocation.lon}&appid=${API_KEY}&lang=kr&units=metric`
     const url4day=`https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=${MyLocation.lat}&lon=${MyLocation.lon}&appid=${API_KEY}`
-    const urlllll=`https://api.openweathermap.org/data/2.5/forecast?lat=${MyLocation.lat}&lon=${MyLocation.lon}&appid=${API_KEY}`
+    const urlllll=`https://api.openweathermap.org/data/2.5/forecast?lat=${MyLocation.lat}&lon=${MyLocation.lon}&appid=${API_KEY}&lang=kr&units=metric`
    
     const SearchWeather =(
         await axios.get(url)
         .then(response=>response)
         )
+        const SearchWeather2 =(
+            await axios.get(urlllll)
+            .then(response=>response)
+            )
   
+      setWeatherArr(SearchWeather2)
 
     //     axios.get(url).then((responseData) => {
     //         const data = responseData.data;
@@ -157,9 +164,18 @@ useEffect(()=>{
                 height:"500px"
             }}>
             </div>
-            
-            <p id="result" ></p>
            
+            <p id="result" ></p>
+            <div className="Weather5Day">
+            {
+                WeatherArr.data.list.length<3? "참": WeatherArr.data.list.map((row,index)=>{
+                    return  (<div className="Weather3Hour">
+                        {row.main.temp}℃
+                        </div>)
+                })
+            
+            }
+            </div>
             <div className="Weather">
                 <div className="WeatherTop">
                     <div className="WeatherTopLeft">
