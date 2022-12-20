@@ -37,10 +37,7 @@ const [pressBtn,setpressBtn]=useState(0);
         await axios.get(url)
         .then(response=>response)
         )
-        const SearchArr =(
-            await axios.get(urlllll)
-            .then(response=>response)
-            )
+  
 
     //     axios.get(url).then((responseData) => {
     //         const data = responseData.data;
