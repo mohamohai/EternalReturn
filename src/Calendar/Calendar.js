@@ -30,57 +30,74 @@ const [pressBtn,setpressBtn]=useState(0);
 
 
 const [WeatherArr,setWeatherArr] = useState([]);
- async function getStartData() {                                                                           
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${MyLocation.lat}&lon=${MyLocation.lon}&appid=${API_KEY}&lang=kr&units=metric`
-    const url4day=`https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=${MyLocation.lat}&lon=${MyLocation.lon}&appid=${API_KEY}`
-    const urlllll=`https://api.openweathermap.org/data/2.5/forecast?lat=${MyLocation.lat}&lon=${MyLocation.lon}&appid=${API_KEY}&lang=kr&units=metric`
+
+const iconName = (insertName) =>{
+    console.log(insertName)
+    if(insertName =="01d" || insertName =="01n"){
+        return(<FontAwesomeIcon icon={faSun} color="white" size="3x" />)
+    }else if(insertName =="02d" || insertName =="02n"||insertName =="03d" || insertName =="03n"||insertName =="04d" || insertName =="04n"){
+        return(<FontAwesomeIcon icon={faCloud} color="white" size="3x" />)
+    }else if(insertName =="02d" || insertName =="02n"||insertName =="03d" || insertName =="03n"){
+        return(<FontAwesomeIcon icon={faCloudShowersHeavy} color="white" size="3x" />)
+    }else if(insertName =="09d" || insertName =="09n"|| insertName =="10d"|| insertName =="10n"){
+        return(<FontAwesomeIcon icon={faBolt} color="white" size="3x" />)
+    }else if(insertName =="13d" || insertName =="13n"){
+        return(<FontAwesomeIcon icon={faSnowflake} color="white" size="3x" />)
+    }else if(insertName =="50d" || insertName =="50n"){
+        return(<FontAwesomeIcon icon={faSmog} color="white" size="3x" />)
+    }
+}
+async function getStartData() {                                                                           
+const url = `https://api.openweathermap.org/data/2.5/weather?lat=${MyLocation.lat}&lon=${MyLocation.lon}&appid=${API_KEY}&lang=kr&units=metric`
+const url4day=`https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=${MyLocation.lat}&lon=${MyLocation.lon}&appid=${API_KEY}`
+const urlllll=`https://api.openweathermap.org/data/2.5/forecast?lat=${MyLocation.lat}&lon=${MyLocation.lon}&appid=${API_KEY}&lang=kr&units=metric`
    
-    const SearchWeather =(
-        await axios.get(url)
-        .then(response=>response)
-        )
-        const SearchWeather2 =(
-            await axios.get(urlllll)
-            .then(response=>response)
-            )
-  
-      setWeatherArr(SearchWeather2)
+const SearchWeather =(
+    await axios.get(url)
+    .then(response=>response)
+)
+const SearchWeather2=(
+    await axios.get(urlllll)
+    .then(response=>response)
+)
+
+    setWeatherArr(SearchWeather2.data.list);
 
     //     axios.get(url).then((responseData) => {
     //         const data = responseData.data;
     //         console.log(data)
     //   });
 
-         setWeatherTemp({temp:SearchWeather.data.main.temp
+    setWeatherTemp({temp:SearchWeather.data.main.temp
                         ,min:SearchWeather.data.main.temp_min
                         ,max:SearchWeather.data.main.temp_max
                         ,like:SearchWeather.data.main.feels_like})
-        setWeatherType({main:SearchWeather.data.weather[0].main,
+    setWeatherType({main:SearchWeather.data.weather[0].main,
                         description:SearchWeather.data.weather[0].description,
                         id:SearchWeather.data.weather[0].id,
                         name:SearchWeather.data.name,
                         pic:SearchWeather.data.weather[0].icon})
-        setWeatherSys({
+    setWeatherSys({
                         country:SearchWeather.data.sys.country,
                         sunrise:SearchWeather.data.sys.sunrise,
                         sunset:SearchWeather.data.sys.sunset})
-        setWeatherEnv({
+    setWeatherEnv({
                         humidity:SearchWeather.data.main.humidity,
                         wind:SearchWeather.data.wind.speed
         })
-            if(SearchWeather.data.weather[0].icon =="01d" || SearchWeather.data.weather[0].icon =="01n"){
-                setWeatherIcon(faSun);
-            }else if(SearchWeather.data.weather[0].icon =="02d" || SearchWeather.data.weather[0].icon =="02n"||SearchWeather.data.weather[0].icon =="03d" || SearchWeather.data.weather[0].icon =="03n"||SearchWeather.data.weather[0].icon =="04d" || SearchWeather.data.weather[0].icon =="04n"){
-                setWeatherIcon(faCloud);
-            }else if(SearchWeather.data.weather[0].icon =="02d" || SearchWeather.data.weather[0].icon =="02n"||SearchWeather.data.weather[0].icon =="03d" || SearchWeather.data.weather[0].icon =="03n"){
-                setWeatherIcon(faCloudShowersHeavy);
-            }else if(SearchWeather.data.weather[0].icon =="01d" || SearchWeather.data.weather[0].icon =="01n"){
-                setWeatherIcon(faBolt);
-            }else if(SearchWeather.data.weather[0].icon =="01d" || SearchWeather.data.weather[0].icon =="01n"){
-                setWeatherIcon(faSnowflake);
-            }else if(SearchWeather.data.weather[0].icon =="01d" || SearchWeather.data.weather[0].icon =="01n"){
-                setWeatherIcon(faSmog);
-            }
+    if(SearchWeather.data.weather[0].icon =="01d" || SearchWeather.data.weather[0].icon =="01n"){
+        setWeatherIcon(faSun);
+    }else if(SearchWeather.data.weather[0].icon =="02d" || SearchWeather.data.weather[0].icon =="02n"||SearchWeather.data.weather[0].icon =="03d" || SearchWeather.data.weather[0].icon =="03n"||SearchWeather.data.weather[0].icon =="04d" || SearchWeather.data.weather[0].icon =="04n"){
+        setWeatherIcon(faCloud);
+    }else if(SearchWeather.data.weather[0].icon =="02d" || SearchWeather.data.weather[0].icon =="02n"||SearchWeather.data.weather[0].icon =="03d" || SearchWeather.data.weather[0].icon =="03n"){
+        setWeatherIcon(faCloudShowersHeavy);
+    }else if(SearchWeather.data.weather[0].icon =="09d" || SearchWeather.data.weather[0].icon =="09n"|| SearchWeather.data.weather[0].icon =="10d"|| SearchWeather.data.weather[0].icon =="10n"){
+        setWeatherIcon(faBolt);
+    }else if(SearchWeather.data.weather[0].icon =="13d" || SearchWeather.data.weather[0].icon =="13n"){
+        setWeatherIcon(faSnowflake);
+    }else if(SearchWeather.data.weather[0].icon =="50d" || SearchWeather.data.weather[0].icon =="50n"){
+        setWeatherIcon(faSmog);
+    }
  }  
     
  useEffect(()=>{
@@ -158,24 +175,17 @@ useEffect(()=>{
 
     return(
         <div className="CalendarN">
+            <div className="mapContainer">
+            <div id="map" >
+            </div>
+            <div className="inputContainer">
+                <input type="text"  onChange={(e)=>setWordT(e.target.value)}></input>
+                <input type="button" value={"찾기"} onClick={()=>setpressBtn(pressBtn+1)}></input>
+                <input type="button" value="길찾기" onClick={()=>window.location.href=`	https://map.kakao.com/link/to/${WordT},${MyLocation.lat},${MyLocation.lon}`}></input>
+            </div>           
+            </div>
           
-            <div id="map" style={{
-                width:"500px",
-                height:"500px"
-            }}>
-            </div>
-           
-            <p id="result" ></p>
-            <div className="Weather5Day">
-            {
-                WeatherArr.data.list.length<3? "참": WeatherArr.data.list.map((row,index)=>{
-                    return  (<div className="Weather3Hour">
-                        {row.main.temp}℃
-                        </div>)
-                })
-            
-            }
-            </div>
+            <div className="forecastCon">
             <div className="Weather">
                 <div className="WeatherTop">
                     <div className="WeatherTopLeft">
@@ -198,12 +208,23 @@ useEffect(()=>{
                     </div>
                 </div>
             </div>
-                <input type="text"  onChange={(e)=>setWordT(e.target.value)}></input>
 
-                <input type="button" value={"찾기"} onClick={()=>setpressBtn(pressBtn+1)}></input>
-            <input type="button" value="길찾기" onClick={()=>window.location.href=`	https://map.kakao.com/link/to/${WordT},${MyLocation.lat},${MyLocation.lon}`}></input>
-                        
-                 
+            <div className="Weather5Day">
+                {WeatherArr.map((row, index)=>{
+                    return (index%8==4? <div className="Weather3Hour">
+                        <div>{iconName(row.weather[0].icon)}</div>
+
+                        <div>{row.main.temp}</div>
+                        <div>{row.dt_txt.substring(0,10) }</div>
+
+                    </div>:
+                    "")
+                })}
+            </div>
+            </div>
+
+          
+                
         </div>
     )
 }export default Calendar

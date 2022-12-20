@@ -1,56 +1,79 @@
 .CalendarN {
     width: 100vw;
     height: 100vh;
-
-}
-
-.sun {
-    width: 10vw;
-    height: 10vw;
-    background-color: white;
-    border-radius: 100%;
-}
-
-
-#result {
-    color: white;
-}
-
-.WeatherAll {
-    width: 800px;
-    height: 500px;
-    position: fixed;
-    left: 600px;
-    top: 500px;
-    z-index: 50;
-}
-
-.Weather5Day {
-    width: 900px;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    background: url('./mybg.jpg');
 }
 
-.Weather3Hour {
-    width: 100px;
-    height: 50px;
-    margin: 5px;
-    text-align: center;
+#map {
+    width: 500px;
+    height: 500px;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
+}
 
+
+.mapContainer {
+    width: 500px;
+    text-align: center;
+}
+
+.inputContainer {
+    width: 500px;
+    height: 50px;
+    background-color: red;
+    margin-top: 10px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.inputContainer input {
+    height: 50px;
+
+}
+
+.inputContainer input:nth-child(1) {
+    border: none;
+    width: 385px;
+
+    outline: none;
+    padding-left: 15px;
+}
+
+.inputContainer input:nth-child(2) {
+    border: none;
+    width: 50px;
+    background-color: lightsalmon;
+}
+
+.inputContainer input:nth-child(3) {
+    border: none;
+    width: 50px;
+    background-color: lightsalmon;
+}
+
+
+
+.forecastCon {
+    display: flex;
+    width: 1000px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .Weather {
-    width: 400px;
+    width: 500px;
     height: 200px;
-    position: fixed;
-    left: 500px;
-    top: 0px;
+
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    background-color: lightsalmon;
     border-radius: 15px;
+    background-color: rgba(69, 4, 4, 0.6);
+    box-shadow: rgba(50, 50, 93, 1) 0px 50px 100px -20px, rgba(0, 0, 0, 1) 0px 30px 60px -30px, rgba(10, 37, 64, 1) 0px -2px 6px 0px inset;
 }
 
 .WeatherTop {
@@ -100,5 +123,40 @@
 
 }
 
+
+.Weather5Day {
+    width: 1000px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.Weather3Time {
+    width: 200px;
+}
+
+.Weather3Hour {
+    width: 150px;
+    height: 150px;
+    margin: 5px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: lightcoral;
+    border-radius: 15px;
+
+}
+
+.Weather3Hour div:nth-child(1) {}
+
+.Weather3Hour div:nth-child(2) {
+    font-size: 1.2rem;
+    margin: 10px;
+}
+
+.Weather3Hour div:nth-child(3) {
+    font-size: 0.5rem;
+}
 
 /* center: new kakao.maps.LatLng(MyLocation.lon, MyLocation.lat), // 지도의 중심좌표 */
