@@ -2,7 +2,7 @@ import React, { Component, useEffect, useState } from "react";
 import axios from "axios";
 import "./Calendar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCloud, faWater } from "@fortawesome/free-solid-svg-icons";
+import { faCloud } from "@fortawesome/free-solid-svg-icons";
 import { faSun } from "@fortawesome/free-regular-svg-icons";
 import { faCloudShowersHeavy } from "@fortawesome/free-solid-svg-icons";
 import { faSnowflake } from "@fortawesome/free-regular-svg-icons";
@@ -12,6 +12,7 @@ import { faBolt } from "@fortawesome/free-solid-svg-icons";
 import { faTemperature1 } from "@fortawesome/free-solid-svg-icons";
 import { faWind } from "@fortawesome/free-solid-svg-icons";
 import { faDroplet } from "@fortawesome/free-solid-svg-icons";
+
 
 const API_KEY = process.env.REACT_APP_WEATHER;
 const {kakao} = window;
@@ -29,14 +30,23 @@ const [pressBtn,setpressBtn]=useState(0);
 
  async function getStartData() {                                                                           
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${MyLocation.lat}&lon=${MyLocation.lon}&appid=${API_KEY}&lang=kr&units=metric`
+    const url4day=`https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=${MyLocation.lat}&lon=${MyLocation.lon}&appid=${API_KEY}`
+    const urlllll=`https://api.openweathermap.org/data/2.5/forecast?lat=${MyLocation.lat}&lon=${MyLocation.lon}&appid=${API_KEY}`
+   
     const SearchWeather =(
         await axios.get(url)
         .then(response=>response)
         )
+        const SearchArr =(
+            await axios.get(urlllll)
+            .then(response=>response)
+            )
+
     //     axios.get(url).then((responseData) => {
     //         const data = responseData.data;
     //         console.log(data)
     //   });
+
          setWeatherTemp({temp:SearchWeather.data.main.temp
                         ,min:SearchWeather.data.main.temp_min
                         ,max:SearchWeather.data.main.temp_max
@@ -71,71 +81,15 @@ const [pressBtn,setpressBtn]=useState(0);
     
  useEffect(()=>{
     getStartData();
-
-    var infowindow = new kakao.maps.InfoWindow({zIndex:1});
-
-    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-        mapOption = {
-            center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-            level: 3 // 지도의 확대 레벨
-        };  
+    mapArr();
     
-    // 지도를 생성합니다    
-    var map = new kakao.maps.Map(mapContainer, mapOption); 
-    
-    // 장소 검색 객체를 생성합니다
-    var ps = new kakao.maps.services.Places(); 
-    
-    // 키워드로 장소를 검색합니다
-    ps.keywordSearch(WordT, placesSearchCB); 
-    
-    // 키워드 검색 완료 시 호출되는 콜백함수 입니다
-    function placesSearchCB (data, status, pagination) {
-        if (status === kakao.maps.services.Status.OK) {
-    
-            // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-            // LatLngBounds 객체에 좌표를 추가합니다
-            var bounds = new kakao.maps.LatLngBounds();
-            for (var i=0; i<data.length; i++) {
-                displayMarker(data[i]);    
-                bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
-            }       
-            // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
-            map.setBounds(bounds);
-        } 
-    }
-    // 지도에 마커를 표시하는 함수입니다
-    function displayMarker(place) {
-        // 마커를 생성하고 지도에 표시합니다
-        var marker = new kakao.maps.Marker({
-            map: map,
-            position: new kakao.maps.LatLng(place.y, place.x) 
-        });
-    
-        // 마커에 클릭이벤트를 등록합니다
-        kakao.maps.event.addListener(marker, 'click', function() {
-            // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
-            infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
-            infowindow.open(map, marker);
-        });
-    }
-
-
-    kakao.maps.event.addListener(map, 'dragend', function() {        //좌표 얻는 css
-        var latlng = map.getCenter(); // 지도 중심좌표를 얻어옵니다 
-     
-        setMyLocation({lat:latlng.getLat(), lon:latlng.getLng()})
-    });
 },[])
 
 useEffect(()=>{//이게 지도 옮길때마다 반응하는 쪽
     getStartData();
     
 },[MyLocation.lat])
-
-useEffect(()=>{
-    console.log("왜")
-    getStartData();
+const mapArr = () => {
 
     var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 
@@ -192,6 +146,10 @@ useEffect(()=>{
         setMyLocation({lat:latlng.getLat(), lon:latlng.getLng()})
         console.log(latlng.getLat(),latlng.getLng())
     });
+}
+useEffect(()=>{
+    getStartData();
+    mapArr();
 },[pressBtn])
 
     return(
