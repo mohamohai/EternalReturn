@@ -12,6 +12,7 @@ import Statistics from "./ER/Statistics/Statistics.js";
 import Character_Detail from "./ER/Character_Information/Character_Detail.js";
 import Character_Chose from "./ER/Character_Information/Character_Chose.js";
 import Front from "./Front/Front.js";
+import Notice from "./Notice/Notice.js";
 
 import Ingredient from "./ingredient.js";
 import Pixel from "./MainSite.js";
@@ -147,7 +148,7 @@ class App extends Component {
           <Route path="/Eternal/:key1/:key2" element={<Ereturn/>}/>
           <Route path="/Character" element={<Character_Chose/>}/>
           <Route path="/Character/:key1" element={<Character_Introduce/>}/>
-
+          <Route path="/Notice" element={<Notice/>}/>
 
           <Route path="/Weather" element={<CalendarN/>}/>
 

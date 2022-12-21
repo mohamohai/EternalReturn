@@ -5,10 +5,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from '@fortawesome/free-regular-svg-icons'
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 
+import axios from "axios";
+
 
 
 
 function Front(){
+
+ 
+
     return(
         <div className="Front">
             <div className="FrontHead"></div>
@@ -25,7 +30,12 @@ function Front(){
                     <p className="FrontItemEx">kakaoMap Api 와 OpenWeather </p>
                     <p className="FrontItemContents">map api와 weather api로 주변 날씨와 지도웹 바로가기</p>
                 </div>
-               
+                <div className="FrontItem">
+                    <img src="/Front/Front_login.png"></img>
+                    <a href="/Notice">Login <span> <FontAwesomeIcon icon={faLink} style={{color:"black"}}/></span></a>
+                    <p className="FrontItemEx">Login화면 디자인중 </p>
+                    <p className="FrontItemContents">로그인화면 구성, 디자인 추후에 db연결해서 더 다양한 기능을 삽입 할 예정 (배열로 테스트하기)</p>
+                </div>
                 <div className="FrontItem">
                     <img src="/Front/Front_NotFound.png"></img>
                     <a href={`/${Math.floor(Math.random(100000)*1000)}`}>404 Not Found<span> <FontAwesomeIcon icon={faLink} style={{color:"black"}}/></span></a>
