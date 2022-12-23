@@ -1,0 +1,13 @@
+.Environment {
+    width: 100vw;
+    background-color: bisque;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    margin: 0px auto;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

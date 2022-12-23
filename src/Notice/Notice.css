@@ -35,6 +35,7 @@
     background-color: rgb(255, 255, 255, 0.3);
     border: none;
     padding-left: 10px;
+    outline: none;
 }
 
 .SignInFormId span {

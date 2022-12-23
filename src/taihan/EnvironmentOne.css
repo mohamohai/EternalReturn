@@ -1,0 +1,47 @@
+.EnvironmentOne {
+    height: 250vh;
+}
+
+.EnvironmentOneVidio {
+    width: 100vw;
+
+    transform: scale(1.5);
+    transition: 0.5s;
+    position: fixed;
+    left: 0px;
+}
+
+.Whitespace {}
+
+.EnvironmentGNB {
+    position: relative;
+    top: 120vh;
+}
+
+.EnvironmentGNB ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 800px;
+}
+
+.EnvironmentGNB ul li {
+    padding: 10px;
+    border-radius: 30px;
+    font-size: 1rem;
+    transition: all 0.5s;
+    z-index: 2;
+
+}
+
+.EnvironmentGNB ul li:hover {
+    background-color: rgb(200, 200, 200);
+}
+
+
+.NavY {
+    position: fixed;
+    top: 500px;
+    left: 100px;
+
+}
