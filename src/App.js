@@ -64,7 +64,7 @@ import{
   CalendarN,
 }from "./Calendar/CalExport"
 
-import taihan from './taihan/taihan.js'
+import Taihan from './taihan/Taihan.js'
 
 
 import { SignUp, SignIn } from "./schedule/Components/Sign/SignExport";
@@ -155,7 +155,7 @@ class App extends Component {
           <Route path="/Noticeinsert" element={<NoticeInsert/>}/>
 
           <Route path="/Weather" element={<CalendarN/>}/>
-          <Route path="/taihan" element={<taihan/>}/>
+          <Route path="/Taihan" element={<Taihan/>}/>
           
           <Route path="*"  element={<FourZeroFour />} />
 
