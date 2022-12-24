@@ -3,10 +3,16 @@ import TaihanGNB from './TaihanGNB.js';
 import './Taihan.css';
 import Aos from "aos";
 
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectFade, Navigation, Pagination, Scrollbar, Zoom,Autoplay } from "swiper";
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
-// Import Swiper styles
-import 'swiper/css';
+
+
 
 function Taihan(){
    const [PageOneCnt,setPageOneCnt]=useState(1);
@@ -18,30 +24,48 @@ function Taihan(){
     return(
     <div className="taihanMain">
         <TaihanGNB></TaihanGNB>
-
-          <Swiper
-      spaceBetween={0}
-      slidesPerView={1}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
-    >
-      <SwiperSlide>
-        <div className="zxczxc"></div>
-      </SwiperSlide>
-      <SwiperSlide><div className="zxczxc"></div></SwiperSlide>
-      <SwiperSlide>Slide 3</SwiperSlide>
-      ...
-    </Swiper>
-       asdsadsad
-       {/* <div className="TaihanPageOne">
+        <Swiper
+        pagination={{ clickable: true }}
+        scrollbar={{ draggable: true }}
+        spaceBetween={0}
+        effect={"fade"}//전환효과
+        loop = {"false"} // 슬라이드 반복 여부
+        autoplay={{ delay: 4000, }}
+        modules={[EffectFade,Autoplay,Pagination]}
+        onSlideChange={() => console.log('slide change')}
+        className="mySwiper"
+      >
+ 
+        <SwiperSlide>
+            
+        <div className="TaihanPageOne" data-swiper-autoplay="4000">
             <video preload="metadata" muted playsInline autoPlay loop>
                 <source src={`Video/Taihan/Taihan1.mp4`} type="video/mp4"/>
             </video>
-            {PageOneCnt}
-            <input type="button" onClick={()=>setPageOneCnt(PageOneCnt+1)} value="plus"/>
-        </div> */}
+            
+        </div>
+        </SwiperSlide>
+
+        <SwiperSlide>
+        <div className="TaihanPageOne" data-swiper-autoplay="4000">
        
-        <div data-aos="fade-up" className="asdasd">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+
+            <video preload="metadata" muted playsInline autoPlay loop>
+                <source src={`Video/Taihan/Taihan2.mp4`} type="video/mp4"/>
+            </video>
+        </div>
+        </SwiperSlide>
+
+        <SwiperSlide>
+        <div className="TaihanPageOne" data-swiper-autoplay="4000">
+            <video preload="metadata" muted playsInline autoPlay loop>
+                <source src={`Video/Taihan/Taihan3.mp4`} type="video/mp4"/>
+            </video>
+        </div>
+        </SwiperSlide>
+      </Swiper>
+  
+       
     </div>)
 }export default Taihan
 

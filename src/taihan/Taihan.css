@@ -16,6 +16,10 @@
     transition: all 0.4s;
 }
 
+.TaihanPageOne video {
+    width: 100vw;
+}
+
 .asdasd {
     color: black;
 
@@ -25,4 +29,15 @@
     width: 100vw;
     height: 100vh;
     background-color: red;
+}
+
+
+
+.TaihanPageOne video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: relative;
+    top: 0px;
+    left: 0px;
 }
