@@ -14,11 +14,15 @@
 
 .TaihanPageOne {
     transition: all 0.4s;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.TaihanPageOne video {
-    width: 100vw;
-}
+.TaihanPageOne video {}
 
 .asdasd {
     color: black;
@@ -45,10 +49,42 @@
     top: 0px;
 }
 
+.TaihanVideo2 {
+    position: relative;
+    top: 0px;
+}
 
 .TainhanPageOneTitle {
     position: relative;
-    color: red;
     z-index: 5;
-    font-size: 5rem;
+    width: 80vw;
+    margin: 0px auto;
+}
+
+.TainhanPageOneTitle {
+    transition: all 0.4s;
+}
+
+.TainhanPageOneTitle p:nth-child(1) {
+    font-size: 4rem;
+    font-family: "Noto Sans KR";
+    font-weight: 800;
+    color: white;
+}
+
+.TainhanPageOneTitle p:nth-child(2) {
+    font-size: 2rem;
+    font-family: "Noto Sans KR";
+    font-weight: 500;
+    margin-top: 2rem;
+    color: white;
+}
+
+.PtagSelect {
+    transition: all 0.4s;
+}
+
+.TitleToggle {
+    transform: translateY(100px);
+    opacity: 1;
 }
