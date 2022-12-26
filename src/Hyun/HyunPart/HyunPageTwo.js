@@ -8,7 +8,7 @@ import "./css/HyunPageTwo.css"
 
 function HyunPageTwo(){
     const axios = require('axios');
-    const cheerio = require('cheerio');
+   
     const log = console.log;
     
     async function getHTMLolive(){
