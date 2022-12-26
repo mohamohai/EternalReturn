@@ -8,17 +8,15 @@ function E1(){
             <E1GNB></E1GNB>
            
           
-            <div>
                
                 <div className="E1FirstBox">
                     <p>ENERGY LEADER <br></br>
                     LIFE PARTNER</p>
                 </div>
-            </div>
-            
-            <video className="E1Video" autoplay loop muted>
-                    <source src="/video/E1.mp4"  type="video/mp4"/>
+            <video className="E1Video" muted autoPlay loop>
+                <source src="/video/E1.mp4" type="video/mp4" />
             </video>
+          
         </div>
     )
 }export default E1

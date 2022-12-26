@@ -8,9 +8,12 @@
     width: 100vw;
     height: 100vh;
     position: fixed;
-    top: 150px;
-
-
+    background-color: white;
+    margin-top: 70px;
+    mix-blend-mode: screen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -19,11 +22,7 @@
     font-size: 5vw;
     width: 60vw;
     margin: 0px auto;
-    transition: all 1s ease 0s;
-    color: #fff;
-    opacity: 0.5;
-    -webkit-mix-blend-mode: screen;
-    mix-blend-mode: screen;
+
 }
 
 .E1Video {
