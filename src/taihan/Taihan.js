@@ -26,6 +26,7 @@ function Taihan(){
         <TaihanGNB></TaihanGNB>
         asd
         javascript memory heap
+        oh my god memory
        
     </div>)
 }export default Taihan
