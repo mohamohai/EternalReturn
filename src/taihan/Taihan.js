@@ -18,7 +18,7 @@ function Taihan(){
    const [PageOneCnt,setPageOneCnt]=useState(1);
    useEffect(()=>{
     Aos.init({
-        duration: 1200,
+        duration: 2000,
       })
    })
     return(
@@ -37,9 +37,12 @@ function Taihan(){
       >
  
         <SwiperSlide>
-            
         <div className="TaihanPageOne" data-swiper-autoplay="4000">
-            <video preload="metadata" muted playsInline autoPlay loop>
+        <div className="TainhanPageOneTitle" data-aos="fade-up">asdasasdsadasdasdd <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>asdasdasdsadsadsad</div>
+        <div>asdasd</div>
+        <div>asdasd</div>
+
+            <video className="TaihanVideo" preload="metadata" muted playsInline autoPlay loop>
                 <source src={`Video/Taihan/Taihan1.mp4`} type="video/mp4"/>
             </video>
             
@@ -48,8 +51,6 @@ function Taihan(){
 
         <SwiperSlide>
         <div className="TaihanPageOne" data-swiper-autoplay="4000">
-       
-
             <video preload="metadata" muted playsInline autoPlay loop>
                 <source src={`Video/Taihan/Taihan2.mp4`} type="video/mp4"/>
             </video>
@@ -57,7 +58,7 @@ function Taihan(){
         </SwiperSlide>
 
         <SwiperSlide>
-        <div className="TaihanPageOne" data-swiper-autoplay="4000">
+        <div className="TaihanPageOne" data-swiper-autoplay="5000">
             <video preload="metadata" muted playsInline autoPlay loop>
                 <source src={`Video/Taihan/Taihan3.mp4`} type="video/mp4"/>
             </video>

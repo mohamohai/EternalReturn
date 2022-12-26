@@ -37,6 +37,18 @@
     width: 100vw;
     height: 100vh;
     object-fit: cover;
-    position: relative;
+
+}
+
+.TaihanVideo {
+    position: fixed;
     top: 0px;
+}
+
+
+.TainhanPageOneTitle {
+    position: relative;
+    color: red;
+    z-index: 5;
+    font-size: 5rem;
 }
