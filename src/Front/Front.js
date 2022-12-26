@@ -25,10 +25,10 @@ function Front(){
                     <p className="FrontItemContents">사용자의 닉네임을 받아 Axios를 이용하여 데이터를 가져오고 map함수를 통해 사용자들이 볼 수 있도록 구현 <br></br><br></br>api로 제공하는 json 파일 형식의 데이터를 재가공하여 사용자가 볼 수 있도록 구현 </p>
                 </div>
                 <div className="FrontItem">
-                    <img src="/Front/Front_ER.png"></img>
-                    <a href="/taihan">대한전선 <span> <FontAwesomeIcon icon={faLink} style={{color:"black"}}/></span></a>
-                    <p className="FrontItemEx">대한전선 사이트 클론 코딩</p>
-                    <p className="FrontItemContents">Swiper 라이브러리 사용하여 슬라이드 구성 </p>
+                    <img src="/Front/E1.png"></img>
+                    <a href="/E1">E1 <span> <FontAwesomeIcon icon={faLink} style={{color:"black"}}/></span></a>
+                    <p className="FrontItemEx">E1 사이트 클론 코딩</p>
+                    <p className="FrontItemContents">사이트 클론코딩 예정</p>
                 </div>
                 <div className="FrontItem">
                     <img src="/Front/Front_Weather.png"></img>

@@ -1,0 +1,27 @@
+.E1GNB {
+    width: 100vw;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px gray;
+    position: fixed;
+    top: 0px;
+    background-color: white;
+}
+
+.E1GNBRight {}
+
+.E1GNBRight ul {
+    display: flex;
+    width: 50vw;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.E1GNBRight ul li {
+    width: 150px;
+    text-align: center;
+}
