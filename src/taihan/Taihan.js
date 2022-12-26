@@ -24,8 +24,8 @@ function Taihan(){
     return(
     <div className="taihanMain">
         <TaihanGNB></TaihanGNB>
-        
-  asdasd
+        asd
+        javascript memory heap
        
     </div>)
 }export default Taihan
