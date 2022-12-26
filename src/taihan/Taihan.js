@@ -25,7 +25,7 @@ function Taihan(){
     <div className="taihanMain">
         <TaihanGNB></TaihanGNB>
         
-  
+  asdasd
        
     </div>)
 }export default Taihan
