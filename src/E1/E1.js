@@ -12,6 +12,7 @@ function E1(){
     
     const SliderContainer = document.getElementsByClassName("SliderContainer");
     const E1E1ContentSliderOneTitleLine = document.getElementsByClassName("E1E1ContentSliderOneTitleLine");
+    const E1ContentSliderOneProgress = document.getElementsByClassName("E1ContentSliderOneProgressa");
     
 
 
@@ -25,8 +26,9 @@ function E1(){
     }
    
     useEffect(()=>{
-        SliderContainer[0].style.transform=` translateX(${SliderCnt*-310}px)`
-        E1E1ContentSliderOneTitleLine[0].style.transform=`translateY(${SliderCnt*1.5}rem)`
+        SliderContainer[0].style.transform=` translateX(${SliderCnt*-310}px)`;
+        E1E1ContentSliderOneTitleLine[0].style.transform=`translateY(${SliderCnt*1.5}rem)`;
+        E1ContentSliderOneProgress[0].style.width=`${(SliderCnt+1)*30}px`
     },[SliderCnt])
     useEffect(()=>{ 
         Aos.init({
@@ -122,9 +124,13 @@ function E1(){
                                     <p>친환경 미래 벤처투자 자세히 보기</p>
                                 </div>
                             </div>
-                            <div>
+
+                            <div className="leftright">
                                 <span onClick={()=>SliderCnt==0? SetSliderCnt(4) : SetSliderCnt(SliderCnt-1)  }>&lt;</span>
                                 <span onClick={()=>SliderCnt==4? SetSliderCnt(0) : SetSliderCnt(SliderCnt+1)}>&gt;</span>
+                                <div className="E1ContentSliderOneProgress">
+                                    <div className="E1ContentSliderOneProgressa"></div>
+                                </div>
                             </div>
                         </div>
                         <div className="E1E1ContentSliderOneTitle">

@@ -64,7 +64,7 @@
 }
 
 .E1ContentContainerHead {
-    width: 80vw;
+    width: 60vw;
     margin: 0px auto;
     position: relative;
     top: 200px;
@@ -86,7 +86,7 @@
 }
 
 .E1ContentSliderOneFream {
-    width: 80vw;
+    width: 60vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -147,6 +147,38 @@
     transition: all 0.5s;
 
 }
+
+.leftright span {
+    float: left;
+}
+
+.E1ContentSliderOneProgress {
+    width: 150px;
+    height: 4px;
+    transition: all 0.8s;
+    z-index: 3;
+    background-color: white;
+    position: relative;
+    left: 100px;
+    top: 5px;
+}
+
+.E1ContentSliderOneProgressa {
+    width: 30px;
+    height: 4px;
+    transition: all 0.8s;
+    background-color: black;
+
+}
+
+/* .E1ContentSliderOneProgress::before {
+    content: "";
+    display: block;
+    height: 4px;
+    width: 150px;
+    z-index: 1;
+    border: 1px solid white;
+} */
 
 .E1E1ContentSliderOneTitle {
     min-width: 400px;
