@@ -63,11 +63,13 @@
     width: 100vw;
     height: 100vh;
     background-color: white;
-    z-index: 5;
+    z-index: 4;
 }
 
 .E1ContentSliderOneFream2 {
-    width: 60vw;
+    width: 100vw;
+    margin-left: 20vw;
+    overflow: hidden;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -144,4 +146,39 @@
     overflow: hidden;
     text-overflow: clip;
     display: block;
+}
+
+
+.E1ContentSliderOneProgress2 {
+    width: 150px;
+    height: 4px;
+    transition: all 0.8s;
+    z-index: 3;
+    background-color: white;
+    position: relative;
+    left: 100px;
+    top: 5px;
+}
+
+.E1ContentSliderOneProgressa2 {
+    width: 18.75px;
+    height: 4px;
+    transition: all 0.8s;
+    background-color: black;
+}
+
+
+.BottomBox {
+    width: 100vw;
+    height: 70vh;
+    background-color: white;
+    z-index: 3;
+}
+
+.E1Footer {
+    position: relative;
+    width: 100vw;
+    height: 40vh;
+    top: 30vh;
+    background-color: chocolate;
 }
