@@ -61,9 +61,20 @@
 
 .E1PageTwo {
     width: 100vw;
-    height: 100vh;
+    height: 80vh;
     background-color: white;
     z-index: 4;
+}
+
+.E1ContentSliderOne2 {
+    width: 100vw;
+    height: 50vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    position: relative;
+    top: 300px;
 }
 
 .E1ContentSliderOneFream2 {
@@ -178,7 +189,82 @@
 .E1Footer {
     position: relative;
     width: 100vw;
-    height: 40vh;
+    height: 30vh;
     top: 30vh;
     background-color: chocolate;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Footer1floor {
+    width: 60vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.floor1Bot {
+    margin-bottom: 1rem;
+}
+
+.floorLeftUl {
+    display: flex;
+    flex-direction: row;
+}
+
+.floorLeftUl li {
+    width: 100px;
+}
+
+.floorRightLi {
+    display: flex;
+    flex-direction: row;
+}
+
+.floorRightLi ul {
+    width: 150px;
+}
+
+.floorRightLi ul li:nth-child(1) {
+    margin-bottom: 1rem;
+}
+
+.floorRightLi ul li:nth-child(2) {
+    font-size: 0.5rem;
+    font-family: "Noto Sans KR";
+    font-weight: 300;
+}
+
+.floorLine {
+    width: 60vw;
+    border-bottom: 1px solid black;
+    margin: 30px;
+}
+
+.Footer2floor {
+    width: 60vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Footer2floorLeft {
+    display: flex;
+    flex-direction: row;
+}
+
+.Footer2floorLeft ul li {
+
+    font-family: "Noto Sans KR";
+    font-weight: 300;
+    margin-bottom: 5px;
+}
+
+.Footer2floorLeftMenu ul {
+    float: left;
+    margin: 0 10px;
+
 }

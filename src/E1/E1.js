@@ -82,7 +82,7 @@ function E1(){
                     <p data-aos="fade-up">Relation</p>
                     <p data-aos="fade-up">지속 가능한 미래를 열어가는 친환경 에너지 기업 E1의 다양한<br></br>소식을 만나보세요</p>
                 </div>
-                <div className="E1ContentSliderOne"  data-aos="fade-up">
+                <div className="E1ContentSliderOne2"  data-aos="fade-up">
                     <div className="E1ContentSliderOneFream2">
                         <div className="E1E1ContentSliderOneEx2">
                             <div className="SliderContainer2">
@@ -156,7 +156,70 @@ function E1(){
                     </div>
                 </div>
             </div>
-            
+            <div>
+                <div className="E1Footer">
+                    <div className="Footer1floor">
+                        <div>
+                            <p className="floor1Bot">주식회사 E1</p>
+                            <p>
+                                <ul className="floorLeftUl">
+                                    <li>COMPANY</li>
+                                    <li>BUSINESS</li>
+                                    <li>SUSTAINABILITY</li>
+                                    <li>RELATION</li>
+                                    <li>RECURUIT</li>
+                                    <li>CS CENTER</li>
+                                </ul>
+                            </p>
+                        </div>
+                        <div>
+                           <ul>
+                                <li className="floorRightLi">
+                                    <ul >
+                                        <li>E1 오렌지카드</li>
+                                        <li>E1만의 특별한 <br></br> 포인트혜택</li>
+                                    </ul>
+                                    <ul>
+                                        <li>E1 오렌지카드</li>
+                                        <li>E1만의 특별한 <br></br> 포인트혜택</li>
+                                    </ul>
+                                    <ul>
+                                        <li>E1 오렌지카드</li>
+                                        <li>E1만의 특별한 <br></br> 포인트혜택</li>
+                                    </ul>
+                                </li>
+                           </ul>
+                        </div>
+                    </div>
+                    <div className="floorLine"></div>
+                    <div className="Footer2floor">
+                        <div className="Footer2floorLeft">
+                            <div>
+                                <ul>
+                                    <li>서울특별시 xxx로 xx</li>
+                                    <li>대표 전화 : xx-xxxx-xxxx</li>
+                                    <li>E1 오렌지카드 및 충전소 : xxxx-xxxx</li>
+                                    <li>Copyright(ⓒ) 2022 E1. All rights reserved.</li>
+                                </ul>
+                            </div>
+                            <div className="Footer2floorLeftMenu">
+                                <ul>
+                                    <li>ECOS</li>
+                                    <li>E1 원격지원</li>
+                                    <li>SNS</li>
+                                </ul>
+                                <ul>
+                                    <li>개인정보처리방침</li>
+                                    <li>윤리경영 상담 및 제보</li>
+                                    <li>이메일무단수집거부</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }export default E1
