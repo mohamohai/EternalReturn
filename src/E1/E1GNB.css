@@ -10,6 +10,28 @@
     top: 0px;
     background-color: white;
     z-index: 5;
+    transition: all 0.8s;
+
+}
+
+.logoLine {
+    border: 1px solid coral;
+    width: 42px;
+    margin-left: 50px;
+    border-radius: 5px;
+}
+
+.E1Logo {
+    width: 40px;
+    height: 1.8rem;
+    line-height: 1.8rem;
+    text-align: right;
+    font-size: 1.3rem;
+    color: white;
+    border-radius: 5px;
+    background-color: coral;
+
+    border: 1px double rgb(255, 255, 255);
 }
 
 .E1GNBRight {}

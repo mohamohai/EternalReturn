@@ -4,7 +4,9 @@ import './E1GNB.css'
 function E1GNB(){
     return(
         <div className="E1GNB">
-            <div>E1</div>
+            <div div className="logoLine">
+                <div className="E1Logo">E1</div>
+            </div>
             <div className="E1GNBRight">
                 <ul>
                     <li>COMPANY</li>

@@ -1,0 +1,143 @@
+.E1ContentContainer {
+    width: 100vw;
+    height: 150vh;
+    z-index: 4;
+    transition: all 0.5s;
+}
+
+.E1ContentContainerHead {
+    width: 60vw;
+    margin: 0px auto;
+    position: relative;
+    top: 200px;
+}
+
+.E1ContentContainerHead p:nth-child(1) {
+    font-size: 4rem;
+}
+
+.E1ContentSliderOne {
+    width: 100vw;
+    height: 120vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    position: relative;
+    top: 300px;
+}
+
+.E1ContentSliderOneFream {
+    width: 60vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.E1E1ContentSliderOneEx {
+    width: 300px;
+    min-width: 300px;
+    height: 500px;
+
+    overflow: hidden;
+}
+
+.SliderContainer {
+    width: 2000px;
+    display: flex;
+    flex-direction: row;
+    transition: all 1s;
+}
+
+.SliderContainer div {
+    width: 300px;
+    margin-right: 10px;
+}
+
+.E1E1ContentSliderOneEx p {
+    font-family: "Noto Sans KR";
+    margin-bottom: 20px;
+}
+
+.E1E1ContentSliderOneEx p:nth-child(1) {
+    font-size: 1.5rem;
+}
+
+.E1E1ContentSliderOneEx p:nth-child(2) {
+    font-size: 2rem;
+    line-height: 3rem;
+    font-weight: 500;
+}
+
+.E1E1ContentSliderOneEx p:nth-child(3) {
+    font-size: 0.8rem;
+    line-height: 1.5rem;
+    color: rgb(120, 120, 120);
+
+}
+
+.E1E1ContentSliderOneEx p:nth-child(4) {
+    font-size: 0.8rem;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.E1E1ContentSliderOneEx p:nth-child(4):hover {
+    font-size: 1rem;
+    color: coral;
+    transition: all 0.5s;
+
+}
+
+.leftright span {
+    float: left;
+}
+
+.E1ContentSliderOneProgress {
+    width: 150px;
+    height: 4px;
+    transition: all 0.8s;
+    z-index: 3;
+    background-color: white;
+    position: relative;
+    left: 100px;
+    top: 5px;
+}
+
+.E1ContentSliderOneProgressa {
+    width: 30px;
+    height: 4px;
+    transition: all 0.8s;
+    background-color: black;
+
+}
+
+/* .E1ContentSliderOneProgress::before {
+    content: "";
+    display: block;
+    height: 4px;
+    width: 150px;
+    z-index: 1;
+    border: 1px solid white;
+} */
+
+.E1E1ContentSliderOneTitle {
+    min-width: 400px;
+    height: 500px;
+}
+
+.E1E1ContentSliderOneTitle div {
+    width: 100px;
+    border-radius: 15px;
+    border: 1px solid black;
+    position: relative;
+    left: 150px;
+    top: 0.8rem;
+    transition: all 0.8s;
+}
+
+.E1E1ContentSliderOneTitle p {
+    font-size: 0.8rem;
+    line-height: 1.5rem;
+    text-align: right;
+}
