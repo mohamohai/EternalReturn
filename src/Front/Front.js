@@ -16,7 +16,8 @@ function Front(){
 
     return(
         <div className="Front">
-            <div className="FrontHead"></div>
+            <div className="FrontHead">이종현 </div>
+            <div className="FrontTopBorder"></div>
             <div className="FrontList">
                 <div className="FrontItem">
                     <img src="/Front/Front_ER.png"></img>

@@ -160,6 +160,11 @@
         "ItemTier": 5
     },
     {
+        "ItemCode": 102413,
+        "ItemName": "아케인엣지",
+        "ItemTier": 4
+    },
+    {
         "ItemCode": 102501,
         "ItemName": "다인슬라이프",
         "ItemTier": 5
@@ -2872,6 +2877,31 @@
     {
         "ItemCode": 705608,
         "ItemName": "임세티",
+        "ItemTier": 6
+    },
+    {
+        "ItemCode": 705609,
+        "ItemName": "프시케의 칼날",
+        "ItemTier": 6
+    },
+    {
+        "ItemCode": 705610,
+        "ItemName": "영웅의 기록",
+        "ItemTier": 6
+    },
+    {
+        "ItemCode": 705611,
+        "ItemName": "EMOTE",
+        "ItemTier": 6
+    },
+    {
+        "ItemCode": 705612,
+        "ItemName": "클라다 반지 mk2",
+        "ItemTier": 6
+    },
+    {
+        "ItemCode": 705613,
+        "ItemName": "아크리액터mk2",
         "ItemTier": 6
     },
     {
