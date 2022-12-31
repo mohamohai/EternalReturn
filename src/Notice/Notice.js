@@ -57,8 +57,10 @@ function Notice(){
           <div className="SignBtn"> In </div>
           </div>
 
-          <div className="NoticeInput">
-        
+          <div className="Signal">
+            <svg viewBox="0 0 1000 300">
+              <text x="50%" y= "50%" dy="40px" textAnchor="middle">Signal</text>
+            </svg>
           </div>
         </div>
     )
