@@ -43,7 +43,7 @@ function Notice(){
     }
     return(
         <div className="Notice">
-          <div className="LoginForm">
+          <form onsubmit={console.log("d")} className="LoginForm">
            <p>Login</p>
           <div className="SignInFormId">
             <input type="text"  required></input>
@@ -54,14 +54,24 @@ function Notice(){
             <span>Password </span>
             <span className="faLock" onClick={()=>{ChangePassWordFun()}}>{ChangePassWord.icon=="faLock"? <FontAwesomeIcon icon={faLock} size="1x"/>:<FontAwesomeIcon icon={faLockOpen} size="1x"/> }</span>
           </div>
-          <div className="SignBtn"> In </div>
-          </div>
-
+          <input className="SignBtn" type="submit" value="In"></input>
+          </form>
+{/* 
           <div className="Signal">
             <svg viewBox="0 0 1000 300">
               <text x="50%" y= "50%" dy="40px" textAnchor="middle">Signal</text>
             </svg>
           </div>
+          <svg>
+  <polygon 
+    points="75,5  125,80  25,80" 
+    fill="#4b6eec" />
+</svg>
+<svg>
+  <polygon 
+    points="75,5  125,80  25,80" 
+     />
+</svg> */}
         </div>
     )
 }export default Notice

@@ -38,6 +38,28 @@
     outline: none;
 }
 
+.SignInFormId input:invalid {
+    animation: shake 0.3s;
+}
+
+@keyframes shake {
+    25% {
+        transform: translateX(5px);
+    }
+
+    50% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+
+    10% {
+        transform: translateX(-5px);
+    }
+}
+
 .SignInFormId span {
     position: absolute;
     left: 20%;
@@ -52,19 +74,12 @@
     margin-left: 50%;
 }
 
-.SignInFormId input:focus,
-.SignInFormId input:valid {
-    height: 40px;
-    transition: 0.5s all;
 
-    border-radius: 4px;
-}
 
 .SignInFormId input:focus+span,
 .SignInFormId input:valid+span {
     height: 25px;
     transition: 0.5s all;
-
     font-size: 0.7rem;
     filter: blur(80);
     transform: translateY(-2rem) translateX(-8px)
@@ -77,6 +92,7 @@
     background-color: white;
     text-align: center;
     line-height: 40px;
+    border: none;
     border-radius: 5px;
 }
 
