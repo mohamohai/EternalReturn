@@ -208,6 +208,9 @@
 
 .floor1Bot {
     margin-bottom: 1rem;
+    font-size: 0.8rem;
+    font-family: "Noto Sans KR";
+    font-weight: 700;
 }
 
 .floorLeftUl {
@@ -216,7 +219,11 @@
 }
 
 .floorLeftUl li {
-    width: 100px;
+    text-align: left;
+    margin-right: 20px;
+    font-size: 0.8rem;
+    font-family: "Noto Sans KR";
+    font-weight: 700;
 }
 
 .floorRightLi {
@@ -230,6 +237,9 @@
 
 .floorRightLi ul li:nth-child(1) {
     margin-bottom: 1rem;
+    font-size: 0.8rem;
+    font-family: "Noto Sans KR";
+    font-weight: 700;
 }
 
 .floorRightLi ul li:nth-child(2) {

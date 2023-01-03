@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-
 import Character_Infomation from "./ER/Character_Information/Character_Infomation.js";
 
 import ERMain from "./ER/Skeleton/ERMain.js";
@@ -65,7 +64,6 @@ import{
 }from "./Calendar/CalExport"
 
 import E1 from "./E1/E1.js"
-
 
 import { SignUp, SignIn } from "./schedule/Components/Sign/SignExport";
 

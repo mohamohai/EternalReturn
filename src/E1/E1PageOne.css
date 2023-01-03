@@ -37,7 +37,7 @@
 .E1E1ContentSliderOneEx {
     width: 300px;
     min-width: 300px;
-    height: 500px;
+    height: 800px;
 
     overflow: hidden;
 }
@@ -83,7 +83,6 @@
 }
 
 .E1E1ContentSliderOneEx p:nth-child(4):hover {
-    font-size: 1rem;
     color: coral;
     transition: all 0.5s;
 

@@ -6,14 +6,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { faLockOpen } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
+
+
 import './Notice.css'
+
+
+
+import { useTranslation } from "react-i18next";
 
 function Notice(){
     const [ChangePassWord, setChangePassWord]=useState({word:"password",icon:"faLock"})
     const [Notice,setNotice]=useState([]);
     const [hit, sethit] = useState(false)
 
-
+    const { t } = useTranslation('ko', {useSuspense: false});
 
     async function getUser() {
         try {
