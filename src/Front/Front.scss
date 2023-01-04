@@ -46,7 +46,7 @@ $heightDiv : 400px;
 }
 
 .FrontItem img {
-    width: $widthDiv;
+    width: 100%;
     padding-bottom: 10px;
     object-fit: fill;
 
@@ -56,6 +56,7 @@ $heightDiv : 400px;
     font-family: "Noto Sans KR";
     font-size: 1rem;
     font-weight: 700;
+    min-width: 100%;
     margin: 10px;
 }
 
@@ -69,6 +70,64 @@ $heightDiv : 400px;
 }
 
 .FrontItemContents {
+    font-family: "Noto Sans KR";
+    font-size: 0.8rem;
+    font-weight: 300;
+    line-height: 1rem;
+
+    margin: 10px;
+    color: rgb(20, 20, 20, 0.8);
+}
+
+
+
+
+
+
+
+.FrontItem2 {
+    width: $widthDiv;
+    height: $heightDiv;
+    overflow: hidden;
+    background-color: aliceblue;
+    border-radius: 5px;
+    border: 1px solid rgb(20, 20, 20, 0.2);
+    border-top: none;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.FrontItem2:hover {
+    box-shadow: 0px 2px 15px gray;
+    transition: all 1s;
+}
+
+.FrontItem2 img {
+    width: 100px;
+    padding-bottom: 10px;
+    object-fit: fill;
+
+}
+
+.FrontItem2 a {
+    font-family: "Noto Sans KR";
+    font-size: 1rem;
+    font-weight: 700;
+    min-width: 100%;
+    margin: 10px;
+}
+
+.FrontItem2Ex {
+    font-family: "Noto Sans KR";
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 1rem;
+
+    margin: 10px;
+}
+
+.FrontItem2Contents {
     font-family: "Noto Sans KR";
     font-size: 0.8rem;
     font-weight: 300;

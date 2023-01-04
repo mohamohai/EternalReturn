@@ -419,11 +419,12 @@
 }
 
 .WaterMillPageOne::before {
-    content: "awsdasd";
+    content: "FillWord";
     font-size: 4rem;
     color: red;
     position: absolute;
     width: 0%;
+    height: 4rem;
     overflow: hidden;
     transition: all 1s;
 }

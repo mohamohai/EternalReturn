@@ -54,6 +54,16 @@ import {
 } from "./schedule/Components/Schedule/ScheduleExport";
 
 import {
+  memo,
+  NeonForm,
+  FrontBackBox,
+  RainbowAndFlip,
+  WaveAndReflect,
+  FillWord,
+  SvgWrite,
+} from "./Lib/LibExport";
+
+import {
   SearchPlayer,
   Eternal,
   Ereturn,
@@ -99,10 +109,7 @@ class App extends Component {
           <Route path="/Record" element={<Record />} />
           <Route path="/GameIntroduce" element={<GameIntroduce/>}/>
           <Route path="/Statistics" element={<Statistics/>}/>
-
-
           {/* <Route path="/ScheduleMain" element={<ScheduleMain/>}/> */}
-        
           <Route path="/SignIn" element={<SignIn/>} />
           <Route path="/SignUp" element={<SignUp/>} />
           <Route path="/testView" element={<testView/>} />
@@ -123,11 +130,11 @@ class App extends Component {
             element={<ScheduleUpdate/>}
           />
 
+
           {/* 
           <Route
             path="/ScheduleUpdate/:Date/:Title/:content/:location/:time/:etc" element={}/> */}
           <Route path="/UserSelect" element={<UserSelect/>} />
-
 
           <Route path="/copyWeb" element={<CopyWeb/>}/>
           
@@ -141,7 +148,7 @@ class App extends Component {
           <Route path="LibraryBox"  element={<LibraryBox />} />
           <Route path="Zip" element={<Zip/>}/>
           <Route path="Oconnect" element={<Oconnect/>}/>
-          <Route path ="IK" element={<Hyun/>}/>
+          <Route path="IK" element={<Hyun/>}/>
           <Route path="/E" element={<SearchPlayer/>}/>
           <Route path="/E/:key1" element={<SearchPlayer/>}/>
           <Route path="/Eternal/:key1" element={<Eternal/>}/>
@@ -152,8 +159,26 @@ class App extends Component {
           <Route path="/NoticeViewer" element={<NoticeViewer/>}/>
           <Route path="/Noticeinsert" element={<NoticeInsert/>}/>
 
+
           <Route path="/Weather" element={<CalendarN/>}/>
           <Route path="/E1" element={<E1/>}/>
+          <Route path="/NeonForm" element={<NeonForm/>}/>
+          <Route path="/FrontBackBox" element={<FrontBackBox/>}/>
+          <Route path="/RainbowAndFlip" element={<RainbowAndFlip/>}/>
+          <Route path="/WaveAndReflect" element={<WaveAndReflect/>}/>
+          <Route path="/FillWord" element={<FillWord/>}/>
+          <Route path="/SvgWrite" element={<SvgWrite/>}/>
+
+          
+          
+
+          
+
+
+          
+          
+          
+
           
           <Route path="*"  element={<FourZeroFour />} />
 
