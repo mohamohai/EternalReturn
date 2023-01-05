@@ -1,4 +1,4 @@
-$widthDiv : 300px;
+$widthDiv : 18vw;
 $heightDiv : 400px;
 
 .Front {
@@ -12,6 +12,23 @@ $heightDiv : 400px;
 
 .FrontHead {
     width: 90vw;
+}
+
+.SelectBox {
+    width: 90vw;
+    text-align: right;
+    margin: 10px 0 10px 0;
+}
+
+.SelectBox ul {
+    float: right;
+}
+
+.SelectBox ul li {
+    float: left;
+    margin-right: 10px;
+    font-family: "Noto Sans Kr";
+    font-size: 0.8rem;
 }
 
 .FrontTopBorder {
@@ -31,6 +48,7 @@ $heightDiv : 400px;
 
 .FrontItem {
     width: $widthDiv;
+    min-width: 300px;
     height: $heightDiv;
     overflow: hidden;
     background-color: aliceblue;
@@ -87,6 +105,7 @@ $heightDiv : 400px;
 
 .FrontItem2 {
     width: $widthDiv;
+    min-width: 300px;
     height: $heightDiv;
     overflow: hidden;
     background-color: aliceblue;

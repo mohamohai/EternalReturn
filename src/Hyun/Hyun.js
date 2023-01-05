@@ -14,6 +14,5 @@ function Hyun(){
     });
     return(<div className="HyunFull">
                 <HyunPageOne/>
-                <HyunPageTwo/>
             </div>)
 }export default Hyun;

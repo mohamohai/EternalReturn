@@ -61,6 +61,7 @@ import {
   WaveAndReflect,
   FillWord,
   SvgWrite,
+  ScrollWheel,
 } from "./Lib/LibExport";
 
 import {
@@ -168,6 +169,7 @@ class App extends Component {
           <Route path="/WaveAndReflect" element={<WaveAndReflect/>}/>
           <Route path="/FillWord" element={<FillWord/>}/>
           <Route path="/SvgWrite" element={<SvgWrite/>}/>
+          <Route path="/ScrollWheel" element={<ScrollWheel/>}/>
 
           
           

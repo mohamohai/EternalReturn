@@ -4,5 +4,37 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    justify-items: center;
+    align-items: center;
+}
+
+
+.ScrollWheel {
+    width: 25px;
+    height: 50px;
+    border-radius: 15px;
+    border: solid 2px black;
+}
+
+.ScrollWheel::after {
+    display: block;
+    content: "";
+    position: relative;
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    border-radius: 100%;
+    left: 7.5px;
+    top: 5px;
+    animation: ScrollWheelMove 2s ease-in-out infinite;
+
+}
+
+@keyframes ScrollWheelMove {
+    0% {
+        top: 5px;
+    }
+
+    100% {
+        top: 35px;
+    }
 }

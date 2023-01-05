@@ -299,6 +299,7 @@ span {
   transition: all 1s;
   background-repeat: no-repeat;
   background-size: contain;
+
 }
 
 
@@ -313,7 +314,7 @@ span {
 .spinBoxOne {
   width: 300px;
   height: 200px;
-  background-color: red;
+
   transform: rotateX(90deg);
   transition: all 0.5s;
   transform-origin: bottom;
