@@ -76,6 +76,7 @@ import{
 
 import E1 from "./E1/E1.js"
 
+import BusSearch from "./BUS/BusSearch"
 import { SignUp, SignIn } from "./schedule/Components/Sign/SignExport";
 
 import UserSelect from "./schedule/Components/User/UserSelect";
@@ -159,7 +160,9 @@ class App extends Component {
           <Route path="/Notice" element={<Notice/>}/>
           <Route path="/NoticeViewer" element={<NoticeViewer/>}/>
           <Route path="/Noticeinsert" element={<NoticeInsert/>}/>
+          <Route path="/BusSearch" element={<BusSearch/>}/>
 
+          
 
           <Route path="/Weather" element={<CalendarN/>}/>
           <Route path="/E1" element={<E1/>}/>

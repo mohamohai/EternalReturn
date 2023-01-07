@@ -44,6 +44,12 @@ function Front(){
                         <p className="FrontItemContents">map api와 weather api로 주변 날씨와 지도웹 바로가기</p>
                     </div>
                     <div className="FrontItem">
+                        <img src="/Front/Front_Weather.png"></img>
+                        <a href="/BusSearch">BusSearch <span> <FontAwesomeIcon icon={faLink} style={{color:"black"}}/></span></a>
+                        <p className="FrontItemEx">kakaoMap Api 와 OpenWeather </p>
+                        <p className="FrontItemContents">map api와 weather api로 주변 날씨와 지도웹 바로가기</p>
+                    </div>
+                    <div className="FrontItem">
                         <img src="/Front/Front_login.png"></img>
                         <a href="/Notice">Login <span> <FontAwesomeIcon icon={faLink} style={{color:"black"}}/></span></a>
                         <p className="FrontItemEx">Login화면 디자인중 </p>
