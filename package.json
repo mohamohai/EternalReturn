@@ -68,6 +68,7 @@
     "react-refresh": "^0.11.0",
     "react-router-dom": "^6.3.0",
     "react-slick": "^0.29.0",
+    "react-xml-parser": "^1.1.8",
     "resolve": "^1.20.0",
     "resolve-url-loader": "^4.0.0",
     "sass": "^1.56.1",

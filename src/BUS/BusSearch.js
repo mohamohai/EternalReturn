@@ -13,7 +13,7 @@ import { faTemperature1 } from "@fortawesome/free-solid-svg-icons";
 import { faWind } from "@fortawesome/free-solid-svg-icons";
 import { faDroplet } from "@fortawesome/free-solid-svg-icons";
 
-
+import XMLParser from "react-xml-parser";
 const API_KEY = process.env.REACT_APP_WEATHER;
 const {kakao} = window;
 
@@ -191,22 +191,28 @@ const mapArr = () => {
 }
 useEffect(()=>{
     getStartData();
+    getStartDataBus();
     mapArr();
 },[pressBtn])
-async function getStartData() {
+async function getStartDataBus() {
     const API_KEY = process.env.REACT_APP_BUS;
-    let SearchUserNumUrl = `https://apis.data.go.kr/6410000/busrouteservice/getBusRouteInfoItem?serviceKey=${API_KEY}3D%3D&routeId=200000085`
-    const {
-      data: {
-        user: { userNum },
-      },
-    } = await axios.get(SearchUserNumUrl, {
-      // 여기에 e.target text로 데이터 받아서 유저네임 검색
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": API_KEY,
-      },
-    });
+    
+    let urlll = `https://apis.data.go.kr/6410000/busrouteservice/getBusRouteList?serviceKey=${API_KEY}&keyword=3-1`;
+
+    const SearchWeather2=(
+        await axios.get(urlll)
+        .then(response=>response.data)
+        .catch(err => {
+           console.log(err)
+          })
+    )
+
+    const dataArr = new XMLParser().parseFromString(SearchWeather2).children;
+    dataArr[2].children.map((aa,bb)=>{
+        console.log(aa.children)
+    })
+    console.log(dataArr[2].children[0].children);
+
   }
     return(
         <div className="CalendarN">
