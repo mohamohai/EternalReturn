@@ -160,7 +160,7 @@ class App extends Component {
           <Route path="/Notice" element={<Notice/>}/>
           <Route path="/NoticeViewer" element={<NoticeViewer/>}/>
           <Route path="/Noticeinsert" element={<NoticeInsert/>}/>
-          <Route path="/BusSearch" element={<BusSearch/>}/>
+          <Route path="/Three" element={<BusSearch/>}/>
 
           
 
