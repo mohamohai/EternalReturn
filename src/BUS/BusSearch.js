@@ -4,7 +4,9 @@ import "./BusSearch.css";
 import { Canvas} from '@react-three/fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
 import XMLParser from "react-xml-parser";
-import { Physics } from "@react-three/cannon";
+import { Physics, useBox,usePlane } from "@react-three/cannon/dist";
+
+
 
 
 // npm install three
@@ -38,34 +40,66 @@ async function getStartDataBus() {
 
 
 
-function ThreeBox(){
+function ThreeBox(props){
+    const [ref,api] = useBox(() => ({mass:1, position:[0,2,0]}))
     return(
-        <mesh position={[0,2,0]}>
+        <mesh onClick={()=>{
+            api.velocity.set(-1,2,0);
+        }} ref={ref} position={[0,2,0]}>
             <boxBufferGeometry attach="geometry"/>
             <meshLambertMaterial attach="material" color="hotpink" />
         </mesh>
     )
 }
 
-function ThreeBoxPlane(){
+function ThreeBox2(props){
+    const [ref,api] = useBox(() => ({mass:1, position:[2,2,0]}))
     return(
-        <mesh position={[0,0,0]} rotation={[-Math.PI / 2,0,0]}>
-            <planeBufferGeometry attach="geometry" args={[5,5]}/>
+        <mesh onClick={()=>{
+            api.velocity.set(-1,2,0);
+        }} ref={ref} position={[2,2,0]}>
+            <boxBufferGeometry attach="geometry"/>
+            <meshLambertMaterial attach="material" color="hotpink" />
+        </mesh>
+    )
+}
+
+function ThreeBoxPlane(props){
+    const [ref] = usePlane(()=>({
+        rotation: [-Math.PI/2,0,0],
+    }))
+    return(
+        <mesh rotation= {[-Math.PI / 2,0,0]}>
+            <planeBufferGeometry attach="geometry" args={[100,100]}/>
+            <meshLambertMaterial attach="material" color="lightblue" />
+        </mesh>
+    )
+}
+function ThreeBoxPlane2(props){
+    const [ref] = usePlane(()=>({
+        rotation: [0,0,0],
+        position: [0,2,1]
+    }))
+    return(
+        <mesh rotation= {[0,0,0]} position={[0,2,1]}>
+            <planeBufferGeometry attach="geometry" args={[50,50]}/>
             <meshLambertMaterial attach="material" color="lightblue" />
         </mesh>
     )
 }
 
     return(
-        <div className="CalendarN">
+        <div className="CalendarN"  onKeyPress={(e)=>{if(e.key==='Enter') console.log("yoyo") }}>
         <Canvas>
             <Stars/>    
-            <OrbitControls autoRotate={true}/>
+            <OrbitControls autoRotate={false}/>
             <ambientLight intensity={0.5} /> 
             <Physics>
                 <ThreeBox/>
+                <ThreeBox2/>
+                <ThreeBoxPlane/>
             </Physics>
-            <ThreeBoxPlane/>
+           
             <spotLight position={[10,15,5]} angle={0.2}/>
         </Canvas>
            

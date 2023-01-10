@@ -12,6 +12,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@fullpage/react-fullpage": "^0.1.26",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
+    "@react-three/cannon": "^6.5.2",
     "@react-three/drei": "^9.51.21",
     "@react-three/fiber": "^8.10.0",
     "@svgr/webpack": "^5.5.0",

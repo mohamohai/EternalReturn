@@ -32,7 +32,7 @@ const [pressBtn,setpressBtn]=useState(0);
 const [WeatherArr,setWeatherArr] = useState([]);
 
 const iconName = (insertName) =>{
-    console.log(insertName)
+  
     if(insertName =="01d" || insertName =="01n"){
         return(<FontAwesomeIcon icon={faSun} color="white" size="3x" />)
     }else if(insertName =="02d" || insertName =="02n"||insertName =="03d" || insertName =="03n"||insertName =="04d" || insertName =="04n"){
@@ -202,7 +202,7 @@ useEffect(()=>{
             <div id="map" >
             </div>
             <div className="inputContainer">
-                <input type="text"  onChange={(e)=>setWordT(e.target.value)}></input>
+                <input type="text"  onChange={(e)=>setWordT(e.target.value)} onKeyPress={(e)=>{if(e.key==='Enter') setpressBtn(pressBtn+1) }}></input>
                 <input type="button" value={"찾기"} onClick={()=>setpressBtn(pressBtn+1)}></input>
                 <input type="button" value="길찾기" onClick={()=>window.location.href=`	https://map.kakao.com/link/to/${WordT},${MyLocation.lat},${MyLocation.lon}`}></input>
             </div>           
