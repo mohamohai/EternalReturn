@@ -56,6 +56,7 @@ $heightDiv : 400px;
     border: 1px solid rgb(20, 20, 20, 0.2);
     border-top: none;
     margin: 10px;
+    transition: all 0.5s;
 }
 
 .FrontItem:hover {
@@ -77,6 +78,8 @@ $heightDiv : 400px;
     text-align: center;
 
 }
+
+//https://www.phoneppu.com/product/detail.html?product_no=24358&cate_no=334&display_group=1 
 
 .FrontItem a {
     font-family: "Noto Sans KR";
