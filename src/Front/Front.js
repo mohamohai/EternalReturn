@@ -10,33 +10,56 @@ import axios from "axios";
 
 
 function Front(){
-    const [ViewPage,setViewPage] = useState("All") // Web and effetc
-
-
-
+    const [ViewPage,setViewPage] = useState("All") // Web and Effetc
+    const myPageArr=[
+        ["Web"   ,"Front_ER.png"    ,"/ER"  ,"EternalReturnInfo"    ,"이터널 리턴 게임의 OpenApi를 통해 게임의 전적검색과 캐릭터 정보가 있는 사이트 구성","사용자의 닉네임을 받아 Axios를 이용하여 데이터를 가져오고 map함수를 통해 사용자들이 볼 수 있도록 구현 <br></br><br></br>api로 제공하는 json 파일 형식의 데이터를 재가공하여 사용자가 볼 수 있도록 구현"],
+        ["Web"   ,"E1.png"          ,"/E1"  ,"E1"                   ,"E1 사이트 클론 코딩","i18n 라이브러리를 통해 Ko,En의 홈페이지를 구성하고 json파일을 통해 관련"],
+        ["Effetc","csslogo2.png"    ,"/Ik"  ,"익명이"               ,"캐릭터 익명이를 사용한 404 에러화면으로 쓰고 있던 page","왜여기가 에러요"],
+        ["","","","","",""],
+    ]
     return(
         <div className="Front">
             <div className="SelectBox">
                 <ul>
                     <li onClick={()=>setViewPage("All")}>All</li>
                     <li onClick={()=>setViewPage("Web")}>Web</li>
-                    <li onClick={()=>setViewPage("effetc")}>Css</li>
+                    <li onClick={()=>setViewPage("Effetc")}>Effetc</li>
                 </ul>
             </div>
+
+            <div className="FrontList">
+                {myPageArr.filter((val)=>{
+                    console.log(val)
+                    if(ViewPage=="All"){
+                    return val;
+                    }else if(val[0].includes(ViewPage)){
+                    return val;
+                    }
+                }).map((LineArr ,index)=>{
+                    return(
+                        <div className={LineArr[0]==="Web" ? "FrontItem" : "FrontItem2"}><div className="ovovov">
+                            <img src={`/Front/${LineArr[1]}`}></img></div>
+                            <a href={`${LineArr[2]}`}>{LineArr[3]}<span> <FontAwesomeIcon icon={faLink} style={{color:"black"}}/></span></a>
+                            <p className="FrontItemEx">{LineArr[4]}</p>
+                            <p className="FrontItemContents">{LineArr[5]}</p>
+                        </div>
+                    )
+                })}
+            </div>
+
+
+
+
             {ViewPage=="All" ?  
                 <div className="FrontList">
                     <div className="FrontItem"><div className="ovovov">
-                        
-                            <img src="/Front/Front_ER.png"></img></div>
-                    
+                        <img src="/Front/Front_ER.png"></img></div>
                         <a href="/ER">EternalReturnInfo <span> <FontAwesomeIcon icon={faLink} style={{color:"black"}}/></span></a>
                         <p className="FrontItemEx">이터널 리턴 게임의 OpenApi를 통해 게임의 전적검색과 캐릭터 정보가 있는 사이트 구성</p>
                         <p className="FrontItemContents">사용자의 닉네임을 받아 Axios를 이용하여 데이터를 가져오고 map함수를 통해 사용자들이 볼 수 있도록 구현 <br></br><br></br>api로 제공하는 json 파일 형식의 데이터를 재가공하여 사용자가 볼 수 있도록 구현 </p>
                     </div>
                     <div className="FrontItem"><div className="ovovov">
-                  
                         <img src="/Front/E1.png"></img></div>
-                       
                         <a href="/E1">E1 <span> <FontAwesomeIcon icon={faLink} style={{color:"black"}}/></span></a>
                         <p className="FrontItemEx">E1 사이트 클론 코딩</p>
                         <p className="FrontItemContents">i18n 라이브러리를 통해 Ko,En의 홈페이지를 구성하고 json파일을 통해 관련  </p>
