@@ -99,11 +99,12 @@ $heightDiv : 400px;
 }
 
 .FrontItemContents {
+    white-space: pre-line;
+
     font-family: "Noto Sans KR";
     font-size: 0.8rem;
     font-weight: 300;
     line-height: 1rem;
-
     margin: 10px;
     color: rgb(20, 20, 20, 0.8);
 }
@@ -126,6 +127,7 @@ $heightDiv : 400px;
     margin: 10px;
     display: flex;
     flex-direction: column;
+    transition: all 0.5s;
 }
 
 .FrontItem2:hover {
@@ -165,4 +167,5 @@ $heightDiv : 400px;
 
     margin: 10px;
     color: rgb(20, 20, 20, 0.8);
+    white-space: pre-line;
 }
