@@ -62,6 +62,7 @@ import {
   FillWord,
   SvgWrite,
   ScrollWheel,
+  Box3D,
 } from "./Lib/LibExport";
 
 import {
@@ -173,6 +174,8 @@ class App extends Component {
           <Route path="/FillWord" element={<FillWord/>}/>
           <Route path="/SvgWrite" element={<SvgWrite/>}/>
           <Route path="/ScrollWheel" element={<ScrollWheel/>}/>
+
+          <Route path="/Box3D" element={<Box3D/>}/>
 
           
           
