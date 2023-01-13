@@ -42,32 +42,22 @@
 
 .balloon {
     width: 150px;
-    height: 150px;
+    g height: 50px;
     background-color: red;
     border-radius: 15px;
     position: absolute;
     top: 100px;
 }
 
-.balloon::after {
-    border-top: 30px solid red;
-    border-left: 30px solid transparent;
-    border-right: 30px solid transparent;
-    border-bottom: 0px solid transparent;
-    content: "";
-    position: absolute;
-    left: 50px;
-    top: 150px;
-    border: 10px;
-}
+
 
 .balloon::before {
-    border-top: 30px solid red;
-    border-left: 30px solid transparent;
-    border-right: 30px solid transparent;
+    border-top: 20px solid red;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
     border-bottom: 0px solid transparent;
     content: "";
     position: absolute;
-    left: 50px;
-    top: 150px;
+    left: 30px;
+    top: 100%;
 }
