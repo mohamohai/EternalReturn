@@ -16,6 +16,8 @@ function Front(){
         ["Web"   ,"E1.png"          ,"/E1"  ,"E1"                   ,"E1 사이트 클론 코딩","i18n 라이브러리를 통해 Ko,En의 홈페이지를 구성하고 json파일을 통해 관련"],
         ["Effect","csslogo2.png"    ,"/Ik"  ,"익명이"               ,"캐릭터 익명이를 사용한 404 에러화면으로 쓰고 있던 page","왜여기가 에러요"],
         ["Web","Front_Weather.png","/Weather","Weather","kakaoMap Api 와 OpenWeather","map api와 weather api로 주변 날씨와 지도웹 바로가기"],
+        ["Effect","csslogo2.png","/Box3D","Box3D","Box3D","transform-origin과 skew, before after로 Box구현"],
+        
         ["Web","Three.png","/Three","Three.js","Three.js 상자, 물리","Three onClick, physics"],
         ["Web","Front_login.png","/Notice","Login","Login화면 구성","로그인화면 구성, 디자인 추후에 db연결해서 더 다양한 기능을 삽입 할 예정 (배열로 테스트하기)"],
         ["Web","Front_NotFound.png",`/${Math.floor(Math.random(100000)*1000)}`,"404 Not Found","지정되지 않은 url로 이동할 경우 404NotFound 화면을 출력","scss를 이용하여 눈내리는 모습을 구현하고 눈을 클릭 할 경우 뒤로가기"],
@@ -30,8 +32,7 @@ function Front(){
         ["Effect","csslogo2.png","/RainbowAndFlip","RainbowAndFlipImg","무지개바와 지도 접히는 효과, Youtube","skew, rotate를 이용해서 구현"],
         ["Effect","csslogo2.png","/FillWord","FillWord","웹사이트에서 자주 보이던 글씨가 채워지는 효과를 구현","after와 hover Animation으로 구현"],
         ["Effect","csslogo2.png","/WaveAndReflect","WaveAndReflect","파도효과","Animation, overflow로 구현"],
-        
-       
+      
     ]
     return(
         <div className="Front">

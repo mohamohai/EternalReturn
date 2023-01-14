@@ -87,7 +87,7 @@
 }
 
 .Box3DFront:hover {
-    transform: translateX(60px);
+    transform: translate(15px, 15px);
 }
 
 .Box3DFront::before {
