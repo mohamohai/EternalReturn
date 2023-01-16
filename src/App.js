@@ -64,6 +64,7 @@ import {
   ScrollWheel,
   Box3D,
   TextJump,
+  OnMenu,
 } from "./Lib/LibExport";
 
 import {
@@ -178,6 +179,7 @@ class App extends Component {
 
           <Route path="/Box3D" element={<Box3D/>}/>
           <Route path="/TextJump" element={<TextJump/>}/>
+          <Route path="/OnMenu" element={<OnMenu/>}/>
 
           
           
