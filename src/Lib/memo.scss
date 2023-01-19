@@ -7,7 +7,7 @@
 }
 
 .TextJumpZip {
-    transform: skewY(-15deg);
+    transform: skewY(-135deg);
 
     // animation: leftmoveopacity 1s linear forwards;
 
@@ -61,23 +61,166 @@
 @keyframes leftmoveopacity {
     0% {
         opacity: 0;
-        transform: translateX(30px) skewY(-15deg);
+        transform: translateX(30px) skewY(-135deg);
     }
 
     30% {
-        transform: skewY(-15deg);
+        transform: skewY(-135deg);
     }
 
     100% {
         opacity: 1;
-        transform: translateX(0px) skewY(-15deg);
+        transform: translateX(0px) skewY(-135deg);
 
     }
 }
 
 
+.PoP {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    position: absolute;
+    transition: all 1s;
+}
 
 
+.ClickMe {
+    position: absolute;
+    top: 45%;
+    left: 10px;
+    width: 80px;
+    height: 10px;
+    text-align: center;
+}
+
+.ScaleBox {
+    width: 100px;
+    height: 100px;
+    background-color: salmon;
+    border-radius: 100%;
+    position: absolute;
+    transition: all 1s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ScaleBoxCir {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: 3px solid white;
+    display: flex;
+    justify-content: center;
+
+}
+
+.ScaleBoxCir div {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: salmon;
+    border: 3px solid white;
+    position: absolute;
+    top: 15px;
+}
+
+.PoPClick {
+    transform: scale(0.8);
+    animation: PoPClickSpin 1s linear;
+}
+
+@keyframes PoPClickSpin {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    99% {
+        transform: scale(0.9) rotate(360deg);
+    }
+
+    100% {}
+}
+
+.PoP li {
+
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    opacity: 0;
+
+    @for $i from 1 through 6 {
+        &:nth-child(#{$i}) {
+            transition: all $i/15+0s
+        }
+
+    }
+
+    transform: translate(0px);
+}
+
+.PoPonT {
+    opacity: 1 !important;
+}
+
+.PoPonT:hover {
+    filter: brightness(150%)
+}
+
+.PoPonT:nth-child(1) {
+    transform: translate(0px, -120px);
+    background-color: #00acee;
+}
+
+.PoPonT:nth-child(2) {
+    transform: translate(120px, -70px);
+    background-color: #c4302b;
+
+}
+
+.PoPonT:nth-child(3) {
+    transform: translate(120px, 70px);
+    background-color: #3b5998;
+}
+
+.PoPonT:nth-child(4) {
+    transform: translate(0px, 120px);
+    // background: linear-gradient(135deg, #4285f4 25%, #EA4335 50%, #FBBC05 75%, #34A853 100%);
+    // background: linear-gradient(135deg, rgba(0, 38, 84, 1) 33.333333%, rgba(0, 38, 84, 0) 33.333333%), linear-gradient(135deg, rgba(255, 255, 255, 1) 66.666666%, rgba(206, 17, 38, 1) 66.666666%);
+    // background: linear-gradient(135deg, #4285f4 25%, transparent 25%), linear-gradient(135deg, #EA4335 50%, transparent 50%), linear-gradient(135deg, #FBBC05 75%, transparent 75%), linear-gradient(135deg, #34A853 100%, transparent 100%);
+    background: linear-gradient(to top, #4285fa 50%, #EA4335 50%);
+    overflow: hidden;
+}
+
+.PoPonT:nth-child(4)::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #FBBC05 50%, #34A853 50%);
+    z-index: -1;
+}
+
+.PoPonT:nth-child(5) {
+    transform: translate(-120px, 70px);
+    background-color: #171515;
+
+}
+
+.PoPonT:nth-child(6) {
+    transform: translate(-120px, -70px);
+    background-color: #3f729b;
+
+}
 
 
 
@@ -88,3 +231,13 @@
     justify-content: center;
     align-items: center;
 }
+
+
+.CircleMenuIcon {
+    width: 50px;
+    height: 50px;
+}
+
+// .OnMenuFrame ul li:nth-child(1) {
+//     transition: all 1s;
+// }
