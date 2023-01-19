@@ -2,13 +2,15 @@ import { useState, useEffect, useRef, Component } from "react";
 import "./memo.css"
 import "./memo.scss"
 import { faTwitter,faYoutube,faFacebook,faGoogle,faGithub,faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";;
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function OnMenu(){
+    const [Cirdeg, setCirdeg] = useState(1);
     const PlusOnClick = document.getElementsByClassName("ScaleBox");
     const PoPon = document.getElementsByClassName("PoPon");
 
     const OnMenuPoP = () => {
-        PlusOnClick[0].classList.toggle('PoPClick')
+        PlusOnClick[0].style.transform=`rotate(${Cirdeg*360}deg)`;
+        setCirdeg(Cirdeg+1);
         PoPon[0].classList.toggle('PoPonT')
         PoPon[1].classList.toggle('PoPonT')
         PoPon[2].classList.toggle('PoPonT')

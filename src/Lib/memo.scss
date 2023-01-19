@@ -7,7 +7,7 @@
 }
 
 .TextJumpZip {
-    transform: skewY(-135deg);
+    transform: skewY(-15deg);
 
     // animation: leftmoveopacity 1s linear forwards;
 
@@ -30,31 +30,33 @@
             animation: JumpJump 2s #{0+($i/10)}s linear forwards;
         }
 
-        @keyframes JumpJump {
-            0% {
-                opacity: 0;
-                transform: translateX(30px);
-            }
 
-            10% {
-                opacity: 1;
-                transform: translateX(0px);
-            }
 
-            20% {
-                transform: translateY(0px);
-            }
+    }
+}
 
-            50% {
-                transform: translateY(-50px);
-            }
+@keyframes JumpJump {
+    0% {
+        opacity: 0;
+        transform: translateX(30px);
+    }
 
-            100% {
-                opacity: 1;
-                transform: translateY(0px);
-            }
-        }
+    10% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
 
+    20% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
     }
 }
 
