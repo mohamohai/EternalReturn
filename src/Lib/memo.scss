@@ -122,7 +122,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: all 1s;
+    transition: all 0.6s;
 }
 
 .ScaleBoxCir {
@@ -132,7 +132,6 @@
     border: 3px solid white;
     display: flex;
     justify-content: center;
-    transition: all 1s;
 
 
 }
@@ -167,16 +166,16 @@
 
     @for $i from 1 through 6 {
         &:nth-child(#{$i}) {
-            transition: all $i/15+0s
+            transition: all $i/10+0s
         }
 
     }
 
-    transform: translate(0px);
 }
 
 .PoPonT {
     opacity: 1 !important;
+    transition: 0.6s;
 }
 
 .PoPonT:hover {
