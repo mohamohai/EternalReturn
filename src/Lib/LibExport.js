@@ -11,6 +11,9 @@ export {default as Box3D} from "./Box3D";
 export {default as TextJump} from "./TextJump";
 
 export {default as OnMenu} from "./OnMenu";
+export {default as CircleArtRing} from "./CircleArtRing";
+
+
 
 
 

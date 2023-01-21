@@ -133,3 +133,97 @@
 .Box3DFront:nth-child(3) {
     z-index: 1;
 }
+
+.CircleArt {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.CircleArtF {
+    width: 80vw;
+    height: 80vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.CircleArtRing {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+
+
+    border-radius: 50%;
+    border: 1px solid transparent;
+    background-image: linear-gradient(#fff, #f1f1f1), linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+
+
+
+
+
+    transition: all 1s;
+}
+
+
+.CircleArtRing:nth-child(1) {
+    animation: CircleArtRingMove 3s 0.5s linear infinite;
+}
+
+.CircleArtRing:nth-child(2) {
+    animation: CircleArtRingMove 3s 1s linear infinite;
+}
+
+.CircleArtRing:nth-child(3) {
+    animation: CircleArtRingMove 3s 1.5s linear infinite;
+}
+
+@keyframes CircleArtRingMove {
+    0% {
+        transform: translate(0px, 0px) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(15px, -5px) rotate(85deg);
+    }
+
+    50% {
+        transform: translate(-5px, 15px) rotate(170deg);
+    }
+
+    75% {
+        transform: translate(10px, -15px) rotate(255deg);
+    }
+
+
+    100% {
+        transform: translate(0px, 0px) rotate(360deg);
+    }
+}
+
+
+
+.CircleTest {}
+
+
+.ohmygodring {
+    position: absolute;
+}
+
+.ohmygodring:nth-child(1) {
+    animation: CircleArtRingMove 3s 0.5s linear infinite;
+}
+
+.ohmygodring:nth-child(2) {
+    animation: CircleArtRingMove 3s 1s linear infinite;
+}
+
+.ohmygodring:nth-child(3) {
+    animation: CircleArtRingMove 3s 1.5s linear infinite;
+}

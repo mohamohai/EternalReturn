@@ -65,6 +65,7 @@ import {
   Box3D,
   TextJump,
   OnMenu,
+  CircleArtRing,
 } from "./Lib/LibExport";
 
 import {
@@ -180,11 +181,11 @@ class App extends Component {
           <Route path="/Box3D" element={<Box3D/>}/>
           <Route path="/TextJump" element={<TextJump/>}/>
           <Route path="/OnMenu" element={<OnMenu/>}/>
+          
+          
+          
 
-          
-          
-
-          
+          <Route path="/CircleArtRing" element={<CircleArtRing/>}/>
 
 
           
