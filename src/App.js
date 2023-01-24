@@ -66,6 +66,7 @@ import {
   TextJump,
   OnMenu,
   CircleArtRing,
+  View3D,
 } from "./Lib/LibExport";
 
 import {
@@ -84,6 +85,8 @@ import BusSearch from "./BUS/BusSearch"
 import { SignUp, SignIn } from "./schedule/Components/Sign/SignExport";
 
 import UserSelect from "./schedule/Components/User/UserSelect";
+
+import PlusVirtual from "./PlusVirtual/PlusVirtual.js";
 
 class App extends Component {
   constructor(props) {
@@ -181,13 +184,14 @@ class App extends Component {
           <Route path="/Box3D" element={<Box3D/>}/>
           <Route path="/TextJump" element={<TextJump/>}/>
           <Route path="/OnMenu" element={<OnMenu/>}/>
-          
-          
-          
+          <Route path="/View3D" element={<View3D/>}/>
 
           <Route path="/CircleArtRing" element={<CircleArtRing/>}/>
+          <Route path="/PlusVirtual" element={<PlusVirtual/>}/>
 
 
+
+          
           
           
           

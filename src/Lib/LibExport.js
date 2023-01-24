@@ -12,6 +12,9 @@ export {default as TextJump} from "./TextJump";
 
 export {default as OnMenu} from "./OnMenu";
 export {default as CircleArtRing} from "./CircleArtRing";
+export {default as View3D} from "./View3D";
+
+
 
 
 
