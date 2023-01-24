@@ -19,6 +19,8 @@ function Front(){
         ["Effect","csslogo2.png"    ,"/Ik"  ,"익명이"               ,"익명이","캐릭터 익명이를 이용해서 사용했던 404page"],
         ["Effect","csslogo2.png","/OnMenu","CircleMenu","CircleMenuBtn","클릭 메뉴"], 
         ["Effect","csslogo2.png","/Box3D","Box3D","Box3D","transform-origin과 skew, before after로 Box구현"],
+        ["Effect","svglogo.png","/CircleArtRing","CircleRing","CircleRing","원에 그라데이션 색상으로 회전하는 링 \n"],
+
         
         ["Web","Three.png","/Three","Three.js","Three.js 상자, 물리","Three onClick, physics"],
         ["Web","Front_login.png","/Notice","Login","Login화면 구성","로그인화면 구성, 디자인 추후에 db연결해서 더 다양한 기능을 삽입 할 예정 (배열로 테스트하기)"],

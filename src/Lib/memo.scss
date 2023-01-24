@@ -235,3 +235,51 @@
 // .OnMenuFrame ul li:nth-child(1) {
 //     transition: all 1s;
 // }
+
+
+
+
+
+
+
+
+
+
+.CircleTest {}
+
+
+.ohmygodring {
+    position: absolute;
+
+    @for $i from 1 through 3 {
+        &:nth-child(#{$i}) {
+            animation: CircleArtRingMove2 random(5)+1s 0.1s linear infinite;
+        }
+    }
+}
+
+
+// animation: CircleArtRingMove2 $i/10+3s 0.1s linear infinite;
+
+
+@keyframes CircleArtRingMove2 {
+    0% {
+        transform: translate(0px, 0px) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(15px, -5px) rotate(85deg);
+    }
+
+    50% {
+        transform: translate(-5px, 15px) rotate(170deg);
+    }
+
+    75% {
+        transform: translate(10px, -15px) rotate(255deg);
+    }
+
+    100% {
+        transform: translate(0px, 0px) rotate(360deg);
+    }
+}
