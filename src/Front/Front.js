@@ -20,6 +20,7 @@ function Front(){
         ["Effect","csslogo2.png","/OnMenu","CircleMenu","CircleMenuBtn","클릭 메뉴"], 
         ["Effect","csslogo2.png","/Box3D","Box3D","Box3D","transform-origin과 skew, before after로 Box구현"],
         ["Effect","svglogo.png","/CircleArtRing","CircleRing","CircleRing","원에 그라데이션 색상으로 회전하는 링 \n"],
+        ["Effect","csslogo2.png","/View3D","View3D","View3D","사이트에서 본 효과를 똑같이 구현, hover 사용"],
 
         
         ["Web","Three.png","/Three","Three.js","Three.js 상자, 물리","Three onClick, physics"],

@@ -85,7 +85,7 @@ function E1(){
             <div className="E1PageTwo">
                 <div className="E1ContentContainerHead">
                     <p data-aos="fade-up">Relation</p>
-                    <p data-aos="fade-up">지속 가능한 미래를 열어가는 친환경 에너지 기업 E1의 다양한<br></br>소식을 만나보세요</p>
+                    <p data-aos="fade-up">{t("News2tt")}</p>
                 </div>
                 <div className="E1ContentSliderOne2"  data-aos="fade-up">
                     <div className="E1ContentSliderOneFream2">

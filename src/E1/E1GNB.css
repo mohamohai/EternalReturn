@@ -36,6 +36,13 @@
 
 .E1GNBRight {}
 
+
+@media (max-width: 800px) {
+    .E1GNBRight {
+        display: none;
+    }
+}
+
 .E1GNBRight ul {
     display: flex;
     width: 50vw;
