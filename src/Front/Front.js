@@ -21,15 +21,11 @@ function Front(){
         ["Effect","csslogo2.png","/Box3D","Box3D","Box3D","transform-origin과 skew, before after로 Box구현"],
         ["Effect","svglogo.png","/CircleArtRing","CircleRing","CircleRing","원에 그라데이션 색상으로 회전하는 링 \n"],
         ["Effect","csslogo2.png","/View3D","View3D","View3D","사이트에서 본 효과를 똑같이 구현, hover 사용"],
-
-        
         ["Web","Three.png","/Three","Three.js","Three.js 상자, 물리","Three onClick, physics"],
         ["Web","Front_login.png","/Notice","Login","Login화면 구성","로그인화면 구성, 디자인 추후에 db연결해서 더 다양한 기능을 삽입 할 예정 (배열로 테스트하기)"],
-        
         ["Web","Front_Oconnect.png","/Oconnect","Oconnect","Oconnect 사이트 클론 코딩","특정 위치에서 작동되는 Animation효과와 Js를 이용하여 만든 슬라이드\n\nUseEffect와 좌표를 이용하여 화면에 들어오면 Animation효과를 주던 것을 Animate on scroll 라이브러리를 이용하여 간편하게 구현"],
         ["Web","Front_HerenNow.png","/Herennow","Herennow","Herennow사이트 클론 코딩","마우스 커서에 변화를 주고 커서 부분에  mix-blend-mode: difference를 적용해 뒤 요소들의 변화를 줌\n\n마우스 휠과 드래그앤드랍으로 이동되는 슬라이드 구현 \n\n테마변경 기능 (다크모드)"],
         ["Web","Front_Vhom.png","/Vhom","Vhom","Vhom 사이트 클론 코딩","CSS로 만든 라이언 캐릭터 \n\nFullPage기능을 Js를 통하여 화면 단위로 마우스 휠에 반응하여 다음 또는 이전 위치로 이동하도록 구현\n\n화면의 위치에 따른 네비게이션바 변화"],
-
         ["Web","Front_Stealien.png","/Stealien","Stealien","Stealien 사이트 클론 코딩","화면이 내려가면 GNB의 css 변경, hover를 통한 Animtaion 효과\n\nFontawesome을 이용하여 간단한 아이콘 사용"],
         ["Effect","svglogo.png","/SvgWrite","Svg","Svg Text Write","Svg를 이용하여 선이 그려지는 효과"],
         ["Effect","csslogo2.png","/TextJump","TextJump","TextJump","animation에 딜레이 격차를 이용해 순서대로 점프하는 모션"],
@@ -39,7 +35,7 @@ function Front(){
         ["Effect","csslogo2.png","/RainbowAndFlip","RainbowAndFlipImg","무지개바와 지도 접히는 효과, Youtube","skew, rotate를 이용해서 구현"],
         ["Effect","csslogo2.png","/FillWord","FillWord","웹사이트에서 자주 보이던 글씨가 채워지는 효과를 구현","after와 hover Animation으로 구현"],
         ["Effect","csslogo2.png","/WaveAndReflect","WaveAndReflect","파도효과","Animation, overflow로 구현"],
-      
+        //["Effect","csslogo2.png","/","","",""],
     ]
     return(
         <div className="Front">

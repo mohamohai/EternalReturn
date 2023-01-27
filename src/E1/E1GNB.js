@@ -26,7 +26,6 @@ function E1GNB(){
                     <li>CS CENTER</li>
                     <li onClick={()=>changelanguageToLan()}>{i18n.language}</li>
                     
-                    <li>ham</li>
                 </ul>
             </div>
 
