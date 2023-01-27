@@ -27,9 +27,14 @@ const [WeatherIcon, setWeatherIcon]=useState("faSun");
 const [WordT, setWordT]=useState("서울역");
 
 const [pressBtn,setpressBtn]=useState(0);
-
-
 const [WeatherArr,setWeatherArr] = useState([]);
+
+const [StartHit,setStartHit]=useState(false);
+const [Modal,setModal] = useState(false);
+const toggleModal = ()=>{
+    setModal(!Modal)
+}
+
 
 const iconName = (insertName) =>{
   
@@ -62,7 +67,7 @@ const SearchWeather2=(
 )
 
     setWeatherArr(SearchWeather2.data.list);
-
+    console.log(SearchWeather2.data.list) //이거보고 toggle 만져라
     //     axios.get(url).then((responseData) => {
     //         const data = responseData.data;
     //         console.log(data)
@@ -98,6 +103,8 @@ const SearchWeather2=(
     }else if(SearchWeather.data.weather[0].icon =="50d" || SearchWeather.data.weather[0].icon =="50n"){
         setWeatherIcon(faSmog);
     }
+
+    setStartHit(true);
  }  
     
  useEffect(()=>{
@@ -195,10 +202,9 @@ useEffect(()=>{
     getStartData();
     mapArr();
 },[pressBtn])
-
     return(
         <div className="CalendarN">
-            <div className="mapContainer">
+             <div className="mapContainer">
             <div id="map" >
             </div>
             <div className="inputContainer">
@@ -207,47 +213,56 @@ useEffect(()=>{
                 <input type="button" value="길찾기" onClick={()=>window.location.href=`	https://map.kakao.com/link/to/${WordT},${MyLocation.lat},${MyLocation.lon}`}></input>
             </div>           
             </div>
-          
-            <div className="forecastCon">
-            <div className="Weather">
-                <div className="WeatherTop">
-                    <div className="WeatherTopLeft">
-                    <FontAwesomeIcon icon={WeatherIcon} color="white" size="5x" />
-                     </div>
-                    <div className="WeatherTopRight">
-                        <div> {WeatherTemp.temp} ℃</div>
-                        <div> {WeatherType.description}</div>
-                        <div>{WeatherSys.country}, {WeatherType.name} </div>
+            {
+                StartHit === true? <div className="forecastCon">
+                <div className="Weather">
+                    <div className="WeatherTop">
+                        <div className="WeatherTopLeft">
+                        <FontAwesomeIcon icon={WeatherIcon} color="white" size="5x" />
+                         </div>
+                        <div className="WeatherTopRight">
+                            <div> {WeatherTemp.temp} ℃</div>
+                            <div> {WeatherType.description}</div>
+                            <div>{WeatherSys.country}, {WeatherType.name} </div>
+                        </div>
+                    </div>
+                    <div className="WeatherBot">
+                        <div>
+                            <FontAwesomeIcon icon={faDroplet} color="white" size="2x" /><br></br>
+                            {WeatherEnv.humidity}
+                        </div>
+                        <div>
+                        <FontAwesomeIcon icon={faWind} color="white" size="2x" /><br></br>
+                            {WeatherEnv.wind} 
+                        </div>
                     </div>
                 </div>
-                <div className="WeatherBot">
-                    <div>
-                        <FontAwesomeIcon icon={faDroplet} color="white" size="2x" /><br></br>
-                        {WeatherEnv.humidity}
-                    </div>
-                    <div>
-                    <FontAwesomeIcon icon={faWind} color="white" size="2x" /><br></br>
-                        {WeatherEnv.wind} 
-                    </div>
+                <div className="Weather5Day">
+                    {WeatherArr.map((row, index)=>{
+                        return (index%8==4? <div className="Weather3Hour"   onClick={toggleModal}>
+                            <div>{iconName(row.weather[0].icon)}</div>
+                            <div>{row.main.temp}℃</div>
+                            <div>{row.dt_txt.substring(0,10) }</div>
+    
+                        </div>:
+                        "")
+                    })}
                 </div>
+                </div>:""
+            }
+            {Modal && (
+                <div className="ModalWeather">
+                    <div className="ModalWeatherIn">
+                        <h1>Hello</h1>
+                        <button
+                        onClick={toggleModal}
+                        className="aa">
+                            Close
+                        </button>
+                    </div>
             </div>
-
-            <div className="Weather5Day">
-                {WeatherArr.map((row, index)=>{
-                    return (index%8==4? <div className="Weather3Hour">
-                        <div>{iconName(row.weather[0].icon)}</div>
-
-                        <div>{row.main.temp}</div>
-                        <div>{row.dt_txt.substring(0,10) }</div>
-
-                    </div>:
-                    "")
-                })}
-            </div>
-            </div>
-
-          
-                
+            )}
+            
         </div>
     )
 }export default Calendar
