@@ -179,6 +179,7 @@
     justify-content: center;
     align-items: center;
     z-index: 100;
+    overflow: hidden;
 
 }
 
@@ -192,4 +193,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow-y: auto;
+    gap: 20px;
+
+}
+
+.ModalWeatherTable {
+    text-align: center;
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    border-bottom: 1px solid gray;
 }

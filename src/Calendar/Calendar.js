@@ -28,6 +28,7 @@ const [WordT, setWordT]=useState("서울역");
 
 const [pressBtn,setpressBtn]=useState(0);
 const [WeatherArr,setWeatherArr] = useState([]);
+const [Today,setToday] = useState(new Date().getDate())
 
 const [StartHit,setStartHit]=useState(false);
 const [Modal,setModal] = useState(false);
@@ -37,7 +38,6 @@ const toggleModal = ()=>{
 
 
 const iconName = (insertName) =>{
-  
     if(insertName =="01d" || insertName =="01n"){
         return(<FontAwesomeIcon icon={faSun} color="white" size="3x" />)
     }else if(insertName =="02d" || insertName =="02n"||insertName =="03d" || insertName =="03n"||insertName =="04d" || insertName =="04n"){
@@ -52,7 +52,24 @@ const iconName = (insertName) =>{
         return(<FontAwesomeIcon icon={faSmog} color="white" size="3x" />)
     }
 }
-async function getStartData() {                                                                           
+
+const iconName2 = (insertName) =>{
+    if(insertName =="01d" || insertName =="01n"){
+        return(<FontAwesomeIcon icon={faSun} color="black" size="2x" />)
+    }else if(insertName =="02d" || insertName =="02n"||insertName =="03d" || insertName =="03n"||insertName =="04d" || insertName =="04n"){
+        return(<FontAwesomeIcon icon={faCloud} color="black" size="2x" />)
+    }else if(insertName =="02d" || insertName =="02n"||insertName =="03d" || insertName =="03n"){
+        return(<FontAwesomeIcon icon={faCloudShowersHeavy} color="black" size="2x" />)
+    }else if(insertName =="09d" || insertName =="09n"|| insertName =="10d"|| insertName =="10n"){
+        return(<FontAwesomeIcon icon={faBolt} color="black" size="2x" />)
+    }else if(insertName =="13d" || insertName =="13n"){
+        return(<FontAwesomeIcon icon={faSnowflake} color="black" size="2x" />)
+    }else if(insertName =="50d" || insertName =="50n"){
+        return(<FontAwesomeIcon icon={faSmog} color="black" size="2x" />)
+    }
+}
+async function getStartData() {                            
+
 const url = `https://api.openweathermap.org/data/2.5/weather?lat=${MyLocation.lat}&lon=${MyLocation.lon}&appid=${API_KEY}&lang=kr&units=metric`
 const url4day=`https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=${MyLocation.lat}&lon=${MyLocation.lon}&appid=${API_KEY}`
 const urlllll=`https://api.openweathermap.org/data/2.5/forecast?lat=${MyLocation.lat}&lon=${MyLocation.lon}&appid=${API_KEY}&lang=kr&units=metric`
@@ -72,7 +89,12 @@ const SearchWeather2=(
     //         const data = responseData.data;
     //         console.log(data)
     //   });
+    // // SearchWeather2.data.list.map((index,key)=>{
+    // //     if(index.dt_txt.substring(11,13)=="09"){
+    // //         console.log(index);
+    // //     }
 
+    // })
     setWeatherTemp({temp:SearchWeather.data.main.temp
                         ,min:SearchWeather.data.main.temp_min
                         ,max:SearchWeather.data.main.temp_max
@@ -103,7 +125,6 @@ const SearchWeather2=(
     }else if(SearchWeather.data.weather[0].icon =="50d" || SearchWeather.data.weather[0].icon =="50n"){
         setWeatherIcon(faSmog);
     }
-
     setStartHit(true);
  }  
     
@@ -238,29 +259,71 @@ useEffect(()=>{
                     </div>
                 </div>
                 <div className="Weather5Day">
-                    {WeatherArr.map((row, index)=>{
-                        return (index%8==4? <div className="Weather3Hour"   onClick={toggleModal}>
-                            <div>{iconName(row.weather[0].icon)}</div>
-                            <div>{row.main.temp}℃</div>
-                            <div>{row.dt_txt.substring(0,10) }</div>
-    
-                        </div>:
-                        "")
+
+                    {WeatherArr.filter(rowdata => rowdata.dt_txt.substring(11,13)=="09").map((row, key)=>{
+                        return(
+                            <div className="Weather3Hour"    onClick={()=>{
+                                                                toggleModal();
+                                                                setToday(row.dt_txt.substring(8,10))
+                                                                }}>
+                                <div>{iconName(row.weather[0].icon)}</div>
+                                <div>{row.main.temp}℃</div>
+                                <div>{row.dt_txt.substring(0,10) }</div>
+                            </div>
+                        )
                     })}
+
+                    {/* {WeatherArr.map((row, index)=>{  
+                        if(row.dt_txt.substring(11,13)=="09"){
+                        }
+                        return (
+                            
+                            index%8==4? <div className="Weather3Hour"   onClick={toggleModal}>
+                                            <div>{iconName(row.weather[0].icon)}</div>
+                                            <div>{row.main.temp}℃</div>
+                                            <div>{row.dt_txt.substring(0,10) }</div>
+    
+                                        </div>:
+                        "")
+                    })} */}
                 </div>
                 </div>:""
             }
             {Modal && (
                 <div className="ModalWeather">
                     <div className="ModalWeatherIn">
-                        <h1>Hello</h1>
+                    {WeatherArr.filter(rowdata => rowdata.dt_txt.substring(8,10)==Today).map((row, key)=>{
+                        return(
+                            <div className="Weather3Hour"   onClick={()=>{
+                                                                        toggleModal();
+                                                                       
+                                                                        setToday(row.dt_txt.substring(8,10))
+                                                                        }}>
+                                <div>{iconName(row.weather[0].icon)}</div>
+                                <div>{row.main.temp}℃</div>
+                                <div>{row.dt_txt.substring(0,11)}</div>
+                                <div>{row.dt_txt.substring(11,13)}</div>
+                            </div>
+                        )
+                    })}
+
+
+
+                           {/* {WeatherArr.map((row, index)=>{  
+                        return (
+                          <div className="ModalWeatherTable" >
+                                            <div>{iconName2(row.weather[0].icon)}</div>
+                                            <div>{row.main.temp}℃</div>
+                                            <div>{row.dt_txt }</div>
+                        </div>)
+                    })} */}
                         <button
                         onClick={toggleModal}
                         className="aa">
                             Close
                         </button>
                     </div>
-            </div>
+                </div>
             )}
             
         </div>
