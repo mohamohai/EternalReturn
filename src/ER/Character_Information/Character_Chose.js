@@ -40,13 +40,13 @@ import Aos from "aos";
           <div className="CharacterColRight">
             <ul>
               <li className="SelectliOn SelectliOnC" onClick={()=>{setViewMode("");SelectliOn(0)}}>All</li>
-              <li className="SelectliOn" onClick={()=>{setViewMode("초보 추천");SelectliOn(1)}}>초보 추천</li>
-              <li className="SelectliOn" onClick={()=>{setViewMode("탱커");SelectliOn(2)}}>탱커</li>
-              <li className="SelectliOn" onClick={()=>{setViewMode("원거리 딜러");SelectliOn(3)}}>원거리 딜러</li>
-              <li className="SelectliOn" onClick={()=>{setViewMode("암살자");SelectliOn(4)}}>암살자</li>
-              <li className="SelectliOn" onClick={()=>{setViewMode("인파이터");SelectliOn(5)}}>인파이터</li>
-              <li className="SelectliOn" onClick={()=>{setViewMode("스킬 딜러");SelectliOn(6)}}>스킬 딜러</li>
-              <li className="SelectliOn" onClick={()=>{setViewMode("이동 제어");SelectliOn(7)}}>이동 제어</li>
+              <li className="SelectliOn" onClick={()=>{setViewMode("초보 추천");   SelectliOn(1)}}>초보 추천</li>
+              <li className="SelectliOn" onClick={()=>{setViewMode("탱커");        SelectliOn(2)}}>탱커</li>
+              <li className="SelectliOn" onClick={()=>{setViewMode("원거리 딜러"); SelectliOn(3)}}>원거리 딜러</li>
+              <li className="SelectliOn" onClick={()=>{setViewMode("암살자");      SelectliOn(4)}}>암살자</li>
+              <li className="SelectliOn" onClick={()=>{setViewMode("인파이터");    SelectliOn(5)}}>인파이터</li>
+              <li className="SelectliOn" onClick={()=>{setViewMode("스킬 딜러");   SelectliOn(6)}}>스킬 딜러</li>
+              <li className="SelectliOn" onClick={()=>{setViewMode("이동 제어");   SelectliOn(7)}}>이동 제어</li>
             </ul>
           </div>
         </div>
