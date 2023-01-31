@@ -187,7 +187,7 @@ class App extends Component {
           <Route path="/View3D" element={<View3D/>}/>
 
           <Route path="/CircleArtRing" element={<CircleArtRing/>}/>
-          <Route path="/PlusVirtual" element={<PlusVirtual/>}/>
+          <Route path="/Music" element={<PlusVirtual/>}/>
 
 
 

@@ -99,21 +99,20 @@
 }
 
 .TypingWord {
-    line-height: 95vh;
-    position: relative;
-    text-align: center;
+    height: 100vh;
+    width: 100vw;
     font-family: "Noto Sans KR";
-    font-weight: 100;
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .blink {
-    margin-top: 40vh;
     animation: blink 0.4s infinite;
-    font-size: 80px;
     border-left: 3px solid white;
-    height: 10rem;
+    width: 0px;
+    height: 5rem;
     position: relative;
 }
 
@@ -141,8 +140,12 @@
     color: white;
     font-size: 5rem;
     float: right;
-    width: auto;
+
     text-align: right;
+}
+
+.TypingWord div:nth-child(2) span {
+    float: left;
 }
 
 .MissionPageTwo {

@@ -32,7 +32,6 @@ const $TypingChange = document.getElementsByClassName("TypingChange");
 //   }
 // }
 const makeStars = () => {
-  console.log(+"이거 왜 안")
   // 브라우저 가장 큰 크기
   const maxSize = Math.max(window.innerWidth*2, window.innerHeight*2)
   // 랜덤한 X 위치 값
@@ -45,7 +44,7 @@ const makeStars = () => {
   const _size = Math.floor(maxSize*5);
   const htmlDummy = new Array(_size).fill().map((_, i) => {
     return  `<circle 
-		cx=${getRandomX()}
+		    cx=${getRandomX()}
         cy=${getRandomY()}
         r=${randomRadius()}
         className="star" fill="#ffffff"/>`
@@ -79,7 +78,7 @@ const makeSnow=()=>{
 }
 useEffect(()=>{
 
-  let CountNumbering = document.getElementsByClassName("CountNumbering");
+  
   // let CountingStart = setInterval(()=>{
   //   if(CountNumber == 1000){
   //     clearInterval(CountingStart);
@@ -91,7 +90,6 @@ useEffect(()=>{
 
   setTimeout(()=>{
     if(CountNumber==500){
-      console.log("호우! 2:1")
       setCountNumber(1+1);
 
     }else {
@@ -139,7 +137,6 @@ useEffect((e)=>{
     
     // 다음 순서의 글자로 지정, 타이핑 함수 다시 실행
     i = !letters[i+1] ? 0 : i + 1;
-    console.log(letters[i+1])
     typing();
   }
   
@@ -178,10 +175,11 @@ useEffect((e)=>{
                 
                 <div className="MissionPageOneText">
                   <div className="TypingWord">
-                    <div className="CountNumbering"></div>
                     <div className="ohmygod">Click Bubble Plz&nbsp; </div>
-                    <h2 className="TypingChange"></h2> 
-                    <span className="blink"></span>
+                    <div>
+                      <span className="TypingChange"></span> 
+                      <span className="blink"></span>
+                    </div>
                   </div>
                 </div> 
             </div>
