@@ -1,8 +1,9 @@
 .SearchPlayer {
     width: 100vw;
-    height: 100%;
+    height: 130%;
     display: flex;
     align-content: center;
+    background-color: rgba(240, 240, 240);
 }
 
 .Last10Game {
