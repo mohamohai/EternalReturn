@@ -8,7 +8,7 @@ function ERMain(){
   const [GoUrl,setGoUrl]=useState("한동그라미"); 
   
   return(
-    <div className="ERMain" style={{background: `linear-gradient( to bottom,        rgba(255, 255, 255, 0) 10%,        rgba(255, 255, 255, 0.25) 25%,        rgba(255, 255, 255, 0.5) 50%,        rgba(255, 255, 255, 0.75) 75%,        rgba(255, 255, 255, 1) 100%        ), url('/image/Main/Season3.png')   `,}}>
+    <div className="ERMain" style={{background: `linear-gradient( to bottom,        rgba(255, 255, 255, 0) 10%,        rgba(255, 255, 255, 0.25) 25%,        rgba(255, 255, 255, 0.5) 50%,        rgba(255, 255, 255, 0.75) 75%,        rgba(255, 255, 255, 1) 100%        ), url(/image/Main/Season3.png)   `,}}>
       <ERGNB></ERGNB>
       <div className="NickSearchBox">
       <form action={`/Eternal/${GoUrl}`}>
