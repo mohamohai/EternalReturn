@@ -262,10 +262,7 @@ useEffect(()=>{
 
                     {WeatherArr.filter(rowdata => rowdata.dt_txt.substring(11,13)=="09").map((row, key)=>{
                         return(
-                            <div className="Weather3Hour"    onClick={()=>{
-                                                                toggleModal();
-                                                                setToday(row.dt_txt.substring(8,10))
-                                                                }}>
+                            <div className="Weather3Hour"   >
                                 <div>{iconName(row.weather[0].icon)}</div>
                                 <div>{row.main.temp}℃</div>
                                 <div>{row.dt_txt.substring(0,10) }</div>
@@ -289,42 +286,7 @@ useEffect(()=>{
                 </div>
                 </div>:""
             }
-            {Modal && (
-                <div className="ModalWeather">
-                    <div className="ModalWeatherIn">
-                    {WeatherArr.filter(rowdata => rowdata.dt_txt.substring(8,10)==Today).map((row, key)=>{
-                        return(
-                            <div className="Weather3Hour"   onClick={()=>{
-                                                                        toggleModal();
-                                                                       
-                                                                        setToday(row.dt_txt.substring(8,10))
-                                                                        }}>
-                                <div>{iconName(row.weather[0].icon)}</div>
-                                <div>{row.main.temp}℃</div>
-                                <div>{row.dt_txt.substring(0,11)}</div>
-                                <div>{row.dt_txt.substring(11,13)}</div>
-                            </div>
-                        )
-                    })}
-
-
-
-                           {/* {WeatherArr.map((row, index)=>{  
-                        return (
-                          <div className="ModalWeatherTable" >
-                                            <div>{iconName2(row.weather[0].icon)}</div>
-                                            <div>{row.main.temp}℃</div>
-                                            <div>{row.dt_txt }</div>
-                        </div>)
-                    })} */}
-                        <button
-                        onClick={toggleModal}
-                        className="aa">
-                            Close
-                        </button>
-                    </div>
-                </div>
-            )}
+           
             
         </div>
     )
