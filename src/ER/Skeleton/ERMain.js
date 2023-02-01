@@ -66,7 +66,7 @@ function ERMain(){
             <div className="ERThursdayGuidance">
               게임사의 정기 업데이트 시간임으로 이용할 수 없습니다.<br></br>
               아래의 사진으로 대체하겠습니다. <br></br>
-              <span>이 화면은 게임사의 업데이트가 끝날 시 정상적으로 바뀝니다. </span>
+              <span>이 화면은 게임사의 업데이트가 끝날 시 정상적으로 변경됩니다. </span>
              </div>
             <div className="ViewERPageBtn">
               <div className="ViewERPage" onClick={()=> ERPreViewImgClick("ERSearch")}>
