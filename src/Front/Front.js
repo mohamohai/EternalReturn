@@ -12,7 +12,7 @@ import axios from "axios";
 function Front(){
     const [ViewPage,setViewPage] = useState("All") // Web and Effetc
     const myPageArr=[
-        ["Web","Front_ER.png"    ,"/ER"  ,"EternalReturnInfo"    ,"이터널 리턴 게임의 OpenApi를 통해 게임의 전적검색과 캐릭터 정보가 있는 사이트 구성","사용자의 닉네임을 받아 Axios를 이용하여 데이터를 가져오고 map함수를 통해 사용자들이 볼 수 있도록 구현 \n\n api로 제공하는 json 파일 형식의 데이터를 재가공하여 사용자가 볼 수 있도록 구현\n(목요일 패치시간 동안 동작 x)"],
+        ["Web","Front_ER.png"    ,"/ER"  ,"EternalReturnInfo"    ,"이터널 리턴 게임의 OpenApi를 통해 게임의 전적검색과 캐릭터 정보가 있는 사이트 구성","사용자의 닉네임을 받아 Axios를 이용하여 데이터를 가져오고 map함수를 통해 사용자들이 볼 수 있도록 구현 \n\n api로 제공하는 json 파일 형식의 데이터를 재가공하여 사용자가 볼 수 있도록 구현\n\n목요일 패치시간 동안 동작이 불가하여 해당 시간대에 다른 화면이 출력되도록 수정"],
         ["Web","E1.png"          ,"/E1"  ,"E1"                   ,"E1 사이트 클론 코딩","i18n 라이브러리를 통해 Ko,En의 홈페이지를 구성하고 json파일을 통해 관련"],
         ["Web","Front_Weather.png","/Weather","Weather","kakaoMap Api 와 OpenWeather","map api와 weather api로 주변 날씨와 지도웹 바로가기"],
         ["Web","Front_NotFound.png",`/${Math.floor(Math.random(100000)*1000)}`,"404 Not Found","지정되지 않은 url로 이동할 경우 404NotFound 화면을 출력","scss를 이용하여 눈내리는 모습을 구현하고 눈을 클릭 할 경우 뒤로가기"],

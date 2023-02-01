@@ -41,6 +41,7 @@
   position: absolute;
   left: 0px;
   top: 0px;
+
 }
 
 .ERMainGNB {
@@ -87,10 +88,12 @@
 
 .NickSearchBox {
   width: 100vw;
+  height: 100vh;
   position: absolute;
-  top: 35vh;
   text-align: center;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 }
 
@@ -100,31 +103,53 @@
   padding: 10px;
   border: none;
   border-radius: 5px;
-
-
   box-shadow: 0px 10px 10px -5px #000000;
 }
 
 
 .ERThursday {
-  position: relative;
+  position: absolute;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  left: 0vw;
-
+  width: 600px;
+  height: 300px;
+  text-align: center;
+  background: rgb(20, 20, 20, 0.7);
+  border-radius: 15px;
 }
 
+.ERThursdayGuidanceX {
+  width: 50px;
+  height: 50px;
+  border: 2px solid white;
+  border-radius: 100%;
+  line-height: 50px;
+  color: white;
+  font-size: 2rem;
+}
 
+.ERThursdayGuidance {
+  width: 80%;
+  color: white;
+  line-height: 1.3rem;
+  margin: 20px 0px;
+}
+
+.ERThursdayGuidance span {
+  font-size: 0.7rem;
+}
+
+.ViewERPageBtn {}
+
+/* 
 
 .ViewERPage {
   overflow: hidden;
   display: flex;
   justify-content: center;
   margin: 10px;
-  -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-  box-shadow: 0px 10px 10px -5px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   transition: all 0.5;
   width: 200px;
   transition: all 0.5s;
@@ -138,22 +163,40 @@
 .ViewErPageClick {
   width: 800px !important;
   transition: all 0.5s;
-
   animation: PreView 0.5s linear forwards;
+} */
 
+.ViewERPage {
+  cursor: pointer;
+  color: white;
+  line-height: 1.3rem;
+  font-size: 0.9rem;
+}
+
+.ERPreViewImg {
+  transition: all 0.5s;
+  width: 0px;
+  position: fixed;
+}
+
+.ERPreViewImgClick {
+  transform: all 0.5s;
+  cursor: pointer;
+  animation: PreView 0.2s linear forwards;
+  position: fixed;
 }
 
 @keyframes PreView {
-  0% {
-    position: fixed;
-  }
+  0% {}
 
   99% {
-    position: fixed;
+    width: 800px;
+
   }
 
   100% {
-    position: fixed;
+    width: 800px;
+
 
 
   }
