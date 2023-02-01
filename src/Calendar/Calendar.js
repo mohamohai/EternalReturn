@@ -289,7 +289,7 @@ useEffect(()=>{
                 </div>
                 </div>:""
             }
-            {Modal && (
+            {/* {Modal && (
                 <div className="ModalWeather">
                     <div className="ModalWeatherIn">
                     {WeatherArr.filter(rowdata => rowdata.dt_txt.substring(8,10)==Today).map((row, key)=>{
@@ -324,7 +324,7 @@ useEffect(()=>{
                         </button>
                     </div>
                 </div>
-            )}
+            )} */}
             
         </div>
     )
