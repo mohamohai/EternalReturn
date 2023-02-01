@@ -23,7 +23,7 @@ function HerenNow(){
     const HeretoggleBtn = document.getElementsByClassName("HeretoggleBtn");
     const hereIcon = document.getElementsByClassName("hereIcon");
 
-    const HorizontalView = document.getElementsByClassName("HerenNowDown");
+    const HorizontalView = document.getElementsByClassName("HerenNowDown"); 
     const HorizontalEle = document.getElementsByClassName("HerenNowDownScroll");
     const BarRed = document.getElementsByClassName("HerenNowDownBarRed");
     const VerticalEle = document.getElementsByClassName("HerenNowRightScroll");

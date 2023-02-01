@@ -305,7 +305,7 @@ useEffect(()=>{
                                 <div>{row.dt_txt.substring(11,13)}</div>
                             </div>
                         )
-                    })}
+                    })} */}
 
 
 
@@ -317,7 +317,7 @@ useEffect(()=>{
                                             <div>{row.dt_txt }</div>
                         </div>)
                     })} */}
-                        <button
+                        {/* <button
                         onClick={toggleModal}
                         className="aa">
                             Close
