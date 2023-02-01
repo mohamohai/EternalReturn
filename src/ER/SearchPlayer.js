@@ -11,7 +11,6 @@ import SearchPlayerGame from './SearchPlayerGame.js';
 const API_KEY = process.env.REACT_APP_ERKEY;
 
 function SearchPlayer(prop){
-
     const [UserNick,setUserNick]=useState( prop.value );
     const [UserNum,setUserNum]=useState(0);
     const [Next,setNext]=useState(0);
@@ -262,10 +261,6 @@ function SearchPlayer(prop){
             })
         }
         </div>
-            
-            
-         
-       
         </div>
     :<div><My></My></div>)
 }export default SearchPlayer;

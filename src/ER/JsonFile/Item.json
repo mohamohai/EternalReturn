@@ -1240,6 +1240,11 @@
         "ItemTier": 5
     },
     {
+        "ItemCode": 116502,
+        "ItemName": "알타이르",
+        "ItemTier": 5
+    },
+    {
         "ItemCode": 117101,
         "ItemName": "페도로프 자동소총",
         "ItemTier": 1
@@ -2357,6 +2362,11 @@
     {
         "ItemCode": 203414,
         "ItemName": "스마트 밴드",
+        "ItemTier": 4
+    },
+    {
+        "ItemCode": 203415,
+        "ItemName": "미닛맨의 표식",
         "ItemTier": 4
     },
     {

@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component, useEffect, useState } from "react";
 import axios from "axios";
 import "./css/ERMain.css";
 import "./css/GNB.css";
@@ -6,7 +6,27 @@ import { BrowserRouter, Route, Link, Routes, Switch } from "react-router-dom";
 import ERGNB from "../ERGNB";
 function ERMain(){
   const [GoUrl,setGoUrl]=useState("한동그라미"); 
-  
+  const [UpdateCheck,setUpdateCheck]=useState(false); 
+  let today = new Date();
+  let day = today.getDay();  // 요일   
+  let hours = today.getHours(); // 시
+  const ERPreView = document.getElementsByClassName("ViewERPage");
+
+  const ERUpdateChech = () => {
+    if(day==4 && hours>11 && hours<15){
+      setUpdateCheck(true)
+    }
+    console.log(UpdateCheck)
+  }
+  useEffect(()=>{
+    ERUpdateChech()
+  },[])
+
+  const ERPreViewClick = (inNum) => {
+     ERPreView[inNum].classList.toggle("ViewErPageClick");
+
+  }
+
   return(
     <div className="ERMain" style={{background: `linear-gradient( to bottom,        rgba(255, 255, 255, 0) 10%,        rgba(255, 255, 255, 0.25) 25%,        rgba(255, 255, 255, 0.5) 50%,        rgba(255, 255, 255, 0.75) 75%,        rgba(255, 255, 255, 1) 100%        ), url(/image/Main/Season3.png)   `,}}>
       <ERGNB></ERGNB>
@@ -16,6 +36,17 @@ function ERMain(){
             onChange={(e)=>setGoUrl(e.target.value)}
             onClick={()=>console.log(GoUrl)}
           />
+          {UpdateCheck ? <div>바꿔야한다 나야</div>:
+          <div className="ERThursday">
+            <div className="ViewERPage" onClick={()=> ERPreViewClick(0)}>
+              <img src="/image/item/ERSearch.png"></img>
+            </div>
+            <div className="ViewERPage" onClick={()=> ERPreViewClick(1)}>
+              <img src="/image/item/ERSearchDetail.png"></img>
+            </div>
+          </div>
+          }
+          
         </form>
       </div>
     </div>
