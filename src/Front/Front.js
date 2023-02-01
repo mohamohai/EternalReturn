@@ -54,7 +54,6 @@ function Front(){
                     return val;
                     }
                 }).map((LineArr ,index)=>{
-                  
                     return(
                         <div className={LineArr[0]==="Web" ? "FrontItem" : "FrontItem2"}><div className="FrontItemImg">
                             <img src={`/Front/${LineArr[1]}`}></img></div>

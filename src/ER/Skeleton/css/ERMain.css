@@ -121,6 +121,7 @@
 }
 
 .ERThursdayGuidanceX {
+  transition: all 0.4s;
   width: 50px;
   height: 50px;
   border: 2px solid white;
@@ -128,6 +129,11 @@
   line-height: 50px;
   color: white;
   font-size: 2rem;
+}
+
+.ERThursdayGuidanceX:hover {
+  transition: all 1s;
+  transform: rotateY(360deg);
 }
 
 .ERThursdayGuidance {
