@@ -47,7 +47,7 @@ function ERMain(){
       <div className="NickSearchBox">
       
 
-          {UpdateCheck ? 
+          {!UpdateCheck ? 
           <form action={`/Eternal/${GoUrl}`}>
             <input type="text" placeholder="닉네임을 입력해주세요 / 닉네임이 없으시다면 좌측 상단의 전적검색을 눌러주세요"
               onChange={(e)=>setGoUrl(e.target.value)}
