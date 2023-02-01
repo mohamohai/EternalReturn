@@ -77,7 +77,7 @@ function ERMain(){
                 게임별 자세히 보기
               </div>
             </div>
-            <img onClick={()=> ERPreViewImgClick()} className="ERPreViewImg" src={`/image/item/${PreViewImg}.png`}></img>
+            <img onClick={()=> ERPreViewImgClick()} className="ERPreViewImg" src={`/image/Item/${PreViewImg}.png`}></img>
           </div>
           
           }
