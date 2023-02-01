@@ -90,23 +90,45 @@ function SearchPlayer(prop){
 
     const StartUrl = `https://open-api.bser.io/v1/user/nickname?query=${UserNick}`
     const NumUrl = `https://open-api.bser.io/v1/games/${UserNum}`//추출한 것을 숫자파트에 삽입
-
-    async function getStartData() {
-        FreeCharacters();
+    async function NickNameCheck(){
         let SearchUserNumUrl = StartUrl;
         const {
-          data: {
-            user: { userNum },
-          },
-        } = await axios.get(SearchUserNumUrl, {
-          // 여기에 e.target text로 데이터 받아서 유저네임 검색
-          headers: {
-            "Content-Type": "application/json",
-            "x-api-key": API_KEY,
-          },
-        });
-        setUserNum(userNum);
-        getGame(userNum,Next);//겜데이터겟
+            data: {
+              code,
+            },
+          } = await axios.get(SearchUserNumUrl, {
+            // 여기에 e.target text로 데이터 받아서 유저네임 검색
+            headers: {
+              "Content-Type": "application/json",
+              "x-api-key": API_KEY,
+            },
+          });  
+        if(code != 200){
+            alert("닉네임을 다시 확인해주세요 :)")
+            window.history.back()
+        }
+    }
+    async function getStartData() {
+        FreeCharacters();
+        NickNameCheck();
+        let SearchUserNumUrl = StartUrl;
+
+        
+          const {
+            data: {
+              code,
+              user: { userNum },
+              user: { nickname },
+            },
+          } = await axios.get(SearchUserNumUrl, {
+            // 여기에 e.target text로 데이터 받아서 유저네임 검색
+            headers: {
+              "Content-Type": "application/json",
+              "x-api-key": API_KEY,
+            },
+          });
+          setUserNum(userNum);
+          getGame(userNum,Next);//겜데이터겟
       }
      /* ----------------------------------------------------------------------- */
     async function getGame(InsertNum,NextLevel) {
@@ -147,7 +169,7 @@ function SearchPlayer(prop){
             "x-api-key": API_KEY,
             },
         });
-        console.log("ASd")
+        
         return userGames
             
     }
@@ -165,7 +187,6 @@ function SearchPlayer(prop){
             "x-api-key": API_KEY,
           },
         });
-        console.log(freeCharacters)
       }
 
 

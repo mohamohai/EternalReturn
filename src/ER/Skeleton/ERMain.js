@@ -21,14 +21,13 @@ function ERMain(){
   const ERPreViewImg = document.getElementsByClassName("ERPreViewImg");
 
 
-  const ERUpdateChech = () => {
+  const ERUpdateCheck = () => {
     if(day==4 && hours>11 && hours<15){
       setUpdateCheck(true)
     }
-    console.log(UpdateCheck)
   }
   useEffect(()=>{
-    ERUpdateChech()
+    ERUpdateCheck()
   },[])
 
   const ERPreViewClick = (inNum) => {

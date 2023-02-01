@@ -99,8 +99,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <div className="ReturnHome" onClick={()=>window.location.href='/'}>&lt;</div>
       <BrowserRouter>
-     
         <Routes>
           <Route exact path="/" element={<Front/>} />
           <Route path="/in" element={<Ingredient />} />
@@ -168,11 +168,9 @@ class App extends Component {
           <Route path="/NoticeViewer" element={<NoticeViewer/>}/>
           <Route path="/Noticeinsert" element={<NoticeInsert/>}/>
           <Route path="/Three" element={<BusSearch/>}/>
-
-          
-
           <Route path="/Weather" element={<CalendarN/>}/>
           <Route path="/E1" element={<E1/>}/>
+
           <Route path="/NeonForm" element={<NeonForm/>}/>
           <Route path="/FrontBackBox" element={<FrontBackBox/>}/>
           <Route path="/RainbowAndFlip" element={<RainbowAndFlip/>}/>
@@ -180,26 +178,16 @@ class App extends Component {
           <Route path="/FillWord" element={<FillWord/>}/>
           <Route path="/SvgWrite" element={<SvgWrite/>}/>
           <Route path="/ScrollWheel" element={<ScrollWheel/>}/>
-
           <Route path="/Box3D" element={<Box3D/>}/>
           <Route path="/TextJump" element={<TextJump/>}/>
           <Route path="/OnMenu" element={<OnMenu/>}/>
           <Route path="/View3D" element={<View3D/>}/>
-
           <Route path="/CircleArtRing" element={<CircleArtRing/>}/>
           <Route path="/Music" element={<PlusVirtual/>}/>
 
 
-
-          
-          
-          
-          
-
           
           <Route path="*"  element={<FourZeroFour />} />
-
-            
           
         </Routes>
       </BrowserRouter>
