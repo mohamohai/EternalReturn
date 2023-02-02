@@ -7,7 +7,7 @@ import ERGNB from "../ERGNB";
 function ERMain(){
   const [GoUrl,setGoUrl]=useState("한동그라미"); 
 
-  const [UpdateCheck,setUpdateCheck]=useState(false); 
+  const [UpdateCheck,setUpdateCheck]=useState(true); 
   let today = new Date();
   let day = today.getDay();  // 요일   
   let hours = today.getHours(); // 시
@@ -24,8 +24,8 @@ function ERMain(){
 
   const ERUpdateCheck = () => {
     console.log(day+"  "+ hours + " "+Minutes)
-    if(day==4 && hours>=11 && hours<=15 && Minutes<=1){
-      setUpdateCheck(true)
+    if(day==4 && hours>=11 && hours<=15 && Minutes>=0){
+      setUpdateCheck(false)
       console.log("on")
     }
   }
