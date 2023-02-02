@@ -10,8 +10,12 @@ function ERMain(){
   const [UpdateCheck,setUpdateCheck]=useState(true); 
   let today = new Date();
   let day = today.getDay();  // 요일   
+  // let hours = today.getHours(); // 시
+  // let Minutes = today.getMinutes();
+
   let hours = today.getHours(); // 시
   let Minutes = today.getMinutes();
+  let TimeRange = hours*100 +Minutes 
   const ERPreView = document.getElementsByClassName("ViewERPage");
 
 
@@ -23,11 +27,14 @@ function ERMain(){
 
 
   const ERUpdateCheck = () => {
-    console.log(day+"  "+ hours + " "+Minutes)
-    if(day==4 && hours>=11 && hours<=15 && Minutes>=0){
+
+    if(day==4 && TimeRange>=1100 && TimeRange<=1500){
       setUpdateCheck(false)
-      console.log("on")
     }
+    // if(day==4 && hours>=11 && hours<=15 && Minutes>=0){
+    //   setUpdateCheck(false)
+    //   console.log("on")
+    // }
   }
   useEffect(()=>{
     ERUpdateCheck()
