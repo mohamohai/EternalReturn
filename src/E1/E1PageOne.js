@@ -26,7 +26,7 @@ function E1PageOne(){
     });
 
     return(
-            <div className="E1ContentContainer"  style={{background:`url('/image/E1/bg_sec0${SliderCnt}.jpg')`}}>
+            <div className="E1ContentContainer" id="E1PageOne"  style={{background:`url('/image/E1/bg_sec0${SliderCnt}.jpg')`}}>
                 <div className="E1ContentContainerHead">
                     <p data-aos="fade-up">Business</p>
                     <p data-aos="fade-up">{t("SliderMain")}</p>

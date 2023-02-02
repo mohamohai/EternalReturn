@@ -66,7 +66,7 @@ function E1(){
     });
 
     return(
-        <div className="E1Full" ref={E1Ref}>
+        <div className="E1Full" id="E1Full" ref={E1Ref}>
             <E1GNB></E1GNB>
                 <div className="E1FirstBox" >
                     <p>ENERGY LEADER <br></br>
@@ -82,7 +82,7 @@ function E1(){
                 </video>
             </div>
             <E1PageOne></E1PageOne>
-            <div className="E1PageTwo">
+            <div className="E1PageTwo" id="E1PageTwo">
                 <div className="E1ContentContainerHead">
                     <p data-aos="fade-up">Relation</p>
                     <p data-aos="fade-up">{t("News2tt")}</p>

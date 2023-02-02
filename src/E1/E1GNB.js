@@ -18,12 +18,9 @@ function E1GNB(){
             </div>
             <div className="E1GNBRight">
                 <ul>
-                    <li>COMPANY</li>
-                    <li>BUSINESS</li>
-                    <li>SUSTAINABILITY</li>
-                    <li>RELATION</li>
-                    <li>RECRUIT</li>
-                    <li>CS CENTER</li>
+                    <a href="#E1Full" >COMPANY</a>
+                    <a href="#E1PageOne">BUSINESS</a>
+                    <a href="#E1PageTwo">RELATION</a>
                     <li onClick={()=>changelanguageToLan()}>{i18n.language}</li>
                     
                 </ul>

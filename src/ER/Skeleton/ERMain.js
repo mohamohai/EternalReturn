@@ -11,6 +11,7 @@ function ERMain(){
   let today = new Date();
   let day = today.getDay();  // 요일   
   let hours = today.getHours(); // 시
+  let Minutes = today.getMinutes();
   const ERPreView = document.getElementsByClassName("ViewERPage");
 
 
@@ -22,8 +23,10 @@ function ERMain(){
 
 
   const ERUpdateCheck = () => {
-    if(day==4 && hours>11 && hours<15){
+    console.log(day+"  "+ hours + " "+Minutes)
+    if(day==4 && hours>=11 && hours<=15 && Minutes<=1){
       setUpdateCheck(true)
+      
     }
   }
   useEffect(()=>{
