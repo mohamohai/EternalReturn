@@ -55,7 +55,7 @@ function Front(){
                     }
                 }).map((LineArr ,index)=>{
                     return(
-                        <div className={LineArr[0]==="Web" ? "FrontItem" : "FrontItem2"}><div className="FrontItemImg">
+                        <div key={index} className={LineArr[0]==="Web" ? "FrontItem" : "FrontItem2"}><div className="FrontItemImg">
                             <img src={`/Front/${LineArr[1]}`}></img></div>
                             <a href={`${LineArr[2]}`}>{LineArr[3]}<span> <FontAwesomeIcon icon={faLink} style={{color:"black"}}/></span></a>
                             <p className="FrontItemEx">{LineArr[4]}</p>

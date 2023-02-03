@@ -67,6 +67,7 @@ import {
   OnMenu,
   CircleArtRing,
   View3D,
+  WallE,
 } from "./Lib/LibExport";
 
 import {
@@ -184,7 +185,8 @@ class App extends Component {
           <Route path="/View3D" element={<View3D/>}/>
           <Route path="/CircleArtRing" element={<CircleArtRing/>}/>
           <Route path="/Music" element={<PlusVirtual/>}/>
-
+          <Route path="/WallE" element={<WallE/>}/>
+          
 
           
           <Route path="*"  element={<FourZeroFour />} />

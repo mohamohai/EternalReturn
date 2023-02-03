@@ -14,6 +14,8 @@ export {default as OnMenu} from "./OnMenu";
 export {default as CircleArtRing} from "./CircleArtRing";
 export {default as View3D} from "./View3D";
 
+export {default as WallE} from "./WallE";
+
 
 
 

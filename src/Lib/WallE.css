@@ -1,0 +1,50 @@
+.parallax {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    perspective: 1px;
+    transform-style: preserve-3d;
+}
+
+.SpongeSection1,
+.SpongeSection2 {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+}
+
+.parallax h1 {
+    transition: all 1s;
+    position: absolute;
+    font-size: 10rem;
+    font-family: "Noto Sans KR";
+    color: rgb(255, 205, 7);
+    text-shadow: 5px 5px 15px rgb(0, 0, 0, 0.5);
+    transform: scale(1.1);
+}
+
+.te {
+    width: 100vw;
+    transition: all 1s;
+    position: relative;
+    transform: translateZ(-1px) scale(2);
+}
+
+.te2 {
+    transform: translateZ(-1px) scale(2) translateY(50%);
+}
+
+
+.lineBox {
+    width: 100px;
+    height: 1000px;
+    background-color: plum;
+}
