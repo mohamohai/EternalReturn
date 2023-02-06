@@ -1360,6 +1360,11 @@
         "ItemTier": 5
     },
     {
+        "ItemCode": 118503,
+        "ItemName": "안드로메다",
+        "ItemTier": 5
+    },
+    {
         "ItemCode": 119101,
         "ItemName": "쇠사슬",
         "ItemTier": 1
