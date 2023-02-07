@@ -54,5 +54,5 @@ app.post('/api/NoticeInsert', (req, res) => {
 
 
 app.listen(PORT, () => {
-  console.log(`Server On : http://localhost:${PORT}/`);
+  console.log(`Server dOn : http://localhost:${PORT}/`);
 });

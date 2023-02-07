@@ -1,0 +1,35 @@
+.Gallery {
+    width: 100vw;
+    height: 100vh;
+    background-color: dimgray;
+    cursor: none;
+}
+
+.GalleryCircle {
+    width: 20px;
+    height: 20px;
+    position: fixed;
+    border: 1px solid goldenrod;
+    border-radius: 100%;
+    z-index: 5;
+}
+
+.GalleryViewer {
+    width: 4000px;
+    transform: translate(-0%, 0px);
+}
+
+.GalleryArticle {
+    width: 1000px;
+    height: 100vh;
+    float: left;
+
+}
+
+.GalleryPic {
+    background-color: red;
+}
+
+.GalleryOpacity {
+    opacity: 1;
+}

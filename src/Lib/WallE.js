@@ -1,8 +1,12 @@
 import { useState, useEffect, useRef, Component } from "react";
-import "./WallE.css"
+import React from "react";
+import axios from "axios";
+import cheerio  from "cheerio";
+import "./WallE.css";
 function WallE(){
+
     return(
-        <div class="parallax">
+        <div className="parallax">
             <div className="SpongeSection1">
                 <img className="te" src="./image/Parallax/cityorigin.png"></img>
                 <h1>Spongebob</h1>

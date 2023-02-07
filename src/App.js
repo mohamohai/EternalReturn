@@ -89,6 +89,8 @@ import UserSelect from "./schedule/Components/User/UserSelect";
 
 import PlusVirtual from "./PlusVirtual/PlusVirtual.js";
 
+import Gallery from "./Gallery/Gallery.js";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -187,7 +189,7 @@ class App extends Component {
           <Route path="/Music" element={<PlusVirtual/>}/>
           <Route path="/WallE" element={<WallE/>}/>
           
-
+          <Route path="/Gallery" element={<Gallery/>}/>
           
           <Route path="*"  element={<FourZeroFour />} />
           
