@@ -74,14 +74,24 @@ const url = `https://api.openweathermap.org/data/2.5/weather?lat=${MyLocation.la
 const url4day=`https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=${MyLocation.lat}&lon=${MyLocation.lon}&appid=${API_KEY}`
 const urlllll=`https://api.openweathermap.org/data/2.5/forecast?lat=${MyLocation.lat}&lon=${MyLocation.lon}&appid=${API_KEY}&lang=kr&units=metric`
    
-const SearchWeather =(
+const SearchWeather = (
     await axios.get(url)
     .then(response=>response)
 )
-const SearchWeather2=(
+const SearchWeather2 = (
     await axios.get(urlllll)
     .then(response=>response)
 )
+
+// axios.get('https://famous-quotes4.p.rapidapi.com/random')
+//     .then(response => {
+//         // Handle response
+//         console.log(response.data);
+//     })
+//     .catch(err => {
+//         // Handle errors
+//         console.error(err);
+//     });
 
     setWeatherArr(SearchWeather2.data.list);
     console.log(SearchWeather2.data.list) //이거보고 toggle 만져라

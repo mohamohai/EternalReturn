@@ -23,31 +23,30 @@ function Gallery(){
 
     
     const GalleryRef = useRef();
-
+    const qwe= () =>{
+        return(
+        setTrnaslateX(trnaslateX+1)
+        )
+    }
     useEffect(()=>{
         let scrollLocation = document.documentElement.scrollTop;
         var pageHeight = window.innerHeight;
         var winY = window.pageYOffset;
-
-
-
         const wheelHandler = (e) =>{
+        console.log(scrollLocation)
+            console.log(e.GalleryRef)
             e.preventDefault();
-            if(e.delta<1){
-                console.log("내려")
-            }
-            setTrnaslateX(trnaslateX+1)
-           console.log("wheelact"+trnaslateX);
-           changeMove();
+            console.log(e.deltaY)
+            console.log("wheelact"+trnaslateX);
+            GalleryViewer[0].style.transform=`translate(${trnaslateX}%,0px)`;
+            qwe();
+            
         }
         const GalleryCurrent = GalleryRef.current;
         GalleryCurrent.addEventListener("wheel", wheelHandler);
     },[]);
 
-    const changeMove=()=>{
-        GalleryViewer[0].style.transform=`translate(${trnaslateX+1}%,0px)`;
 
-    }
     
     return(
         <div className="Gallery"  onMouseMove={(e)=>handleMouseMove(e)} ref={GalleryRef}>
