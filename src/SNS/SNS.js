@@ -3,23 +3,13 @@ import { useState, useEffect, useRef, Component } from "react";
 
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-
+import firebaseConfig from '../firebase.js';
 import { collection, getDocs, doc, getDoc  } from "firebase/firestore"; 
 function SNS(){
 
     const [dataSearch,setdataSearch] = useState(false)
  //https://firebase.google.com/docs/firestore/quickstart?hl=ko#web-version-9_1
-    const firebaseConfig = {
-        //env 파일 보안요소
-        apiKey:            `${process.env.REACT_APP_Fire}`,
-        authDomain:        `${process.env.REACT_APP_authDomain}`,
-        databaseURL:       `${process.env.REACT_APP_databaseURL}`,
-        projectId:         `${process.env.REACT_APP_projectId}`,
-        storageBucket:     `${process.env.REACT_APP_storageBucket}`,
-        messagingSenderId: `${process.env.REACT_APP_messagingSenderId}`,
-        appId:             `${process.env.REACT_APP_appId}`,
-        measurementId:     `${process.env.REACT_APP_measurementId}`,
-    };
+    
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
