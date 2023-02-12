@@ -192,7 +192,7 @@ class App extends Component {
           <Route path="/WallE" element={<WallE/>}/>
           
           <Route path="/Gallery" element={<Gallery/>}/>
-          <Route path="/SNS" element={<SNS/>}/>
+          <Route path="/SNSSS" element={<SNS/>}/>
           <Route path="*"  element={<FourZeroFour />} />
           
         </Routes>
