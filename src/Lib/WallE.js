@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef, Component } from "react";
 import React from "react";
 import axios from "axios";
-import cheerio  from "cheerio";
 import "./WallE.css";
 function WallE(){
 
