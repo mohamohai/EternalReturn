@@ -157,7 +157,6 @@ function HerenNow(){
 
 
     useEffect(()=>{
-        
         let scrollLocation = document.documentElement.scrollTop;
         var pageHeight = window.innerHeight;
         var winY = window.pageYOffset;
