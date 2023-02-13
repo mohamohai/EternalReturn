@@ -92,6 +92,8 @@ import PlusVirtual from "./PlusVirtual/PlusVirtual.js";
 import Gallery from "./Gallery/Gallery.js";
 
 import SNS from "./SNS/SNS.js";
+import SNSLogIn from "./SNS/SNSLogIn.js";
+import SNSSignUp from "./SNS/SNSSignUp.js"
 
 class App extends Component {
   constructor(props) {
@@ -192,7 +194,18 @@ class App extends Component {
           <Route path="/WallE" element={<WallE/>}/>
           
           <Route path="/Gallery" element={<Gallery/>}/>
+
+
+
+
           <Route path="/SNSSS" element={<SNS/>}/>
+          <Route path="/SNSLogIn" element={<SNSLogIn/>}/>
+          <Route path="/SNSSignUp" element={<SNSSignUp/>}/>
+
+          
+
+
+
           <Route path="*"  element={<FourZeroFour />} />
           
         </Routes>
