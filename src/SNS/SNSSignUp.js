@@ -27,17 +27,13 @@ function SNSLogIn(){
     async function SearchField() { //하나만 호출 where 하나 찾아서
           console.log(userid)
           console.log(useridCheck)
-          const q = query(collection(db, "account"), where("id", "==", "guest"));
+          const q = query(collection(db, "account"), where("id", "==", userid));
           const querySnapshot = await getDocs(q);
-          querySnapshot.forEach((doc) => {
-          // doc.data() is never undefined for query doc snapshots
-          console.log(userid, doc.data().id,"??")
-          console.log(doc.data().id)
-          if(doc.data().id==userid){
-            console.log(doc.id, " => ", doc.data());  
+          console.log(querySnapshot._snapshot.docs.sortedSet.root.size)
+          if(querySnapshot._snapshot.docs.sortedSet.root.size==1){
+            alert("이미 있는 아이디입니다.")
           }
-          });
-       
+       console.log("----------------")
     } 
     async function AddData(){
       const docRef = await addDoc(collection(db, "account"), {
