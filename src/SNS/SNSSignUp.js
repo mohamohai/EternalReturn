@@ -80,9 +80,9 @@ function SNSLogIn(){
           <div className="SignInFormId">
             <input type={ChangePassWord.word} onChange={(e)=>setpassword2(e.target.value)} maxLength={16} required></input>
             <span>Password </span>
-            <span className="faLock" onClick={()=>{ChangePassWordFun()}}>{userpassword==userpassword2? <FontAwesomeIcon icon={faCheck} size="1x"/>:<FontAwesomeIcon icon={faLockOpen} size="1x"/> }</span>
+            <span className="faLock" onClick={()=>{ChangePassWordFun()}}>{userpassword==userpassword2? <FontAwesomeIcon icon={faCheck} size="1x"/>:<FontAwesomeIcon icon={faLock} size="1x"/> }</span>
           </div>
-          <button onClick={()=>AddData()}  className="SignBtn">In</button>
+          <button onClick={()=>AddData()}  className="SignBtn">Up</button>
          
          
           </div>

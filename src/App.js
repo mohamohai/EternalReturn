@@ -94,6 +94,8 @@ import Gallery from "./Gallery/Gallery.js";
 import SNS from "./SNS/SNS.js";
 import SNSLogIn from "./SNS/SNSLogIn.js";
 import SNSSignUp from "./SNS/SNSSignUp.js"
+import SNSFileUp from "./SNS/SNSFileUp.js";
+
 
 class App extends Component {
   constructor(props) {
@@ -197,13 +199,11 @@ class App extends Component {
 
 
 
-
-          <Route path="/SNSSS" element={<SNS/>}/>
-          <Route path="/SNSLogIn" element={<SNSLogIn/>}/>
-          <Route path="/SNSSignUp" element={<SNSSignUp/>}/>
-
-          
-
+            <Route path="/SNSSS" element={<SNS/>}/>
+            <Route path="/SNSLogIn" element={<SNSLogIn/>}/>
+            <Route path="/SNSSignUp" element={<SNSSignUp/>}/>
+            <Route path="/SNSFileUp" element={<SNSFileUp/>}/>
+            
 
 
           <Route path="*"  element={<FourZeroFour />} />

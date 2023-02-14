@@ -5,6 +5,8 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, orderBy } from "firebase/firestore";
 import firebaseConfig from '../firebase.js';
 import { collection, getDocs, doc, getDoc, query, where, setDoc, addDoc,  deleteDoc  } from "firebase/firestore"; 
+
+import FileUp from './aswsdk';
 function SNS(){
     const [dataSearch,setdataSearch] = useState(false)
  //https://firebase.google.com/docs/firestore/quickstart?hl=ko#web-version-9_1
@@ -60,7 +62,7 @@ function SNS(){
         querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
         console.log(doc.data().time.toDate())
-        console.log(doc.id, " => ", doc.data());
+        console.log(doc.id, " => ", doc.data());  
         });
   
         // console.log("----------")
@@ -103,7 +105,7 @@ function SNS(){
             { dataSearch===true ? UserArr.map((row,key)=>{
                 return(<div key={key}>{row.id}{console.log(row.data().time.toDate())}</div>)
             }) : "zxc" }
-            <div>R</div>
+            <div><FileUp></FileUp></div>
         </div>)
 }export default SNS;
 

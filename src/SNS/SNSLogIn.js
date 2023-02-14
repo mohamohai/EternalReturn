@@ -11,48 +11,36 @@ import { faLockOpen } from "@fortawesome/free-solid-svg-icons";
 
 function SNSLogIn(){
     const [userid,setuserid]=useState("guest")
-    const [userpassword,setpassword]=useState("12451245")
+    const [userpassword,setpassword]=useState("0")
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
     const [ChangePassWord, setChangePassWord]=useState({word:"password",icon:"faLock"})
-    
+
+    const s3name = "jonghyunportfolio";
+
+
+
+
+    function loginData(id){
+      if(id=="guest"){
+        console.log("guest");
+      }else{
+        console.log(id)
+      }
+    }
     
     async function SearchField() { //하나만 호출 where 하나 찾아서
-        
         const q = query(collection(db, "account"), where("id", "==", userid), where("password","==", userpassword ));
-        let querySnapshot
-        try {
-            querySnapshot = await getDocs(q)
-        } catch(e){
-            console.error("err",e);
-        }finally{
-            if(querySnapshot._snapshot.docs.sortedSet.root.key.data.value.mapValue.fields.id.stringValue==userid){
-                if(querySnapshot._snapshot.docs.sortedSet.root.key.data.value.mapValue.fields.password.stringValue==userpassword){
-                    console.log("여기 쿠키나 세션 관련 쿼리")
-                }
-            }else{
-                console.log("너 아이디나 비번 틀렸다잉")
+        const querySnapshot = await getDocs(q)
+        if(querySnapshot._snapshot.docs.sortedSet.root.size>=1){
+          if(querySnapshot._snapshot.docs.sortedSet.root.key.data.value.mapValue.fields.id.stringValue==userid){
+            if(querySnapshot._snapshot.docs.sortedSet.root.key.data.value.mapValue.fields.password.stringValue==userpassword){
+              loginData(userid);
             }
+          }
+        }else{
+          alert("아이디나 비밀번호가 틀렸습니다.")
         }
-        
-       
-        
-        // querySnapshot.forEach((doc) => {
-        //         // doc.data() is never undefined for query doc snapshots
-        //         console.log(doc.data())
-        // })
-        // const q = query(collection(db, "account"), where("id", "==", userid), where("password","==", userpassword ));
-        // const querySnapshot = await getDocs(q);
-        // if (querySnapshot.exists()) {
-        //         console.log(querySnapshot.data());
-        //       } else {
-        //         // doc.data() will be undefined in this case
-        //         console.log("No such document!");
-        //       }
-        // querySnapshot.forEach((doc) => {
-        //     // doc.data() is never undefined for query doc snapshots
-        //     console.log(doc.data())
-        // })
     } 
 
     useEffect(()=>{
@@ -70,7 +58,8 @@ function SNSLogIn(){
            <p>Login</p>
           <div className="SignInFormId">
             <input type="text" onChange={(e)=>setuserid(e.target.value)} required></input>
-            <span>Username</span>
+            <span>Userid</span>
+            
           </div>
           <div className="SignInFormId">
             <input type={ChangePassWord.word} onChange={(e)=>setpassword(e.target.value)}  required></input>
@@ -80,10 +69,12 @@ function SNSLogIn(){
           <input onClick={()=>SearchField()}  className="SignBtn" type="button" value="In"></input>
          
          <div className='NoticeBottom'>
-            <div>Guest in</div>
+            <div onClick={()=>{loginData("guest")}}>Guest in</div>
             <div onClick={()=>window.location.href="/SNSSignUp"}>Sign Up</div>
          </div>
           </div>
           </div>
     )
 }export default SNSLogIn
+
+
