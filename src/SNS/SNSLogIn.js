@@ -8,6 +8,7 @@ import { collection, getDocs, doc, getDoc, query, where, setDoc, addDoc,  delete
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { faLockOpen } from "@fortawesome/free-solid-svg-icons";
+import { useCookies } from 'react-cookie';
 
 function SNSLogIn(){
     const [userid,setuserid]=useState("guest")
@@ -16,18 +17,13 @@ function SNSLogIn(){
     const db = getFirestore(app);
     const [ChangePassWord, setChangePassWord]=useState({word:"password",icon:"faLock"})
 
+    const [cookies, setCookie,removeCookie] = useCookies(['guest']);
+            //get 방법 {cookies.inuserid}
     const s3name = "jonghyunportfolio";
 
 
 
 
-    function loginData(id){
-      if(id=="guest"){
-        console.log("guest");
-      }else{
-        console.log(id)
-      }
-    }
     
     async function SearchField() { //하나만 호출 where 하나 찾아서
         const q = query(collection(db, "account"), where("id", "==", userid), where("password","==", userpassword ));
@@ -36,6 +32,7 @@ function SNSLogIn(){
           if(querySnapshot._snapshot.docs.sortedSet.root.key.data.value.mapValue.fields.id.stringValue==userid){
             if(querySnapshot._snapshot.docs.sortedSet.root.key.data.value.mapValue.fields.password.stringValue==userpassword){
               loginData(userid);
+
             }
           }
         }else{
@@ -43,6 +40,16 @@ function SNSLogIn(){
         }
     } 
 
+    
+    function loginData(id){
+      if(id=="guest"){
+        setCookie('inuserid', "guest", { path: '/' ,maxAge : 3000});
+        window.location.href="/SNSView"
+      }else{
+        setCookie('inuserid', userid, { path: '/' ,maxAge : 3000});
+        window.location.href="/SNSView"
+      }
+    }
     useEffect(()=>{
     },[])
     const ChangePassWordFun = () =>{

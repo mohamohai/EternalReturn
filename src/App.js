@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-
 import Character_Infomation from "./ER/Character_Information/Character_Infomation.js";
 
 import ERMain from "./ER/Skeleton/ERMain.js";
@@ -95,7 +94,8 @@ import SNS from "./SNS/SNS.js";
 import SNSLogIn from "./SNS/SNSLogIn.js";
 import SNSSignUp from "./SNS/SNSSignUp.js"
 import SNSFileUp from "./SNS/SNSFileUp.js";
-
+import SNSView from "./SNS/SNSView.js";
+import SNSAdd from "./SNS/SNSadd.js"
 
 class App extends Component {
   constructor(props) {
@@ -203,8 +203,11 @@ class App extends Component {
             <Route path="/SNSLogIn" element={<SNSLogIn/>}/>
             <Route path="/SNSSignUp" element={<SNSSignUp/>}/>
             <Route path="/SNSFileUp" element={<SNSFileUp/>}/>
+            <Route path="/SNSView" element={<SNSView/>}/>
+            <Route path="/SNSAdd" element={<SNSAdd/>}/>
             
-
+            
+            
 
           <Route path="*"  element={<FourZeroFour />} />
           
