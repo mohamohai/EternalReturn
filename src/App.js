@@ -96,6 +96,7 @@ import SNSSignUp from "./SNS/SNSSignUp.js"
 import SNSFileUp from "./SNS/SNSFileUp.js";
 import SNSView from "./SNS/SNSView.js";
 import SNSAdd from "./SNS/SNSadd.js"
+import SNSSearch from "./SNS/SNSSearch.js";
 
 class App extends Component {
   constructor(props) {
@@ -171,6 +172,9 @@ class App extends Component {
           <Route path="/E/:key1" element={<SearchPlayer/>}/>
           <Route path="/Eternal/:key1" element={<Eternal/>}/>
           <Route path="/Eternal/:key1/:key2" element={<Ereturn/>}/>
+          
+          <Route path="/SNSSearch/:key1" element={<SNSSearch />} />
+
           <Route path="/Character" element={<Character_Chose/>}/>
           <Route path="/Character/:key1" element={<Character_Introduce/>}/>
           <Route path="/Notice" element={<Notice/>}/>

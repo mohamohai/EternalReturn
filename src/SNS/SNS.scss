@@ -11,6 +11,16 @@
     background-attachment: fixed;
 }
 
+.SNSBack {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    background: linear-gradient(to bottom, plum, lightcoral);
+}
+
 .NoticeBottom {
     display: flex;
     flex-direction: row;
@@ -43,12 +53,96 @@
 
 
 .SNSGNB {
-    width: 20vw;
+    width: 15vw;
     height: 100vh;
-    background-color: wheat;
+    background: rgb(240, 240, 240);
     position: fixed;
     left: 0px;
     top: 0px;
+}
+
+.SNSGNB p:nth-child(1) {
+    margin: 50px 0px 50px 40px;
+    font-size: 1.3rem;
+    font-family: "Noto sans KR";
+
+}
+
+.SNSGNB ul {
+    margin: 20px
+}
+
+.SNSGNB ul li {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    height: 30px;
+    cursor: pointer;
+}
+
+.SNSGNB ul li p {
+    font-size: 1rem;
+    display: inline-block;
+    font-family: "Noto sans KR";
+
+}
+
+.write {
+    font-family: "Noto sans KR";
+
+}
+
+.SNSGNB input {
+    width: 0px;
+    background-color: rgb(220, 220, 220);
+    border-radius: 5px;
+    transition: all 1s;
+    height: 25px;
+    margin-left: 7vw;
+    border: none;
+    box-sizing: border-box;
+    transition: all 1s;
+}
+
+.visiblemode {
+    animation: visibleM 1s forwards;
+}
+
+@keyframes visibleM {
+    0% {
+        display: block;
+        width: 0vw;
+        padding: 0px;
+    }
+
+    100% {
+        padding: 10px;
+        display: block;
+        margin-left: 2vw;
+        width: 10vw;
+
+    }
+}
+
+@media (max-width:200px) {}
+
+@media (max-width: 1400px) {
+    .SNSGNB {}
+
+    .SNSGNB p {
+        display: none;
+    }
+
+    .SNSGNB ul {
+        margin-left: 2vw;
+    }
+
+    .SNSGNB ul li p {
+        display: none;
+    }
+
+    .SNSGNB input {
+        display: none;
+    }
 }
 
 .SNSBoard {

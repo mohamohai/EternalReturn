@@ -1,18 +1,18 @@
 import './SNS.scss';
 import { useState, useEffect, useRef, Component } from "react";
-
+import { useParams } from 'react-router-dom';
 import { initializeApp } from "firebase/app";
 import { getFirestore, orderBy } from "firebase/firestore";
 import firebaseConfig from '../firebase.js';
 import { collection, getDocs, doc, getDoc, query, where, setDoc, addDoc,  deleteDoc } from "firebase/firestore"; 
 import { useCookies } from 'react-cookie';
 import { Link } from "react-router-dom";
-import FileUp from './aswsdk';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter,faYoutube,faFacebook,faright } from '@fortawesome/free-brands-svg-icons'
 import { faLightbulb,faGears,faBriefcase,faSearch,faFurniture, faImage, faRightFromBracket, faPen,faPerson } from "@fortawesome/free-solid-svg-icons";
-function SNSView(){
+function SNSSearch(){
     const [dataSearch,setdataSearch] = useState(false)
+    const { key1 } = useParams(); // 
     
     
     const app = initializeApp(firebaseConfig);
@@ -22,7 +22,6 @@ function SNSView(){
     const [cookies, setCookie,removeCookie] = useCookies(['guest']);
     const [inuser,setinuser]=useState(cookies.inuserid)
 
-    const [Searchid,setSearchid]=useState("guest")
 
     const [SearchInuserData,setSearchInuserData]=useState([]);
     const [SearchInuserDatahit,setSearchInuserDatahit]=useState(false);
@@ -86,14 +85,16 @@ function SNSView(){
         setSearchInuserDatahit(true)
     }
     async function SearchBoard (){  //전체호출 이건 웨어 후하게 그냥 전체 글 불러오기
-        const q = query(collection(db, "board"),orderBy("time", "desc"));
+        const q = query(collection(db, "board"),where("id","==",key1),orderBy("time", "desc"));
         const querySnapshot = await getDocs(q);
         querySnapshot.forEach((doc) => {
           // doc.data() is never undefined for query doc snapshots
           SearchBoradData.push([doc.data(),doc.id])
         });
-        console.log(SearchBoradData)
-
+        if(SearchBoradData.length==0){
+            alert("없는 유저입니다")
+            window.location.href="/SNSView"
+        }
         setSearchBoradDatahit(true)
     } 
 
@@ -148,21 +149,21 @@ function SNSView(){
 
    const handleOnKeyPress = (e) =>{
     if(e.key=='Enter'){
-        window.location.href=`/SNSSearch/${Searchid}`
+        console.log("엔터얍")
     }
    }
     return(
         <div className='SNS'>
             <div className='SNSBack'></div>
             <nav className='SNSGNB'>
-            <Link to="/SNSView"><p>SNS따라잡기</p></Link>
+                <Link to="/SNSView"><p>SNS따라잡기</p></Link>
                 <ul>
                     <li><FontAwesomeIcon size='2x' icon={faPerson} style={{width:"60px"} }             /><p>{SearchInuserDatahit?SearchInuserData.name:""}</p></li>
                     <li onClick={()=>logout()}><FontAwesomeIcon size='2x' icon={faRightFromBracket} style={{width:"60px"} }/><p >로그아웃</p>      </li>
                     <li><Link to="/SNSadd"><FontAwesomeIcon size='2x' icon={faPen} style={{width:"60px"} } /></Link><p> <Link className='write' to="/SNSadd">글 쓰기</Link></p></li>
                     <li onClick={()=>visibleSearch()}><FontAwesomeIcon size='2x' icon={faSearch} style={{width:"60px"} } /> <p>검색</p> </li>
                 </ul>
-                <input className='visibleSearch' type="text" onChange={(e)=>setSearchid(e.target.value)}  onKeyPress={handleOnKeyPress} ></input>
+                <input className='visibleSearch' type="text"  onKeyPress={handleOnKeyPress} ></input>
             </nav>
             <div className='SNSBoard'>
                 {SearchBoradDatahit? SearchBoradData.map((row,key)=>{
@@ -189,7 +190,7 @@ function SNSView(){
                 }):""}
             </div>
         </div>)
-}export default SNSView;
+}export default SNSSearch;
 
 
 
