@@ -120,7 +120,7 @@ function SNSView(){
 
                 <input type="file" onChange={handleFileInput} multiple/>
                 <div className='btnMo'>
-                    <FontAwesomeIcon size='2x' icon={faImage} style={{width:"40px"} }/>
+                    <FontAwesomeIcon size='2x' icon={faImage} style={{width:"40px"} }/>{progress}
                 </div>
                 <button className='SNSaddBtn' onClick={()=>AddData()}>데이터 넣기</button> 
 
