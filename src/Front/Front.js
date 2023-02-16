@@ -12,7 +12,7 @@ import axios from "axios";
 function Front(){
     const [ViewPage,setViewPage] = useState("All") // Web and Effetc
     const myPageArr=[
-        ["Web","sns.png" ,"/SNSLogIn","SNS","SNS 따라잡기 ","회원, 게시판 기능은 완성 \n추가로 친구관련이나 채팅기능 구성중"],
+        ["Web","sns.png" ,"/SNSLogIn","SNS","SNS 따라잡기 ","회원, 게시판 기능은 완성 \n추가로 친구관련이나 채팅기능 구성중, guest구분"],
         ["Web","Front_ER.png"    ,"/ER"  ,"EternalReturnInfo"    ,"이터널 리턴 게임의 OpenApi를 통해 게임의 전적검색과 캐릭터 정보가 있는 사이트 구성","사용자의 닉네임을 받아 Axios를 이용하여 데이터를 가져오고 map함수를 통해 사용자들이 볼 수 있도록 구현 \n\n API로 제공하는 json 파일 형식의 데이터를 재가공하여 사용자가 볼 수 있도록 구현\n\n목요일 패치시간 동안 동작이 불가하여 해당 시간대에 안내 화면이 출력되도록 수정, 닉네임 확인 유무 설정"],
         ["Web","E1.png"          ,"/E1"  ,"E1"                   ,"E1 사이트 클론 코딩","i18n 라이브러리를 통해 Ko,En의 홈페이지를 구성하고 json파일을 통해 관련"],
         ["Web","Front_Weather.png","/Weather","Weather","kakaoMap Api 와 OpenWeather","map API와 weather API로 주변 날씨와 지도웹 바로가기"],
@@ -25,7 +25,7 @@ function Front(){
         ["Effect","csslogo2.png","/OnMenu","CircleMenu","CircleMenuBtn","클릭 메뉴"], 
         ["Effect","csslogo2.png","/Box3D","Box3D","Box3D","transform-origin과 skew, before after로 Box구현"],
         ["Web","Three.png","/Three","Three.js","Three.js 상자, 물리","Three onClick, physics"],
-        ["Web","Front_login.png","/Notice","Login","Login화면 구성","로그인화면 구성, 디자인 추후에 db연결해서 더 다양한 기능을 삽입 할 예정 (배열로 테스트하기)"],
+        
         ["Web","Front_Vhom.png","/Vhom","Vhom","Vhom 사이트 클론 코딩","CSS로 만든 라이언 캐릭터 \n\nFullPage기능을 Js를 통하여 화면 단위로 마우스 휠에 반응하여 다음 또는 이전 위치로 이동하도록 구현\n\n화면의 위치에 따른 네비게이션바 변화"],
         ["Web","Front_Stealien.png","/Stealien","Stealien","Stealien 사이트 클론 코딩","화면이 내려가면 GNB의 css 변경, hover를 통한 Animtaion 효과\n\nFontawesome을 이용하여 간단한 아이콘 사용"],
         ["Effect","svglogo.png","/SvgWrite","Svg","Svg Text Write","Svg를 이용하여 선이 그려지는 효과"],

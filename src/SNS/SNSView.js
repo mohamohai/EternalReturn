@@ -9,6 +9,7 @@ import { useCookies } from 'react-cookie';
 import { Link } from "react-router-dom";
 import FileUp from './aswsdk';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { faTwitter,faYoutube,faFacebook,faright } from '@fortawesome/free-brands-svg-icons'
 import { faLightbulb,faGears,faBriefcase,faSearch,faFurniture, faImage, faRightFromBracket, faPen,faPerson } from "@fortawesome/free-solid-svg-icons";
 function SNSView(){
@@ -28,6 +29,9 @@ function SNSView(){
     const [SearchInuserDatahit,setSearchInuserDatahit]=useState(false);
     const [SearchBoradData,setSearchBoradData]=useState([]);
     const [SearchBoradDatahit,setSearchBoradDatahit]=useState(false);
+
+
+    const [imgcntTest,setimgcntTest]=useState(0)
     /////////////////////////데이터 업인데 같은 거 있으면 체인지 부분으로
     async function SetData(){
         await setDoc(doc(db, "account", "admin3"), { //여기에 쿠키나 세션 변수로 아이디 잡고 ㅇㅇ
@@ -110,6 +114,7 @@ function SNSView(){
     async function DeleteData(id,docid) {//컬렉션   문서이름으로 해야 하는데 이게... 되나? 랜덤값으로 해놨는데 흠
         if(id==cookies.inuserid){
             await deleteDoc(doc(db, "board", docid));
+            window.location.reload();
         }else{
             alert("본인이 작성한 글이 아닙니다.")
         }
@@ -155,23 +160,25 @@ function SNSView(){
         <div className='SNS'>
             <div className='SNSBack'></div>
             <nav className='SNSGNB'>
-            <Link to="/SNSView"><p>SNS따라잡기</p></Link>
+            <Link to="/SNSView"><p>SNS</p></Link>
                 <ul>
                     <li><FontAwesomeIcon size='2x' icon={faPerson} style={{width:"60px"} }             /><p>{SearchInuserDatahit?SearchInuserData.name:""}</p></li>
                     <li onClick={()=>logout()}><FontAwesomeIcon size='2x' icon={faRightFromBracket} style={{width:"60px"} }/><p >로그아웃</p>      </li>
                     <li><Link to="/SNSadd"><FontAwesomeIcon size='2x' icon={faPen} style={{width:"60px"} } /></Link><p> <Link className='write' to="/SNSadd">글 쓰기</Link></p></li>
                     <li onClick={()=>visibleSearch()}><FontAwesomeIcon size='2x' icon={faSearch} style={{width:"60px"} } /> <p>검색</p> </li>
                 </ul>
-                <input className='visibleSearch' type="text" onChange={(e)=>setSearchid(e.target.value)}  onKeyPress={handleOnKeyPress} ></input>
+                <input className='visibleSearch' placeholder='회원의 아이디를 입력하세요' type="text" onChange={(e)=>setSearchid(e.target.value)}  onKeyPress={handleOnKeyPress} ></input>
             </nav>
             <div className='SNSBoard'>
                 {SearchBoradDatahit? SearchBoradData.map((row,key)=>{
-                  
+                    let keyimg = row[0].img.length-1;
                     return(
                         <div className='SNSBoardElement' key={key}>
-                            
-                            <div className='SNSBoardElementTop'><img className='SNSBoardElementThumbPic'/>{row[0].id}<button className='deletex' onClick={()=>DeleteData(row[0].id,row[1])}>x</button></div>
+                            <div className='SNSBoardElementTop'><img className='SNSBoardElementThumbPic'/>{row[0].id}
+                            {row[0].id == cookies.inuserid? <button className='deletex' onClick={()=>DeleteData(row[0].id,row[1])}>x</button>:""}
+                            </div>
                             {row[0].img.length==0?"":
+                            row[0].img.length==1?
                             <div className='SNSBoardElementImg'>
                                 <div className='ssxx'   style={{
                                         maxWidth:"1200px",
@@ -182,7 +189,22 @@ function SNSView(){
                                         backgroundPosition:"center"
                                     }}></div>
                                 {/* <span>{row[0].img.length}</span> */}
-                            </div>}
+                            </div>:
+                            <div className='SNSBoardElementImg'>
+                                
+                                <div className='imgpls'onClick={()=>keyimg==imgcntTest ?setimgcntTest(0):setimgcntTest(imgcntTest+1)}>&gt;</div>
+                            <div className='ssxx2'   style={{
+                                    maxWidth:"1200px",
+                                    width:"1200px",
+                                    background:`url(https://jonghyunportfolio.s3.ap-northeast-2.amazonaws.com/${row[0].img[imgcntTest]})`,
+                                    
+                                    
+                                }}></div>
+                            {/* <span>{row[0].img.length}</span> */}
+                            </div>
+                            
+                        
+                        }
                             <div className='SNSBoardElementContent'>{row[0].content}</div>
                         </div>
                     )

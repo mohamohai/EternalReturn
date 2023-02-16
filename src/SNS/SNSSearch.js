@@ -156,14 +156,14 @@ function SNSSearch(){
         <div className='SNS'>
             <div className='SNSBack'></div>
             <nav className='SNSGNB'>
-                <Link to="/SNSView"><p>SNS따라잡기</p></Link>
+                <Link to="/SNSView"><p>SNS</p></Link>
                 <ul>
                     <li><FontAwesomeIcon size='2x' icon={faPerson} style={{width:"60px"} }             /><p>{SearchInuserDatahit?SearchInuserData.name:""}</p></li>
                     <li onClick={()=>logout()}><FontAwesomeIcon size='2x' icon={faRightFromBracket} style={{width:"60px"} }/><p >로그아웃</p>      </li>
                     <li><Link to="/SNSadd"><FontAwesomeIcon size='2x' icon={faPen} style={{width:"60px"} } /></Link><p> <Link className='write' to="/SNSadd">글 쓰기</Link></p></li>
                     <li onClick={()=>visibleSearch()}><FontAwesomeIcon size='2x' icon={faSearch} style={{width:"60px"} } /> <p>검색</p> </li>
                 </ul>
-                <input className='visibleSearch' type="text"  onKeyPress={handleOnKeyPress} ></input>
+                <input className='visibleSearch' type="text" placeholder='회원의 아이디를 입력하세요'  onKeyPress={handleOnKeyPress} ></input>
             </nav>
             <div className='SNSBoard'>
                 {SearchBoradDatahit? SearchBoradData.map((row,key)=>{
