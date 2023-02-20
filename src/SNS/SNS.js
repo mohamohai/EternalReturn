@@ -65,14 +65,6 @@ function SNS(){
         console.log(doc.id, " => ", doc.data());  
         });
   
-        // console.log("----------")
-        // const q2 = query(collection(db, "mapping"),where("name","==","admin"));
-        // const querySnapshot2 = await getDocs(q2);
-        // querySnapshot2.forEach((doc2) => {
-        // // doc.data() is never undefined for query doc snapshots
-        // console.log(doc2.id, " => ", doc2.data());
-        // });
-        // console.log("----------")
     } 
     
     ///////////////////////////////////////하나만
