@@ -1,13 +1,24 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { Component, useEffect, useState,useRef } from "react";
 import "./Character_Introduce.css";
 import CharAll from "../JsonFile/Char.json";
 import Skin from "../JsonFile/Skin.json";
 import ERGNB from "../ERGNB";
 import Aos from "aos";
 import { useParams } from "react-router-dom";
-  
+import VanillaTilt from "vanilla-tilt";
+function Tilt(props) {
+  const { options, ...rest } = props;
+  const tilt = useRef(null);
+
+  useEffect(() => {
+    VanillaTilt.init(tilt.current, options);
+  }, [options]);
+
+  return <div ref={tilt} {...rest} />;
+}
 
 function Character_Introduce(props) {
+
     const {key1}=useParams();
     const [CharNameEng, setCharNameEng]=useState(key1)
 
@@ -39,11 +50,15 @@ function Character_Introduce(props) {
       }
       setSkillCnt(insetNum);
       SkillUp[insetNum].classList.add("SkillIconUp");
-      
-
-     
     }
 
+    
+    const options = {
+      scale: 1.1,
+      speed: 1000,
+      max: 15
+    };
+  
     return (
       <div className="Character_Introduce">
         <ERGNB></ERGNB>
@@ -55,10 +70,14 @@ function Character_Introduce(props) {
               <div className="CharacterLine"></div>
               <div className="CharacterExEx">{CharAll[CharCount].Explanation}</div>
             </div>
-    
-            <div className="PreviewImg">
+       {/* 여기 이미지 부분 */}
+       <div className="PreviewImg" >  
+
+       <Tilt options={options}>
               <img src={`/image/Character_Img/${CharAll[CharCount].EngName}/Thumbnail/${CharSkinData}/Full.png`}></img>
-            </div>
+      </Tilt>
+      </div>
+            
             <div className="PreviewBtn">
               {Skin[CharCount].map((PreviewB,index)=>{
                 return(
@@ -98,3 +117,5 @@ function Character_Introduce(props) {
   }
 
 export default Character_Introduce;
+
+

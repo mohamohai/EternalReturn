@@ -19,7 +19,7 @@ function SNSView(){
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
     const [UserArr,setUserArr] = useState([]);
-
+    const [price,setprice]= useState(1000);
     const [cookies, setCookie,removeCookie] = useCookies(['guest']);
     const [inuser,setinuser]=useState(cookies.inuserid)
 
@@ -156,10 +156,19 @@ function SNSView(){
         window.location.href=`/SNSSearch/${Searchid}`
     }
    }
+
+   const pirceChange=()=>{
+    console.log("123")
+    const pir = document.getElementsByClassName("price")
+    pir[0].innerHTML="2000"
+   }
     return(
         <div className='SNS'>
             <div className='SNSBack'></div>
             <nav className='SNSGNB'>
+           <span className='price'>{price}</span>
+           <div onClick={()=>pirceChange()}></div>
+
             <Link to="/SNSView"><p>SNS</p></Link>
                 <ul>
                     <li><FontAwesomeIcon size='2x' icon={faPerson} style={{width:"60px"} }             /><p>{SearchInuserDatahit?SearchInuserData.name:""}</p></li>
