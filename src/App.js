@@ -97,6 +97,7 @@ import SNSFileUp from "./SNS/SNSFileUp.js";
 import SNSView from "./SNS/SNSView.js";
 import SNSAdd from "./SNS/SNSadd.js"
 import SNSSearch from "./SNS/SNSSearch.js";
+import Chatting from "./SNS/Chatting.js";
 
 class App extends Component {
   constructor(props) {
@@ -210,6 +211,7 @@ class App extends Component {
             <Route path="/SNSView" element={<SNSView/>}/>
             <Route path="/SNSAdd" element={<SNSAdd/>}/>
             
+            <Route path="/Chatting" element={<Chatting/>}/>
             
             
 

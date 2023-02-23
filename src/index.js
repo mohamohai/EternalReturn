@@ -6,8 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import './Lang/i18n'
 import { CookiesProvider } from 'react-cookie';
 
-
-
+import { createStore } from 'redux';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
