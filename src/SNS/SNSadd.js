@@ -53,7 +53,6 @@ function SNSView(){
         uploadFile(e.target.files)
     }
 
-
     const uploadFile = (file) => {
         for(let i=0; i<file.length;i++){
             addfilename.push(file[i].name)
@@ -85,15 +84,14 @@ function SNSView(){
           window.location.href='/SNSView'
     }
 
- 
     useEffect(()=>{ 
-        // async: 비동기처리
-        // SearchCollection()
-         //SearchDocument()
-        // SearchField()
-        // SetData()
-       // AddData()
-      // DeleteData()
+    //   async: 비동기처리
+    //   SearchCollection()
+    //   SearchDocument()
+    //   SearchField()
+    //   SetData()
+    //   AddData()
+    //   DeleteData()
       loginCheck();
 
 	}, []);
@@ -115,9 +113,6 @@ function SNSView(){
                 <p>글쓰기</p>
                 <p>{cookies.inuserid}</p>
                 <textarea placeholder="문구 입력" onChange={(e)=>setaddcontent(e.target.value)}></textarea><br></br>
-
-           
-
                 <input type="file" onChange={handleFileInput} multiple/>
                 <div className='btnMo'>
                     <FontAwesomeIcon size='2x' icon={faImage} style={{width:"40px"} }/>{progress}

@@ -166,11 +166,10 @@ function SNSView(){
         <div className='SNS'>
             <div className='SNSBack'></div>
             <nav className='SNSGNB'>
-           <span className='price'>{price}</span>
-           <div onClick={()=>pirceChange()}></div>
 
-            <Link to="/SNSView"><p>SNS</p></Link>
                 <ul>
+                    
+                    <Link to="/SNSView"><p>SNS</p></Link>   
                     <li><FontAwesomeIcon size='2x' icon={faPerson} style={{width:"60px"} }             /><p>{SearchInuserDatahit?SearchInuserData.name:""}</p></li>
                     <li onClick={()=>logout()}><FontAwesomeIcon size='2x' icon={faRightFromBracket} style={{width:"60px"} }/><p >로그아웃</p>      </li>
                     <li><Link to="/SNSadd"><FontAwesomeIcon size='2x' icon={faPen} style={{width:"60px"} } /></Link><p> <Link className='write' to="/SNSadd">글 쓰기</Link></p></li>
@@ -178,7 +177,8 @@ function SNSView(){
                 </ul>
                 <input className='visibleSearch' placeholder='회원의 아이디를 입력하세요' type="text" onChange={(e)=>setSearchid(e.target.value)}  onKeyPress={handleOnKeyPress} ></input>
             </nav>
-            <div className='SNSBoard'>
+            <div className='SNSBoard' style={{color:"rgb(247, 90, 105)"}}>
+                <Link to='/asd'>asd</Link>
                 {SearchBoradDatahit? SearchBoradData.map((row,key)=>{
                     let keyimg = row[0].img.length-1;
                     return(

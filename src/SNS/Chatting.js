@@ -22,6 +22,7 @@ import { getDatabase, ref, onValue,set, add, push} from "firebase/database";
 
 function Chatting(){
     const [dataSearch,setdataSearch] = useState(false)
+    const database = getDatabase();
     
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
@@ -110,7 +111,6 @@ function Chatting(){
 
     async function AddData(){
         const docRef = await addDoc(collection(db, "board"), {
-            
             id: cookies.inuserid,
             content:"세번째",
             img:["bg_sec00.jpg"],
@@ -149,11 +149,8 @@ function Chatting(){
           email: email,                                         
           message:"여기가 메시지메시지",
           asd :String(timeCheck),
-          
         });
       }
-
-
 
     useEffect(()=>{ 
         // async: 비동기처리
@@ -244,8 +241,6 @@ function Chatting(){
                                 }}></div>
                             {/* <span>{row[0].img.length}</span> */}
                             </div>
-                            
-                        
                         }
                             <div className='SNSBoardElementContent'>{row[0].content}</div>
                         </div>
